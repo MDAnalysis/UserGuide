@@ -1,0 +1,9 @@
+name: mdanalysis
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - jupyter_contrib_nbextensions
+  - nglview
+  - pip:
+    - mdanalysis

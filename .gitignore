@@ -7,5 +7,5 @@ notebooks/*.pdf
 notebooks/*.pdb
 notebooks/*.ndx
 tmp
-doc/pages
-
+doc/build
+doc/source/.ipynb_checkpoints
