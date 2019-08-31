@@ -11,7 +11,8 @@ install MDAnalysis with pip and have a working OpenMP installation.
 
 MDAnalysis has a separate test suite that is required to run the test cases and examples. 
 The test files change less frequently, take up around 90 MB of space, 
-and are not needed for daily use of MDAnalysis.
+and are not needed for daily use of MDAnalysis. If you are not interested in developing 
+MDAnalysis or using the example files, you most likely don't need the tests. 
 They are distributed separately from the main package. 
 
 conda
@@ -64,3 +65,23 @@ To install development versions of MDAnalysis, you can compile it from source.
     git clone https://github.com/MDAnalysis/mdanalysis
     cd mdanalysis
     pip install -e .
+
+Testing
+-------
+
+The tests rely on the `pytest` and `numpy` packages, which must also be installed. Run tests with: 
+
+.. code-block:: bash
+
+    pytest --disable-pytest-warnings --pyargs MDAnalysisTests
+
+All tests should pass (i.e. no FAIL, ERROR); SKIPPED or XFAIL are ok. If anything fails or gives an error, 
+[ask on the user mailing list](http://users.mdanalysis.org/) or [raise an issue](https://github.com/MDAnalysis/mdanalysis/issues).
+
+Testing MDAnalysis can take a while, as there are quite a few tests. 
+The plugin [pytest-xdist](https://github.com/pytest-dev/pytest-xdist) can be used to run tests in parallel.
+
+.. code-block:: bash
+
+    pip install pytest-xdist
+    pytest --disable-pytest-warnings --pyargs MDAnalysisTests --numprocesses 4
