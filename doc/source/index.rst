@@ -6,8 +6,15 @@
 Welcome to MDAnalysis User Guide's documentation!
 =================================================
 
+Introduction to MDA.
+
+Link to gallery.
+
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
-   thistopic
+   installation
+   quickstart
+   data_structures
+   formats/formats
