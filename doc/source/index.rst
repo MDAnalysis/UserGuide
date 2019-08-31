@@ -6,20 +6,15 @@
 Welcome to MDAnalysis User Guide's documentation!
 =================================================
 
-MDA is cool.
+Introduction to MDA.
 
-MDA =/= mdtraj.
-
-Lots of pictures of stuff to do with links (à la seaborn, scikit-learn)
-
-Point to notebooks
+Link to gallery.
 
 .. toctree::
    :maxdepth: 1
    :caption: Contents:
 
-   quickstart
    installation
-   core/universe
-   core/groups
+   quickstart
+   data_structures
    formats/formats

@@ -6,4 +6,3 @@ Formats
 
 So many Formats
 
-Coordinates vs topologies
