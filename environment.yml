@@ -7,3 +7,6 @@ dependencies:
   - nglview
   - pip:
     - mdanalysis
+    - mdanalysistests
+    - sphinx_rtd_theme
+    - nbsphinx

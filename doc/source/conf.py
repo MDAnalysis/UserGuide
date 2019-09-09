@@ -13,7 +13,7 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-
+import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
 
@@ -35,7 +35,8 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
     'sphinx_sitemap',
-    'nbsphinx'
+    'nbsphinx',
+    'sphinx_rtd_theme'
 ]
 
 mathjax_path = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
@@ -46,7 +47,7 @@ templates_path = ['_templates']
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.ipynb_checkpoints']
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -54,7 +55,8 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+html_theme = 'sphinx_rtd_theme'
+# html_theme_path = ['_themes', ]
 
 # styles/fonts to match http://mdanalysis.org (see public/css)
 #
@@ -78,41 +80,62 @@ extra_nav_links['GitHub'] = 'https://github.com/mdanalysis'
 extra_nav_links['@mdanalysis'] = 'https://twitter.com/mdanalysis'
 
 html_theme_options = {
-    'logo' : "logos/mdanalysistutorial-logo-200x150.png",
-    'github_user': 'MDAnalysis',
-    'github_repo': 'mdanalysis',
-    'github_button': False,
-    # 'github_type': 'star',
-    'github_banner': True,
-    'show_related': True,
-    'fixed_sidebar': False,
-    'sidebar_includehidden': True,
-    'sidebar_collapse': True,
-    # style
-    'link': color['orange'],
-    'link_hover': color['orange'],
-    'gray_1': color['gray'],
-    'narrow_sidebar_bg': color['gray'],
-    'narrow_sidebar_fg': color['white'],
-    # typography
-    'font_family': "'PT Sans', Helvetica, Arial, 'sans-serif'",
-    'head_font_family': "",
-    'code_font_family': "Menlo, Monaco, 'Courier New', monospace",
-    'caption_font_size': "smaller",
-    # external links
-    'extra_nav_links': extra_nav_links,
+    'canonical_url': '',
+    'logo_only': True,
+    'display_version': True,
+    'prev_next_buttons_location': 'bottom',
+    'style_external_links': False,
+    'vcs_pageview_mode': '',
+    'style_nav_header_background': 'white', #'#e76900', # dark orange
+    # Toc options
+    'collapse_navigation': True,
+    'sticky_navigation': True,
+    'navigation_depth': 5,
+    'includehidden': True,
+    'titles_only': False,
+
+    'github_url': 'https://github.com/MDAnalysis/mdanalysis'
 }
+
+# alabaster options
+# html_theme_options = {
+#     'logo' : "logos/mdanalysistutorial-logo-200x150.png",
+#     'github_user': 'MDAnalysis',
+#     'github_repo': 'mdanalysis',
+#     'github_button': False,
+#     # 'github_type': 'star',
+#     'github_banner': True,
+#     'show_related': True,
+#     'fixed_sidebar': False,
+#     'sidebar_includehidden': True,
+#     'sidebar_collapse': True,
+#     # style
+#     'link': color['orange'],
+#     'link_hover': color['orange'],
+#     'gray_1': color['gray'],
+#     'narrow_sidebar_bg': color['gray'],
+#     'narrow_sidebar_fg': color['white'],
+#     # typography
+#     'font_family': "'PT Sans', Helvetica, Arial, 'sans-serif'",
+#     'head_font_family': "",
+#     'code_font_family': "Menlo, Monaco, 'Courier New', monospace",
+#     'caption_font_size': "smaller",
+#     # external links
+#     'extra_nav_links': extra_nav_links,
+# }
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 html_favicon = "_static/logos/mdanalysis-logo.ico"
+html_logo =  '_static/logos/user_guide.png'
 
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+html_css_files = ['custom.css']#, 'readable.css']
 
 # Custom sidebar templates, maps document names to template names.
 # alabaster sidebars
