@@ -10,9 +10,12 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+import os
+import sys
+# import MDAnalysis as mda
+# sys.path.insert(0, mda.__path__)
+sys.path.insert(0, '/Users/lily/pydev/mdanalysis/package/')
+
 import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
@@ -29,10 +32,12 @@ author = 'Lily Wang, Richard J Gowers, Oliver Beckstein'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
     'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
+    'sphinx.ext.napoleon',
     'sphinx.ext.githubpages',
     'sphinx_sitemap',
     'nbsphinx',

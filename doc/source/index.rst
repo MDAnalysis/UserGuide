@@ -23,6 +23,7 @@ Link to gallery.
    :maxdepth: 1
    :caption: User guide
 
-   data_structures
+   universe
+   atomgroup
    formats/formats
    selection
