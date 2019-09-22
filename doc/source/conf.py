@@ -12,9 +12,8 @@
 #
 import os
 import sys
-# import MDAnalysis as mda
-# sys.path.insert(0, mda.__path__)
-sys.path.insert(0, '/Users/lily/pydev/mdanalysis/package/')
+import MDAnalysis as mda
+sys.path.insert(0, mda.__path__)
 
 import sphinx_rtd_theme
 
