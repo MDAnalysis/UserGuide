@@ -52,6 +52,23 @@ AtomGroup
 AtomGroup instances can be easily created 
 (e.g., from an AtomGroup.select_atoms() selection or simply by slicing).
 
+--------------------
+Indexing and slicing
+--------------------
+blah blah
+
+-----------
+Set methods
+-----------
+blah
+
+----------------
+Geometry methods
+----------------
+
+
+UpdatingAtomGroup
+====================
 
 
 ResidueGroup and SegmentGroup
@@ -63,10 +80,3 @@ Residue or a Segment (typically a whole molecule or all of the solvent)
 also exist as containers, as well as groups of these units (
 ResidueGroup, SegmentGroup).
 
-
-
-
-Topology
-====================
-
-MDA Topology =/= 'force field' topology. Connectivity only. See ParmEd etc for other stuff.

@@ -12,9 +12,16 @@ Link to gallery.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Contents:
+   :caption: Getting started
 
    installation
    quickstart
+   faq
+   auto_examples/index
+
+.. toctree::
+   :maxdepth: 1
+   :caption: User guide
+
    data_structures
    formats/formats

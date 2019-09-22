@@ -5,8 +5,7 @@
 /* MDAnalysis gray: #808080 */
 /* MDAnalysis white: #FFFFFF */
 /* MDAnalysis black: #000000 */
-
-@import url('readable.css');
+/* Darker orange: e76900 */
 
 /* -- page layout --------------------------------------------------------- */
 
@@ -19,27 +18,57 @@ div.body {
     color: #000000;
 }
 
+div.sphinxsidebar a {
+    color: #808080;
+}
+
 div.sphinxsidebar a:hover {
     color: #FF9200;
+}
+
+div.sphinxsidebar a:visited {
+    color: #808080;
 }
 
 div.sphinxsidebar p {
     color: #808080;
 }
 
+div.wy-menu-vertical span.caption-text {
+    color: #FF9200;
+}
+
+/* li.current ul {
+    background: #fbd29b;
+} */
+
+
+/* div.sphinxsidebar a {
+    color: #808080;
+}
+
+div.sphinxsidebar a:hover {
+    color: #FF9200;
+}
+
+div.wy-menu-vertical a:visited {
+    color: #808080;
+}
+ */
+
 
 /* -- body styles --------------------------------------------------------- */
 
-a {
+div.rst-content a {
     color: #FF9200;
     text-decoration: none;
 }
 
-a:visited {
-    color: #FF9200;
+div.rst-content a:visited {
+    color: #e76900;
 }
  
-a:hover {
+div.rst-content a:hover {
     color: #FF9200;
     text-decoration: underline;
 }
@@ -49,6 +78,10 @@ pre, tt, code {
     font-family: Menlo, Monaco, 'Courier New', monospace
 }
 
+/* For the backtick tags */
+/* code > span.pre {
+    color: #e76900;
+} */
 
 div.body h1 {
     font-weight: bolder;
@@ -75,4 +108,36 @@ div.admonition {
 div.admonition p.admonition-title {
     font-size: 100%;
     font-weight: bolder;
+}
+
+div.admonition.warning {
+    background: #ffdeb3;
+}
+
+div.admonition.warning > p.admonition-title {
+    background: #FF9200;
+}
+
+div.admonition.note {
+    background: #e6e6e6; /* RTD menu light grey */
+}
+
+div.admonition.note > p.admonition-title {
+    background:  #808080;
+}
+
+/* -- notebook styles --------------------------------------------------------- */
+.rst-content div[class^="highlight"] pre {
+    white-space: pre-wrap;
+}
+
+/* -- gallery styles ---------------------------------------------------------- */
+div.sphx-glr-download a {
+    border: 1px solid #fff;
+    background: #808080;
+}
+
+div.sphx-glr-download a:hover {
+    border: 1px solid #fff;
+    background: #000;
 }
