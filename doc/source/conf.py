@@ -14,6 +14,7 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 import sphinx_rtd_theme
+import sphinx_gallery
 
 # -- Project information -----------------------------------------------------
 
@@ -36,7 +37,8 @@ extensions = [
     'sphinx.ext.githubpages',
     'sphinx_sitemap',
     'nbsphinx',
-    'sphinx_rtd_theme'
+    'sphinx_rtd_theme',
+    'sphinx_gallery.gen_gallery'
 ]
 
 mathjax_path = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
@@ -49,6 +51,23 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.ipynb_checkpoints']
 
+sphinx_gallery_conf = {
+    'example_dirs': ['../examples'], # source files
+    'gallery_dirs': ['auto_examples'], # where files are built
+    'filename_pattern': '/plot_', # filenames to execute, accepts regex
+    'ignore_pattern': r'__init__\.py', # filenames to not execute/parse/add, accepts regex
+    'download_all_examples': False,
+
+    # 'binder': {
+    #     'org': 'MDAnalysis',
+    #     'repo': 'UserGuide',
+    #     'branch': 'master'
+    #     'binderhub_url': 'full URL of binderhub deployment',
+    #     'dependencies': './binder/requirements.txt',
+    #     'use_jupyter_lab': False
+    # }
+
+}
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -85,7 +104,6 @@ html_theme_options = {
     'display_version': True,
     'prev_next_buttons_location': 'bottom',
     'style_external_links': False,
-    'vcs_pageview_mode': '',
     'style_nav_header_background': 'white', #'#e76900', # dark orange
     # Toc options
     'collapse_navigation': True,
@@ -93,36 +111,7 @@ html_theme_options = {
     'navigation_depth': 5,
     'includehidden': True,
     'titles_only': False,
-
-    'github_url': 'https://github.com/MDAnalysis/mdanalysis'
 }
-
-# alabaster options
-# html_theme_options = {
-#     'logo' : "logos/mdanalysistutorial-logo-200x150.png",
-#     'github_user': 'MDAnalysis',
-#     'github_repo': 'mdanalysis',
-#     'github_button': False,
-#     # 'github_type': 'star',
-#     'github_banner': True,
-#     'show_related': True,
-#     'fixed_sidebar': False,
-#     'sidebar_includehidden': True,
-#     'sidebar_collapse': True,
-#     # style
-#     'link': color['orange'],
-#     'link_hover': color['orange'],
-#     'gray_1': color['gray'],
-#     'narrow_sidebar_bg': color['gray'],
-#     'narrow_sidebar_fg': color['white'],
-#     # typography
-#     'font_family': "'PT Sans', Helvetica, Arial, 'sans-serif'",
-#     'head_font_family': "",
-#     'code_font_family': "Menlo, Monaco, 'Courier New', monospace",
-#     'caption_font_size': "smaller",
-#     # external links
-#     'extra_nav_links': extra_nav_links,
-# }
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32

@@ -10,3 +10,4 @@ dependencies:
     - mdanalysistests
     - sphinx_rtd_theme
     - nbsphinx
+    - sphinx-gallery

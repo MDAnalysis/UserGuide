@@ -17,6 +17,7 @@ Link to gallery.
    installation
    quickstart
    faq
+   auto_examples/index
 
 .. toctree::
    :maxdepth: 1
