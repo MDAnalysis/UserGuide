@@ -12,7 +12,12 @@ env:
     - HTML_DIR=doc/build/html
 
 install:
-  - if [[ $TRAVIS_PYTHON_VERSION == "3.6" ]]; then pip install --upgrade sphinx sphinx-sitemap; pip install --upgrade sphinx_rtd_theme; pip install --upgrade nbsphinx; pip install --upgrade sphinx-gallery; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == "3.6" ]]; then pip install --upgrade sphinx sphinx-sitemap sphinx_rtd_theme nbsphinx sphinx-gallery; fi
+  # download and install pandoc 2.7.3
+  - wget https://github.com/jgm/pandoc/releases/download/2.7.3/pandoc-2.7.3-linux.tar.gz
+  - tar xvzf pandoc-2.7.3-linux.tar.gz
+  - export PATH=pandoc-2.7.3/bin:$PATH
+  - pandoc -v
 
 script:
   # touch .nojekyll else github-pages messes up theme
