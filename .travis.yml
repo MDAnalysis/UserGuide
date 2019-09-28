@@ -10,14 +10,18 @@ env:
     - secure: "b+s7g/GarZTFQjnLuC4gRFuf/V+FNu2ml+Sdo9qQgVZdHFC2sJPNWqszd2KssRplpwe5d/zhPAj0tiQWreNRt0VdPCJpImeEp7hfxLtHsMrGfBGDFuBKi+XK6LqNnCqYeneWE3Q6Gb3EFqCwYEw75Tph1HIkc0jj4h2CvX+SYzeUopcj2HiZXEJhcUPQFDnawHEz1WkZcmK4TMumesE4+OOq+sDg0aWpVzo0hA0Pu0h9FTipeExKI9WngkCdgWmuTWsTyqOfhyXQKcs0Q+X1ycmbHidic2SWc1Tsyg0jdWvdAPN2KGcS4J9EdhtTaJARYdizVTlR8SS6VjbDPIDSHxXli4dSFGdVMSADqu6jCeDfcyTpjc5/iB1g4k77Hmmxehj4n+63fg7Ja+cFGPYu/337ZVQAKU9C7N/dFinZaBWFkEA9VbSHJogDi5v1wtwE1MoLZKNn73zM4OlnWm8bJNk7PKgQ/YPM+Fmp/Bb5K8JLH6aF1jSReXvYTp7PZaZwJ/bW0xdUGCOAW3Z9ieBVJAPSwzPe1GXjXAzUUbwXMxEiITDFO4VigkViDSSbAnOoMeR0l7tFMwsNgB7nrDWPvHufkc2dQOs6LmOVGA6v8rK/xxrj5eau947w0m6bNq3qWGxUwjm//hoWcNJqIYWnFPKwf7ELtipYm3ifywPidKc="
     - SPHINX_DIR=doc/
     - HTML_DIR=doc/build/html
+  
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y pandoc
 
 install:
   - if [[ $TRAVIS_PYTHON_VERSION == "3.6" ]]; then pip install --upgrade sphinx sphinx-sitemap sphinx_rtd_theme nbsphinx sphinx-gallery; fi
   # download and install pandoc 2.7.3
-  - wget https://github.com/jgm/pandoc/releases/download/2.7.3/pandoc-2.7.3-linux.tar.gz
-  - tar xvzf pandoc-2.7.3-linux.tar.gz
-  - export PATH=pandoc-2.7.3/bin:$PATH
-  - pandoc -v
+  # - wget https://github.com/jgm/pandoc/releases/download/2.7.3/pandoc-2.7.3-linux.tar.gz
+  # - tar xvzf pandoc-2.7.3-linux.tar.gz
+  # - export PATH=pandoc-2.7.3/bin:$PATH
+  # - pandoc -v
 
 script:
   # touch .nojekyll else github-pages messes up theme
