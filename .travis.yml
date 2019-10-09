@@ -11,9 +11,15 @@ env:
 before_install:
 - sudo apt-get update
 - sudo apt-get install -y pandoc
+- wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O miniconda.sh
+- chmod +x miniconda.sh
+- ./miniconda.sh -b
+- export PATH=/home/travis/miniconda/bin:$PATH
+- conda update --yes conda
 install:
-- if [[ $TRAVIS_PYTHON_VERSION == "3.6" ]]; then pip install --upgrade sphinx sphinx-sitemap
-  sphinx_rtd_theme nbsphinx sphinx-gallery; fi
+- conda create --yes -n testenv python=3.6
+- source activate testenv
+- pip install --upgrade sphinx sphinx-sitemap nbsphinx sphinx_rtd_theme
 script:
 - make -C ${SPHINX_DIR} html && touch ${HTML_DIR}/.nojekyll
 deploy:
