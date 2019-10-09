@@ -36,7 +36,8 @@ extensions = [
     'sphinx.ext.githubpages',
     'sphinx_sitemap',
     'nbsphinx',
-    'sphinx_rtd_theme'
+    'sphinx_rtd_theme',
+    'IPython.sphinxext.ipython_console_highlighting'
 ]
 
 pygments_style = 'default'
