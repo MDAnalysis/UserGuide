@@ -19,7 +19,7 @@ before_install:
 install:
 - conda create --yes -n testenv python=3.6
 - source activate testenv
-- pip install --upgrade sphinx sphinx-sitemap nbsphinx sphinx_rtd_theme MDAnalysis
+- pip install --upgrade sphinx sphinx-sitemap nbsphinx sphinx_rtd_theme ipython
 script:
 - make -C ${SPHINX_DIR} html && touch ${HTML_DIR}/.nojekyll
 deploy:
