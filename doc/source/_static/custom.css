@@ -38,6 +38,14 @@ div.wy-menu-vertical span.caption-text {
     color: #FF9200;
 }
 
+nav.wy-nav-top {
+    background: #343131; /* RTD menu bar */
+}
+
+.wy-side-nav-search input[type="text"] {
+    border-color: #808080;
+}
+
 /* li.current ul {
     background: #fbd29b;
 } */
@@ -131,13 +139,3 @@ div.admonition.note > p.admonition-title {
     white-space: pre-wrap;
 }
 
-/* -- gallery styles ---------------------------------------------------------- */
-div.sphx-glr-download a {
-    border: 1px solid #fff;
-    background: #808080;
-}
-
-div.sphx-glr-download a:hover {
-    border: 1px solid #fff;
-    background: #000;
-}

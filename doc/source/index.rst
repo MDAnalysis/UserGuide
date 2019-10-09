@@ -15,9 +15,9 @@ Link to gallery.
    :caption: Getting started
 
    installation
-   quickstart
+   examples/quickstart
    faq
-   auto_examples/index
+   examples/README
 
 .. toctree::
    :maxdepth: 1

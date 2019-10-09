@@ -14,7 +14,6 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 import sphinx_rtd_theme
-import sphinx_gallery
 
 # -- Project information -----------------------------------------------------
 
@@ -37,9 +36,10 @@ extensions = [
     'sphinx.ext.githubpages',
     'sphinx_sitemap',
     'nbsphinx',
-    'sphinx_rtd_theme',
-    'sphinx_gallery.gen_gallery'
+    'sphinx_rtd_theme'
 ]
+
+pygments_style = 'default'
 
 mathjax_path = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
 
@@ -52,24 +52,6 @@ templates_path = ['_templates']
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.ipynb_checkpoints']
-
-sphinx_gallery_conf = {
-    'example_dirs': ['../examples'], # source files
-    'gallery_dirs': ['auto_examples'], # where files are built
-    'filename_pattern': '/plot_', # filenames to execute, accepts regex
-    'ignore_pattern': r'__init__\.py', # filenames to not execute/parse/add, accepts regex
-    'download_all_examples': False,
-
-    # 'binder': {
-    #     'org': 'MDAnalysis',
-    #     'repo': 'UserGuide',
-    #     'branch': 'master'
-    #     'binderhub_url': 'full URL of binderhub deployment',
-    #     'dependencies': './binder/requirements.txt',
-    #     'use_jupyter_lab': False
-    # }
-
-}
 
 # -- Options for HTML output -------------------------------------------------
 
