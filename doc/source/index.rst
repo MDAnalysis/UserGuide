@@ -26,5 +26,6 @@ Link to gallery.
    data_structures
    topology_system
    coordinate_transformation
+   trajectories
    formats/formats
    selection

@@ -161,12 +161,13 @@ A Universe holds master groups of atoms and topology objects:
     * :attr:`dihedrals`: all dihedral TopologyObjects in the system
     * :attr:`impropers`: all improper TopologyObjects in the system
 
-
-It also contains several methods for Topology manipulation:
+Modifying a topology is typically done through the :code:`Universe`, which contains several methods for adding properties:
 
     * :func:`add_TopologyAttr`
     * :func:`add_Residue`
     * :func:`add_Segment`
+
+See `the Topology system <../topology_system.html>`_ for more information on which :code:`TopologyAttr`\ s can be added.
 
 
 AtomGroup
@@ -433,8 +434,25 @@ However, the angle Atom 2 ----- Atom 4 ------ Atom 3 can be calculated, even if 
 The value of each topology object can be calculated with :func:`value`, or the name of the topology object (:func:`angle` in this case). See `Topology Objects <../topology_system.html#topology-objects>`_ for more information.
 
 
-Coordinate methods
-------------------
+Topology-specific methods
+-------------------------
+
+A number of analysis and transformation methods are defined for :code:`AtomGroup` that require specific properties to be available. The primary requirement is usually coordinates, or the `positions` attribute. With coordinates, you can easily compute a center of geometry:
+
+.. code-block::
+
+    >>> u.atoms.center_of_geometry()
+    array([-0.04223882,  0.01418196, -0.03504874])
+
+When atom masses are defined, a number of other methods become available. These include:
+
+* :func:`center_of_mass`
+* :func:`radius_of_gyration`
+* :func:`moment_of_inertia`
+* :func:`asphericity`
+* :func:`align_principal_axes`
+
+See `the Topology system <../topology_system.html>`_ for more information about which attributes are required for which :code:`AtomGroup` methods.
 
 
 Groups of atoms
@@ -487,5 +505,12 @@ Fragments and molecules
 -----------------------
 
 Unlike Residues and Segments, fragments and molecules are not classes in MDAnalysis. A fragment is defined by bond connectivity. A fragment is what is typically considered a molecule: a group of atoms where each atom is bonded to at least one other atom in the fragment, and are not bonded to any atoms outside the fragment. The fragments of a Universe are determined by MDAnalysis as a derived quantity.
+
+The fragments of an :code:`AtomGroup` are accessible via the :attr:`fragments` property. In the case below, there is only one fragment in the Universe:
+
+.. code-block::
+
+    >>> u.atoms.fragments
+    (<AtomGroup with 3341 atoms>,)
 
 In MDAnalysis, a molecule is a GROMACS-only concept. A group of atoms is considered a "molecule" if it is defined by the :code:`[ moleculetype ]` section in a GROMACS topology. Molecules are only defined if a Universe is created from a GROMACS topology. 
