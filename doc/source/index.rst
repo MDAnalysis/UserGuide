@@ -24,5 +24,7 @@ Link to gallery.
    :caption: User guide
 
    data_structures
+   topology_system
+   coordinate_transformation
    formats/formats
    selection

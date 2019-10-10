@@ -29,8 +29,6 @@ Group subselections using parentheses::
 It is also possible to export selections for external software
 packages with the help of :ref:`Selection exporters`.
 
-TODO: go through everything below here.
-
 Selection Keywords
 ==================
 

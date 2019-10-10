@@ -1,11 +1,12 @@
 .. -*- coding: utf-8 -*-
 
+===============
 Data structures
-~~~~~~~~~~~~~~~
+===============
 
-====================
+
 Universe
-====================
+========
 
     *If you wish to make an apple pie from scratch, you must first invent the universe.*
 
@@ -20,14 +21,15 @@ It has two key properties:
 
 A :code:`Universe` ties the static information from the "topology" (e.g. atom identities) to dynamically updating information from the "trajectory" (e.g. coordinates). A cornerstone of MDAnalysis' ontology is that an entire trajectory is never loaded into memory. Instead, the :code:`trajectory` attribute provides a view on a specific frame of the trajectory. This allows the analysis of arbitrarily long trajectories without a significant impact on memory. 
 
+-------------------
 Creating a Universe
-===================
+-------------------
 
-------------------
+
 Loading from files
 ------------------
 
-A Universe is typically created from a "topology" file, with optional "trajectory" file/s. Trajectory files must have the coordinates in the same order as atoms in the topology. See FORMATS for the topology and trajectory formats supported by MDAnalysis, and how to load each specific format.
+A Universe is typically created from a "topology" file, with optional "trajectory" file/s. Trajectory files must have the coordinates in the same order as atoms in the topology. See `Formats <https://www.mdanalysis.org/UserGuide/formats>`_ for the topology and trajectory formats supported by MDAnalysis, and how to load each specific format.
 
 .. code-block:: python
 
@@ -68,7 +70,6 @@ The default arguments should create a Universe suited for most analysis applicat
     >>> print([int(ts.time) for ts in u3.trajectory])
     [0, 100, 200, 300, 400, 500, 600, 700, 800, 900]
 
-TODO: Figure out how to treat `continuous`.
 
 **The following options modify the created Universe:**
 
@@ -80,7 +81,7 @@ TODO: Figure out how to treat `continuous`.
 * :code:`is_anchor`: whether to consider this Universe when unpickling :code:`AtomGroups` (default: True)
 * :code:`anchor_name`: the name of this Universe when unpickling :code:`AtomGroups` (default: None, automatically generated)
 
-----------------------------
+
 Constructing from AtomGroups
 ----------------------------
 
@@ -96,7 +97,7 @@ For example, to combine a protein, ligand, and solvent from separate PDB files:
     u = Merge(u1.select_atoms("protein"), u2.atoms, u3.atoms)
     u.atoms.write("system.pdb")
 
--------------------------
+
 Constructing from scratch
 -------------------------
 
@@ -117,13 +118,13 @@ For example, to construct a universe with 6 atoms in 2 residues:
     >>> coordinates = np.empty((n_frames, u.atoms.n_atoms, 3))
     >>> u.load_new(coordinates, order='fac')
 
-TODO: See this handy notebook tutorial that will be created.
+`See this notebook tutorial for more information. <http://mdanalysis.org/UserGuide/examples/constructing_universe>`_
 
-----------------------------
+
 Guessing topology attributes
 ----------------------------
 
-MDAnalysis can guess two kinds of information. Sometimes MDAnalysis guesses information instead of reading it from certain file formats, which can lead to mistakes such as assigning atoms the wrong element or charge. See FORMATS for a case-by-case breakdown of which atom properties MDAnalysis guesses for each format.
+MDAnalysis can guess two kinds of information. Sometimes MDAnalysis guesses information instead of reading it from certain file formats, which can lead to mistakes such as assigning atoms the wrong element or charge. See `Formats <https://www.mdanalysis.org/UserGuide/formats>`_ for a case-by-case breakdown of which atom properties MDAnalysis guesses for each format.
 
 It can infer connectivity from atomic positions or other topological information:
 
@@ -146,11 +147,11 @@ Importantly, some guessers have not been fully implemented, or occasionally MDAn
 See the API reference for more information on how to use guessing methods. 
 
 
+-------------------------------
+Universe properties and methods
+-------------------------------
 
-Universe properties
-===================
-
-A Universe holds master groups of atoms and topologies:
+A Universe holds master groups of atoms and topology objects:
 
     * :attr:`atoms`: all Atoms in the system
     * :attr:`residues`: all Residues in the system
@@ -161,35 +162,29 @@ A Universe holds master groups of atoms and topologies:
     * :attr:`impropers`: all improper TopologyObjects in the system
 
 
-Topology manipulation
-=====================
+It also contains several methods for Topology manipulation:
 
-You can interact with and modify the topology of a system through a Universe. 
-
-
-===============
-Groups of atoms
-===============
-
-MDAnalysis has a hierarchy of :code:`Atom` containers that are used throughout the code. Some are MDAnalysis classes, while others are simply concepts used in methods.
-
-.. image:: images/classes.png
-
-First and foremost is the :code:`AtomGroup`. 
-
-TODO: continue
-
-For convenience, chemically meaningful groups of Atoms such as a 
-Residue or a Segment (typically a whole molecule or all of the solvent) 
-also exist as containers, as well as groups of these units (
-ResidueGroup, SegmentGroup).
+    * :func:`add_TopologyAttr`
+    * :func:`add_Residue`
+    * :func:`add_Segment`
 
 
-====================
 AtomGroup
 ====================
 
-A :code:`Universe` contains all particles in the molecular system. MDAnalysis calls a particle an :code:`Atom`, regardless of whether it really is (e.g. it may be a united-atom particle or coarse-grained bead). :code:`Atom`\ s are grouped with an :code:`AtomGroup`; the 'master' :code:`AtomGroup` of a Universe is accessible at :code:`Universe.atoms`. Other AtomGroup instances are typically created with :func:`Universe.select_atoms()` or by manipulating another :code:`AtomGroup`, e.g. by slicing.
+A :code:`Universe` contains all particles in the molecular system. MDAnalysis calls a particle an :code:`Atom`, regardless of whether it really is (e.g. it may be a united-atom particle or coarse-grained bead). :code:`Atom`\ s are grouped with an :code:`AtomGroup`; the 'master' :code:`AtomGroup` of a Universe is accessible at :code:`Universe.atoms`. 
+
+The :code:`AtomGroup` is probably the most important object in MDAnalysis. Virtually everything can be accessed through an :code:`AtomGroup`. 
+
+-----------------------
+Creating an AtomGroup
+-----------------------
+
+
+Atom selection language
+-----------------------
+
+AtomGroup instances are typically created with :func:`Universe.select_atoms()` or by manipulating another :code:`AtomGroup`, e.g. by slicing.
 
 .. code-block:: python
 
@@ -198,13 +193,7 @@ A :code:`Universe` contains all particles in the molecular system. MDAnalysis ca
 
 See :ref:`Selections` for more information.
 
-The :code:`AtomGroup` is probably the most important object in MDAnalysis. Virtually everything can be accessed through an :code:`AtomGroup`. 
 
-
-Creating an AtomGroup
-=====================
-
---------------------
 Indexing and slicing
 --------------------
 
@@ -246,25 +235,8 @@ Boolean indexing allows you to pass in an array of :code:`True` or :code:`False`
     <AtomGroup with 312 atoms>
 
 
-----------------------------------------
-Group operators, set methods, and split
-----------------------------------------
-
-An :code:`AtomGroup` can be constructed from others by combining or splitting them. 
-
-:func:`AtomGroup.split()` can create a list of :code:`AtomGroup`\ s by splitting another :code:`AtomGroup` by the 'level' of connectivity: one of *atom*, *residue*, *molecule*, or *segment*. 
-
-.. code-block:: python
-
-    >>> ag1 = u.atoms[:100]
-    >>> ag1
-    <AtomGroup with 100 atoms>
-    >>> ag1.split('residue')
-    [<AtomGroup with 19 atoms>,
-    <AtomGroup with 24 atoms>,
-    <AtomGroup with 19 atoms>,
-    <AtomGroup with 19 atoms>,
-    <AtomGroup with 19 atoms>]
+Group operators and set methods
+-------------------------------
 
 MDAnalysis supports a number of ways to compare :code:`AtomGroup`\ s or construct a new one: group operators (e.g. :func:`concatenate`, :func:`subtract`) and set methods (e.g. :func:`union`, :func:`difference`). Group operators achieve a similar outcome to set methods. However, a key difference is that :func:`concatenate` and :func:`subtract` preserve the order of the atoms and any duplicates. :func:`union` and :func:`difference` return an :code:`AtomGroup` where each atom is unique, and ordered by its topology index. 
 
@@ -280,8 +252,7 @@ MDAnalysis supports a number of ways to compare :code:`AtomGroup`\ s or construc
     array([1, 2, 3, 4, 5, 6, 7, 8])
 
 
-Available operators
--------------------
+**Available operators**
 
 Unlike set methods and atom selection language, concatenation and subtraction keep the order of the atoms as well as duplicates.
 
@@ -303,8 +274,7 @@ Unlike set methods and atom selection language, concatenation and subtraction ke
 |                               |            | in ``t``                   |
 +-------------------------------+------------+----------------------------+
 
-Available set methods
----------------------
+**Available set methods**
 
 Each of these methods create groups that are sorted sets of unique :code:`Atom`\ s.
 
@@ -343,7 +313,41 @@ Each of these methods create groups that are sorted sets of unique :code:`Atom`\
 |                               |            | ``t`` but not both         |
 +-------------------------------+------------+----------------------------+
 
------------------------
+Groupby and split
+-----------------
+
+An :code:`AtomGroup` can be constructed from another by separating atoms by properties. 
+
+:func:`AtomGroup.split()` can create a list of :code:`AtomGroup`\ s by splitting another :code:`AtomGroup` by the 'level' of connectivity: one of *atom*, *residue*, *molecule*, or *segment*. 
+
+.. code-block:: python
+
+    >>> ag1 = u.atoms[:100]
+    >>> ag1
+    <AtomGroup with 100 atoms>
+    >>> ag1.split('residue')
+    [<AtomGroup with 19 atoms>,
+    <AtomGroup with 24 atoms>,
+    <AtomGroup with 19 atoms>,
+    <AtomGroup with 19 atoms>,
+    <AtomGroup with 19 atoms>]
+
+
+An :code:`AtomGroup` can also be separated according to values of `topology attributes <../topology_system.html#topology-attributes>`_ to produce a dictionary of :code:`{value:AtomGroup}`. 
+
+.. code-block::
+
+    >>> u = mda.Universe(PSF, DCD)
+    >>> u.atoms.groupby('masses')
+    {32.06: <AtomGroup with 7 atoms>, 1.008: <AtomGroup with 1685 atoms>, 12.011: <AtomGroup with 1040 atoms>, 14.007: <AtomGroup with 289 atoms>, 15.999: <AtomGroup with 320 atoms>}
+
+Passing in multiple attributes groups them in order:
+
+.. code-block::
+
+    >>> u.atoms.groupby(['masses', 'resnames'])
+    {(32.06, 'MET'): <AtomGroup with 6 atoms>, (32.06, 'CYS'): <AtomGroup with 1 atom>, (1.008, 'LEU'): <AtomGroup with 176 atoms>, (1.008, 'SER'): <AtomGroup with 25 atoms>, (1.008, 'TYR'): <AtomGroup with 63 atoms>, (1.008, 'ARG'): <AtomGroup with 169 atoms>, (1.008, 'GLU'): <AtomGroup with 108 atoms>, (1.008, 'GLY'): <AtomGroup with 60 atoms>, (1.008, 'ASN'): <AtomGroup with 24 atoms>, ..., }
+
 Constructing from Atoms
 -----------------------
 
@@ -367,7 +371,7 @@ Or from providing a list of indices and the Universe that the :code:`Atom`\ s be
     >>> print(ag)
     <AtomGroup [<Atom 5: CA of type C of resname MET, resid 1 and segid SYSTEM and altLoc >, <Atom 7: CB of type C of resname MET, resid 1 and segid SYSTEM and altLoc >, <Atom 3: H2 of type H of resname MET, resid 1 and segid SYSTEM and altLoc >]>
 
------------------------
+
 Order and uniqueness
 -----------------------
 
@@ -377,7 +381,7 @@ These methods of creating an :code:`AtomGroup` result in a sorted, unique list o
     * Slicing
     * Boolean indexing
     * Set methods
-    * :func:`AtomGroup.split`
+    * :func:`AtomGroup.split` and :func:`AtomGroup.groupby`
     
 These methods return a user-ordered :code:`AtomGroup` that can contain duplicates:
 
@@ -385,13 +389,12 @@ These methods return a user-ordered :code:`AtomGroup` that can contain duplicate
     * Group operations (:func:`concatenate` and :func:`subtract`)
     * Constructing directly from :code:`Atom`\ s
 
-
+-------
 Methods
-================
+-------
 
 Most of the analysis functionality in MDAnalysis is implemented in the analysis module, but many interesting methods can be accessed from an :code:`AtomGroup` directly. 
 
-----------------
 Topology objects
 ----------------
 
@@ -427,48 +430,62 @@ However, the angle Atom 2 ----- Atom 4 ------ Atom 3 can be calculated, even if 
     >>> a.value()
     47.63986538582528
 
-The value of each topology object can be calculated with :func:`value`, or the name of the topology object (:func:`angle` in this case). See `Topology Objects`_ for more you can do.
-
-.. _Topology Objects: placeholder
-
-----------------------
-Groupby and accumulate
-----------------------
-
-An :code:`AtomGroup` can be split into 
-
-* Groupby
-* accumulate
-
-----------------
-Analysis methods
-----------------
+The value of each topology object can be calculated with :func:`value`, or the name of the topology object (:func:`angle` in this case). See `Topology Objects <../topology_system.html#topology-objects>`_ for more information.
 
 
-
-* bbox
-* bsphere
-* center
-* center_of_geometry
-* center_of_mass
-* centroid
-* dimensions
-* forces
-* guess_bonds
-* pack_into_box
-* positions
-* unwrap
-* velocities
-* wrap
-
---------------------
-Manipulation methods
---------------------
-
-* rotate
-* rotate_by
-* transform
-* translate
+Coordinate methods
+------------------
 
 
+Groups of atoms
+===============
 
+MDAnalysis has a hierarchy of :code:`Atom` containers that are used throughout the code.
+
+.. image:: images/classes.png
+
+First and foremost is the :code:`AtomGroup`. An :code:`AtomGroup` is the primary :code:`Atom` container; virtually everything can be accessed through it, as detailed `above <https://www.mdanalysis.org/UserGuide/data_structures.html#atomgroup>`_. This includes chemically meaningful groups of :code:`Atom`\ s such as a :code:`Residue` or a :code:`Segment`. 
+
+---------------------
+Residues and Segments
+---------------------
+
+A :code:`Residue` is composed of :code:`Atom`\ s, and a :code:`Segment` is composed of :code:`Residue`\ s.
+
+The corresponding container groups are :code:`ResidueGroup` and :code:`SegmentGroup`. These have similar properties and available methods as :code:`AtomGroup`.
+
+Each of these container groups can be accessed through another. For example:
+
+.. code-block::
+
+    >>> ag = u.atoms.select_atoms('resname ARG and name CA')
+    >>> ag
+    <AtomGroup with 13 atoms>
+    >>> ag.residues
+    <ResidueGroup with 13 residues>
+    >>> ag.residues.atoms
+    <AtomGroup with 312 atoms>
+    >>> ag.segments
+    <SegmentGroup with 1 segment>
+    >>> ag.segments.atoms
+    <AtomGroup with 3341 atoms>
+
+Similarly, an :code:`Atom` has direct knowledge of the :code:`Residue` and :code:`Segment` it belongs to.
+
+.. code-block::
+
+    >>> a = u.atoms[0]
+    >>> a.residue
+    <Residue MET, 1>
+    >>> a.residue.segment
+    <Segment 4AKE>
+    >>> a.residue.segment.residues
+    <ResidueGroup with 214 residues>
+
+-----------------------
+Fragments and molecules
+-----------------------
+
+Unlike Residues and Segments, fragments and molecules are not classes in MDAnalysis. A fragment is defined by bond connectivity. A fragment is what is typically considered a molecule: a group of atoms where each atom is bonded to at least one other atom in the fragment, and are not bonded to any atoms outside the fragment. The fragments of a Universe are determined by MDAnalysis as a derived quantity.
+
+In MDAnalysis, a molecule is a GROMACS-only concept. A group of atoms is considered a "molecule" if it is defined by the :code:`[ moleculetype ]` section in a GROMACS topology. Molecules are only defined if a Universe is created from a GROMACS topology. 
