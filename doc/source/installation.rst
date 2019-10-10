@@ -76,10 +76,10 @@ The tests rely on the `pytest` and `numpy` packages, which must also be installe
     pytest --disable-pytest-warnings --pyargs MDAnalysisTests
 
 All tests should pass (i.e. no FAIL, ERROR); SKIPPED or XFAIL are ok. If anything fails or gives an error, 
-[ask on the user mailing list](http://users.mdanalysis.org/) or [raise an issue](https://github.com/MDAnalysis/mdanalysis/issues).
+`ask on the user mailing list <http://users.mdanalysis.org/>`_ or `raise an issue <https://github.com/MDAnalysis/mdanalysis/issues>`_.
 
 Testing MDAnalysis can take a while, as there are quite a few tests. 
-The plugin [pytest-xdist](https://github.com/pytest-dev/pytest-xdist) can be used to run tests in parallel.
+The plugin `pytest-xdist <https://github.com/pytest-dev/pytest-xdist>`_ can be used to run tests in parallel.
 
 .. code-block:: bash
 

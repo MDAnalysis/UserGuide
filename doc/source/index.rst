@@ -17,7 +17,7 @@ Link to gallery.
    installation
    examples/quickstart
    faq
-   examples/README
+   examples/index
 
 .. toctree::
    :maxdepth: 1
@@ -25,3 +25,4 @@ Link to gallery.
 
    data_structures
    formats/formats
+   selection
