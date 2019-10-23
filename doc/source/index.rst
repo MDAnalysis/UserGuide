@@ -46,9 +46,11 @@ Gromacs_, CHARMM_, VMD_ and PyMol_ (see :ref:`selection-exporters`). It uses Num
    working_with_coordinates
    trajectories
    formats/formats
+   selections
 
 .. toctree::
    :maxdepth: 1
    :caption: Developer docs
 
    contributing
+   standard_selections

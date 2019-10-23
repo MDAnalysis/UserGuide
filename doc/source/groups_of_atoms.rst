@@ -76,7 +76,12 @@ To assign the last 100 residues from the :class:`~MDAnalysis.core.universe.Unive
 
 TODO: create example notebook.
 
----------
+---------------------------
+Groups of atoms in analysis
+---------------------------
+
+Certain analysis methods in MDAnalysis also make use of additional ways to group atoms.
+
 Fragments
 ---------
 
@@ -89,7 +94,6 @@ The fragments of an :class:`~MDAnalysis.core.groups.AtomGroup` are accessible vi
     >>> u.atoms.fragments
     (<AtomGroup with 3341 atoms>,)
 
----------
 Molecules
 ---------
 

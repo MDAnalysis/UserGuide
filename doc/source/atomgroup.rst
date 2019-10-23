@@ -261,6 +261,11 @@ AtomGroups with Atoms evaluate to :code:`True` in a boolean context::
     >>> bool(ag)
     True
 
+Dynamically updating AtomGroups
+-------------------------------
+
+A normal AtomGroup is static, and the atoms within it do not change as the trajectory frame changes. Several methods require dynamically updating AtomGroups. These are typically created using atom selection language. See :ref:`dynamic-selections` for more information.
+
 -------
 Methods
 -------
