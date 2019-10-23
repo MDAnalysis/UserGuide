@@ -1,4 +1,5 @@
 .. -*- coding: utf-8 -*-
+.. _topology-system:
 
 =====================
 The topology system
@@ -10,7 +11,7 @@ MDAnalysis groups static data about a :code:`Universe` into its topology. This i
     * Atom attributes (e.g. name, mass, bfactor)
     * Topology objects: bonds, angles, dihedrals, impropers
 
-Users will almost never interact directly with a :code:`Topology`. Modifying atom containers or topology attributes is typically done through :code:`Universe`. Methods for viewing containers or topology attributes, or for calculating topology object values, are accessed through :code:`AtomGroup`.
+Users will almost never interact directly with a :code:`Topology`. Modifying atom containers or topology attributes is typically done through :code:`Universe`. Methods for viewing containers or topology attributes, or for calculating topology object values, are accessed through :class:`~MDAnalysis.core.groups.AtomGroup`.
 
 Atom containers
 ===============
@@ -38,6 +39,7 @@ To assign the last 100 residues from the :code:`Universe` to this new :code:`Seg
     >>> newseg.atoms
     <AtomGroup with 1600 atoms>
 
+.. _topology-attributes:
 
 Topology attributes
 ===================
@@ -57,6 +59,8 @@ Adding or modifying TopologyAttrs
 
 See this notebook on colouring a protein by RMSF with the tempfactor attribute.
 
+.. _topology-objects:
+
 Topology objects
 ================
 
@@ -75,11 +79,20 @@ TopologyObjects can only be read from these file formats:
 
     * PSF
     * GSD
+    * TPR
+    * PDB (with CONECT records)
+    * Prmtop
+    * DMS
+    * mol2
+    * LAMMPS data
+    * Tinker TXYZ
+    * Hoomd XML
+    * MMTF
 
 Bonds can be guessed based on distance and Van der Waals' radii with :code:`guess_bonds`:
 
 
-Users can also define new TopologyObjects through an :code:`AtomGroup`.
+Users can also define new TopologyObjects through an :class:`~MDAnalysis.core.groups.AtomGroup`.
 
 
 

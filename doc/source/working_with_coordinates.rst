@@ -1,4 +1,5 @@
 .. -*- coding: utf-8 -*-
+.. _working_with_coordinates::
 
 ========================
 Working with coordinates

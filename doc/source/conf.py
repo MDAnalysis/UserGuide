@@ -123,3 +123,10 @@ html_sidebars = {
         'searchbox.html',
     ]
 }
+
+# Configuration for intersphinx: refer to the Python standard library
+# and other packages used by MDAnalysis
+intersphinx_mapping = {'https://docs.python.org/': None,
+                       'https://docs.scipy.org/doc/numpy/': None,
+                       'https://www.mdanalysis.org/docs/': None,
+                       }
