@@ -74,7 +74,7 @@ To assign the last 100 residues from the :class:`~MDAnalysis.core.universe.Unive
     >>> newseg.atoms
     <AtomGroup with 1600 atoms>
 
-TODO: create example notebook.
+Another example is `creating custom segments for protein domains <examples/constructing_universe.ipynb#Adding-a-new-segment>`_.
 
 ---------------------------
 Groups of atoms in analysis
