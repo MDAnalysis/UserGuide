@@ -17,9 +17,9 @@ before_install:
 - export PATH=$MINICONDA_PATH/bin:$PATH
 - conda update --yes conda
 install:
-- conda create --yes -n testenv python=3.6
+- conda create --yes python=3.6 -f environment.yml
 - source activate testenv
-- pip install --upgrade sphinx sphinx-sitemap nbsphinx sphinx_rtd_theme ipython
+- jupyter-nbextension enable nglview --py --sys-prefix
 script:
 - make -C ${SPHINX_DIR} html && touch ${HTML_DIR}/.nojekyll
 deploy:

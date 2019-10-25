@@ -5,8 +5,10 @@ channels:
 dependencies:
   - jupyter_contrib_nbextensions
   - nglview
+  - sphinx
+  - ipywidgets
   - pip:
-    - mdanalysis
-    - mdanalysistests
     - sphinx_rtd_theme
+    - sphinx-sitemap
     - nbsphinx
+    - ipython
