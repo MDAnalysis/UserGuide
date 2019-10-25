@@ -14,6 +14,7 @@
 # import sys
 
 import sphinx_rtd_theme
+from ipywidgets.embed import DEFAULT_EMBED_REQUIREJS_URL
 
 # -- Project information -----------------------------------------------------
 
@@ -130,3 +131,9 @@ intersphinx_mapping = {'https://docs.python.org/': None,
                        'https://docs.scipy.org/doc/numpy/': None,
                        'https://www.mdanalysis.org/docs/': None,
                        }
+
+# nbsphinx
+html_js_files = [
+    'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js',
+    DEFAULT_EMBED_REQUIREJS_URL,
+]
