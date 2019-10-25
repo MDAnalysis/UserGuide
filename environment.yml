@@ -1,4 +1,4 @@
-name: mdanalysis
+name: testenv
 channels:
   - conda-forge
   - defaults

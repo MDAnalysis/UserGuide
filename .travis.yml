@@ -17,7 +17,7 @@ before_install:
 - export PATH=$MINICONDA_PATH/bin:$PATH
 - conda update --yes conda
 install:
-- conda create --yes python=3.6 -f environment.yml
+- conda env create python=3.6 -f environment.yml --quiet
 - source activate testenv
 - jupyter-nbextension enable nglview --py --sys-prefix
 script:
