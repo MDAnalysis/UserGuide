@@ -1,12 +1,16 @@
-name: mdanalysis
+name: testenv
 channels:
   - conda-forge
   - defaults
 dependencies:
   - jupyter_contrib_nbextensions
   - nglview
+  - sphinx
+  - ipywidgets
+  - mdanalysis=0.20.1
   - pip:
-    - mdanalysis
-    - mdanalysistests
     - sphinx_rtd_theme
+    - sphinx-sitemap
     - nbsphinx
+    - ipython
+    - tabulate

@@ -134,6 +134,10 @@ div.admonition.note > p.admonition-title {
     background:  #808080;
 }
 
+.wy-table-responsive table td {
+    white-space: normal !important; /* no horizontal scroll on tables */
+}
+
 /* -- notebook styles --------------------------------------------------------- */
 .rst-content div[class^="highlight"] pre {
     white-space: pre-wrap;
