@@ -7,8 +7,11 @@ Atom selection language
 
 AtomGroups can be created by selecting atoms using the MDAnalysis atom selection language:
 
-  >>> kalp = u.select_atoms("segid KALP")
-
+  >>> from MDAnalysis.tests.datafiles import PSF
+  >>> u = mda.Universe(PSF)
+  >>> ala = u.select_atoms('resname ALA')
+  >>> ala
+  <AtomGroup with 190 atoms>
 
 The :meth:`~MDAnalysis.core.groups.AtomGroup.select_atoms` method of a
 :class:`~MDAnalysis.core.groups.AtomGroup` or a
