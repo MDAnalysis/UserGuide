@@ -8,15 +8,15 @@ MDAnalysis has a hierarchy of :class:`~MDAnalysis.core.groups.Atom` containers t
 
 .. image:: images/classes.png
 
-First and foremost is the :class:`~MDAnalysis.core.groups.AtomGroup`. An :class:`~MDAnalysis.core.groups.AtomGroup` is the primary :class:`~MDAnalysis.core.groups.Atom` container; virtually everything can be accessed through it, as detailed `above <https://www.mdanalysis.org/UserGuide/data_structures.html#atomgroup>`_. This includes chemically meaningful groups of :class:`~MDAnalysis.core.groups.Atom`\ s such as a :code:`Residue` or a :code:`Segment`. 
+First and foremost is the :class:`~MDAnalysis.core.groups.AtomGroup`. An :class:`~MDAnalysis.core.groups.AtomGroup` is the primary :class:`~MDAnalysis.core.groups.Atom` container; virtually everything can be accessed through it, as detailed in :ref:`atomgroup`. This includes chemically meaningful groups of :class:`Atoms <MDAnalysis.core.groups.Atom>` such as a :class:`~MDAnalysis.core.groups.Residue` or a :class:`~MDAnalysis.core.groups.Segment`. 
+
+.. _residues-and-segments:
 
 ---------------------
 Residues and Segments
 ---------------------
 
-A :class:`~MDAnalysis.core.groups.Residue` is composed of :class:`~MDAnalysis.core.groups.Atom`\ s, and a :class:`~MDAnalysis.core.groups.Segment` is composed of :class:`~MDAnalysis.core.groups.Residue`\ s.
-
-These are considered atom :ref:`topology attributes <topology-attributes>`.
+A :class:`~MDAnalysis.core.groups.Residue` is composed of :class:`Atoms <MDAnalysis.core.groups.Atom>`, and a :class:`~MDAnalysis.core.groups.Segment` is composed of :class:`Residues <MDAnalysis.core.groups.Residue>`.
 
 The corresponding container groups are :class:`~MDAnalysis.core.groups.ResidueGroup` and :class:`~MDAnalysis.core.groups.SegmentGroup`. These have similar properties and available methods as :class:`~MDAnalysis.core.groups.AtomGroup`.
 
@@ -48,70 +48,40 @@ Similarly, an :class:`~MDAnalysis.core.groups.Atom` has direct knowledge of the 
     >>> a.residue.segment.residues
     <ResidueGroup with 214 residues>
 
-Adding to a topology
---------------------
-
-To add a :code:`Residue` or :code:`Segment` to a topology, use the :meth:`Universe.add_Residue <MDAnalysis.core.universe.Universe.add_Residue>` or :meth:`Universe.add_Segment <MDAnalysis.core.universe.Universe.add_Segment>` methods.
-
-.. code-block::
-
-    >>> u = mda.Universe(PSF, DCD)
-    >>> u.segments
-    <SegmentGroup with 1 segment>
-    >>> u.segments.segids
-    array(['4AKE'], dtype=object)
-    >>> newseg = u.add_Segment(segid='X')
-    >>> u.segments.segids
-    array(['4AKE', 'X'], dtype=object)
-    >>> newseg.atoms
-    <AtomGroup with 0 atoms>
-
-To assign the last 100 residues from the :class:`~MDAnalysis.core.universe.Universe` to this new Segment:
-
-.. code-block::
-
-    >>> u.residues[-100:].segments = newseg
-    >>> newseg.atoms
-    <AtomGroup with 1600 atoms>
-
-Another example is `creating custom segments for protein domains <examples/constructing_universe.ipynb#Adding-a-new-segment>`_.
+For information on adding custom Residues or Segments, have a look at :ref:`adding-residue-label`.
 
 ---------------------------
-Groups of atoms in analysis
----------------------------
-
-Certain analysis methods in MDAnalysis also make use of additional ways to group atoms.
-
 Fragments
----------
+---------------------------
 
-A fragment is defined by bond connectivity. A fragment is what is typically considered a molecule: a group of atoms where each atom is bonded to at least one other atom in the fragment, and are not bonded to any atoms outside the fragment. The fragments of a Universe are determined by MDAnalysis as a derived quantity.
+Certain analysis methods in MDAnalysis also make use of additional ways to group atoms. A key concept is a fragment. A fragment is what is typically considered a molecule: a group of atoms where each atom is bonded to at least one other atom in the fragment, and are not bonded to any atoms outside the fragment. (A 'molecule' in MDAnalysis methods :ref:`refers to a GROMACS-specific concept <molecule-label>`). The fragments of a Universe are determined by MDAnalysis as a derived quantity. They can only be determined if bond information is available.
 
-The fragments of an :class:`~MDAnalysis.core.groups.AtomGroup` are accessible via the :attr:`fragments` property. In the case below, there is only one fragment in the Universe:
+The fragments of an :class:`~MDAnalysis.core.groups.AtomGroup` are accessible via the :attr:`fragments` property. Below is a Universe from a GROMACS TPR file of lysozyme (`PDB ID: 2LYZ <http://www.rcsb.org/structure/2LYZ>`_) with 101 water molecules. While it has 2263 residues, there are only 102 fragments: 1 protein and 101 water fragments. ::
 
-.. code-block::
-
+    >>> import MDAnalysis as mda
+    >>> from MDAnalysis.tests.datafiles import TPR2019B3
+    >>> u = mda.Universe(TPR209B3)
+    >>> len(u.residues)
+    2263
+    >>> u.residues.resnames
+    array(['LYSH', 'VAL', 'PHE', ..., 'SOL', 'SOL', 'SOL'], dtype=object)
     >>> u.atoms.fragments
-    (<AtomGroup with 3341 atoms>,)
+    (<AtomGroup with 1960 atoms>, <AtomGroup with 3 atoms>, <AtomGroup with 3 atoms>, ..., <AtomGroup with 3 atoms>, <AtomGroup with 3 atoms>, <AtomGroup with 3 atoms>)
+    >>> len(u.atoms.fragments)
+    102
 
-Molecules
----------
+See :ref:`topology-objects` for more on bonds and which file formats give MDAnalysis bond information.
 
-In MDAnalysis, a molecule is a GROMACS-only concept. A group of atoms is considered a "molecule" if it is defined by the :code:`[ moleculetype ]` section in a `GROMACS topology <http://manual.gromacs.org/documentation/2019/reference-manual/file-formats.html#top>`_. Molecules are only defined if a Universe is created from a GROMACS topology file (i.e. with a .tpr extension). Unlike fragments, they are not accessible directly from atoms.
+You can also look at which fragment a particular :class:`~MDAnalysis.core.groups.Atom` belongs to::
 
-.. code-block:: pycon
+    >>> u.atoms[0].fragment  # first atom of lysozyme
+    <AtomGroup with 1960 atoms>
 
-    >>> tpr = mda.Universe(TPR)
-    >>> tpr.atoms.molecules
-    Traceback (most recent call last):
-    File "<stdin>", line 1, in <module>
-    File "MDAnalysis/core/groups.py", line 2278, in __getattr__
-        cls=self.__class__.__name__, attr=attr))
-    AttributeError: AtomGroup has no attribute molecules
+and see which fragments are associated with atoms in a smaller :class:`~MDAnalysis.core.groups.AtomGroup`::
 
-However, the order (:code:`molnum`) and name (:code:`moltype`) of each molecule is accessible as :ref:`topology attributes <topology-attributes>`::
+    >>> u.atoms[1959:1961].fragments
+    (<AtomGroup with 1960 atoms>, <AtomGroup with 3 atoms>)
 
-    >>> tpr.atoms.molnums
-    array([    0,     0,     0, ..., 11086, 11087, 11088])
-    >>> tpr.atoms.moltypes
-    array(['AKeco', 'AKeco', 'AKeco', ..., 'NA+', 'NA+', 'NA+'], dtype=object)
+.. note::
+
+    :attr:`AtomGroup.fragments <MDAnalysis.core.groups.AtomGroup.fragments>` returns a tuple of fragments with at least one :class:`~MDAnalysis.core.groups.Atom` in the :class:`~MDAnalysis.core.groups.AtomGroup`, not a tuple of fragments where *all* Atoms are in the :class:`~MDAnalysis.core.groups.AtomGroup`.

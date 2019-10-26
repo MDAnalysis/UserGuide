@@ -13,6 +13,8 @@
 # import os
 # import sys
 
+import MDAnalysis as mda
+import subprocess
 import sphinx_rtd_theme
 from ipywidgets.embed import DEFAULT_EMBED_REQUIREJS_URL
 
@@ -22,6 +24,9 @@ project = 'MDAnalysis User Guide'
 copyright = '2019, Lily Wang, Richard J Gowers, Oliver Beckstein'
 author = 'Lily Wang, Richard J Gowers, Oliver Beckstein'
 
+# -- Scripts -----------------------------------------------------------------
+# regenerate tables for which residues are selected by keywords
+subprocess.call('./scripts/gen_standard_selections.py')
 
 # -- General configuration ---------------------------------------------------
 
@@ -55,7 +60,7 @@ templates_path = ['_templates']
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.ipynb_checkpoints', '**/.ipynb_checkpoints']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.ipynb_checkpoints', '**/.ipynb_checkpoints', 'scripts']
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -137,3 +142,11 @@ html_js_files = [
     'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js',
     DEFAULT_EMBED_REQUIREJS_URL,
 ]
+
+# substitutions
+MDAnalysis_version = '0.20.1'
+
+# rst-epilog implements substitutions
+rst_epilog = """
+.. |MDAnalysis_version| replace:: {0}
+""".format(MDAnalysis_version)

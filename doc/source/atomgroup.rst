@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _atomgroup::
+.. _atomgroup:
 
 AtomGroup
 ====================
@@ -184,9 +184,7 @@ Passing in multiple attributes groups them in order:
 Constructing from Atoms
 -----------------------
 
-An :class:`~MDAnalysis.core.groups.AtomGroup` can be created from an iterable of :class:`~MDAnalysis.core.groups.Atom`\ s:
-
-.. code-block:: python
+An :class:`~MDAnalysis.core.groups.AtomGroup` can be created from an iterable of :class:`~MDAnalysis.core.groups.Atom` instances::
 
     >>> atom1 = u.atoms[4]
     >>> atom2 = u.atoms[6]
@@ -195,8 +193,17 @@ An :class:`~MDAnalysis.core.groups.AtomGroup` can be created from an iterable of
     >>> print(ag)
     <AtomGroup [<Atom 5: CA of type C of resname MET, resid 1 and segid SYSTEM and altLoc >, <Atom 7: CB of type C of resname MET, resid 1 and segid SYSTEM and altLoc >, <Atom 3: H2 of type H of resname MET, resid 1 and segid SYSTEM and altLoc >]>
 
+A neat shortcut for this is to simply add an :class:`~MDAnalysis.core.groups.Atom` to another :class:`~MDAnalysis.core.groups.Atom` or :class:`~MDAnalysis.core.groups.AtomGroup`::
 
-Or from providing a list of indices and the Universe that the :class:`~MDAnalysis.core.groups.Atom`\ s belong to:
+    >>> ag = atom1 + atom2
+    >>> print(ag)
+    <AtomGroup [<Atom 5: CA of type 22 of resname MET, resid 1 and segid 4AKE>, <Atom 7: CB of type 23 of resname MET, resid 1 and segid 4AKE>]>
+    >>> ag += atom3
+    >>> print(ag)
+    <AtomGroup [<Atom 5: CA of type 22 of resname MET, resid 1 and segid 4AKE>, <Atom 7: CB of type 23 of resname MET, resid 1 and segid 4AKE>, <Atom 3: HT2 of type 2 of resname MET, resid 1 and segid 4AKE>]>
+
+
+An alternative method is to provide a list of indices and the Universe that the :class:`~MDAnalysis.core.groups.Atom`\ s belong to:
 
 .. code-block:: python
 

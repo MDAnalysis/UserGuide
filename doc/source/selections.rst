@@ -18,22 +18,19 @@ The :meth:`~MDAnalysis.core.groups.AtomGroup.select_atoms` method of a
 index in the topology. This is to ensure that there are not any duplicates,
 which can happen with complicated selections.
 
-Group subselections using parentheses::
+This page documents selection keywords and their arguments. :meth:`~MDAnalysis.core.groups.AtomGroup.select_atoms` also accepts keywords that modify the behaviour of the selection string and the resulting :class:`~MDAnalysis.core.groups.AtomGroup` (documented further down this page). For example, you can:
 
-    >>> u.select_atoms("segid DMPC and not (name H* or type OW)")
-    <AtomGroup with 3420 atoms>
-
-Pass in :ref:`named AtomGroups as arguments <preexisting-selections>`::
+* Pass in :ref:`named AtomGroups as arguments <preexisting-selections>`::
 
     >>> sph_6 = u.select_atoms("sphzone 6 protein")
     >>> u.select_atoms("around 3 group sph_6", sph_6=sph_6)
     <AtomGroup with 120 atoms>
 
-Turn off :ref:`periodic boundary conditions for geometric keywords <geometric>` with ``periodic=False``::
+* Turn off :ref:`periodic boundary conditions for geometric keywords <geometric>` with ``periodic=False``::
 
     >>> u.select_atoms("around 6 protein", periodic=False)
 
-Create :ref:`dynamic UpdatingAtomGroups <dynamic-selections>` with ``updating=True``::
+* Create :ref:`dynamic UpdatingAtomGroups <dynamic-selections>` with ``updating=True``::
 
     >>> u.select_atoms("prop x < 5 and prop y < 5 and prop z < 5", updating=True)
     <AtomGroup with 9 atoms, with selection 'prop x < 5 and prop y < 5 and prop z < 5' on the entire Universe.>
@@ -52,7 +49,11 @@ selection parser. The following applies to all selections:
   notes below on :ref:`ordered-selections-label` for how to circumvent this if
   necessary).
 * Selections are parsed left to right and parentheses can be used for
-  grouping.
+  grouping. For example::
+
+    >>> u.select_atoms("segid DMPC and not (name H* or type OW)")
+    <AtomGroup with 3420 atoms>
+    
 * Currently, only "stemming" is implemented as a primitive form of pattern
   matching: Using the ``*`` character in a string such as ``GL*`` selects
   all strings that start with "GL" such as "GLU", "GLY", "GLX29", "GLN". Only terminal wildcards (i.e. matching the last part of a name) are currently supported. 

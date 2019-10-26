@@ -5,13 +5,13 @@
 The topology system
 =====================
 
-MDAnalysis groups static data about a :code:`Universe` into its topology. This is typically loaded from a topology file. Topology information falls into 3 categories:
+MDAnalysis groups static data about a :class:`~MDAnalysis.core.universe.Universe` into its topology. This is typically loaded from a topology file. Topology information falls into 3 categories:
 
-    * Atom containers (Residues and Segments)
-    * Atom attributes (e.g. name, mass, bfactor)
-    * Topology objects: bonds, angles, dihedrals, impropers
+    * :ref:`Atom containers (Residues and Segments) <residues-and-segments>`
+    * :ref:`Atom attributes (e.g. name, mass, bfactor) <topology-attributes>`
+    * :ref:`Topology objects: bonds, angles, dihedrals, impropers <topology-objects>`
 
-Users will almost never interact directly with a :code:`Topology`. Modifying atom containers or topology attributes is typically done through :code:`Universe`. Methods for viewing containers or topology attributes, or for calculating topology object values, are accessed through :class:`~MDAnalysis.core.groups.AtomGroup`.
+Users will almost never interact directly with a :class:`~MDAnalysis.core.topology.Topology`. Modifying atom containers or topology attributes is typically done through :class:`~MDAnalysis.core.universe.Universe`. Methods for viewing containers or topology attributes, or for calculating topology object values, are accessed through :class:`~MDAnalysis.core.groups.AtomGroup`.
 
 
 .. _topology-attributes:
@@ -109,7 +109,7 @@ Adding or modifying TopologyAttrs
 Topology objects
 ================
 
-MDAnalysis defines four :code:`TopologyObject`\ s by connectivity:
+MDAnalysis defines four types of :class:`~MDAnalysis.core.topologyobjects.TopologyObject` by connectivity:
 
     * bonds
     * angles
@@ -134,7 +134,7 @@ TopologyObjects can only be read from these file formats:
     * Hoomd XML
     * MMTF
 
-Bonds can be guessed based on distance and Van der Waals' radii with :code:`guess_bonds`.
+Bonds can be guessed based on distance and Van der Waals' radii with :meth:`AtomGroup.guess_bonds <MDAnalysis.core.groups.AtomGroup.guess_bonds>`.
 
 
 Users can also define new TopologyObjects through an :class:`~MDAnalysis.core.groups.AtomGroup`.
