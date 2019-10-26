@@ -22,7 +22,7 @@ def write_tabulated_selection(name, cls, attr, sort=False, n=8):
         selected = sorted(selected)
     
     table = chunk_list(list(selected), n=n)
-    filename = os.path.join('generated', name+'.txt')
+    filename = os.path.join('scripts', 'generated', name+'.txt')
     with open(filename, 'w') as f:
         print(tabulate.tabulate(table, tablefmt='grid'), file=f)
 
