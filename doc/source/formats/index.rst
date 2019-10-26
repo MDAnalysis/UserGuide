@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _formats:
+.. _formats-label:
 
 ====================
 Formats

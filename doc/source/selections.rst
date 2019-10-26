@@ -287,7 +287,7 @@ there is no redundant updating going on)::
     <UpdatingAtomGroup with 14 atoms>
 
 Using the ``group`` selection keyword for
-:ref:`preexisting selections < preexisting-selections>`, one can
+:ref:`preexisting-selections`, one can
 make updating selections depend on
 :class:`~MDAnalysis.core.groups.AtomGroup`, or even other
 :class:`~MDAnalysis.core.groups.UpdatingAtomGroup`, instances.
@@ -328,6 +328,7 @@ them.
 
 The most straightforward way to concatenate two AtomGroups is by using the
 ``+`` operator::
+
     >>> ordered = u.select_atoms("resid 3 and name CA") + u.select_atoms("resid 2 and name CA")
     >>> list(ordered)
     [<Atom 46: CA of type C of resname ILE, resid 3 and segid SYSTEM and altLoc >, <Atom 22: CA of type C of resname ARG, resid 2 and segid SYSTEM and altLoc >]
@@ -335,11 +336,13 @@ The most straightforward way to concatenate two AtomGroups is by using the
 A shortcut is to provide *two or more* selections to
 :meth:`~MDAnalysis.core.universe.Universe.select_atoms`, which then
 does the concatenation automatically::
+
     >>> list(u.select_atoms("resid 3 and name CA", "resid 2 and name CA"))
     [<Atom 46: CA of type C of resname ILE, resid 3 and segid SYSTEM and altLoc >, <Atom 22: CA of type C of resname ARG, resid 2 and segid SYSTEM and altLoc >]
 
 Just for comparison to show that a single selection string does not
 work as one might expect::
+
     >>> list(u.select_atoms("(resid 3 or resid 2) and name CA"))
     [<Atom 22: CA of type C of resname ARG, resid 2 and segid SYSTEM and altLoc >, <Atom 46: CA of type C of resname ILE, resid 3 and segid SYSTEM and altLoc >]
 
