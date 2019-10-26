@@ -43,7 +43,7 @@ Molecules
 
 In MDAnalysis, a molecule is a GROMACS-only concept that is relevant in some analysis methods. A group of atoms is considered a "molecule" if it is defined by the :code:`[ moleculetype ]` section in a `GROMACS topology <http://manual.gromacs.org/documentation/2019/reference-manual/file-formats.html#top>`_. Molecules are only defined if a Universe is created from a GROMACS topology file (i.e. with a .tpr extension). Unlike fragments, they are not accessible directly from atoms.
 
-.. code-block:: pycon
+.. code-block::
 
     >>> tpr = mda.Universe(TPR)
     >>> tpr.atoms.molecules

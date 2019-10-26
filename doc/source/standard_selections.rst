@@ -13,7 +13,7 @@ The residue names listed here are accessible via the "protein" keyword in the :r
 
 The below names are drawn from the CHARMM 27, OPLS-AA, GROMOS 53A6, AMBER 03, and AMBER 99sb*-ILDN force fields.
 
-.. include:: scripts/generated/protein_selections.txt
+.. include:: scripts/protein_selections.txt
 
 ----------------
 Protein backbone
@@ -21,7 +21,7 @@ Protein backbone
 
 Protein backbone atoms in MDAnalysis belong to a recognised protein residue and have the atom names:
 
-.. include:: scripts/generated/protein_backbone_selections.txt
+.. include:: scripts/protein_backbone_selections.txt
 
 .. _nucleic-selection:
 
@@ -32,7 +32,7 @@ The residue names listed here are accessible via the "nucleic" keyword in the :r
 
 The below names are drawn from largely from the CHARMM force field.
 
-.. include:: scripts/generated/nucleic_selections.txt
+.. include:: scripts/nucleic_selections.txt
 
 ----------------
 Nucleic backbone
@@ -40,7 +40,7 @@ Nucleic backbone
 
 Nucleic backbone atoms in MDAnalysis belong to a recognised nucleic acid residue and have the atom names:
 
-.. include:: scripts/generated/nucleic_backbone_selections.txt
+.. include:: scripts/nucleic_backbone_selections.txt
 
 .. _nucleobase-selection:
 
@@ -50,7 +50,7 @@ Nucleobases
 
 Nucleobase atoms from nucleic acid residues are recognised based on their names in CHARMM.
 
-.. include:: scripts/generated/base_selections.txt
+.. include:: scripts/base_selections.txt
 
 --------------
 Nucleic sugars
@@ -58,4 +58,4 @@ Nucleic sugars
 
 Nucleic sugar atoms from nucleic acid residues are recognised by MDAnalysis if they have the atom names:
 
-.. include:: scripts/generated/sugar_selections.txt
+.. include:: scripts/sugar_selections.txt

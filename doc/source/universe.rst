@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. universe::
+.. universe:
 
 
 Universe
@@ -164,4 +164,4 @@ Modifying a topology is typically done through the :class:`~MDAnalysis.core.univ
     * :func:`add_Residue`
     * :func:`add_Segment`
 
-See :ref:`the Topology system <topology_system>` for more information on which :code:`TopologyAttr`\ s can be added.
+See :ref:`topology-attributes` for more information on which :code:`TopologyAttr`\ s can be added.
