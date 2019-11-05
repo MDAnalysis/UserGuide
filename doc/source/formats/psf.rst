@@ -9,6 +9,6 @@ A `protein structure file (PSF) <https://www.ks.uiuc.edu/Training/Tutorials/namd
 
 .. important:: **Atom ids**
 
-    Although PSF files index atoms from 1 in the file, the MDAnalysis PSFParser subtracts 1 to create atom `ids`. This means that if your atom is numbered 3 in your PSF file, it will have an :code:`Atom.id` of 2 in MDAnalysis.
+    Although PSF files index atoms from 1 in the file, the MDAnalysis PSFParser subtracts 1 to create atom :code:`ids`. This means that if your atom is numbered 3 in your PSF file, it will have an :code:`Atom.id` of 2 in MDAnalysis.
 
     Atom :code:`indices` are MDAnalysis derived and always index from 0, no matter the file type.

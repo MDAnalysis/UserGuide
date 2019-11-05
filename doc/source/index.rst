@@ -47,7 +47,6 @@ Gromacs_, CHARMM_, VMD_ and PyMol_ (see :ref:`selection-exporters`). It uses Num
    atomgroup
    groups_of_atoms
    topology_system
-   working_with_coordinates
    trajectories
    formats/index
    selections

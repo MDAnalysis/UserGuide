@@ -140,13 +140,13 @@ Similarly to adding topology attributes with :meth:`~MDAnalysis.core.universe.Un
 Default values and attribute levels
 -----------------------------------
 
-Topology information in MDAnalysis is always associated with a level: one of atom, residue, or segment. For example, `indices` is Atom information, `resindices` is Residue information, and `segindices` is Segment information. Many topology attributes also have default values, so that they can be :ref:`added to a Universe without providing explicit values <add-topologyattrs-label>`, and expected types. The table below lists which attributes have default values, what they are, and the information level.
+Topology information in MDAnalysis is always associated with a level: one of atom, residue, or segment. For example, :code:`indices` is Atom information, :code:`resindices` is Residue information, and :code:`segindices` is Segment information. Many topology attributes also have default values, so that they can be :ref:`added to a Universe without providing explicit values <add-topologyattrs-label>`, and expected types. The table below lists which attributes have default values, what they are, and the information level.
 
 .. include:: scripts/topology_defaults.txt
 
 
 
-.. _topology-objects:
+.. _topology-objects-label:
 
 Topology objects
 ================
@@ -156,9 +156,9 @@ MDAnalysis defines four types of :class:`~MDAnalysis.core.topologyobjects.Topolo
     * :class:`~MDAnalysis.core.topologyobjects.Bond`
     * :class:`~MDAnalysis.core.topologyobjects.Angle`
     * :class:`~MDAnalysis.core.topologyobjects.Dihedral`
-    * :class:`~MDAnalysis.core.topologyobjects.Improper`
+    * :class:`~MDAnalysis.core.topologyobjects.ImproperDihedral`
 
-The value of each topology object can be calculated with :func:`value`, or the name of the topology object. The only exception to this is :class:`~MDAnalysis.core.topologyobjects.Bond`, where the other name for :meth:`~MDAnalysis.core.topologyobjects.Bond.value` is :meth:`~MDAnalysis.core.topologyobjects.Bond.length`.
+The value of each topology object can be calculated with :func:`value`.
 
 Each :class:`~MDAnalysis.core.topologyobjects.TopologyObject` also contains the following attributes:
 
@@ -174,18 +174,18 @@ Groups of these are held in :class:`~MDAnalysis.core.topologyobjects.TopologyGro
 Adding to a Universe
 --------------------
 
-As of version 0.21.0, TopologyObjects have specific methods for adding to a Universe:
+As of version 0.21.0, there are specific methods for adding :class:`~MDAnalysis.core.topologyobjects.TopologyObject`\ s to a :class:`~MDAnalysis.core.universe.Universe`:
 
-    * :meth:`~MDAnalysis.core.universe.Universe.add_Bonds`,
-    * :meth:`~MDAnalysis.core.universe.Universe.add_Angles`,
-    * :meth:`~MDAnalysis.core.universe.Universe.add_Dihedrals`,
+    * :meth:`~MDAnalysis.core.universe.Universe.add_Bonds`
+    * :meth:`~MDAnalysis.core.universe.Universe.add_Angles`
+    * :meth:`~MDAnalysis.core.universe.Universe.add_Dihedrals`
     * :meth:`~MDAnalysis.core.universe.Universe.add_Impropers`
 
 These accept the following values:
 
-    * a `~MDAnalysis.core.topologyobjects.TopologyGroup`
+    * a :class:`~MDAnalysis.core.topologyobjects.TopologyGroup`
     * an iterable of atom indices
-    * an iterable of `~MDAnalysis.core.topologyobjects.TopologyObject`\ s
+    * an iterable of :class:`~MDAnalysis.core.topologyobjects.TopologyObject`\ s
 
 .. todo:: 
 
@@ -201,7 +201,7 @@ Prior to version 0.21.0, objects could be added to a Universe with :meth:`~MDAna
     pdb.angles
 
 
-Both of these methods add the new objects to the assocated master :class:`~MDAnalysis.core.topologyobjects.TopologyGroup` in the Universe.
+Both of these methods add the new objects to the associated master :class:`~MDAnalysis.core.topologyobjects.TopologyGroup` in the :class:`~MDAnalysis.core.universe.Universe`.
 
 
 --------------------------
@@ -233,4 +233,52 @@ However, the angle Atom 2 ----- Atom 4 ------ Atom 3 can be calculated, even if 
     a = pdb.atoms[[3, 4, 2]].angle
     print(a.value())
 
+These AtomGroup :class:`~MDAnalysis.core.topologyobjects.TopologyObject`\ s are not added to the associated master :class:`~MDAnalysis.core.topologyobjects.TopologyGroup` in the :class:`~MDAnalysis.core.universe.Universe`.
 
+
+------------------------
+Deleting from a Universe
+------------------------
+
+As of version 0.21.0, there are specific methods for deleting :class:`~MDAnalysis.core.topologyobjects.TopologyObject`\ s from a :class:`~MDAnalysis.core.universe.Universe`:
+
+    * :meth:`~MDAnalysis.core.universe.Universe.delete_Bonds`
+    * :meth:`~MDAnalysis.core.universe.Universe.delete_Angles`
+    * :meth:`~MDAnalysis.core.universe.Universe.delete_Dihedrals`
+    * :meth:`~MDAnalysis.core.universe.Universe.delete_Impropers`
+
+.. todo:: 
+
+    Provide example when 0.21.0 is released
+
+.. _topology-groupmethods-label:
+
+Topology-specific methods
+=========================
+
+
+A number of analysis and transformation methods are defined for :class:`~MDAnalysis.core.groups.AtomGroup`, :class:`~MDAnalysis.core.groups.ResidueGroup`, and :class:`~MDAnalysis.core.groups.SegmentGroup` that require specific properties to be available. The primary requirement is the `positions` attribute. With positions, you can easily compute a center of geometry:
+
+.. code-block::
+
+    >>> u.atoms.center_of_geometry()
+    array([-0.04223882,  0.01418196, -0.03504874])
+
+The following methods all require coordinates.
+
+    * :meth:`~MDAnalysis.core.groups.GroupBase.bbox`
+    * :meth:`~MDAnalysis.core.groups.GroupBase.bsphere`
+    * :meth:`~MDAnalysis.core.groups.GroupBase.center`
+    * :meth:`~MDAnalysis.core.groups.GroupBase.center_of_geometry`
+    * :meth:`~MDAnalysis.core.groups.GroupBase.centroid`
+    * :meth:`~MDAnalysis.core.groups.GroupBase.pack_into_box`
+    * :meth:`~MDAnalysis.core.groups.GroupBase.rotate`
+    * :meth:`~MDAnalysis.core.groups.GroupBase.rotate_by`
+    * :meth:`~MDAnalysis.core.groups.GroupBase.transform`
+    * :meth:`~MDAnalysis.core.groups.GroupBase.translate`
+    * :meth:`~MDAnalysis.core.groups.GroupBase.unwrap`
+    * :meth:`~MDAnalysis.core.groups.GroupBase.wrap`
+
+Other methods are made available when certain topology attributes are defined in the Universe. These are listed below.
+
+.. include:: scripts/topology_groupmethods.txt

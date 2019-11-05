@@ -5,19 +5,8 @@ Generate topology_defaults.txt:
 A table of whether TopologyAttrs are atomwise, residuewise, or segmentwise, and their defaults
 """
 
-from __future__ import print_function
-import os
-import sys
-import tabulate
-from collections import defaultdict
-from MDAnalysis import _TOPOLOGY_ATTRS
 from MDAnalysis.core.topologyattrs import AtomAttr, ResidueAttr, SegmentAttr 
-
-ignore = ('topologyattrs', 'atomattrs', 'residueattrs', 'segmentattrs', 'indices', 'resindices', 'segindices')
-
-TOPOLOGY_CLS = sorted(set([x for x in _TOPOLOGY_ATTRS.values()
-                           if not x.attrname in ignore]), 
-                      key=lambda x: x.attrname)
+from base import TOPOLOGY_CLS, write_rst_table
 
 HEADINGS = ('Atom', 'AtomGroup', 'default', 'level', 'type')
 
@@ -46,14 +35,6 @@ def get_lines():
         lines.append((klass.attrname, klass.singular, DEFAULTS[klass.attrname], level, klass.dtype))
     return lines
 
-def write_table(lines):
-    filename = 'topology_defaults.txt'
-    path = os.getcwd()
-    if not 'scripts' in path:
-        filename = os.path.join('scripts', filename)
-    with open(filename, 'w') as f:
-        print(tabulate.tabulate(lines, headers=HEADINGS, tablefmt='rst'), file=f)
-
 if __name__ == '__main__':
     lines = get_lines()
-    write_table(lines)
+    write_rst_table(lines, HEADINGS, 'topology_defaults.txt')

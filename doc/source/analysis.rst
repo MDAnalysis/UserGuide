@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. analysis:
+.. _analysis-label:
 
 =====================
 Analysis
@@ -9,6 +9,8 @@ Analysis
 .. toctree::
    :maxdepth: 1
    :caption: Alignments, distances, and contacts
+   
+   examples/analysis/alignments.ipynb
 
 .. toctree::
    :maxdepth: 1

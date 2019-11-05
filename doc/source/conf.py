@@ -51,6 +51,8 @@ extensions = [
 
 pygments_style = 'default'
 
+todo_include_todos = True
+
 mathjax_path = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
 
 site_url = "https://www.mdanalysis.org/UserGuide"
