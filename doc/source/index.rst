@@ -51,6 +51,7 @@ Gromacs_, CHARMM_, VMD_ and PyMol_ (see :ref:`selection-exporters`). It uses Num
    trajectories
    formats/index
    selections
+   analysis
 
 .. toctree::
    :maxdepth: 1

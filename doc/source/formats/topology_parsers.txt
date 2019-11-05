@@ -1,0 +1,25 @@
+=====================================  ===============================  =========================================================================================  ====================
+Format                                 Description                      Attributes read                                                                            Attributes guessed
+=====================================  ===============================  =========================================================================================  ====================
+:ref:`CONFIG <CONFIG-label>`           DL_Poly CONFIG file              names                                                                                      masses, types
+:ref:`CRD <CRD-label>`                 CHARMM CARD file                 names, resnames, tempfactors                                                               masses, types
+:ref:`DATA <DATA-label>`               LAMMPS data file                 angles, bonds, charges, dihedrals, impropers
+:ref:`DMS <DMS-label>`                 DESRES Molecular Structure file  atomnums, bonds, chainIDs, charges, names, resnames                                        types
+:ref:`GMS <GMS-label>`                 GAMESS file                      atomiccharges, names                                                                       masses, types
+:ref:`GRO <GRO-label>`                 GROMACS structure file           names, resnames                                                                            masses, types
+:ref:`GSD <GSD-label>`                 HOOMD GSD file                   angles, bonds, charges, dihedrals, impropers, names, radii, resnames
+:ref:`HISTORY <HISTORY-label>`         DL_Poly HISTORY file             names                                                                                      masses, types
+:ref:`LAMMPSDUMP <LAMMPSDUMP-label>`   LAMMPS ascii dump file                                                                                                      masses
+:ref:`MMTF <MMTF-label>`               MMTF file                        altLocs, bfactors, bonds, charges, icodes, models, names, occupancies, resnames            masses
+:ref:`MOL2 <MOL2-label>`               Tripos MOL2 file                 bonds, charges, names, resnames                                                            masses
+:ref:`PDB, ENT <PDB-label>`            Standard PDB file                altLocs, bonds, chainIDs, icodes, names, occupancies, record_types, resnames, tempfactors  masses, types
+:ref:`PDBQT <PDBQT-label>`             PDBQT file                       altLocs, charges, icodes, names, occupancies, record_types, resnames, tempfactors          masses
+:ref:`PQR <PQR-label>`                 PQR file                         charges, icodes, names, radii, record_types, resnames                                      masses, types
+:ref:`PSF <PSF-label>`                 CHARMM, NAMD, or XPLOR PSF file  angles, bonds, charges, dihedrals, impropers, names, resnames
+:ref:`TOP, PRMTOP, PARM7 <TOP-label>`  AMBER topology file              angles, bonds, charges, dihedrals, impropers, names, resnames, type_indices                elements
+:ref:`TPR <TPR-label>`                 GROMACS run topology file        angles, bonds, charges, dihedrals, impropers, molnums, moltypes, names, resnames
+:ref:`TXYZ, ARC <TXYZ-label>`          Tinker file                      bonds, names                                                                               masses
+:ref:`XML <XML-label>`                 HOOMD XML file                   angles, bonds, charges, dihedrals, impropers, radii
+:ref:`XPDB <XPDB-label>`               Extended PDB file                altLocs, bonds, chainIDs, icodes, names, occupancies, record_types, resnames, tempfactors  masses, types
+:ref:`XYZ <XYZ-label>`                 XYZ file                         names                                                                                      masses, types
+=====================================  ===============================  =========================================================================================  ====================

@@ -8,9 +8,9 @@ Advanced topology concepts
 .. _adding-residue-label:
 
 Adding a Residue or Segment to a Universe
------------------------------------------
+=========================================
 
-To add a :class:`~MDAnalysis.core.groups.Residue` or :code:`~MDAnalysis.core.groups.Segment` to a topology, use the :meth:`Universe.add_Residue <MDAnalysis.core.universe.Universe.add_Residue>` or :meth:`Universe.add_Segment <MDAnalysis.core.universe.Universe.add_Segment>` methods.
+To add a :class:`~MDAnalysis.core.groups.Residue` or :class:`~MDAnalysis.core.groups.Segment` to a topology, use the :meth:`Universe.add_Residue <MDAnalysis.core.universe.Universe.add_Residue>` or :meth:`Universe.add_Segment <MDAnalysis.core.universe.Universe.add_Segment>` methods.
 
 .. code-block::
 
@@ -39,7 +39,7 @@ Another example is `creating custom segments for protein domains <examples/const
 .. _molecule-label:
 
 Molecules
----------
+=========
 
 In MDAnalysis, a molecule is a GROMACS-only concept that is relevant in some analysis methods. A group of atoms is considered a "molecule" if it is defined by the :code:`[ moleculetype ]` section in a `GROMACS topology <http://manual.gromacs.org/documentation/2019/reference-manual/file-formats.html#top>`_. Molecules are only defined if a Universe is created from a GROMACS topology file (i.e. with a .tpr extension). Unlike fragments, they are not accessible directly from atoms.
 
@@ -59,3 +59,9 @@ However, the order (:code:`molnum`) and name (:code:`moltype`) of each molecule 
     array([    0,     0,     0, ..., 11086, 11087, 11088])
     >>> tpr.atoms.moltypes
     array(['AKeco', 'AKeco', 'AKeco', ..., 'NA+', 'NA+', 'NA+'], dtype=object)
+
+
+.. _custom-topologyattrs-label:
+
+Adding custom TopologyAttrs
+===========================

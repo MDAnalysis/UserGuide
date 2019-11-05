@@ -143,6 +143,7 @@ Importantly, some guessers have not been fully implemented, or occasionally MDAn
 
 See the API reference for more information on how to use guessing methods. 
 
+.. _universe-properties-label:
 
 -------------------------------
 Universe properties and methods
@@ -150,7 +151,7 @@ Universe properties and methods
 
 A Universe holds master groups of atoms and topology objects:
 
-    * :attr:`atoms`: all Atoms in the system
+    * :attr:`atoms`: all Atoms in the system, in an :ref:`AtomGroup <atomgroup>`.
     * :attr:`residues`: all Residues in the system
     * :attr:`segments`: all Segments in the system
     * :attr:`bonds`: all bond TopologyObjects in the system
@@ -158,10 +159,12 @@ A Universe holds master groups of atoms and topology objects:
     * :attr:`dihedrals`: all dihedral TopologyObjects in the system
     * :attr:`impropers`: all improper TopologyObjects in the system
 
+:ref:`Residues and Segments <residues-and-segments>` are chemically meaningful groups of Atoms.
+
 Modifying a topology is typically done through the :class:`~MDAnalysis.core.universe.Universe`, which contains several methods for adding properties:
 
-    * :func:`add_TopologyAttr`
-    * :func:`add_Residue`
-    * :func:`add_Segment`
+    * :meth:`~MDAnalysis.core.universe.Universe.add_TopologyAttr`
+    * :meth:`~MDAnalysis.core.universe.Universe.add_Residue`
+    * :meth:`~MDAnalysis.core.universe.Universe.add_Segment`
 
-See :ref:`topology-attributes` for more information on which :code:`TopologyAttr`\ s can be added.
+See :ref:`topology-attributes` for more information on which topology attributes can be added, and `<examples/constructing_universe.ipynb>`_ for examples on adding attributes and Segments.

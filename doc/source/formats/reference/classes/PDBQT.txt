@@ -1,0 +1,5 @@
+=====================  ====================================================
+**Coordinate reader**  :class:`MDAnalysis.coordinates.PDBQT.PDBQTReader`
+**Coordinate writer**  :class:`MDAnalysis.coordinates.PDBQT.PDBQTWriter`
+**Topology parser**    :class:`MDAnalysis.topology.PDBQTParser.PDBQTParser`
+=====================  ====================================================

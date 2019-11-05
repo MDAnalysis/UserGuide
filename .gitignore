@@ -22,4 +22,10 @@ doc/build
 *.so
 
 # Ignore generated docs
-doc/source/scripts/generated/*
+doc/source/scripts/*.txt
+
+# example files
+doc/source/examples/analysis/*.pdb
+doc/source/examples/analysis/*.xtc
+doc/source/examples/analysis/*.dcd
+doc/source/examples/analysis/.*

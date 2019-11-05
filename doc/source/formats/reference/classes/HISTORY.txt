@@ -1,0 +1,4 @@
+=====================  =======================================================
+**Coordinate reader**  :class:`MDAnalysis.coordinates.DLPoly.HistoryReader`
+**Topology parser**    :class:`MDAnalysis.topology.DLPolyParser.HistoryParser`
+=====================  =======================================================

@@ -26,7 +26,7 @@ author = 'Lily Wang, Richard J Gowers, Oliver Beckstein'
 
 # -- Scripts -----------------------------------------------------------------
 # regenerate tables for which residues are selected by keywords
-subprocess.call('./scripts/gen_standard_selections.py')
+# subprocess.call('./scripts/gen_standard_selections.py')
 
 # -- General configuration ---------------------------------------------------
 

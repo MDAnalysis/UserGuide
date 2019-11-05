@@ -5,5 +5,12 @@
 Formats
 ====================
 
-So many Formats
+.. toctree::
+   :maxdepth: 1
+   :caption: Topology
 
+   topologyparsers
+   dms
+   gsd
+   psf
+   tpr
