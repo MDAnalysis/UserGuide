@@ -1,8 +1,17 @@
 #!/usr/bin/env python
+"""
+Generate two tables:
+    - connectivityattrs.txt: A table of supported formats for bonds, angles, dihedrals, impropers
+    - topologyattrs.txt: A table of every supported format for every non-connectivity attribute,
+                         noting if attributes are read or guessed.
+
+This script imports the testsuite, which tests these.
+"""
 from __future__ import print_function
 import os
 import sys
 import tabulate
+from collections import defaultdict
 import MDAnalysis as mda
 
 tests = os.path.join(mda.__path__[0], '..', '..', 'testsuite', 'MDAnalysisTests')
@@ -61,6 +70,8 @@ DESCRIPTIONS = {
     'XYZ': 'XYZ file',
 }
 
+
+
 COORDINATES = ('CRD', 'CONFIG', 'HISTORY', 'DMS', 
                'GMS', 'GRO', 'GSD', 'DATA', 
                'LAMMPSDUMP', 'MMTF', 'MOL2', 
@@ -75,14 +86,11 @@ NOTES =  {
 
 MANDATORY_ATTRS = set(mandatory_attrs)
 
-HEADINGS = ('Format', 'Type',
-            'Attributes read', 'Attributes guessed',
-            # 'Contains coordinates',  # too long
-            # 'Notes',  # too long
-            'Class')
+
 
 def get_lines():
     lines = []
+    all_attrs = defaultdict(list)
     for p in PARSER_TESTS:
         f = p.parser.format
         if isinstance(f, (list, tuple)):
@@ -94,26 +102,89 @@ def get_lines():
         
         
         desc = DESCRIPTIONS[key]  # description
-        read = sorted(set(p.expected_attrs) - MANDATORY_ATTRS)  # attributes read
+        read = sorted((set(p.expected_attrs)-MANDATORY_ATTRS)-set(p.guessed_attrs))  # attributes read
         guessed = sorted(p.guessed_attrs)  # attributes guessed
         # coordinates = key in COORDINATES  # contains coordinates
         # notes = NOTES.get(key, '')  # other notes
+
+        for a in set(read+guessed):
+            all_attrs[a].append(fstr)
 
         if key in COORDINATES:
             fstr += '\ [#coordinates]_'
         klass = ':class:`~'+'.'.join([p.parser.__module__, p.parser.__name__])+'`'  # class
 
         lines.append((fstr, desc, ', '.join(read), ', '.join(guessed), klass))
-    return lines
+    return lines, all_attrs
 
-def write_topology_table():
-    lines = get_lines()
+FORMAT_HEADINGS = ('Format', 'Type',
+            'Attributes read', 'Attributes guessed',
+            # 'Contains coordinates',  # too long
+            # 'Notes',  # too long
+            'Class')
+
+def write_format_table(lines):
     filename = 'topology_parsers.txt'
     path = os.getcwd()
     if not 'scripts' in path:
         filename = os.path.join('scripts', filename)
     with open(filename, 'w') as f:
-        print(tabulate.tabulate(lines, headers=HEADINGS, tablefmt='rst'), file=f)
+        print(tabulate.tabulate(lines, headers=FORMAT_HEADINGS, tablefmt='rst'), file=f)
+
+tab = [
+    ('altLoc      ', 'altLocs      ', 'Alternate location                '),
+    ('atomiccharge', 'atomiccharges', 'Atomic number                     '),
+    ('atomnum     ', 'atomnums     ', '?                                 '),
+    ('bfactor     ', 'bfactors     ', 'alias of tempfactor               '),
+    ('chainID     ', 'chainIDs     ', 'chain ID                          '),
+    ('charge      ', 'charges      ', 'partial atomic charge             '),
+    ('element     ', 'elements     ', 'atom element                      '),
+    ('icode       ', 'icodes       ', 'atom insertion code               '),
+    ('model       ', 'models       ', 'model number (from 0)             '),
+    ('molnum      ', 'molnums      ', '[molecules] number (from 0)     '),
+    ('moltype     ', 'moltypes     ', '[moleculetype] name             '),
+    ('name        ', 'names        ', 'atom names                        '),
+    ('occupancy   ', 'occupancies  ', 'atom occupancy                    '),
+    ('radius      ', 'radii        ', 'atomic radius                     '),
+    ('record_type ', 'record_types ', 'ATOM / HETATM                     '),
+    ('resname     ', 'resnames     ', 'residue name (except GSD has ints)'),
+    ('tempfactor  ', 'tempfactors  ', 'B-factor                          '),
+    ('type_index  ', 'type_indices ', 'amber atom type number            '),
+]
+
+ATTRS = {plural.strip():(single.strip(), desc.strip()) for single, plural, desc in tab}
+
+ATTR_HEADINGS = ('Atom', 'AtomGroup', 'Description', 'Supported formats')
+CONNECTIVITY_HEADINGS = ('Atom', 'AtomGroup', 'Supported formats')
+
+def write_attr_table(attrs):
+    lines = []
+    for a, classes in sorted(attrs.items()):
+        try:
+            single, desc = ATTRS[a]
+            lines.append((single, a, desc, ', '.join(sorted(classes))))
+        except KeyError:
+            pass
+    filename = 'topologyattrs.txt'
+    connectivity = 'connectivityattrs.txt'
+    path = os.getcwd()
+    if not 'scripts' in path:
+        filename = os.path.join('scripts', filename)
+        connectivity = os.path.join('scripts', connectivity)
+
+    with open(filename, 'w') as f:
+        print(tabulate.tabulate(lines, headers=ATTR_HEADINGS, tablefmt='rst'), file=f)
+
+    bond_lines = []
+    for a in ('bonds', 'angles', 'dihedrals', 'impropers'):
+        classes = attrs.get(a, [])
+        bond_lines.append((a, a, ', '.join(sorted(classes))))
+    
+    with open(connectivity, 'w') as f:
+        print(tabulate.tabulate(bond_lines, headers=CONNECTIVITY_HEADINGS, tablefmt='rst'), file=f)
+
 
 if __name__ == '__main__':
-    write_topology_table()
+    format_lines, attrs = get_lines()
+    write_format_table(format_lines)
+    write_attr_table(attrs)

@@ -59,70 +59,91 @@ The following attributes are read or guessed from every format supported by MDAn
 Format-specific attributes
 ---------------------------------
 
-+--------------+---------------+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| **Atom**     | **AtomGroup** | **Description**                               | **Supported formats**                                                                                     |
-+--------------+---------------+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| altLoc       | altLocs       | Alternate location                            | MMTF, PDB, PDBQT, PDBx                                                                                    |
-+--------------+---------------+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| atomiccharge | atomiccharges | Atomic number                                 | GAMESS                                                                                                    |
-+--------------+---------------+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| atomnum      | atomnums      | ?                                             | DMS                                                                                                       |
-+--------------+---------------+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| bfactor      | bfactors      | alias of tempfactor                           | MMTF                                                                                                      |
-+--------------+---------------+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| chainID      | chainIDs      | chain ID                                      | DMS                                                                                                       |
-+--------------+---------------+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| charge       | charges       | partial atomic charge                         | DMS, HOOMD GSD, HOOMD XML, LAMMPS, MMTF, MOL2, PDBQT, PSF, PRMTOP, TPR                                    |
-+--------------+---------------+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| element      | elements      | atom element                                  | PRMTOP                                                                                                    |
-+--------------+---------------+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| icode        | icodes        | atom insertion code                           | MMTF, PDB, PQR                                                                                            |
-+--------------+---------------+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| model        | models        | model number (from 0)                         | MMTF                                                                                                      |
-+--------------+---------------+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| molnum       | molnums       | [ molecules ] number (from 0)                 | TPR                                                                                                       |
-+--------------+---------------+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| moltype      | moltypes      | [ moleculetype ] name                         | TPR                                                                                                       |
-+--------------+---------------+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| name         | names         | atom names                                    | CRD, DL Poly, DMS, GAMESS, GRO, HOOMD GSD, MMTF, MOL2, PDB, PDBQT, PDBx, PQR, PSF, PRMTOP, TPR, TXYZ, XYZ |
-+--------------+---------------+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| occupancy    | occupancies   | atom occupancy                                | MMTF, PDBx, PDB, PDBQT                                                                                    |
-+--------------+---------------+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| radius       | radii         | atomic radius                                 | GSD, HOOMD XML, PQR                                                                                       |
-+--------------+---------------+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| record_type  | record_types  | ATOM / HETATM                                 | PDB, PDBQT, PQR, PDBx                                                                                     |
-+--------------+---------------+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| resname      | resnames      | residue name (except GSD, which has integers) | CRD, DMS, GRO, HOOMD GSD, MMTF, MOL2, PDB, PDBQT, PDBx, PQR, PSF, PRMTOP, TPR                             |
-+--------------+---------------+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| tempfactor   | tempfactors   | B-factor                                      | CRD, PDB, PDBx, PDBQT                                                                                     |
-+--------------+---------------+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| type_index   | type_indices  | amber atom type number                        | PRMTOP                                                                                                    |
-+--------------+---------------+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+The table below lists attributes that are read from supported formats. These can also be :ref:`added to a Universe <add-topologyattrs-label>` created from a file that does not support them. 
+
+.. include:: scripts/topologyattrs.txt
 
 .. _topologyobject-attr-label:
 
 -----------------------------------
-Bonds, angles, dihedrals, impropers
+Connectivity information
 -----------------------------------
 
-+-----------+---------------+-------------------------------------------------------------------------------------------------------+
-| **Atom**  | **AtomGroup** | **Supported formats**                                                                                 |
-+-----------+---------------+-------------------------------------------------------------------------------------------------------+
-| bonds     | bonds         | DMS, GSD, HOOMD XML, LAMMPS data, MMTF, MOL2, PDB (with CONECT records), PRMTOP, PSF, Tinker XYZ, TPR |
-+-----------+---------------+-------------------------------------------------------------------------------------------------------+
-| angles    | angles        | GSD, HOOMD XML, LAMMPS data, PRMTOP, PSF, TPR                                                         |
-+-----------+---------------+-------------------------------------------------------------------------------------------------------+
-| dihedrals | dihedrals     | GSD, HOOMD XML, LAMMPS data, PRMTOP, PSF, TPR                                                         |
-+-----------+---------------+-------------------------------------------------------------------------------------------------------+
-| impropers | impropers     | GSD, HOOMD XML, LAMMPS data, PRMTOP, PSF, TPR                                                         |
-+-----------+---------------+-------------------------------------------------------------------------------------------------------+
+MDAnalysis can also read connectivity information, if the file provides it. These become available as :ref:`topology-objects`, which have additional functionality.
+
+.. include:: scripts/connectivityattrs.txt
 
 
----------------------------------
-Adding or modifying TopologyAttrs
----------------------------------
+.. _add-topologyattrs-label:
 
-Each of the 
+----------------------------------
+Adding TopologyAttrs
+----------------------------------
+
+Each of the attributes above can be added to a Universe if it was not available in the file with :meth:`~MDAnalysis.core.universe.Universe.add_TopologyAttr`.
+
+:meth:`~MDAnalysis.core.universe.Universe.add_TopologyAttr` takes two arguments:
+
+    * :code:`topologyattr` : the singular or plural name of a TopologyAttr, *or* a MDAnalysis TopologyAttr object. This must already have been defined as a :class:`~MDAnalysis.core.topologyattrs.TopologyAttr` (see :ref:`custom-topologyattrs-label` for an example of adding a custom topology attribute).
+    * :code:`values` (optional) : if :code:`topologyattr` is a string, the values for that attribute. This can be :code:`None` if the attribute has default values defined, e.g. :code:`bfactors`. 
+
+.. ipython:: python
+
+    import MDAnalysis as mda
+    from MDAnalysis.tests.datafiles import PSF
+    psf = mda.Universe(PSF)
+    hasattr(psf.atoms, 'bfactors')
+    psf.add_TopologyAttr('bfactors')
+    psf.atoms.bfactors
+
+One way to modify topology attributes is to simply replace them with :meth:`~MDAnalysis.core.universe.Universe.add_TopologyAttr`:
+
+.. ipython:: python
+
+    psf.add_TopologyAttr('bfactors', range(len(psf.atoms)))
+    psf.atoms.bfactors
+
+The number of values provided should correspond with the "level" of the attribute. For example, B-factors are atomic-level information. However, residue names and residue ids apply to residues. See a :ref:`table of attribute levels and default values <topologyattr-defaults-label>` for more information.
+
+----------------------------------
+Modifying TopologyAttrs
+----------------------------------
+
+Existing topology attributes can be directly modified by assigning new values.
+
+.. ipython:: python
+
+    import MDAnalysis as mda
+    from MDAnalysis.tests.datafiles import PDB
+    pdb = mda.Universe(PDB)
+    pdb.residues[:3].resnames
+    pdb.residues[:3].resnames = ['RES1', 'RES2', 'RES3']
+    pdb.residues[:3].atoms.resnames
+
+
+.. note:: 
+
+    This method cannot be used with connectivity attributes, i.e. bonds, angles, dihedrals, and impropers. 
+
+
+Similarly to adding topology attributes with :meth:`~MDAnalysis.core.universe.Universe.add_TopologyAttr`, the "level" of the attribute matters. Residue attributes can only be assigned to attributes at the Residue or ResidueGroup level. The same applies to attributes for Atoms and Segments. For example, if we tried to assign resnames to an AtomGroup:
+
+.. ipython:: python
+    :okexcept:
+    
+    pdb.residues[0].atoms.resnames = ['new_name']
+
+
+.. _topologyattr-defaults-label:
+
+-----------------------------------
+Default values and attribute levels
+-----------------------------------
+
+Topology information in MDAnalysis is always associated with a level: one of atom, residue, or segment. For example, `indices` is Atom information, `resindices` is Residue information, and `segindices` is Segment information. Many topology attributes also have default values, so that they can be :ref:`added to a Universe without providing explicit values <add-topologyattrs-label>`, and expected types. The table below lists which attributes have default values, what they are, and the information level.
+
+.. include:: scripts/topology_defaults.txt
+
 
 
 .. _topology-objects:
@@ -137,9 +158,9 @@ MDAnalysis defines four types of :class:`~MDAnalysis.core.topologyobjects.Topolo
     * :class:`~MDAnalysis.core.topologyobjects.Dihedral`
     * :class:`~MDAnalysis.core.topologyobjects.Improper`
 
-The value of each topology object can be calculated with :func:`value`, or the name of the topology object (:func:`angle` in this case). See :ref:`topology-objects` for more information. 
+The value of each topology object can be calculated with :func:`value`, or the name of the topology object. The only exception to this is :class:`~MDAnalysis.core.topologyobjects.Bond`, where the other name for :meth:`~MDAnalysis.core.topologyobjects.Bond.value` is :meth:`~MDAnalysis.core.topologyobjects.Bond.length`.
 
-Each :class:`~MDAnalysis.core.topologyobjects.TopologyObject` also contain the following attributes:
+Each :class:`~MDAnalysis.core.topologyobjects.TopologyObject` also contains the following attributes:
 
     * :attr:`~MDAnalysis.core.topologyobjects.TopologyObject.atoms` : the ordered atoms in the object
     * :attr:`~MDAnalysis.core.topologyobjects.TopologyObject.indices` : the ordered atom indices in the object
@@ -147,17 +168,40 @@ Each :class:`~MDAnalysis.core.topologyobjects.TopologyObject` also contain the f
     * :attr:`~MDAnalysis.core.topologyobjects.TopologyObject.is_guessed` : MDAnalysis can guess bonds. This property records if the object was read from a file or guessed.
 
 
-Groups of these are held in :class:`~MDAnalysis.core.topologyobjects.TopologyGroup`\ s. The master groups of TopologyObjects are :ref:`accessible as properties of a Universe <universe-properties-label>`. TopologyObjects are typically read from a file with connectivity information (:ref:`see the supported formats here <topologyobject-attr-label>`). However, they can be created in two ways: by adding them to a Universe, or by creating them from an AtomGroup. While the first method adds new objects to the respective Universe master :class:`~MDAnalysis.core.topologyobjects.TopologyGroup`, the second does not.
-
-Bonds can be guessed based on distance and Van der Waals' radii with :meth:`AtomGroup.guess_bonds <MDAnalysis.core.groups.AtomGroup.guess_bonds>`.
-
-
-Users can also define new TopologyObjects through an :class:`~MDAnalysis.core.groups.AtomGroup`.
+Groups of these are held in :class:`~MDAnalysis.core.topologyobjects.TopologyGroup`\ s. The master groups of TopologyObjects are :ref:`accessible as properties of a Universe <universe-properties-label>`. TopologyObjects are typically read from a file with connectivity information (:ref:`see the supported formats here <topologyobject-attr-label>`). However, they can be created in two ways: by adding them to a Universe, or by creating them from an :class:`~MDAnalysis.core.groups.AtomGroup`. Bonds can be guessed based on distance and Van der Waals' radii with :meth:`AtomGroup.guess_bonds <MDAnalysis.core.groups.AtomGroup.guess_bonds>`.
 
 --------------------
 Adding to a Universe
 --------------------
 
+As of version 0.21.0, TopologyObjects have specific methods for adding to a Universe:
+
+    * :meth:`~MDAnalysis.core.universe.Universe.add_Bonds`,
+    * :meth:`~MDAnalysis.core.universe.Universe.add_Angles`,
+    * :meth:`~MDAnalysis.core.universe.Universe.add_Dihedrals`,
+    * :meth:`~MDAnalysis.core.universe.Universe.add_Impropers`
+
+These accept the following values:
+
+    * a `~MDAnalysis.core.topologyobjects.TopologyGroup`
+    * an iterable of atom indices
+    * an iterable of `~MDAnalysis.core.topologyobjects.TopologyObject`\ s
+
+.. todo:: 
+
+    Provide example when 0.21.0 is released
+
+
+Prior to version 0.21.0, objects could be added to a Universe with :meth:`~MDAnalysis.core.universe.Universe.add_TopologyAttr`. 
+
+.. ipython:: python
+
+    hasattr(pdb, 'angles')
+    pdb.add_TopologyAttr('angles', [(0, 1, 2), (2, 3, 4)])
+    pdb.angles
+
+
+Both of these methods add the new objects to the assocated master :class:`~MDAnalysis.core.topologyobjects.TopologyGroup` in the Universe.
 
 
 --------------------------
@@ -173,25 +217,20 @@ An :class:`~MDAnalysis.core.groups.AtomGroup` can be represented as a bond, angl
 
 The :class:`~MDAnalysis.core.groups.AtomGroup` must contain the corresponding number of atoms, in the desired order. For example, a bond cannot be created from three atoms.
 
-.. code-block:: python
+.. ipython:: python
+    :okexcept:
 
-    >>> u.atoms[[3, 4, 2]].bond
-    Traceback (most recent call last):
-    File "<stdin>", line 1, in <module>
-    File "MDAnalysis/package/MDAnalysis/core/groups.py", line 2954, in bond
-        "bond only makes sense for a group with exactly 2 atoms")
-    ValueError: bond only makes sense for a group with exactly 2 atoms
+    import MDAnalysis as mda
+    from MDAnalysis.tests.datafiles import PDB
+    pdb = mda.Universe(PDB)
+    pdb.atoms[[3, 4, 2]].bond
+
 
 However, the angle Atom 2 ----- Atom 4 ------ Atom 3 can be calculated, even if the atoms are not connected with bonds.
 
-.. code-block:: python
+.. ipython:: python
 
-    >>> a = u.atoms[[3, 4, 2]].angle
-    >>> a
-    <Angle between: Atom 2, Atom 4, Atom 3>
-    >>> a.angle
-    <bound method Angle.angle of <Angle between: Atom 2, Atom 4, Atom 3>>
-    >>> a.angle()
-    47.63986538582528
-    >>> a.value()
-    47.63986538582528
+    a = pdb.atoms[[3, 4, 2]].angle
+    print(a.value())
+
+
