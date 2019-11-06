@@ -22,7 +22,7 @@ doc/build
 *.so
 
 # Ignore generated docs
-doc/source/scripts/*.txt
+*.txt
 
 # example files
 doc/source/examples/analysis/*.pdb
