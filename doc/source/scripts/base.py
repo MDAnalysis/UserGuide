@@ -62,7 +62,6 @@ ATTR_DESCRIPTIONS = {
     'tempfactors': 'B-factor',
     'type_indices': 'amber atom type number',
 }
-
 ATTRS = {c.attrname:(c.singular, ATTR_DESCRIPTIONS.get(c.attrname, '')) for c in _TOPOLOGY_ATTRS.values()}
 
 def sphinx_class(klass, tilde=True):

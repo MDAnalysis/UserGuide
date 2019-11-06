@@ -2,9 +2,8 @@
 """
 Generate two tables:
     - connectivityattrs.txt: A table of supported formats for bonds, angles, dihedrals, impropers
-    - topologyattrs.txt: A table of every supported format for every non-connectivity attribute,
-                         noting if attributes are read or guessed.
-    - topology_parsers.txt
+    - topologyattrs.txt: A table of supported formats for non-connectivity attributes.
+    - topology_parsers.txt: A table of all formats and the attributes they read and guess
 
 This script imports the testsuite, which tests these.
 """
