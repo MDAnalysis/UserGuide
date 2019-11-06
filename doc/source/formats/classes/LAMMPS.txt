@@ -1,4 +1,0 @@
-=====================  ================================================
-**Coordinate reader**  :class:`MDAnalysis.coordinates.LAMMPS.DCDReader`
-**Coordinate writer**  :class:`MDAnalysis.coordinates.LAMMPS.DCDWriter`
-=====================  ================================================

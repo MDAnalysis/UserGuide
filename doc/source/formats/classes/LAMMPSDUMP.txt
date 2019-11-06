@@ -1,4 +1,0 @@
-=====================  ==========================================================
-**Coordinate reader**  :class:`MDAnalysis.coordinates.LAMMPS.DumpReader`
-**Topology parser**    :class:`MDAnalysis.topology.LAMMPSParser.LammpsDumpParser`
-=====================  ==========================================================

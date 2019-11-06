@@ -1,4 +1,0 @@
-=====================  ==================================================
-**Coordinate reader**  :class:`MDAnalysis.coordinates.MMTF.MMTFReader`
-**Topology parser**    :class:`MDAnalysis.topology.MMTFParser.MMTFParser`
-=====================  ==================================================

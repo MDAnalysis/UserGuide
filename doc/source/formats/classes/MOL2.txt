@@ -1,5 +1,0 @@
-=====================  ==================================================
-**Coordinate reader**  :class:`MDAnalysis.coordinates.MOL2.MOL2Reader`
-**Coordinate writer**  :class:`MDAnalysis.coordinates.MOL2.MOL2Writer`
-**Topology parser**    :class:`MDAnalysis.topology.MOL2Parser.MOL2Parser`
-=====================  ==================================================

@@ -1,4 +1,0 @@
-=====================  ==============================================
-**Coordinate reader**  :class:`MDAnalysis.coordinates.TRJ.NCDFReader`
-**Coordinate writer**  :class:`MDAnalysis.coordinates.TRJ.NCDFWriter`
-=====================  ==============================================

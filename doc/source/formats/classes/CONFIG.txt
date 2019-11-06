@@ -1,4 +1,0 @@
-=====================  ======================================================
-**Coordinate reader**  :class:`MDAnalysis.coordinates.DLPoly.ConfigReader`
-**Topology parser**    :class:`MDAnalysis.topology.DLPolyParser.ConfigParser`
-=====================  ======================================================
