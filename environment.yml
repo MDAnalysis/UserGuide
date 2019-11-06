@@ -8,6 +8,7 @@ dependencies:
   - sphinx
   - ipywidgets
   - mdanalysis=0.20.1
+  - MDAnalysisTests
   - pip:
     - sphinx_rtd_theme
     - sphinx-sitemap

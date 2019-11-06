@@ -1,0 +1,5 @@
+=====================  ================================================
+**Coordinate reader**  :class:`MDAnalysis.coordinates.CRD.CRDReader`
+**Coordinate writer**  :class:`MDAnalysis.coordinates.CRD.CRDWriter`
+**Topology parser**    :class:`MDAnalysis.topology.CRDParser.CRDParser`
+=====================  ================================================

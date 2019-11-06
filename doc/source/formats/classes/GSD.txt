@@ -1,0 +1,4 @@
+=====================  ================================================
+**Coordinate reader**  :class:`MDAnalysis.coordinates.GSD.GSDReader`
+**Topology parser**    :class:`MDAnalysis.topology.GSDParser.GSDParser`
+=====================  ================================================

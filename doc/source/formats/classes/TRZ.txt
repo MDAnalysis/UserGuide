@@ -1,0 +1,4 @@
+=====================  =============================================
+**Coordinate reader**  :class:`MDAnalysis.coordinates.TRZ.TRZReader`
+**Coordinate writer**  :class:`MDAnalysis.coordinates.TRZ.TRZWriter`
+=====================  =============================================

@@ -5,6 +5,8 @@
 GSD (HOOMD GSD file)
 ====================
 
+.. include:: classes/GSD.txt
+
 The HOOMD schema GSD file format can contain both topology and trajectory information (output of `HOOMD-blue`_). 
 
 .. important:: 

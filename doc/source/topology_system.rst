@@ -8,13 +8,13 @@ The topology system
 MDAnalysis groups static data about a :class:`~MDAnalysis.core.universe.Universe` into its topology. This is typically loaded from a topology file. Topology information falls into 3 categories:
 
     * :ref:`Atom containers (Residues and Segments) <residues-and-segments>`
-    * :ref:`Atom attributes (e.g. name, mass, bfactor) <topology-attributes>`
+    * :ref:`Atom attributes (e.g. name, mass, bfactor) <topology-attributes-label>`
     * :ref:`Topology objects: bonds, angles, dihedrals, impropers <topology-objects>`
 
 Users will almost never interact directly with a :class:`~MDAnalysis.core.topology.Topology`. Modifying atom containers or topology attributes is typically done through :class:`~MDAnalysis.core.universe.Universe`. Methods for viewing containers or topology attributes, or for calculating topology object values, are accessed through :class:`~MDAnalysis.core.groups.AtomGroup`.
 
 
-.. _topology-attributes:
+.. _topology-attributes-label:
 
 Topology attributes
 ===================

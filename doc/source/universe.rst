@@ -22,6 +22,7 @@ A :class:`~MDAnalysis.core.universe.Universe` ties the static information from t
 Creating a Universe
 -------------------
 
+.. _universe-loading-label:
 
 Loading from files
 ------------------
@@ -167,4 +168,4 @@ Modifying a topology is typically done through the :class:`~MDAnalysis.core.univ
     * :meth:`~MDAnalysis.core.universe.Universe.add_Residue`
     * :meth:`~MDAnalysis.core.universe.Universe.add_Segment`
 
-See :ref:`topology-attributes` for more information on which topology attributes can be added, and `<examples/constructing_universe.ipynb>`_ for examples on adding attributes and Segments.
+See :ref:`topology-attributes-label` for more information on which topology attributes can be added, and `<examples/constructing_universe.ipynb>`_ for examples on adding attributes and Segments.

@@ -53,7 +53,7 @@ In MDAnalysis, a molecule is a GROMACS-only concept that is relevant in some ana
         cls=self.__class__.__name__, attr=attr))
     AttributeError: AtomGroup has no attribute molecules
 
-However, the order (:code:`molnum`) and name (:code:`moltype`) of each molecule is accessible as :ref:`topology attributes <topology-attributes>`::
+However, the order (:code:`molnum`) and name (:code:`moltype`) of each molecule is accessible as :ref:`topology attributes <topology-attributes-label>`::
 
     >>> tpr.atoms.molnums
     array([    0,     0,     0, ..., 11086, 11087, 11088])

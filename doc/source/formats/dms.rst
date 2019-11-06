@@ -5,6 +5,8 @@
 DMS (Desmond Molecular Structure files)
 =======================================
 
+.. include:: classes/DMS.txt
+
 The DESRES Molecular Structure (DMS) file is an SQLite-format database for storing coordinate and topology information. See the `Desmond Users Guide`_ (chapter 6 and chapter 17) for more information.
 
 .. important:: **Atom ids**

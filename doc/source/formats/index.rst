@@ -5,12 +5,45 @@
 Formats
 ====================
 
+Overview
+========
+
+MDAnalysis can read topology or coordinate information from a wide variety of file formats. The emphasis is on formats used in popular computational chemistry software. By default, MDAnalysis figures out formats by looking at the extension, unless the format is :ref:`explicitly specified <universe-loading-label>` with the ``format`` or ``topology_format`` keywords.
+
+Below is :ref:`a table of formats in MDAnalysis <format-overview-label>`, and which information can be read from them. A topology file supplies the list of atoms in the system, their connectivity and possibly additional information such as B-factors, partial charges, etc. The details depend on the file format and not every topology file provides all (or even any) additional data.
+
+.. warning::
+
+    File formats do not always behave the way you might expect in MDAnalysis. It is *highly* recommended that you read the page for your data file format before using MDAnalysis. 
+
+As a minimum, all topology parsers will provide atom ``ids``, atom ``types``, ``masses``, ``resids``, ``resnums``, and ``segids``. They will also assign all Atoms to Residues and all Residues to Segments. For systems without residues and segments, this results in there being a single Residue and Segment to which all Atoms belong. See :ref:`topology-attributes-label` for more topology attributes.
+
+Often when data is not provided by a file, it will be guessed based on other data in the file. In this scenario, MDAnalysis will issue a warning. See :ref:`guessing-label` for more information.
+
+
+.. _format-overview-label:
+
+.. table:: Table of all supported formats in MDAnalysis
+
+    .. include:: format_overview.txt
+
+Topology
+========
+
+.. table:: Table of supported topology parsers and the attributes read
+
+    .. include:: topology_parsers.txt
+
+Coordinates
+===========
+
+Format reference
+================
 .. toctree::
    :maxdepth: 1
-   :caption: Topology
 
-   topologyparsers
    dms
    gsd
+   pdb
    psf
    tpr

@@ -5,6 +5,8 @@
 TPR (GROMACS run topology files)
 ====================================
 
+.. include:: classes/TPR.txt
+
 A GROMACS TPR file is a portable binary run input file. It contains both topology and coordinate information. However, MDAnalysis currently only reads topology information about atoms, bonds, dihedrals, and impropers; it does not read the coordinate information.  
 
 .. important:: **Atom ids, residue resids, and molnums**

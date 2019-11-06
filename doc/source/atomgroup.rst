@@ -166,7 +166,7 @@ An :class:`~MDAnalysis.core.groups.AtomGroup` can be constructed from another by
     <AtomGroup with 19 atoms>]
 
 
-An :class:`~MDAnalysis.core.groups.AtomGroup` can also be separated according to values of `topology attributes <../topology_system.html#topology-attributes>`_ to produce a dictionary of :code:`{value:AtomGroup}`. 
+An :class:`~MDAnalysis.core.groups.AtomGroup` can also be separated according to values of :ref:`topology attributes <topology-attributes-label>` to produce a dictionary of :code:`{value:AtomGroup}`. 
 
 .. code-block::
 

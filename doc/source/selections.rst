@@ -111,7 +111,7 @@ name *atom-name*
 type *atom-type*
     select by atom type; this is either a string or a number and depends on
     the force field; it is read from the topology file (e.g. the CHARMM PSF
-    file contains numeric atom types). This uses the ``Atom.type`` :ref:`topology attribute <topology-attributes>`.
+    file contains numeric atom types). This uses the ``Atom.type`` :ref:`topology attribute <topology-attributes-label>`.
 
 atom *seg-name residue-number atom-name*
     a selector for a single atom consisting of segid resid atomname,
@@ -125,7 +125,7 @@ altloc *alternative-location*
     that have an altloc B record.
 
 moltype *molecule-type*
-    select by the ``moltype`` :ref:`topology attribute <topology-attributes>`, e.g. ``moltype Protein_A``. At the moment, only the TPR format defines the ``moltype``.
+    select by the ``moltype`` :ref:`topology attribute <topology-attributes-label>`, e.g. ``moltype Protein_A``. At the moment, only the TPR format defines the ``moltype``.
 
 Boolean
 -------
@@ -223,7 +223,7 @@ Index
 index *index-range*
     selects all atoms within a range of (0-based) inclusive indices,
     e.g. ``index 0`` selects the first atom in the universe; ``index 5:10``
-    selects the 6th through 11th atoms, inclusive. This uses the ``Atom.index`` :ref:`topology attribute <topology-attributes>`.
+    selects the 6th through 11th atoms, inclusive. This uses the ``Atom.index`` :ref:`topology attribute <topology-attributes-label>`.
 
 bynum *number-range*
     selects all atoms within a range of (1-based) inclusive indices,
@@ -232,7 +232,7 @@ bynum *number-range*
 
     .. note::
 
-        These are **not** the same as the 1-indexed ``Atom.id`` :ref:`topology attribute <topology-attributes>`. ``bynum`` simply adds 1 to the 0-indexed ``Atom.index``.
+        These are **not** the same as the 1-indexed ``Atom.id`` :ref:`topology attribute <topology-attributes-label>`. ``bynum`` simply adds 1 to the 0-indexed ``Atom.index``.
 
 
 .. _preexisting-selections:

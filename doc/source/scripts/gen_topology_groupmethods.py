@@ -7,7 +7,7 @@ A table of transplanted methods.
 
 from collections import defaultdict
 from MDAnalysis.core.groups import GroupBase
-from base import TOPOLOGY_CLS, write_rst_table
+from base import TOPOLOGY_CLS, write_rst_table, sphinx_meth
 
 HEADINGS = ['Method', 'Description', 'Requires']
 
@@ -17,8 +17,7 @@ def get_lines():
         gb = klass.transplants[GroupBase]
         for name, method in gb:
             desc = ' '.join(method.__doc__.split('.\n')[0].split())
-            mstr = '.'.join([method.__module__, klass.__name__, method.__name__])
-            mstr = ':meth:`~' + mstr + '`'
+            mstr = sphinx_meth(method)
             lines.append((name, mstr, desc, klass.attrname))
     return [x[1:] for x in sorted(lines)]
 

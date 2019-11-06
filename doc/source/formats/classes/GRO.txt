@@ -1,0 +1,5 @@
+=====================  ================================================
+**Coordinate reader**  :class:`MDAnalysis.coordinates.GRO.GROReader`
+**Coordinate writer**  :class:`MDAnalysis.coordinates.GRO.GROWriter`
+**Topology parser**    :class:`MDAnalysis.topology.GROParser.GROParser`
+=====================  ================================================
