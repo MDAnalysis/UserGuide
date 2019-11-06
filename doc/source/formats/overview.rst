@@ -1,9 +1,5 @@
-.. -*- coding: utf-8 -*-
-.. _formats-label:
-
-====================
-Formats
-====================
+Overview
+========
 
 MDAnalysis can read topology or coordinate information from a wide variety of file formats. The emphasis is on formats used in popular computational chemistry software. By default, MDAnalysis figures out formats by looking at the extension, unless the format is :ref:`explicitly specified <universe-loading-label>` with the ``format`` or ``topology_format`` keywords.
 
@@ -23,24 +19,3 @@ Often when data is not provided by a file, it will be guessed based on other dat
 .. table:: Table of all supported formats in MDAnalysis
 
     .. include:: format_overview.txt
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   topology
-   coordinates
-   guessing
-
-Format reference
-================
-
-.. toctree::
-   :maxdepth: 1
-
-   dms
-   gro
-   gsd
-   pdb
-   psf
-   tpr

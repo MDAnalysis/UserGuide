@@ -15,6 +15,9 @@ A GROMACS TPR file is a portable binary run input file. It contains both topolog
 
     Atom :code:`indices` and residue :code:`resindices` are MDAnalysis derived and always index from 0, no matter the file type.
 
+Supported versions
+==================
+
 .. table:: TPR format versions and generations read by :func:`MDAnalysis.topology.TPRParser.parse`.
 
    ========== ============== ==================== =====
@@ -45,8 +48,8 @@ For further discussion and notes see `Issue 2`_. Please *open a new issue* in
 the `Issue Tracker`_ when a new or different TPR file format version should be
 supported.
 
-Developer notes
-===============
+TPR specification
+=================
 
 The TPR reader is a pure-python implementation of a basic TPR
 parser. Currently the following sections of the topology are parsed:
@@ -163,6 +166,9 @@ Bonded interactions available in Gromacs are described in the
 .. _`improper dihedral`: http://manual.gromacs.org/current/reference-manual/functions/bonded-interactions.html#improper-dihedrals-harmonic-type
 .. _`periodic improper dihedral`: http://manual.gromacs.org/current/reference-manual/functions/bonded-interactions.html#improper-dihedrals-periodic-type
 
+
+Developer notes
+===============
 
 This tpr parser is written according to the following files
 

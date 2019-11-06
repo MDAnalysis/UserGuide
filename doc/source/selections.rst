@@ -92,13 +92,18 @@ segid *seg-name*
     ``segid DMPC``
 
 resid *residue-number-range*
-    resid can take a single residue number or a range of numbers. A range
-    consists of two numbers separated by a colon (inclusive) such
-    as ``resid 1:5``. A residue number ("resid") is taken directly from the
-    topology.
+    ``resid`` can take a single residue number or a range of numbers, followed
+    by insertion codes. A range consists of two selections separated by a colon 
+    (inclusive) such as ``resid 1A:1C``. This selects all residues with ``resid==1``
+    and ``icode in ('A', 'B', 'C')``.
+    A residue number ("resid") and icode is taken directly from the
+    topology. Unlike ``resnum``, ``resid`` is sensitive to insertion codes. 
 
 resnum *residue-number-range*
-    resnum is an alias of resid.
+    ``resnum`` can take a single residue number or a range of numbers. A range
+    consists of two numbers separated by a colon (inclusive) such
+    as ``resnum 1:5``. A residue number ("resnum") is taken directly from the
+    topology. Unlike ``resid``, ``resnum`` is insensitive to insertion codes. 
 
 resname *residue-name*
     select by residue name, e.g. ``resname LYS``

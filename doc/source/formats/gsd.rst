@@ -9,6 +9,9 @@ GSD (HOOMD GSD file)
 
 The HOOMD schema GSD file format can contain both topology and trajectory information (output of `HOOMD-blue`_). 
 
+Reading in
+==========
+
 .. important:: 
 
     The GSD format was developed to support changing numbers of particles, particle types, particle identities and topologies. However, MDAnalysis currently does not support changing topologies. Therefore, the MDAnalysis reader should only be used for trajectories that keep the particles and topologies fixed. 
