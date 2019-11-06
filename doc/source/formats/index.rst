@@ -31,16 +31,4 @@ Often when data is not provided by a file, it will be guessed based on other dat
    topology
    coordinates
    guessing
-
-Format reference
-================
-
-.. toctree::
-   :maxdepth: 1
-
-   dms
-   gro
-   gsd
-   pdb
-   psf
-   tpr
+   format_reference
