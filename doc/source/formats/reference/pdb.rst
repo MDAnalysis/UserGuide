@@ -21,7 +21,9 @@ details):
     - **COMPND** (:attr:`Universe.trajectory.compound`)
     - **REMARK** (:attr:`Universe.trajectory.remarks`)
 
-All other lines are ignored. Multi-`MODEL`_ PDB files are read as trajectories with a default timestep of 1 ps.
+All other lines are ignored. Multi-`MODEL`_ PDB files are read as trajectories with a default timestep of 1 ps. Currently, MDAnalysis `cannot read multi-model PDB files written by VMD`_, as VMD uses the keyword "END" to separate models instead of "MODEL"/"ENDMDL" keywords. 
+
+.. _`cannot read multi-model PDB files written by VMD`: https://github.com/MDAnalysis/mdanalysis/issues/1133
 
 .. important:: 
 
@@ -45,6 +47,18 @@ MDAnalysis can write both single-frame PDBs and convert trajectories to multi-mo
 
     - ``chainIDs``: if a Universe does not have ``chainIDs``, MDAnalysis uses the first character of the segment ``segid`` instead. 
     - ``elements``: Elements are *always* guessed from the atom name.
+
+These are the default values:
+
+    * names: 'X'
+    * altLocs: ''
+    * resnames: 'UNK'
+    * icodes: ''
+    * segids: ''
+    * resids: 1
+    * occupancies: 1.0
+    * tempfactors: 0.0
+    
 
 .. _pdb-spec-label:
 

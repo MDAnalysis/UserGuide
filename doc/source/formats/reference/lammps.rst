@@ -2,7 +2,7 @@
 .. _LAMMPS-label:
 
 ========================================
-DCD (LAMMPS trajectory)
+DCD (Flexible LAMMPS trajectory)
 ========================================
 
 .. include:: classes/LAMMPS.txt
@@ -15,11 +15,11 @@ appears to be that the time step is recorded in femtoseconds (command
 `units real`_ in the input file) and lengths in ångströms. Other cases
 are unit-less Lennard-Jones time units.
 
-This presents a problem for MDAnalysis because it cannot autodetect
-the unit from the file. By default we are assuming that the unit for
-length is the ångström and for the time is the femtosecond. If this is
-not true then the user *should supply the appropriate units* in the
-keywords *timeunit* and/or *lengthunit* to :class:`~MDAnalysis.coordinates.LAMMPS.DCDWriter` and
+This presents a problem for MDAnalysis, because it cannot autodetect
+the unit from the file. By default, we assume that the unit for
+length is the ångström and the unit for time is the femtosecond. If this is
+not true, then the user *should supply the appropriate units* in the
+keywords ``timeunit`` and/or ``lengthunit`` to :class:`~MDAnalysis.coordinates.LAMMPS.DCDWriter` and
 :class:`~MDAnalysis.core.universe.Universe` (which then calls
 :class:`~MDAnalysis.coordinates.LAMMPS.DCDReader`).
 

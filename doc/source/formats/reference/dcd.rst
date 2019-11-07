@@ -51,9 +51,9 @@ You can find a list of units used in the DCD formats on the MDAnalysis `wiki`_.
 Writing out
 ===========
 
-The writer follows recent NAMD/VMD convention for the unitcell (box lengths in Å and angle-cosines, ``[A, cos(gamma), B, cos(beta), cos(alpha), C]``) and writes positions in Å and time in AKMA time units.
+The writer follows recent NAMD/VMD convention for the unitcell (box lengths in Å and angle-cosines, ``[A, cos(gamma), B, cos(beta), cos(alpha), C]``). It writes positions in Å and time in AKMA time units.
 
 Reading and writing these trajectories
-within MDAnalysis will work seamlessly but if you process those trajectories
-with other tools you might need to watch out that time and unitcell dimensions
+within MDAnalysis will work seamlessly. However, if you process those trajectories
+with other tools, you need to watch out that time and unitcell dimensions
 are correctly interpreted.

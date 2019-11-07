@@ -7,8 +7,11 @@
 /* MDAnalysis black: #000000 */
 /* Darker orange: e76900 */
 /* Even darker orange: #a24900 */
+<<<<<<< HEAD
 /* RTD dark grey: #343131 */
 /* RTD light grey: #e6e6e6 */
+=======
+>>>>>>> added more formats
 
 /* -- page layout --------------------------------------------------------- */
 
@@ -218,3 +221,16 @@ dl.field-list > dt::after {
        max-width: 100% !important;
     }
  }
+
+/* -- glossary ------- */
+
+/* -- change dl:not(.docutils) to dl.glossary for glossary only -- */
+
+.rst-content dl:not(.docutils) dt {
+    background: None !important;
+    border-top: None !important;
+    margin: 0 !important;
+    padding-bottom: 0 !important;
+    color: #343131 !important;
+}
+
