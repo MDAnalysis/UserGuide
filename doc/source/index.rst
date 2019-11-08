@@ -41,15 +41,29 @@ Gromacs_, CHARMM_, VMD_ and PyMol_ (see :ref:`selection-exporters`). It uses Num
 
 .. toctree::
    :maxdepth: 1
-   :caption: User guide
+   :caption: Data structures
 
    universe
    atomgroup
    groups_of_atoms
+   selections
    topology_system
    trajectories
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Input/output
+
+   reading_and_writing
    formats/index
-   selections
+   formats/guessing
+   formats/auxiliary
+   formats/format_reference
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Analysis
+
    analysis
 
 .. toctree::

@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. universe:
+.. _universe-label:
 
 
 Universe
@@ -27,9 +27,7 @@ Creating a Universe
 Loading from files
 ------------------
 
-A Universe is typically created from a "topology" file, with optional "trajectory" file/s. Trajectory files must have the coordinates in the same order as atoms in the topology. See :ref:`Formats <formats-label>` for the topology and trajectory formats supported by MDAnalysis, and how to load each specific format.
-
-.. code-block:: python
+A Universe is typically created from a "topology" file, with optional "trajectory" file/s. Trajectory files must have the coordinates in the same order as atoms in the topology. See :ref:`Formats <formats-label>` for the topology and trajectory formats supported by MDAnalysis, and how to load each specific format. ::
 
     u = Universe(topology, trajectory)          
     u = Universe(pdbfile)                       # read atoms and coordinates from PDB or GRO
@@ -50,24 +48,17 @@ The default arguments should create a Universe suited for most analysis applicat
 * :code:`all_coordinates`: whether to read coordinate information from the first file (default: False. Ignored when only one file is provided)
 * :code:`continuous`: whether to give multiple trajectory files continuous time steps. This is currently only supported for XTC/TRR trajectories with a GRO/TPR topology, following the behaviour of `gmx trjcat <http://manual.gromacs.org/documentation/2018/onlinehelp/gmx-trjcat.html>`_ (default: False.)
 
-.. code-block:: python
+.. ipython:: python
+    :okwarning:
 
-    >>> import MDAnalysis as mda
-    >>> from MDAnalysis.tests.datafiles import PDB, GRO, XTC
-    >>> u1 = mda.Universe(GRO, XTC, XTC, all_coordinates=True)
-    >>> u1.trajectory
-    <ChainReader containing adk_oplsaa.xtc, adk_oplsaa.xtc with 21 frames of 47681 atoms>
-    >>> u2 = mda.Universe(GRO, XTC, XTC, all_coordinates=False, continuous=False)
-    >>> u2.trajectory
-    <ChainReader containing adk_oplsaa.xtc, adk_oplsaa.xtc with 20 frames of 47681 atoms>
-    >>> print([int(ts.time) for ts in u2.trajectory])
-    [0, 0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 0, 100, 200, 300, 400, 500, 600, 700, 800, 900]
-    >>> u3 = mda.Universe(GRO, XTC, XTC, all_coordinates=False, continuous=True)
-    >>> u3.trajectory
-    <ChainReader containing adk_oplsaa.xtc with 10 frames of 47681 atoms>
-    >>> print([int(ts.time) for ts in u3.trajectory])
-    [0, 100, 200, 300, 400, 500, 600, 700, 800, 900]
+    import MDAnalysis as mda
+    from MDAnalysis.tests.datafiles import PDB, GRO, XTC
+    u1 = mda.Universe(GRO, XTC, XTC, all_coordinates=True)
+    u1.trajectory
+    u2 = mda.Universe(GRO, XTC, XTC, all_coordinates=False, continuous=False)
+    print([int(ts.time) for ts in u2.trajectory])
 
+    
 
 **The following options modify the created Universe:**
 
@@ -79,6 +70,21 @@ The default arguments should create a Universe suited for most analysis applicat
 * :code:`is_anchor`: whether to consider this Universe when unpickling :class:`~MDAnalysis.core.groups.AtomGroup`\ s (default: True)
 * :code:`anchor_name`: the name of this Universe when unpickling :class:`~MDAnalysis.core.groups.AtomGroup`\ s (default: None, automatically generated)
 
+.. _universe-kwargs-label:
+
+You can also pass in keywords for parsing the topology or coordinates. For example, many file formats do not specify the timestep for their trajectory. In these cases, MDAnalysis assumes that the default timestep is 1 ps. If this is incorrect, you can pass in a ``dt`` argument to modify the timestep. **This does not modify timesteps for formats that include time information.**
+
+.. ipython:: python
+    :okwarning:
+
+    from MDAnalysis.tests.datafiles import PRM, TRJ
+    default_timestep = mda.Universe(PRM, TRJ)
+    default_timestep.trajectory.dt
+    user_timestep = mda.Universe(PRM, TRJ, dt=5)  # ps
+    user_timestep.trajectory.dt
+
+
+    
 
 Constructing from AtomGroups
 ----------------------------
@@ -107,14 +113,15 @@ A Universe can be constructed from scratch with :meth:`Universe.empty <MDAnalysi
 
 For example, to construct a universe with 6 atoms in 2 residues:
 
-.. code-block::
+.. ipython:: python
 
-    >>> u = mda.Universe.empty(6, 2, atom_resindex=[0, 0, 0, 1, 1, 1],
-    ...                        trajectory=True)
-    >>> u.add_TopologyAttr('masses')
-    >>> n_frames = 1000
-    >>> coordinates = np.empty((n_frames, u.atoms.n_atoms, 3))
-    >>> u.load_new(coordinates, order='fac')
+    u = mda.Universe.empty(6, 2, atom_resindex=[0, 0, 0, 1, 1, 1], trajectory=True)
+    u.add_TopologyAttr('masses')
+    coordinates = np.empty((1000,  # number of frames
+                            u.atoms.n_atoms, 
+                            3))
+    u.load_new(coordinates, order='fac')
+
 
 `See this notebook tutorial for more information. <examples/constructing_universe.ipynb>`_
 

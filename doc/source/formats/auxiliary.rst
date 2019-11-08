@@ -1,18 +1,9 @@
 .. -*- coding: utf-8 -*-
-.. _reading_and_writing:
+.. _auxiliary-label:
 
-=========================
-Reading and writing files
-=========================
-
-Input
-================
-
-Read information from topology and coordinate files through the :ref:`Universe <universe-loading-label>`. MDAnalysis supports a number of :ref:`formats <formats-label>`.
-
----------------
+===============
 Auxiliary files
----------------
+===============
 
 
 Auxiliary readers allow you to read in timeseries data accompanying a trajectory, that is not stored in the regular trajectory file. 
@@ -225,29 +216,3 @@ To reload, pass the dictionary into :meth:`~MDAnalysis.coordinates.base.ProtoRea
     u2 = mda.Universe(PDB, TRR)
     for desc in descriptions:
         u2.trajectory.add_auxiliary(**desc)
-
-
-
-Output
-======================
-
-----------
-Structures
-----------
-
-AtomGroup.write
-
-------------
-Trajectories
-------------
-
-Example (notebook?)
-
-.. _selection-exporters-label:
-
--------------------
-Selection exporters
--------------------
-
-Pickling
-========

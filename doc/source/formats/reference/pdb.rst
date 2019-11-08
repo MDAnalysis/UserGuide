@@ -21,7 +21,7 @@ details):
     - **COMPND** (:attr:`Universe.trajectory.compound`)
     - **REMARK** (:attr:`Universe.trajectory.remarks`)
 
-All other lines are ignored. Multi-`MODEL`_ PDB files are read as trajectories with a default timestep of 1 ps. Currently, MDAnalysis `cannot read multi-model PDB files written by VMD`_, as VMD uses the keyword "END" to separate models instead of "MODEL"/"ENDMDL" keywords. 
+All other lines are ignored. Multi-`MODEL`_ PDB files are read as trajectories with a default timestep of 1 ps :ref:`(pass in the dt argument to change this) <<universe-kwargs-label>`. Currently, MDAnalysis `cannot read multi-model PDB files written by VMD`_, as VMD uses the keyword "END" to separate models instead of "MODEL"/"ENDMDL" keywords. 
 
 .. _`cannot read multi-model PDB files written by VMD`: https://github.com/MDAnalysis/mdanalysis/issues/1133
 

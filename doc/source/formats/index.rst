@@ -2,7 +2,7 @@
 .. _formats-label:
 
 ====================
-Formats
+Format overview
 ====================
 
 MDAnalysis can read topology or coordinate information from a wide variety of file formats. The emphasis is on formats used in popular computational chemistry software. By default, MDAnalysis figures out formats by looking at the extension, unless the format is :ref:`explicitly specified <universe-loading-label>` with the ``format`` or ``topology_format`` keywords.
@@ -17,6 +17,10 @@ As a minimum, all topology parsers will provide atom ``ids``, atom ``types``, ``
 
 Often when data is not provided by a file, it will be guessed based on other data in the file. In this scenario, MDAnalysis will issue a warning. See :ref:`guessing-label` for more information.
 
+If a trajectory is loaded without time information, MDAnalysis will set a default timestep of 1.0 ps, where the first frame starts at 0.0 ps. In order to change these, :ref:`pass the following optional arguments to Universe <universe-kwargs-label>`:
+
+    * ``dt``: the timestep
+    * ``time_offset``: the starting time from which to calculate the time of each frame
 
 .. _format-overview-label:
 
@@ -24,11 +28,6 @@ Often when data is not provided by a file, it will be guessed based on other dat
 
     .. include:: format_overview.txt
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
+.. include:: topology.rst
 
-   topology
-   coordinates
-   guessing
-   format_reference
+.. include:: coordinates.rst

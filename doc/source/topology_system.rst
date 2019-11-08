@@ -9,7 +9,7 @@ MDAnalysis groups static data about a :class:`~MDAnalysis.core.universe.Universe
 
     * :ref:`Atom containers (Residues and Segments) <residues-and-segments>`
     * :ref:`Atom attributes (e.g. name, mass, bfactor) <topology-attributes-label>`
-    * :ref:`Topology objects: bonds, angles, dihedrals, impropers <topology-objects>`
+    * :ref:`Topology objects: bonds, angles, dihedrals, impropers <topology-objects-label>`
 
 Users will almost never interact directly with a :class:`~MDAnalysis.core.topology.Topology`. Modifying atom containers or topology attributes is typically done through :class:`~MDAnalysis.core.universe.Universe`. Methods for viewing containers or topology attributes, or for calculating topology object values, are accessed through :class:`~MDAnalysis.core.groups.AtomGroup`.
 
@@ -69,7 +69,7 @@ The table below lists attributes that are read from supported formats. These can
 Connectivity information
 -----------------------------------
 
-MDAnalysis can also read connectivity information, if the file provides it. These become available as :ref:`topology-objects`, which have additional functionality.
+MDAnalysis can also read connectivity information, if the file provides it. These become available as :ref:`topology-objects-label`, which have additional functionality.
 
 .. include:: scripts/connectivityattrs.txt
 
@@ -187,9 +187,7 @@ These accept the following values:
     * an iterable of atom indices
     * an iterable of :class:`~MDAnalysis.core.topologyobjects.TopologyObject`\ s
 
-.. todo:: 
-
-    Provide example when 0.21.0 is released
+TODO: Provide example when 0.21.0 is released
 
 
 Prior to version 0.21.0, objects could be added to a Universe with :meth:`~MDAnalysis.core.universe.Universe.add_TopologyAttr`. 
@@ -247,9 +245,7 @@ As of version 0.21.0, there are specific methods for deleting :class:`~MDAnalysi
     * :meth:`~MDAnalysis.core.universe.Universe.delete_Dihedrals`
     * :meth:`~MDAnalysis.core.universe.Universe.delete_Impropers`
 
-.. todo:: 
-
-    Provide example when 0.21.0 is released
+TODO: Provide example when 0.21.0 is released
 
 .. _topology-groupmethods-label:
 

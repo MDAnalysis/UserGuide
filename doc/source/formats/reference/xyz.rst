@@ -16,7 +16,7 @@ Reading in
 
 As XYZ files only have atom name information, the atoms are all assigned to the same residue and segment.
 
-The default timestep in MDAnalysis is 1 ps. A different timestep can be defined by passing in the ``dt`` argument (in picoseconds) to Universe.
+The default timestep in MDAnalysis is 1 ps. A different timestep can be defined :ref:`by passing in the dt argument to Universe <universe-kwargs-label>`.
 
 
 

@@ -70,7 +70,7 @@ def sphinx_class(klass, tilde=True):
 
 def sphinx_meth(meth, tilde=True):
     prefix = '~' if tilde else ''
-    return ':meth:`{}{}.{}'.format(prefix, meth.__module__, meth.__qualname__)
+    return ':meth:`{}{}.{}`'.format(prefix, meth.__module__, meth.__qualname__)
 
 def sphinx_ref(txt, label=None, add_label=True):
     if label is None:

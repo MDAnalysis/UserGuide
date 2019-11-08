@@ -47,12 +47,12 @@ This writer assumes "conventional" or "real" LAMMPS units where length is measur
 
 For example, to write a certain frame with nanometer units::
 
->>> for ts in u.trajectory:
-...     # analyze frame
-...     if take_this_frame == True:
-...         with mda.Writer('frame.data') as W:
-...             W.write(u.atoms, lengthunit="nm")
-...         break
+    >>> for ts in u.trajectory:
+    ...     # analyze frame
+    ...     if take_this_frame == True:
+    ...         with mda.Writer('frame.data') as W:
+    ...             W.write(u.atoms, lengthunit="nm")
+    ...         break
 
 
 If atom types are not already positive integers, the user must set them
