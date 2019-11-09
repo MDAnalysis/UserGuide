@@ -1,35 +1,40 @@
 #!/usr/bin/env python
-from __future__ import print_function
-import os
-import tabulate
+"""
+Writes standard selection names for:
+    - protein residues
+    - protein backbone atoms
+    - nucleic residues
+    - nucleic backbone atoms
+    - nucleobase atoms
+    - nucleic sugar atoms
+"""
+from base import TableWriter
 from MDAnalysis.core import selection as sel
-
-SELECTIONS = {
-    'protein_selections': (sel.ProteinSelection, 'prot_res', True),
-    'protein_backbone_selections': (sel.BackboneSelection, 'bb_atoms'),
-    'nucleic_selections': (sel.NucleicSelection, 'nucl_res'),
-    'nucleic_backbone_selections': (sel.NucleicBackboneSelection, 'bb_atoms'),
-    'base_selections': (sel.BaseSelection, 'base_atoms'),
-    'sugar_selections': (sel.NucleicSugarSelection, 'sug_atoms')
-}
 
 def chunk_list(lst, n=8):
     return [lst[i:i+n] for i in range(0, len(lst), n)]
 
-def write_tabulated_selection(name, cls, attr, sort=False, n=8):
-    selected = getattr(cls, attr)
-    if sort:
-        selected = sorted(selected)
-    
-    table = chunk_list(list(selected), n=n)
-    path = os.getcwd()
-    filename = name + '.txt'
-    if not 'scripts' in path:
-        filename = os.path.join('scripts', filename)
-    with open(filename, 'w') as f:
-        print(tabulate.tabulate(table, tablefmt='grid'), file=f)
+class StandardSelectionTable(TableWriter):
+    sort = False
+    self.filename = 'generated/selections/{}.txt'
 
+    def __init__(self, filename, *args, **kwargs):
+        self.filename = self.filename.format(filename)
+        super(StandardSelectionTable, self).__init__(*args, **kwargs)
+
+    # override get_lines as there are no headings
+    def get_lines(self, klass, attr, sort=False, n=8):
+        selected = getattr(klass, attr)
+        if sort:
+            selected = sorted(selected)
+        
+        table = chunk_list(list(selected), n=n)
+        self.lines = table
 
 if __name__ == '__main__':
-    for name, args in SELECTIONS.items():
-        write_tabulated_selection(name, *args)
+    StandardSelectionTable('protein', sel.ProteinSelection, 'prot_res', True)
+    StandardSelectionTable('protein_backbone', sel.BackboneSelection, 'bb_atoms')
+    StandardSelectionTable('nucleic', sel.NucleicSelection, 'nucl_res')
+    StandardSelectionTable('nucleic_backbone', sel.NucleicBackboneSelection, 'bb_atoms')
+    StandardSelectionTable('base', sel.BaseSelection, 'base_atoms')
+    StandardSelectionTable('nucleic_sugar', sel.NucleicSugarSelection, 'sug_atoms')

@@ -7,12 +7,11 @@ Generate two tables:
 
 This script imports the testsuite, which tests these.
 """
-from __future__ import print_function
 import os
 import sys
-import tabulate
 from collections import defaultdict
-from base import DESCRIPTIONS, write_rst_table, sphinx_class, sphinx_ref, ATTRS
+from core import DESCRIPTIONS, ATTRS
+from base import TableWriter
 
 import MDAnalysis as mda
 
@@ -50,59 +49,82 @@ PARSER_TESTS = (TestCRDParser, TestDLPHistoryParser, TestDLPConfigParser,
 
 MANDATORY_ATTRS = set(mandatory_attrs)
 
+parser_attrs = {}
 
-def get_lines():
-    lines = []
-    all_attrs = defaultdict(list)
-    for p in PARSER_TESTS:
-        f = p.parser.format
+for p in PARSER_TESTS:
+    e, g = set(p.expected_attrs)-MANDATORY_ATTRS, set(p.guessed_attrs)
+    parser_attrs[p.parser] = (e, g)
+
+class TopologyParsers(TableWriter):
+    headings = ['Format', 'Attributes read', 'Attributes guessed']
+    filename = 'formats/topology_parsers.txt'
+    sort = True
+
+    def __init__(self):
+        self.attrs = defaultdict(set)
+        super(TopologyParsers, self).__init__()
+
+    def _set_up_input(self):
+        return [[x, *y] for x, y in parser_attrs.items()]
+
+    def get_line(self, parser, expected, guessed):
+        line = super(TopologyParsers, self).get_line(parser, expected, guessed)
+        for a in expected|guessed:
+            self.attrs[a].add(self.fields['Format'][-1])
+        return line
+    
+    def _format(self, parser, *args):
+        f = parser.format
         if isinstance(f, (list, tuple)):
             key = f[0]
-            fstr = sphinx_ref(', '.join(f), key)
+            label = ', '.join(f)
         else:
-            key = f
-            fstr = sphinx_ref(f)        
+            key = label = f
         
-        # desc = DESCRIPTIONS[key]  # description
-        read = sorted((set(p.expected_attrs)-MANDATORY_ATTRS)-set(p.guessed_attrs))  # attributes read
-        guessed = sorted(p.guessed_attrs)  # attributes guessed
-
-        for a in set(read+guessed):
-            all_attrs[a].append(fstr)
-
-        lines.append((fstr, 
-                    #   desc, 
-                      ', '.join(read), 
-                      ', '.join(guessed)))
-    return lines, all_attrs
-
-FORMAT_HEADINGS = ('Format', 
-                #    'Type', 
-                   'Attributes read', 
-                   'Attributes guessed')
-ATTR_HEADINGS = ('Atom', 'AtomGroup', 'Description', 'Supported formats')
-CONNECTIVITY_HEADINGS = ('Atom', 'AtomGroup', 'Supported formats')
-
-def get_attr_lines(attrs):
-    lines = []
-    for a, classes in sorted(attrs.items()):
-        try:
-            single, desc = ATTRS[a]
-            lines.append((single, a, desc, ', '.join(sorted(classes))))
-        except KeyError:
-            pass
-
-    bond_lines = []
-    for a in ('bonds', 'angles', 'dihedrals', 'impropers'):
-        classes = attrs.get(a, [])
-        bond_lines.append((a, a, ', '.join(sorted(classes))))
+        return self.sphinx_ref(label, key)
     
-    return lines, bond_lines
+    def _attributes_read(self, parser, expected, guessed):
+        vals = sorted(expected - guessed)
+        return ', '.join(vals)
+    
+    def _attributes_guessed(self, parser, expected, guessed):
+        return ', '.join(sorted(guessed))
+    
+
+class TopologyAttrs(TableWriter):
+
+    headings = ('Atom', 'AtomGroup', 'Description', 'Supported formats')
+    filename = 'generated/topology/topologyattrs.txt'
+
+    def __init__(self, attrs):
+        self.attrs = attrs
+        super(TopologyAttrs, self).__init__()
+
+    def _set_up_input(self):
+        return sorted([x, *y] for x, y in ATTRS.items() if x not in MANDATORY_ATTRS)
+    
+    def _atom(self, name, singular, *args):
+        return singular
+    
+    def _atomgroup(self, name, *args):
+        return name
+    
+    def _description(self, name, singular, description):
+        return description
+    
+    def _supported_formats(self, name, singular, description):
+        return ', '.join(sorted(self.attrs[name]))
+
+class ConnectivityAttrs(TopologyAttrs):
+    headings = ('Atom', 'AtomGroup', 'Supported formats')
+    filename = 'generated/topology/connectivityattrs.txt'
+
+    def _set_up_input(self):
+        inp = [[x]*3 for x in 'bonds angles dihedrals impropers'.split()]
+        return inp
 
 
 if __name__ == '__main__':
-    format_lines, attrs = get_lines()
-    write_rst_table(format_lines, headings=FORMAT_HEADINGS, filename='../formats/topology_parsers.txt')
-    attr_lines, bond_lines = get_attr_lines(attrs)
-    write_rst_table(attr_lines, headings=ATTR_HEADINGS, filename='topologyattrs.txt')
-    write_rst_table(bond_lines, headings=CONNECTIVITY_HEADINGS, filename='connectivityattrs.txt')
+    top = TopologyParsers()
+    TopologyAttrs(top.attrs)
+    ConnectivityAttrs(top.attrs)

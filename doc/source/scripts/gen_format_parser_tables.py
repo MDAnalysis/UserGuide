@@ -6,18 +6,11 @@ Generates:
     - ../formats/classes/*.txt : small tables of parser/reader/writer classes for each format
 """
 
-from __future__ import print_function
-import os
-import tabulate
 from collections import defaultdict
 
 from MDAnalysis import _READERS, _SINGLEFRAME_WRITERS, _PARSERS
-from base import write_rst_table, sphinx_class, sphinx_ref, DESCRIPTIONS
-
-overview_headings = ['File type', 'Description', 'Topology', 'Coordinates', 'Read/Write']
-coordinate_headings = ['File type', 'Velocities', 'Forces']
-row_labels = ['Topology parser', 'Coordinate reader', 'Coordinate writer']
-
+from base import TableWriter
+from core import DESCRIPTIONS
 
 FILE_TYPES = defaultdict(dict)
 
@@ -29,56 +22,85 @@ for clstype, dct in (('Coordinate reader', _READERS),
             continue  # get their own pages
         FILE_TYPES[fmt][clstype] = klass
 
+sorted_types = sorted(FILE_TYPES.items())
 
-def get_overview():
-    overview = []
-    coordinates = []
-    non_repeats = set()
-    for fmt, handlers in sorted(FILE_TYPES.items()):
-        try:
-            desc = DESCRIPTIONS[fmt]
+class FormatOverview(TableWriter):
+    filename = 'formats/format_overview.txt'
+    preprocess = ['keys']
+    headings = ['File type', 'Description', 'Topology', 'Coordinates', 'Read/Write']
+
+    def _set_up_input(self):
+        return sorted_types
+    
+    def _file_type(self, fmt, handlers):
+        return self.sphinx_ref(fmt, self.keys[-1])
+    
+    def _keys(self, fmt, handlers):
+        if fmt in DESCRIPTIONS:
             key = fmt
-        except KeyError:
+        else:
             key = list(handlers.values())[0].format[0]
-            desc = DESCRIPTIONS[key]
 
-        non_repeats.add(key)
-        top = ('', 'Yes')[int('Topology parser' in handlers)]
-        coords = ('', 'Yes')[int('Coordinate reader' in handlers)]
-        rw = ('Read only', 'Read and write')[int('Coordinate writer' in handlers)]
-        ref = sphinx_ref(fmt, key)
-        overview.append((ref, desc, top, coords, rw))
+            # raise an informative error
+            if key not in DESCRIPTIONS:
+                key = fmt
+        return key
+    
+    def _description(self, fmt, handlers):
+        return DESCRIPTIONS[self.keys[-1]]
+    
+    def _topology(self, fmt, handlers):
+        if 'Topology parser' in handlers:
+            return 'Yes'
+        return ''
+    
+    def _coordinates(self, fmt, handlers):
+        if 'Coordinate reader' in handlers:
+            return 'Yes'
+        return ''
+    
+    def _read_write(self, fmt, handlers):
+        if 'Coordinate writer' in handlers:
+            return 'Read and write'
+        return 'Read only'
 
-        try:
-            reader = handlers['Coordinate reader']
-        except KeyError:
-            continue
-        v = 'Yes' if reader.units.get('velocity', None) else ''
-        f = 'Yes' if reader.units.get('force', None) else ''
-        coordinates.append((ref, v, f))
-    return overview, coordinates, non_repeats
+class CoordinateReaders(FormatOverview):
+    filename = 'formats/coordinate_readers.txt'
+    headings = ['File type', 'Velocities', 'Forces']
 
+    def _set_up_input(self):
+        return [(x, y) for x, y in sorted_types if 'Coordinate reader' in y]
 
-def get_classes(fmts):
-    classes = defaultdict(list)
-    for fmt in fmts:
-        handlers = FILE_TYPES[fmt]
-        for label, klass in sorted(handlers.items()):
-            classes[fmt].append(['**{}**'.format(label), sphinx_class(klass, tilde=False)])
-    return classes
+    def _velocities(self, fmt, handlers):
+        if handlers['Coordinate reader'].units.get('velocity', None):
+            return 'Yes'
+        return ''
+    
+    def _forces(self, fmt, handlers):
+        if handlers['Coordinate reader'].units.get('force', None):
+            return 'Yes'
+        return ''
 
+class SphinxClasses(TableWriter):
+    
+    filename = 'formats/reference/classes/{}.txt'
+
+    def __init__(self, fmt):
+        self.filename = self.filename.format(fmt)
+        self.fmt = fmt
+        super(SphinxClasses, self).__init__()
+    
+    def get_lines(self):
+        lines = []
+        for label, klass in sorted(FILE_TYPES[self.fmt].items()):
+            lines.append(['**{}**'.format(label), 
+                          self.sphinx_class(klass, tilde=False)])
+        self.lines = lines
 
 if __name__ == '__main__':
-    overview, coordinates, non_repeats = get_overview()
-    write_rst_table(lines=overview, headings=overview_headings,
-                    filename='../formats/format_overview.txt')
-
-    write_rst_table(lines=coordinates, headings=coordinate_headings,
-                    filename='../formats/coordinate_readers.txt')
-    classes = get_classes(non_repeats)
-    for fmt, lines in classes.items():
-        write_rst_table(lines, headings=[],
-                        filename='../formats/classes/{}.txt'.format(fmt))
-
+    ov = FormatOverview()
+    CoordinateReaders()
+    for key in set(ov.fields['key']):
+        SphinxClasses(key)
 
         

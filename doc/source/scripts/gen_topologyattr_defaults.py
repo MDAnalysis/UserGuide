@@ -6,9 +6,9 @@ A table of whether TopologyAttrs are atomwise, residuewise, or segmentwise, and 
 """
 
 from MDAnalysis.core.topologyattrs import AtomAttr, ResidueAttr, SegmentAttr 
-from base import TOPOLOGY_CLS, write_rst_table
+from core import TOPOLOGY_CLS
+from base import TableWriter
 
-HEADINGS = ('Atom', 'AtomGroup', 'default', 'level', 'type')
 
 DEFAULTS = {
     'resids': 'continuous sequence from 1 to n_residues',
@@ -16,25 +16,40 @@ DEFAULTS = {
     'ids': 'continuous sequence from 1 to n_atoms',
 }
 
-for klass in TOPOLOGY_CLS:
-    if klass.attrname not in DEFAULTS:
-        try:
-            DEFAULTS[klass.attrname] = repr(klass._gen_initial_values(1, 1, 1)[0])
-        except NotImplementedError:
-            DEFAULTS[klass.attrname] = 'No default values'
+class TopologyDefaults(TableWriter):
+    filename = 'generated/topology/defaults.txt'
+    headings = ('Atom', 'AtomGroup', 'default', 'level', 'type')
+    sort = True
 
-def get_lines():
-    lines = []
-    for klass in TOPOLOGY_CLS:
+    def _set_up_input(self):
+        return TOPOLOGY_CLS
+    
+    def _atom(self, klass):
+        return klass.attrname
+    
+    def _atomgroup(self, klass):
+        return klass.singular
+    
+    def _default(self, klass):
+        try:
+            return DEFAULTS[klass.attrname]
+        except KeyError:
+            try:
+                return repr(klass._gen_initial_values(1, 1, 1)[0])
+            except NotImplementedError:
+                return 'No default values'
+    
+    def _level(self, klass):
         if issubclass(klass, AtomAttr):
             level = 'atom'
         elif issubclass(klass, ResidueAttr):
             level = 'residue'
         elif issubclass(klass, SegmentAttr):
             level = 'segment'
-        lines.append((klass.attrname, klass.singular, DEFAULTS[klass.attrname], level, klass.dtype))
-    return lines
+        return level
+    
+    def _type(self, klass):
+        return klass.dtype
 
 if __name__ == '__main__':
-    lines = get_lines()
-    write_rst_table(lines, HEADINGS, 'topology_defaults.txt')
+    TopologyDefaults()
