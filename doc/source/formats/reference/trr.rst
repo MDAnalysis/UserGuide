@@ -23,6 +23,10 @@ MDAnalysis uses XDR based readers for GROMACS formats, which store offsets on th
 
 .. _`read XDR offsets, resulting in a fatal error`: https://github.com/MDAnalysis/mdanalysis/issues/1893
 
+Trajectories split across multiple files can be :ref:`read continuously into MDAnalysis <chainreader-label>` with ``continuous=True``, in the style of `gmx trjcat`_.
+
+.. _`gmx trjcat`: http://manual.gromacs.org/documentation/2018/onlinehelp/gmx-trjcat.html
+
 Writing out
 ===========
 

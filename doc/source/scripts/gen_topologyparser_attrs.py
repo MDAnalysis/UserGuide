@@ -56,7 +56,8 @@ for p in PARSER_TESTS:
     parser_attrs[p.parser] = (e, g)
 
 class TopologyParsers(TableWriter):
-    headings = ['Format', 'Attributes read', 'Attributes guessed']
+    headings = ['Format', 'Description', 'Attributes read', 'Attributes guessed']
+    preprocess = ['keys']
     filename = 'formats/topology_parsers.txt'
     sort = True
 
@@ -73,14 +74,23 @@ class TopologyParsers(TableWriter):
             self.attrs[a].add(self.fields['Format'][-1])
         return line
     
-    def _format(self, parser, *args):
+    def _keys(self, parser, *args):
         f = parser.format
         if isinstance(f, (list, tuple)):
             key = f[0]
             label = ', '.join(f)
         else:
             key = label = f
-        
+        return (key, label)
+
+    
+    def _description(self, *args):
+        key, label = self.keys[-1]
+        return DESCRIPTIONS[key]
+
+    
+    def _format(self, *args):
+        key, label = self.keys[-1]
         return self.sphinx_ref(label, key)
     
     def _attributes_read(self, parser, expected, guessed):

@@ -129,27 +129,8 @@ For example, to construct a universe with 6 atoms in 2 residues:
 Guessing topology attributes
 ----------------------------
 
-MDAnalysis can guess two kinds of information. Sometimes MDAnalysis guesses information instead of reading it from certain file formats, which can lead to mistakes such as assigning atoms the wrong element or charge. See :ref:`Formats <formats-label>` for a case-by-case breakdown of which atom properties MDAnalysis guesses for each format.
+MDAnalysis can guess two kinds of information. Sometimes MDAnalysis guesses information instead of reading it from certain file formats, which can lead to mistakes such as assigning atoms the wrong element or charge. See :ref:`the available topology parsers <topology-parsers-label>` for a case-by-case breakdown of which atom properties MDAnalysis guesses for each format. See :ref:`guessing-label` for how attributes are guessed, and :ref:`topologyattr-defaults-label` for which attributes have default values.
 
-It can infer connectivity from atomic positions or other topological information:
-
-    * bonds (from atoms)
-    * angles (from bonds)
-    * dihedrals (from angles)
-    * improper angles (from angles)
-
-MDAnalysis can also infer atom properties from atom names or elements:
-
-    * elements (from names)
-    * types (from names; at present this just returns the element)
-    * masses (from elements)
-
-Importantly, some guessers have not been fully implemented, or occasionally MDAnalysis is unable to guess the correct value. In these cases, MDAnalysis sets certain attributes to a default value:
-
-    * charges (from names, default 0)
-    * masses (from elements, default 0.0)
-
-See the API reference for more information on how to use guessing methods. 
 
 .. _universe-properties-label:
 

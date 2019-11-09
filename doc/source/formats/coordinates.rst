@@ -1,3 +1,5 @@
+.. _coordinate-readers-label:
+
 Coordinates
 ===========
 

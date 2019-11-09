@@ -24,6 +24,14 @@ doc/build
 # Ignore generated docs
 *.txt
 
+# ignore generated files
+*.vmd
+*.dcd
+*.xyz
+*.pdb
+*.trr
+*.ndx
+
 # example files
 doc/source/examples/analysis/*.pdb
 doc/source/examples/analysis/*.xtc

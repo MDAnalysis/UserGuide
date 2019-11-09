@@ -66,7 +66,7 @@ class FormatOverview(TableWriter):
 
 class CoordinateReaders(FormatOverview):
     filename = 'formats/coordinate_readers.txt'
-    headings = ['File type', 'Velocities', 'Forces']
+    headings = ['File type', 'Description', 'Velocities', 'Forces']
 
     def _set_up_input(self):
         return [(x, y) for x, y in sorted_types if 'Coordinate reader' in y]

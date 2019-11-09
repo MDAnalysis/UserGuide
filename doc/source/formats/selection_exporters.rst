@@ -47,6 +47,8 @@ and in the GUI the macro appears in the :menuselection:`Graphics -->
 Representations` window in the list :guilabel:`Selections: Singlewords` as
 "alanine".
 
+Names are not always required; if ``name`` is not passed to  :meth:`AtomGroup.write <MDAnalysis.core.groups.AtomGroup.write>`, MDAnalysis defaults to "mdanalysis001", "mdanalysis002", and so on.
+
 Multiple selections
 -------------------
 
