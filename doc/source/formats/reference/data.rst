@@ -18,7 +18,6 @@ DATA (LAMMPS)
 Reading in
 ==========
 
-
 Lammps atoms can have `lots of different formats, and even custom formats`_. By default, MDAnalysis checks:
 
     * "full" : atoms with 7 fields (reading id, resid, type, and charge)

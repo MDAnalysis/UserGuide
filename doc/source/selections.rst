@@ -7,11 +7,13 @@ Atom selection language
 
 AtomGroups can be created by selecting atoms using the MDAnalysis atom selection language:
 
-  >>> from MDAnalysis.tests.datafiles import PSF
-  >>> u = mda.Universe(PSF)
-  >>> ala = u.select_atoms('resname ALA')
-  >>> ala
-  <AtomGroup with 190 atoms>
+.. ipython:: python
+
+    import MDAnalysis as mda
+    from MDAnalysis.tests.datafiles import PSF, DCD
+    u = mda.Universe(PSF, DCD)
+    ala = u.select_atoms('resname ALA')
+    ala
 
 The :meth:`~MDAnalysis.core.groups.AtomGroup.select_atoms` method of a
 :class:`~MDAnalysis.core.groups.AtomGroup` or a
@@ -23,23 +25,29 @@ which can happen with complicated selections.
 
 This page documents selection keywords and their arguments. :meth:`~MDAnalysis.core.groups.AtomGroup.select_atoms` also accepts keywords that modify the behaviour of the selection string and the resulting :class:`~MDAnalysis.core.groups.AtomGroup` (documented further down this page). For example, you can:
 
-* Pass in :ref:`named AtomGroups as arguments <preexisting-selections>`::
+* Pass in :ref:`named AtomGroups as arguments <preexisting-selections>`:
 
-    >>> sph_6 = u.select_atoms("sphzone 6 protein")
-    >>> u.select_atoms("around 3 group sph_6", sph_6=sph_6)
-    <AtomGroup with 120 atoms>
+.. ipython:: python
 
-* Turn off :ref:`periodic boundary conditions for geometric keywords <geometric>` with ``periodic=False``::
+    sph_6 = u.select_atoms("sphzone 6 protein")
+    u.select_atoms("around 3 group sph_6", sph_6=sph_6)
 
-    >>> u.select_atoms("around 6 protein", periodic=False)
 
-* Create :ref:`dynamic UpdatingAtomGroups <dynamic-selections>` with ``updating=True``::
+* Turn off :ref:`periodic boundary conditions for geometric keywords <geometric>` with ``periodic=False``:
 
-    >>> u.select_atoms("prop x < 5 and prop y < 5 and prop z < 5", updating=True)
-    <AtomGroup with 9 atoms, with selection 'prop x < 5 and prop y < 5 and prop z < 5' on the entire Universe.>
+.. ipython:: python
+
+    u.select_atoms("around 6 protein", periodic=False)
+
+* Create :ref:`dynamic UpdatingAtomGroups <dynamic-selections>` with ``updating=True``:
+
+.. ipython:: python
+
+    u.select_atoms("prop x < 5 and prop y < 5 and prop z < 5", updating=True)
+
 
 It is possible to export selections for external software
-packages with the help of :ref:`selection-exporters`.
+packages with the help of :ref:`selection-exporters-label`.
 
 Selection Keywords
 ==================
@@ -52,11 +60,14 @@ selection parser. The following applies to all selections:
   notes below on :ref:`ordered-selections-label` for how to circumvent this if
   necessary).
 * Selections are parsed left to right and parentheses can be used for
-  grouping. For example::
+  grouping. For example:
 
-    >>> u.select_atoms("segid DMPC and not (name H* or type OW)")
-    <AtomGroup with 3420 atoms>
-    
+
+.. ipython:: python
+
+    u.select_atoms("segid DMPC and not (name H* or type OW)")
+
+
 * Currently, only "stemming" is implemented as a primitive form of pattern
   matching: Using the ``*`` character in a string such as ``GL*`` selects
   all strings that start with "GL" such as "GLU", "GLY", "GLX29", "GLN". Only terminal wildcards (i.e. matching the last part of a name) are currently supported. 
@@ -150,8 +161,10 @@ or
 Geometric
 ---------
 
-The geometric keywords below all implement periodic boundary conditions by default when valid cell dimensions are accessible from the Universe. This can be turned off by passing in the keyword ``periodic=False``::
+The geometric keywords below all implement periodic boundary conditions by default when valid cell dimensions are accessible from the Universe. This can be turned off by passing in the keyword ``periodic=False``:
 
+.. ipython:: python
+    
     u.select_atoms("around 6 protein", periodic=False)
 
 around *distance selection*
@@ -280,19 +293,24 @@ constant across trajectory frame changes. If
 :meth:`~MDAnalysis.core.groups.AtomGroup.select_atoms` is invoked with named
 argument ``updating`` set to ``True``, an
 :class:`~MDAnalysis.core.groups.UpdatingAtomGroup` instance will be returned
-instead. It behaves just like an :class:`~MDAnalysis.core.groups.AtomGroup`
+instead. 
+
+.. ipython:: python
+
+    # A dynamic selection of corner atoms:
+    ag_updating = u.select_atoms("prop x < 5 and prop y < 5 and prop z < 5", updating=True)
+    ag_updating
+
+It behaves just like an :class:`~MDAnalysis.core.groups.AtomGroup`
 object, with the difference that the selection expressions are re-evaluated
 every time the trajectory frame changes (this happens lazily, only when the
 :class:`~MDAnalysis.core.groups.UpdatingAtomGroup` object is accessed so that
-there is no redundant updating going on)::
+there is no redundant updating going on):
 
-    # A dynamic selection of corner atoms:
-    >>> ag_updating = universe.select_atoms("prop x < 5 and prop y < 5 and prop z < 5", updating=True)
-    >>> ag_updating
-    <UpdatingAtomGroup with 9 atoms>
-    >>> universe.trajectory.next()
-    >>> ag_updating
-    <UpdatingAtomGroup with 14 atoms>
+.. ipython:: python
+
+    u.trajectory.next()
+    ag_updating
 
 Using the ``group`` selection keyword for
 :ref:`preexisting-selections`, one can
@@ -300,26 +318,28 @@ make updating selections depend on
 :class:`~MDAnalysis.core.groups.AtomGroup`, or even other
 :class:`~MDAnalysis.core.groups.UpdatingAtomGroup`, instances.
 Likewise, making an updating selection from an already updating group will
-cause later updates to also reflect the updating of the base group::
+cause later updates to also reflect the updating of the base group:
 
-    >>> chained_ag_updating = ag_updating.select_atoms("resid 1:1000", updating=True)
-    >>> chained_ag_updating
-    <UpdatingAtomGroup with 3 atoms>
-    >>> universe.trajectory.next()
-    >>> chained_ag_updating
-    <UpdatingAtomGroup with 7 atoms>
+.. ipython:: python
+
+    chained_ag_updating = ag_updating.select_atoms("resid 1:1000", updating=True)
+    chained_ag_updating
+
+    u.trajectory.next()
+    chained_ag_updating
 
 Finally, a non-updating selection or a slicing/addition operation made on an
 :class:`~MDAnalysis.core.groups.UpdatingAtomGroup` will return a static
 :class:`~MDAnalysis.core.groups.AtomGroup`, which will no longer update
-across frames::
+across frames:
 
-    >>> static_ag = ag_updating.select_atoms("resid 1:1000")
-    >>> static_ag
-    <UpdatingAtomGroup with 3 atoms>
-    >>> universe.trajectory.next()
-    >>> static_ag
-    <UpdatingAtomGroup with 3 atoms>
+.. ipython:: python
+
+    static_ag = ag_updating.select_atoms("resid 1:1000")
+    static_ag
+    u.trajectory.next()
+    static_ag
+
 
 .. _ordered-selections-label:
 
@@ -335,22 +355,26 @@ then one has to concatenate multiple AtomGroups, which does not sort
 them.
 
 The most straightforward way to concatenate two AtomGroups is by using the
-``+`` operator::
+``+`` operator:
 
-    >>> ordered = u.select_atoms("resid 3 and name CA") + u.select_atoms("resid 2 and name CA")
-    >>> list(ordered)
-    [<Atom 46: CA of type C of resname ILE, resid 3 and segid SYSTEM and altLoc >, <Atom 22: CA of type C of resname ARG, resid 2 and segid SYSTEM and altLoc >]
+.. ipython:: python
+
+    ordered = u.select_atoms("resid 3 and name CA") + u.select_atoms("resid 2 and name CA")
+    list(ordered)
 
 A shortcut is to provide *two or more* selections to
 :meth:`~MDAnalysis.core.universe.Universe.select_atoms`, which then
-does the concatenation automatically::
+does the concatenation automatically:
 
-    >>> list(u.select_atoms("resid 3 and name CA", "resid 2 and name CA"))
-    [<Atom 46: CA of type C of resname ILE, resid 3 and segid SYSTEM and altLoc >, <Atom 22: CA of type C of resname ARG, resid 2 and segid SYSTEM and altLoc >]
+.. ipython:: python
+
+    list(u.select_atoms("resid 3 and name CA", "resid 2 and name CA"))
+
 
 Just for comparison to show that a single selection string does not
-work as one might expect::
+work as one might expect:
 
-    >>> list(u.select_atoms("(resid 3 or resid 2) and name CA"))
-    [<Atom 22: CA of type C of resname ARG, resid 2 and segid SYSTEM and altLoc >, <Atom 46: CA of type C of resname ILE, resid 3 and segid SYSTEM and altLoc >]
+.. ipython:: python
+
+    list(u.select_atoms("(resid 3 or resid 2) and name CA"))
 

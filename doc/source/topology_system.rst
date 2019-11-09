@@ -61,7 +61,7 @@ Format-specific attributes
 
 The table below lists attributes that are read from supported formats. These can also be :ref:`added to a Universe <add-topologyattrs-label>` created from a file that does not support them. 
 
-.. include:: scripts/topologyattrs.txt
+.. include:: generated/topology/topologyattrs.txt
 
 .. _topologyobject-attr-label:
 
@@ -71,7 +71,7 @@ Connectivity information
 
 MDAnalysis can also read connectivity information, if the file provides it. These become available as :ref:`topology-objects-label`, which have additional functionality.
 
-.. include:: scripts/connectivityattrs.txt
+.. include:: generated/topology/connectivityattrs.txt
 
 
 .. _add-topologyattrs-label:
@@ -142,7 +142,7 @@ Default values and attribute levels
 
 Topology information in MDAnalysis is always associated with a level: one of atom, residue, or segment. For example, :code:`indices` is Atom information, :code:`resindices` is Residue information, and :code:`segindices` is Segment information. Many topology attributes also have default values, so that they can be :ref:`added to a Universe without providing explicit values <add-topologyattrs-label>`, and expected types. The table below lists which attributes have default values, what they are, and the information level.
 
-.. include:: scripts/topology_defaults.txt
+.. include:: generated/topology/defaults.txt
 
 
 
@@ -277,4 +277,4 @@ The following methods all require coordinates.
 
 Other methods are made available when certain topology attributes are defined in the Universe. These are listed below.
 
-.. include:: scripts/topology_groupmethods.txt
+.. include:: generated/topology/groupmethods.txt

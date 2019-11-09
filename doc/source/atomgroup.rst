@@ -19,10 +19,12 @@ Atom selection language
 
 AtomGroup instances are typically created with :meth:`Universe.select_atoms <MDAnalysis.core.universe.Universe.select_atoms>` or by manipulating another :class:`~MDAnalysis.core.groups.AtomGroup`, e.g. by slicing.
 
-.. code-block:: python
+.. ipython:: python
 
-    >>> u.select_atoms('resname ARG')
-    <AtomGroup with 312 atoms>
+    import MDAnalysis as mda
+    from MDAnalysis.tests.datafiles import PDB
+    u = mda.Universe(PDB)
+    u.select_atoms('resname ARG')
 
 See :ref:`Selections` for more information.
 
@@ -32,40 +34,39 @@ Indexing and slicing
 
 An :class:`~MDAnalysis.core.groups.AtomGroup` can be indexed and sliced like a list:
 
-.. code-block:: python
+.. ipython:: python
 
-    >>> print(u.atoms[0])
-    <Atom 1: N of type N of resname MET, resid 1 and segid SYSTEM and altLoc >
+    print(u.atoms[0])
 
 Slicing returns another :class:`~MDAnalysis.core.groups.AtomGroup`. The below code returns an :class:`~MDAnalysis.core.groups.AtomGroup` of every second element from the first to the 6th element, corresponding to indices 0, 2, and 4.
 
-.. code-block:: python
+.. ipython:: python
 
-    >>> ag = u.atoms[0:6:2]
-    >>> print(ag)
-    <AtomGroup [<Atom 1: N of type N of resname MET, resid 1 and segid SYSTEM and altLoc >, <Atom 3: H2 of type H of resname MET, resid 1 and segid SYSTEM and altLoc >, <Atom 5: CA of type C of resname MET, resid 1 and segid SYSTEM and altLoc >]>
-    >>> ag.indices
-    array([0, 2, 4])
+    ag = u.atoms[0:6:2]
+    ag.indices
 
 
 MDAnalysis also supports fancy indexing: passing a :class:`~numpy.ndarray` or a :class:`~list`. 
 
-.. code-block:: python
+.. ipython:: python
 
-    >>> indices = [0, 3, -1, 10, 3]
-    >>> u.atoms[indices].indices
-    array([    0,     3, 47680,    10,     3])
+    indices = [0, 3, -1, 10, 3]
+    u.atoms[indices].indices
 
 
 Boolean indexing allows you to pass in an array of :code:`True` or :code:`False` values to create a new :class:`~MDAnalysis.core.groups.AtomGroup` from another. The array must be the same length as the original :class:`~MDAnalysis.core.groups.AtomGroup`. This allows you to select atoms on conditions.
 
-.. code-block:: python
+.. ipython::
+    :verbatim:
 
-    >>> arr = u.atoms.resnames == 'ARG'
-    >>> arr
-    array([False, False, False, ..., False, False, False])
-    >>> u.atoms[arr]
-    <AtomGroup with 312 atoms>
+    In [1]: arr = u.atoms.resnames == 'ARG'
+
+    In [2]: len(arr) == len(u.atoms)
+
+    In [3]: arr
+    Out[3]: Out[11]: array([False, False, False, ..., False, False, False])
+
+    In [4]: u.atoms[arr]
 
 
 Group operators and set methods
@@ -73,16 +74,14 @@ Group operators and set methods
 
 MDAnalysis supports a number of ways to compare :class:`~MDAnalysis.core.groups.AtomGroup`\ s or construct a new one: group operators (e.g. :meth:`~MDAnalysis.core.groups.AtomGroup.concatenate`, :meth:`~MDAnalysis.core.groups.AtomGroup.subtract`) and set methods (e.g. :meth:`~MDAnalysis.core.groups.AtomGroup.union`, :meth:`~MDAnalysis.core.groups.AtomGroup.difference`). Group operators achieve a similar outcome to set methods. However, a key difference is that :meth:`~MDAnalysis.core.groups.AtomGroup.concatenate` and :meth:`~MDAnalysis.core.groups.AtomGroup.subtract` preserve the order of the atoms and any duplicates. :meth:`~MDAnalysis.core.groups.AtomGroup.union` and :meth:`~MDAnalysis.core.groups.AtomGroup.difference` return an :class:`~MDAnalysis.core.groups.AtomGroup` where each atom is unique, and ordered by its topology index. 
 
-.. code-block:: python
+.. ipython:: python
 
-    >>> ag1 = u.atoms[1:6]
-    >>> ag2 = u.atoms[8:3:-1]
-    >>> concat = ag1 + ag2
-    >>> concat.indices
-    array([1, 2, 3, 4, 5, 8, 7, 6, 5, 4])
-    >>> union = ag1 | ag2
-    >>> union.indices
-    array([1, 2, 3, 4, 5, 6, 7, 8])
+    ag1 = u.atoms[1:6]
+    ag2 = u.atoms[8:3:-1]
+    concat = ag1 + ag2
+    concat.indices
+    union = ag1 | ag2
+    union.indices
 
 
 **Available operators**
@@ -153,63 +152,55 @@ An :class:`~MDAnalysis.core.groups.AtomGroup` can be constructed from another by
 
 :meth:`AtomGroup.split <MDAnalysis.core.groups.AtomGroup.split>` can create a list of :class:`~MDAnalysis.core.groups.AtomGroup`\ s by splitting another :class:`~MDAnalysis.core.groups.AtomGroup` by the 'level' of connectivity: one of *atom*, *residue*, *molecule*, or *segment*. 
 
-.. code-block:: python
+.. ipython:: python
 
-    >>> ag1 = u.atoms[:100]
-    >>> ag1
-    <AtomGroup with 100 atoms>
-    >>> ag1.split('residue')
-    [<AtomGroup with 19 atoms>,
-    <AtomGroup with 24 atoms>,
-    <AtomGroup with 19 atoms>,
-    <AtomGroup with 19 atoms>,
-    <AtomGroup with 19 atoms>]
+    ag1 = u.atoms[:100]
+    ag1.split('residue')
 
 
 An :class:`~MDAnalysis.core.groups.AtomGroup` can also be separated according to values of :ref:`topology attributes <topology-attributes-label>` to produce a dictionary of :code:`{value:AtomGroup}`. 
 
-.. code-block::
+.. ipython:: python
 
-    >>> u = mda.Universe(PSF, DCD)
-    >>> u.atoms.groupby('masses')
-    {32.06: <AtomGroup with 7 atoms>, 1.008: <AtomGroup with 1685 atoms>, 12.011: <AtomGroup with 1040 atoms>, 14.007: <AtomGroup with 289 atoms>, 15.999: <AtomGroup with 320 atoms>}
+    u.atoms.groupby('masses')
 
 Passing in multiple attributes groups them in order:
 
-.. code-block::
+.. ipython:: python
+    :okwarning:
 
-    >>> u.atoms.groupby(['masses', 'resnames'])
-    {(32.06, 'MET'): <AtomGroup with 6 atoms>, (32.06, 'CYS'): <AtomGroup with 1 atom>, (1.008, 'LEU'): <AtomGroup with 176 atoms>, (1.008, 'SER'): <AtomGroup with 25 atoms>, (1.008, 'TYR'): <AtomGroup with 63 atoms>, (1.008, 'ARG'): <AtomGroup with 169 atoms>, (1.008, 'GLU'): <AtomGroup with 108 atoms>, (1.008, 'GLY'): <AtomGroup with 60 atoms>, (1.008, 'ASN'): <AtomGroup with 24 atoms>, ..., }
+    u.select_atoms('resname SOL NA+').groupby(['masses', 'resnames'])
+
 
 Constructing from Atoms
 -----------------------
 
-An :class:`~MDAnalysis.core.groups.AtomGroup` can be created from an iterable of :class:`~MDAnalysis.core.groups.Atom` instances::
+An :class:`~MDAnalysis.core.groups.AtomGroup` can be created from an iterable of :class:`~MDAnalysis.core.groups.Atom` instances:
 
-    >>> atom1 = u.atoms[4]
-    >>> atom2 = u.atoms[6]
-    >>> atom3 = u.atoms[2]
-    >>> ag = mda.AtomGroup([atom1, atom2, atom3])
-    >>> print(ag)
-    <AtomGroup [<Atom 5: CA of type C of resname MET, resid 1 and segid SYSTEM and altLoc >, <Atom 7: CB of type C of resname MET, resid 1 and segid SYSTEM and altLoc >, <Atom 3: H2 of type H of resname MET, resid 1 and segid SYSTEM and altLoc >]>
+.. ipython:: python
 
-A neat shortcut for this is to simply add an :class:`~MDAnalysis.core.groups.Atom` to another :class:`~MDAnalysis.core.groups.Atom` or :class:`~MDAnalysis.core.groups.AtomGroup`::
+    atom1 = u.atoms[4]
+    atom2 = u.atoms[6]
+    atom3 = u.atoms[2]
+    ag = mda.AtomGroup([atom1, atom2, atom3])
+    print(ag)
 
-    >>> ag = atom1 + atom2
-    >>> print(ag)
-    <AtomGroup [<Atom 5: CA of type 22 of resname MET, resid 1 and segid 4AKE>, <Atom 7: CB of type 23 of resname MET, resid 1 and segid 4AKE>]>
-    >>> ag += atom3
-    >>> print(ag)
-    <AtomGroup [<Atom 5: CA of type 22 of resname MET, resid 1 and segid 4AKE>, <Atom 7: CB of type 23 of resname MET, resid 1 and segid 4AKE>, <Atom 3: HT2 of type 2 of resname MET, resid 1 and segid 4AKE>]>
 
+A neat shortcut for this is to simply add an :class:`~MDAnalysis.core.groups.Atom` to another :class:`~MDAnalysis.core.groups.Atom` or :class:`~MDAnalysis.core.groups.AtomGroup`:
+
+.. ipython:: python
+
+    ag = atom1 + atom2
+    print(ag)
+    ag += atom3
+    print(ag)
 
 An alternative method is to provide a list of indices and the Universe that the :class:`~MDAnalysis.core.groups.Atom`\ s belong to:
 
-.. code-block:: python
+.. ipython:: python
 
-    >>> ag = mda.AtomGroup([4, 6, 2], u)
-    >>> print(ag)
-    <AtomGroup [<Atom 5: CA of type C of resname MET, resid 1 and segid SYSTEM and altLoc >, <Atom 7: CB of type C of resname MET, resid 1 and segid SYSTEM and altLoc >, <Atom 3: H2 of type H of resname MET, resid 1 and segid SYSTEM and altLoc >]>
+    ag = mda.AtomGroup([4, 6, 2], u)
+    print(ag)
 
 Order and uniqueness
 -----------------------
@@ -231,42 +222,45 @@ These methods return a user-ordered :class:`~MDAnalysis.core.groups.AtomGroup` t
 Empty AtomGroups
 ----------------
 
-Empty AtomGroups can be constructed from each method. For example, using selection language::
+Empty AtomGroups can be constructed from each method. For example, using selection language:
 
-    >>> u.select_atoms("resname DOES_NOT_EXIST")
-    <AtomGroup with 0 atoms>
+.. ipython:: python
 
-and indexing::
+    u.select_atoms("resname DOES_NOT_EXIST")
 
-    >>> u.atoms[6:6]
-    <AtomGroup with 0 atoms>
+and indexing:
 
-or set methods::
+.. ipython:: python
+    
+    u.atoms[6:6]
 
-    >>> u.atoms - u.atoms
-    <AtomGroup with 0 atoms>
+or set methods:
 
-Creating an :class:`~MDAnalysis.core.groups.AtomGroup` from an empty list requires passing in a :class:`~MDAnalysis.core.universe.Universe`. ::
+.. ipython:: python
+    
+    u.atoms - u.atoms
 
-    >>> ag = mda.AtomGroup([], u)
-    >>> ag
-    <AtomGroup with 0 atoms>
+Creating an :class:`~MDAnalysis.core.groups.AtomGroup` from an empty list requires passing in a :class:`~MDAnalysis.core.universe.Universe`.
 
-Empty AtomGroups have a length of 0 and evaluate to :code:`False` in a boolean context. ::
+.. ipython:: python
 
-    >>> null = u.atoms[[]]
-    >>> len(null)
-    0
-    >>> bool(null)
-    False
+    ag = mda.AtomGroup([], u)
+    ag
 
-AtomGroups with Atoms evaluate to :code:`True` in a boolean context::
+Empty AtomGroups have a length of 0 and evaluate to :code:`False` in a boolean context.
 
-    >>> ag = u.atoms[:5]
-    >>> len(ag)
-    5
-    >>> bool(ag)
-    True
+.. ipython:: python
+
+    null = u.atoms[[]]
+    bool(null)
+
+AtomGroups with Atoms evaluate to :code:`True` in a boolean context:
+
+.. ipython:: python
+    
+    ag = u.atoms[:5]
+    bool(ag)
+
 
 Dynamically updating AtomGroups
 -------------------------------

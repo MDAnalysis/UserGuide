@@ -100,7 +100,7 @@ Records read:
 
 We ignore torsion notation and just pull the partial charge and atom type columns:
 
-.. code-block:: nohighlight
+.. code-block::
 
     COMPND    NSC7810
     REMARK  3 active torsions:
