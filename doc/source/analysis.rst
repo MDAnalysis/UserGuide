@@ -20,8 +20,6 @@ Analysis
    :maxdepth: 1
    :caption: Dimensionality reduction
 
-   examples/analysis/pca.ipynb
-
 .. toctree::
    :maxdepth: 1
    :caption: Structure

@@ -172,3 +172,21 @@ Alternatively, iterate over the trajectory frame-by-frame with :func:`~MDAnalysi
 Pickling
 ========
 
+MDAnalysis currently supports pickling of AtomGroups and trajectories that have *not* been read in as :ref:`multiple files <chainreader-label>` or from a PDB file (`Issue 1981`_). Universe cannot be pickled.
+
+.. ipython:: python
+
+    import pickle
+    from MDAnalysis.tests.datafiles import PSF, DCD
+    psf = mda.Universe(PSF, DCD)
+    pickle.loads(pickle.dumps(psf.trajectory))
+
+While *trajectories* from PDB files cannot be pickled, trajectories where only the topology information comes from a PDB file *can*. For example, the universe below loads the trajectory information from a :ref:`TRR <TRR-label>` file.
+
+.. ipython:: python
+
+    u = mda.Universe(PDB, TRR)
+    pickle.loads(pickle.dumps(u.trajectory))
+
+
+.. _`Issue 1981`: https://github.com/MDAnalysis/mdanalysis/issues/1981>
