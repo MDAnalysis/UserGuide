@@ -31,9 +31,9 @@ doc/build
 *.pdb
 *.trr
 *.ndx
+*.xtc
 
 # example files
-doc/source/examples/analysis/*.pdb
-doc/source/examples/analysis/*.xtc
-doc/source/examples/analysis/*.dcd
-doc/source/examples/analysis/.*
+doc/source/examples/*
+!doc/source/examples/*.ipynb
+!doc/source/examples/analysis/*.ipynb

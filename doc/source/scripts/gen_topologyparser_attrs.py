@@ -13,31 +13,26 @@ from collections import defaultdict
 from core import DESCRIPTIONS, ATTRS
 from base import TableWriter
 
-import MDAnalysis as mda
-
-tests = os.path.join(mda.__path__[0], '..', '..', 'testsuite', 'MDAnalysisTests')
-sys.path.append(tests)
-
-from topology.base import mandatory_attrs
-from topology.test_crd import TestCRDParser
-from topology.test_dlpoly import TestDLPHistoryParser, TestDLPConfigParser
-from topology.test_dms import TestDMSParser
-from topology.test_gms import GMSBase
-from topology.test_gro import TestGROParser
-from topology.test_gsd import TestGSDParser
-from topology.test_hoomdxml import TestHoomdXMLParser
-from topology.test_lammpsdata import LammpsBase, TestDumpParser
-from topology.test_mmtf import TestMMTFParser
-from topology.test_mol2 import TestMOL2Base
-from topology.test_pdb import TestPDBParser
-from topology.test_pdbqt import TestPDBQT
-from topology.test_pqr import TestPQRParser
-from topology.test_psf import PSFBase
-from topology.test_top import TestPRMParser
-from topology.test_tprparser import TPRAttrs
-from topology.test_txyz import TestTXYZParser
-from topology.test_xpdb import TestXPDBParser
-from topology.test_xyz import XYZBase
+from MDAnalysisTests.topology.base import mandatory_attrs
+from MDAnalysisTests.topology.test_crd import TestCRDParser
+from MDAnalysisTests.topology.test_dlpoly import TestDLPHistoryParser, TestDLPConfigParser
+from MDAnalysisTests.topology.test_dms import TestDMSParser
+from MDAnalysisTests.topology.test_gms import GMSBase
+from MDAnalysisTests.topology.test_gro import TestGROParser
+from MDAnalysisTests.topology.test_gsd import TestGSDParser
+from MDAnalysisTests.topology.test_hoomdxml import TestHoomdXMLParser
+from MDAnalysisTests.topology.test_lammpsdata import LammpsBase, TestDumpParser
+from MDAnalysisTests.topology.test_mmtf import TestMMTFParser
+from MDAnalysisTests.topology.test_mol2 import TestMOL2Base
+from MDAnalysisTests.topology.test_pdb import TestPDBParser
+from MDAnalysisTests.topology.test_pdbqt import TestPDBQT
+from MDAnalysisTests.topology.test_pqr import TestPQRParser
+from MDAnalysisTests.topology.test_psf import PSFBase
+from MDAnalysisTests.topology.test_top import TestPRMParser
+from MDAnalysisTests.topology.test_tprparser import TPRAttrs
+from MDAnalysisTests.topology.test_txyz import TestTXYZParser
+from MDAnalysisTests.topology.test_xpdb import TestXPDBParser
+from MDAnalysisTests.topology.test_xyz import XYZBase
 
 PARSER_TESTS = (TestCRDParser, TestDLPHistoryParser, TestDLPConfigParser, 
                 TestDMSParser, GMSBase,

@@ -16,7 +16,7 @@ def chunk_list(lst, n=8):
 
 class StandardSelectionTable(TableWriter):
     sort = False
-    self.filename = 'generated/selections/{}.txt'
+    filename = 'generated/selections/{}.txt'
 
     def __init__(self, filename, *args, **kwargs):
         self.filename = self.filename.format(filename)
