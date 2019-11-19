@@ -6,6 +6,9 @@
 /* MDAnalysis white: #FFFFFF */
 /* MDAnalysis black: #000000 */
 /* Darker orange: e76900 */
+/* Even darker orange: #a24900 */
+/* RTD dark grey: #343131 */
+/* RTD light grey: #e6e6e6 */
 
 /* -- page layout --------------------------------------------------------- */
 
@@ -18,66 +21,54 @@ div.body {
     color: #000000;
 }
 
-div.sphinxsidebar a {
-    color: #808080;
-}
-
 div.sphinxsidebar a:hover {
-    color: #FF9200;
-}
-
-div.sphinxsidebar a:visited {
-    color: #808080;
+    text-decoration: none !important;
 }
 
 div.sphinxsidebar p {
     color: #808080;
 }
 
+/* Home MDAnalysis colour */
+.wy-side-nav-search > a {
+    color: #343131;
+}
+
+/* Side MDAnalysis version colour */
+.wy-side-nav-search > div.version {
+    color: #808080;
+}
+
+/* Menubar caption colour */
 div.wy-menu-vertical span.caption-text {
     color: #FF9200;
 }
 
+/* Mobile layout menubar option */
 nav.wy-nav-top {
-    background: #343131; /* RTD menu bar */
+    background: #343131;
 }
 
+/* Menu search bar outline (default blue) */
 .wy-side-nav-search input[type="text"] {
     border-color: #808080;
 }
 
-/* li.current ul {
-    background: #fbd29b;
-} */
-
-
-/* div.sphinxsidebar a {
-    color: #808080;
-}
-
-div.sphinxsidebar a:hover {
-    color: #FF9200;
-}
-
-div.wy-menu-vertical a:visited {
-    color: #808080;
-}
- */
-
 
 /* -- body styles --------------------------------------------------------- */
 
+/* Different coloured links for sidebar vs body) */
 div.rst-content a {
     color: #FF9200;
     text-decoration: none;
 }
 
 div.rst-content a:visited {
-    color: #e76900;
+    color: #FF9200;
 }
  
-div.rst-content a:hover {
-    color: #FF9200;
+a:hover {
+    color: #FF9200 !important;
     text-decoration: underline;
 }
 
@@ -86,10 +77,6 @@ pre, tt, code {
     font-family: Menlo, Monaco, 'Courier New', monospace
 }
 
-/* For the backtick tags */
-/* code > span.pre {
-    color: #e76900;
-} */
 
 div.body h1 {
     font-weight: bolder;
@@ -107,6 +94,7 @@ a.headerlink:hover {
     color: #fff;
 }
 
+/* ------- admonition boxes ------- */
 
 div.admonition {
     margin: 10px 0px;
@@ -118,28 +106,101 @@ div.admonition p.admonition-title {
     font-weight: bolder;
 }
 
-div.admonition.warning {
-    background: #ffdeb3;
+/* ----- Tables ----- */
+
+/* override table width restrictions */
+/* wrap tables instead of scrolling */
+@media screen and (min-width: 767px) {
+
+    .wy-table-responsive table td, .wy-table-responsive table th {
+       /* !important prevents the common CSS stylesheets from overriding
+          this as on RTD they are loaded after this stylesheet */
+       white-space: normal !important;
+    }
+ 
+    .wy-table-responsive {
+       overflow: visible !important;
+       max-width: 100% !important;
+    }
+ }
+
+/* ----- Field lists ------ */
+
+.section > dl.field-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
 }
 
-div.admonition.warning > p.admonition-title {
+dl.field-list > dt::after {
+    content: ":";
+}
+
+.rst-content dl:not(.docutils) dt {
+    background: none;
+    color: #000000;
+    border-top: none;
+}
+
+.section > dl.field-list dt {
+    margin: 0;
+    padding: 0;
+    flex-basis: 20%;
+    display: block;
+}
+
+.section > dl.field-list > dd {
+    flex-basis: 70%;
+    margin: 0;
+}
+
+.section > dl.field-list > dd p {
+    margin: 0;
+}
+
+/* ----- MDAnalysis coloured elements ------ */
+
+.rst-content dl.class dt, .rst-content dl.function dt {
+    color: #ca6500;
+    background: #FFEBD0;
+    border-top: solid 3px #FF9200;
+}
+
+.rst-content .viewcode-link, .rst-content .viewcode-back {
+    color: #808080;
+}
+
+.rst-content .guilabel {
+    background: #efefef;
+    border: 1px solid #808080;
+}
+
+
+.rst-content .seealso p.admonition-title {
+    background: #808080;
+}
+
+.rst-content .seealso {
+    background: #e3e3e3;
+}
+
+.rst-content  .error p.admonition-title, .rst-content  .warning p.admonition-title {
+    background: #F45F4B;
+}
+
+.rst-content .error, .rst-content .warning {
+    background: #FFEEED;
+}
+
+.rst-content .caution p.admonition-title, .rst-content .note p.admonition-title, .rst-content .important p.admonition-title  {
     background: #FF9200;
 }
 
-div.admonition.note {
-    background: #e6e6e6; /* RTD menu light grey */
+.rst-content .caution, .rst-content .note, .rst-content .important {
+    background: #FFEBD0;
 }
 
-div.admonition.note > p.admonition-title {
-    background:  #808080;
+.rst-content code:not(.xref).literal {
+    color: #ca6500;
 }
-
-.wy-table-responsive table td {
-    white-space: normal !important; /* no horizontal scroll on tables */
-}
-
-/* -- notebook styles --------------------------------------------------------- */
-.rst-content div[class^="highlight"] pre {
-    white-space: pre-wrap;
-}
-
