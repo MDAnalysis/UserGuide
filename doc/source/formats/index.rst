@@ -9,7 +9,7 @@ MDAnalysis can read topology or coordinate information from a wide variety of fi
 
 Below is :ref:`a table of formats in MDAnalysis <format-overview-label>`, and which information can be read from them. A topology file supplies the list of atoms in the system, their connectivity and possibly additional information such as B-factors, partial charges, etc. The details depend on the file format and not every topology file provides all (or even any) additional data.
 
-.. warning::
+.. important ::
 
     File formats do not always behave the way you might expect in MDAnalysis. It is *highly* recommended that you read the page for your data file format before using MDAnalysis. 
 
