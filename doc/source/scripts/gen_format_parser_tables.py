@@ -100,7 +100,7 @@ class SphinxClasses(TableWriter):
 if __name__ == '__main__':
     ov = FormatOverview()
     CoordinateReaders()
-    for key in set(ov.fields['key']):
+    for key in set(ov.fields['keys']):
         SphinxClasses(key)
 
         
