@@ -32,7 +32,7 @@ visualize the atoms in VMD_.
 
 As with a normal structure file, use :meth:`AtomGroup.write <MDAnalysis.core.groups.AtomGroup.write>` method with the appropriate file extension.
 
-.. ipython:: python
+.. code-block :: python
 
     ag.write("ala_selection.vmd", name="alanine")
 
@@ -54,7 +54,7 @@ Multiple selections
 
 :meth:`AtomGroup.write <MDAnalysis.core.groups.AtomGroup.write>` can take additional keyword arguments, including ``mode``. The default is ``mode='w'``, which will overwrite the provided filename. If ``mode='a'``, the selection is appended to the file.
 
-.. ipython:: python
+.. code-block :: python
 
     u.select_atoms('resname T*').write('residues.ndx',
                                        name='TYR_THR',
@@ -91,7 +91,7 @@ Looking at this GROMACS index file, we see:
 
 Alternatively, you can direcly use the selection writer itself as a `context manager`_ and write each :class:`~MDAnalysis.core.groups.AtomGroup` inside the context. For example:
 
-.. ipython:: python
+.. code-block :: python
 
     with mda.selections.gromacs.SelectionWriter('residues.ndx', mode='w') as ndx:
         ndx.write(u.select_atoms('resname T*'), 
@@ -101,7 +101,7 @@ Alternatively, you can direcly use the selection writer itself as a `context man
 
 And again, you can append to the file with ``mode='a'``:
 
-.. ipython:: python
+.. code-block :: python
 
     with mda.selections.gromacs.SelectionWriter('residues.ndx', mode='a') as ndx:
         ndx.write(u.select_atoms('resname PRO'), 

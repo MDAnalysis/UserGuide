@@ -141,7 +141,7 @@ Frames and trajectories
 
 MDAnalysis :class:`~MDAnalysis.core.universe.Universe`\ s can be written out to a :ref:`number of formats <coordinate-readers-label>` with :meth:`~MDAnalysis.core.groups.AtomGroup.write`. For example, to write the current frame as a PDB:
 
-.. ipython:: python
+.. code-block :: python
 
     from MDAnalysis.tests.datafiles import PDB, TRR
     u = mda.Universe(PDB, TRR)
@@ -150,20 +150,20 @@ MDAnalysis :class:`~MDAnalysis.core.universe.Universe`\ s can be written out to 
 
 Pass in the ``frames`` keyword to write out trajectories.
 
-.. ipython:: python
+.. code-block :: python
 
     ag.write('c-alpha_all.xtc', frames='all')
 
 Slice or index the trajectory to choose which frames to write:
 
-.. ipython:: python
+.. code-block :: python
 
     ag.write('c-alpha_skip2.trr', frames=u.trajectory[::2])
     ag.write('c-alpha_some.dcd', frames=u.trajectory[[0,2,3]])
 
 Alternatively, iterate over the trajectory frame-by-frame with :func:`~MDAnalysis.Writer`. This requires you to pass in the number of atoms to write.
 
-.. ipython:: python
+.. code-block :: python
 
     with mda.Writer('c-alpha.xyz', ag.n_atoms) as w:
         for ts in u.trajectory:
