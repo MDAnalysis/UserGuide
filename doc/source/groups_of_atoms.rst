@@ -58,7 +58,7 @@ For information on adding custom Residues or Segments, have a look at :ref:`addi
 Fragments
 ---------------------------
 
-Certain analysis methods in MDAnalysis also make use of additional ways to group atoms. A key concept is a fragment. A fragment is what is typically considered a molecule: a group of atoms where each atom is bonded to at least one other atom in the fragment, and are not bonded to any atoms outside the fragment. (A 'molecule' in MDAnalysis methods :ref:`refers to a GROMACS-specific concept <molecule-label>`). The fragments of a Universe are determined by MDAnalysis as a derived quantity. They can only be determined if bond information is available.
+Certain analysis methods in MDAnalysis also make use of additional ways to group atoms. A key concept is a fragment. A fragment is what is typically considered a molecule: an AtomGroup where any atom is reachable from any other atom in the AtomGroup by traversing bonds, and none of its atoms is bonded to any atoms outside the AtomGroup. (A 'molecule' in MDAnalysis methods :ref:`refers to a GROMACS-specific concept <molecule-label>`). The fragments of a Universe are determined by MDAnalysis as a derived quantity. They can only be determined if bond information is available.
 
 The fragments of an :class:`~MDAnalysis.core.groups.AtomGroup` are accessible via the :attr:`fragments` property. Below is a Universe from a GROMACS TPR file of lysozyme (`PDB ID: 2LYZ <http://www.rcsb.org/structure/2LYZ>`_) with 101 water molecules. While it has 230 residues, there are only 102 fragments: 1 protein and 101 water fragments.
 

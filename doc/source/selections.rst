@@ -68,13 +68,15 @@ selection parser. The following applies to all selections:
     u.select_atoms("segid DMPC and not (name H* or type OW)")
 
 
-* Currently, only "stemming" is implemented as a primitive form of pattern
+* Currently, wildcards are implemented as a form of pattern
   matching: Using the ``*`` character in a string such as ``GL*`` selects
   all strings that start with "GL" such as "GLU", "GLY", "GLX29", "GLN". Only terminal wildcards (i.e. matching the last part of a name) are currently supported. 
 
 .. note::
 
-    MDAnalysis will ignore everything after the ``*``. ``u.select_atoms("resname *E")`` will not select atoms whose residue name ends in E, but instead select every atom.
+    Before version 0.21.0, MDAnalysis will ignore everything after the ``*``. ``u.select_atoms("resname *E")`` will not select atoms whose residue name ends in E, but instead select every atom.
+
+    After version 0.21.0, MDAnalysis supports the use of *one* wildcard ``*`` at the start, middle, and end of strings. ``u.select_atoms("resname *E")`` will select atoms whose residue name ends in E.
 
 
 Simple selections
