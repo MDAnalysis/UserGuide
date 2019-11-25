@@ -28,6 +28,8 @@ If a trajectory is loaded without time information, MDAnalysis will set a defaul
 
     .. include:: format_overview.txt
 
+.. _topology-parsers-label:
+
 .. include:: topology.rst
 
 .. include:: coordinates.rst

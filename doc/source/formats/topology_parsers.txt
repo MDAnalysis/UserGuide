@@ -1,3 +1,4 @@
+=====================================  ===============================  =========================================================================================  ====================
 Format                                 Description                      Attributes read                                                                            Attributes guessed
 =====================================  ===============================  =========================================================================================  ====================
 :ref:`CONFIG <CONFIG-label>`           DL_Poly CONFIG file              names                                                                                      masses, types
@@ -22,29 +23,3 @@ Format                                 Description                      Attribut
 :ref:`XPDB <XPDB-label>`               Extended PDB file                altLocs, bonds, chainIDs, icodes, names, occupancies, record_types, resnames, tempfactors  masses, types
 :ref:`XYZ <XYZ-label>`                 XYZ file                         names                                                                                      masses, types
 =====================================  ===============================  =========================================================================================  ====================
-=======
-=====================================  =========================================================================================  ====================
-Format                                 Attributes read                                                                            Attributes guessed
-=====================================  =========================================================================================  ====================
-:ref:`CRD <CRD-label>`                 names, resnames, tempfactors                                                               masses, types
-:ref:`HISTORY <HISTORY-label>`         names                                                                                      masses, types
-:ref:`CONFIG <CONFIG-label>`           names                                                                                      masses, types
-:ref:`DMS <DMS-label>`                 atomnums, bonds, chainIDs, charges, names, resnames                                        types
-:ref:`GMS <GMS-label>`                 atomiccharges, names                                                                       masses, types
-:ref:`GRO <GRO-label>`                 names, resnames                                                                            masses, types
-:ref:`GSD <GSD-label>`                 angles, bonds, charges, dihedrals, impropers, names, radii, resnames
-:ref:`XML <XML-label>`                 angles, bonds, charges, dihedrals, impropers, radii
-:ref:`DATA <DATA-label>`               angles, bonds, charges, dihedrals, impropers
-:ref:`MMTF <MMTF-label>`               altLocs, bfactors, bonds, charges, icodes, models, names, occupancies, resnames            masses
-:ref:`MOL2 <MOL2-label>`               bonds, charges, names, resnames                                                            masses
-:ref:`PDB, ENT <PDB-label>`            altLocs, bonds, chainIDs, icodes, names, occupancies, record_types, resnames, tempfactors  masses, types
-:ref:`PDBQT <PDBQT-label>`             altLocs, charges, icodes, names, occupancies, record_types, resnames, tempfactors          masses
-:ref:`PQR <PQR-label>`                 charges, icodes, names, radii, record_types, resnames                                      masses, types
-:ref:`PSF <PSF-label>`                 angles, bonds, charges, dihedrals, impropers, names, resnames
-:ref:`TOP, PRMTOP, PARM7 <TOP-label>`  angles, bonds, charges, dihedrals, impropers, names, resnames, type_indices                elements
-:ref:`TPR <TPR-label>`                 angles, bonds, charges, dihedrals, impropers, molnums, moltypes, names, resnames
-:ref:`TXYZ, ARC <TXYZ-label>`          bonds, names                                                                               masses
-:ref:`XPDB <XPDB-label>`               altLocs, bonds, chainIDs, icodes, names, occupancies, record_types, resnames, tempfactors  masses, types
-:ref:`XYZ <XYZ-label>`                 names                                                                                      masses, types
-:ref:`LAMMPSDUMP <LAMMPSDUMP-label>`                                                                                              masses
-=====================================  =========================================================================================  ====================

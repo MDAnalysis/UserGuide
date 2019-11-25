@@ -1,4 +1,3 @@
-.. _topology-parsers-label:
 
 Topology
 ========
