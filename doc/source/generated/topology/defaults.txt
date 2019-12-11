@@ -8,7 +8,6 @@ atomnums       atomnum       No default values                         atom
 bfactors       bfactor       0.0                                       atom     <class 'float'>
 bonds          bonds         No default values                         atom
 chainIDs       chainID       ''                                        atom     <class 'object'>
-chargegroups   chargegroup   No default values                         atom
 charges        charge        0.0                                       atom     <class 'float'>
 dihedrals      dihedrals     No default values                         atom
 elements       element       ''                                        atom     <class 'object'>

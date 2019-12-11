@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Generate two tables:
+Generate three tables:
     - connectivityattrs.txt: A table of supported formats for bonds, angles, dihedrals, impropers
     - topologyattrs.txt: A table of supported formats for non-connectivity attributes.
     - topology_parsers.txt: A table of all formats and the attributes they read and guess
@@ -10,7 +10,7 @@ This script imports the testsuite, which tests these.
 import os
 import sys
 from collections import defaultdict
-from core import DESCRIPTIONS, ATTRS
+from core import DESCRIPTIONS, NON_CORE_ATTRS
 from base import TableWriter
 
 from MDAnalysisTests.topology.base import mandatory_attrs
@@ -42,7 +42,7 @@ PARSER_TESTS = (TestCRDParser, TestDLPHistoryParser, TestDLPConfigParser,
                 TestPRMParser, TPRAttrs, TestTXYZParser, 
                 TestXPDBParser, XYZBase, TestDumpParser)
 
-MANDATORY_ATTRS = set(mandatory_attrs)
+MANDATORY_ATTRS = set(mandatory_attrs) 
 
 parser_attrs = {}
 
@@ -106,7 +106,7 @@ class TopologyAttrs(TableWriter):
         super(TopologyAttrs, self).__init__()
 
     def _set_up_input(self):
-        return sorted([x, *y] for x, y in ATTRS.items() if x not in MANDATORY_ATTRS)
+        return sorted([x, *y] for x, y in NON_CORE_ATTRS.items() if x not in MANDATORY_ATTRS)
     
     def _atom(self, name, singular, *args):
         return singular

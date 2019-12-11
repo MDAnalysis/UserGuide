@@ -8,7 +8,7 @@ Reading and writing files
 Input
 ================
 
-Read information from topology and coordinate files through the :ref:`Universe <universe-loading-label>`. MDAnalysis supports a number of :ref:`formats <formats-label>`.
+Read information from topology and coordinate files through the :ref:`Universe <universe-loading-label>`. MDAnalysis supports a number of :ref:`formats <formats-label>`. These formats can come with format-specific keyword arguments, such as the :ref:`LAMMPS DATA <DATA-label>` ``atom_style`` specification.
 
 .. _chainreader-label:
 
@@ -129,7 +129,6 @@ In-memory trajectories of an atom selection
 
 Creating a trajectory of an atom selection requires transferring the appropriate units. This is often needed when using :meth:`~MDAnalysis.core.universe.Merge` to create a new Universe, as coordinates are not automatically loaded in.
 
-An example of this can be found at TODO: link notebook.
 
 
 Output
@@ -168,6 +167,8 @@ Alternatively, iterate over the trajectory frame-by-frame with :func:`~MDAnalysi
     with mda.Writer('c-alpha.xyz', ag.n_atoms) as w:
         for ts in u.trajectory:
             w.write(ag)
+
+You can pass keyword arguments to some format writers. For example, the :ref:`LAMMPS DATA <DATA-label>` format allows the ``lengthunit`` and ``timeunit`` keywords to specify the output units.  
 
 Pickling
 ========

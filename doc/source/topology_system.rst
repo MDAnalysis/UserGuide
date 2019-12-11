@@ -126,12 +126,17 @@ Existing topology attributes can be directly modified by assigning new values.
     This method cannot be used with connectivity attributes, i.e. bonds, angles, dihedrals, and impropers. 
 
 
-Similarly to adding topology attributes with :meth:`~MDAnalysis.core.universe.Universe.add_TopologyAttr`, the "level" of the attribute matters. Residue attributes can only be assigned to attributes at the Residue or ResidueGroup level. The same applies to attributes for Atoms and Segments. For example, if we tried to assign resnames to an AtomGroup:
+Similarly to adding topology attributes with :meth:`~MDAnalysis.core.universe.Universe.add_TopologyAttr`, the "level" of the attribute matters. Residue attributes can only be assigned to attributes at the Residue or ResidueGroup level. The same applies to attributes for Atoms and Segments. For example, we would get a NotImplementedError if we tried to assign resnames to an AtomGroup.
 
-.. ipython:: python
-    :okexcept:
+.. code-block:: ipython
     
-    pdb.residues[0].atoms.resnames = ['new_name']
+    In [15]: pdb.residues[0].atoms.resnames = ['new_name']
+
+    NotImplementedErrorTraceback (most recent call last)
+    <ipython-input-15-0f99b0dc5f49> in <module>
+    ----> 1 pdb.residues[0].atoms.resnames = ['new_name']
+    ...
+    NotImplementedError: Cannot set resnames from AtomGroup. Use 'AtomGroup.residues.resnames = '
 
 
 .. _topologyattr-defaults-label:
@@ -187,8 +192,6 @@ These accept the following values:
     * an iterable of atom indices
     * an iterable of :class:`~MDAnalysis.core.topologyobjects.TopologyObject`\ s
 
-TODO: Provide example when 0.21.0 is released
-
 
 Prior to version 0.21.0, objects could be added to a Universe with :meth:`~MDAnalysis.core.universe.Universe.add_TopologyAttr`. 
 
@@ -215,13 +218,15 @@ An :class:`~MDAnalysis.core.groups.AtomGroup` can be represented as a bond, angl
 
 The :class:`~MDAnalysis.core.groups.AtomGroup` must contain the corresponding number of atoms, in the desired order. For example, a bond cannot be created from three atoms.
 
-.. ipython:: python
-    :okexcept:
+.. code-block:: ipython
 
-    import MDAnalysis as mda
-    from MDAnalysis.tests.datafiles import PDB
-    pdb = mda.Universe(PDB)
-    pdb.atoms[[3, 4, 2]].bond
+    In [18]: pdb.atoms[[3, 4, 2]].bond
+
+    ValueErrorTraceback (most recent call last)
+    <ipython-input-21-e59c36ab66f4> in <module>
+    ----> 1 pdb.atoms[[3, 4, 2]].bond
+    ...
+    ValueError: bond only makes sense for a group with exactly 2 atoms
 
 
 However, the angle Atom 2 ----- Atom 4 ------ Atom 3 can be calculated, even if the atoms are not connected with bonds.
@@ -245,7 +250,6 @@ As of version 0.21.0, there are specific methods for deleting :class:`~MDAnalysi
     * :meth:`~MDAnalysis.core.universe.Universe.delete_Dihedrals`
     * :meth:`~MDAnalysis.core.universe.Universe.delete_Impropers`
 
-TODO: Provide example when 0.21.0 is released
 
 .. _topology-groupmethods-label:
 

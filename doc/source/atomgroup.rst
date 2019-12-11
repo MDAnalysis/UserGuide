@@ -254,12 +254,7 @@ Empty AtomGroups have a length of 0 and evaluate to :code:`False` in a boolean c
     null = u.atoms[[]]
     bool(null)
 
-AtomGroups with Atoms evaluate to :code:`True` in a boolean context:
-
-.. ipython:: python
-    
-    ag = u.atoms[:5]
-    bool(ag)
+This allows analysis methods to skip over empty AtomGroups instead of raising an error, which is helpful as occasionally empty AtomGroups can arise from selection logic that is too restrictive (e.g. :ref:`geometric selections <geometric-label>`). 
 
 
 Dynamically updating AtomGroups

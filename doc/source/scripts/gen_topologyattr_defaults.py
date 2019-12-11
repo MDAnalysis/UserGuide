@@ -46,6 +46,8 @@ class TopologyDefaults(TableWriter):
             level = 'residue'
         elif issubclass(klass, SegmentAttr):
             level = 'segment'
+        else:
+            raise ValueError
         return level
     
     def _type(self, klass):

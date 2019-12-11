@@ -1,0 +1,41 @@
+====================================  =========================================  ==========  =============  ==============
+File type                             Description                                Topology    Coordinates    Read/Write
+====================================  =========================================  ==========  =============  ==============
+:ref:`ARC <TXYZ-label>`               Tinker file                                Yes         Yes            Read only
+:ref:`CONFIG <CONFIG-label>`          DL_Poly CONFIG file                        Yes         Yes            Read only
+:ref:`CRD <CRD-label>`                CHARMM CARD file                           Yes         Yes            Read and write
+:ref:`CRDBOX <TRJ-label>`             AMBER ASCII trajectories                               Yes            Read only
+:ref:`DATA <DATA-label>`              LAMMPS data file                           Yes         Yes            Read and write
+:ref:`DCD <DCD-label>`                CHARMM, NAMD, or LAMMPS binary trajectory              Yes            Read and write
+:ref:`DMS <DMS-label>`                DESRES Molecular Structure file            Yes         Yes            Read only
+:ref:`ENT <PDB-label>`                Standard PDB file                          Yes         Yes            Read and write
+:ref:`GMS <GMS-label>`                GAMESS file                                Yes         Yes            Read only
+:ref:`GRO <GRO-label>`                GROMACS structure file                     Yes         Yes            Read and write
+:ref:`GSD <GSD-label>`                HOOMD GSD file                             Yes         Yes            Read only
+:ref:`HISTORY <HISTORY-label>`        DL_Poly HISTORY file                       Yes         Yes            Read only
+:ref:`INPCRD <INPCRD-label>`          AMBER restart file                                     Yes            Read only
+:ref:`LAMMPS <LAMMPS-label>`          a LAMMPS DCD trajectory                                Yes            Read and write
+:ref:`LAMMPSDUMP <LAMMPSDUMP-label>`  LAMMPS ascii dump file                     Yes         Yes            Read only
+:ref:`MDCRD <TRJ-label>`              AMBER ASCII trajectories                               Yes            Read only
+:ref:`MMTF <MMTF-label>`              MMTF file                                  Yes         Yes            Read only
+:ref:`MOL2 <MOL2-label>`              Tripos MOL2 file                           Yes         Yes            Read and write
+:ref:`NC <NCDF-label>`                AMBER NETCDF format                                    Yes            Read only
+:ref:`NCDF <NCDF-label>`              AMBER NETCDF format                                    Yes            Read and write
+:ref:`PARM7 <TOP-label>`              AMBER topology file                        Yes                        Read only
+:ref:`PDB <PDB-label>`                Standard PDB file                          Yes         Yes            Read and write
+:ref:`PDBQT <PDBQT-label>`            PDBQT file                                 Yes         Yes            Read and write
+:ref:`PQR <PQR-label>`                PQR file                                   Yes         Yes            Read and write
+:ref:`PRMTOP <TOP-label>`             AMBER topology file                        Yes                        Read only
+:ref:`PSF <PSF-label>`                CHARMM, NAMD, or XPLOR PSF file            Yes                        Read only
+:ref:`RESTRT <INPCRD-label>`          AMBER restart file                                     Yes            Read only
+:ref:`TOP <TOP-label>`                AMBER topology file                        Yes                        Read only
+:ref:`TPR <TPR-label>`                GROMACS run topology file                  Yes                        Read only
+:ref:`TRJ <TRJ-label>`                AMBER ASCII trajectories                               Yes            Read only
+:ref:`TRR <TRR-label>`                GROMACS TRR trajectory                                 Yes            Read and write
+:ref:`TRZ <TRZ-label>`                IBIsCO or YASP binary trajectory                       Yes            Read and write
+:ref:`TXYZ <TXYZ-label>`              Tinker file                                Yes         Yes            Read only
+:ref:`XML <XML-label>`                HOOMD XML file                             Yes                        Read only
+:ref:`XPDB <XPDB-label>`              Extended PDB file                          Yes         Yes            Read only
+:ref:`XTC <XTC-label>`                GROMACS compressed trajectory                          Yes            Read and write
+:ref:`XYZ <XYZ-label>`                XYZ file                                   Yes         Yes            Read and write
+====================================  =========================================  ==========  =============  ==============

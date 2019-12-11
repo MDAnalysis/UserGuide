@@ -42,7 +42,7 @@ Writing out
 MDAnalysis supports writing out the header and applicable sections from Atoms, Masses, Velocities, Bonds, Angles, Dihedrals, and Impropers. The Atoms section is written in the "full" sub-style if charges are available or "molecular" sub-style if they are not. The molecule id is set to 0 for all atoms.
 
 
-This writer assumes "conventional" or "real" LAMMPS units where length is measured in Angstroms and velocity is measured in Angstroms per femtosecond. To write in different units, specify ``lengthunit``.
+This writer assumes "conventional" or "real" LAMMPS units where length is measured in Angstroms and velocity is measured in Angstroms per femtosecond. To write in different units, specify ``lengthunit`` or ``timeunit``.
 
 For example, to write a certain frame with nanometer units::
 
@@ -61,7 +61,7 @@ assign new types.
 To preserve numerical atom types when writing a selection, the Masses
 section will have entries for each atom type up to the maximum atom type.
 If the universe does not contain atoms of some type in
-{1, ... max(atom_types)}, then the mass for that type will be set to 1.
+``{1, ... max(atom_types)}``, then the mass for that type will be set to 1.
 
 In order to write bonds, each selected bond type must be explicitly set to
 an integer >= 1.

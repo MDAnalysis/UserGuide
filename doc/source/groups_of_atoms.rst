@@ -28,29 +28,38 @@ The corresponding container groups are :class:`~MDAnalysis.core.groups.ResidueGr
     ag = u.atoms.select_atoms('resname ARG and name CA')
     ag
 
-Each of these container groups can be accessed through another. The behaviour of this differs by level. For example, the residues of the ``ag`` are the residues that the atoms of ``ag`` belong to. Accessing the atoms of *those* residues, however, returns *all* the atoms in the residues, not just those originally in ``ag``.
+Each of these container groups can be accessed through another. The behaviour of this differs by level. For example, the residues of the ``ag`` are the residues that the atoms of ``ag`` belong to. 
 
 .. ipython:: python
 
     ag.residues
+
+Accessing the atoms of *those* residues, however, returns *all* the atoms in the residues, not just those originally in ``ag``.
+
+.. ipython:: python
+
     ag.residues.atoms
 
 The same applies to segments.
 
 .. ipython:: python
 
-    ag.segments
-    ag.segments.atoms
+    ag[:3].segments.atoms
 
-Similarly, an :class:`~MDAnalysis.core.groups.Atom` has direct knowledge of the :class:`~MDAnalysis.core.groups.Residue` and :class:`~MDAnalysis.core.groups.Segment` it belongs to.
+Similarly, an :class:`~MDAnalysis.core.groups.Atom` has direct knowledge of the :class:`~MDAnalysis.core.groups.Residue` and :class:`~MDAnalysis.core.groups.Segment` it belongs to. Note that an :class:`~MDAnalysis.core.groups.Atom` belongs to *one* :class:`~MDAnalysis.core.groups.Residue` and the residue belongs to *one* :class:`~MDAnalysis.core.groups.Segment`, but a :class:`~MDAnalysis.core.groups.Segment` has multiple residues.
 
-.. ipython:: python
+.. code-block:: ipython
 
-    a = u.atoms[0]
-    a.residue
-    a.residue.segment
-    a.residue.segment.residues
+    In [9]: a = u.atoms[0]
 
+    In [10]: a.residue
+    Out[10]: <Residue LYSH, 0>
+
+    In [11]: a.residue.segment
+    Out[11]: <Segment seg_0_Protein_A>
+
+    In [12]: a.residue.segment.residues
+    Out[12]: <ResidueGroup with 129 residues>
 
 For information on adding custom Residues or Segments, have a look at :ref:`adding-residue-label`.
 
@@ -62,10 +71,13 @@ Certain analysis methods in MDAnalysis also make use of additional ways to group
 
 The fragments of an :class:`~MDAnalysis.core.groups.AtomGroup` are accessible via the :attr:`fragments` property. Below is a Universe from a GROMACS TPR file of lysozyme (`PDB ID: 2LYZ <http://www.rcsb.org/structure/2LYZ>`_) with 101 water molecules. While it has 230 residues, there are only 102 fragments: 1 protein and 101 water fragments.
 
-.. ipython:: python
+.. code-block:: ipython
 
-    len(u.residues)
-    len(u.atoms.fragments)
+    In [12]: len(u.residues)
+    Out[12]: 230
+
+    In [13]: len(u.atoms.fragments)
+    Out[13]: 102
 
 
 See :ref:`topology-objects-label` for more on bonds and which file formats give MDAnalysis bond information.

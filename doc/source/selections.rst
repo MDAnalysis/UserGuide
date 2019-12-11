@@ -18,10 +18,10 @@ AtomGroups can be created by selecting atoms using the MDAnalysis atom selection
 The :meth:`~MDAnalysis.core.groups.AtomGroup.select_atoms` method of a
 :class:`~MDAnalysis.core.groups.AtomGroup` or a
 :class:`~MDAnalysis.core.universe.Universe` returns an
-:class:`~MDAnalysis.core.groups.AtomGroup`. Selections always return an
+:class:`~MDAnalysis.core.groups.AtomGroup`. These two methods have different behaviour: while :meth:`Universe.select_atoms <MDAnalysis.core.universe.Universe.select_atoms>` operates on all the atoms in the universe, :meth:`AtomGroup.select_atoms <MDAnalysis.core.groups.AtomGroup.select_atoms>` only operates on the atoms within the original AtomGroup. A single selection phrase always returns an
 :class:`~MDAnalysis.core.groups.AtomGroup` with atoms sorted according to their
 index in the topology. This is to ensure that there are not any duplicates,
-which can happen with complicated selections.
+which can happen with complicated selections. When order matters, :ref:`you can pass in multiple phrases <ordered-selections-label>`.
 
 This page documents selection keywords and their arguments. :meth:`~MDAnalysis.core.groups.AtomGroup.select_atoms` also accepts keywords that modify the behaviour of the selection string and the resulting :class:`~MDAnalysis.core.groups.AtomGroup` (documented further down this page). For example, you can:
 
@@ -33,7 +33,7 @@ This page documents selection keywords and their arguments. :meth:`~MDAnalysis.c
     u.select_atoms("around 3 group sph_6", sph_6=sph_6)
 
 
-* Turn off :ref:`periodic boundary conditions for geometric keywords <geometric>` with ``periodic=False``:
+* Turn off :ref:`periodic boundary conditions for geometric keywords <geometric-label>` with ``periodic=False``:
 
 .. ipython:: python
 
@@ -158,7 +158,7 @@ and
 or
     the union of two selections, i.e. the boolean or. e.g. ``protein and not (resname ALA or resname LYS)`` selects all atoms that belong to a protein, but are not in a lysine or alanine residue
 
-.. _geometric:
+.. _geometric-label:
 
 Geometric
 ---------
@@ -309,10 +309,13 @@ every time the trajectory frame changes (this happens lazily, only when the
 :class:`~MDAnalysis.core.groups.UpdatingAtomGroup` object is accessed so that
 there is no redundant updating going on):
 
-.. ipython:: python
+.. code-block:: ipython
 
-    u.trajectory.next()
-    ag_updating
+    In [14]: u.trajectory.next()
+    Out[14]: < Timestep 1 with unit cell dimensions [ 0.  0.  0. 90. 90. 90.] >
+
+    In [15]: ag_updating
+    Out[15]: <AtomGroup with 923 atoms, with selection 'prop x < 5 and prop y < 5 and prop z < 5' on the entire Universe.>
 
 Using the ``group`` selection keyword for
 :ref:`preexisting-selections`, one can
@@ -322,25 +325,36 @@ make updating selections depend on
 Likewise, making an updating selection from an already updating group will
 cause later updates to also reflect the updating of the base group:
 
-.. ipython:: python
+.. code-block:: ipython
 
-    chained_ag_updating = ag_updating.select_atoms("resid 1:1000", updating=True)
-    chained_ag_updating
+    In [16]: chained_ag_updating = ag_updating.select_atoms("resid 1:1000", updating=True)
 
-    u.trajectory.next()
-    chained_ag_updating
+    In [17]: chained_ag_updating
+    Out[17]: <AtomGroup with 923 atoms, with selection 'resid 1:1000' on another AtomGroup.>
+
+    In [18]: u.trajectory.next()
+    Out[18]: < Timestep 2 with unit cell dimensions [ 0.  0.  0. 90. 90. 90.] >
+
+    In [19]: chained_ag_updating
+    Out[19]: <AtomGroup with 921 atoms, with selection 'resid 1:1000' on another AtomGroup.>
 
 Finally, a non-updating selection or a slicing/addition operation made on an
 :class:`~MDAnalysis.core.groups.UpdatingAtomGroup` will return a static
 :class:`~MDAnalysis.core.groups.AtomGroup`, which will no longer update
 across frames:
 
-.. ipython:: python
+.. code-block:: ipython
 
-    static_ag = ag_updating.select_atoms("resid 1:1000")
-    static_ag
-    u.trajectory.next()
-    static_ag
+    In [20]: static_ag = ag_updating.select_atoms("resid 1:1000")
+
+    In [21]: static_ag
+    Out[21]: <AtomGroup with 921 atoms>
+
+    In [22]: u.trajectory.next()
+    Out[22]: < Timestep 3 with unit cell dimensions [ 0.  0.  0. 90. 90. 90.] >
+
+    In [23]: static_ag
+    Out[23]: <AtomGroup with 921 atoms>
 
 
 .. _ordered-selections-label:
