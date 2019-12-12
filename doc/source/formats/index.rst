@@ -13,6 +13,7 @@ Below is :ref:`a table of formats in MDAnalysis <format-overview-label>`, and wh
 
     File formats are complicated and not always well defined. MDAnalysis tries to follow published standards but this can sometimes surprise users. It is *highly* recommended that you read the page for your data file format instead of assuming certain behaviour. If you encounter problems with a file format, please :ref:`get in touch with us <contributing-label>`.
 
+
 As a minimum, all topology parsers will provide atom ``ids``, atom ``types``, ``masses``, ``resids``, ``resnums``, and ``segids``. They will also assign all Atoms to Residues and all Residues to Segments. For systems without residues and segments, this results in there being a single Residue and Segment to which all Atoms belong. See :ref:`topology-attributes-label` for more topology attributes.
 
 Often when data is not provided by a file, it will be guessed based on other data in the file. In this scenario, MDAnalysis will issue a warning. See :ref:`guessing-label` for more information.
