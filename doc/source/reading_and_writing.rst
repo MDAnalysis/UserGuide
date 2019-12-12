@@ -1,14 +1,30 @@
 .. -*- coding: utf-8 -*-
-.. _reading_and_writing:
+.. _reading-and-writing-label:
 
 =========================
 Reading and writing files
 =========================
 
 Input
-================
+=====
 
-Read information from topology and coordinate files through the :ref:`Universe <universe-loading-label>`. MDAnalysis supports a number of :ref:`formats <formats-label>`. These formats can come with format-specific keyword arguments, such as the :ref:`LAMMPS DATA <DATA-label>` ``atom_style`` specification.
+Read information from topology and coordinate files to create a :ref:`Universe <universe-loading-label>`::
+
+    import MDAnalysis as mda
+    u = mda.Universe('topology.gro', 'trajectory.xtc')
+
+
+A topology file is always required for a Universe, whereas coordinate files are optional. :ref:`Some file formats provide both topology and coordinate information <format-overview-label>`. MDAnalysis supports a number of :ref:`formats <formats-label>`, which are automatically detected based on the file extension. For example, the above loads a :ref:`GROMACS XTC trajectory <XTC-label>`. Multiple coordinate files can be loaded, as :ref:`described below <chainreader-label>`; the following code loads two :ref:`CHARMM/NAMD DCD files <DCD-label>` and concatenates them::
+
+    u = mda.Universe('topology.psf', 'trajectory1.dcd', 'trajectory2.dcd')
+ 
+ 
+Some formats can be loaded with format-specific keyword arguments, such as the :ref:`LAMMPS DATA <DATA-label>` ``atom_style`` specification.
+
+.. seealso::
+
+    See :ref:`universe-loading-label` for more information on loading data into a Universe from files.
+
 
 .. _chainreader-label:
 
@@ -16,7 +32,9 @@ Read information from topology and coordinate files through the :ref:`Universe <
 Reading multiple trajectories
 --------------------------------
 
-A Universe can load multiple trajectories, which are concatenated in the order given. One exception to this is with :ref:`XTC <XTC-label>` and :ref:`TRR <TRR-label>` files. If the ``continuous=True`` flag is :ref:`passed to Universe <universe-kwargs-label>`, MDAnalysis will try to stitch them together so that the trajectory is as time-continuous as possible. This means that there will be no duplicate time-frames, or jumps back in time.  As an example, the following trajectory is split into four parts. The column represents the time. As you can see, some segments overlap. With ``continuous=True``, only the frames marked with a + will be read.
+A Universe can load multiple trajectories, which are concatenated in the order given. One exception to this is with :ref:`XTC <XTC-label>` and :ref:`TRR <TRR-label>` files. If the ``continuous=True`` flag is :ref:`passed to Universe <universe-kwargs-label>`, MDAnalysis will try to stitch them together so that the trajectory is as time-continuous as possible. This means that there will be no duplicate time-frames, or jumps back in time.  
+
+As an example, the following depicted trajectory is split into four parts. The column represents the time. As you can see, some segments overlap. With ``continuous=True``, only the frames marked with a + will be read.
 
 ::
 

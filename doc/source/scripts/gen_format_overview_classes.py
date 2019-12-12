@@ -24,10 +24,13 @@ for clstype, dct in (('Coordinate reader', _READERS),
 
 sorted_types = sorted(FILE_TYPES.items())
 
+SUCCESS = u'\u2713'
+FAIL = ''
+
 class FormatOverview(TableWriter):
     filename = 'formats/format_overview.txt'
     preprocess = ['keys']
-    headings = ['File type', 'Description', 'Topology', 'Coordinates', 'Read/Write']
+    headings = ['File type', 'Description', 'Topology', 'Coordinates', 'Read', 'Write']
 
     def _set_up_input(self):
         return sorted_types
@@ -51,18 +54,21 @@ class FormatOverview(TableWriter):
     
     def _topology(self, fmt, handlers):
         if 'Topology parser' in handlers:
-            return 'Yes'
-        return ''
+            return SUCCESS
+        return FAIL
     
     def _coordinates(self, fmt, handlers):
         if 'Coordinate reader' in handlers:
-            return 'Yes'
-        return ''
-    
-    def _read_write(self, fmt, handlers):
+            return SUCCESS
+        return FAIL
+
+    def _read(self, fmt, handlers):
+        return SUCCESS
+
+    def _write(self, fmt, handlers):
         if 'Coordinate writer' in handlers:
-            return 'Read and write'
-        return 'Read only'
+            return SUCCESS
+        return FAIL
 
 class CoordinateReaders(FormatOverview):
     filename = 'formats/coordinate_readers.txt'
@@ -73,13 +79,13 @@ class CoordinateReaders(FormatOverview):
 
     def _velocities(self, fmt, handlers):
         if handlers['Coordinate reader'].units.get('velocity', None):
-            return 'Yes'
-        return ''
+            return SUCCESS
+        return FAIL
     
     def _forces(self, fmt, handlers):
         if handlers['Coordinate reader'].units.get('force', None):
-            return 'Yes'
-        return ''
+            return SUCCESS
+        return FAIL
 
 class SphinxClasses(TableWriter):
     
