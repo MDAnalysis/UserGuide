@@ -222,7 +222,21 @@ These methods return a user-ordered :class:`~MDAnalysis.core.groups.AtomGroup` t
 Empty AtomGroups
 ----------------
 
-Empty AtomGroups can be constructed from each method. For example, using selection language:
+MDAnalysis can also work with empty AtomGroups:
+
+.. ipython:: python
+
+    null = u.atoms[[]]
+    null
+
+
+The above is the same as creating an :class:`~MDAnalysis.core.groups.AtomGroup` from an empty list and a :class:`~MDAnalysis.core.universe.Universe`.
+
+.. ipython:: python
+
+    mda.AtomGroup([], u)
+
+Each method of creating an AtomGroup can also be used to create an empty one. For example, using selection language:
 
 .. ipython:: python
 
@@ -240,18 +254,10 @@ or set methods:
     
     u.atoms - u.atoms
 
-Creating an :class:`~MDAnalysis.core.groups.AtomGroup` from an empty list requires passing in a :class:`~MDAnalysis.core.universe.Universe`.
-
-.. ipython:: python
-
-    ag = mda.AtomGroup([], u)
-    ag
-
 Empty AtomGroups have a length of 0 and evaluate to :code:`False` in a boolean context.
 
 .. ipython:: python
 
-    null = u.atoms[[]]
     bool(null)
 
 This allows analysis methods to skip over empty AtomGroups instead of raising an error, which is helpful as occasionally empty AtomGroups can arise from selection logic that is too restrictive (e.g. :ref:`geometric selections <geometric-label>`). 
