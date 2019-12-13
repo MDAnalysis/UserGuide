@@ -4,16 +4,18 @@
 Installation
 ====================
 
-The latest versions of MDAnalysis can be installed using `conda` or `pip`. 
+The latest versions of **MDAnalysis** can be installed using `conda` or `pip`. 
 Currently, the conda releases only support serial calculations.
 If you plan to use the parallel OpenMP algorithms, you need to 
 install MDAnalysis with pip and have a working OpenMP installation.
 
-MDAnalysis has a separate test suite that is required to run the test cases and examples. 
+MDAnalysis has a separate *test suite* **MDAnalysisTests** that is required to run the test cases and examples. 
 The test files change less frequently, take up around 90 MB of space, 
-and are not needed for daily use of MDAnalysis. If you are not interested in developing 
-MDAnalysis or using the example files, you most likely don't need the tests. 
-They are distributed separately from the main package. 
+and are not needed for daily use of MDAnalysis. However, they are often used in examples,
+including many in this User Guide. If you are not interested in developing 
+MDAnalysis or using the example files, you most likely don't need the tests. If you want to 
+run examples in the User Guide, install the tests. 
+The tests are distributed separately from the main package. 
 
 conda
 =====
@@ -47,9 +49,9 @@ To upgrade:
 
 .. code-block:: bash
 
-    conda update mdanalysis
+    pip install --upgrade MDAnalysis
 
-To install tests:
+To install/upgrade tests:
 
 .. code-block:: bash
 
