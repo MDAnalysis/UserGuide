@@ -1,0 +1,35 @@
+====================================  =========================================  ============  ========
+File type                             Description                                Velocities    Forces
+====================================  =========================================  ============  ========
+:ref:`ARC <TXYZ-label>`               Tinker file
+:ref:`CONFIG <CONFIG-label>`          DL_Poly CONFIG file                        ✓
+:ref:`CRD <CRD-label>`                CHARMM CARD file
+:ref:`CRDBOX <TRJ-label>`             AMBER ASCII trajectories
+:ref:`DATA <DATA-label>`              LAMMPS data file                           ✓
+:ref:`DCD <DCD-label>`                CHARMM, NAMD, or LAMMPS binary trajectory
+:ref:`DMS <DMS-label>`                DESRES Molecular Structure file            ✓
+:ref:`ENT <PDB-label>`                Standard PDB file
+:ref:`GMS <GMS-label>`                GAMESS file
+:ref:`GRO <GRO-label>`                GROMACS structure file                     ✓
+:ref:`GSD <GSD-label>`                HOOMD GSD file
+:ref:`HISTORY <HISTORY-label>`        DL_Poly HISTORY file                       ✓
+:ref:`INPCRD <INPCRD-label>`          AMBER restart file
+:ref:`LAMMPS <LAMMPS-label>`          a LAMMPS DCD trajectory
+:ref:`LAMMPSDUMP <LAMMPSDUMP-label>`  LAMMPS ascii dump file
+:ref:`MDCRD <TRJ-label>`              AMBER ASCII trajectories
+:ref:`MMTF <MMTF-label>`              MMTF file
+:ref:`MOL2 <MOL2-label>`              Tripos MOL2 file
+:ref:`NC <NCDF-label>`                AMBER NETCDF format                        ✓             ✓
+:ref:`NCDF <NCDF-label>`              AMBER NETCDF format                        ✓             ✓
+:ref:`PDB <PDB-label>`                Standard PDB file
+:ref:`PDBQT <PDBQT-label>`            PDBQT file
+:ref:`PQR <PQR-label>`                PQR file
+:ref:`RESTRT <INPCRD-label>`          AMBER restart file
+:ref:`TRJ <TRJ-label>`                AMBER ASCII trajectories
+:ref:`TRR <TRR-label>`                GROMACS TRR trajectory                     ✓             ✓
+:ref:`TRZ <TRZ-label>`                IBIsCO or YASP binary trajectory           ✓
+:ref:`TXYZ <TXYZ-label>`              Tinker file
+:ref:`XPDB <XPDB-label>`              Extended PDB file
+:ref:`XTC <XTC-label>`                GROMACS compressed trajectory
+:ref:`XYZ <XYZ-label>`                XYZ file
+====================================  =========================================  ============  ========

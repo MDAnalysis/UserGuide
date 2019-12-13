@@ -1,0 +1,5 @@
+=====================  ================================================
+**Coordinate reader**  :class:`MDAnalysis.coordinates.PDB.PDBReader`
+**Coordinate writer**  :class:`MDAnalysis.coordinates.PDB.PDBWriter`
+**Topology parser**    :class:`MDAnalysis.topology.PDBParser.PDBParser`
+=====================  ================================================

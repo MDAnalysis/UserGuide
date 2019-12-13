@@ -7,39 +7,47 @@ Atom selection language
 
 AtomGroups can be created by selecting atoms using the MDAnalysis atom selection language:
 
-  >>> from MDAnalysis.tests.datafiles import PSF
-  >>> u = mda.Universe(PSF)
-  >>> ala = u.select_atoms('resname ALA')
-  >>> ala
-  <AtomGroup with 190 atoms>
+.. ipython:: python
+
+    import MDAnalysis as mda
+    from MDAnalysis.tests.datafiles import PSF, DCD
+    u = mda.Universe(PSF, DCD)
+    ala = u.select_atoms('resname ALA')
+    ala
 
 The :meth:`~MDAnalysis.core.groups.AtomGroup.select_atoms` method of a
 :class:`~MDAnalysis.core.groups.AtomGroup` or a
 :class:`~MDAnalysis.core.universe.Universe` returns an
-:class:`~MDAnalysis.core.groups.AtomGroup`. Selections always return an
+:class:`~MDAnalysis.core.groups.AtomGroup`. These two methods have different behaviour: while :meth:`Universe.select_atoms <MDAnalysis.core.universe.Universe.select_atoms>` operates on all the atoms in the universe, :meth:`AtomGroup.select_atoms <MDAnalysis.core.groups.AtomGroup.select_atoms>` only operates on the atoms within the original AtomGroup. A single selection phrase always returns an
 :class:`~MDAnalysis.core.groups.AtomGroup` with atoms sorted according to their
 index in the topology. This is to ensure that there are not any duplicates,
-which can happen with complicated selections.
+which can happen with complicated selections. When order matters, :ref:`you can pass in multiple phrases <ordered-selections-label>`.
 
 This page documents selection keywords and their arguments. :meth:`~MDAnalysis.core.groups.AtomGroup.select_atoms` also accepts keywords that modify the behaviour of the selection string and the resulting :class:`~MDAnalysis.core.groups.AtomGroup` (documented further down this page). For example, you can:
 
-* Pass in :ref:`named AtomGroups as arguments <preexisting-selections>`::
+* Pass in :ref:`named AtomGroups as arguments <preexisting-selections>`:
 
-    >>> sph_6 = u.select_atoms("sphzone 6 protein")
-    >>> u.select_atoms("around 3 group sph_6", sph_6=sph_6)
-    <AtomGroup with 120 atoms>
+.. ipython:: python
 
-* Turn off :ref:`periodic boundary conditions for geometric keywords <geometric>` with ``periodic=False``::
+    sph_6 = u.select_atoms("sphzone 6 protein")
+    u.select_atoms("around 3 group sph_6", sph_6=sph_6)
 
-    >>> u.select_atoms("around 6 protein", periodic=False)
 
-* Create :ref:`dynamic UpdatingAtomGroups <dynamic-selections>` with ``updating=True``::
+* Turn off :ref:`periodic boundary conditions for geometric keywords <geometric-label>` with ``periodic=False``:
 
-    >>> u.select_atoms("prop x < 5 and prop y < 5 and prop z < 5", updating=True)
-    <AtomGroup with 9 atoms, with selection 'prop x < 5 and prop y < 5 and prop z < 5' on the entire Universe.>
+.. ipython:: python
+
+    u.select_atoms("around 6 protein", periodic=False)
+
+* Create :ref:`dynamic UpdatingAtomGroups <dynamic-selections>` with ``updating=True``:
+
+.. ipython:: python
+
+    u.select_atoms("prop x < 5 and prop y < 5 and prop z < 5", updating=True)
+
 
 It is possible to export selections for external software
-packages with the help of :ref:`selection-exporters`.
+packages with the help of :ref:`selection-exporters-label`.
 
 Selection Keywords
 ==================
@@ -52,18 +60,23 @@ selection parser. The following applies to all selections:
   notes below on :ref:`ordered-selections-label` for how to circumvent this if
   necessary).
 * Selections are parsed left to right and parentheses can be used for
-  grouping. For example::
+  grouping. For example:
 
-    >>> u.select_atoms("segid DMPC and not (name H* or type OW)")
-    <AtomGroup with 3420 atoms>
-    
-* Currently, only "stemming" is implemented as a primitive form of pattern
+
+.. ipython:: python
+
+    u.select_atoms("segid DMPC and not (name H* or type OW)")
+
+
+* Currently, wildcards are implemented as a form of pattern
   matching: Using the ``*`` character in a string such as ``GL*`` selects
   all strings that start with "GL" such as "GLU", "GLY", "GLX29", "GLN". Only terminal wildcards (i.e. matching the last part of a name) are currently supported. 
 
 .. note::
 
-    MDAnalysis will ignore everything after the ``*``. ``u.select_atoms("resname *E")`` will not select atoms whose residue name ends in E, but instead select every atom.
+    Before version 0.21.0, MDAnalysis will ignore everything after the ``*``. ``u.select_atoms("resname *E")`` will not select atoms whose residue name ends in E, but instead select every atom.
+
+    After version 0.21.0, MDAnalysis supports the use of *one* wildcard ``*`` at the start, middle, and end of strings. ``u.select_atoms("resname *E")`` will select atoms whose residue name ends in E.
 
 
 Simple selections
@@ -92,13 +105,18 @@ segid *seg-name*
     ``segid DMPC``
 
 resid *residue-number-range*
-    resid can take a single residue number or a range of numbers. A range
-    consists of two numbers separated by a colon (inclusive) such
-    as ``resid 1:5``. A residue number ("resid") is taken directly from the
-    topology.
+    ``resid`` can take a single residue number or a range of numbers, followed
+    by insertion codes. A range consists of two selections separated by a colon 
+    (inclusive) such as ``resid 1A:1C``. This selects all residues with ``resid==1``
+    and ``icode in ('A', 'B', 'C')``.
+    A residue number ("resid") and icode is taken directly from the
+    topology. Unlike ``resnum``, ``resid`` is sensitive to insertion codes. 
 
 resnum *residue-number-range*
-    resnum is an alias of resid.
+    ``resnum`` can take a single residue number or a range of numbers. A range
+    consists of two numbers separated by a colon (inclusive) such
+    as ``resnum 1:5``. A residue number ("resnum") is taken directly from the
+    topology. Unlike ``resid``, ``resnum`` is insensitive to insertion codes. 
 
 resname *residue-name*
     select by residue name, e.g. ``resname LYS``
@@ -111,7 +129,7 @@ name *atom-name*
 type *atom-type*
     select by atom type; this is either a string or a number and depends on
     the force field; it is read from the topology file (e.g. the CHARMM PSF
-    file contains numeric atom types). This uses the ``Atom.type`` :ref:`topology attribute <topology-attributes>`.
+    file contains numeric atom types). This uses the ``Atom.type`` :ref:`topology attribute <topology-attributes-label>`.
 
 atom *seg-name residue-number atom-name*
     a selector for a single atom consisting of segid resid atomname,
@@ -125,7 +143,7 @@ altloc *alternative-location*
     that have an altloc B record.
 
 moltype *molecule-type*
-    select by the ``moltype`` :ref:`topology attribute <topology-attributes>`, e.g. ``moltype Protein_A``. At the moment, only the TPR format defines the ``moltype``.
+    select by the ``moltype`` :ref:`topology attribute <topology-attributes-label>`, e.g. ``moltype Protein_A``. At the moment, only the TPR format defines the ``moltype``.
 
 Boolean
 -------
@@ -140,13 +158,15 @@ and
 or
     the union of two selections, i.e. the boolean or. e.g. ``protein and not (resname ALA or resname LYS)`` selects all atoms that belong to a protein, but are not in a lysine or alanine residue
 
-.. _geometric:
+.. _geometric-label:
 
 Geometric
 ---------
 
-The geometric keywords below all implement periodic boundary conditions by default when valid cell dimensions are accessible from the Universe. This can be turned off by passing in the keyword ``periodic=False``::
+The geometric keywords below all implement periodic boundary conditions by default when valid cell dimensions are accessible from the Universe. This can be turned off by passing in the keyword ``periodic=False``:
 
+.. ipython:: python
+    
     u.select_atoms("around 6 protein", periodic=False)
 
 around *distance selection*
@@ -223,7 +243,7 @@ Index
 index *index-range*
     selects all atoms within a range of (0-based) inclusive indices,
     e.g. ``index 0`` selects the first atom in the universe; ``index 5:10``
-    selects the 6th through 11th atoms, inclusive. This uses the ``Atom.index`` :ref:`topology attribute <topology-attributes>`.
+    selects the 6th through 11th atoms, inclusive. This uses the ``Atom.index`` :ref:`topology attribute <topology-attributes-label>`.
 
 bynum *number-range*
     selects all atoms within a range of (1-based) inclusive indices,
@@ -232,7 +252,7 @@ bynum *number-range*
 
     .. note::
 
-        These are **not** the same as the 1-indexed ``Atom.id`` :ref:`topology attribute <topology-attributes>`. ``bynum`` simply adds 1 to the 0-indexed ``Atom.index``.
+        These are **not** the same as the 1-indexed ``Atom.id`` :ref:`topology attribute <topology-attributes-label>`. ``bynum`` simply adds 1 to the 0-indexed ``Atom.index``.
 
 
 .. _preexisting-selections:
@@ -275,19 +295,27 @@ constant across trajectory frame changes. If
 :meth:`~MDAnalysis.core.groups.AtomGroup.select_atoms` is invoked with named
 argument ``updating`` set to ``True``, an
 :class:`~MDAnalysis.core.groups.UpdatingAtomGroup` instance will be returned
-instead. It behaves just like an :class:`~MDAnalysis.core.groups.AtomGroup`
+instead. 
+
+.. ipython:: python
+
+    # A dynamic selection of corner atoms:
+    ag_updating = u.select_atoms("prop x < 5 and prop y < 5 and prop z < 5", updating=True)
+    ag_updating
+
+It behaves just like an :class:`~MDAnalysis.core.groups.AtomGroup`
 object, with the difference that the selection expressions are re-evaluated
 every time the trajectory frame changes (this happens lazily, only when the
 :class:`~MDAnalysis.core.groups.UpdatingAtomGroup` object is accessed so that
-there is no redundant updating going on)::
+there is no redundant updating going on):
 
-    # A dynamic selection of corner atoms:
-    >>> ag_updating = universe.select_atoms("prop x < 5 and prop y < 5 and prop z < 5", updating=True)
-    >>> ag_updating
-    <UpdatingAtomGroup with 9 atoms>
-    >>> universe.trajectory.next()
-    >>> ag_updating
-    <UpdatingAtomGroup with 14 atoms>
+.. code-block:: ipython
+
+    In [14]: u.trajectory.next()
+    Out[14]: < Timestep 1 with unit cell dimensions [ 0.  0.  0. 90. 90. 90.] >
+
+    In [15]: ag_updating
+    Out[15]: <AtomGroup with 923 atoms, with selection 'prop x < 5 and prop y < 5 and prop z < 5' on the entire Universe.>
 
 Using the ``group`` selection keyword for
 :ref:`preexisting-selections`, one can
@@ -295,26 +323,39 @@ make updating selections depend on
 :class:`~MDAnalysis.core.groups.AtomGroup`, or even other
 :class:`~MDAnalysis.core.groups.UpdatingAtomGroup`, instances.
 Likewise, making an updating selection from an already updating group will
-cause later updates to also reflect the updating of the base group::
+cause later updates to also reflect the updating of the base group:
 
-    >>> chained_ag_updating = ag_updating.select_atoms("resid 1:1000", updating=True)
-    >>> chained_ag_updating
-    <UpdatingAtomGroup with 3 atoms>
-    >>> universe.trajectory.next()
-    >>> chained_ag_updating
-    <UpdatingAtomGroup with 7 atoms>
+.. code-block:: ipython
+
+    In [16]: chained_ag_updating = ag_updating.select_atoms("resid 1:1000", updating=True)
+
+    In [17]: chained_ag_updating
+    Out[17]: <AtomGroup with 923 atoms, with selection 'resid 1:1000' on another AtomGroup.>
+
+    In [18]: u.trajectory.next()
+    Out[18]: < Timestep 2 with unit cell dimensions [ 0.  0.  0. 90. 90. 90.] >
+
+    In [19]: chained_ag_updating
+    Out[19]: <AtomGroup with 921 atoms, with selection 'resid 1:1000' on another AtomGroup.>
 
 Finally, a non-updating selection or a slicing/addition operation made on an
 :class:`~MDAnalysis.core.groups.UpdatingAtomGroup` will return a static
 :class:`~MDAnalysis.core.groups.AtomGroup`, which will no longer update
-across frames::
+across frames:
 
-    >>> static_ag = ag_updating.select_atoms("resid 1:1000")
-    >>> static_ag
-    <UpdatingAtomGroup with 3 atoms>
-    >>> universe.trajectory.next()
-    >>> static_ag
-    <UpdatingAtomGroup with 3 atoms>
+.. code-block:: ipython
+
+    In [20]: static_ag = ag_updating.select_atoms("resid 1:1000")
+
+    In [21]: static_ag
+    Out[21]: <AtomGroup with 921 atoms>
+
+    In [22]: u.trajectory.next()
+    Out[22]: < Timestep 3 with unit cell dimensions [ 0.  0.  0. 90. 90. 90.] >
+
+    In [23]: static_ag
+    Out[23]: <AtomGroup with 921 atoms>
+
 
 .. _ordered-selections-label:
 
@@ -330,22 +371,26 @@ then one has to concatenate multiple AtomGroups, which does not sort
 them.
 
 The most straightforward way to concatenate two AtomGroups is by using the
-``+`` operator::
+``+`` operator:
 
-    >>> ordered = u.select_atoms("resid 3 and name CA") + u.select_atoms("resid 2 and name CA")
-    >>> list(ordered)
-    [<Atom 46: CA of type C of resname ILE, resid 3 and segid SYSTEM and altLoc >, <Atom 22: CA of type C of resname ARG, resid 2 and segid SYSTEM and altLoc >]
+.. ipython:: python
+
+    ordered = u.select_atoms("resid 3 and name CA") + u.select_atoms("resid 2 and name CA")
+    list(ordered)
 
 A shortcut is to provide *two or more* selections to
 :meth:`~MDAnalysis.core.universe.Universe.select_atoms`, which then
-does the concatenation automatically::
+does the concatenation automatically:
 
-    >>> list(u.select_atoms("resid 3 and name CA", "resid 2 and name CA"))
-    [<Atom 46: CA of type C of resname ILE, resid 3 and segid SYSTEM and altLoc >, <Atom 22: CA of type C of resname ARG, resid 2 and segid SYSTEM and altLoc >]
+.. ipython:: python
+
+    list(u.select_atoms("resid 3 and name CA", "resid 2 and name CA"))
+
 
 Just for comparison to show that a single selection string does not
-work as one might expect::
+work as one might expect:
 
-    >>> list(u.select_atoms("(resid 3 or resid 2) and name CA"))
-    [<Atom 22: CA of type C of resname ARG, resid 2 and segid SYSTEM and altLoc >, <Atom 46: CA of type C of resname ILE, resid 3 and segid SYSTEM and altLoc >]
+.. ipython:: python
+
+    list(u.select_atoms("(resid 3 or resid 2) and name CA"))
 

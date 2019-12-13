@@ -1,0 +1,4 @@
+=====================  =============================================
+**Coordinate reader**  :class:`MDAnalysis.coordinates.XTC.XTCReader`
+**Coordinate writer**  :class:`MDAnalysis.coordinates.XTC.XTCWriter`
+=====================  =============================================

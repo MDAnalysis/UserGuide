@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _contributing:
+.. _contributing-label:
 
 ===========================
 Contributing to MDAnalysis
@@ -16,6 +16,7 @@ members agree and adhere to --- please read it.
 .. _`mdnalysis-discussion mailing list`:
    http://groups.google.com/group/mdnalysis-discussion
 .. _`Code of Conduct`: https://www.mdanalysis.org/pages/conduct/
+
 
 Working with the code
 =====================

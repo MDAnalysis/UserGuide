@@ -22,4 +22,18 @@ doc/build
 *.so
 
 # Ignore generated docs
-doc/source/scripts/generated/*
+# *.txt
+
+# ignore generated files
+*.vmd
+*.dcd
+*.xyz
+*.pdb
+*.trr
+*.ndx
+*.xtc
+
+# example files
+doc/source/examples/*
+!doc/source/examples/*.ipynb
+!doc/source/examples/analysis/*.ipynb

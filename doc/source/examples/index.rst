@@ -15,4 +15,4 @@ Here are examples.
    :maxdepth: 1
    :caption: Analysis
 
-   analysis/pca
+   analysis/alignments

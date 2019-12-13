@@ -14,7 +14,7 @@
 # import sys
 
 import MDAnalysis as mda
-import subprocess
+# import subprocess
 import sphinx_rtd_theme
 from ipywidgets.embed import DEFAULT_EMBED_REQUIREJS_URL
 
@@ -24,9 +24,16 @@ project = 'MDAnalysis User Guide'
 copyright = '2019, Lily Wang, Richard J Gowers, Oliver Beckstein'
 author = 'Lily Wang, Richard J Gowers, Oliver Beckstein'
 
-# -- Scripts -----------------------------------------------------------------
-# regenerate tables for which residues are selected by keywords
-subprocess.call('./scripts/gen_standard_selections.py')
+# -- Scripts -----------------------------------------------
+# Get Travis to regenerate txt tables by re-running scripts
+# before deploying docs.
+# Turned off for now as 0.21.0 not released yet.
+# This allows us to gitignore .txt files as well as 
+# auto-recreate tables for each deployment.
+# Turn off if using sphinx_autobuild as this will autobuild 
+# to infinity.
+# 
+# subprocess.call('./scripts/generate_all.sh')
 
 # -- General configuration ---------------------------------------------------
 
@@ -45,10 +52,13 @@ extensions = [
     'sphinx_sitemap',
     'nbsphinx',
     'sphinx_rtd_theme',
-    'IPython.sphinxext.ipython_console_highlighting'
+    'IPython.sphinxext.ipython_console_highlighting',
+    'IPython.sphinxext.ipython_directive'
 ]
 
 pygments_style = 'default'
+
+todo_include_todos = True
 
 mathjax_path = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
 

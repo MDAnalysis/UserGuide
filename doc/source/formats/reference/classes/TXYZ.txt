@@ -1,0 +1,4 @@
+=====================  ==================================================
+**Coordinate reader**  :class:`MDAnalysis.coordinates.TXYZ.TXYZReader`
+**Topology parser**    :class:`MDAnalysis.topology.TXYZParser.TXYZParser`
+=====================  ==================================================
