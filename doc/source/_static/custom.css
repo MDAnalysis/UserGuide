@@ -218,3 +218,8 @@ dl.field-list > dt::after {
        max-width: 100% !important;
     }
  }
+
+dl.footnote p {
+    font-weight: lighter;
+    font-size: 14px
+}

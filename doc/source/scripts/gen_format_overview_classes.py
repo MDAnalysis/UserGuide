@@ -36,7 +36,7 @@ class FormatOverview(TableWriter):
         return sorted_types
     
     def _file_type(self, fmt, handlers):
-        return self.sphinx_ref(fmt, self.keys[-1])
+        return self.sphinx_ref(fmt, self.keys[-1], suffix='-format')
     
     def _keys(self, fmt, handlers):
         if fmt in DESCRIPTIONS:

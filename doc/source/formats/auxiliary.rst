@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _auxiliary-label:
+.. _auxiliary:
 
 ===============
 Auxiliary files

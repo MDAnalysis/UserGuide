@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _DATA-label:
+.. _DATA-format:
 
 =========================================
 DATA (LAMMPS)
@@ -9,7 +9,7 @@ DATA (LAMMPS)
 
 .. important::
 
-    Lennard-Jones units are not implemented. See :ref:`units-label`
+    Lennard-Jones units are not implemented. See :ref:`units`
     for other recognized values and the documentation for the LAMMPS
     `units command`_.
 

@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _TRZ-label:
+.. _TRZ-format:
 
 ========================================
 TRZ (IBIsCO and YASP trajectory)

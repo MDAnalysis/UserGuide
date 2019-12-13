@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _reading-and-writing-label:
+.. _reading-and-writing:
 
 =========================
 Reading and writing files
@@ -8,31 +8,31 @@ Reading and writing files
 Input
 =====
 
-Read information from topology and coordinate files to create a :ref:`Universe <universe-loading-label>`::
+Read information from topology and coordinate files to create a :ref:`Universe <universe-loading>`::
 
     import MDAnalysis as mda
     u = mda.Universe('topology.gro', 'trajectory.xtc')
 
 
-A topology file is always required for a Universe, whereas coordinate files are optional. :ref:`Some file formats provide both topology and coordinate information <format-overview-label>`. MDAnalysis supports a number of :ref:`formats <formats-label>`, which are automatically detected based on the file extension. For example, the above loads a :ref:`GROMACS XTC trajectory <XTC-label>`. Multiple coordinate files can be loaded, as :ref:`described below <chainreader-label>`; the following code loads two :ref:`CHARMM/NAMD DCD files <DCD-label>` and concatenates them::
+A topology file is always required for a Universe, whereas coordinate files are optional. :ref:`Some file formats provide both topology and coordinate information <format-overview>`. MDAnalysis supports a number of :ref:`formats <formats>`, which are automatically detected based on the file extension. For example, the above loads a :ref:`GROMACS XTC trajectory <XTC-format>`. Multiple coordinate files can be loaded, as :ref:`described below <chainreader>`; the following code loads two :ref:`CHARMM/NAMD DCD files <DCD-format>` and concatenates them::
 
     u = mda.Universe('topology.psf', 'trajectory1.dcd', 'trajectory2.dcd')
  
  
-Some formats can be loaded with format-specific keyword arguments, such as the :ref:`LAMMPS DATA <DATA-label>` ``atom_style`` specification.
+Some formats can be loaded with format-specific keyword arguments, such as the :ref:`LAMMPS DATA <DATA-format>` ``atom_style`` specification.
 
 .. seealso::
 
-    See :ref:`universe-loading-label` for more information on loading data into a Universe from files.
+    See :ref:`universe-loading` for more information on loading data into a Universe from files.
 
 
-.. _chainreader-label:
+.. _chainreader:
 
 --------------------------------
 Reading multiple trajectories
 --------------------------------
 
-A Universe can load multiple trajectories, which are concatenated in the order given. One exception to this is with :ref:`XTC <XTC-label>` and :ref:`TRR <TRR-label>` files. If the ``continuous=True`` flag is :ref:`passed to Universe <universe-kwargs-label>`, MDAnalysis will try to stitch them together so that the trajectory is as time-continuous as possible. This means that there will be no duplicate time-frames, or jumps back in time.  
+A Universe can load multiple trajectories, which are concatenated in the order given. One exception to this is with :ref:`XTC <XTC-format>` and :ref:`TRR <TRR-format>` files. If the ``continuous=True`` flag is :ref:`passed to Universe <universe-kwargs>`, MDAnalysis will try to stitch them together so that the trajectory is as time-continuous as possible. This means that there will be no duplicate time-frames, or jumps back in time.  
 
 As an example, the following depicted trajectory is split into four parts. The column represents the time. As you can see, some segments overlap. With ``continuous=True``, only the frames marked with a + will be read.
 
@@ -68,7 +68,7 @@ If no ``format`` keyword is provided, :class:`~MDAnalysis.coordinates.chain.Chai
 
 
 
-.. _memory-reader-label:
+.. _memory-reader:
 
 --------------------------------
 In-memory trajectories
@@ -156,7 +156,7 @@ Output
 Frames and trajectories
 ------------------------
 
-MDAnalysis :class:`~MDAnalysis.core.universe.Universe`\ s can be written out to a :ref:`number of formats <coordinate-readers-label>` with :meth:`~MDAnalysis.core.groups.AtomGroup.write`. For example, to write the current frame as a PDB:
+MDAnalysis :class:`~MDAnalysis.core.universe.Universe`\ s can be written out to a :ref:`number of formats <coordinate-readers>` with :meth:`~MDAnalysis.core.groups.AtomGroup.write`. For example, to write the current frame as a PDB:
 
 .. code-block :: python
 
@@ -186,12 +186,12 @@ Alternatively, iterate over the trajectory frame-by-frame with :func:`~MDAnalysi
         for ts in u.trajectory:
             w.write(ag)
 
-You can pass keyword arguments to some format writers. For example, the :ref:`LAMMPS DATA <DATA-label>` format allows the ``lengthunit`` and ``timeunit`` keywords to specify the output units.  
+You can pass keyword arguments to some format writers. For example, the :ref:`LAMMPS DATA <DATA-format>` format allows the ``lengthunit`` and ``timeunit`` keywords to specify the output units.  
 
 Pickling
 ========
 
-MDAnalysis currently supports pickling of AtomGroups and trajectories that have *not* been read in as :ref:`multiple files <chainreader-label>` or from a PDB file (`Issue 1981`_). Universe cannot be pickled.
+MDAnalysis currently supports pickling of AtomGroups and trajectories that have *not* been read in as :ref:`multiple files <chainreader>` or from a PDB file (`Issue 1981`_). Universe cannot be pickled.
 
 .. ipython:: python
 
@@ -200,7 +200,7 @@ MDAnalysis currently supports pickling of AtomGroups and trajectories that have 
     psf = mda.Universe(PSF, DCD)
     pickle.loads(pickle.dumps(psf.trajectory))
 
-While *trajectories* from PDB files cannot be pickled, trajectories where only the topology information comes from a PDB file *can*. For example, the universe below loads the trajectory information from a :ref:`TRR <TRR-label>` file.
+While *trajectories* from PDB files cannot be pickled, trajectories where only the topology information comes from a PDB file *can*. For example, the universe below loads the trajectory information from a :ref:`TRR <TRR-format>` file.
 
 .. ipython:: python
 

@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _XML-label:
+.. _XML-format:
 
 =======================
 XML (HOOMD)

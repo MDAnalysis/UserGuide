@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _PSF-label:
+.. _PSF-format:
 
 ===================================================
 PSF (CHARMM, NAMD, or XPLOR protein structure file)
@@ -18,7 +18,7 @@ A `protein structure file (PSF) <https://www.ks.uiuc.edu/Training/Tutorials/namd
 Reading in
 ==========
 
-PSF files can come in a number of "flavours": STANDARD, EXTENDED, and NAMD. If your file is not a standard file, it must have a NAMD or EXT flag to tell MDAnalysis to how to :ref:`parse the atom section <psf-spec-label>`. 
+PSF files can come in a number of "flavours": STANDARD, EXTENDED, and NAMD. If your file is not a standard file, it must have a NAMD or EXT flag to tell MDAnalysis to how to :ref:`parse the atom section <psf-spec>`. 
 
 As a NAMD file is space-separated, files with missing columns can cause MDAnalysis to read information incorrectly. `This can cause issues for PSF files written from VMD.`_
 
@@ -30,7 +30,7 @@ PSF files can encode insertion codes. However, MDAnalysis `does not currently su
 
 
 
-.. _psf-spec-label:
+.. _psf-spec:
 
 PSF specification
 =================

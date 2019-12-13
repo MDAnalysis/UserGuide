@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _DCD-label:
+.. _DCD-format:
 
 ========================================
 DCD (CHARMM, NAMD, or LAMMPS trajectory)
@@ -39,7 +39,7 @@ since c36b2) in which box vectors were recorded.
 
 The DCD file format is not well defined. In particular, NAMD and CHARMM use it differently. 
 DCD trajectories produced by CHARMM and NAMD( >2.5) record time in AKMA units. 
-If other units have been recorded (e.g., ps) then employ the configurable :ref:`LAMMPS DCD format <LAMMPS-label>` and set the time unit as an optional argument. 
+If other units have been recorded (e.g., ps) then employ the configurable :ref:`LAMMPS DCD format <LAMMPS-format>` and set the time unit as an optional argument. 
 You can find a list of units used in the DCD formats on the MDAnalysis `wiki`_.
 
 .. _`X-PLOR DCD format`: http://www.ks.uiuc.edu/Research/vmd/plugins/molfile/dcdplugin.html

@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _XYZ-label:
+.. _XYZ-format:
 
 ==============
 XYZ trajectory
@@ -7,7 +7,7 @@ XYZ trajectory
 
 .. include:: classes/XYZ.txt
 
-The :ref:`XYZ format <xyz-format>` is a loosely defined, simple
+The :ref:`XYZ format <XYZ-format>` is a loosely defined, simple
 coordinate trajectory format. The implemented format definition was
 taken from the `VMD xyzplugin`_ and is therefore compatible with VMD.
 
@@ -16,7 +16,7 @@ Reading in
 
 As XYZ files only have atom name information, the atoms are all assigned to the same residue and segment.
 
-The default timestep in MDAnalysis is 1 ps. A different timestep can be defined :ref:`by passing in the dt argument to Universe <universe-kwargs-label>`.
+The default timestep in MDAnalysis is 1 ps. A different timestep can be defined :ref:`by passing in the dt argument to Universe <universe-kwargs>`.
 
 
 

@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _TRJ-label:
+.. _TRJ-format:
 
 ===========================================
 TRJ, MDCRD, CRDBOX (AMBER ASCII trajectory)
@@ -7,7 +7,7 @@ TRJ, MDCRD, CRDBOX (AMBER ASCII trajectory)
 
 .. include:: classes/TRJ.txt
 
-MDAnalysis supports reading of `AMBER ASCII trajectories`_ ("traj") and :ref:`binary trajectories <ncdf-label>` ("netcdf").
+MDAnalysis supports reading of `AMBER ASCII trajectories`_ ("traj") and :ref:`binary trajectories <NCDF-format>` ("netcdf").
 
 .. _`AMBER ASCII trajectories`: https://ambermd.org/FileFormats.php#trajectory
 
@@ -35,7 +35,7 @@ Units are assumed to be the following default AMBER units:
 trajectory; the reader always assumes that these are orthorhombic
 boxes.
 * The trajectory does not contain time information so we simply set
-the time step to 1 ps :ref:`(or the user could provide it with the dt argument) <universe-kwargs-label>`
+the time step to 1 ps :ref:`(or the user could provide it with the dt argument) <universe-kwargs>`
 * Trajectories with fewer than 4 atoms probably fail to be read (BUG).
 * If the trajectory contains exactly *one* atom then it is always
 assumed to be non-periodic (for technical reasons).

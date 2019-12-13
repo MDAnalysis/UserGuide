@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _PQR-label:
+.. _PQR-format:
 
 =============================
 PQR file (PDB2PQR / APBS)

@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _PDBQT-label:
+.. _PDBQT-format:
 
 =======================================
 PDBQT (Autodock structure)
@@ -30,9 +30,9 @@ Although PDBQT is a similar file format to PDB, MDAnalysis treats them with seve
 Writing out
 ===========
 
-MDAnalysis implements a subset of the PDB_ 3.2 standard and the PDBQT_ spec. Unlike the :ref:`PDB-label` writer, MDAnalysis cannot write multi-frame trajectories to a PDBQT file.
+MDAnalysis implements a subset of the PDB_ 3.2 standard and the PDBQT_ spec. Unlike the :ref:`PDB-format` writer, MDAnalysis cannot write multi-frame trajectories to a PDBQT file.
 
-If the Universe is missing fields that are :ref:`required in a PDBQT file <pdbqt-spec-label>`, MDAnalysis provides default values and raises a warning. There are 2 exceptions to this:
+If the Universe is missing fields that are :ref:`required in a PDBQT file <pdbqt-spec>`, MDAnalysis provides default values and raises a warning. There are 2 exceptions to this:
 
     - ``chainIDs``: if a Universe does not have ``chainIDs``, MDAnalysis uses the first character of the segment ``segid`` instead. 
     - ``elements``: MDAnalysis uses the atom type as the element.
@@ -54,7 +54,7 @@ These are the default values:
     .. _PDBQT: http://autodock.scripps.edu/faqs-help/faq/what-is-the-format-of-a-pdbqt-file
 
 
-.. _pdbqt-spec-label:
+.. _pdbqt-spec:
 
 PDBQT specification
 ===================

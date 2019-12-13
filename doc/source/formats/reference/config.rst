@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _CONFIG-label:
+.. _CONFIG-format:
 
 ========================================
 CONFIG (DL_Poly Config)
@@ -7,7 +7,7 @@ CONFIG (DL_Poly Config)
 
 .. include:: classes/CONFIG.txt
 
-.. _HISTORY-label:
+.. _HISTORY-format:
 
 ========================================
 HISTORY (DL_Poly Config)

@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _format-reference-label:
+.. _format-reference:
 
 ====================
 Format reference

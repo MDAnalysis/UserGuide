@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _GRO-label:
+.. _GRO-format:
 
 =======================================
 GRO (GROMACS structure file)
@@ -16,7 +16,7 @@ Prior to MDAnalysis version 0.21.0 and GROMACS 2019.5, MDAnalysis failed to pars
 
 .. important::
 
-    A Universe created with a GRO file and a Universe created with a corresponding TPR file will have *different* :ref:`atom and residue numbering <TPR-label>`, due to how a TPR file is parsed.
+    A Universe created with a GRO file and a Universe created with a corresponding TPR file will have *different* :ref:`atom and residue numbering <TPR-format>`, due to how a TPR file is parsed.
 
 Writing out
 ===========

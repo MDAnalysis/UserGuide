@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _PDB-label:
+.. _PDB-format:
 
 =======================================
 PDB, ENT (Standard PDB file)
@@ -21,7 +21,7 @@ details):
     - **COMPND** (:attr:`Universe.trajectory.compound`)
     - **REMARK** (:attr:`Universe.trajectory.remarks`)
 
-All other lines are ignored. Multi-`MODEL`_ PDB files are read as trajectories with a default timestep of 1 ps :ref:`(pass in the dt argument to change this) <universe-kwargs-label>`. Currently, MDAnalysis `cannot read multi-model PDB files written by VMD`_, as VMD uses the keyword "END" to separate models instead of "MODEL"/"ENDMDL" keywords. 
+All other lines are ignored. Multi-`MODEL`_ PDB files are read as trajectories with a default timestep of 1 ps :ref:`(pass in the dt argument to change this) <universe-kwargs>`. Currently, MDAnalysis `cannot read multi-model PDB files written by VMD`_, as VMD uses the keyword "END" to separate models instead of "MODEL"/"ENDMDL" keywords. 
 
 .. _`cannot read multi-model PDB files written by VMD`: https://github.com/MDAnalysis/mdanalysis/issues/1133
 
@@ -43,7 +43,7 @@ MDAnalysis attempts to read ``segid`` attributes from the *segID* column. If thi
 Writing out
 ===========
 
-MDAnalysis can write both single-frame PDBs and convert trajectories to multi-model PDBs. If the Universe is missing fields that are :ref:`required in a PDB file <pdb-spec-label>`, MDAnalysis provides default values and raises a warning. There are 2 exceptions to this:
+MDAnalysis can write both single-frame PDBs and convert trajectories to multi-model PDBs. If the Universe is missing fields that are :ref:`required in a PDB file <pdb-spec>`, MDAnalysis provides default values and raises a warning. There are 2 exceptions to this:
 
     - ``chainIDs``: if a Universe does not have ``chainIDs``, MDAnalysis uses the first character of the segment ``segid`` instead. 
     - ``elements``: Elements are *always* guessed from the atom name.
@@ -60,7 +60,7 @@ These are the default values:
     * tempfactors: 0.0
     
 
-.. _pdb-spec-label:
+.. _pdb-spec:
 
 PDB specification
 ====================

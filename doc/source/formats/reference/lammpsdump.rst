@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _LAMMPSDUMP-label:
+.. _LAMMPSDUMP-format:
 
 =========================================
 LAMMPSDUMP (LAMMPS ascii dump file)
@@ -15,7 +15,7 @@ MDAnalysis expects ascii dump files to be written with the default
 
 .. important::
 
-    Lennard-Jones units are not implemented. See :ref:`units-label`
+    Lennard-Jones units are not implemented. See :ref:`units`
     for other recognized values and the documentation for the LAMMPS
     `units command`_.
 

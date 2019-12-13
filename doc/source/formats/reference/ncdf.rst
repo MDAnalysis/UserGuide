@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _NCDF-label:
+.. _NCDF-format:
 
 ===========================================
 NCDF, NC (AMBER NetCDF trajectory)
