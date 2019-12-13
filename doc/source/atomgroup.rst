@@ -158,7 +158,7 @@ An :class:`~MDAnalysis.core.groups.AtomGroup` can be constructed from another by
     ag1.split('residue')
 
 
-An :class:`~MDAnalysis.core.groups.AtomGroup` can also be separated according to values of :ref:`topology attributes <topology-attributes-label>` to produce a dictionary of :code:`{value:AtomGroup}`. 
+An :class:`~MDAnalysis.core.groups.AtomGroup` can also be separated according to values of :ref:`topology attributes <topology-attributes>` to produce a dictionary of :code:`{value:AtomGroup}`. 
 
 .. ipython:: python
 
@@ -260,7 +260,7 @@ Empty AtomGroups have a length of 0 and evaluate to :code:`False` in a boolean c
 
     bool(null)
 
-This allows analysis methods to skip over empty AtomGroups instead of raising an error, which is helpful as occasionally empty AtomGroups can arise from selection logic that is too restrictive (e.g. :ref:`geometric selections <geometric-label>`). 
+This allows analysis methods to skip over empty AtomGroups instead of raising an error, which is helpful as occasionally empty AtomGroups can arise from selection logic that is too restrictive (e.g. :ref:`geometric selections <geometric>`). 
 
 
 Dynamically updating AtomGroups
@@ -272,4 +272,4 @@ A normal AtomGroup is static, and the atoms within it do not change as the traje
 Methods
 -------
 
-Most of the analysis functionality in MDAnalysis is implemented in :ref:`the analysis module <analysis-label>`, but many interesting methods can be accessed from an :class:`~MDAnalysis.core.groups.AtomGroup` directly. For example, Bonds, Angles, Dihedrals and ImproperDihedrals :ref:`can be created from AtomGroups <topology-objects-label>`. Providing that required topology attributes are present, :ref:`a number of analysis methods are also available <topology-groupmethods-label>` to a :class:`~MDAnalysis.core.groups.AtomGroup`, :class:`~MDAnalysis.core.groups.ResidueGroup`, and :class:`~MDAnalysis.core.groups.SegmentGroup`.
+Most of the analysis functionality in MDAnalysis is implemented in :ref:`the analysis module <analysis>`, but many interesting methods can be accessed from an :class:`~MDAnalysis.core.groups.AtomGroup` directly. For example, Bonds, Angles, Dihedrals and ImproperDihedrals :ref:`can be created from AtomGroups <topology-objects>`. Providing that required topology attributes are present, :ref:`a number of analysis methods are also available <topology-groupmethods>` to a :class:`~MDAnalysis.core.groups.AtomGroup`, :class:`~MDAnalysis.core.groups.ResidueGroup`, and :class:`~MDAnalysis.core.groups.SegmentGroup`.

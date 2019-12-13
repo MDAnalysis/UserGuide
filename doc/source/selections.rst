@@ -21,7 +21,7 @@ The :meth:`~MDAnalysis.core.groups.AtomGroup.select_atoms` method of a
 :class:`~MDAnalysis.core.groups.AtomGroup`. These two methods have different behaviour: while :meth:`Universe.select_atoms <MDAnalysis.core.universe.Universe.select_atoms>` operates on all the atoms in the universe, :meth:`AtomGroup.select_atoms <MDAnalysis.core.groups.AtomGroup.select_atoms>` only operates on the atoms within the original AtomGroup. A single selection phrase always returns an
 :class:`~MDAnalysis.core.groups.AtomGroup` with atoms sorted according to their
 index in the topology. This is to ensure that there are not any duplicates,
-which can happen with complicated selections. When order matters, :ref:`you can pass in multiple phrases <ordered-selections-label>`.
+which can happen with complicated selections. When order matters, :ref:`you can pass in multiple phrases <ordered-selections>`.
 
 This page documents selection keywords and their arguments. :meth:`~MDAnalysis.core.groups.AtomGroup.select_atoms` also accepts keywords that modify the behaviour of the selection string and the resulting :class:`~MDAnalysis.core.groups.AtomGroup` (documented further down this page). For example, you can:
 
@@ -33,7 +33,7 @@ This page documents selection keywords and their arguments. :meth:`~MDAnalysis.c
     u.select_atoms("around 3 group sph_6", sph_6=sph_6)
 
 
-* Turn off :ref:`periodic boundary conditions for geometric keywords <geometric-label>` with ``periodic=False``:
+* Turn off :ref:`periodic boundary conditions for geometric keywords <geometric>` with ``periodic=False``:
 
 .. ipython:: python
 
@@ -47,7 +47,7 @@ This page documents selection keywords and their arguments. :meth:`~MDAnalysis.c
 
 
 It is possible to export selections for external software
-packages with the help of :ref:`selection-exporters-label`.
+packages with the help of :ref:`selection-exporters`.
 
 Selection Keywords
 ==================
@@ -57,7 +57,7 @@ selection parser. The following applies to all selections:
 
 * Keywords are case sensitive.
 * Atoms are automatically sequentially ordered in a resulting selection (see
-  notes below on :ref:`ordered-selections-label` for how to circumvent this if
+  notes below on :ref:`ordered-selections` for how to circumvent this if
   necessary).
 * Selections are parsed left to right and parentheses can be used for
   grouping. For example:
@@ -129,7 +129,7 @@ name *atom-name*
 type *atom-type*
     select by atom type; this is either a string or a number and depends on
     the force field; it is read from the topology file (e.g. the CHARMM PSF
-    file contains numeric atom types). This uses the ``Atom.type`` :ref:`topology attribute <topology-attributes-label>`.
+    file contains numeric atom types). This uses the ``Atom.type`` :ref:`topology attribute <topology-attributes>`.
 
 atom *seg-name residue-number atom-name*
     a selector for a single atom consisting of segid resid atomname,
@@ -143,7 +143,7 @@ altloc *alternative-location*
     that have an altloc B record.
 
 moltype *molecule-type*
-    select by the ``moltype`` :ref:`topology attribute <topology-attributes-label>`, e.g. ``moltype Protein_A``. At the moment, only the TPR format defines the ``moltype``.
+    select by the ``moltype`` :ref:`topology attribute <topology-attributes>`, e.g. ``moltype Protein_A``. At the moment, only the TPR format defines the ``moltype``.
 
 Boolean
 -------
@@ -158,7 +158,7 @@ and
 or
     the union of two selections, i.e. the boolean or. e.g. ``protein and not (resname ALA or resname LYS)`` selects all atoms that belong to a protein, but are not in a lysine or alanine residue
 
-.. _geometric-label:
+.. _geometric:
 
 Geometric
 ---------
@@ -243,7 +243,7 @@ Index
 index *index-range*
     selects all atoms within a range of (0-based) inclusive indices,
     e.g. ``index 0`` selects the first atom in the universe; ``index 5:10``
-    selects the 6th through 11th atoms, inclusive. This uses the ``Atom.index`` :ref:`topology attribute <topology-attributes-label>`.
+    selects the 6th through 11th atoms, inclusive. This uses the ``Atom.index`` :ref:`topology attribute <topology-attributes>`.
 
 bynum *number-range*
     selects all atoms within a range of (1-based) inclusive indices,
@@ -252,7 +252,7 @@ bynum *number-range*
 
     .. note::
 
-        These are **not** the same as the 1-indexed ``Atom.id`` :ref:`topology attribute <topology-attributes-label>`. ``bynum`` simply adds 1 to the 0-indexed ``Atom.index``.
+        These are **not** the same as the 1-indexed ``Atom.id`` :ref:`topology attribute <topology-attributes>`. ``bynum`` simply adds 1 to the 0-indexed ``Atom.index``.
 
 
 .. _preexisting-selections:
@@ -357,7 +357,7 @@ across frames:
     Out[23]: <AtomGroup with 921 atoms>
 
 
-.. _ordered-selections-label:
+.. _ordered-selections:
 
 Ordered selections
 ==================

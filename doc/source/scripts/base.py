@@ -90,8 +90,8 @@ class TableWriter(object):
     def sphinx_ref(txt, label=None, add_label=True):
         if label is None:
             label = txt
-        suffix = '-label' if add_label else ''
-        return ':ref:`{} <{}{}>`'.format(txt, label, suffix)
+        # suffix = '-label' if add_label else ''
+        return ':ref:`{} <{}{}>`'.format(txt, label)
     
     @staticmethod
     def sphinx_link(txt):

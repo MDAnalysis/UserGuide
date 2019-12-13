@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _contributing-label:
+.. _contributing:
 
 ===========================
 Contributing to MDAnalysis

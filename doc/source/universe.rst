@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _universe-label:
+.. _universe:
 
 
 Universe
@@ -22,12 +22,12 @@ A :class:`~MDAnalysis.core.universe.Universe` ties the static information from t
 Creating a Universe
 -------------------
 
-.. _universe-loading-label:
+.. _universe-loading:
 
 Loading from files
 ------------------
 
-A Universe is typically created from a "topology" file, with optional "trajectory" file/s. Trajectory files must have the coordinates in the same order as atoms in the topology. See :ref:`Formats <formats-label>` for the topology and trajectory formats supported by MDAnalysis, and how to load each specific format. ::
+A Universe is typically created from a "topology" file, with optional "trajectory" file/s. Trajectory files must have the coordinates in the same order as atoms in the topology. See :ref:`Formats <formats>` for the topology and trajectory formats supported by MDAnalysis, and how to load each specific format. ::
 
     u = Universe(topology, trajectory)          
     u = Universe(pdbfile)                       # read atoms and coordinates from PDB or GRO
@@ -70,7 +70,7 @@ The default arguments should create a Universe suited for most analysis applicat
 * :code:`is_anchor`: whether to consider this Universe when unpickling :class:`~MDAnalysis.core.groups.AtomGroup`\ s (default: True)
 * :code:`anchor_name`: the name of this Universe when unpickling :class:`~MDAnalysis.core.groups.AtomGroup`\ s (default: None, automatically generated)
 
-.. _universe-kwargs-label:
+.. _universe-kwargs:
 
 You can also pass in keywords for parsing the topology or coordinates. For example, many file formats do not specify the timestep for their trajectory. In these cases, MDAnalysis assumes that the default timestep is 1 ps. If this is incorrect, you can pass in a ``dt`` argument to modify the timestep. **This does not modify timesteps for formats that include time information.**
 
@@ -129,10 +129,10 @@ For example, to construct a universe with 6 atoms in 2 residues:
 Guessing topology attributes
 ----------------------------
 
-MDAnalysis can guess two kinds of information. Sometimes MDAnalysis guesses information instead of reading it from certain file formats, which can lead to mistakes such as assigning atoms the wrong element or charge. See :ref:`the available topology parsers <topology-parsers-label>` for a case-by-case breakdown of which atom properties MDAnalysis guesses for each format. See :ref:`guessing-label` for how attributes are guessed, and :ref:`topologyattr-defaults-label` for which attributes have default values.
+MDAnalysis can guess two kinds of information. Sometimes MDAnalysis guesses information instead of reading it from certain file formats, which can lead to mistakes such as assigning atoms the wrong element or charge. See :ref:`the available topology parsers <topology-parsers>` for a case-by-case breakdown of which atom properties MDAnalysis guesses for each format. See :ref:`guessing` for how attributes are guessed, and :ref:`topologyattr-defaults` for which attributes have default values.
 
 
-.. _universe-properties-label:
+.. _universe-properties:
 
 -------------------------------
 Universe properties and methods
@@ -156,4 +156,4 @@ Modifying a topology is typically done through the :class:`~MDAnalysis.core.univ
     * :meth:`~MDAnalysis.core.universe.Universe.add_Residue`
     * :meth:`~MDAnalysis.core.universe.Universe.add_Segment`
 
-See :ref:`topology-attributes-label` for more information on which topology attributes can be added, and `<examples/constructing_universe.ipynb>`_ for examples on adding attributes and Segments.
+See :ref:`topology-attributes` for more information on which topology attributes can be added, and `<examples/constructing_universe.ipynb>`_ for examples on adding attributes and Segments.
