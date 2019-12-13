@@ -1,13 +1,13 @@
 .. -*- coding: utf-8 -*-
-.. _guessing-label:
+.. _guessing:
 
 ====================
 Guessing
 ====================
 
-When a Universe is created from a Universe, MDAnalysis guesses properties that have not been read from the file. Sometimes these properties are available in the file, but are simply not read by MDAnalysis. For example, :ref:`masses are always guessed <guessing-masses-label>`.
+When a Universe is created from a Universe, MDAnalysis guesses properties that have not been read from the file. Sometimes these properties are available in the file, but are simply not read by MDAnalysis. For example, :ref:`masses are always guessed <guessing-masses>`.
 
-.. _guessing-masses-label:
+.. _guessing-masses:
 
 Masses
 ======

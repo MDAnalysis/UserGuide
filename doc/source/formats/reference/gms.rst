@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _GMS-label:
+.. _GMS-format:
 
 =======================
 GMS (Gamess trajectory)

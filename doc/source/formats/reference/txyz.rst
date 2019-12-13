@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _TXYZ-label:
+.. _TXYZ-format:
 
 ========================================
 TXYZ, ARC (Tinker)

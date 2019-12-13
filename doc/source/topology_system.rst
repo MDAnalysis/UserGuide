@@ -8,13 +8,13 @@ The topology system
 MDAnalysis groups static data about a :class:`~MDAnalysis.core.universe.Universe` into its topology. This is typically loaded from a topology file. Topology information falls into 3 categories:
 
     * :ref:`Atom containers (Residues and Segments) <residues-and-segments>`
-    * :ref:`Atom attributes (e.g. name, mass, bfactor) <topology-attributes-label>`
-    * :ref:`Topology objects: bonds, angles, dihedrals, impropers <topology-objects-label>`
+    * :ref:`Atom attributes (e.g. name, mass, bfactor) <topology-attributes>`
+    * :ref:`Topology objects: bonds, angles, dihedrals, impropers <topology-objects>`
 
 Users will almost never interact directly with a :class:`~MDAnalysis.core.topology.Topology`. Modifying atom containers or topology attributes is typically done through :class:`~MDAnalysis.core.universe.Universe`. Methods for viewing containers or topology attributes, or for calculating topology object values, are accessed through :class:`~MDAnalysis.core.groups.AtomGroup`.
 
 
-.. _topology-attributes-label:
+.. _topology-attributes:
 
 Topology attributes
 ===================
@@ -59,22 +59,22 @@ The following attributes are read or guessed from every format supported by MDAn
 Format-specific attributes
 ---------------------------------
 
-The table below lists attributes that are read from supported formats. These can also be :ref:`added to a Universe <add-topologyattrs-label>` created from a file that does not support them. 
+The table below lists attributes that are read from supported formats. These can also be :ref:`added to a Universe <add-topologyattrs>` created from a file that does not support them. 
 
 .. include:: generated/topology/topologyattrs.txt
 
-.. _topologyobject-attr-label:
+.. _topologyobject-attr:
 
 -----------------------------------
 Connectivity information
 -----------------------------------
 
-MDAnalysis can also read connectivity information, if the file provides it. These become available as :ref:`topology-objects-label`, which have additional functionality.
+MDAnalysis can also read connectivity information, if the file provides it. These become available as :ref:`topology-objects`, which have additional functionality.
 
 .. include:: generated/topology/connectivityattrs.txt
 
 
-.. _add-topologyattrs-label:
+.. _add-topologyattrs:
 
 ----------------------------------
 Adding TopologyAttrs
@@ -84,7 +84,7 @@ Each of the attributes above can be added to a Universe if it was not available 
 
 :meth:`~MDAnalysis.core.universe.Universe.add_TopologyAttr` takes two arguments:
 
-    * :code:`topologyattr` : the singular or plural name of a TopologyAttr, *or* a MDAnalysis TopologyAttr object. This must already have been defined as a :class:`~MDAnalysis.core.topologyattrs.TopologyAttr` (see :ref:`custom-topologyattrs-label` for an example of adding a custom topology attribute).
+    * :code:`topologyattr` : the singular or plural name of a TopologyAttr, *or* a MDAnalysis TopologyAttr object. This must already have been defined as a :class:`~MDAnalysis.core.topologyattrs.TopologyAttr` (see :ref:`custom-topologyattrs` for an example of adding a custom topology attribute).
     * :code:`values` (optional) : if :code:`topologyattr` is a string, the values for that attribute. This can be :code:`None` if the attribute has default values defined, e.g. :code:`bfactors`. 
 
 .. ipython:: python
@@ -103,7 +103,7 @@ One way to modify topology attributes is to simply replace them with :meth:`~MDA
     psf.add_TopologyAttr('bfactors', range(len(psf.atoms)))
     psf.atoms.bfactors
 
-The number of values provided should correspond with the "level" of the attribute. For example, B-factors are atomic-level information. However, residue names and residue ids apply to residues. See a :ref:`table of attribute levels and default values <topologyattr-defaults-label>` for more information.
+The number of values provided should correspond with the "level" of the attribute. For example, B-factors are atomic-level information. However, residue names and residue ids apply to residues. See a :ref:`table of attribute levels and default values <topologyattr-defaults>` for more information.
 
 ----------------------------------
 Modifying TopologyAttrs
@@ -139,19 +139,19 @@ Similarly to adding topology attributes with :meth:`~MDAnalysis.core.universe.Un
     NotImplementedError: Cannot set resnames from AtomGroup. Use 'AtomGroup.residues.resnames = '
 
 
-.. _topologyattr-defaults-label:
+.. _topologyattr-defaults:
 
 -----------------------------------
 Default values and attribute levels
 -----------------------------------
 
-Topology information in MDAnalysis is always associated with a level: one of atom, residue, or segment. For example, :code:`indices` is Atom information, :code:`resindices` is Residue information, and :code:`segindices` is Segment information. Many topology attributes also have default values, so that they can be :ref:`added to a Universe without providing explicit values <add-topologyattrs-label>`, and expected types. The table below lists which attributes have default values, what they are, and the information level.
+Topology information in MDAnalysis is always associated with a level: one of atom, residue, or segment. For example, :code:`indices` is Atom information, :code:`resindices` is Residue information, and :code:`segindices` is Segment information. Many topology attributes also have default values, so that they can be :ref:`added to a Universe without providing explicit values <add-topologyattrs>`, and expected types. The table below lists which attributes have default values, what they are, and the information level.
 
 .. include:: generated/topology/defaults.txt
 
 
 
-.. _topology-objects-label:
+.. _topology-objects:
 
 Topology objects
 ================
@@ -173,7 +173,7 @@ Each :class:`~MDAnalysis.core.topologyobjects.TopologyObject` also contains the 
     * :attr:`~MDAnalysis.core.topologyobjects.TopologyObject.is_guessed` : MDAnalysis can guess bonds. This property records if the object was read from a file or guessed.
 
 
-Groups of these are held in :class:`~MDAnalysis.core.topologyobjects.TopologyGroup`\ s. The master groups of TopologyObjects are :ref:`accessible as properties of a Universe <universe-properties-label>`. TopologyObjects are typically read from a file with connectivity information (:ref:`see the supported formats here <topologyobject-attr-label>`). However, they can be created in two ways: by adding them to a Universe, or by creating them from an :class:`~MDAnalysis.core.groups.AtomGroup`. Bonds can be guessed based on distance and Van der Waals' radii with :meth:`AtomGroup.guess_bonds <MDAnalysis.core.groups.AtomGroup.guess_bonds>`.
+Groups of these are held in :class:`~MDAnalysis.core.topologyobjects.TopologyGroup`\ s. The master groups of TopologyObjects are :ref:`accessible as properties of a Universe <universe-properties>`. TopologyObjects are typically read from a file with connectivity information (:ref:`see the supported formats here <topologyobject-attr>`). However, they can be created in two ways: by adding them to a Universe, or by creating them from an :class:`~MDAnalysis.core.groups.AtomGroup`. Bonds can be guessed based on distance and Van der Waals' radii with :meth:`AtomGroup.guess_bonds <MDAnalysis.core.groups.AtomGroup.guess_bonds>`.
 
 --------------------
 Adding to a Universe
@@ -251,7 +251,7 @@ As of version 0.21.0, there are specific methods for deleting :class:`~MDAnalysi
     * :meth:`~MDAnalysis.core.universe.Universe.delete_Impropers`
 
 
-.. _topology-groupmethods-label:
+.. _topology-groupmethods:
 
 Topology-specific methods
 =========================

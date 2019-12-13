@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _INPCRD-label:
+.. _INPCRD-format:
 
 =========================================
 INPCRD, RESTRT (AMBER restart files)

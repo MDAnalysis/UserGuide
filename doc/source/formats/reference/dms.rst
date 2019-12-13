@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _DMS-label:
+.. _DMS-format:
 
 =======================================
 DMS (Desmond Molecular Structure files)

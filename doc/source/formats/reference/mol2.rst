@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _MOL2-label:
+.. _MOL2-format:
 
 =======================================
 MOL2 (Tripos structure)

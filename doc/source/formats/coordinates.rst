@@ -1,4 +1,4 @@
-.. _coordinate-readers-label:
+.. _coordinate-readers:
 
 Coordinates
 ===========

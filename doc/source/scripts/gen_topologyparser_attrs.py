@@ -86,7 +86,7 @@ class TopologyParsers(TableWriter):
     
     def _format(self, *args):
         key, label = self.keys[-1]
-        return self.sphinx_ref(label, key)
+        return self.sphinx_ref(label, key, suffix='-format')
     
     def _attributes_read(self, parser, expected, guessed):
         vals = sorted(expected - guessed)

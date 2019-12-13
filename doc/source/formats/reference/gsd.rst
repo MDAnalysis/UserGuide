@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _GSD-label:
+.. _GSD-format:
 
 ====================
 GSD (HOOMD GSD file)

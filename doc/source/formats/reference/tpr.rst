@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _TPR-label:
+.. _TPR-format:
 
 ====================================
 TPR (GROMACS run topology files)

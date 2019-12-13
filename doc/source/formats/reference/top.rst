@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _TOP-label:
+.. _TOP-format:
 
 ========================================
 TOP, PRMTOP, PARM7 (AMBER topology)

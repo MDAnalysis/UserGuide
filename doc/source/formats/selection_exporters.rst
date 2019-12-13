@@ -1,6 +1,6 @@
 
 .. -*- coding: utf-8 -*-
-.. _selection-exporters-label:
+.. _selection-exporters:
 
 ===================
 Selection exporters

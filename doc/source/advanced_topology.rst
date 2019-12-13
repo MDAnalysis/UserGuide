@@ -5,7 +5,7 @@
 Advanced topology concepts
 ==========================
 
-.. _adding-residue-label:
+.. _adding-residue:
 
 Adding a Residue or Segment to a Universe
 =========================================
@@ -36,7 +36,7 @@ To assign the last 100 residues from the :class:`~MDAnalysis.core.universe.Unive
 Another example is `creating custom segments for protein domains <examples/constructing_universe.ipynb#Adding-a-new-segment>`_.
 
 
-.. _molecule-label:
+.. _molecule:
 
 Molecules
 =========
@@ -53,7 +53,7 @@ In MDAnalysis, a molecule is a GROMACS-only concept that is relevant in some ana
         cls=self.__class__.__name__, attr=attr))
     AttributeError: AtomGroup has no attribute molecules
 
-However, the order (:code:`molnum`) and name (:code:`moltype`) of each molecule is accessible as :ref:`topology attributes <topology-attributes-label>`::
+However, the order (:code:`molnum`) and name (:code:`moltype`) of each molecule is accessible as :ref:`topology attributes <topology-attributes>`::
 
     >>> tpr.atoms.molnums
     array([    0,     0,     0, ..., 11086, 11087, 11088])
@@ -61,7 +61,7 @@ However, the order (:code:`molnum`) and name (:code:`moltype`) of each molecule 
     array(['AKeco', 'AKeco', 'AKeco', ..., 'NA+', 'NA+', 'NA+'], dtype=object)
 
 
-.. _custom-topologyattrs-label:
+.. _custom-topologyattrs:
 
 Adding custom TopologyAttrs
 ===========================

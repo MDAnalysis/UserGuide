@@ -61,13 +61,13 @@ Similarly, an :class:`~MDAnalysis.core.groups.Atom` has direct knowledge of the 
     In [12]: a.residue.segment.residues
     Out[12]: <ResidueGroup with 129 residues>
 
-For information on adding custom Residues or Segments, have a look at :ref:`adding-residue-label`.
+For information on adding custom Residues or Segments, have a look at :ref:`adding-residue`.
 
 ---------------------------
 Fragments
 ---------------------------
 
-Certain analysis methods in MDAnalysis also make use of additional ways to group atoms. A key concept is a fragment. A fragment is what is typically considered a molecule: an AtomGroup where any atom is reachable from any other atom in the AtomGroup by traversing bonds, and none of its atoms is bonded to any atoms outside the AtomGroup. (A 'molecule' in MDAnalysis methods :ref:`refers to a GROMACS-specific concept <molecule-label>`). The fragments of a Universe are determined by MDAnalysis as a derived quantity. They can only be determined if bond information is available.
+Certain analysis methods in MDAnalysis also make use of additional ways to group atoms. A key concept is a fragment. A fragment is what is typically considered a molecule: an AtomGroup where any atom is reachable from any other atom in the AtomGroup by traversing bonds, and none of its atoms is bonded to any atoms outside the AtomGroup. (A 'molecule' in MDAnalysis methods :ref:`refers to a GROMACS-specific concept <molecule>`). The fragments of a Universe are determined by MDAnalysis as a derived quantity. They can only be determined if bond information is available.
 
 The fragments of an :class:`~MDAnalysis.core.groups.AtomGroup` are accessible via the :attr:`fragments` property. Below is a Universe from a GROMACS TPR file of lysozyme (`PDB ID: 2LYZ <http://www.rcsb.org/structure/2LYZ>`_) with 101 water molecules. While it has 230 residues, there are only 102 fragments: 1 protein and 101 water fragments.
 
@@ -80,7 +80,7 @@ The fragments of an :class:`~MDAnalysis.core.groups.AtomGroup` are accessible vi
     Out[13]: 102
 
 
-See :ref:`topology-objects-label` for more on bonds and which file formats give MDAnalysis bond information.
+See :ref:`topology-objects` for more on bonds and which file formats give MDAnalysis bond information.
 
 You can also look at which fragment a particular :class:`~MDAnalysis.core.groups.Atom` belongs to:
 

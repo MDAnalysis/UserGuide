@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _LAMMPS-label:
+.. _LAMMPS-format:
 
 ========================================
 DCD (Flexible LAMMPS trajectory)

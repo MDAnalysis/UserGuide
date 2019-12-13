@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _analysis-label:
+.. _analysis:
 
 =====================
 Analysis
