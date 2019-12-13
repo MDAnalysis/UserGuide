@@ -87,10 +87,9 @@ class TableWriter(object):
         return ':meth:`{}{}.{}`'.format(prefix, meth.__module__, meth.__qualname__)
 
     @staticmethod
-    def sphinx_ref(txt, label=None, add_label=True):
+    def sphinx_ref(txt, label=None):
         if label is None:
             label = txt
-        # suffix = '-label' if add_label else ''
         return ':ref:`{} <{}{}>`'.format(txt, label)
     
     @staticmethod
