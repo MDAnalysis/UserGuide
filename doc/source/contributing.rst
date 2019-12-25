@@ -17,8 +17,9 @@ Contributions can take many forms, such as:
 The MDAnalysis community subscribes to a `Code of Conduct`_ that all community
 members agree and adhere to --- please read it.
 
+.. note::
 
-
+    Parts of this page came from the `Contributing to pandas <http://pandas.pydata.org/pandas-docs/stable/contributing.html>`_ guide.
 
 Where to start?
 ===============
@@ -30,7 +31,29 @@ If you are brand new to MDAnalysis or open-source development, we recommend goin
 through this page. If you are new to Git and version control, have a look at 
 :ref:`version-control`. Get started working with the code of 
 :ref:`the main MDAnalysis codebase <working-with-mdanalysis-code>` or 
-:ref:`the user guide <
+:ref:`the documentation <working-with-mdanalysis-docs>`.
+
+A brief overview of the workflow for contributing to MDAnalysis is laid out below, but it is recommended to read the whole guide for the particular section you ar interested in.
+
+The development workflow for code or inline-code documentation looks like this:
+
+    #. :ref:`Fork the MDAnalysis repository <forking-code-repo>` from the mdanalysis account into your own account
+    #. :ref:`Set up an isolated virtual environment <create-virtual-environment>` for code development
+    #. :ref:`Build development versions <build-mdanalysis-develop>` of MDAnalysis and MDAnalysisTests on your computer into the virtual environment
+    #. :ref:`Create a new branch off the develop branch <create-code-branch>`
+    #. :ref:`Add your new feature or bug fix <writing new code>` or :ref:`add your new documentation <guidelines-for-docstrings>`
+    #. :ref:`Add and run tests <testing>` (if adding to the code)
+    #. :ref:`Build and view the documentation <building-code-documentation>` (if adding to the docs)
+    #. :ref:`Commit and push your changes, and open a pull request. <adding-code-to-mda>`
+
+The workflow for working with user guide looks like this:
+
+    #. :ref:`Fork the MDAnalysis repository <forking-user-guide>` from the mdanalysis account into your own account
+    #. :ref:`Set up an isolated virtual environment <create-virtual-environment-user-guide>` for your documentation
+    #. :ref:`Create a new branch off the master branch <create-code-branch>`
+    #. Add your new documentation.
+    #. :ref:`Build and view the documentation <build-user-guide>`.
+    #. :ref:`Commit and push your changes, and open a pull request <add-changes-user-guide>`.
 
 
 .. _version-control:
@@ -47,14 +70,7 @@ if you are having difficulties please feel free to ask for help.
 
 The code is hosted on `GitHub <https://www.github.com/pydata/xarray>`_. To
 contribute you will need to sign up for a `free GitHub account
-<https://github.com/signup/free>`_. In short, the development workflow looks like this:
-
-    #. :ref:`Fork the MDAnalysis repository from the mdanalysis account into your own account <forking-code-repo>`
-    #. :ref:`Set up an isolated virtual environment for code development <create-virtual-environment>`
-    #. :ref:`Build development versions of MDAnalysis and MDAnalysisTests on your computer into the virtual environment <build-mdanalysis-develop>`
-    #. :ref:`Create a new branch off the develop branch <create-code-branch>`
-    #. Add your new feature or bug fix
-    #. Add and run tests 
+<https://github.com/signup/free>`_. 
 
 Some great resources for learning Git:
 
@@ -318,6 +334,8 @@ There are several special branch names that you should not use for your feature 
 
 ``release`` branches are used to :ref:`prepare a new production release <preparing-release>`. ``hotfix`` branches are used to :ref:`fix issues found in an already released version <preparing-hotfix>`. Both these branch types should be handled by the release manager only.
 
+.. _writing-new-code:
+
 ----------------
 Writing new code
 ----------------
@@ -380,8 +398,6 @@ Testing your code
 MDAnalysis takes testing seriously. All code added to MDAnalysis should have tests to ensure that it works as expected; we aim for 90% coverage. See :ref:`testing` for more on writing, running, and interpreting tests.
 
 
-
-
 ---------------------
 Documenting your code
 ---------------------
@@ -389,6 +405,7 @@ Documenting your code
 Changes to the code should be reflected in the ongoing ``CHANGELOG``. Add an entry here to document your fix, enhancement, or change. In addition, add your name to the author list. If you are addressing an issue, make sure to include the issue number.
 
 
+.. _adding-code-to-mda:
 
 ------------------------------
 Adding your code to MDAnalysis
@@ -455,6 +472,8 @@ If you added the upstream repository as described above you will see something l
 
 Now your code is on GitHub, but it is not yet a part of the MDAnalysis project. For that to happen, a pull request needs to be submitted on GitHub. 
 
+.. _rebase-code:
+
 Rebasing your code
 ------------------
 
@@ -478,6 +497,7 @@ Once rebased, push your changes::
 
 and `create a pull request <https://github.com/MDAnalysis/mdanalysis/pulls>`_.
 
+.. _create-a-pull-request:
 
 Creating a pull request
 -----------------------
@@ -498,29 +518,26 @@ The typical approach to adding your code to MDAnalysis is to make a `pull reques
 
 Your pull request is then sent to the repository maintainers. After this, the following happens:
 
-    #. A suite of tests are run on your code with the tools `Travis`_, `Appveyor`_ and `cover?`_. If they fail, please fix your pull request by pushing updates to it.
+    #. A :ref:`suite of tests are run on your code <continuous-integration>` with the tools :ref:`travis`, :ref:`appveyor` and :ref:`codecov`. If they fail, please fix your pull request by pushing updates to it.
     #. Developers will ask questions and comment in the pull request. You may be asked to make changes. 
     #. When everything looks good, a core developer will merge your code into the ``develop`` branch of MDAnalysis. Your code will be in the next release.
 
 If you need to make changes to your code, you can do so on your local repository as you did before. Committing and pushing the changes will  update your pull request and restart the automated tests.
 
-
-.. _`testing builds on Windows`: https://ci.appveyor.com/project/orbeckst/mdanalysis
-
-
+.. _working-with-mdanalysis-docs:
 
 Working with the documentation
 ==============================
 
-MDAnalysis documentation is written in `reStructuredText <https://docutils.sourceforge.io/rst.html>`_ and built using `Sphinx`_. The
+MDAnalysis documentation is written in `reStructuredText <https://docutils.sourceforge.io/rst.html>`_ ("rst" or "reST") and built using `Sphinx`_. The
 Sphinx Documentation has an excellent `introduction to reST
 <http://sphinx.pocoo.org/rest.html>`__.
 
 MDAnalysis maintains two kinds of documentation: 
 
-    #. This user guide: a map of how MDAnalysis works, combined with tutorial-like overviews of specific topics (such as the analyses)
+    #. `This user guide <https://www.mdanalysis.org/UserGuide/>`__: a map of how MDAnalysis works, combined with tutorial-like overviews of specific topics (such as the analyses)
     
-    #. The docstrings in the code itself. These are meant to provide a clear explanation of the usage of individual classes and functions. They often include technical or historical information such as in which version the function was added, or deprecation notices.
+    #. `The documentation generated from the code itself <https://www.mdanalysis.org/docs/>`__. Largely built from code docstrings, these are meant to provide a clear explanation of the usage of individual classes and functions. They often include technical or historical information such as in which version the function was added, or deprecation notices.
 
 ---------------------------
 Working with the user guide
@@ -547,6 +564,8 @@ Many code examples in the docs are run during the
 doc build. This approach means that code examples will always be up to date,
 but it does make the doc building a bit more complex.
 
+.. _forking-user-guide:
+
 Forking and cloning the User Guide
 ----------------------------------
 
@@ -562,6 +581,8 @@ want to clone your fork to your machine:
 This creates the directory `UserGuide` and connects your repository to
 the upstream (main project) MDAnalysis repository.
 
+
+.. _create-virtual-environment-user-guide:
 
 Creating a development environment
 ----------------------------------
@@ -583,9 +604,10 @@ If using pip:
 .. code-block:: bash
 
     cd UserGuide/
-    pip install sphinx sphinx-sitemap nbsphinx ipython tabulate ipywidgets mdanalysis MDAnalysisTests jupyter
-    pip install jupyter_contrib_nbextensions nglview
+    pip install -r requirements.txt
     jupyter-nbextension enable nglview --py --sys-prefix
+
+.. _build-user-guide:
 
 Building the user guide
 -----------------------
@@ -599,7 +621,216 @@ Navigate to the ``doc/`` directory and run ``make html``:
 
 The HTML output will be in ``doc/build/``, which you can open in your browser of choice. The homepage is ``doc/build/index.html``.
 
-You can also use `sphinx-autobuild <https://pypi.org/project/sphinx-autobuild>`_ to rebuild the user guide every time you make changes to any document, including Jupyter notebooks. Install ``sphinx-autobuild``::
+If rebuilding the documentation becomes tedious after a while, install the :ref:`sphinx-autobuild <autobuild-sphinx>` extension. 
+
+Saving state in Jupyter notebooks
+---------------------------------
+
+One of the neat things about ``nglview`` is the ability to interact with molecules via the viewer. This ability can be preserved for the HTML pages generated from Jupyer notebooks by ``nbsphinx``, if you save the notebook widget state after execution.
+
+.. _add-changes-user-guide:
+
+Adding changes to the UserGuide
+-------------------------------
+
+As with the code, :ref:`commit and push <adding-code-to-mda>` your code to GitHub. Then :ref:`create a pull request <create-a-pull-request>`. The only tests run for the User Guide tests that your file compile into HTML documents without errors. As usual, a developer will review your PR and merge the code into the User Guide when it looks good.
+
+
+-----------------------------------
+Working with the code documentation
+-----------------------------------
+
+MDAnalysis has a lot of documentation in the Python doc strings. The docstrings follow the `Numpy Docstring Standard <https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard>`__, which is used widely
+in the Scientific Python community. They are nice to read as normal text and are converted by sphinx to normal ReST through `napoleon <http://sphinxcontrib-napoleon.readthedocs.org/en/latest/index.html>`__.
+
+This standard specifies the format of
+the different sections of the docstring. See `this document
+<https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt>`_
+for a detailed explanation, or look at some of the existing functions to
+extend it in a similar manner.
+
+Note that each page of the  `online documentation <https://www.mdanalysis.org/docs/>`_ has a link to the *Source* of the page. You can look at it in order to find out how a particular page has been written in reST and copy the approach for your own documentation.
+
+.. _building-code-documentation:
+
+Building the documentation
+--------------------------
+
+The online documentation is generated from the pages in ``mdanalysis/package/doc/sphinx/source/documentation_pages``. The documentation for the current release are hosted at www.mdanalysis.org/docs, while the development version is at www.mdanalysis.org/mdanalysis/. 
+
+In order to build the documentation, you must first :ref:`clone the main MDAnalysis repo <forking-code-repo>`__. You will need to install several packages for the docs.
+
+    .. code-block:: bash
+
+        pip install sphinx sphinx-sitemap sphinx_rtd_theme
+
+In addition, build the development version of MDAnalysis::
+
+    python setup.py develop
+
+Then, generate the docs with:
+
+    .. code-block:: bash
+
+        python setup.py build_sphinx -E
+
+This generates and updates the files in ``doc/html``. If the above command fails with an ``ImportError``, run
+
+    .. code-block:: bash
+
+        python setup.py build_ext --inplace
+
+and retry.
+
+You will then be able to open the home page, ``doc/html/index.html``, and look through the docs. In particular, have a look at any pages that you tinkered with. It is typical to go through multiple cycles of fix, rebuild the docs, check and fix again.
+
+If rebuilding the documentation becomes tedious after a while, install the :ref:`sphinx-autobuild <autobuild-sphinx>` extension. 
+
+Where to write docstrings
+-------------------------
+
+When writing Python code, you should always add a docstring to each public (visible to users):
+
+    * module
+    * function
+    * class
+    * method
+ 
+\When you add a new module you should include a docstring with a short sentence describing what the module does or a long document including examples and references. 
+
+.. _guidelines-for-docstrings:
+
+Guidelines for writing docstrings
+---------------------------------
+
+A typical function docstring looks like the following::
+
+    def func(arg1, arg2):
+        """Summary line.
+
+        Extended description of function.
+
+        Parameters
+        ----------
+        arg1 : int
+            Description of `arg1`
+        arg2 : str
+            Description of `arg2`
+
+
+        Returns
+        -------
+        bool
+            Description of return value
+
+        """
+        return True
+
+.. seealso::
+
+    The `napoleon documentation <https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html>`_ has further breakdowns of docstrings at the module, function, class, method, variable, and other levels.
+
+* When writing reST markup, make sure that there are **at least two blank lines above** the reST after a numpy heading. Otherwise, the Sphinx/napoleon parser does not render correctly.
+
+    .. code-block:: RST
+
+        some more docs bla bla
+
+        Notes
+        -----
+        THE NEXT TWO BLANK LINES ARE IMPORTANT.
+
+
+    .. versionadded:: 0.16.0
+  
+* Do not use "Example" or "Examples" as a normal section heading (e.g. in module level docs): *only* use it as a `NumPy doc Section <https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard>`__. It will not be rendered as a normal section and will mess up sectioning.
+
+
+* When writing multiple common names in one line, Sphinx sometimes tries to reference the first name. In that case, you have to split the names across multiple lines. See below for an example:
+
+    .. code-block:: RST
+
+        Parameters
+        ----------
+        n_atoms, n_residues : int
+            numbers of atoms/residues
+
+* We are using MathJax with sphinx so you can write LaTeX code in math tags. In blocks, the code below
+
+    .. code-block:: rst
+
+        #<SPACE if there is text above equation>
+        .. math::
+            e^{i\pi} = -1
+
+    renders like so:
+
+    .. math::
+        e^{i\pi} = -1
+    
+
+    Math directives can also be used inline.
+
+    .. code-block:: rst
+
+        We make use of the identity :math:`e^{i\pi} = -1` to show...
+
+    Note that you should *always* make doc strings with math code **raw** python strings **by prefixing them with the letter "r"**, or else you will get problems with backslashes in unexpected places. ::
+
+        def rotate(self, R):
+            r"""Apply a rotation matrix *R* to the selection's coordinates.
+
+            :math:`\mathsf{R}` is a 3x3 orthogonal matrix that transforms a vector
+            :math:`\mathbf{x} \rightarrow \mathbf{x}'`:
+
+            .. math::
+
+            \mathbf{x}' = \mathsf{R}\mathbf{x}
+            """
+
+    .. seealso::
+    
+        See `Stackoverflow: Mathjax expression in sphinx python not rendering correctly <http://stackoverflow.com/questions/16468397/mathjax-expression-in-sphinx-python-not-rendering-correclty">`_ for further discussion.
+
+
+Writing docs for abstract base classes
+--------------------------------------
+
+MDAnalysis contains a number of abstract base classes, such as :class:`~MDAnalysis.analysis.base.AnalysisBase`. Developers who define new base classes, or modify existing ones, should follow the following rules:
+
+    - The *class docstring* needs to contain a list of methods that can be overwritten by inheritance from the base class. Distinguish and document methods as required or optional.
+    - The class docstring should contain a minimal example for how to derive this class. This demonstrates best practices, documents ideas and intentions behind the specific choices in the API, helps to promote a unified code base, and is useful for developers as a concise summary of the API.
+    - A more detailed description of methods should come in the *method docstring*, with a note specifying if the method is required or optional to overwrite.
+
+See the documentation of :class:`MDAnalysis.analysis.base.AnalysisBase` for an example of this documentation.
+
+Adding your documentation to MDAnalysis
+---------------------------------------
+
+Merging your documentation fixes into MDAnalysis is somewhat easier than merging code. As with any contribution to an MDAnalysis repository, 
+:ref:`commit and push <adding-code-to-mda>` your code to GitHub. If *any fixes in the restructured text* are needed, *put them in their own commit* (and do not include any generated files under `docs/html`). Try to keep all reST fixes in the one commit. ``git add FILE`` and ``git commit --amend`` is your friend when piling more and more small reST fixes onto a single "fixed reST" commit.
+
+Then, :ref:`create a pull request <create-a-pull-request>`. All the tests in the MDAnalysis test suite will run, but only one checks that the documents compile correctly.
+
+Viewing the documentation interactively
+---------------------------------------
+
+In the Python interpreter one can simply say::
+
+  import MDAnalysis
+  help(MDAnalysis)
+  help(MDAnalysis.Universe)
+
+In ``ipython`` one can use the question mark operator::
+
+  MDAnalysis.Universe?
+
+.. _autobuild-sphinx:
+
+Automatically building documentation
+------------------------------------
+
+Constantly rebuilding documentation can become tedious when you have many changes to make. Use `sphinx-autobuild <https://pypi.org/project/sphinx-autobuild>`_ to rebuild documentation every time you make changes to any document, including Jupyter notebooks. Install ``sphinx-autobuild``::
 
     pip install sphinx-autobuild
 
@@ -607,23 +838,8 @@ Then, run the following command in the ``doc/`` directory::
 
     python -m sphinx_autobuild source build
 
-This will start a local webserver at http://localhost:8000/, which will refresh every time you save changes to a file in the user guide.
+This will start a local webserver at http://localhost:8000/, which will refresh every time you save changes to a file in the documentation. This is helpful for both the user guide (first navigate to ``UserGuide/doc``) and the main repository documentation (navigate to ``package/doc/sphinx``).
 
-Working with Jupyter notebooks
-------------------------------
-
-One of the neat things about ``nglview`` is the ability to interact with molecules via the viewer. This ability can be preserved for the HTML pages generated from Jupyer notebooks by ``nbsphinx``, if you save the notebook widget state after execution.
-
-------------------
-Writing docstrings
-------------------
-
-The docstrings follow the **Numpy Docstring Standard**, which is used widely
-  in the Scientific Python community. This standard specifies the format of
-  the different sections of the docstring. See `this document
-  <https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt>`_
-  for a detailed explanation, or look at some of the existing functions to
-  extend it in a similar manner.
 
 
 .. _Issue Tracker: https://github.com/MDAnalysis/mdanalysis/issues
