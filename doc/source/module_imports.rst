@@ -57,6 +57,7 @@ Module dependencies in the code
 ===============================
 
 .. _core-module-dependencies:
+
 --------------------------------
 List of core module dependencies
 --------------------------------
@@ -81,6 +82,7 @@ If you must depend on a new external package, first discuss its use on the `deve
 
 
 .. _core-modules:
+
 ---------------------
 Modules in the "core"
 ---------------------
@@ -88,6 +90,7 @@ Modules in the "core"
 The core of MDAnalysis contains all packages that are not in :mod:`MDAnalysis.analysis` or :mod:`MDAnalysis.visualization`. Only packages in the :ref:`core-module-dependencies` can be imported.
 
 .. _optional-modules:
+
 ----------------------------------------------------------------------------------
 Optional modules in :mod:`MDAnalysis.analysis` and :mod:`MDAnalysis.visualization`
 ----------------------------------------------------------------------------------
