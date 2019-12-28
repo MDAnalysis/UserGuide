@@ -31,9 +31,9 @@ For example::
     import .core
     import ..units
 
--------------------------------------------
+--------------------------------------------
 Module imports in :mod:`MDAnalysis.analysis`
--------------------------------------------
+--------------------------------------------
 
 #. In :mod:`MDAnalysis.analysis`, all imports must be at the top level (as in the General Rule) — see `Issue 666`_ for more information.
 #. :ref:`Optional modules <optional-modules>` can be imported
