@@ -35,7 +35,7 @@ through this page. If you are new to Git and version control, have a look at
 
 A brief overview of the workflow for contributing to MDAnalysis is laid out below, but it is recommended to read the whole guide for the particular section you ar interested in.
 
-The development workflow for code or inline-code documentation looks like this:
+The development workflow for code or inline code documentation looks like this:
 
     #. :ref:`Fork the MDAnalysis repository <forking-code-repo>` from the mdanalysis account into your own account
     #. :ref:`Set up an isolated virtual environment <create-virtual-environment>` for code development
@@ -118,7 +118,7 @@ Creating a development environment
 To change code and test changes, you'll need to build both **MDAnalysis** and **MDAnalysisTests** 
 from source. This requires a Python environment. We highly recommend that you use 
 virtual environments. This allows you to have multiple experimental development versions 
-of MDAnalysis which do not interfere with each other or your own stable version. 
+of MDAnalysis that do not interfere with each other, or your own stable version. 
 Since MDAnalysis is split into the actual package and a test suite, you need to install 
 both modules in development mode.
 
@@ -176,7 +176,7 @@ See the full conda docs `here <http://conda.pydata.org/docs>`__.
 With pip and virtualenv
 -----------------------
 
-Like conda, virtual environments managed with virtualenv allow you to use different versions of python and python packages for your different project. Unlike conda, virtualenv is not a general-purpose package manager; it leverages what is available on your system, and let you install python packages using pip.
+Like conda, virtual environments managed with `virtualenv <https://virtualenv.pypa.io/en/latest/>`_ allow you to use different versions of Python and Python packages for your different project. Unlike conda, virtualenv is not a general-purpose package manager; it leverages what is available on your system, and lets you install Python packages using pip.
 
 To use virtual environments you have to install the virtualenv package first. This can be done with either pip or the package manager of your system:
 
@@ -199,13 +199,13 @@ This will create a new folder ``my-project-env``. This folder contains the virtu
 
     source myproject-env/bin/activate
 
-Now you can install packages via pip without affecting your global environment. The packages you install when the environment is activated will be available in terminal sessions that have the environment activated. You can deactivate the virtual environment by running::
+Now you can install packages via pip without affecting your global environment. The packages that you install when the environment is activated will be available in terminal sessions that have the environment activated. You can deactivate the virtual environment by running::
 
     deactivate
 
-The ``virtualenvwrapper`` `package <https://virtualenvwrapper.readthedocs.io/en/latest/>`_ makes virtual environments easier to use. It provides some very useful features:
+The `virtualenvwrapper package <https://virtualenvwrapper.readthedocs.io/en/latest/>`_ makes virtual environments easier to use. It provides some very useful features:
 
-    - it organizes the virtual environment into a single user-defined directory, so they are not scattered throughout the file system;
+    - it organises the virtual environment into a single user-defined directory, so they are not scattered throughout the file system;
     - it defines commands for the easy creation, deletion, and copying of virtual environments;
     - it defines a command to activate a virtual environment using its name;
     - all commands defined by ``virtualenvwrapper`` have tab-completion for virtual environment names.
@@ -332,7 +332,7 @@ There are several special branch names that you should not use for your feature 
     - ``hotfix-*``
 
 
-``release`` branches are used to :ref:`prepare a new production release <preparing-release>`. ``hotfix`` branches are used to :ref:`fix issues found in an already released version <preparing-hotfix>`. Both these branch types should be handled by the release manager only.
+``release`` branches are used to :ref:`prepare a new production release <preparing-release>`. ``hotfix`` branches are used to :ref:`fix issues found in an already released version <preparing-hotfix>`. Both of these branch types should be handled by the release manager only.
 
 .. _writing-new-code:
 
@@ -343,7 +343,7 @@ Writing new code
 Code formatting in Python
 -------------------------
 
-MDAnalysis is a project with a long history and many contributors and hasn't used a consistent coding style. Since version 0.11.0 we are trying to update all the code to conform with `PEP8`_. Our strategy is to update the style every time we touch an old function and thus switch to `PEP8`_ continuously.
+MDAnalysis is a project with a long history and many contributors; it hasn't used a consistent coding style. Since version 0.11.0, we are trying to update all the code to conform with `PEP8`_. Our strategy is to update the style every time we touch an old function and thus switch to `PEP8`_ continuously.
 
 **Important requirements (from PEP8):**
     - keep line length to **79 characters or less**; break long lines sensibly
@@ -353,14 +353,14 @@ MDAnalysis is a project with a long history and many contributors and hasn't use
         - classes: `CapitalClasses` (i.e. capitalized nouns without spaces)
         - methods and functions: `underscore_methods` (lower case, with underscores for spaces)
 
-We recommend that you use a Python Integrated Development Environment (IDE) (`PyCharm`_ and others) or external tools like `flake8`_ for code linting. For integration of external tools with emacs and vim check out `elpy`_ (emacs) and `python-mode`_ (vim).
+We recommend that you use a Python Integrated Development Environment (IDE) (`PyCharm`_ and others) or external tools like `flake8`_ for code linting. For integration of external tools with emacs and vim, check out `elpy`_ (emacs) and `python-mode`_ (vim).
 
-To apply the code formatting in an automated way you can also use code formatters. External tools include `autopep8`_ and `yapf`_. Most IDEs either have their own code formatter or will work with one of the above through plugins.
+To apply the code formatting in an automated way, you can also use code formatters. External tools include `autopep8`_ and `yapf`_. Most IDEs either have their own code formatter or will work with one of the above through plugins.
 
 Modules and dependencies
 ------------------------
 
-MDAnalysis strives to keep dependencies small and lightweight. Code outside the :mod:`MDAnalysis.analysis` and :mod:`MDAnalysis.visualization` modules should only rely on the :ref:`core dependencies <core-module-dependencies>`, which are always installed. Analysis and visualization modules can use any :ref:`any package, but it is treated as optional <optional-modules>`.
+MDAnalysis strives to keep dependencies small and lightweight. Code outside the :mod:`MDAnalysis.analysis` and :mod:`MDAnalysis.visualization` modules should only rely on the :ref:`core dependencies <core-module-dependencies>`, which are always installed. Analysis and visualization modules can use any :ref:`any package, but the package is treated as optional <optional-modules>`.
 
 Imports in the code should follow the :ref:`general-rules-for-importing`.
 
@@ -372,7 +372,7 @@ Imports in the code should follow the :ref:`general-rules-for-importing`.
 Developing in Cython
 --------------------
 
-The ``setup.py`` script first looks for the ``*.c`` files included in the standard MDAnalysis distribution. These are not in the GitHub repository, so ``setup.py`` will use Cython to compile extensions. ``*.pyx`` source files are used instead of ``*.c`` files. From there, ``*.pyx`` files are converted to ``*.c`` files if they are newer than the already present ``.c`` files or if the ``--force`` flag is set (i.e. ``python setup.py build --force``). End users (or devs) should not trigger the ``.pyx`` to ``.c`` conversion since ``.c`` files delivered with source packages are always up-to-date. However, devs who work on the ``.pyx`` files will automatically trigger the conversion since ``.c`` files will then be outdated. 
+The ``setup.py`` script first looks for the ``*.c`` files included in the standard MDAnalysis distribution. These are not in the GitHub repository, so ``setup.py`` will use Cython to compile extensions. ``*.pyx`` source files are used instead of ``*.c`` files. From there, ``*.pyx`` files are converted to ``*.c`` files if they are newer than the already present ``.c`` files or if the ``--force`` flag is set (i.e. ``python setup.py build --force``). End users (or developers) should not trigger the ``.pyx`` to ``.c`` conversion, since ``.c`` files delivered with source packages are always up-to-date. However, developers who work on the ``.pyx`` files will automatically trigger the conversion since ``.c`` files will then be outdated. 
 
 Place all source files for compiled shared object files into the same directory as the final shared object file.
 
@@ -414,7 +414,7 @@ Adding your code to MDAnalysis
 Committing your code
 --------------------
 
-When you are happy with a set of changes, it is time to commit. All changes in one revision should have a common theme. If you implemented two rather different things (say, one bug fix and one new feature) then split them into two commits with different messages.
+When you are happy with a set of changes, it is time to commit. All changes in one revision should have a common theme. If you implemented two rather different things (say, one bug fix and one new feature), then split them into two commits with different messages.
 
 Once you’ve made changes to files in your local repository, you can see them by typing::
 
@@ -633,7 +633,7 @@ One of the neat things about ``nglview`` is the ability to interact with molecul
 Adding changes to the UserGuide
 -------------------------------
 
-As with the code, :ref:`commit and push <adding-code-to-mda>` your code to GitHub. Then :ref:`create a pull request <create-a-pull-request>`. The only tests run for the User Guide tests that your file compile into HTML documents without errors. As usual, a developer will review your PR and merge the code into the User Guide when it looks good.
+As with the code, :ref:`commit and push <adding-code-to-mda>` your code to GitHub. Then :ref:`create a pull request <create-a-pull-request>`. The only test run for the User Guide is: that your file compile into HTML documents without errors. As usual, a developer will review your PR and merge the code into the User Guide when it looks good.
 
 
 -----------------------------------
@@ -658,13 +658,13 @@ Building the documentation
 
 The online documentation is generated from the pages in ``mdanalysis/package/doc/sphinx/source/documentation_pages``. The documentation for the current release are hosted at www.mdanalysis.org/docs, while the development version is at www.mdanalysis.org/mdanalysis/. 
 
-In order to build the documentation, you must first :ref:`clone the main MDAnalysis repo <forking-code-repo>`__. You will need to install several packages for the docs.
+In order to build the documentation, you must first :ref:`clone the main MDAnalysis repo <forking-code-repo>`. :ref:`Set up a virtual environment <create-virtual-environment>` in the same way as you would for the code (you can use the same environment as you do for the code). You will need to install several packages for the docs.
 
     .. code-block:: bash
 
         pip install sphinx sphinx-sitemap sphinx_rtd_theme
 
-In addition, build the development version of MDAnalysis::
+In addition, build the development version of MDAnalysis (if you haven't done this already)::
 
     python setup.py develop
 
@@ -796,7 +796,7 @@ A typical function docstring looks like the following::
 Writing docs for abstract base classes
 --------------------------------------
 
-MDAnalysis contains a number of abstract base classes, such as :class:`~MDAnalysis.analysis.base.AnalysisBase`. Developers who define new base classes, or modify existing ones, should follow the following rules:
+MDAnalysis contains a number of abstract base classes, such as :class:`~MDAnalysis.analysis.base.AnalysisBase`. Developers who define new base classes, or modify existing ones, should follow these rules:
 
     - The *class docstring* needs to contain a list of methods that can be overwritten by inheritance from the base class. Distinguish and document methods as required or optional.
     - The class docstring should contain a minimal example for how to derive this class. This demonstrates best practices, documents ideas and intentions behind the specific choices in the API, helps to promote a unified code base, and is useful for developers as a concise summary of the API.
@@ -807,8 +807,7 @@ See the documentation of :class:`MDAnalysis.analysis.base.AnalysisBase` for an e
 Adding your documentation to MDAnalysis
 ---------------------------------------
 
-Merging your documentation fixes into MDAnalysis is somewhat easier than merging code. As with any contribution to an MDAnalysis repository, 
-:ref:`commit and push <adding-code-to-mda>` your code to GitHub. If *any fixes in the restructured text* are needed, *put them in their own commit* (and do not include any generated files under `docs/html`). Try to keep all reST fixes in the one commit. ``git add FILE`` and ``git commit --amend`` is your friend when piling more and more small reST fixes onto a single "fixed reST" commit.
+As with any contribution to an MDAnalysis repository, :ref:`commit and push <adding-code-to-mda>` your documentation contributions to GitHub. If *any fixes in the restructured text* are needed, *put them in their own commit* (and do not include any generated files under `docs/html`). Try to keep all reST fixes in the one commit. ``git add FILE`` and ``git commit --amend`` is your friend when piling more and more small reST fixes onto a single "fixed reST" commit.
 
 Then, :ref:`create a pull request <create-a-pull-request>`. All the tests in the MDAnalysis test suite will run, but only one checks that the documents compile correctly.
 
@@ -827,6 +826,7 @@ In ``ipython`` one can use the question mark operator::
 
 .. _autobuild-sphinx:
 
+------------------------------------
 Automatically building documentation
 ------------------------------------
 

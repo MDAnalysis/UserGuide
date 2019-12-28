@@ -92,7 +92,7 @@ The core of MDAnalysis contains all packages that are not in :mod:`MDAnalysis.an
 Optional modules in :mod:`MDAnalysis.analysis` and :mod:`MDAnalysis.visualization`
 ----------------------------------------------------------------------------------
 
-Modules under :mod:`MDAnalysis.analysis` are considered independent from the core package. Each analysis module can have its own set of dependencies. We strive to keep them small, but module authors are, in principle, free to import what they need. When analysis modules import packages outside of :ref:`core-module-dependencies`, the dependencies are considered **optional** (and should be listed in `setup.py` under *analysis*). (See also `Issue 1159`_ for more discussion.)
+Modules under :mod:`MDAnalysis.analysis` are considered independent from the core package. Each analysis module can have its own set of dependencies. We strive to keep them small, but module authors are, in principle, free to import what they need. When analysis modules import packages outside of :ref:`core-module-dependencies`, the dependencies are considered **optional** (and should be listed in ``setup.py`` under *analysis*). (See also `Issue 1159`_ for more discussion.)
 
 A user who does not have a specific optional package installed must still be able to import everything else in MDAnalysis. An analysis module *may* simply raise an :code:`ImportError` if a package is missing. However, it is recommended that the module should print and log an *error message* notifying the user that a specific additional package needs to be installed to use it.
 

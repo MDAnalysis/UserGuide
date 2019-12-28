@@ -167,9 +167,9 @@ Preparing a hotfix
 
 Rules for a ``hotfix`` branch
 
-    - May branch from: master
-    - Must be merged into: master (and develop if needed)
-    - Naming convention: hotfix-* where should be a version number
+    - May branch from: ``master``
+    - Must be merged into: ``master`` (and ``develop`` if needed)
+    - Naming convention: ``hotfix-*`` where ``*`` should be a version number
 
 ---------------------------------------
 Typical workflow for preparing a hotfix

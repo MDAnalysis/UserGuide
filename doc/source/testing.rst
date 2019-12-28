@@ -14,8 +14,11 @@ Whenever you add new code, you should create an appropriate test case that check
     #. Firstly, it ensures that your code works as expected, i.e.
     
         - it succeeds in your test cases *and*
-        - fails predictably
+        - it fails predictably
     #. More importantly, in the future we can always test that it is still working correctly. Unit tests are a crucial component of proper software engineering (see e.g. `Software Carpentry on Testing <http://software-carpentry.org/4_0/test>`_) and a large (and growing) test suite is one of the strengths of MDAnalysis.
+
+Adding tests is one of the most common requests after code is pushed to MDAnalysis.  Therefore,
+it is worth getting in the habit of writing tests ahead of time so this is never an issue. We strive for >85% our code to be covered by tests.
 
 We strongly encourage contributors to embrace
 `test-driven development <http://en.wikipedia.org/wiki/Test-driven_development>`_.
@@ -26,9 +29,6 @@ So, before actually writing any code, you should write your tests.  Often the te
 taken from the original GitHub issue.  However, it is always worth considering additional
 use cases and writing corresponding tests.
 
-Adding tests is one of the most common requests after code is pushed to MDAnalysis.  Therefore,
-it is worth getting in the habit of writing tests ahead of time so this is never an issue. We strive for >85% our code to be covered by tests.
-
 Like many packages, MDAnalysis uses `pytest
 <http://doc.pytest.org/en/latest/>`_ and some of the `numpy.testing
 <http://docs.scipy.org/doc/numpy/reference/routines.testing.html>`_ framework.
@@ -36,11 +36,12 @@ Like many packages, MDAnalysis uses `pytest
 Writing new tests
 =================
 
-Tests are organized by top-level module. Each file containing tests must start with ``test_``. Tests itself also have to follow the appropriate naming and organisational conventions.
+Tests are organised by top-level module. Each file containing tests must start with ``test_``. The tests themselves also have to follow the appropriate naming and organisational conventions.
 
 Use classes to group tests if it makes sense (e.g., if the test class will be inherited by another test class and the code can be reused). We prefer subclassing over parametrizing classes (for examples, have a look at the ``MDAnalysisTests/topology`` module, where each class often tests a different file). For tests that are standalone, leave them as plain functions.
 
 .. _testing-conventions:
+
 -------------------
 General conventions
 -------------------
@@ -142,7 +143,7 @@ To skip a test if a module is not available for importing, use ``pytest.importor
 Fixtures
 --------
 
-Use `fixtures <https://docs.pytest.org/en/latest/fixture.html>`_ as much as possible to reuse "resources" between test methods/functions. Pytest fixtures are functions that run before each test function that uses that fixture. It is typically set up with the ``pytest.fixture`` decorator as a function that returns the object you need::
+Use `fixtures <https://docs.pytest.org/en/latest/fixture.html>`_ as much as possible to reuse "resources" between test methods/functions. Pytest fixtures are functions that run before each test function that uses that fixture. A fixture is typically set up with the ``pytest.fixture`` decorator, over a function that returns the object you need::
 
     @pytest.fixture
     def universe(self):
@@ -169,7 +170,8 @@ Use the ``pytest.mark.parametrize decorator`` to test the same function for diff
     @pytest.mark.parametrize('pbc', (True, False))
     @pytest.mark.parametrize('name, compound', (('molnums', 'molecules'),
                                                 ('fragindices', 'fragments')))
-    def test_center_of_mass_compounds_special(self, fragment,  # fragment is a fixture defined earlier
+    # fragment is a fixture defined earlier
+    def test_center_of_mass_compounds_special(self, fragment,  
                                               pbc, name, compound):
         ref = [a.center_of_mass() for a in fragment.groupby(name).values()]
         com = fragment.center_of_mass(pbc=pbc, compound=compound)
@@ -190,7 +192,7 @@ The code above runs ``test_center_of_mass_compounds_special`` 4 times with the f
 Temporary files and directories
 -------------------------------
 
-Do not use ``os.chdir()`` to change directories in tests, because it can break the tests in really weird ways (see Issue #556). To use a temporary directory as the working directory, use the ``tmpdir.as_cwd`` context manager instead::
+Do not use ``os.chdir()`` to change directories in tests, because it can break the tests in really weird ways (see `Issue 556`_). To use a temporary directory as the working directory, use the ``tmpdir.as_cwd`` context manager instead::
 
     def test_write_no_args(self, u, tmpdir): # tmpdir is an in-built fixture
         with tmpdir.as_cwd():
@@ -202,6 +204,7 @@ To create a temporary file::
         temp_file = str(tmpdir.join('test.pdb'))
 
 
+.. _`Issue 556`: https://github.com/MDAnalysis/mdanalysis/issues/556
 
 Module imports
 --------------
@@ -216,7 +219,7 @@ Tests for analysis and visualization modules
 
 Tests for analysis classes and functions should at a minimum perform regression tests, i.e., run on input and compare to values generated when the code was added so that we know when the output changes in the future. (Even better are tests that test for absolute correctness of results, but regression tests are the minimum requirement.)
 
-Any code in MDAnalysis.analysis that does not have substantial testing (at least 70% coverage) will be moved to a special ``MDAnalysis.analysis.legacy`` module by release 1.0.0. This legacy module will come with its own warning that this is essentially unmaintained functionality, that is still provided because there is no alternative. Legacy packages that receive sufficient upgrades in testing can come back to the normal ``MDAnalysis.analysis`` name space.
+Any code in :mod:`MDAnalysis.analysis` that does not have substantial testing (at least 70% coverage) will be moved to a special :mod:`MDAnalysis.analysis.legacy` module by release 1.0.0. This legacy module will come with its own warning that this is essentially unmaintained functionality, that is still provided because there is no alternative. Legacy packages that receive sufficient upgrades in testing can come back to the normal :mod:`MDAnalysis.analysis` name space.
 
 No consensus has emerged yet how to best test visualization code. At least minimal tests that run the code are typically requested.
 
@@ -227,7 +230,7 @@ Using test data files
 If possible, re-use the existing data files in MDAnalysis for tests; this helps to keep the (separate) MDAnalysisTests package small. If new files are required (e.g. for a new coordinate Reader/Writer) then:
 
     #. Use small files (e.g. trajectories with only a few frames and a small system).
-    #. Make sure that the data are *not confidential* (they will be available to everyone downloading MDAnalysis) and also be aware that by adding them to MDAnalysis *you license these files under the `GNU Public Licence v2 <http://www.gnu.org/licenses/gpl-2.0.html>`_* (or a compatible licence of your choice — otherwise we cannot include the files into MDAnalysis).
+    #. Make sure that the data are *not confidential* (they will be available to everyone downloading MDAnalysis) and also be aware that by adding them to MDAnalysis *you license these files* under the `GNU Public Licence v2 <http://www.gnu.org/licenses/gpl-2.0.html>`_ (or a compatible licence of your choice — otherwise we cannot include the files into MDAnalysis).
     #. Add the files to the ``testsuite/MDAnalysisTests/data`` directory and appropriate file names and descriptions to ``testsuite/MDAnalysisTests/datafiles.py``.
     #. Make sure your new files are picked up by the pattern-matching in ``testsuite/setup.py`` (in the ``package_data`` dictionary).
 
@@ -247,7 +250,7 @@ It is recommended that you run the tests from the ``mdanalysis/testsuite/MDAnaly
 
 All tests should pass: no **FAIL** or **ERROR** cases should be triggered; *SKIPPED* or *XFAIL* are ok. For anything that fails or gives an error, ask on the `mdnalysis-discussion`_ mailing list or raise an issue on the `Issue Tracker`_.
 
-We use the ``--disable-pytest-warnings`` when the whole testsuite is running, as pytest raises a lot of false positives when we warn users about missing topology attributes. When running single tests or only single modules, consider running the tests *with* warnings enabled (i.e. with ``pytest``). This allows you to see if you trigger any un-caught deprecation warnings or other warnings in libraries we use.
+We use the ``--disable-pytest-warnings`` when the whole testsuite is running, as pytest raises a lot of false positives when we warn users about missing topology attributes. When running single tests or only single modules, consider running the tests *with* warnings enabled (i.e. without ``--disable-pytest-warnings``). This allows you to see if you trigger any un-caught deprecation warnings or other warnings in libraries we use.
 
 To run specific tests just specify the path to the test file:
 
@@ -334,7 +337,7 @@ Builds are configured in the file ``.appveyor.yml``. If you add a new dependency
 Travis
 ------
 
-Travis is a continuous integration service for Linux and MacOS. `MDAnalysis uses it <https://travis-ci.com/MDAnalysis/mdanalysis>`_ for exhaustive testing on Linux systems, and some testing on MacOS. If you add a new dependency to MDAnalysis, you will need to add it to the ``$CONDA_DEPENDENCIES`` or ``$PIP_DEPENDENCIES`` in ``.travis.yml`` to pass tests.
+`Travis is a continuous integration service <https://travis-ci.com/MDAnalysis/mdanalysis>`_ for Linux and MacOS. MDAnalysis uses it for exhaustive testing on Linux systems, and some testing on MacOS. If you add a new dependency to MDAnalysis, you will need to add it to the ``$CONDA_DEPENDENCIES`` or ``$PIP_DEPENDENCIES`` in ``.travis.yml`` to pass tests.
 
 
 .. _codecov:
