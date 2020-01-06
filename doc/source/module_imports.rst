@@ -68,9 +68,7 @@ Any module from the standard library can be used, as well as the following nonst
    * :mod:`numpy`
    * :mod:`biopython`
    * :mod:`gridDataFormats`
-   * :mod:`networkx`
    * :mod:`mmtf-python`
-   * :mod:`joblib`
    * :mod:`scipy`
    * :mod:`matplotlib`
 

@@ -1,12 +1,7 @@
 .. -*- coding: utf-8 -*-
-.. _preparing-releases-and-hotfixes:
-
-===============================
-Preparing releases and hotfixes
-===============================
-
 .. _preparing-release:
 
+===================
 Preparing a release
 ===================
 
@@ -16,9 +11,8 @@ Rules for a release branch:
     - Must be merged into: ``master`` (and ``develop`` if needed)
     - Naming convention: ``release-*`` where ``*`` is a version number
 
-------------------------------------
 Release policy and release numbering
-------------------------------------
+====================================
 
 We use a **MAJOR.MINOR.PATCH** scheme to label releases. We adhere to the idea of `semantic versioning <http://semver.org/>`_ (semantic versioning was introduced with release 0.9, see `Issue 200`_): Given a version number **MAJOR.MINOR.PATCH**, we increment the:
 
@@ -47,9 +41,8 @@ so that people using the :ref:`develop branch <branches-in-mdanalysis>` from the
 
 .. _`Issue 200`: https://github.com/MDAnalysis/mdanalysis/issues/200
 
-----------------------------------------
 Typical workflow for preparing a release
-----------------------------------------
+========================================
 
 #. Declare feature freeze on ``develop`` via the `developer mailing list`_
 
@@ -159,48 +152,3 @@ Typical workflow for preparing a release
     git branch -d release-0.7.6
 
 .. _`developer mailing list`: https://groups.google.com/forum/#!forum/mdnalysis-devel
-
-.. _preparing-hotfix:
-
-Preparing a hotfix
-==================
-
-Rules for a ``hotfix`` branch
-
-    - May branch from: ``master``
-    - Must be merged into: ``master`` (and ``develop`` if needed)
-    - Naming convention: ``hotfix-*`` where ``*`` should be a version number
-
----------------------------------------
-Typical workflow for preparing a hotfix
----------------------------------------
-
-#. Create the branch from the ``master`` branch::
-
-    git checkout -b hotfix-0.7.6.1 master
-
-#. Make sure the version number is right::
-
-    ./maintainer/change_release.sh 0.7.6.1
-
-#. Fix what has to be fixed.
-#. Commit the fixed state::
-
-    git commit -m "issue #123 fixed"
-
-#. Merge the branch into ``master`` and tag the release::
-
-    git checkout master
-    git merge --no-ff hotfix-0.7.6.1
-    git tag -a hotfix-0.7.6.1
-
-#. Merge the branch back into develop::
-
-    git checkout develop
-    git merge --no-ff hotfix-0.7.6.1
-
-#. Delete the hotfix branch::
-
-    git branch -d hotfix-0.7.6.1
-
-

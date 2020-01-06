@@ -17,9 +17,11 @@ Contributions can take many forms, such as:
 The MDAnalysis community subscribes to a `Code of Conduct`_ that all community
 members agree and adhere to --- please read it.
 
-.. note::
+.. important::
 
-    Parts of this page came from the `Contributing to pandas <http://pandas.pydata.org/pandas-docs/stable/contributing.html>`_ guide.
+    The **MDAnalysis** and **MDAnalysisTests** packages are distributed under the `GNU General Public License, version 2 <https://www.gnu.org/licenses/gpl-2.0.html>`_ (or any later version). This is a copyleft license: not only is MDAnalysis open-source, but all derivative work must be as well. **Any code, documentation, or files that you contribute to MDAnalysis will also be made available under this license.** Be sure that you are comfortable with that *before* you push additions to GitHub.
+
+Parts of this page came from the `Contributing to pandas <http://pandas.pydata.org/pandas-docs/stable/contributing.html>`_ guide.
 
 Where to start?
 ===============
