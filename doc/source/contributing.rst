@@ -133,41 +133,41 @@ Install either `Anaconda <https://www.anaconda.com/download/>`_
 or `miniconda <https://conda.io/miniconda.html>`_.
 Make sure your conda is up to date:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    conda update conda
+        conda update conda
 
 Create a new environment with ``conda create``. This will allow you to change code in 
 an isolated environment without touching your base Python installation, and without 
 touching existing environments that may have stable versions of MDAnalysis. :
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    conda create --name mdanalysis-dev
+        conda create --name mdanalysis-dev
 
 Activate the environment to build MDAnalysis into it:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    conda activate mdanalysis-dev
+        conda activate mdanalysis-dev
 
 To view your environments:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    conda info -e
+        conda info -e
 
 To list the packages installed in your current environment:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    conda list
+        conda list
 
 To return to your root environment:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    conda deactivate
+        conda deactivate
 
 See the full conda docs `here <http://conda.pydata.org/docs>`__.
 
@@ -176,32 +176,36 @@ See the full conda docs `here <http://conda.pydata.org/docs>`__.
 With pip and virtualenv
 -----------------------
 
-Like conda, virtual environments managed with `virtualenv <https://virtualenv.pypa.io/en/latest/>`_ allow you to use different versions of Python and Python packages for your different project. Unlike conda, virtualenv is not a general-purpose package manager; it leverages what is available on your system, and lets you install Python packages using pip.
+Like conda, virtual environments managed with `virtualenv <https://virtualenv.pypa.io/en/latest/>`_ allow you to use different versions of Python and Python packages for your different project. Unlike conda, virtualenv is not a general-purpose package manager. Instead, it leverages what is available on your system, and lets you install Python packages using pip.
 
 To use virtual environments you have to install the virtualenv package first. This can be done with either pip or the package manager of your system:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    pip install virtualenv
-    # or on ubuntu
-    sudo apt install virtualenv
-    # or on fedora
-    sudo dnf install python-virtualenv
+        pip install virtualenv
+        # or on ubuntu
+        sudo apt install virtualenv
+        # or on fedora
+        sudo dnf install python-virtualenv
 
-Virtual environments can be created per project directory.
+Virtual environments can be created for each project directory.
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    cd my-project/
-    virtualenv my-project-env
+        cd my-project/
+        virtualenv my-project-env
 
-This will create a new folder ``my-project-env``. This folder contains the virtual environment and all packages you have installed in it. To activate it in the current terminal run::
+This will create a new folder ``my-project-env``. This folder contains the virtual environment and all packages you have installed in it. To activate it in the current terminal run:
 
-    source myproject-env/bin/activate
+    .. code-block:: bash
 
-Now you can install packages via pip without affecting your global environment. The packages that you install when the environment is activated will be available in terminal sessions that have the environment activated. You can deactivate the virtual environment by running::
+        source myproject-env/bin/activate
 
-    deactivate
+Now you can install packages via pip without affecting your global environment. The packages that you install when the environment is activated will be available in terminal sessions that have the environment activated. You can deactivate the virtual environment by running:
+
+    .. code-block:: bash
+
+        deactivate
 
 The `virtualenvwrapper package <https://virtualenvwrapper.readthedocs.io/en/latest/>`_ makes virtual environments easier to use. It provides some very useful features:
 
@@ -212,30 +216,30 @@ The `virtualenvwrapper package <https://virtualenvwrapper.readthedocs.io/en/late
 
 You first need to install ``virtualenvwrapper`` *outside* of a virtual environment:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    pip install virtualenvwrapper
-    # or on ubuntu
-    sudo apt install virtualenvwrapper
-    # or on fedora
-    sudo dnf install python-virtualenvwrapper
+        pip install virtualenvwrapper
+        # or on ubuntu
+        sudo apt install virtualenvwrapper
+        # or on fedora
+        sudo dnf install python-virtualenvwrapper
 
 Then, you need to load it into your terminal session. Add the following lines in ``~/.bashrc``. They will be executed every time you open a new terminal session:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    # Decide where to store the virtual environments
-    export WORKON_HOME=~/Envs
-    # Make sure the directory exists
-    mkdir -p ${WORKON_HOME}
-    # Load virtualenvwrapper
-    source /usr/local/bin/virtualenvwrapper.sh
+        # Decide where to store the virtual environments
+        export WORKON_HOME=~/Envs
+        # Make sure the directory exists
+        mkdir -p ${WORKON_HOME}
+        # Load virtualenvwrapper
+        source /usr/local/bin/virtualenvwrapper.sh
 
 Open a new terminal or run ``source ~/.bashrc`` to update your session. You can now create a virtual environment with:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    mkvirtualenv my-project
+        mkvirtualenv my-project
 
 Regardless of your current working directory, the environment is created in ``~/Envs/`` and it is now loaded in our terminal session.
 
@@ -246,9 +250,11 @@ Virtual environments, especially with ``virtualenvwrapper``, can do much more. F
 On a Mac
 --------
 
-One more step is often required on macOS, because of the default number of files that a process can open simultaneously is quite low (256). To increase the number of files that can be accessed, run the following command::
+One more step is often required on macOS, because of the default number of files that a process can open simultaneously is quite low (256). To increase the number of files that can be accessed, run the following command:
 
-    ulimit -n 4096
+    .. code-block:: bash
+
+        ulimit -n 4096
 
 This sets the number of files to 4096. However, this command only applies to your currently open terminal session. To keep this high limit, add the above line to your ``~/.profile``.
 
@@ -263,34 +269,36 @@ Building MDAnalysis
 Make sure that you have :ref:`cloned the repository <forking-code-repo>`  
 and activated your virtual environment. First we need to install dependencies:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    # if using conda
-    conda install cython numpy
-    # if using pip
-    pip install cython numpy
+        # if using conda
+        conda install cython numpy
+        # if using pip
+        pip install cython numpy
 
 Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python 2.7.x or Python ≥ 3.4. We will now install MDAnalysis. 
-``cd`` to the *mdanalysis/* source directory.
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    # Build and install the MDAnalysis package
-    cd package/
-    python setup.py develop
+        # go to the mdanalysis source directory
+        cd mdanalysis/
 
-    # Build and install the test suite
-    cd ../testsuite/
-    python setup.py develop
+        # Build and install the MDAnalysis package
+        cd package/
+        python setup.py develop
+
+        # Build and install the test suite
+        cd ../testsuite/
+        python setup.py develop
 
 At this point you should be able to import MDAnalysis from your locally built version:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    $ python  # start an interpreter
-    >>> import MDAnalysis as mda
-    >>> mda.__version__
-    '0.20.2-dev0'
+        $ python  # start an interpreter
+        >>> import MDAnalysis as mda
+        >>> mda.__version__
+        '0.20.2-dev0'
 
 .. _branches-in-mdanalysis:
 
@@ -315,9 +323,11 @@ Creating a branch
 
 The develop branch should only contain approved, tested code, so create a
 feature branch for making your changes. For example, to create a branch called 
-``shiny-new-feature`` from ``develop``::
+``shiny-new-feature`` from ``develop``:
 
-    git checkout -b shiny-new-feature develop
+    .. code-block:: bash
+
+        git checkout -b shiny-new-feature develop
 
 This changes your working directory to the ``shiny-new-feature`` branch.  Keep any
 changes in this branch specific to one bug or feature so it is clear
@@ -372,23 +382,25 @@ Imports in the code should follow the :ref:`general-rules-for-importing`.
 Developing in Cython
 --------------------
 
-The ``setup.py`` script first looks for the ``*.c`` files included in the standard MDAnalysis distribution. These are not in the GitHub repository, so ``setup.py`` will use Cython to compile extensions. ``*.pyx`` source files are used instead of ``*.c`` files. From there, ``*.pyx`` files are converted to ``*.c`` files if they are newer than the already present ``.c`` files or if the ``--force`` flag is set (i.e. ``python setup.py build --force``). End users (or developers) should not trigger the ``.pyx`` to ``.c`` conversion, since ``.c`` files delivered with source packages are always up-to-date. However, developers who work on the ``.pyx`` files will automatically trigger the conversion since ``.c`` files will then be outdated. 
+The ``setup.py`` script first looks for the `.c` files included in the standard MDAnalysis distribution. These are not in the GitHub repository, so ``setup.py`` will use Cython to compile extensions. `.pyx` source files are used instead of `.c` files. From there, `.pyx` files are converted to `.c` files if they are newer than the already present `.c` files or if the ``--force`` flag is set (i.e. ``python setup.py build --force``). End users (or developers) should not trigger the `.pyx` to `.c` conversion, since `.c` files delivered with source packages are always up-to-date. However, developers who work on the `.pyx` files will automatically trigger the conversion since `.c` files will then be outdated. 
 
 Place all source files for compiled shared object files into the same directory as the final shared object file.
 
-``*.pyx`` files and cython-generated ``*.c`` files should be in the same directory as the ``*.so`` files. External dependent C/C++/Fortran libraries should be in dedicated ``src`` and ``include`` folders. See the following tree as an example::
+`.pyx` files and cython-generated `.c` files should be in the same directory as the `.so` files. External dependent C/C++/Fortran libraries should be in dedicated ``src/`` and ``include/`` folders. See the following tree as an example:
 
-    MDAnalysis 
-        |--lib
-        |   |-- _distances.so
-        |   |-- distances.pyx
-        |   |-- distances.c
-        |-- coordinates
-            |-- _dcdmodule.so
-            |-- src
-                |-- dcd.c
-            |-- include
-                |-- dcd.h
+    ::
+
+        MDAnalysis 
+            |--lib
+            |   |-- _distances.so
+            |   |-- distances.pyx
+            |   |-- distances.c
+            |-- coordinates
+                |-- _dcdmodule.so
+                |-- src
+                    |-- dcd.c
+                |-- include
+                    |-- dcd.h
 
 
 -----------------
@@ -416,24 +428,32 @@ Committing your code
 
 When you are happy with a set of changes, it is time to commit. All changes in one revision should have a common theme. If you implemented two rather different things (say, one bug fix and one new feature), then split them into two commits with different messages.
 
-Once you’ve made changes to files in your local repository, you can see them by typing::
+Once you’ve made changes to files in your local repository, you can see them by typing:
 
-    git status
+    .. code-block:: bash
 
-Tell git to track files by typing::
+        git status
 
-    git add path/to/file-to-be-added.py
+Tell git to track files by typing:
 
-Doing ``git status`` again should give something like::
+    .. code-block::
 
-    # On branch shiny-new-feature
-    #
-    #       modified:   /relative/path/to/file-you-added.py
-    #
+        git add path/to/file-to-be-added.py
 
-Then commit with::
+Doing ``git status`` again should give something like:
 
-    git commit -m
+    .. code-block::
+
+        # On branch shiny-new-feature
+        #
+        #       modified:   /relative/path/to/file-you-added.py
+        #
+
+Then commit with:
+
+    .. code-block:: bash
+
+        git commit -m
 
 This opens up a message editor. 
 
@@ -447,28 +467,32 @@ This opens up a message editor.
 
 .. seealso::
 
-    See `Tim Pope's A Note About Git Commit Messages <http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html>`_ for rationale.
+    See `Tim Pope's A Note About Git Commit Messages <http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html>`_ for a rationale for these rules.
 
 
 Pushing your code to GitHub
 ---------------------------
 
-When you want your changes to appear publicly on your GitHub page, push your forked feature branch’s commits::
+When you want your changes to appear publicly on your GitHub page, push your forked feature branch’s commits:
 
-    git push origin shiny-new-feature
+    .. code-block:: bash
 
-Here origin is the default name given to your remote repository on GitHub. You can see the remote repositories::
+        git push origin shiny-new-feature
 
-    git remote -v
+Here `origin` is the default name given to your remote repository on GitHub. You can see the remote repositories:
+
+    .. code-block:: bash
+
+        git remote -v
 
 If you added the upstream repository as described above you will see something like:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    origin	git@github.com:your-username/mdanalysis.git (fetch)
-    origin	git@github.com:your-username/mdanalysis.git (push)
-    upstream	git@github.com:MDAnalysis/mdanalysis.git (fetch)
-    upstream	git@github.com:MDAnalysis/mdanalysis.git (push)
+        origin	git@github.com:your-username/mdanalysis.git (fetch)
+        origin	git@github.com:your-username/mdanalysis.git (push)
+        upstream	git@github.com:MDAnalysis/mdanalysis.git (fetch)
+        upstream	git@github.com:MDAnalysis/mdanalysis.git (push)
 
 Now your code is on GitHub, but it is not yet a part of the MDAnalysis project. For that to happen, a pull request needs to be submitted on GitHub. 
 
@@ -480,10 +504,12 @@ Rebasing your code
 Often the upstream MDAnalysis develop branch will be updated while you are working on your own code.
 You will then need to update your own branch with the new code to avoid merge conflicts.
 You need to first retrieve it and then `rebase <https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase>`_
-your branch so that your changes apply to the new code::
+your branch so that your changes apply to the new code:
 
-    git fetch upstream
-    git rebase upstream/develop
+    .. code-block:: bash
+
+        git fetch upstream
+        git rebase upstream/develop
 
 This will replay your commits on top of the latest development code from MDAnalysis.  If this
 leads to merge conflicts, you must resolve these before submitting your pull
@@ -491,9 +517,11 @@ request.  If you have uncommitted changes, you will need to ``git stash`` them
 prior to updating.  This will effectively store your changes and they can be
 reapplied after updating with ``git stash apply``. 
 
-Once rebased, push your changes::
+Once rebased, push your changes:
 
-    git push -f origin shiny-new-feature
+    .. code-block:: bash
+
+        git push -f origin shiny-new-feature
 
 and `create a pull request <https://github.com/MDAnalysis/mdanalysis/pulls>`_.
 
@@ -546,19 +574,23 @@ Working with the user guide
 The user guide makes use of a number of Sphinx extensions to ensure that the code examples are always up-to-date. These include `nbsphinx <https://nbsphinx.readthedocs.io/en/0.5.0/>`_ and the `ipython directive <http://matplotlib.org/sampledoc/ipython_directive.html>`__.
 
 The ``ipython`` directive lets you put code in the documentation which will be run
-during the doc build. For example::
+during the doc build. For example:
 
-    .. ipython:: python
+    ::
 
-        x = 2
-        x**3
+        .. ipython:: python
 
-will be rendered as::
+            x = 2
+            x**3
 
-    In [1]: x = 2
+will be rendered as:
 
-    In [2]: x**3
-    Out[2]: 8
+    .. ipython::
+
+        In [1]: x = 2
+
+        In [2]: x**3
+        Out[2]: 8
 
 Many code examples in the docs are run during the
 doc build. This approach means that code examples will always be up to date,
@@ -572,11 +604,11 @@ Forking and cloning the User Guide
 Go to the `MDAnalysis project page <https://github.com/MDAnalysis/UserGuide>`_ and hit the :guilabel:`Fork` button. You will
 want to clone your fork to your machine:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    git clone https://github.com/your-user-name/UserGuide.git
-    cd UserGuide
-    git remote add upstream https://github.com/MDAnalysis/UserGuide
+        git clone https://github.com/your-user-name/UserGuide.git
+        cd UserGuide
+        git remote add upstream https://github.com/MDAnalysis/UserGuide
 
 This creates the directory `UserGuide` and connects your repository to
 the upstream (main project) MDAnalysis repository.
@@ -591,21 +623,21 @@ Creating a development environment
 
 If using conda:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    cd UserGuide/
-    conda env create python=3.6 -f environment.yml --quiet
-    conda activate mda-user-guide
-    jupyter-nbextension enable nglview --py --sys-prefix
+        cd UserGuide/
+        conda env create python=3.6 -f environment.yml --quiet
+        conda activate mda-user-guide
+        jupyter-nbextension enable nglview --py --sys-prefix
 
 
 If using pip:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    cd UserGuide/
-    pip install -r requirements.txt
-    jupyter-nbextension enable nglview --py --sys-prefix
+        cd UserGuide/
+        pip install -r requirements.txt
+        jupyter-nbextension enable nglview --py --sys-prefix
 
 .. _build-user-guide:
 
@@ -614,10 +646,10 @@ Building the user guide
 
 Navigate to the ``doc/`` directory and run ``make html``:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    cd doc/
-    make html
+        cd doc/
+        make html
 
 The HTML output will be in ``doc/build/``, which you can open in your browser of choice. The homepage is ``doc/build/index.html``.
 
@@ -664,9 +696,11 @@ In order to build the documentation, you must first :ref:`clone the main MDAnaly
 
         pip install sphinx sphinx-sitemap sphinx_rtd_theme
 
-In addition, build the development version of MDAnalysis (if you haven't done this already)::
+In addition, build the development version of MDAnalysis (if you haven't done this already):
 
-    python setup.py develop
+    .. code-block:: bash
+
+        python setup.py develop
 
 Then, generate the docs with:
 
@@ -703,28 +737,30 @@ When writing Python code, you should always add a docstring to each public (visi
 Guidelines for writing docstrings
 ---------------------------------
 
-A typical function docstring looks like the following::
+A typical function docstring looks like the following:
 
-    def func(arg1, arg2):
-        """Summary line.
+    ::
 
-        Extended description of function.
+        def func(arg1, arg2):
+            """Summary line.
 
-        Parameters
-        ----------
-        arg1 : int
-            Description of `arg1`
-        arg2 : str
-            Description of `arg2`
+            Extended description of function.
+
+            Parameters
+            ----------
+            arg1 : int
+                Description of `arg1`
+            arg2 : str
+                Description of `arg2`
 
 
-        Returns
-        -------
-        bool
-            Description of return value
+            Returns
+            -------
+            bool
+                Description of return value
 
-        """
-        return True
+            """
+            return True
 
 .. seealso::
 
@@ -755,38 +791,42 @@ A typical function docstring looks like the following::
         n_atoms, n_residues : int
             numbers of atoms/residues
 
-* We are using MathJax with sphinx so you can write LaTeX code in math tags. In blocks, the code below
+* We are using MathJax with sphinx so you can write LaTeX code in math tags. 
 
-    .. code-block:: rst
+    In blocks, the code below
 
-        #<SPACE if there is text above equation>
-        .. math::
-            e^{i\pi} = -1
+        .. code-block:: rst
+
+            #<SPACE if there is text above equation>
+            .. math::
+                e^{i\pi} = -1
 
     renders like so:
 
-    .. math::
-        e^{i\pi} = -1
+        .. math::
+            e^{i\pi} = -1
     
 
     Math directives can also be used inline.
 
-    .. code-block:: rst
+        .. code-block:: rst
 
-        We make use of the identity :math:`e^{i\pi} = -1` to show...
+            We make use of the identity :math:`e^{i\pi} = -1` to show...
 
-    Note that you should *always* make doc strings with math code **raw** python strings **by prefixing them with the letter "r"**, or else you will get problems with backslashes in unexpected places. ::
+    Note that you should *always* make doc strings with math code **raw** python strings **by prefixing them with the letter "r"**, or else you will get problems with backslashes in unexpected places.
 
-        def rotate(self, R):
-            r"""Apply a rotation matrix *R* to the selection's coordinates.
+        ::
 
-            :math:`\mathsf{R}` is a 3x3 orthogonal matrix that transforms a vector
-            :math:`\mathbf{x} \rightarrow \mathbf{x}'`:
+            def rotate(self, R):
+                r"""Apply a rotation matrix *R* to the selection's coordinates.
 
-            .. math::
+                :math:`\mathsf{R}` is a 3x3 orthogonal matrix that transforms a vector
+                :math:`\mathbf{x} \rightarrow \mathbf{x}'`:
 
-            \mathbf{x}' = \mathsf{R}\mathbf{x}
-            """
+                .. math::
+
+                \mathbf{x}' = \mathsf{R}\mathbf{x}
+                """
 
     .. seealso::
     
@@ -814,15 +854,20 @@ Then, :ref:`create a pull request <create-a-pull-request>`. All the tests in the
 Viewing the documentation interactively
 ---------------------------------------
 
-In the Python interpreter one can simply say::
+In the Python interpreter one can simply say:
 
-  import MDAnalysis
-  help(MDAnalysis)
-  help(MDAnalysis.Universe)
+    ::
 
-In ``ipython`` one can use the question mark operator::
+        import MDAnalysis
+        help(MDAnalysis)
+        help(MDAnalysis.Universe)
 
-  MDAnalysis.Universe?
+In ``ipython`` one can use the question mark operator:
+
+    .. ipython::
+        :verbatim:
+
+        In [1]: MDAnalysis.Universe?
 
 .. _autobuild-sphinx:
 
