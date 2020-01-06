@@ -68,7 +68,7 @@ to MDAnalysis.  Sticking to the guidelines below will help keep the process
 straightforward and mostly trouble free.  As always,
 if you are having difficulties please feel free to ask for help.
 
-The code is hosted on `GitHub <https://www.github.com/pydata/xarray>`_. To
+The code is hosted on `GitHub <https://www.github.com/mdanalysis/mdanalysis>`_. To
 contribute you will need to sign up for a `free GitHub account
 <https://github.com/signup/free>`_. 
 
@@ -339,10 +339,9 @@ There are several special branch names that you should not use for your feature 
     - ``master``
     - ``develop``
     - ``release-*``
-    - ``hotfix-*``
 
 
-``release`` branches are used to :ref:`prepare a new production release <preparing-release>`. ``hotfix`` branches are used to :ref:`fix issues found in an already released version <preparing-hotfix>`. Both of these branch types should be handled by the release manager only.
+``release`` branches are used to :ref:`prepare a new production release <preparing-release>` and should be handled by the release manager only.
 
 .. _writing-new-code:
 
