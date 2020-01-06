@@ -33,7 +33,7 @@ through this page. If you are new to Git and version control, have a look at
 :ref:`the main MDAnalysis codebase <working-with-mdanalysis-code>` or 
 :ref:`the documentation <working-with-mdanalysis-docs>`.
 
-A brief overview of the workflow for contributing to MDAnalysis is laid out below, but it is recommended to read the whole guide for the particular section you ar interested in.
+A brief overview of the workflow for contributing to MDAnalysis is laid out below, but it is recommended to read the whole guide for the particular section you are interested in.
 
 The development workflow for code or inline code documentation looks like this:
 
