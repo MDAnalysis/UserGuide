@@ -731,7 +731,7 @@ When writing Python code, you should always add a docstring to each public (visi
     * class
     * method
  
-\When you add a new module you should include a docstring with a short sentence describing what the module does or a long document including examples and references. 
+\When you add a new module, you should include a docstring with a short sentence describing what the module does, and/or a long document including examples and references. 
 
 .. _guidelines-for-docstrings:
 
@@ -778,9 +778,9 @@ A typical function docstring looks like the following:
         THE NEXT TWO BLANK LINES ARE IMPORTANT.
 
 
-    .. versionadded:: 0.16.0
+        .. versionadded:: 0.16.0
   
-* Do not use "Example" or "Examples" as a normal section heading (e.g. in module level docs): *only* use it as a `NumPy doc Section <https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard>`__. It will not be rendered as a normal section and will mess up sectioning.
+* Do not use "Example" or "Examples" as a normal section heading (e.g. in module level docs): *only* use it as a `NumPy doc Section <https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard>`__. It will not be rendered properly, and will mess up sectioning.
 
 
 * When writing multiple common names in one line, Sphinx sometimes tries to reference the first name. In that case, you have to split the names across multiple lines. See below for an example:
@@ -876,13 +876,17 @@ In ``ipython`` one can use the question mark operator:
 Automatically building documentation
 ------------------------------------
 
-Constantly rebuilding documentation can become tedious when you have many changes to make. Use `sphinx-autobuild <https://pypi.org/project/sphinx-autobuild>`_ to rebuild documentation every time you make changes to any document, including Jupyter notebooks. Install ``sphinx-autobuild``::
+Constantly rebuilding documentation can become tedious when you have many changes to make. Use `sphinx-autobuild <https://pypi.org/project/sphinx-autobuild>`_ to rebuild documentation every time you make changes to any document, including Jupyter notebooks. Install ``sphinx-autobuild``:
 
-    pip install sphinx-autobuild
+    .. code-block:: bash
 
-Then, run the following command in the ``doc/`` directory::
+        pip install sphinx-autobuild
 
-    python -m sphinx_autobuild source build
+Then, run the following command in the ``doc/`` directory:
+
+    .. code-block:: bash
+
+        python -m sphinx_autobuild source build
 
 This will start a local webserver at http://localhost:8000/, which will refresh every time you save changes to a file in the documentation. This is helpful for both the user guide (first navigate to ``UserGuide/doc``) and the main repository documentation (navigate to ``package/doc/sphinx``).
 
