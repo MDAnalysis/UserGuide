@@ -9,10 +9,14 @@ Analysis
 .. toctree::
    :maxdepth: 1
    :caption: Alignments and RMS fitting
+
+   examples/analysis/alignment_and_rms/index
    
-   examples/analysis/alignments.ipynb
-   examples/analysis/rmsd.ipynb
-   examples/analysis/rmsf_v0.17.0_to_v0.20.1.ipynb
+.. toctree::
+   :maxdepth: 1
+   :caption: Distances and contacts
+   
+   examples/analysis/distances_and_contacts/*
 
 .. toctree::
    :maxdepth: 1
