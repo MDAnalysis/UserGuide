@@ -10,6 +10,9 @@ Here are examples.
    :caption: General
 
    constructing_universe
+   transformations/index
+   parmed_sim
+   analysis/polymer
 
 .. toctree::
    :maxdepth: 2
@@ -18,3 +21,6 @@ Here are examples.
    analysis/alignment_and_rms/index
    analysis/distances_and_contacts/index
    analysis/trajectory_similarity/index
+   analysis/hydrogen_bonding/index
+   analysis/structure/index
+   

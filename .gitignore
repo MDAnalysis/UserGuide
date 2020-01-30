@@ -34,6 +34,7 @@ doc/build
 *.xtc
 
 # example files
-doc/source/examples/analysis/**/*.*
-!doc/source/examples/analysis/**/*.ipynb
-!doc/source/examples/analysis/**/*.rst
+doc/source/examples/**/*.*
+!doc/source/examples/**/*.ipynb
+!doc/source/examples/**/*.rst
+!doc/source/examples/**/*.gif

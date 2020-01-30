@@ -4,7 +4,7 @@
 Trajectory similarity
 ======================
 
-Blah blah 
+
 
 
 .. toctree::
@@ -13,3 +13,5 @@ Blah blah
    psa
    harmonic_ensemble_similarity
    clustering_ensemble_similarity
+   dimension_reduction_ensemble_similarity
+   convergence
