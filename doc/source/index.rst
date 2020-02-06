@@ -72,7 +72,10 @@ Gromacs_, CHARMM_, VMD_ and PyMol_ (see :ref:`selection-exporters`). It uses Num
    :maxdepth: 1
    :caption: Developer docs
 
-   contributing
    standard_selections
    advanced_topology
+   contributing
+   preparing_releases_and_hotfixes
+   module_imports
+   testing
    references

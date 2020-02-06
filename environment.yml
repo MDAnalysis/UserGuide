@@ -1,4 +1,4 @@
-name: testenv
+name: mda-user-guide
 channels:
   - conda-forge
   - defaults
