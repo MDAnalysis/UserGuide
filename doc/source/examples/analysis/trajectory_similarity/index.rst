@@ -10,8 +10,8 @@ Trajectory similarity
 .. toctree::
    :maxdepth: 1
 
-   psa
-   harmonic_ensemble_similarity
-   clustering_ensemble_similarity
-   dimension_reduction_ensemble_similarity
-   convergence
+   /examples/analysis/trajectory_similarity/psa
+   /examples/analysis/trajectory_similarity/harmonic_ensemble_similarity
+   /examples/analysis/trajectory_similarity/clustering_ensemble_similarity
+   /examples/analysis/trajectory_similarity/dimension_reduction_ensemble_similarity
+   /examples/analysis/trajectory_similarity/convergence

@@ -8,5 +8,7 @@ Structure
 .. toctree::
    :maxdepth: 1
 
-   elastic_network
-   average_rdf
+   /examples/analysis/structure/elastic_network
+   /examples/analysis/structure/average_rdf
+   /examples/analysis/structure/site_specific_rdf
+   /examples/analysis/structure/dihedrals

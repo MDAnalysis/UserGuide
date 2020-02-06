@@ -66,6 +66,7 @@ Gromacs_, CHARMM_, VMD_ and PyMol_ (see :ref:`selection-exporters`). It uses Num
    :caption: Analysis
 
    analysis
+   examples/analysis/custom_trajectory_analysis
 
 .. toctree::
    :maxdepth: 1
@@ -74,3 +75,4 @@ Gromacs_, CHARMM_, VMD_ and PyMol_ (see :ref:`selection-exporters`). It uses Num
    contributing
    standard_selections
    advanced_topology
+   references

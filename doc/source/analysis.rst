@@ -1,7 +1,45 @@
 .. -*- coding: utf-8 -*-
 .. _analysis:
 
-=====================
+========
 Analysis
-=====================
+========
 
+The :mod:`~MDAnalysis.analysis` module of MDAnalysis provides the tools needed to analyse your data. 
+Several analyses are included with the package. These range from standard algorithms 
+(e.g. :ref:`calculating root mean squared quantities <alignment_and_rms>`) to unique algorithms such as 
+the `path similarity analysis <examples/analysis/trajectory_similarity/psa.ipynb>`__.
+
+Generally these bundled analyses are contributed by various researchers who use the code for their own work. 
+Please refer to the individual module documentation or relevant user guide tutorials for additional 
+references and citation information.
+
+
+
+Imports and dependencies
+========================
+ 
+Analysis modules are not imported by default. In order to use them, you will need to import 
+them separately, e.g.::
+
+    from MDAnalysis.analysis import align
+
+.. note::
+
+    Several modules in :mod:`MDAnalysis.analysis` require additional Python packages. 
+    For example, :mod:`~MDAnalysis.analysis.encore` makes use of `scikit-learn <http://scikit-learn.org/>`__. 
+    The Python packages are not automatically installed with `pip`, although they are with `conda`.
+
+    Other modules require external programs. For example, :mod:`~MDAnalysis.analysis.hole` requires 
+    the `HOLE <http://www.holeprogram.org/>`_ programs. You will need to install these yourself.
+
+
+.. include:: examples/analysis/alignment_and_rms/index.rst
+
+.. include:: examples/analysis/distances_and_contacts/index.rst
+
+.. include:: examples/analysis/trajectory_similarity/index.rst
+
+.. include:: examples/analysis/hydrogen_bonding/index.rst
+
+.. include:: examples/analysis/structure/index.rst

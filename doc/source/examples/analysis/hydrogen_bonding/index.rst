@@ -8,4 +8,4 @@ Hydrogen bonding
 .. toctree::
    :maxdepth: 1
 
-   hydrogen_bond_analysis
+   /examples/analysis/hydrogen_bonding/hydrogen_bond_analysis

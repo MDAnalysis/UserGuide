@@ -53,7 +53,8 @@ extensions = [
     'nbsphinx',
     'sphinx_rtd_theme',
     'IPython.sphinxext.ipython_console_highlighting',
-    'IPython.sphinxext.ipython_directive'
+    'IPython.sphinxext.ipython_directive',
+    'sphinxcontrib.bibtex',
 ]
 
 pygments_style = 'default'
