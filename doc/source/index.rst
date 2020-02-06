@@ -37,7 +37,7 @@ Gromacs_, CHARMM_, VMD_ and PyMol_ (see :ref:`selection-exporters`). It uses Num
    installation
    examples/quickstart
    faq
-   examples/index
+   examples/README
 
 .. toctree::
    :maxdepth: 1
@@ -65,7 +65,7 @@ Gromacs_, CHARMM_, VMD_ and PyMol_ (see :ref:`selection-exporters`). It uses Num
    :maxdepth: 1
    :caption: Analysis
 
-   analysis
+   examples/analysis/README
    examples/analysis/custom_trajectory_analysis
 
 .. toctree::

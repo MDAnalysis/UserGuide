@@ -10,8 +10,9 @@ dependencies:
   - mdanalysis=0.20.1
   - MDAnalysisTests
   - pip:
-    - sphinx_rtd_theme
-    - sphinx-sitemap
-    - nbsphinx
-    - ipython
-    - tabulate
+      - sphinx_rtd_theme
+      - sphinx-sitemap
+      - nbsphinx
+      - ipython
+      - tabulate
+      - sphinxcontrib-bibtex
