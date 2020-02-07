@@ -33,7 +33,7 @@ All contributions, bug reports, bug fixes, documentation improvements,
 enhancements, and ideas are welcome.
 
 If you are brand new to MDAnalysis or open-source development, we recommend going 
-through the guides for :ref:`contributing to the main codebase <working-with-mdanalysis-code>` or the :ref:`user guide <working-with-user-guide>`__. If you are new to Git and version control, have a look at 
+through the guides for :ref:`contributing to the main codebase <working-with-mdanalysis-code>` or the :ref:`user guide <working-with-user-guide>`_. If you are new to Git and version control, have a look at 
 :ref:`version-control`.
 
 
