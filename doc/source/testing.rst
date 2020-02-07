@@ -33,6 +33,150 @@ Like many packages, MDAnalysis uses `pytest
 <http://doc.pytest.org/en/latest/>`_ and some of the `numpy.testing
 <http://docs.scipy.org/doc/numpy/reference/routines.testing.html>`_ framework.
 
+.. _run-test-suite:
+
+Running the test suite
+======================
+
+It is recommended that you run the tests from the ``mdanalysis/testsuite/MDAnalysisTests/`` directory.
+
+.. code-block:: bash
+
+    cd testsuite/MDAnalysisTests
+    pytest  --disable-pytest-warnings
+
+All tests should pass: no **FAIL** or **ERROR** cases should be triggered; *SKIPPED* or *XFAIL* are ok. For anything that fails or gives an error, ask on the `mdnalysis-discussion`_ mailing list or raise an issue on the `Issue Tracker <https://github.com/MDAnalysis/mdanalysis/issues>`_.
+
+We use the ``--disable-pytest-warnings`` when the whole testsuite is running, as pytest raises a lot of false positives when we warn users about missing topology attributes. When running single tests or only single modules, consider running the tests *with* warnings enabled (i.e. without ``--disable-pytest-warnings``). This allows you to see if you trigger any un-caught deprecation warnings or other warnings in libraries we use.
+
+To run specific tests just specify the path to the test file:
+
+.. code-block:: bash
+
+    pytest testsuite/MDAnalysisTests/analysis/test_align.py
+
+
+Specific test classes inside test files, and even specific test methods, can also be specified:
+
+.. code-block:: bash
+
+    # Test the entire TestContactMatrix class
+    pytest testsuite/MDAnalysisTests/analysis/test_analysis.py::TestContactMatrix
+
+    # Test only test_sparse in the TestContactMatrix class
+    pytest testsuite/MDAnalysisTests/analysis/test_analysis.py::TestContactMatrix::test_sparse
+
+
+This is very useful when you add a new test and want to check if it passes. However, before you push your code to GitHub, make sure that your test case runs and that *all other test cases are still passing*.
+
+-------------------
+Testing in parallel
+-------------------
+
+Running the tests serially can take some time, depending on the performance of your computer. You can speed this up by using the plugin `pytest-xdist <https://github.com/pytest-dev/pytest-xdist>`_ to run tests in parallel by specifying the ``--numprocesses`` option:
+
+.. code-block:: bash
+
+    pip install pytest-xdist
+    pytest --disable-pytest-warnings --numprocesses 4
+
+
+You can try increasing the number of processes to speed up the test run. The number of processes you can use depends on your machine.
+
+-------------
+Test coverage
+-------------
+
+The tool `pytest-cov <https://github.com/pytest-dev/pytest-cov>`_  can be used to generate the coverage report locally:
+
+.. code-block:: bash
+
+    pip install pytest-cov
+    pytest --cov=MDAnalysis
+
+
+Note: You can use the ``--numprocesses`` flag to run tests in parallel with the above command too. This will print the coverage statistic for every module in MDAnalysis at the end of a run. To get detailed line by
+line statistics you can add the ``--cov-report=html`` flag. This will create a ``htmlcov`` folder (in the directory you run the command from) and there will be an ``index.html`` file in this folder. Open this file in your browser and you will be able to see overall statistics and detailed line coverage for each file.
+
+.. _continuous-integration:
+
+Continuous Integration tools
+============================
+
+When you submit your pull request, several continuous integration tools will run a suite of tests. These should all pass before your code can be merged into MDAnalysis. You can check tests locally by :ref:`running the test suite <run-test-suite>`.
+
+If your pull request fails immediately with an :ref:`appveyor` error, it is likely that you have merge conflicts with the latest code in the ``develop`` branch. :ref:`Rebase your code <rebase-code>` and update your branch by pushing your changes.
+
+If you get an error with :ref:`travis`, it is likely that you've failed a particular test. You should update your code and push again.
+
+If you get :ref:`codecov` errors, this means that your changes have not been adequately tested. Add new tests that address the "missed" lines, and push again.
+
+Ideally, you want all tests to pass. This will look like:
+
+    .. image:: images/ci_checks_passed.png
+
+.. _appveyor:
+
+--------
+Appveyor
+--------
+
+`AppVeyor`_ is a continuous integration/continuous deployment service. MDAnalysis uses it for `testing builds on Windows`_.
+
+Builds are configured in the file ``.appveyor.yml``. If you add a new dependency to MDAnalysis, you will need to add it to the ``$CONDA_DEPENDENCIES`` or ``$PIP_DEPENDENCIES`` in ``.appveyor.yml`` to pass tests.
+
+.. _`testing builds on Windows`: https://ci.appveyor.com/project/orbeckst/mdanalysis
+
+
+.. _travis:
+
+------
+Travis
+------
+
+`Travis is a continuous integration service <https://travis-ci.com/MDAnalysis/mdanalysis>`_ for Linux and MacOS. MDAnalysis uses it for exhaustive testing on Linux systems, and some testing on MacOS. If you add a new dependency to MDAnalysis, you will need to add it to the ``$CONDA_DEPENDENCIES`` or ``$PIP_DEPENDENCIES`` in ``.travis.yml`` to pass tests.
+
+
+.. _codecov:
+
+-------
+Codecov
+-------
+
+Code coverage measures how many lines, and which lines, of code are executed by a test suite. Codecov is a service that turns code coverage reports into a single visual report. Each line is described as one of three categories:
+
+    - a **hit** indicates that the source code was executed by the test suite.
+    - a **partial** indicates that the source code was not fully executed by the test suite; there are remaining branches that were not executed.
+    - a **miss** indicates that the source code was not executed by the test suite.
+
+Coverage is the ratio of ``hits / (sum of hit + partial + miss)``. See the `Codecov documentation <https://docs.codecov.io/docs/about-code-coverage>`_ for more information.
+
+MDAnalysis aims for 90% code coverage; your pull request will fail the Codecov check if the coverage falls below 85%. You can increase coverage by writing futher tests.
+
+On your pull request, Codecov will leave a comment with three sections: 
+
+    - a visual map of the areas with coverage changes
+
+        .. image:: images/codecov_report_map.png
+
+    - a summary of changes in coverage
+
+        .. image:: images/codecov_report_summary.png
+
+    - a list of files with changes
+
+        .. image:: images/codecov_report_files.png
+
+Clicking on one of those files will show the Codecov :guilabel:`Diff` view, highlighting the lines of code that have been missed by tests. In the image below, the column on the left hand side shows hits (green) and misses (red); the lighter colours highlighting the code show lines added (light green) or removed (light red).
+
+    .. image:: images/codecov_diff.png
+
+Changing to the :guilabel:`Coverage Changes` view highlights how your additions have changed the test coverage. See the `documentation for viewing source code <https://docs.codecov.io/docs/viewing-source-code>`_ for more information.
+
+    .. image:: images/codecov_coverage_changes.png
+
+.. _write-new-tests:
+
 Writing new tests
 =================
 
@@ -234,150 +378,5 @@ If possible, re-use the existing data files in MDAnalysis for tests; this helps 
     #. Add the files to the ``testsuite/MDAnalysisTests/data`` directory and appropriate file names and descriptions to ``testsuite/MDAnalysisTests/datafiles.py``.
     #. Make sure your new files are picked up by the pattern-matching in ``testsuite/setup.py`` (in the ``package_data`` dictionary).
 
-Make sure that your test case runs and that *all other test cases are still passing*.
 
-.. _run-test-suite:
-
-Running the test suite
-======================
-
-It is recommended that you run the tests from the ``mdanalysis/testsuite/MDAnalysisTests/`` directory.
-
-.. code-block:: bash
-
-    cd testsuite/MDAnalysisTests
-    pytest  --disable-pytest-warnings
-
-All tests should pass: no **FAIL** or **ERROR** cases should be triggered; *SKIPPED* or *XFAIL* are ok. For anything that fails or gives an error, ask on the `mdnalysis-discussion`_ mailing list or raise an issue on the `Issue Tracker`_.
-
-We use the ``--disable-pytest-warnings`` when the whole testsuite is running, as pytest raises a lot of false positives when we warn users about missing topology attributes. When running single tests or only single modules, consider running the tests *with* warnings enabled (i.e. without ``--disable-pytest-warnings``). This allows you to see if you trigger any un-caught deprecation warnings or other warnings in libraries we use.
-
-To run specific tests just specify the path to the test file:
-
-.. code-block:: bash
-
-    pytest testsuite/MDAnalysisTests/analysis/test_align.py
-
-
-Specific test classes inside test files, and even specific test methods, can also be specified:
-
-.. code-block:: bash
-
-    # Test the entire TestContactMatrix class
-    pytest testsuite/MDAnalysisTests/analysis/test_analysis.py::TestContactMatrix
-
-    # Test only test_sparse in the TestContactMatrix class
-    pytest testsuite/MDAnalysisTests/analysis/test_analysis.py::TestContactMatrix::test_sparse
-
-
-This is very useful when you add a new test and want to check if it passes.
-
--------------------
-Testing in parallel
--------------------
-
-Running the tests serially can take some time, depending on the performance of your computer. You can speed this up by using the plugin `pytest-xdist <https://github.com/pytest-dev/pytest-xdist>`_ to run tests in parallel by specifying the ``--numprocesses`` option:
-
-.. code-block:: bash
-
-    pip install pytest-xdist
-    pytest --disable-pytest-warnings --numprocesses 4
-
-
-You can try increasing the number of processes to speed up the test run. The number of processes you can use depends on your machine.
-
--------------
-Test coverage
--------------
-
-The tool `pytest-cov <https://github.com/pytest-dev/pytest-cov>`_  can be used to generate the coverage report locally:
-
-.. code-block:: bash
-
-    pip install pytest-cov
-    pytest --cov=MDAnalysis
-
-
-Note: You can use the ``--numprocesses`` flag to run tests in parallel with the above command too. This will print the coverage statistic for every module in MDAnalysis at the end of a run. To get detailed line by
-line statistics you can add the ``--cov-report=html`` flag. This will create a ``htmlcov`` folder (in the directory you run the command from) and there will be an ``index.html`` file in this folder. Open this file in your browser and you will be able to see overall statistics and detailed line coverage for each file.
-
-.. _continuous-integration:
-
-Continuous Integration tools
-============================
-
-When you submit your pull request, several continuous integration tools will run a suite of tests. These should all pass before your code can be merged into MDAnalysis. You can check tests locally by :ref:`running the test suite <run-test-suite>`.
-
-If your pull request fails immediately with an :ref:`appveyor` error, it is likely that you have merge conflicts with the latest code in the ``develop`` branch. :ref:`Rebase your code <rebase-code>` and update your branch by pushing your changes.
-
-If you get an error with :ref:`travis`, it is likely that you've failed a particular test. You should update your code and push again.
-
-If you get :ref:`codecov` errors, this means that your changes have not been adequately tested. Add new tests that address the "missed" lines, and push again.
-
-Ideally, you want all tests to pass. This will look like:
-
-    .. image:: images/ci_checks_passed.png
-
-.. _appveyor:
-
---------
-Appveyor
---------
-
-`AppVeyor`_ is a continuous integration/continuous deployment service. MDAnalysis uses it for `testing builds on Windows`_.
-
-Builds are configured in the file ``.appveyor.yml``. If you add a new dependency to MDAnalysis, you will need to add it to the ``$CONDA_DEPENDENCIES`` or ``$PIP_DEPENDENCIES`` in ``.appveyor.yml`` to pass tests.
-
-.. _`testing builds on Windows`: https://ci.appveyor.com/project/orbeckst/mdanalysis
-
-
-.. _travis:
-
-------
-Travis
-------
-
-`Travis is a continuous integration service <https://travis-ci.com/MDAnalysis/mdanalysis>`_ for Linux and MacOS. MDAnalysis uses it for exhaustive testing on Linux systems, and some testing on MacOS. If you add a new dependency to MDAnalysis, you will need to add it to the ``$CONDA_DEPENDENCIES`` or ``$PIP_DEPENDENCIES`` in ``.travis.yml`` to pass tests.
-
-
-.. _codecov:
-
--------
-Codecov
--------
-
-Code coverage measures how many lines, and which lines, of code are executed by a test suite. Codecov is a service that turns code coverage reports into a single visual report. Each line is described as one of three categories:
-
-    - a **hit** indicates that the source code was executed by the test suite.
-    - a **partial** indicates that the source code was not fully executed by the test suite; there are remaining branches that were not executed.
-    - a **miss** indicates that the source code was not executed by the test suite.
-
-Coverage is the ratio of ``hits / (sum of hit + partial + miss)``. See the `Codecov documentation <https://docs.codecov.io/docs/about-code-coverage>`_ for more information.
-
-MDAnalysis aims for 90% code coverage; your pull request will fail the Codecov check if the coverage falls below 85%. You can increase coverage by writing futher tests.
-
-On your pull request, Codecov will leave a comment with three sections: 
-
-    - a visual map of the areas with coverage changes
-
-        .. image:: images/codecov_report_map.png
-
-    - a summary of changes in coverage
-
-        .. image:: images/codecov_report_summary.png
-
-    - a list of files with changes
-
-        .. image:: images/codecov_report_files.png
-
-Clicking on one of those files will show the Codecov :guilabel:`Diff` view, highlighting the lines of code that have been missed by tests. In the image below, the column on the left hand side shows hits (green) and misses (red); the lighter colours highlighting the code show lines added (light green) or removed (light red).
-
-    .. image:: images/codecov_diff.png
-
-Changing to the :guilabel:`Coverage Changes` view highlights how your additions have changed the test coverage. See the `documentation for viewing source code <https://docs.codecov.io/docs/viewing-source-code>`_ for more information.
-
-    .. image:: images/codecov_coverage_changes.png
-
-
-.. _Issue Tracker: https://github.com/MDAnalysis/mdanalysis/issues
 .. _`mdnalysis-discussion`: http://groups.google.com/group/mdnalysis-discussion
