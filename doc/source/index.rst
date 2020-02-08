@@ -48,7 +48,14 @@ Gromacs_, CHARMM_, VMD_ and PyMol_ (see :ref:`selection-exporters`). It uses Num
    groups_of_atoms
    selections
    topology_system
-   trajectories
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Trajectories
+
+   trajectories/trajectories
+   trajectories/slicing_trajectories
+   trajectories/transformations
 
 .. toctree::
    :maxdepth: 1
