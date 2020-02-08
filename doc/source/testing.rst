@@ -18,7 +18,7 @@ Whenever you add new code, you should create an appropriate test case that check
     #. More importantly, in the future we can always test that it is still working correctly. Unit tests are a crucial component of proper software engineering (see e.g. `Software Carpentry on Testing <http://software-carpentry.org/4_0/test>`_) and a large (and growing) test suite is one of the strengths of MDAnalysis.
 
 Adding tests is one of the most common requests after code is pushed to MDAnalysis.  Therefore,
-it is worth getting in the habit of writing tests ahead of time so this is never an issue. We strive for >85% our code to be covered by tests.
+it is worth getting in the habit of writing tests ahead of time so this is never an issue. We strive for ≥90% our code to be covered by tests.
 
 We strongly encourage contributors to embrace
 `test-driven development <http://en.wikipedia.org/wiki/Test-driven_development>`_.
@@ -198,7 +198,7 @@ Use plain ``assert`` statements for comparing single values, e.g. ::
     def test_foo_is_length_3(foo):
         assert len(foo) == 3
 
-To check equality up to a certain precision, use ``assert_almost_equal`` from ``numpy.testing``. Do not manually round off the value and use plain ``assert`` statements. Do not use ``pytest.approx`` ::
+To check equality up to a certain precision (e.g. floating point numbers and iterables of floats), use :func:`~numpy.testing.assert_almost_equal` from :mod:`numpy.testing`. Do not manually round off the value and use plain ``assert`` statements. Do not use ``pytest.approx``. ::
 
     from numpy.testing import assert_almost_equal
 
@@ -207,14 +207,14 @@ To check equality up to a certain precision, use ``assert_almost_equal`` from ``
         u = mda.Universe(PDB_small)
         assert_almost_equal(u.atoms.positions, ref.atoms.positions)
     
-To compare an iterable, use ``assert_equal`` from ``numpy.testing``. Do not iterate over and compare every single value. ::
+To test for exact equality (e.g. integers, booleans, strings), use :func:`~numpy.testing.assert_equal` from :mod:`numpy.testing`. As with :func:`~numpy.testing.assert_almost_equal`, this should be used for iterables of exact values as well. Do not iterate over and compare every single value. ::
 
     from numpy.testing import assert_equal
 
     def test_equal_arrays(array1, array2):
         assert_equal(array1, array2)
 
-Do not use ``assert_array_equal`` or ``assert_array_almost_equal`` from ``numpy.testing`` to compare array/array-like data structures. Instead, use ``assert_equal`` or ``assert_almost_equal``. The former set of functions equate arrays and scalars, while the latter do not:
+Do not use ``assert_array_equal`` or ``assert_array_almost_equal`` from :mod:`numpy.testing` to compare array/array-like data structures. Instead, use :func:`~numpy.testing.assert_equal` or :func:`~numpy.testing.assert_almost_equal`. The former set of functions equate arrays and scalars, while the latter do not:
 
 .. ipython:: python
     :okexcept:
@@ -223,12 +223,12 @@ Do not use ``assert_array_equal`` or ``assert_array_almost_equal`` from ``numpy.
     assert_array_equal([1], 1)
     assert_equal([1], 1)
 
-Do not use anything from ``numpy.testing`` that depends on ``nose``, such as ``assert_raises``.
+Do not use anything from :mod:`numpy.testing` that depends on ``nose``, such as ``assert_raises``.
 
 Testing exceptions and warnings
 -------------------------------
 
-Do not use ``assert_raises`` from ``numpy.testing`` or the ``pytest.mark.raises`` decorator to test for particular exceptions. Instead, use context managers::
+Do not use ``assert_raises`` from :mod:`numpy.testing` or the ``pytest.mark.raises`` decorator to test for particular exceptions. Instead, use context managers::
 
     def test_for_error():
         a = [1, 2, 3]
@@ -242,13 +242,13 @@ Do not use ``assert_raises`` from ``numpy.testing`` or the ``pytest.mark.raises`
 Failing tests
 -------------
 
-To mark an expected failure, use ``pytest.mark.xfail`` decorator::
+To mark an expected failure, use :func:`pytest.mark.xfail` decorator::
 
     @pytest.mark.xfail
     def tested_expected_failure():
         assert 1 == 2
 
-To manually fail a test, make a call to ``pytest.fail``::
+To manually fail a test, make a call to :func:`pytest.fail`::
 
     def test_open(self, tmpdir):
         outfile = str(tmpdir.join('lammps-writer-test.dcd'))
@@ -261,7 +261,7 @@ To manually fail a test, make a call to ``pytest.fail``::
 Skipping tests
 --------------
 
-To skip tests based on a condition, use ``pytest.mark.skipif(condition)`` decorator::
+To skip tests based on a condition, use :func:`pytest.mark.skipif(condition) <pytest.mark.skipif>` decorator::
 
     import numpy as np
     try:
@@ -277,7 +277,7 @@ To skip tests based on a condition, use ``pytest.mark.skipif(condition)`` decora
         assert not np.shares_memory(original.ts.positions, copy.ts.positions)
 
 
-To skip a test if a module is not available for importing, use ``pytest.importorskip('module_name')`` ::
+To skip a test if a module is not available for importing, use :func:`pytest.importorskip('module_name') <pytest.importorskip>` ::
 
     def test_write_trajectory_netCDF4(self, universe, outfile):
         pytest.importorskip("netCDF4")
@@ -287,7 +287,7 @@ To skip a test if a module is not available for importing, use ``pytest.importor
 Fixtures
 --------
 
-Use `fixtures <https://docs.pytest.org/en/latest/fixture.html>`_ as much as possible to reuse "resources" between test methods/functions. Pytest fixtures are functions that run before each test function that uses that fixture. A fixture is typically set up with the ``pytest.fixture`` decorator, over a function that returns the object you need::
+Use `fixtures <https://docs.pytest.org/en/latest/fixture.html>`_ as much as possible to reuse "resources" between test methods/functions. Pytest fixtures are functions that run before each test function that uses that fixture. A fixture is typically set up with the :func:`pytest.fixture` decorator, over a function that returns the object you need::
 
     @pytest.fixture
     def universe(self):
@@ -309,7 +309,7 @@ The rule of thumb is to use the largest possible scope for the fixture to save t
 Testing the same function with different inputs
 -----------------------------------------------
 
-Use the ``pytest.mark.parametrize decorator`` to test the same function for different inputs rather than looping. These can be stacked::
+Use the :func:`pytest.mark.parametrize` decorator to test the same function for different inputs rather than looping. These can be stacked::
 
     @pytest.mark.parametrize('pbc', (True, False))
     @pytest.mark.parametrize('name, compound', (('molnums', 'molecules'),
@@ -336,7 +336,7 @@ The code above runs ``test_center_of_mass_compounds_special`` 4 times with the f
 Temporary files and directories
 -------------------------------
 
-Do not use ``os.chdir()`` to change directories in tests, because it can break the tests in really weird ways (see `Issue 556`_). To use a temporary directory as the working directory, use the ``tmpdir.as_cwd`` context manager instead::
+Do not use :func:`os.chdir` to change directories in tests, because it can break the tests in really weird ways (see `Issue 556`_). To use a temporary directory as the working directory, use the :func:`tmpdir.as_cwd` context manager instead::
 
     def test_write_no_args(self, u, tmpdir): # tmpdir is an in-built fixture
         with tmpdir.as_cwd():

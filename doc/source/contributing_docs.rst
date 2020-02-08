@@ -13,7 +13,7 @@ MDAnalysis maintains two kinds of documentation:
 
 This guide is about how to contribute to the user guide. If you are looking to add to documentation of the main code base, please see :ref:`working-with-mdanalysis-docs`.
 
-The user guide makes use of a number of Sphinx extensions to ensure that the code examples are always up-to-date. These include `nbsphinx <https://nbsphinx.readthedocs.io/en/0.5.0/>`_ and the `ipython directive <http://matplotlib.org/sampledoc/ipython_directive.html>`__.
+The user guide makes use of a number of Sphinx extensions to ensure that the code examples are always up-to-date. These include `nbsphinx <https://nbsphinx.readthedocs.io>`_ and the `ipython directive <http://matplotlib.org/sampledoc/ipython_directive.html>`__.
 
 The ``ipython`` directive lets you put code in the documentation which will be run
 during the doc build. For example:
@@ -78,9 +78,9 @@ If using conda:
     .. code-block:: bash
 
         cd UserGuide/
-        conda env create python=3.6 -f environment.yml ==quiet
+        conda env create python=3.6 -f environment.yml --quiet
         conda activate mda-user-guide
-        jupyter-nbextension enable nglview ==py ==sys-prefix
+        jupyter-nbextension enable nglview --py --sys-prefix
 
 
 If using pip:
@@ -89,7 +89,7 @@ If using pip:
 
         cd UserGuide/
         pip install -r requirements.txt
-        jupyter-nbextension enable nglview ==py ==sys-prefix
+        jupyter-nbextension enable nglview --py --sys-prefix
 
 .. _build-user-guide:
 

@@ -9,7 +9,7 @@ MDAnalysis is a free and open source project. It evolves and grows with the dema
 The development team very much welcomes contributions from its users. 
 Contributions can take many forms, such as:
 
-    * **bug reports** or **enhancement requests** filed through the `Issue Tracker <https://github.com/MDAnalysis/mdanalysis/issues>`_
+    * **bug reports** or **enhancement requests** filed through the `Issue Tracker`_
     * **bug fixes**
     * **improvements** to the code (speed, clarity, modernised code)
     * **new features** in the code
@@ -33,7 +33,7 @@ All contributions, bug reports, bug fixes, documentation improvements,
 enhancements, and ideas are welcome.
 
 If you are brand new to MDAnalysis or open-source development, we recommend going 
-through the guides for :ref:`contributing to the main codebase <working-with-mdanalysis-code>` or the :ref:`user guide <working-with-user-guide>`_. If you are new to Git and version control, have a look at 
+through the guides for :ref:`contributing to the main codebase <working-with-mdanalysis-code>` or the :ref:`user guide <working-with-user-guide>`. If you are new to Git and version control, have a look at 
 :ref:`version-control`.
 
 
@@ -70,3 +70,4 @@ you can work seamlessly between your local repository and GitHub.
 .. _`mdnalysis-discussion`:
    http://groups.google.com/group/mdnalysis-discussion
 .. _`Code of Conduct`: https://www.mdanalysis.org/pages/conduct/
+.. _`Issue Tracker`: https://github.com/MDAnalysis/mdanalysis/issues

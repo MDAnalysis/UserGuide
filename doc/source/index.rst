@@ -18,17 +18,6 @@ It provides a fast framework for :ref:`complex analysis tasks <analysis>`,
 as well as flexible tooling to construct your own analyses.
 
 .. _`www.mdanalysis.org`: https://www.mdanalysis.org
-.. _NumPy: http://numpy.scipy.org
-.. _CHARMM:  http://www.charmm.org/
-.. _Amber:   http://ambermd.org/
-.. _LAMMPS:  http://lammps.sandia.gov/
-.. _NAMD:    http://www.ks.uiuc.edu/Research/namd/
-.. _Gromacs: http://www.gromacs.org/
-.. _`DL_POLY`: http://www.scd.stfc.ac.uk//44516.aspx
-.. _VMD: http://www.ks.uiuc.edu/Research/vmd/
-.. _PyMol: http://www.pymol.org/
-.. _PDB: http://www.rcsb.org/pdb/static.do?p=file_formats/pdb/index.html
-.. _XYZ format: http://openbabel.org/wiki/XYZ_%28format%29
 
 Why MDAnalysis?
 ===============
@@ -58,7 +47,7 @@ MDAnalysis welcomes all contributions from its users. There are many ways you ca
 
    The MDAnalysis community subscribes to a `Code of Conduct`_. By participating in this project and community, you agree to abide by its terms. Please read it.
 
-   In general, we expect you to **be kind and thoughtful in your conversations around this project.** We all come from different backgrounds and projects, which means we will not always agree. Try to listen and understand why others hold their viewpoints in descussions. Rather than blaming each other, focus on helping to resolve issues and learning from mistakes.
+   In general, we expect you to **be kind and thoughtful in your conversations around this project.** We all come from different backgrounds and projects, which means we will not always agree. Try to listen and understand why others hold their viewpoints in discussions. Rather than blaming each other, focus on helping to resolve issues and learning from mistakes.
 
 
 
@@ -71,7 +60,7 @@ Questions and discussions about MDAnalysis take place on the mailing lists and t
 Wherever possible, do not take these conversations to private channels, including contacting the maintainers directly. Keeping communication public means everybody can benefit and learn from the conversation.
 
 .. _`mdnalysis-discussion`:
-   http://groups.google.com/group/mdnalysis-discussion
+   https://groups.google.com/group/mdnalysis-discussion
 .. _`Code of Conduct`: https://www.mdanalysis.org/pages/conduct/
 .. _`Issue Tracker`: https://github.com/MDAnalysis/mdanalysis/issues
 

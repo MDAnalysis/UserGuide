@@ -145,6 +145,7 @@ html_sidebars = {
 intersphinx_mapping = {'https://docs.python.org/': None,
                        'https://docs.scipy.org/doc/numpy/': None,
                        'https://www.mdanalysis.org/docs/': None,
+                       'https://docs.pytest.org/en/latest/': None,
                        }
 
 # nbsphinx

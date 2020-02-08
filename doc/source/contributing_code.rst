@@ -33,8 +33,8 @@ Working with the code
 Forking
 -------
 
-You will need your own fork to work on the code. Go to the `MDAnalysis project page <https://github.com/MDAnalysis/mdanalysis>`_ and hit the :guilabel:`Fork` button. You will
-want to clone your fork to your machine:
+You will need your `own fork <https://help.github.com/en/github/getting-started-with-github/fork-a-repo>`_ to work on the code. Go to the `MDAnalysis project page <https://github.com/MDAnalysis/mdanalysis>`_ and hit the :guilabel:`Fork` button. You will
+want to `clone your fork <https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository>`_ to your machine:
 
 .. code-block:: bash
 
@@ -208,9 +208,16 @@ and activated your virtual environment. First we need to install dependencies:
     .. code-block:: bash
 
         # if using conda
-        conda install cython numpy
+        conda install -c biobuilds -c conda-forge \
+         cython numpy mmtf-python mock six biopython \
+         networkx cython matplotlib scipy griddataformats \
+         hypothesis gsd codecov "seaborn>=0.7.0,<=0.9" \
+         clustalw=2.1 netcdf4 scikit-learn "joblib>=0.12"
         # if using pip
-        pip install cython numpy
+        pip install cython numpy mmtf-python mock six biopython \
+         networkx cython matplotlib scipy griddataformats \
+         hypothesis gsd codecov "seaborn>=0.7.0,<=0.9" \
+         netcdf4 scikit-learn "joblib>=0.12"
 
 Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python 2.7.x or Python ≥ 3.4. We will now install MDAnalysis. 
 
@@ -221,11 +228,11 @@ Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also
 
         # Build and install the MDAnalysis package
         cd package/
-        python setup.py develop
-
+        pip install -e .
+        
         # Build and install the test suite
         cd ../testsuite/
-        python setup.py develop
+        pip install -e .
 
 At this point you should be able to import MDAnalysis from your locally built version:
 
@@ -540,7 +547,7 @@ In addition, build the development version of MDAnalysis (if you haven't done th
 
     .. code-block:: bash
 
-        python setup.py develop
+        pip install -e .
 
 Then, generate the docs with:
 
