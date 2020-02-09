@@ -47,6 +47,12 @@ The cached files are stored by default in the ``~/MDAnalysis_data`` directory. T
 
     export MDANALYSIS_DATA=/my/chosen/path/MDAnalysis_data
 
+Add it to your ``.bashrc`` for a permanent change.
+
+.. code-block:: bash
+
+    echo 'export MDANALYSIS_DATA=/my/chosen/path/MDAnalysis_data' >> ~/.bashrc
+
 In Python, you can check the location of your caching directory::
 
     MDAnalysisData.base.get_data_home()
