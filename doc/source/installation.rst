@@ -9,7 +9,7 @@ Currently, the conda releases only support serial calculations.
 If you plan to use the parallel OpenMP algorithms, you need to 
 install MDAnalysis with pip and have a working OpenMP installation.
 
-MDAnalysis has a separate *test suite* **MDAnalysisTests** that is required to run the test cases and examples. 
+MDAnalysis has a separate :ref:`test suite <mdanalysistests>` **MDAnalysisTests** that is required to run the test cases and examples. 
 The test files change less frequently, take up around 90 MB of space, 
 and are not needed for daily use of MDAnalysis. However, they are often used in examples,
 including many in this User Guide. If you are not interested in developing 
@@ -87,3 +87,18 @@ The plugin `pytest-xdist <https://github.com/pytest-dev/pytest-xdist>`_ can be u
 
     pip install pytest-xdist
     pytest --disable-pytest-warnings --pyargs MDAnalysisTests --numprocesses 4
+
+
+Additional datasets
+===================
+
+:ref:`MDAnalysisData is an additional package <mdanalysisdata>` with datasets that can be used in example tutorials. You can install it with ``conda`` or ``pip``:
+
+.. code-block:: bash
+
+    # conda
+    conda install -c conda-forge mdanalysisdata
+    # pip
+    pip install --upgrade MDAnalysisData
+
+This installation does not download all the datasets; instead, the datasets are cached when they are first downloaded using a Python command. 

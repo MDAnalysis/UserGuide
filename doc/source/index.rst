@@ -77,3 +77,4 @@ Gromacs_, CHARMM_, VMD_ and PyMol_ (see :ref:`selection-exporters`). It uses Num
    preparing_releases_and_hotfixes
    module_imports
    testing
+   datasets
