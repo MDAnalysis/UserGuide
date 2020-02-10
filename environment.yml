@@ -16,3 +16,4 @@ dependencies:
       - ipython
       - tabulate
       - sphinxcontrib-bibtex
+      - pybtex
