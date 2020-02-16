@@ -85,6 +85,7 @@ Wherever possible, do not take these conversations to private channels, includin
    selections
    topology_system
    trajectories
+   units
 
 .. toctree::
    :maxdepth: 1
