@@ -219,7 +219,7 @@ and activated your virtual environment. First we need to install dependencies:
          hypothesis gsd codecov "seaborn>=0.7.0,<=0.9" \
          netcdf4 scikit-learn "joblib>=0.12"
 
-Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python 2.7.x or Python ≥ 3.4. We will now install MDAnalysis. 
+Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.4. We will now install MDAnalysis. 
 
     .. code-block:: bash
 
@@ -234,7 +234,7 @@ Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also
         cd ../testsuite/
         pip install -e .
 
-At this point you should be able to import MDAnalysis from your locally built version:
+At this point you should be able to import MDAnalysis from your locally built version, this is visible from the version number ending in "-dev0" for example:
 
     .. code-block:: bash
 
