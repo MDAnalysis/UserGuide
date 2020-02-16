@@ -70,7 +70,7 @@ templates_path = ['_templates']
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.ipynb_checkpoints', '**/.ipynb_checkpoints', 'scripts']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.ipynb_checkpoints', '**/.ipynb_checkpoints', 'scripts', '.*.ipynb']
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -145,6 +145,7 @@ html_sidebars = {
 intersphinx_mapping = {'https://docs.python.org/': None,
                        'https://docs.scipy.org/doc/numpy/': None,
                        'https://www.mdanalysis.org/docs/': None,
+                       'https://docs.pytest.org/en/latest/': None,
                        }
 
 # nbsphinx
