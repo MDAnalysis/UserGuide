@@ -10,7 +10,8 @@ The units of MDAnalysis trajectories are the **Å** (**ångström**) for
 original MD format stored the trajectory data, MDAnalysis converts it to 
 MDAnalysis units when reading the data in, and converts back when writing the 
 data out. Analysis classes generally also use these default units. Exceptions 
-to the default units are always noted in the documentation.
+to the default units are always noted in the documentation; for example, mass
+densities can be given in :math:`g/cm^3`. 
 
 Other base units are listed in the table :ref:`table-baseunits`.
 
@@ -27,6 +28,8 @@ Other base units are listed in the table :ref:`table-baseunits`.
    charge       :math:`e`      :math:`1.602176565 \times 10^{-19}` As
    force        kJ/(mol·Å)     :math:`1.66053892103219 \times 10^{-11}` J/m
    speed        Å/ps           :math:`100` m/s
+   mass         u              :math:`1.66053906660(50) \times 10^{-27}` kg
+   angle        degrees        :math:`\frac{\pi}{180}` rad
    =========== ============== ===============================================
 
 
