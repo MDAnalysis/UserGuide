@@ -41,7 +41,7 @@ Quantities can be converted from units with :func:`~MDAnalysis.units.convert`.
 precomputed conversion factor, as obtained from 
 :func:`~MDAnalysis.units.get_conversion_factor`. 
 
-The computed conversion factors for each quantity type are listed below.
+The computed conversion factors for each quantity type are stored in :mod:`MDAnalysis.units` and shown below.
 
 Constants
 =========
