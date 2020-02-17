@@ -20,7 +20,7 @@ Other base units are listed in the table :ref:`table-baseunits`.
 .. Table:: Base units in MDAnalysis
 
    =========== ============== ===============================================
-   quantity    unit            SI units
+   Quantity    Unit            SI units
    =========== ============== ===============================================
    length       Å              :math:`10^{-10}` m
    time         ps             :math:`10^{-12}` s
