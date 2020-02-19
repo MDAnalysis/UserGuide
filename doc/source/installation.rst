@@ -9,7 +9,7 @@ Currently, the conda releases only support serial calculations.
 If you plan to use the parallel OpenMP algorithms, you need to 
 install MDAnalysis with pip and have a working OpenMP installation.
 
-MDAnalysis has a separate *test suite* **MDAnalysisTests** that is required to run the test cases and examples. 
+MDAnalysis has a separate :ref:`test suite <mdanalysistests>` **MDAnalysisTests** that is required to run the test cases and examples. 
 The test files change less frequently, take up around 90 MB of space, 
 and are not needed for daily use of MDAnalysis. However, they are often used in examples,
 including many in this User Guide. If you are not interested in developing 
@@ -19,7 +19,7 @@ The tests are distributed separately from the main package.
 
 conda
 =====
-To install the latest stable version of MDAnalysis via Anaconda, use the following command:
+To install the latest stable version of MDAnalysis via Anaconda, use the following command. This installs all dependencies needed for full analysis functionality (excluding external programs such as `HOLE`_:
 
 .. code-block:: bash
 
@@ -39,17 +39,17 @@ To install the tests:
 
 pip
 =====
-To install the latest stable version of MDAnalysis via pip, use the following command:
+The following command will install or upgrade the latest stable version of MDAnalysis via pip, with core dependencies. This means that some packages required by specific analysis modules will not be installed.
 
 .. code-block:: bash
 
     pip install --upgrade MDAnalysis
 
-To upgrade:
+If you need to install a fully-featured MDAnalysis, add the ``analysis`` tag. As with ``conda``, this will not install external programs such as `HOLE`_.
 
 .. code-block:: bash
 
-    pip install --upgrade MDAnalysis
+    pip install --upgrade MDAnalysis[analysis]
 
 To install/upgrade tests:
 
@@ -87,3 +87,21 @@ The plugin `pytest-xdist <https://github.com/pytest-dev/pytest-xdist>`_ can be u
 
     pip install pytest-xdist
     pytest --disable-pytest-warnings --pyargs MDAnalysisTests --numprocesses 4
+
+
+Additional datasets
+===================
+
+:ref:`MDAnalysisData is an additional package <mdanalysisdata>` with datasets that can be used in example tutorials. You can install it with ``conda`` or ``pip``:
+
+.. code-block:: bash
+
+    # conda
+    conda install -c conda-forge mdanalysisdata
+    # pip
+    pip install --upgrade MDAnalysisData
+
+This installation does not download all the datasets; instead, the datasets are cached when they are first downloaded using a Python command. 
+
+
+.. _`HOLE`: http://www.holeprogram.org
