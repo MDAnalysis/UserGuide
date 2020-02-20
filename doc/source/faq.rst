@@ -17,14 +17,5 @@ only one time frame of the trajectory is being accessed. The
 Think of the trajectory as a function :math:`X(t)` of the frame index :math:`t` 
 that makes the data from this specific frame available. This structure is important 
 because it allows MDAnalysis to work with trajectory files too large to fit 
-into the computer's memory. 
+into the computer's memory. See :ref:`trajectories` for more information. 
 
-The Timestep data structure :code:`my_universe.trajectory.ts` holds frame information.
-You also see the Timestep when you iterate through a trajectory:
-
-.. code-block:: python
-
-    for ts in my_universe.trajectory:
-        print(ts.frame, ts.time)
-
-This prints the frame index (starting with 0) and the time for all frames.
