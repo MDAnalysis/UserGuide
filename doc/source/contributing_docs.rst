@@ -125,11 +125,14 @@ It is often difficult to review Jupyter notebooks on GitHub, especially if you e
 
     # the first time
     git checkout -b gh-pages
-    # after branch already created
-    git checkout gh-pages
     git merge origin/my-new-branch
 
-Fix any merge conflicts that arise. Now you can build your pages with the ``make github`` macro in the ``UserGuide/doc/`` directory, which builds the files and copies them to the top level of your directory.
+Fix any merge conflicts that arise. Then edit ``UserGuide/doc/source/conf.py`` and change the URL of the site, which is set to ``site_url = "https://www.mdanalysis.org/UserGuide"``. Change it to your personal site, e.g. ::
+
+    site_url = "https://www.my_user_name.github.io/UserGuide"
+
+
+Now you can build your pages with the ``make github`` macro in the ``UserGuide/doc/`` directory, which builds the files and copies them to the top level of your directory.
 
 .. code-block:: bash
 
