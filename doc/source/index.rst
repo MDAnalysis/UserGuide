@@ -112,6 +112,7 @@ Wherever possible, do not take these conversations to private channels, includin
 
    standard_selections
    advanced_topology
+   datasets
 
 .. toctree::
    :maxdepth: 1
@@ -124,4 +125,4 @@ Wherever possible, do not take these conversations to private channels, includin
    preparing_releases_and_hotfixes
    module_imports
    testing
-   datasets
+   
