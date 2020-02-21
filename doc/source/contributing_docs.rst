@@ -119,14 +119,17 @@ Adding changes to the UserGuide
 
 As with the code, :ref:`commit and push <adding-code-to-mda>` your code to GitHub. Then :ref:`create a pull request <create-a-pull-request>`. The only test run for the User Guide is: that your file compile into HTML documents without errors. As usual, a developer will review your PR and merge the code into the User Guide when it looks good.
 
-It is often difficult to review Jupyter notebooks on GitHub, especially if you embed widgets and images. One way to make it easier on the developers who review your changes is to build the changes on your forked repository and link the relevant sections in your pull request. To do this, check out a ``gh-pages`` branch and merge your new branch into it. 
+It is often difficult to review Jupyter notebooks on GitHub, especially if you embed widgets and images. One way to make it easier on the developers who review your changes is to build the changes on your forked repository and link the relevant sections in your pull request. To do this, create a ``gh-pages`` branch and merge your new branch into it. 
 
 .. code-block:: bash
 
+    # the first time
+    git checkout -b gh-pages
+    # after branch already created
     git checkout gh-pages
     git merge origin/my-new-branch
 
-Fix any merge conflicts that arise. Now you can build your pages with the ``make github`` macro, which builds the files and copies them to the top level of your directory.
+Fix any merge conflicts that arise. Now you can build your pages with the ``make github`` macro in the ``UserGuide/doc/`` directory, which builds the files and copies them to the top level of your directory.
 
 .. code-block:: bash
 

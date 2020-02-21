@@ -16,8 +16,7 @@ help:
 
 # make github: 
 github:
-	rm ../*.html
-	rm ../**/*.html
+	find .. -name '*.html' -exec rm {} +
 	@make clean
 	@make html
 	@cp -a $(BUILDDIR)/html/. ../
