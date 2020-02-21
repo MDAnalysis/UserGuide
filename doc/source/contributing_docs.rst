@@ -150,6 +150,15 @@ On GitHub, navigate to your fork of the repository and go to **Settings**. In th
 
 .. image:: images/gh-pages-settings.png
 
+For each time you add changes to another branch later, just merge into gh-pages and rebuild. 
+
+.. code-block:: bash
+
+    git checkout gh-pages
+    git merge origin/my_branch
+    cd doc/
+    make github
+
 .. _autobuild-sphinx:
 
 Automatically building documentation
