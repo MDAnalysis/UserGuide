@@ -17,3 +17,4 @@ For computing similarity, see the tutorials in :ref:`trajectory-similarity`.
    :maxdepth: 1
 
    /examples/analysis/reduced_dimensions/pca
+   /examples/analysis/reduced_dimensions/diffusion_map
