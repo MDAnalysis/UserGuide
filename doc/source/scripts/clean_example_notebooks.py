@@ -47,6 +47,7 @@ parser.add_argument('-v', '--verbose', action='count', default=0)
 
 logger = logging.getLogger(__name__)
 
+
 class References:
     """
     Reference manager
@@ -58,24 +59,25 @@ class References:
     def __init__(self, filename='../references.bib'):
         logger.info('Reading references from {}'.format(filename))
         self.data = parse_file(filename)
+        logger.info(self.data.entries.keys())
 
         # set up bibliography formatting
-        self.style = pybtex.plugin.find_plugin('pybtex.style.formatting', 
+        self.style = pybtex.plugin.find_plugin('pybtex.style.formatting',
                                                self.style_name)()
-        self.backend = pybtex.plugin.find_plugin('pybtex.backends', 
+        self.backend = pybtex.plugin.find_plugin('pybtex.backends',
                                                  'html')()
 
         # set up inline reference and doi dictionaries
         entries = self.data.entries
-        self.inline = ({k:self._parse_entry(v) 
+        self.inline = ({k: self._parse_entry(v)
                         for k, v in entries.items()})
-        self.doi = ({k:self._get_doi(v) 
+        self.doi = ({k: self._get_doi(v)
                      for k, v in entries.items()})
 
         # set up key regex
         pattern = '('+')|('.join(self.data.entries.keys())+')'
         self.regex = re.compile(pattern)
-    
+
     def write_bibliography(self, keys=[]):
         """
         Write ordered, numbered bibliography for each notebook.
@@ -87,10 +89,13 @@ class References:
             html = entry.text.render(self.backend)
             bibs.append(self.template.format(i=i, html=html))
         return '\n\n'.join(bibs)
-    
+
     def _get_doi(self, entry):
-        return 'https://doi.org/{}'.format(entry.fields['doi'])
-    
+        try:
+            return 'https://doi.org/{}'.format(entry.fields['doi'])
+        except KeyError:
+            return '#References'
+
     def _parse_entry(self, entry):
         authors = entry.persons['author']
         inline = authors[0].last_names[0]
@@ -99,7 +104,7 @@ class References:
         elif len(authors) == 2:
             inline += ' and {}'.format(authors[1].last_names[0])
         else:
-            inline +=', '
+            inline += ', '
         year = entry.fields['year']
         inline += year
         return inline
@@ -109,31 +114,31 @@ class JupyterCell:
     """
     Handles each Jupyter cell. 
     """
-    
+
     last_executed = '**Last executed:** {} with MDAnalysis {}'
     time_fmt = '%b %d, %Y'
     tag = 'a'
     close_tag = '</{}>'.format(tag)
     tagline = ('<{} data-cite="{{key}}" '
                'href="{{url}}">{{authors}}</{}>').format(tag, tag)
-    
+
     @classmethod
     def as_references(cls, refs, keys=[]):
         source = refs.write_bibliography(keys)
         return cls(source=source)
-        
-    def __init__(self, cell_type='markdown', metadata={}, 
+
+    def __init__(self, cell_type='markdown', metadata={},
                  source='', **kwargs):
         self.cell_type = cell_type
         self.metadata = metadata
         self.source = source
         self.lines = source.split('\n')
         self.kwargs = kwargs
-        
+
     def update_last_executed(self, now, version):
         self._update_last_executed_lines(now, version)
         self.source = '\n'.join(self.lines)
-        
+
     def _update_last_executed_lines(self, now, version):
         """
         Add a **Last executed** line to the first cell.
@@ -159,7 +164,7 @@ class JupyterCell:
                 self.lines.insert(i-1, '\n'+newline)
                 return
         self.lines.append(newline + '\n')
-        
+
     def find_reference_keys(self, refs, keys=[]):
         """
         Replace shorthand reference keys with formatted, linked
@@ -169,17 +174,18 @@ class JupyterCell:
 
         Track the order of the keys for a final bibliography cell.
         """
-        matches = [x for x in re.split(refs.regex, self.source) if x is not None]
+        matches = [x for x in re.split(
+            refs.regex, self.source) if x is not None]
         new_source = ''
-        
+
         while len(matches) > 1:
             key = matches[1]
             if key not in keys:
                 keys.append(key)
-                
+
             authors = refs.inline[key]
             url = refs.doi[key]
-            
+
             before = matches[0]
             prev_char = before[-1]
             # shorthand
@@ -197,13 +203,13 @@ class JupyterCell:
             new_source += tag
             matches.pop(0)
             matches.pop(0)
-        
+
         if len(matches):
             new_source += matches.pop(0)
-        
+
         self.source = new_source
         self.lines = new_source.split('\n')
-        
+
     def to_dict(self):
         """
         Turn into a dictionary
@@ -215,6 +221,7 @@ class JupyterCell:
         }
         cell.update(self.kwargs)
         return cell
+
 
 class JupyterNotebook:
     """
@@ -239,7 +246,7 @@ class JupyterNotebook:
         shutil.copyfile(filename, backup_name)
         self.err = None
         self.nglview = False
-    
+
     def clean(self):
         """
         Write references and execute the notebook. If an error is
@@ -251,7 +258,7 @@ class JupyterNotebook:
             self.execute_and_update()
         except Exception as err:
             self.err = err
-    
+
     def get_references(self):
         """
         Get references in all the cells and build a bibliography in the
@@ -264,14 +271,13 @@ class JupyterNotebook:
                                          keys=self.keys)
         if '## References' in self.cells[-1].source:
             self.cells = self.cells[:-1]
-        
+
         if self.keys:
-            self.cells.append(JupyterCell.as_references(self.refs, 
+            self.cells.append(JupyterCell.as_references(self.refs,
                                                         self.keys))
         self.contents['cells'] = [c.to_dict() for c in self.cells]
         self.contents = nbformat.from_dict(self.contents)
-            
-    
+
     def execute_and_update(self):
         """
         Execute the notebook. Overwrite the notebook if 
@@ -281,13 +287,13 @@ class JupyterNotebook:
         # Choosing a kernel name gets me errors?
         ep = ExecutePreprocessor(timeout=600, kernel_name=self.kernel_name)
         ep.preprocess(self.contents)
-        
+
         logger.info('   Updating last executed')
         # on success, replace Last executed line
         first_cell = JupyterCell(**self.contents['cells'][0])
         now = datetime.datetime.now()
         first_cell.update_last_executed(now, self.version)
-        
+
         if 'nglview' in first_cell.source:
             # never mind, this doesn't successfully preserve older widget states.
             # self.contents = original_contents
@@ -296,13 +302,14 @@ class JupyterNotebook:
         self.contents['cells'][0] = first_cell.to_dict()
         self.contents['metadata'] = self.metadata
         self.contents = nbformat.from_dict(self.contents)
-        
+
         logger.info('   Rewriting notebook')
         with open(self.filename, 'w', encoding='utf-8') as f:
             nbformat.write(self.contents, f)
 
+
 def clean_all_notebooks(notebooks):
-    not_backups = [n for n in notebooks if not n.split('/')[-1][0]=='.']
+    not_backups = [n for n in notebooks if not n.split('/')[-1][0] == '.']
     if not not_backups:
         return
     refs = References()
@@ -315,15 +322,16 @@ def clean_all_notebooks(notebooks):
             errs.append((nb, notebook.err))
         if notebook.nglview:
             nglview.append(nb)
-    
+
     if nglview:
         print('Re-execute for NGLView: ')
         print('\n'.join(nglview))
-    
+
     if len(errs):
         errmsgs = ['{}: {}'.format(nb, err) for nb, err in errs]
         delim = '\n'+'==='*10 + '\n'
-        raise ValueError('Notebooks have errors: {}'.format(delim.join(errmsgs)))
+        raise ValueError(
+            'Notebooks have errors: {}'.format(delim.join(errmsgs)))
 
 
 if __name__ == '__main__':
