@@ -100,11 +100,10 @@ class References:
         authors = entry.persons['author']
         inline = authors[0].last_names[0]
         if len(authors) > 2:
-            inline += ' *et al.*, '
+            inline += ' *et al.*'
         elif len(authors) == 2:
             inline += ' and {}'.format(authors[1].last_names[0])
-        else:
-            inline += ', '
+        inline += ', '
         year = entry.fields['year']
         inline += year
         return inline

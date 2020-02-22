@@ -158,8 +158,17 @@ html_js_files = [
     DEFAULT_EMBED_REQUIREJS_URL,
 ]
 
+nbsphinx_prolog = r"""
+.. raw:: html
+
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
+    <script>require=requirejs;</script>
+
+
+"""
+
 # substitutions
-MDAnalysis_version = '0.20.1'
+MDAnalysis_version = '1.0.0'
 
 # rst-epilog implements substitutions
 rst_epilog = """
