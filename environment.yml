@@ -2,7 +2,7 @@ name: mda-user-guide
 channels:
   - conda-forge
   - defaults
-  -c plotly
+  - plotly
 dependencies:
   - jupyter_contrib_nbextensions
   - nglview
