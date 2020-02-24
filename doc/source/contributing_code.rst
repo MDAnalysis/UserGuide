@@ -212,12 +212,18 @@ and activated your virtual environment. First we need to install dependencies:
          cython numpy mmtf-python mock six biopython \
          networkx cython matplotlib scipy griddataformats \
          hypothesis gsd codecov "seaborn>=0.7.0,<=0.9" \
-         clustalw=2.1 netcdf4 scikit-learn "joblib>=0.12"
+         clustalw=2.1 netcdf4 scikit-learn "joblib>=0.12"\
+         psutil pytest
+        # if using conda with python 3.7 or 3.8, also run
+        conda install -c conda-forge parmed
+        # if using conda with other versions of python, also run
+        pip install parmed
+
         # if using pip
         pip install cython numpy mmtf-python mock six biopython \
          networkx cython matplotlib scipy griddataformats \
          hypothesis gsd codecov "seaborn>=0.7.0,<=0.9" \
-         netcdf4 scikit-learn "joblib>=0.12"
+         netcdf4 scikit-learn "joblib>=0.12" parmed psutil pytest
 
 Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.4. We will now install MDAnalysis. 
 
@@ -234,7 +240,7 @@ Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also
         cd ../testsuite/
         pip install -e .
 
-At this point you should be able to import MDAnalysis from your locally built version, this is visible from the version number ending in "-dev0" for example:
+At this point you should be able to import MDAnalysis from your locally built version. If you are running the development version, this is visible from the version number ending in "-dev0". For example:
 
     .. code-block:: bash
 
@@ -242,6 +248,14 @@ At this point you should be able to import MDAnalysis from your locally built ve
         >>> import MDAnalysis as mda
         >>> mda.__version__
         '0.20.2-dev0'
+
+If your version number does not end in "-dev0", you may be on the ``master`` branch. In your ``mdanalysis/`` directory, switch to the ``develop`` branch:
+
+    .. code-block:: bash
+
+        $ git checkout develop
+        Switched to branch 'develop'
+
 
 .. _branches-in-mdanalysis:
 
