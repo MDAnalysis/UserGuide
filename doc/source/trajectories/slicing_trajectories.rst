@@ -18,6 +18,10 @@ MDAnalysis trajectories can be indexed to return a :class:`~MDAnalysis.coordinat
 
 Indexing a trajectory shifts the :class:`~MDAnalysis.core.universe.Universe` to point towards that particular frame, updating dynamic data such as ``Universe.atoms.positions``. 
 
+.. note::
+
+    The trajectory frame is not read from the MD data. It is the internal index assigned by MDAnalysis.
+
 .. ipython:: python
 
     u.trajectory.frame
@@ -35,7 +39,7 @@ Indexing a trajectory shifts the :class:`~MDAnalysis.core.universe.Universe` to 
     frames = [ts.frame for ts in fiter]
     print(frames, u.trajectory.frame)
 
-You can also create a sliced trajectory with boolean indexing and fancy indexing. Boolean indexing allows you to select only frames that meet a certain condition, by passing a :class:`~numpy.ndarray` with the same length as the original trajectory. Only frames that have a boolean value of ``True`` will be in the resulting :class:`~MDAnalysis.coordinates.base.FrameIterator`. For example, to select only the frames of the trajectory with an RMSD under 3 angstrom:
+You can also create a sliced trajectory with boolean indexing and fancy indexing. Boolean indexing allows you to select only frames that meet a certain condition, by passing a :class:`~numpy.ndarray` with the same length as the original trajectory. Only frames that have a boolean value of ``True`` will be in the resulting :class:`~MDAnalysis.coordinates.base.FrameIterator`. For example, to select only the frames of the trajectory with an RMSD under 2 angstrom:
 
 .. ipython:: python
 

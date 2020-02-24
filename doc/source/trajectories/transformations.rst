@@ -4,19 +4,45 @@
 On-the-fly transformations
 ==========================
 
-An on-the-fly transformation is a function that modifies the data contained in a trajectory :class:`~MDAnalysis.coordinates.base.Timestep`. It is called for each current time step as it is loaded into memory. A transformation function must also return the current :class:`~MDAnalysis.coordinates.base.Timestep`, as transformations are often chained together.
+An on-the-fly transformation is a function that silently modifies the dynamic data contained in a trajectory :class:`~MDAnalysis.coordinates.base.Timestep` (typically coordinates) as it is loaded into memory. It is called for each current time step to transform data into your desired representation. A transformation function must also return the current :class:`~MDAnalysis.coordinates.base.Timestep`, as transformations are often chained together.
 
 The :mod:`MDAnalysis.transformations` module contains a collection of transformations. For example, :func:`~MDAnalysis.transformations.fit.fit_rot_trans` can perform a mass-weighted alignment on an :class:`~MDAnalysis.core.groups.AtomGroup` to a reference.
 
 .. ipython:: python
 
-    from MDAnalysis.transformations import fit
+    import MDAnalysis as mda
+    from MDAnalysis.tests.datafiles import TPR, XTC
+    from MDAnalysis import transformations as trans
 
+    u = mda.Universe(TPR, XTC)
     protein = u.select_atoms('protein')
-    align_transform = fit.fit_rot_trans(protein, protein, weights='mass')
+    align_transform = trans.fit_rot_trans(protein, protein, weights='mass')
     u.trajectory.add_transformations(align_transform)
 
-Other implemented transformations include functions to :mod:`~MDAnalysis.transformations.translate`, :mod:`~MDAnalysis.transformations.rotate`, :mod:`~MDAnalysis.transformations.fit` an :class:`~MDAnalysis.core.groups.AtomGroup` to a reference, and :mod:`~MDAnalysis.transformations.wrap` or unwrap an :class:`~MDAnalysis.core.groups.AtomGroup` in the unit cell. 
+Other implemented transformations include functions to :mod:`~MDAnalysis.transformations.translate`, :mod:`~MDAnalysis.transformations.rotate`, :mod:`~MDAnalysis.transformations.fit` an :class:`~MDAnalysis.core.groups.AtomGroup` to a reference, and :mod:`~MDAnalysis.transformations.wrap` or unwrap groups in the unit cell. 
+
+Although you can only call :meth:`~MDAnalysis.coordinates.base.ProtoReader.add_transformations` *once*, you can pass in multiple transformations in a list, which will be executed in order. For example, the below workflow:
+
+* makes all molecules whole (unwraps them over periodic boundary conditions)
+* centers the protein in the center of the box
+* wraps water back into the box
+
+.. ipython:: python
+
+    # create new Universe for new transformations
+    u = mda.Universe(TPR, XTC)
+    protein = u.select_atoms('protein')
+    water = u.select_atoms('resname SOL')
+    workflow = [trans.unwrap(u.atoms),
+                trans.center_in_box(protein, center='geometry'),
+                trans.wrap(water, compound='residues')]
+    u.trajectory.add_transformations(*workflow)
+
+If your transformation does not depend on something within the :class:`~MDAnalysis.core.universe.Universe` (e.g. a chosen :class:`~MDAnalysis.core.groups.AtomGroup`), you can also create a :class:`~MDAnalysis.core.universe.Universe` directly with transformations. The code below translates coordinates 1 angstrom up on the z-axis:
+
+.. ipython:: python
+
+    u = mda.Universe(TPR, XTC, transformations=[trans.translate([0, 0, 1])])
 
 If you need a different transformation, it is easy to implement your own.
 
@@ -33,7 +59,7 @@ At its core, a transformation function must only take a :class:`~MDAnalysis.coor
         ts.positions += np.array([0.0, 0.0, 0.2])
         return ts
     
-    u = mda.Universe(PSF, DCD, transformations=[up_by_2])
+    u = mda.Universe(TPR, XTC, transformations=[up_by_2])
 
 
 If your transformation needs other arguments, you will need to wrap your core transformation with a wrapper function that can accept the other arguments.
@@ -49,7 +75,7 @@ If your transformation needs other arguments, you will need to wrap your core tr
         return wrapped
     
     # load Universe with transformations that move it up by 7 angstrom
-    u = mda.Universe(PSF, DCD, transformations=[up_by_x(5), up_by_x(2)])
+    u = mda.Universe(TPR, XTC, transformations=[up_by_x(5), up_by_x(2)])
 
     
 Alternatively, you can use :func:`functools.partial` to substitute the other arguments.
@@ -63,25 +89,4 @@ Alternatively, you can use :func:`functools.partial` to substitute the other arg
         return x
     
     up_by_5 = functools.partial(up_by_x, x=5)
-    u = mda.Universe(PSF, DCD, transformations=[up_by_5])
-
-Above we have shown that a :class:`~MDAnalysis.core.universe.Universe` can be created with transformations directly. If your transformation depends on something within the :class:`~MDAnalysis.core.universe.Universe` (e.g. it needs to operate on a particular :class:`~MDAnalysis.core.groups.AtomGroup`), then you can load the :class:`~MDAnalysis.core.universe.Universe` and use the :meth:`~MDAnalysis.core.universe.Universe.add_transformations` method to add transformations.
-
-You can only add transformations *once*, so add your entire workflow at the same time. The below code transforms the trajectory so that the first 100 residues are translated up by 10 angstrom, and the remaining residues are translated down 10 angstrom.
-
-.. ipython:: python
-
-    def ag_up_by_x(ag, x):
-        def wrapped(ts):
-            ag.positions += np.array([0.0, 0.0, float(x)])
-            return ts
-        return wrapped
-
-    u = mda.Universe(PSF, DCD)
-    res_to_100 = u.residues[:100].atoms
-    res_after_100 = u.residues[100:].atoms
-
-    workflow = [ag_up_by_x(res_to_100, 10),
-                ag_up_by_x(res_after_100, -10)]
-    u.trajectory.add_transformations(*workflow)
-    
+    u = mda.Universe(TPR, XTC, transformations=[up_by_5])

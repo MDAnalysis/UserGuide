@@ -24,7 +24,7 @@ The typical way to change a timestep is to index it. ``Universe.trajectory`` can
     u = mda.Universe(PSF, DCD)
     len(u.trajectory)
 
-When a trajectory is first loaded from a file, it is set to the first frame by default.
+When a trajectory is first loaded from a file, it is set to the first frame (with index 0), by default.
 
 .. ipython:: python
 

@@ -13,6 +13,7 @@
 # import os
 # import sys
 
+from collections import OrderedDict
 import MDAnalysis as mda
 # import subprocess
 import sphinx_rtd_theme
@@ -28,11 +29,11 @@ author = 'Lily Wang, Richard J Gowers, Oliver Beckstein'
 # Get Travis to regenerate txt tables by re-running scripts
 # before deploying docs.
 # Turned off for now as 0.21.0 not released yet.
-# This allows us to gitignore .txt files as well as 
+# This allows us to gitignore .txt files as well as
 # auto-recreate tables for each deployment.
-# Turn off if using sphinx_autobuild as this will autobuild 
+# Turn off if using sphinx_autobuild as this will autobuild
 # to infinity.
-# 
+#
 # subprocess.call('./scripts/generate_all.sh')
 
 # -- General configuration ---------------------------------------------------
@@ -70,7 +71,8 @@ templates_path = ['_templates']
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.ipynb_checkpoints', '**/.ipynb_checkpoints', 'scripts', '.*.ipynb', '.*']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store',
+                    '.ipynb_checkpoints', '**/.ipynb_checkpoints', 'scripts', '.*.ipynb', '.*']
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -90,9 +92,8 @@ html_theme = 'sphinx_rtd_theme'
 color = {'orange': '#FF9200',
          'gray': '#808080',
          'white': '#FFFFFF',
-         'black': '#000000',}
+         'black': '#000000', }
 
-from collections import OrderedDict
 extra_nav_links = OrderedDict()
 extra_nav_links['MDAnalysis'] = 'http://mdanalysis.org'
 extra_nav_links['docs'] = 'http://docs.mdanalysis.org'
@@ -107,7 +108,7 @@ html_theme_options = {
     'display_version': True,
     'prev_next_buttons_location': 'bottom',
     'style_external_links': False,
-    'style_nav_header_background': 'white', #'#e76900', # dark orange
+    'style_nav_header_background': 'white',  # '#e76900', # dark orange
     # Toc options
     'collapse_navigation': True,
     'sticky_navigation': True,
@@ -120,14 +121,14 @@ html_theme_options = {
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 html_favicon = "_static/logos/mdanalysis-logo.ico"
-html_logo =  '_static/logos/user_guide.png'
+html_logo = '_static/logos/user_guide.png'
 
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
-html_css_files = ['custom.css']#, 'readable.css']
+html_css_files = ['custom.css']  # , 'readable.css']
 
 # Custom sidebar templates, maps document names to template names.
 # alabaster sidebars
@@ -152,6 +153,8 @@ html_js_files = [
     'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js',
     DEFAULT_EMBED_REQUIREJS_URL,
 ]
+
+ipython_warning_is_error = False
 
 # substitutions
 MDAnalysis_version = '0.20.1'
