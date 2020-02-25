@@ -72,7 +72,7 @@ Wherever possible, do not take these conversations to private channels, includin
    installation
    examples/quickstart
    faq
-   examples/index
+   examples/README
 
 .. toctree::
    :maxdepth: 1
