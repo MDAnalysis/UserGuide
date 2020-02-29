@@ -12,7 +12,6 @@ MDAnalysis maintains a collection of Jupyter notebooks as examples of what the c
 
    constructing_universe
    transformations/README
-   parmed_sim
 
 .. toctree::
    :maxdepth: 2
@@ -21,7 +20,6 @@ MDAnalysis maintains a collection of Jupyter notebooks as examples of what the c
    analysis/alignment_and_rms/README
    analysis/distances_and_contacts/README
    analysis/trajectory_similarity/README
-   analysis/hydrogen_bonding/README
    analysis/structure/README
    analysis/reduced_dimensions/README
    analysis/polymers_and_membranes/README

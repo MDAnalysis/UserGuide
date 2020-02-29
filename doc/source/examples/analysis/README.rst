@@ -43,8 +43,6 @@ them separately, e.g.::
 
 .. include:: /examples/analysis/trajectory_similarity/README.rst
 
-.. include:: /examples/analysis/hydrogen_bonding/README.rst
-
 .. include:: /examples/analysis/structure/README.rst
 
 .. include:: /examples/analysis/volumetric/README.rst
