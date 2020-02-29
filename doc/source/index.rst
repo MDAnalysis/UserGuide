@@ -104,7 +104,8 @@ Wherever possible, do not take these conversations to private channels, includin
    :caption: Analysis
    :hidden:
 
-   analysis
+   examples/analysis/README
+   examples/analysis/custom_trajectory_analysis
 
 .. toctree::
    :maxdepth: 1
@@ -126,4 +127,4 @@ Wherever possible, do not take these conversations to private channels, includin
    preparing_releases_and_hotfixes
    module_imports
    testing
-   
+   references
