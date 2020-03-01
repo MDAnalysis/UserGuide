@@ -35,5 +35,5 @@ doc/build
 
 # example files
 doc/source/examples/*
-!doc/source/examples/*.ipynb
-!doc/source/examples/analysis/*.ipynb
+!doc/source/examples/**/*.rst
+!doc/source/examples/**/*.ipynb
