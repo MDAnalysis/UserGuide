@@ -10,6 +10,7 @@ MDAnalysis maintains a collection of Jupyter notebooks as examples of what the c
    :maxdepth: 1
    :caption: General
 
+   quickstart
    constructing_universe
    transformations/README
 
