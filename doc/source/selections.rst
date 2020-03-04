@@ -74,9 +74,7 @@ selection parser. The following applies to all selections:
 
 .. note::
 
-    Before version 0.21.0, MDAnalysis will ignore everything after the ``*``. ``u.select_atoms("resname *E")`` will not select atoms whose residue name ends in E, but instead select every atom.
-
-    After version 0.21.0, MDAnalysis supports the use of *one* wildcard ``*`` at the start, middle, and end of strings. ``u.select_atoms("resname *E")`` will select atoms whose residue name ends in E.
+    Up until version 1.0.0, MDAnalysis will ignore everything after the ``*``. ``u.select_atoms("resname *E")`` will not select atoms whose residue name ends in E, but instead select every atom.
 
 
 Simple selections
