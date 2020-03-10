@@ -23,8 +23,8 @@ The corresponding container groups are :class:`~MDAnalysis.core.groups.ResidueGr
 .. ipython:: python
 
     import MDAnalysis as mda
-    from MDAnalysis.tests.datafiles import TPR2019B3
-    u = mda.Universe(TPR2019B3)
+    from MDAnalysis.tests.datafiles import TPR
+    u = mda.Universe(TPR)
     ag = u.atoms.select_atoms('resname ARG and name CA')
     ag
 
