@@ -19,7 +19,7 @@ The tests are distributed separately from the main package.
 
 conda
 =====
-To install the latest stable version of MDAnalysis via Anaconda, use the following command. This installs all dependencies needed for full analysis functionality (excluding external programs such as `HOLE`_:
+To install the latest stable version of MDAnalysis via ``conda``, use the following command. This installs all dependencies needed for full analysis functionality (excluding external programs such as `HOLE`_):
 
 .. code-block:: bash
 
@@ -39,7 +39,7 @@ To install the tests:
 
 pip
 =====
-The following command will install or upgrade the latest stable version of MDAnalysis via pip, with core dependencies. This means that some packages required by specific analysis modules will not be installed.
+The following command will install or upgrade the latest stable version of MDAnalysis via ``pip``, with core dependencies. This means that some packages required by specific analysis modules will not be installed.
 
 .. code-block:: bash
 
