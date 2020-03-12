@@ -13,6 +13,7 @@
 # import os
 # import sys
 
+import datetime
 from collections import OrderedDict
 import MDAnalysis as mda
 # import subprocess
@@ -22,8 +23,33 @@ from ipywidgets.embed import DEFAULT_EMBED_REQUIREJS_URL
 # -- Project information -----------------------------------------------------
 
 project = 'MDAnalysis User Guide'
-copyright = '2019, Lily Wang, Richard J Gowers, Oliver Beckstein'
-author = 'Lily Wang, Richard J Gowers, Oliver Beckstein'
+
+def sort_authors(filename):
+    """Generate sorted list of authors from AUTHORS"""
+    authors = []
+    with open(filename, 'r') as f:
+        contents = f.read()
+    lines = contents.split('Chronological list of authors')[1].split('\n')[2:]
+    lines = [x for x in lines if x]
+    for line in lines:
+        line = line.strip()
+        if line[:2] == '- ':
+            authors.append(line[2:].strip())
+
+    # remove original authors
+    original = ['Lily Wang', 'Richard J. Gowers', 'Oliver Beckstein']
+    for name in original:
+        authors.remove(name)
+    
+    # sort on last name
+    authors.sort(key=lambda name: name.split()[-1])
+    authors = original[:1] + authors + original[-2:]
+    return authors
+
+author_list = sort_authors('AUTHORS')
+author = ', '.join(author_list[:-1]) + ', and ' + author_list[-1]
+now = datetime.datetime.now()
+copyright = '2019-{}, {}.'.format(now.year, author)
 
 # -- Scripts -----------------------------------------------
 # Get Travis to regenerate txt tables by re-running scripts
