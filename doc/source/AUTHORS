@@ -1,0 +1,28 @@
+.. -*- coding: utf-8 -*-
+
+=====================================
+ Authors of the MDAnalysis User Guide
+=====================================
+
+The MDAnalysis user guide originally began as a project for 
+`Google Season of Docs 2019-2020`_ with Lily Wang, Richard Gowers 
+and Oliver Beckstein.
+
+The project is maintained by the MDAnalysis Core Developer Team
+(@MDAnalysis/coredevs on https://github.com/MDAnalysis).
+
+All contributing authors are listed in this file below. The repository
+history at https://github.com/MDAnalysis/UserGuide show individual 
+contributions.
+
+
+Chronological list of authors
+-----------------------------
+
+2019
+  - Lily Wang
+  - Richard J. Gowers
+  - Oliver Beckstein
+2020
+  - Rocco Meli
+
