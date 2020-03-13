@@ -41,6 +41,7 @@ doc/source/examples/**/*.*
 !doc/source/examples/**/*.ipynb
 !doc/source/examples/**/*.rst
 !doc/source/examples/**/*.gif
+!doc/source/examples/**/*.png
 
 # backup files
 doc/source/examples/**/.*.ipynb
