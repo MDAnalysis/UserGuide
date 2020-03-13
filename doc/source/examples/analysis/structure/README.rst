@@ -13,3 +13,4 @@ Structure
    /examples/analysis/structure/site_specific_rdf
    /examples/analysis/structure/dihedrals
    /examples/analysis/structure/dssp
+   /examples/analysis/structure/helanal
