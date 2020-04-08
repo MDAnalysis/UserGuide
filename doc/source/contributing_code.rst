@@ -209,21 +209,25 @@ and activated your virtual environment. First we need to install dependencies:
 
         # if using conda
         conda install -c biobuilds -c conda-forge \
-         cython numpy mmtf-python mock six biopython \
-         networkx cython matplotlib scipy griddataformats \
-         hypothesis gsd codecov "seaborn>=0.7.0,<=0.9" \
-         clustalw=2.1 netcdf4 scikit-learn "joblib>=0.12"\
-         psutil pytest
+            pip cython numpy mmtf-python mock six biopython \
+            networkx cython matplotlib scipy griddataformats \
+            hypothesis gsd codecov "seaborn>=0.7.0,<=0.9" \
+            clustalw=2.1 netcdf4 scikit-learn "joblib>=0.12"\
+            psutil pytest
+
         # if using conda with python 3.7 or 3.8, also run
         conda install -c conda-forge parmed
+
         # if using conda with other versions of python, also run
         pip install parmed
 
-        # if using pip
+    .. code-block:: bash
+
+        # if using pip and virtualenv
         pip install cython numpy mmtf-python mock six biopython \
-         networkx cython matplotlib scipy griddataformats \
-         hypothesis gsd codecov "seaborn>=0.7.0,<=0.9" \
-         netcdf4 scikit-learn "joblib>=0.12" parmed psutil pytest
+            networkx cython matplotlib scipy griddataformats \
+            hypothesis gsd codecov "seaborn>=0.7.0,<=0.9" \
+            netcdf4 scikit-learn "joblib>=0.12" parmed psutil pytest
 
 Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.4. We will now install MDAnalysis. 
 
@@ -428,7 +432,7 @@ This opens up a message editor.
 
     - use a short (<50 characters) subject line that summarizes the change
     - leave a blank line
-    - optionally, add additional more verbose descriptions; paragraphs or bullet lists (with - or *) are good
+    - optionally, add additional more verbose descriptions; paragraphs or bullet lists (with ``-`` or ``*``) are good
     - manually break lines at 80 characters
     - manually indent bullet lists
 
