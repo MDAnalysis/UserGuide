@@ -14,6 +14,16 @@ help:
 
 .PHONY: help Makefile
 
+# make github: 
+github:
+	find .. -name '*.html' -exec rm {} +
+	@make clean
+	@make html
+	@cp -a $(BUILDDIR)/html/. ../
+
+clean:
+	rm -rf $(BUILDDIR)
+
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile

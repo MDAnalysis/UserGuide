@@ -26,14 +26,23 @@ doc/build
 
 # ignore generated files
 *.vmd
+*.crd
 *.dcd
 *.xyz
 *.pdb
 *.trr
 *.ndx
 *.xtc
+*.pkl
+*.dat
 
 # example files
-doc/source/examples/*
-!doc/source/examples/*.ipynb
-!doc/source/examples/analysis/*.ipynb
+doc/source/examples/**/*.*
+!doc/source/examples/**/*.ipynb
+!doc/source/examples/**/*.rst
+!doc/source/examples/**/*.gif
+!doc/source/examples/**/*.png
+
+# backup files
+doc/source/examples/**/.*.ipynb
+
