@@ -88,6 +88,7 @@ Wherever possible, do not take these conversations to private channels, includin
 .. toctree::
    :maxdepth: 1
    :caption: Trajectories
+   :hidden:
 
    trajectories/trajectories
    trajectories/slicing_trajectories
