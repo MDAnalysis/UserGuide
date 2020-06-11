@@ -96,9 +96,10 @@ On-the-fly transformation functions can be applied to any property of a Timestep
 .. ipython:: python
     
     def set_box(ts):
-        # creates box of length 1 on x-axis, 1 on y-axis, 2 on z-axis
+        # creates box of length 10 on x-axis, 20 on y-axis, 30 on z-axis
         # angles are all 90 degrees
-        ts.dimensions = [1, 1, 2, 90, 90, 90]
+        ts.dimensions = [10, 20, 30, 90, 90, 90]
         return ts
     
     u = mda.Universe(TPR, XTC, transformations=[set_box])
+
