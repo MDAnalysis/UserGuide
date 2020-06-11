@@ -192,7 +192,7 @@ nbsphinx_prolog = r"""
 """
 
 # substitutions
-MDAnalysis_version = '0.20.1'
+MDAnalysis_version = '1.0.0'
 
 # rst-epilog implements substitutions
 rst_epilog = """
