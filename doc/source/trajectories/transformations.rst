@@ -86,7 +86,19 @@ Alternatively, you can use :func:`functools.partial` to substitute the other arg
 
     def up_by_x(ts, x):
         ts.positions += np.array([0.0, 0.0, float(x)])
-        return x
+        return ts
     
     up_by_5 = functools.partial(up_by_x, x=5)
     u = mda.Universe(TPR, XTC, transformations=[up_by_5])
+
+On-the-fly transformation functions can be applied to any property of a Timestep, not just the atom positions. For example, to give each frame of a trajectory a box:
+
+.. ipython:: python
+    
+    def set_box(ts):
+        # creates box of length 1 on x-axis, 1 on y-axis, 2 on z-axis
+        # angles are all 90 degrees
+        ts.dimensions = [1, 1, 2, 90, 90, 90]
+        return ts
+    
+    u = mda.Universe(TPR, XTC, transformations=[set_box])
