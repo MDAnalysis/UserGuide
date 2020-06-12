@@ -98,10 +98,8 @@ templates_path = ['_templates']
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store',
-                    '.ipynb_checkpoints', '**/.ipynb_checkpoints', 'scripts', '.*.ipynb']
-
+                    '.ipynb_checkpoints', '**/.ipynb_checkpoints', 'scripts', '.*.ipynb', '.*']
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -191,11 +189,10 @@ nbsphinx_prolog = r"""
     <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
     <script>require=requirejs;</script>
 
-
 """
 
 # substitutions
-MDAnalysis_version = '0.20.1'
+MDAnalysis_version = '1.0.0'
 
 # rst-epilog implements substitutions
 rst_epilog = """

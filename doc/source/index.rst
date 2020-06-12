@@ -84,7 +84,15 @@ Wherever possible, do not take these conversations to private channels, includin
    groups_of_atoms
    selections
    topology_system
-   trajectories
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Trajectories
+   :hidden:
+
+   trajectories/trajectories
+   trajectories/slicing_trajectories
+   trajectories/transformations
    units
 
 .. toctree::

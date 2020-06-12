@@ -21,10 +21,11 @@ A :class:`~MDAnalysis.core.groups.Residue` is composed of :class:`~MDAnalysis.co
 The corresponding container groups are :class:`~MDAnalysis.core.groups.ResidueGroup` and :class:`~MDAnalysis.core.groups.SegmentGroup`. These have similar properties and available methods as :class:`~MDAnalysis.core.groups.AtomGroup`.
 
 .. ipython:: python
+    :okwarning:
 
     import MDAnalysis as mda
-    from MDAnalysis.tests.datafiles import TPR2019B3
-    u = mda.Universe(TPR2019B3)
+    from MDAnalysis.tests.datafiles import TPR, XTC
+    u = mda.Universe(TPR, XTC)
     ag = u.atoms.select_atoms('resname ARG and name CA')
     ag
 
