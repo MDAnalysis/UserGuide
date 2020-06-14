@@ -10,6 +10,7 @@ nbsphinx==0.4.2
 nglview==2.7.1
 numpy==1.17.2
 Sphinx==2.2.0
+sphinxcontrib-bibtex
 sphinx-rtd-theme==0.4.3
 sphinx-sitemap==1.0.2
 tabulate==0.8.5
