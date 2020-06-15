@@ -699,6 +699,44 @@ A typical function docstring looks like the following:
     
         See `Stackoverflow: Mathjax expression in sphinx python not rendering correctly <http://stackoverflow.com/questions/16468397/mathjax-expression-in-sphinx-python-not-rendering-correclty">`_ for further discussion.
 
+
+-------------------
+Documenting changes
+-------------------
+
+.. _versionadded: https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-versionadded
+.. _versionchanged: https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-versionchanged
+.. _deprecated: https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-deprecated
+
+We use reST constructs to annotate *additions*, *changes*, *deprecations* to the code so that users can quickly learn from the documentation in which version of MDAnalysis the feature is available.
+
+A **newly added module/class/method/attribute/function** gets a `versionadded`_  directive
+
+.. code-block:: rst
+
+   .. versionadded:: X.Y.Z
+
+entry in its primary doc section. For parameters and attributes, we typically mention the new entity in a `versionchanged`_ section of the function or class (although a `versionadded`_ would also be acceptable).
+
+**Changes** are indicated with a `versionchanged`_ directive
+
+.. code-block:: rst
+   .. versionchanged:: X.Y.Z
+      Description of the change. Can contain multiple descriptions.
+      Don't assume that you get nice line breaks or formatting, write your text in
+      full sentences that can be read as a paragraph.
+
+**Deprecations** (features that are not any longer recommended for use and that will be removed in future releases) are indicated by the `deprecated`_ directive
+
+.. code-block:: rst
+   .. deprecated:: X.Y.Z
+      Describe (1) alternatives (what should users rather use) and 
+      (2) in which future release the feature will be removed.
+
+When a feature is removed, we remove the deprecation notice and add a `versionchanged`_ to the docs of the enclosing scope. E.g., when a parameter of a function is removed, we update the docs of the function. Function/class removal are indicated in the module docs. When we remove a whole module, we typically indicate it in the top-level reST docs that contain the TOC tree that included the module.
+
+
+
 --------------------------------------
 Writing docs for abstract base classes
 --------------------------------------
