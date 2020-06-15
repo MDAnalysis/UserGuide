@@ -730,6 +730,7 @@ entry in its primary doc section. For parameters and attributes, we typically me
 **Deprecations** (features that are not any longer recommended for use and that will be removed in future releases) are indicated by the `deprecated`_ directive
 
 .. code-block:: rst
+
    .. deprecated:: X.Y.Z
       Describe (1) alternatives (what should users rather use) and 
       (2) in which future release the feature will be removed.
