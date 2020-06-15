@@ -721,6 +721,7 @@ entry in its primary doc section. For parameters and attributes, we typically me
 **Changes** are indicated with a `versionchanged`_ directive
 
 .. code-block:: rst
+
    .. versionchanged:: X.Y.Z
       Description of the change. Can contain multiple descriptions.
       Don't assume that you get nice line breaks or formatting, write your text in
