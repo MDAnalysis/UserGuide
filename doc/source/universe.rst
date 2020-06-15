@@ -131,6 +131,14 @@ Constructing from SMILES
 
 Thanks to the interoperability with RDKit, a Universe can be constructed from a SMILES string with :meth:`Universe.from_smiles<MDAnalysis.core.universe.Universe.from_smiles>`. Since the SMILES string usually contains information about heavy atoms only, this method automatically adds the appropriate number of hydrogens on all atoms, by setting :code:`addHs=True`. It is also possible to generate coordinates with :code:`generate_coordinates=True`. This will allow RDKit to generate one or more conformers for the given molecule. For example, setting :code:`numConfs=10` will generate 10 conformers, and each conformer will be read as a frame by the Universe.
 
+Here is a minimal example to create a Universe from one conformer of ethanol:
+
+.. ipython:: python
+    
+    u = mda.Universe.from_smiles("CCO")
+    u
+    u.trajectory
+
 Internally, calling the :meth:`Universe.from_smiles<MDAnalysis.core.universe.Universe.from_smiles>` method does the following:
 
 .. ipython:: python
@@ -143,6 +151,7 @@ Internally, calling the :meth:`Universe.from_smiles<MDAnalysis.core.universe.Uni
     confids = AllChem.EmbedMultipleConfs(mol, numConfs=1) # 1 conformer
     u = mda.Universe(mol, format="RDKIT")
     u
+    u.trajectory
 
 
 Guessing topology attributes

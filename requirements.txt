@@ -15,3 +15,4 @@ sphinx-sitemap==1.0.2
 tabulate==0.8.5
 pybtex==0.22.2
 plotly==4.5.1
+rdkit==2020.03.3
