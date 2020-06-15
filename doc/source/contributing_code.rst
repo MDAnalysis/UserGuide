@@ -716,7 +716,7 @@ A **newly added module/class/method/attribute/function** gets a `versionadded`_ 
 
    .. versionadded:: X.Y.Z
 
-entry in its primary doc section. For parameters and attributes, we typically mention the new entity in a `versionchanged`_ section of the function or class (although a `versionadded`_ would also be acceptable).
+For parameters and attributes, we typically mention the new entity in a `versionchanged`_ section of the function or class (although a `versionadded`_ would also be acceptable).
 
 **Changes** are indicated with a `versionchanged`_ directive
 
