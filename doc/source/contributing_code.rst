@@ -727,7 +727,7 @@ entry in its primary doc section. For parameters and attributes, we typically me
       Don't assume that you get nice line breaks or formatting, write your text in
       full sentences that can be read as a paragraph.
 
-**Deprecations** (features that are not any longer recommended for use and that will be removed in future releases) are indicated by the `deprecated`_ directive
+**Deprecations** (features that are not any longer recommended for use and that will be removed in future releases) are indicated by the `deprecated`_ directive:
 
 .. code-block:: rst
 
