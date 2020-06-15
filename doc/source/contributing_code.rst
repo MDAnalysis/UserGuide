@@ -735,7 +735,7 @@ entry in its primary doc section. For parameters and attributes, we typically me
       Describe (1) alternatives (what should users rather use) and 
       (2) in which future release the feature will be removed.
 
-When a feature is removed, we remove the deprecation notice and add a `versionchanged`_ to the docs of the enclosing scope. E.g., when a parameter of a function is removed, we update the docs of the function. Function/class removal are indicated in the module docs. When we remove a whole module, we typically indicate it in the top-level reST docs that contain the TOC tree that included the module.
+When a feature is removed, we remove the deprecation notice and add a `versionchanged`_ to the docs of the enclosing scope. For example, when a parameter of a function is removed, we update the docs of the function. Function/class removal are indicated in the module docs. When we remove a whole module, we typically indicate it in the top-level reST docs that contain the TOC tree that originally included the module.
 
 
 
