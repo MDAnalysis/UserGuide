@@ -710,7 +710,7 @@ Documenting changes
 
 We use reST constructs to annotate *additions*, *changes*, *deprecations* to the code so that users can quickly learn from the documentation in which version of MDAnalysis the feature is available.
 
-A **newly added module/class/method/attribute/function** gets a `versionadded`_  directive
+A **newly added module/class/method/attribute/function** gets a `versionadded`_  directive entry in its primary doc section, as below.
 
 .. code-block:: rst
 
