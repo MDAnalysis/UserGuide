@@ -8,7 +8,7 @@ Generates:
 
 from collections import defaultdict
 
-from MDAnalysis import _READERS, _SINGLEFRAME_WRITERS, _PARSERS
+from MDAnalysis import _READERS, _SINGLEFRAME_WRITERS, _PARSERS, _CONVERTERS
 from base import TableWriter
 from core import DESCRIPTIONS
 
@@ -16,7 +16,8 @@ FILE_TYPES = defaultdict(dict)
 
 for clstype, dct in (('Coordinate reader', _READERS),
                         ('Coordinate writer', _SINGLEFRAME_WRITERS),
-                        ('Topology parser', _PARSERS)):
+                        ('Topology parser', _PARSERS),
+                        ('Converter', _CONVERTERS)):
     for fmt, klass in dct.items():
         if fmt in ('CHAIN', 'MEMORY', 'MINIMAL', 'NULL'):
             continue  # get their own pages
@@ -67,6 +68,8 @@ class FormatOverview(TableWriter):
 
     def _write(self, fmt, handlers):
         if 'Coordinate writer' in handlers:
+            return SUCCESS
+        if 'Converter' in handlers:
             return SUCCESS
         return FAIL
 
