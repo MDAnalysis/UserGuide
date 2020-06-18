@@ -59,15 +59,14 @@ To install/upgrade tests:
 
 Development versions
 ====================
-To install development versions of MDAnalysis, you can compile it from source.
+To install development versions of MDAnalysis, you can compile it from source. In order to install from source, you will need ``numpy`` and ``cython``. See :ref:`create-virtual-environment` for instructions on how to create a full development environment.
 
 .. code-block:: bash
 
     git clone https://github.com/MDAnalysis/mdanalysis
     cd mdanalysis
+    # assuming you have already installed required dependencies
     pip install -e .
-
-In order to install from source, you will need ``numpy`` and ``cython``. See :ref:`create-virtual-environment` for instructions on how to create a full development environment.
 
 Testing
 -------

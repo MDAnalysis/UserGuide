@@ -6,12 +6,16 @@ from MDAnalysis import _TOPOLOGY_ATTRS
 # ====== TOPOLOGY ====== #
 
 DESCRIPTIONS = {
+    'CHEMFILES': 'chemfiles object',
+    'PARMED': 'parmed Structure',
     'CRD': 'CHARMM CARD file',
     'CONFIG': 'DL_Poly CONFIG file',
+    'COOR': 'NAMDBIN file',
     'DCD': 'CHARMM, NAMD, or LAMMPS binary trajectory',
     'HISTORY': 'DL_Poly HISTORY file',
     'DMS': 'DESRES Molecular Structure file',
     'XPDB': 'Extended PDB file',
+    'FHIAIMS': 'FHIAIMS file',
     'GMS': 'GAMESS file',
     'GRO': 'GROMACS structure file',
     'GSD': 'HOOMD GSD file',
@@ -19,9 +23,11 @@ DESCRIPTIONS = {
     'DATA': 'LAMMPS data file',
     'INPCRD': 'AMBER restart file',
     'ITP': 'GROMACS portable topology file',
+    'IN': 'FHIAIMS file',
     'LAMMPS': 'a LAMMPS DCD trajectory',
     'LAMMPSDUMP': 'LAMMPS ascii dump file',
     'MMTF' : 'MMTF file',
+    'NAMDBIN': 'NAMDBIN file',
     'NCDF': 'AMBER NETCDF format',
     'MOL2': 'Tripos MOL2 file',
     'PDB': 'Standard PDB file',
