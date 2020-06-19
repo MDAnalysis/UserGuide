@@ -9,6 +9,7 @@ MDAnalysisTests
 nbsphinx==0.4.2
 nglview==2.7.1
 numpy==1.17.2
+parmed
 Sphinx==2.2.0
 sphinxcontrib-bibtex
 sphinx-rtd-theme==0.4.3

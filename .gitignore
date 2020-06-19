@@ -22,8 +22,8 @@ doc/build
 *.so
 
 # Ignore generated docs
-*/**/*.txt
-!requirements.txt
+# */**/*.txt
+# !requirements.txt
 
 # ignore generated files
 *.vmd

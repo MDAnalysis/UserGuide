@@ -16,7 +16,7 @@
 import datetime
 from collections import OrderedDict
 import MDAnalysis as mda
-import subprocess
+# import subprocess
 import sphinx_rtd_theme
 from ipywidgets.embed import DEFAULT_EMBED_REQUIREJS_URL
 
@@ -58,8 +58,10 @@ copyright = '2019-{}, {}.'.format(now.year, author)
 # auto-recreate tables for each deployment.
 # Turn off if using sphinx_autobuild as this will autobuild
 # to infinity.
+# TURNED OFF FOR NOW until we sort out how versioned docs
+# work and how we will install MDAnalysis + dependencies
 #
-subprocess.call('./scripts/generate_all.sh')
+# subprocess.call('./scripts/generate_all.sh')
 
 # -- General configuration ---------------------------------------------------
 
