@@ -76,7 +76,9 @@ class TableWriter(object):
             tabled = tabulate.tabulate(self.lines,
                                        headers=self.headings,
                                        tablefmt='rst')
-            f.write(textwrap.indent(tabled, '    '))
+            if self.include_table:
+                tabled = textwrap.indent(tabled, '    ')
+            f.write(tabled)
         print('Wrote ', self.filename)
 
     # ==== HELPER FUNCTIONS ==== #
