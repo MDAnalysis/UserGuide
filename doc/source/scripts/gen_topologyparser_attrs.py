@@ -51,7 +51,11 @@ parser_attrs = {}
 
 for p in PARSER_TESTS:
     e, g = set(p.expected_attrs)-MANDATORY_ATTRS, set(p.guessed_attrs)
+    # clunky hack for PDB
+    if p is TestPDBParser:
+        e.add('elements')
     parser_attrs[p.parser] = (e, g)
+    
 
 class TopologyParsers(TableWriter):
     headings = ['Format', 'Description', 'Attributes read', 'Attributes guessed']

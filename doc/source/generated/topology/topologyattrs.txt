@@ -14,7 +14,7 @@ charge         charges        partial atomic charge               :ref:`DATA <DA
 chargegroup    chargegroups
 cmaps          cmaps                                              :ref:`PARMED <PARMED-format>`
 dihedrals      dihedrals                                          :ref:`DATA <DATA-format>`, :ref:`GSD <GSD-format>`, :ref:`PARMED <PARMED-format>`, :ref:`PSF <PSF-format>`, :ref:`TOP, PRMTOP, PARM7 <TOP-format>`, :ref:`TPR <TPR-format>`, :ref:`XML <XML-format>`
-element        elements       atom element                        :ref:`IN, FHIAIMS <IN-format>`, :ref:`PARMED <PARMED-format>`, :ref:`TOP, PRMTOP, PARM7 <TOP-format>`, :ref:`XYZ <XYZ-format>`
+element        elements       atom element                        :ref:`IN, FHIAIMS <IN-format>`, :ref:`PARMED <PARMED-format>`, :ref:`PDB, ENT <PDB-format>`, :ref:`XYZ <XYZ-format>`
 epsilon        epsilons                                           :ref:`PARMED <PARMED-format>`
 epsilon14      epsilon14s                                         :ref:`PARMED <PARMED-format>`
 gbscreen       gbscreens                                          :ref:`PARMED <PARMED-format>`
