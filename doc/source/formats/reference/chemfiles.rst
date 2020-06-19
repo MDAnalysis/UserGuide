@@ -2,7 +2,7 @@
 .. _CHEMFILES-format:
 
 ========================================
-CHEMFILES (chemfiles Trajectory or file)
+chemfiles (chemfiles Trajectory or file)
 ========================================
 
 .. include:: classes/CHEMFILES.txt

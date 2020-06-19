@@ -2,7 +2,7 @@
 .. _PARMED-format:
 
 =========================
-PARMED (ParmEd Structure)
+ParmEd (ParmEd Structure)
 =========================
 
 .. include:: classes/PARMED.txt
