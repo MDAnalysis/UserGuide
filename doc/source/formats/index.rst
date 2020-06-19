@@ -25,9 +25,7 @@ If a trajectory is loaded without time information, MDAnalysis will set a defaul
 
 .. _format-overview:
 
-.. table:: Table of all supported formats in MDAnalysis
-
-    .. include:: format_overview.txt
+.. include:: format_overview.txt
 
 .. _topology-parsers:
 

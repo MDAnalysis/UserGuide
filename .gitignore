@@ -22,7 +22,7 @@ doc/build
 *.so
 
 # Ignore generated docs
-# *.txt
+*.txt
 
 # ignore generated files
 *.vmd

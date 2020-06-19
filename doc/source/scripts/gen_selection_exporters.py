@@ -18,6 +18,7 @@ SELECTION_DESCRIPTIONS = {
 class SelectionExporterWriter(TableWriter):
     headings = ['Program', 'Extension', 'Description', 'Class']
     filename = 'formats/selection_exporter_formats.txt'
+    include_table = 'Supported selection exporters'
     sort = True
 
     def _set_up_input(self):

@@ -2,6 +2,4 @@
 Topology
 ========
 
-.. table:: Table of supported topology parsers and the attributes read
-
-    .. include:: topology_parsers.txt
+.. include:: topology_parsers.txt
