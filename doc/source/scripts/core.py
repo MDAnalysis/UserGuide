@@ -6,8 +6,7 @@ from MDAnalysis import _TOPOLOGY_ATTRS
 # ====== TOPOLOGY ====== #
 
 DESCRIPTIONS = {
-    'CHEMFILES': 'chemfiles object',
-    'PARMED': 'parmed Structure',
+    'CHEMFILES': 'use readers from `chemfiles <https://chemfiles.org/>`_ library',
     'CRD': 'CHARMM CARD file',
     'CONFIG': 'DL_Poly CONFIG file',
     'COOR': 'NAMD binary restart file',
@@ -28,6 +27,7 @@ DESCRIPTIONS = {
     'MMTF' : 'MMTF file',
     'NCDF': 'AMBER NETCDF format',
     'MOL2': 'Tripos MOL2 file',
+    'PARMED': '`ParmEd <http://parmed.github.io/ParmEd/html/index.html>`_ Structure',
     'PDB': 'Standard PDB file',
     'PDBQT' : 'PDBQT file',
     'PQR' : 'PQR file',
