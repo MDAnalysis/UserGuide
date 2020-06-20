@@ -175,6 +175,8 @@ intersphinx_mapping = {'https://docs.python.org/': None,
                        'https://docs.scipy.org/doc/numpy/': None,
                        'https://www.mdanalysis.org/docs/': None,
                        'https://docs.pytest.org/en/latest/': None,
+                       'https://chemfiles.org/chemfiles.py/latest/': None,
+                       'http://parmed.github.io/ParmEd/html/': None,
                        }
 
 # nbsphinx
