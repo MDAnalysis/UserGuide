@@ -209,11 +209,11 @@ and activated your virtual environment. First we need to install dependencies. I
 
         conda install -c biobuilds -c conda-forge \
             biopython chemfiles clustalw==2.1 codecov cython \
-            griddataformats gsd hypothesis joblib>=0.12 \
+            griddataformats gsd hypothesis "joblib>=0.12" \
             matplotlib mmtf-python mock netcdf4 networkx \
-            numpy>=1.17.3 psutil pytest scikit-learn scipy \
-            "seaborn>=0.7.0,<0.9" sphinx==1.8.5 tidynamics>=1.0.0 \
-            tqdm>=4.43.0
+            "numpy>=1.17.3" psutil pytest scikit-learn scipy \
+            "seaborn>=0.7.0,<0.9" sphinx==1.8.5 "tidynamics>=1.0.0" \
+            "tqdm>=4.43.0"
 
         # if using conda with python 3.7 or 3.8, also run
         conda install -c conda-forge parmed
@@ -224,16 +224,16 @@ and activated your virtual environment. First we need to install dependencies. I
         # documentation dependencies
         pip install sphinx-sitemap sphinx_rtd_theme msmb_theme==1.2.0
 
-If you're using pip, it is a little simpler:
+If you're using pip, it is a little simpler. However, some packages such as ``clustalw`` are not available via pip.
 
     .. code-block:: bash
 
         pip install biopython chemfiles codecov cython \
-          griddataformats gsd hypothesis joblib>=0.12 matplotlib \
-          msmb_theme==1.2.0 netcdf4 networkx numpy>=1.17.3 \
+          griddataformats gsd hypothesis "joblib>=0.12" matplotlib \
+          msmb_theme==1.2.0 netcdf4 networkx "numpy>=1.17.3" \
           parmed psutil pytest scikit-learn scipy "seaborn>=0.7.0,<0.9" \
-          sphinx==1.8.5 sphinx_rtd_theme tidynamics>=1.0.0 \
-          tqdm>=4.43.0
+          sphinx==1.8.5 sphinx_rtd_theme "tidynamics>=1.0.0" \
+          "tqdm>=4.43.0"
 
 Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.4. We will now install MDAnalysis. 
 
