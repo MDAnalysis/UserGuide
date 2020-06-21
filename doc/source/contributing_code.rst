@@ -203,17 +203,16 @@ Building MDAnalysis
 -------------------
 
 Make sure that you have :ref:`cloned the repository <forking-code-repo>`  
-and activated your virtual environment. First we need to install dependencies:
+and activated your virtual environment. First we need to install dependencies. If you're using conda, you'll need a mix of conda and pip installations:
 
     .. code-block:: bash
 
-        # if using conda
         conda install -c biobuilds -c conda-forge \
             biopython chemfiles clustalw==2.1 codecov cython \
             griddataformats gsd hypothesis joblib>=0.12 \
             matplotlib mmtf-python mock netcdf4 networkx \
             numpy>=1.17.3 psutil pytest scikit-learn scipy \
-            seaborn>=0.7.0,<0.9 sphinx==1.8.5 tidynamics>=1.0.0 \
+            "seaborn>=0.7.0,<0.9" sphinx==1.8.5 tidynamics>=1.0.0 \
             tqdm>=4.43.0
 
         # if using conda with python 3.7 or 3.8, also run
@@ -225,13 +224,14 @@ and activated your virtual environment. First we need to install dependencies:
         # documentation dependencies
         pip install sphinx-sitemap sphinx_rtd_theme msmb_theme==1.2.0
 
+If you're using pip, it is a little simpler:
+
     .. code-block:: bash
 
-        # if using pip and virtualenv
         pip install biopython chemfiles codecov cython \
           griddataformats gsd hypothesis joblib>=0.12 matplotlib \
           msmb_theme==1.2.0 netcdf4 networkx numpy>=1.17.3 \
-          parmed psutil pytest scikit-learn scipy seaborn>=0.7.0,<0.9 \
+          parmed psutil pytest scikit-learn scipy "seaborn>=0.7.0,<0.9" \
           sphinx==1.8.5 sphinx_rtd_theme tidynamics>=1.0.0 \
           tqdm>=4.43.0
 
