@@ -31,12 +31,12 @@ Units are assumed to be the following default AMBER units:
 
 .. rubric:: Limitations
 
-* Periodic boxes are only stored as box lengths A, B, C in an AMBER
-trajectory; the reader always assumes that these are orthorhombic
-boxes.
-* The trajectory does not contain time information so we simply set
-the time step to 1 ps :ref:`(or the user could provide it with the dt argument) <universe-kwargs>`
-* Trajectories with fewer than 4 atoms probably fail to be read (BUG).
-* If the trajectory contains exactly *one* atom then it is always
-assumed to be non-periodic (for technical reasons).
-* Velocities are currently *not supported* as ASCII trajectories.
+  * Periodic boxes are only stored as box lengths A, B, C in an AMBER
+  trajectory; the reader always assumes that these are orthorhombic
+  boxes.
+  * The trajectory does not contain time information so we simply set
+  the time step to 1 ps :ref:`(or the user could provide it with the dt argument) <universe-kwargs>`
+  * Trajectories with fewer than 4 atoms probably fail to be read (BUG).
+  * If the trajectory contains exactly *one* atom then it is always
+  assumed to be non-periodic (for technical reasons).
+  * Velocities are currently *not supported* as ASCII trajectories.

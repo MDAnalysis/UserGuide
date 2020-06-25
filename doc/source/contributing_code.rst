@@ -203,17 +203,17 @@ Building MDAnalysis
 -------------------
 
 Make sure that you have :ref:`cloned the repository <forking-code-repo>`  
-and activated your virtual environment. First we need to install dependencies:
+and activated your virtual environment. First we need to install dependencies. If you're using conda, you'll need a mix of conda and pip installations:
 
     .. code-block:: bash
 
-        # if using conda
         conda install -c biobuilds -c conda-forge \
-            pip cython numpy mmtf-python mock six biopython \
-            networkx cython matplotlib scipy griddataformats \
-            hypothesis gsd codecov "seaborn>=0.7.0,<=0.9" \
-            clustalw=2.1 netcdf4 scikit-learn "joblib>=0.12"\
-            psutil pytest
+            biopython chemfiles clustalw==2.1 codecov cython \
+            griddataformats gsd hypothesis "joblib>=0.12" \
+            matplotlib mmtf-python mock netcdf4 networkx \
+            "numpy>=1.17.3" psutil pytest scikit-learn scipy \
+            "seaborn>=0.7.0,<0.9" sphinx==1.8.5 "tidynamics>=1.0.0" \
+            "tqdm>=4.43.0"
 
         # if using conda with python 3.7 or 3.8, also run
         conda install -c conda-forge parmed
@@ -221,13 +221,19 @@ and activated your virtual environment. First we need to install dependencies:
         # if using conda with other versions of python, also run
         pip install parmed
 
+        # documentation dependencies
+        pip install sphinx-sitemap sphinx_rtd_theme msmb_theme==1.2.0
+
+If you're using pip, it is a little simpler. However, some packages such as ``clustalw`` are not available via pip.
+
     .. code-block:: bash
 
-        # if using pip and virtualenv
-        pip install cython numpy mmtf-python mock six biopython \
-            networkx cython matplotlib scipy griddataformats \
-            hypothesis gsd codecov "seaborn>=0.7.0,<=0.9" \
-            netcdf4 scikit-learn "joblib>=0.12" parmed psutil pytest
+        pip install biopython chemfiles codecov cython \
+          griddataformats gsd hypothesis "joblib>=0.12" matplotlib \
+          msmb_theme==1.2.0 netcdf4 networkx "numpy>=1.17.3" \
+          parmed psutil pytest scikit-learn scipy "seaborn>=0.7.0,<0.9" \
+          sphinx==1.8.5 sphinx_rtd_theme "tidynamics>=1.0.0" \
+          "tqdm>=4.43.0"
 
 Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.4. We will now install MDAnalysis. 
 
@@ -555,17 +561,7 @@ Building the documentation
 
 The online documentation is generated from the pages in ``mdanalysis/package/doc/sphinx/source/documentation_pages``. The documentation for the current release are hosted at www.mdanalysis.org/docs, while the development version is at www.mdanalysis.org/mdanalysis/. 
 
-In order to build the documentation, you must first :ref:`clone the main MDAnalysis repo <forking-code-repo>`. :ref:`Set up a virtual environment <create-virtual-environment>` in the same way as you would for the code (you can use the same environment as you do for the code). You will need to install several packages for the docs.
-
-    .. code-block:: bash
-
-        pip install sphinx sphinx-sitemap sphinx_rtd_theme
-
-In addition, build the development version of MDAnalysis (if you haven't done this already):
-
-    .. code-block:: bash
-
-        pip install -e .
+In order to build the documentation, you must first :ref:`clone the main MDAnalysis repo <forking-code-repo>`. :ref:`Set up a virtual environment <create-virtual-environment>` in the same way as you would for the code (you should typically use the same environment as you do for the code). Build the development version of MDAnalysis. 
 
 Then, generate the docs with:
 

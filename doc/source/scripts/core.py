@@ -6,8 +6,10 @@ from MDAnalysis import _TOPOLOGY_ATTRS
 # ====== TOPOLOGY ====== #
 
 DESCRIPTIONS = {
+    'CHEMFILES': 'use readers from `chemfiles <https://chemfiles.org/>`_ library',
     'CRD': 'CHARMM CARD file',
     'CONFIG': 'DL_Poly CONFIG file',
+    'COOR': 'NAMD binary restart file',
     'DCD': 'CHARMM, NAMD, or LAMMPS binary trajectory',
     'HISTORY': 'DL_Poly HISTORY file',
     'DMS': 'DESRES Molecular Structure file',
@@ -19,11 +21,13 @@ DESCRIPTIONS = {
     'DATA': 'LAMMPS data file',
     'INPCRD': 'AMBER restart file',
     'ITP': 'GROMACS portable topology file',
+    'IN': 'FHI-aims input file',
     'LAMMPS': 'a LAMMPS DCD trajectory',
     'LAMMPSDUMP': 'LAMMPS ascii dump file',
     'MMTF' : 'MMTF file',
     'NCDF': 'AMBER NETCDF format',
     'MOL2': 'Tripos MOL2 file',
+    'PARMED': '`ParmEd <http://parmed.github.io/ParmEd/html/index.html>`_ Structure',
     'PDB': 'Standard PDB file',
     'PDBQT' : 'PDBQT file',
     'PQR' : 'PQR file',

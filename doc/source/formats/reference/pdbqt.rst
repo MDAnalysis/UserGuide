@@ -98,9 +98,7 @@ Records read:
     79 - 80        LString(2)    atomType     AutoDOCK atom type *t*.
     =============  ============  ===========  =============================================
 
-We ignore torsion notation and just pull the partial charge and atom type columns:
-
-.. code-block::
+We ignore torsion notation and just pull the partial charge and atom type columns::
 
     COMPND    NSC7810
     REMARK  3 active torsions:

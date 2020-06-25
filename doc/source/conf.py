@@ -54,11 +54,12 @@ copyright = '2019-{}, {}.'.format(now.year, author)
 # -- Scripts -----------------------------------------------
 # Get Travis to regenerate txt tables by re-running scripts
 # before deploying docs.
-# Turned off for now as 0.21.0 not released yet.
 # This allows us to gitignore .txt files as well as
 # auto-recreate tables for each deployment.
 # Turn off if using sphinx_autobuild as this will autobuild
 # to infinity.
+# TURNED OFF FOR NOW until we sort out how versioned docs
+# work and how we will install MDAnalysis + dependencies
 #
 # subprocess.call('./scripts/generate_all.sh')
 
@@ -174,6 +175,8 @@ intersphinx_mapping = {'https://docs.python.org/': None,
                        'https://docs.scipy.org/doc/numpy/': None,
                        'https://www.mdanalysis.org/docs/': None,
                        'https://docs.pytest.org/en/latest/': None,
+                       'https://chemfiles.org/chemfiles.py/latest/': None,
+                       'http://parmed.github.io/ParmEd/html/': None,
                        }
 
 # nbsphinx

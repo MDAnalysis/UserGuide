@@ -68,14 +68,15 @@ selection parser. The following applies to all selections:
     u.select_atoms("segid DMPC and not (name H* or type OW)")
 
 
-* Currently, wildcards are implemented as a form of pattern
-  matching: Using the ``*`` character in a string such as ``GL*`` selects
-  all strings that start with "GL" such as "GLU", "GLY", "GLX29", "GLN". Only terminal wildcards (i.e. matching the last part of a name) are currently supported. 
-
-.. note::
-
-    Up until version 1.0.0, MDAnalysis will ignore everything after the ``*``. ``u.select_atoms("resname *E")`` will not select atoms whose residue name ends in E, but instead select every atom.
-
+* String selections such as names and residue names can be 
+  matched with Unix shell-style wildcards. Using ``*`` 
+  in a string matches any number of any characters; ``?`` 
+  matches any single character; ``[seq]`` matches any character in *seq*; 
+  and ``[!seq]`` matches any character not in *seq*. For example, 
+  the string ``GL*`` selects all strings that start with "GL", 
+  such as "GLU", "GLY", "GLX29", "GLN". ``GL[YN]`` will select all "GLY" and 
+  "GLN" strings. Any number of patterns can be included in the search.
+  For more information on pattern matching, see the :mod:`fnmatch` documentation.
 
 Simple selections
 -----------------

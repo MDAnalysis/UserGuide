@@ -17,6 +17,7 @@ from MDAnalysisTests.topology.base import mandatory_attrs
 from MDAnalysisTests.topology.test_crd import TestCRDParser
 from MDAnalysisTests.topology.test_dlpoly import TestDLPHistoryParser, TestDLPConfigParser
 from MDAnalysisTests.topology.test_dms import TestDMSParser
+from MDAnalysisTests.topology.test_fhiaims import TestFHIAIMS
 from MDAnalysisTests.topology.test_gms import GMSBase
 from MDAnalysisTests.topology.test_gro import TestGROParser
 from MDAnalysisTests.topology.test_gsd import TestGSDParser
@@ -24,6 +25,7 @@ from MDAnalysisTests.topology.test_hoomdxml import TestHoomdXMLParser
 from MDAnalysisTests.topology.test_lammpsdata import LammpsBase, TestDumpParser
 from MDAnalysisTests.topology.test_mmtf import TestMMTFParser
 from MDAnalysisTests.topology.test_mol2 import TestMOL2Base
+from MDAnalysisTests.topology.test_parmed import BaseTestParmedParser
 from MDAnalysisTests.topology.test_pdb import TestPDBParser
 from MDAnalysisTests.topology.test_pdbqt import TestPDBQT
 from MDAnalysisTests.topology.test_pqr import TestPQRParser
@@ -35,9 +37,10 @@ from MDAnalysisTests.topology.test_xpdb import TestXPDBParser
 from MDAnalysisTests.topology.test_xyz import XYZBase
 
 PARSER_TESTS = (TestCRDParser, TestDLPHistoryParser, TestDLPConfigParser, 
-                TestDMSParser, GMSBase,
+                TestDMSParser, TestFHIAIMS, GMSBase,
                 TestGROParser, TestGSDParser, TestHoomdXMLParser, 
                 LammpsBase, TestMMTFParser, TestMOL2Base, 
+                BaseTestParmedParser,
                 TestPDBParser, TestPDBQT, TestPQRParser, PSFBase, 
                 TestPRMParser, TPRAttrs, TestTXYZParser, 
                 TestXPDBParser, XYZBase, TestDumpParser)
@@ -48,12 +51,17 @@ parser_attrs = {}
 
 for p in PARSER_TESTS:
     e, g = set(p.expected_attrs)-MANDATORY_ATTRS, set(p.guessed_attrs)
+    # clunky hack for PDB
+    if p is TestPDBParser:
+        e.add('elements')
     parser_attrs[p.parser] = (e, g)
+    
 
 class TopologyParsers(TableWriter):
     headings = ['Format', 'Description', 'Attributes read', 'Attributes guessed']
     preprocess = ['keys']
     filename = 'formats/topology_parsers.txt'
+    include_table = 'Table of supported topology parsers and the attributes read'
     sort = True
 
     def __init__(self):
