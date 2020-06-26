@@ -93,7 +93,7 @@ todo_include_todos = True
 
 mathjax_path = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
 
-site_url = "https://mdauserguide.minium.com.au/"
+site_url = "https://userguide.mdanalysis.org"
 html_use_opensearch = 'https://userguide.mdanalysis.org'
 
 # Add any paths that contain templates here, relative to this directory.
@@ -159,7 +159,7 @@ html_favicon = "_static/logos/mdanalysis-logo.ico"
 html_logo = '_static/logos/user_guide.png'
 
 html_context = {
-    'versions_json_url': 'https://mdauserguide.minium.com.au/versions.json'
+    'versions_json_url': 'https://userguide.mdanalysis.org/versions.json'
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
