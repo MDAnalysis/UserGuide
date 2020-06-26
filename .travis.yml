@@ -22,23 +22,26 @@ install:
   - source activate mda-user-guide
   - jupyter-nbextension enable nglview --py --sys-prefix
 script:
-  - export URL="https://userguide.mdanalysis.org/"
-  - export VERSION=$(python -c "import MDAnalysis; print(MDAnalysis.__version__)")
   - make -C ${SPHINX_DIR} html
-  - mkdir ${VERSION} && mv ${HTML_DIR}/* ${VERSION}/ && mv ${VERSION} ${HTML_DIR}/${VERSION}
-  - cd ${HTML_DIR} && touch .nojekyll
-  - mkdir latest dev
-  - python ${TRAVIS_BUILD_DIR}/maintainer/update_json_stubs_sitemap.py
-  - cd -
-
-deploy:
-  provider: pages
-  skip_cleanup: true
-  keep_history: true
-  github_token: "$GH_TOKEN"
-  on:
-    # branch: master
-    branch: docversions
-    python: "3.6"
-  local_dir: "${HTML_DIR}"
-  project_name: UserGuide
+  # - |
+  # export URL="https://userguide.mdanalysis.org/"
+  # export VERSION=$(python -c "import MDAnalysis; print(MDAnalysis.__version__)")
+  # export MAINTAIN_DIR=${TRAVIS_BUILD_DIR}/maintainer
+  # export MDA_DOCDIR=$HTML_DIR
+  # export GH_REPOSITORY=github.com/MDAnalysis/UserGuide.git
+  # export GIT_CI_USER=TravisCI
+  # export GIT_CI_EMAIL=TravisCI@mdanalysis.org
+  # export GH_DOC_BRANCH="master"
+  # bash ${TRAVIS_BUILD_DIR}/maintainer/deploy_docs_via_travis.sh
+after_success:
+  - |
+    python -c 'import os,sys,fcntl; flags = fcntl.fcntl(sys.stdout, fcntl.F_GETFL); fcntl.fcntl(sys.stdout, fcntl.F_SETFL, flags&~os.O_NONBLOCK);'
+    export URL="https://mdauserguide.minium.com.au/"
+    export VERSION=$(python -c "import MDAnalysis; print(MDAnalysis.__version__)")
+    export MAINTAIN_DIR=${TRAVIS_BUILD_DIR}/maintainer
+    export MDA_DOCDIR=$HTML_DIR
+    export GH_REPOSITORY=github.com/lilyminium/UserGuide.git
+    export GIT_CI_USER=TravisCI
+    export GIT_CI_EMAIL=TravisCI@mdanalysis.org
+    export GH_DOC_BRANCH=$TRAVIS_BRANCH
+    bash ${TRAVIS_BUILD_DIR}/maintainer/deploy_docs_via_travis.sh

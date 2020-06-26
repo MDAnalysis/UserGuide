@@ -11,6 +11,7 @@ dependencies:
   - mdanalysis=1.0.0
   - MDAnalysisTests=1.0.0
   - plotly
+  - pip
   - pip:
       - sphinx_rtd_theme
       - sphinx-sitemap
