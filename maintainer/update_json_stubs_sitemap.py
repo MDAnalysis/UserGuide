@@ -11,6 +11,7 @@
 
 import json
 import os
+import errno
 import glob
 import shutil
 import textwrap
@@ -86,10 +87,10 @@ if not already_exists:
 with open("versions.json", 'w') as f:
     json.dump(versions, f, indent=2)
 
-
 for ver in versions[::-1]:
     if ver['latest']:
         latest_version = ver['version']
+        break
 else:
     try:
         latest_version = versions[-1]['version']
@@ -107,9 +108,19 @@ else:
         dev_version = None
 
 if latest_version:
-    html_files = glob.glob(f'{latest_version}/*.html', recursive=True)
+    html_files = glob.glob(f'{latest_version}/**/*.html', recursive=True)
+    print(html_files)
     for file in html_files:
-        write_redirect(file)
+        outfile = file.strip(f'{latest_version}/')
+        dirname = os.path.dirname(outfile)
+        if dirname and not os.path.exists(dirname):
+            try:
+                os.makedirs(dirname)
+            except OSError as exc:
+                if exc.errno != errno.EEXIST:
+                    raise
+
+        write_redirect(file, '', outfile)
     write_redirect('index.html', latest_version, 'latest/index.html')
 
 if dev_version:
