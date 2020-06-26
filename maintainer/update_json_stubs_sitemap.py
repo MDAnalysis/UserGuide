@@ -109,7 +109,6 @@ else:
 
 if latest_version:
     html_files = glob.glob(f'{latest_version}/**/*.html', recursive=True)
-    print(html_files)
     for file in html_files:
         outfile = file.strip(f'{latest_version}/')
         dirname = os.path.dirname(outfile)
