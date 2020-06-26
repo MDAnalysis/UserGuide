@@ -15,6 +15,7 @@ dependencies:
   - pip:
       - sphinx_rtd_theme
       - sphinx-sitemap
+      - msmb_theme
       - nbsphinx
       - ipython
       - tabulate
