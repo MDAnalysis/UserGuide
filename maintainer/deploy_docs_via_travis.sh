@@ -64,15 +64,13 @@ git add .nojekyll versions.json
 git add dev latest
 git add *.xml
 
-echo "ls *"
-ls *
-
-echo $(ls *.html | wc -l)
-
+# add redirect html files if they're generated
 if [ "$(ls *.html | wc -l)" -ge "1" ]; then
+    # get list of directories and files present in the latest version
     cd $VERSION && mdfiles=$(ls -d *) && cd -
     for item in $mdfiles ; do
-        if [[ -f $item ]] || [[ -d $item ]]; then echo $item && git add $item; fi
+        # if the directory/file exists in top level, add it
+        if [[ -f $item ]] || [[ -d $item ]]; then git add $item; fi
     done
 fi
 
