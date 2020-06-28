@@ -8,14 +8,12 @@ dependencies:
   - nglview
   - sphinx
   - ipywidgets
-  - mdanalysis=1.0.0
-  - MDAnalysisTests=1.0.0
+  - mdanalysis=0.20.1
+  - MDAnalysisTests
   - plotly
-  - pip
   - pip:
       - sphinx_rtd_theme
       - sphinx-sitemap
-      - msmb_theme
       - nbsphinx
       - ipython
       - tabulate
