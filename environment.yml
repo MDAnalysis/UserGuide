@@ -6,7 +6,7 @@ channels:
 dependencies:
   - jupyter_contrib_nbextensions
   - nglview
-  - sphinx
+  - sphinx==2.2.0
   - ipywidgets
   - mdanalysis=1.0.0
   - MDAnalysisTests=1.0.0
