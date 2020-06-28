@@ -8,6 +8,8 @@ env:
     - secure: QM4CHEqPdDEUhrQYvkOz4DqxNjUNHLVRkxCSy4raFgTEAUyiPF+nF2z8Q1s8lfTxBwmjgEgLpxBMCRI2wbkLJirHwAdpvkH3aNzla4o2mgNdSyl1zSQrflM8/eJ3uEQjx69dcfPQWmED1hQQceh+Gd2c9hhfDdPv12viqHhFp5/TEeXRILHczbE0bC8efxSI87xi5a6rCm6c+Uohmc7Xy5+PraVsuxrRWU7NESqTYuIr14gT8p38SvwCafALpYw7i0Ch1ue/ffrsPKlnnCGd/HTE7YMcw61dUh9Y8QYTSJaBBdLS8ytwTyaN4/4LEEqaHihwKko8j03hUi+TM+d/lmKYh3y3U7U3BaofW/aGJu5Xuo6eKtgwA2WX/yTLdVQbnMgDOtJiKQ7G4wAKO4UUffRbdUc3ioOKBPEPjhyQ/Qo3NEozGt0SUNzEdeFIMaQbBQzxzGy+NNByPnOlvPK4u6hvAluPPVqGaVV7gAh5NRzPrAoChK2TYASZVCd9SQ8HfnFdv5aWn/rt6wnf2wVRcCxtQXSKdazaLFv1noSO44PWprRNskI2xYEjrFRMk/Drk7uNBCcJH0apBbDyAzaQ+izjyWllGztrebjQcJSagfhES/Rt6WBjuwAVzElHwRgIWxrGn1t0MzT3q7IfAQlXedRhGyv4e+dxehjZdv7m4W8=
     - SPHINX_DIR=doc/
     - HTML_DIR=doc/build/html
+    - GH_DOC_DEV=develop
+    - GH_DOC_RELEASE=master
 before_install:
   - sudo apt-get update
   - sudo apt-get install -y pandoc
@@ -26,7 +28,7 @@ script:
   after_success:
     - |
       if [[ ${TRAVIS_PULL_REQUEST} == "false" ]]; then
-        if [[ ${TRAVIS_BRANCH} == "master" ]] || [[ ${TRAVIS_BRANCH} == "develop" ]]; then
+        if [[ ${TRAVIS_BRANCH} == ${GH_DOC_DEV} ]] || [[ ${TRAVIS_BRANCH} == ${GH_DOC_RELEASE} ]]; then
           python -c 'import os,sys,fcntl; flags = fcntl.fcntl(sys.stdout, fcntl.F_GETFL); fcntl.fcntl(sys.stdout, fcntl.F_SETFL, flags&~os.O_NONBLOCK);'
           export URL="https://userguide.mdanalysis.org/"
           export VERSION=$(python -c "import MDAnalysis; print(MDAnalysis.__version__)")
