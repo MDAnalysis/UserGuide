@@ -16,7 +16,7 @@ The :mod:`MDAnalysis.transformations` module contains a collection of transforma
 
     u = mda.Universe(TPR, XTC)
     protein = u.select_atoms('protein')
-    align_transform = trans.fit_rot_trans(protein, protein, weights='mass')
+    align_transform = trans.translate([0, 0, 1])
     u.trajectory.transformations = (align_transform,)
     for transform in u.trajectory.transformations:
         transform(u.trajectory.ts)
