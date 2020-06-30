@@ -18,8 +18,7 @@ The :mod:`MDAnalysis.transformations` module contains a collection of transforma
     protein = u.select_atoms('protein')
     align_transform = trans.fit_rot_trans(protein, protein, weights='mass')
     u.trajectory.transformations = (align_transform,)
-    for transform in u.trajectory.transformations:
-        u.trajectory.ts = transform(u.trajectory.ts)
+    
 
 
 
