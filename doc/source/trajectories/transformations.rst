@@ -4,6 +4,24 @@
 On-the-fly transformations
 ==========================
 
+An on-the-fly transformation is a function that silently modifies the dynamic data contained in a trajectory :class:`~MDAnalysis.coordinates.base.Timestep` (typically coordinates) as it is loaded into memory. It is called for each current time step to transform data into your desired representation. A transformation function must also return the current :class:`~MDAnalysis.coordinates.base.Timestep`, as transformations are often chained together.
+
+The :mod:`MDAnalysis.transformations` module contains a collection of transformations. For example, :func:`~MDAnalysis.transformations.fit.fit_rot_trans` can perform a mass-weighted alignment on an :class:`~MDAnalysis.core.groups.AtomGroup` to a reference.
+
+.. ipython:: python
+
+    import MDAnalysis as mda
+    from MDAnalysis.tests.datafiles import TPR, XTC
+    from MDAnalysis import transformations as trans
+
+    u = mda.Universe(TPR, XTC)
+    protein = u.select_atoms('protein')
+    align_transform = trans.fit_rot_trans(protein, protein, weights='mass')
+    u.trajectory.add_transformations(align_transform)
+
+Other implemented transformations include functions to :mod:`~MDAnalysis.transformations.translate`, :mod:`~MDAnalysis.transformations.rotate`, :mod:`~MDAnalysis.transformations.fit` an :class:`~MDAnalysis.core.groups.AtomGroup` to a reference, and :mod:`~MDAnalysis.transformations.wrap` or unwrap groups in the unit cell. 
+
+
 
 ----------------------
 Custom transformations
