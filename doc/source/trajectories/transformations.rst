@@ -8,6 +8,15 @@ An on-the-fly transformation is a function that silently modifies the dynamic da
 
 The :mod:`MDAnalysis.transformations` module contains a collection of transformations. For example, :func:`~MDAnalysis.transformations.fit.fit_rot_trans` can perform a mass-weighted alignment on an :class:`~MDAnalysis.core.groups.AtomGroup` to a reference.
 
+.. ipython:: python
+
+    import MDAnalysis as mda
+    from MDAnalysis.tests.datafiles import TPR, XTC
+    from MDAnalysis import transformations as trans
+
+    
+
+Other implemented transformations include functions to :mod:`~MDAnalysis.transformations.translate`, :mod:`~MDAnalysis.transformations.rotate`, :mod:`~MDAnalysis.transformations.fit` an :class:`~MDAnalysis.core.groups.AtomGroup` to a reference, and :mod:`~MDAnalysis.transformations.wrap` or unwrap groups in the unit cell. 
 
 Although you can only call :meth:`~MDAnalysis.coordinates.base.ProtoReader.add_transformations` *once*, you can pass in multiple transformations in a list, which will be executed in order. For example, the below workflow:
 
