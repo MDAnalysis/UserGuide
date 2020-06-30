@@ -14,6 +14,8 @@ The :mod:`MDAnalysis.transformations` module contains a collection of transforma
     from MDAnalysis.tests.datafiles import TPR, XTC
     from MDAnalysis import transformations as trans
 
+    u = mda.Universe(TPR, XTC)
+    protein = u.select_atoms('protein')
     
 
 Other implemented transformations include functions to :mod:`~MDAnalysis.transformations.translate`, :mod:`~MDAnalysis.transformations.rotate`, :mod:`~MDAnalysis.transformations.fit` an :class:`~MDAnalysis.core.groups.AtomGroup` to a reference, and :mod:`~MDAnalysis.transformations.wrap` or unwrap groups in the unit cell. 
