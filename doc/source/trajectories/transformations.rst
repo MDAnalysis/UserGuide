@@ -17,9 +17,7 @@ The :mod:`MDAnalysis.transformations` module contains a collection of transforma
     u = mda.Universe(TPR, XTC)
     protein = u.select_atoms('protein')
     align_transform = trans.fit_rot_trans(protein, protein, weights=protein.masses)
-    u.trajectory.transformations = (align_transform,)
-    align_transform(u.trajectory.ts)
-
+    u.trajectory.add_transformations(align_transform)
 
 
 Other implemented transformations include functions to :mod:`~MDAnalysis.transformations.translate`, :mod:`~MDAnalysis.transformations.rotate`, :mod:`~MDAnalysis.transformations.fit` an :class:`~MDAnalysis.core.groups.AtomGroup` to a reference, and :mod:`~MDAnalysis.transformations.wrap` or unwrap groups in the unit cell. 
