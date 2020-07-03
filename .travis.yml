@@ -1,10 +1,12 @@
 language: python
 group: travis_latest
 cache: pip
-sudo: false
 python:
 - '3.6'
 
+
+os:
+  linux
 
 env:
   global:
