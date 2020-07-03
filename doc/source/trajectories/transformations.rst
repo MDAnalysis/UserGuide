@@ -11,10 +11,10 @@ The :mod:`MDAnalysis.transformations` module contains a collection of transforma
 .. ipython:: python
 
     import MDAnalysis as mda
-    from MDAnalysis.tests.datafiles import TPR, XTC, PSF, DCD
+    from MDAnalysis.tests.datafiles import TPR, XTC
     from MDAnalysis import transformations as trans
 
-    u = mda.Universe(PSF, DCD)
+    u = mda.Universe(TPR, XTC)
     protein = u.select_atoms('protein')
     align_transform = trans.fit_rot_trans(protein, protein, weights=protein.masses)
     u.trajectory.add_transformations(align_transform)

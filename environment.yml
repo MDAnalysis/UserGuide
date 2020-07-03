@@ -3,20 +3,22 @@ channels:
   - conda-forge
   - plotly
 dependencies:
-  - jupyter_contrib_nbextensions
-  - nglview
-  - ipython  
+  - cython
   - ipywidgets
+  - ipython
+  - jupyter_contrib_nbextensions
   - mdanalysis
   - MDAnalysisTests
   - nbsphinx
-  - plotly
+  - nglview
+  - numpy>=1.18.5
   - pip
+  - plotly
+  - pybtex
   - sphinx==2.2.0
+  - sphinxcontrib-bibtex
+  - sphinx_rtd_theme
   - tabulate
   - pip:
       - msmb_theme==1.2.0
-      - pybtex==0.22.2
-      - sphinx_rtd_theme==0.4.3
       - sphinx-sitemap==1.0.2
-      - sphinxcontrib-bibtex==1.0.0
