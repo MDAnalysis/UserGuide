@@ -3,7 +3,7 @@ group: travis_latest
 cache: pip
 sudo: false
 python:
-- '3.8'
+- '3.6'
 
 
 env:
@@ -11,7 +11,7 @@ env:
   - secure: QM4CHEqPdDEUhrQYvkOz4DqxNjUNHLVRkxCSy4raFgTEAUyiPF+nF2z8Q1s8lfTxBwmjgEgLpxBMCRI2wbkLJirHwAdpvkH3aNzla4o2mgNdSyl1zSQrflM8/eJ3uEQjx69dcfPQWmED1hQQceh+Gd2c9hhfDdPv12viqHhFp5/TEeXRILHczbE0bC8efxSI87xi5a6rCm6c+Uohmc7Xy5+PraVsuxrRWU7NESqTYuIr14gT8p38SvwCafALpYw7i0Ch1ue/ffrsPKlnnCGd/HTE7YMcw61dUh9Y8QYTSJaBBdLS8ytwTyaN4/4LEEqaHihwKko8j03hUi+TM+d/lmKYh3y3U7U3BaofW/aGJu5Xuo6eKtgwA2WX/yTLdVQbnMgDOtJiKQ7G4wAKO4UUffRbdUc3ioOKBPEPjhyQ/Qo3NEozGt0SUNzEdeFIMaQbBQzxzGy+NNByPnOlvPK4u6hvAluPPVqGaVV7gAh5NRzPrAoChK2TYASZVCd9SQ8HfnFdv5aWn/rt6wnf2wVRcCxtQXSKdazaLFv1noSO44PWprRNskI2xYEjrFRMk/Drk7uNBCcJH0apBbDyAzaQ+izjyWllGztrebjQcJSagfhES/Rt6WBjuwAVzElHwRgIWxrGn1t0MzT3q7IfAQlXedRhGyv4e+dxehjZdv7m4W8=
   - SPHINX_DIR=doc/
   - HTML_DIR=doc/build/html
-  - PYTHON_VERSION=3.8
+  - PYTHON_VERSION=3.6
   - CONDA_DEPENDENCIES="jupyter_contrib_nbextensions nglview sphinx ipywidgets MDAnalysis MDAnalysisTests plotly"
   - CONDA_CHANNELS='defaults conda-forge plotly'
   - PIP_DEPENDENCIES="sphinx_rtd_theme sphinx-sitemap nbsphinx ipython tabulate sphinxcontrib-bibtex pybtex"
