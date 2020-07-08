@@ -4,14 +4,12 @@ channels:
   - defaults
   - plotly
 dependencies:
-  - cython
   - ipywidgets
   - ipython
   - mdanalysis
   - MDAnalysisTests
   - nbsphinx
   - nglview
-  - numpy>=1.18.5
   - pip
   - plotly
   - pybtex
