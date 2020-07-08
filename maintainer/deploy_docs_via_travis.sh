@@ -59,6 +59,8 @@ python ${MAINTAIN_DIR}/update_json_stubs_sitemap.py
 touch .
 touch .nojekyll
 
+ls *
+
 git add -A ${VERSION}/
 git add .nojekyll versions.json
 git add dev latest
