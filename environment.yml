@@ -1,6 +1,7 @@
 name: mda-user-guide
 channels:
   - conda-forge
+  - defaults
   - plotly
 dependencies:
   - cython
