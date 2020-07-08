@@ -16,8 +16,9 @@ The :mod:`MDAnalysis.transformations` module contains a collection of transforma
 
     u = mda.Universe(TPR, XTC)
     protein = u.select_atoms('protein')
-    align_transform = trans.fit_rot_trans(protein, protein, weights='mass')
+    align_transform = trans.fit_rot_trans(protein, protein, weights=protein.masses)
     u.trajectory.add_transformations(align_transform)
+
 
 Other implemented transformations include functions to :mod:`~MDAnalysis.transformations.translate`, :mod:`~MDAnalysis.transformations.rotate`, :mod:`~MDAnalysis.transformations.fit` an :class:`~MDAnalysis.core.groups.AtomGroup` to a reference, and :mod:`~MDAnalysis.transformations.wrap` or unwrap groups in the unit cell. 
 
@@ -54,6 +55,8 @@ At its core, a transformation function must only take a :class:`~MDAnalysis.coor
 
 .. ipython:: python
 
+    import numpy as np
+    
     def up_by_2(ts):
         """Translates atoms up by 2 angstrom"""
         ts.positions += np.array([0.0, 0.0, 0.2])
