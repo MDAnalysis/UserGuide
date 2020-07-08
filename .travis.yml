@@ -2,7 +2,7 @@ language: python
 group: travis_latest
 cache: pip
 python:
-  - '3.6'
+  - '3.8'
 
 branches:
   only:
