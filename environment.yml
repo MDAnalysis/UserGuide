@@ -7,7 +7,6 @@ dependencies:
   - cython
   - ipywidgets
   - ipython
-  - jupyter_contrib_nbextensions
   - mdanalysis
   - MDAnalysisTests
   - nbsphinx
