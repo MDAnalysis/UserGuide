@@ -19,8 +19,11 @@ env:
   - HTML_DIR=doc/build/html
   - PYTHON_VERSION=3.6
   - CONDA_ENVIRONMENT="environment.yml"
+  - CONDA_DEPENDENCIES="jupyter_contrib_nbextensions"
   - CYTHON_TRACE_NOGIL=1
   - MPLBACKEND=agg
+  - SETUP_CMD="build_sphinx"
+
 
 
 before_install:
@@ -35,7 +38,7 @@ install:
   - conda list
   
 script:
-  - make -C ${SPHINX_DIR} html
+  - $MAIN_CMD $SETUP_CMD
 
 after_success:
   - |
