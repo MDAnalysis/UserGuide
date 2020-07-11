@@ -2,7 +2,7 @@ language: python
 group: travis_latest
 cache: pip
 python:
-  - '3.8'
+  - '3.7'
 
 branches:
   only:
@@ -29,7 +29,7 @@ before_install:
 
 
 install:
-  - conda env create python=3.8 -f environment.yml 
+  - conda env create python=3.7 -f environment.yml 
   - source activate mda-user-guide
   - jupyter-nbextension enable nglview --py --sys-prefix
   
