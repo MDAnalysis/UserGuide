@@ -27,13 +27,18 @@ before_install:
   - wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
   - MINICONDA_PATH=$HOME/miniconda
   - bash miniconda.sh -b -p $MINICONDA_PATH
-  - export PATH=$MINICONDA_PATH/bin:$PATH
+  - $HOME/miniconda/bin/conda init bash
+  - source ~/.bash_profile
+  - conda activate base
   - conda update --yes conda
 
 
 install:
-  - conda env create python=3.6 -f environment.yml
-  - source activate mda-user-guide
+  - conda create --yes -n test python=3.6
+  - conda activate test
+  - conda install --yes numpy<1.19.0
+  - conda install --yes pip jupyter_contrib_nbextensions nglview sphinx ipywidgets MDAnalysis MDAnalysisTests plotly ipython -c conda-forge -c plotly
+  - pip install sphinx_rtd_theme sphinx-sitemap nbsphinx tabulate sphinxcontrib-bibtex pybtex msmb_theme==1.2.0
   - jupyter-nbextension enable nglview --py --sys-prefix
   - conda list
   
