@@ -34,7 +34,7 @@ before_install:
 
 
 install:
-  - conda env create python=3.6 -f environment.yml
+  - conda env create python=3.6 -f environment.yml --quiet
   - conda activate mda-user-guide
   - jupyter-nbextension enable nglview --py --sys-prefix
   - conda list
