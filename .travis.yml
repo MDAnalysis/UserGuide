@@ -34,11 +34,8 @@ before_install:
 
 
 install:
-  - conda create --yes -n test python=3.6
-  - conda activate test
-  - conda install --yes numpy==1.18.5
-  - conda install --yes pip jupyter_contrib_nbextensions nglview sphinx ipywidgets MDAnalysis MDAnalysisTests plotly ipython -c conda-forge -c plotly
-  - pip install sphinx_rtd_theme sphinx-sitemap nbsphinx tabulate sphinxcontrib-bibtex pybtex msmb_theme==1.2.0
+  - conda env create python=3.6 -f environment.yml
+  - conda activate mda-user-guide
   - jupyter-nbextension enable nglview --py --sys-prefix
   - conda list
   

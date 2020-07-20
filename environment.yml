@@ -11,7 +11,7 @@ dependencies:
   - MDAnalysisTests
   - nbsphinx
   - nglview
-  - numpy<1.19.0
+  - defaults::numpy<1.19.0
   - pip
   - plotly
   - pybtex
