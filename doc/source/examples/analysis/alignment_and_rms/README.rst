@@ -23,3 +23,4 @@ The :mod:`MDAnalysis.analysis.align` and :mod:`MDAnalysis.analysis.rms` modules 
    /examples/analysis/alignment_and_rms/aligning_trajectory
    /examples/analysis/alignment_and_rms/rmsd
    /examples/analysis/alignment_and_rms/pairwise_rmsd
+   /examples/analysis/alignment_and_rms/rmsf
