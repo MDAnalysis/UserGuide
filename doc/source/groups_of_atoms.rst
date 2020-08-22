@@ -64,65 +64,103 @@ Similarly, an :class:`~MDAnalysis.core.groups.Atom` has direct knowledge of the 
 
 For information on adding custom Residues or Segments, have a look at :ref:`adding-residue`.
 
-Access to various data views via :class:`~MDAnalysis.core.groups.AtomGroup` object can be pretty powerful, but also
-needs to be used with caution to avoid accessing data outside the intended selection, as mentioned above. Therefore,
-we present two use cases showing commonly used applications.
+Access to other classes via the :class:`~MDAnalysis.core.groups.AtomGroup` object can be pretty powerful, but also
+needs to be used with caution to avoid accessing data outside the intended selection. Therefore, we present two use
+cases showing commonly used applications on a simple extract from the PDB file:
 
----------------------------------------
-Use case: Sequence of residues by chain
----------------------------------------
-Let's assume that we have a PDB file, which contains both ATOM and HETATM record types, for protein and small molecule,
-respectively. In order to select only ATOM record types and get a list of residues by chain, one needs to call:
+.. ipython:: python
 
-.. code-block:: python
+    import MDAnalysis as mda
+    import io
+    pdb = io.StringIO("""
+    ATOM    414  N   GLY A 402     -51.919   9.578 -14.287  1.00 68.46           N
+    ATOM    415  CA  GLY A 402     -52.405  10.954 -14.168  1.00 68.41           C
+    ATOM    416  C   GLY A 402     -51.821  11.946 -15.164  1.00 69.71           C
+    ATOM    417  O   GLY A 402     -51.958  13.159 -14.968  1.00 69.61           O
+    ATOM    418  H   GLY A 402     -52.551   8.935 -14.743  1.00  0.00           H
+    ATOM    419  HA3 GLY A 402     -52.225  11.313 -13.155  1.00  0.00           H
+    ATOM    420  HA2 GLY A 402     -53.492  10.960 -14.249  1.00  0.00           H
+    TER
+    HETATM 1929  N1  XYZ A 900     -40.275  19.399 -28.239  1.00  0.00           N1+
+    TER
+    ATOM   1029  N   ALA B 122     -25.408  19.612 -13.814  1.00 37.52           N
+    ATOM   1030  CA  ALA B 122     -26.529  20.537 -14.038  1.00 37.70           C
+    ATOM   1031  C   ALA B 122     -26.386  21.914 -13.374  1.00 45.35           C
+    ATOM   1032  O   ALA B 122     -26.885  22.904 -13.918  1.00 48.34           O
+    ATOM   1033  CB  ALA B 122     -27.835  19.889 -13.613  1.00 37.94           C
+    ATOM   1034  H   ALA B 122     -25.636  18.727 -13.385  1.00  0.00           H
+    ATOM   1035  HA  ALA B 122     -26.592  20.707 -15.113  1.00  0.00           H
+    ATOM   1036  HB1 ALA B 122     -28.658  20.583 -13.783  1.00  0.00           H
+    ATOM   1037  HB2 ALA B 122     -27.998  18.983 -14.196  1.00  0.00           H
+    ATOM   1038  HB3 ALA B 122     -27.788  19.635 -12.554  1.00  0.00           H
+    ATOM   1039  N   GLY B 123     -25.713  21.969 -12.223  1.00 41.18           N
+    ATOM   1040  CA  GLY B 123     -25.550  23.204 -11.460  1.00 41.40           C
+    ATOM   1041  C   GLY B 123     -24.309  24.018 -11.745  1.00 45.74           C
+    ATOM   1042  O   GLY B 123     -24.349  25.234 -11.601  1.00 46.81           O
+    ATOM   1043  H   GLY B 123     -25.290  21.133 -11.845  1.00  0.00           H
+    ATOM   1044  HA3 GLY B 123     -25.593  22.976 -10.395  1.00  0.00           H
+    ATOM   1045  HA2 GLY B 123     -26.430  23.831 -11.600  1.00  0.00           H
+    TER
+    """)
+
+Use case: Sequence of residues by segment
+-----------------------------------------
+In order to select only ATOM record types and get a list of residues by segment, one needs to call:
+
+.. ipython:: python
 
     u = mda.Universe(pdb, format="PDB")
+    residues = list()
     for seg in u.segments:
         p_seg = seg.atoms.select_atoms("record_type ATOM")
-        r_list = p_seg.residues.resnames
-        print(r_list)
+        residues.append(p_seg.residues.resnames)
+    residues
 
-This can be used later on to check whether the residue names belong, for example, to the list of standard residues.
-However, it would be **incorrect** to use:
+As expected, HETATM record type lines are not considered.
 
-.. code-block:: python
+Although syntactically correct, accessing residues via segments (to avoid looping through segments),
+would lead to **unexpected** output
 
-    selected_atoms = u.select_atoms("record_type ATOM")  # CORRECT SYNTAX, BUT INCORRECT RETURN VALUE!
-    residues_wrong = selected_atoms.segments.resnames  # CORRECT SYNTAX, BUT INCORRECT RETURN VALUE!
-    print(residues_wrong)  # CORRECT SYNTAX, BUT INCORRECT RETURN VALUE!
+.. ipython:: python
 
-because, although it nicely returns list of residues in every chain (list of lists, so no need to additionally
-loop through segments), it would return all residues, both for ATOM and HETATM record types, because this construct
-means "give me all residue names from segments in which there is at least one of the selected atoms".
+    selected_atoms = u.select_atoms("record_type ATOM")
+    all_residues = selected_atoms.segments.resnames
+    all_residues
 
-----------------------------------------
+containing residues both for ATOM and HETATM record types; this construct means
+"give me all residue names from segments in which there is at least one of the selected atoms".
+
 Use case: Atoms list grouped by residues
 ----------------------------------------
-In another use case, let's assume that we would like to check if all the heavy protein backbone and sidechain atoms
-are present in every residue. We can easily prepare the expected atom names list in every standard residue, but
-we need to obtain the list of atoms in every residue to compare with (using, for example, a symmetrical difference).
-In order to do that, we want to avoid HETATMs, OXT and hydrogen (H*) atoms, and we need to loop over segments (chains)
-and residues:
+In order to list all the heavy protein backbone and sidechain atoms in every residue, one needs to call:
 
-.. code-block:: python
+.. ipython:: python
 
     u = mda.Universe(pdb, format="PDB")
+    atoms_in_residues = list()
     for seg in u.segments:
-        p_seg = seg.atoms.select_atoms("record_type ATOM and not (name H* or name OXT)")
+        p_seg = seg.atoms.select_atoms("record_type ATOM and not name H*")
         for p_res in p_seg.residues:
-            atoms_in_residue = p_seg.select_atoms(f"resid {p_res.resid} and resname {p_res.resname}").names.tolist()
-            print(atoms_in_residue)
+            atoms_in_residues.append(p_seg.select_atoms(f"resid {p_res.resid} and resname {p_res.resname}").names)
+    atoms_in_residues
 
-However, it would be **incorrect** to use in the body of the first loop:
+As expected, HETATM record type lines and hydrogen atoms are not considered.
 
-.. code-block:: python
+Although syntactically correct, accessing atoms via residues (to avoid looping through residues),
+would lead to **unexpected** output
 
-    atoms_in_residue_wrong = p_seg.residues.names  # CORRECT SYNTAX, BUT INCORRECT RETURN VALUE!
-    print(atoms_in_residue_wrong)  # CORRECT SYNTAX, BUT INCORRECT RETURN VALUE!
+.. ipython:: python
 
-because, although it nicely returns list of atoms in every residue, it would return all atoms (including hydrogen ones),
-because this construct means "give me all atom names from residues in which there is at least one of the selected
-atoms".
+    all_atoms_in_residues = list()
+    for seg in u.segments:
+        p_seg = seg.atoms.select_atoms("record_type ATOM and not name H*")
+        all_atoms_in_residues.append(p_seg.residues.names)
+    all_atoms_in_residues
+
+containing hydrogen atoms; this construct means "give me all atom names from residues
+in which there is at least one of the selected atoms". Please note that it doesn't contain a
+nitrogen atom from XYZ residue as no atoms from this residue were in the
+:class:`~MDAnalysis.core.groups.AtomGroup`.
 
 ---------------------------
 Fragments
