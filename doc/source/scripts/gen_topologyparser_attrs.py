@@ -22,18 +22,19 @@ from MDAnalysisTests.topology.base import mandatory_attrs
 
 MANDATORY_ATTRS = set(mandatory_attrs) 
 
+
 def collect_classes():
     """Collect test classes of each format. Gross hacking"""
-    
+
     parser_attrs = {}
 
     # iterate over all files in MDAnalysisTests.topology
     for _, name, __ in pkgutil.iter_modules(MDAnalysisTests.topology.__path__):
         try:
-            module = importlib.import_module(f"MDAnalysisTests.topology.{name}")
+            mod = importlib.import_module(f"MDAnalysisTests.topology.{name}")
         except Skipped:
             continue
-        for name, obj in inspect.getmembers(module):
+        for name, obj in inspect.getmembers(mod):
             if name.startswith("Test") and inspect.isclass(obj):
                 try:
                     parser = getattr(obj, "parser")
@@ -42,8 +43,8 @@ def collect_classes():
                 else:
                     if parser not in parser_attrs:
                         parser_attrs[parser] = {"expected_attrs": set(),
-                                                "guessed_attrs": set(),}
-                
+                                                "guessed_attrs": set()}
+
                 for attr in parser_attrs[parser]:
                     try:
                         parser_attrs[parser][attr] |= set(getattr(obj, attr))
@@ -68,7 +69,8 @@ class TopologyParsers(TableWriter):
 
     def _set_up_input(self):
         parser_attrs = collect_classes()
-        inp = [(x, y["expected_attrs"], y["guessed_attrs"]) for x, y in parser_attrs.items()]
+        inp = [(x, y["expected_attrs"], y["guessed_attrs"])
+               for x, y in parser_attrs.items()]
         return inp
 
     def get_line(self, parser, expected, guessed):
