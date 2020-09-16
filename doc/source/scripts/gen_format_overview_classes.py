@@ -52,7 +52,7 @@ class FormatOverview(TableWriter):
         return key
     
     def _description(self, fmt, handlers):
-        return DESCRIPTIONS[self.keys[-1]]
+        return DESCRIPTIONS.get(self.keys[-1], "")
     
     def _topology(self, fmt, handlers):
         if 'Topology parser' in handlers:

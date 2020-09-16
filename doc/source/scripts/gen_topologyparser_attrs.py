@@ -8,54 +8,52 @@ Generate three tables:
 This script imports the testsuite, which tests these.
 """
 import os
+import importlib
+import pkgutil
+import inspect
 import sys
 from collections import defaultdict
 from core import DESCRIPTIONS, NON_CORE_ATTRS
 from base import TableWriter
+from _pytest.outcomes import Skipped
 
+import MDAnalysisTests.topology
 from MDAnalysisTests.topology.base import mandatory_attrs
-from MDAnalysisTests.topology.test_crd import TestCRDParser
-from MDAnalysisTests.topology.test_dlpoly import TestDLPHistoryParser, TestDLPConfigParser
-from MDAnalysisTests.topology.test_dms import TestDMSParser
-from MDAnalysisTests.topology.test_fhiaims import TestFHIAIMS
-from MDAnalysisTests.topology.test_gms import GMSBase
-from MDAnalysisTests.topology.test_gro import TestGROParser
-from MDAnalysisTests.topology.test_gsd import TestGSDParser
-from MDAnalysisTests.topology.test_hoomdxml import TestHoomdXMLParser
-from MDAnalysisTests.topology.test_lammpsdata import LammpsBase, TestDumpParser
-from MDAnalysisTests.topology.test_mmtf import TestMMTFParser
-from MDAnalysisTests.topology.test_mol2 import TestMOL2Base
-from MDAnalysisTests.topology.test_parmed import BaseTestParmedParser
-from MDAnalysisTests.topology.test_pdb import TestPDBParser
-from MDAnalysisTests.topology.test_pdbqt import TestPDBQT
-from MDAnalysisTests.topology.test_pqr import TestPQRParser
-from MDAnalysisTests.topology.test_psf import PSFBase
-from MDAnalysisTests.topology.test_top import TestPRMParser
-from MDAnalysisTests.topology.test_tprparser import TPRAttrs
-from MDAnalysisTests.topology.test_txyz import TestTXYZParser
-from MDAnalysisTests.topology.test_xpdb import TestXPDBParser
-from MDAnalysisTests.topology.test_xyz import XYZBase
-
-PARSER_TESTS = (TestCRDParser, TestDLPHistoryParser, TestDLPConfigParser, 
-                TestDMSParser, TestFHIAIMS, GMSBase,
-                TestGROParser, TestGSDParser, TestHoomdXMLParser, 
-                LammpsBase, TestMMTFParser, TestMOL2Base, 
-                BaseTestParmedParser,
-                TestPDBParser, TestPDBQT, TestPQRParser, PSFBase, 
-                TestPRMParser, TPRAttrs, TestTXYZParser, 
-                TestXPDBParser, XYZBase, TestDumpParser)
 
 MANDATORY_ATTRS = set(mandatory_attrs) 
 
-parser_attrs = {}
-
-for p in PARSER_TESTS:
-    e, g = set(p.expected_attrs)-MANDATORY_ATTRS, set(p.guessed_attrs)
-    # clunky hack for PDB
-    if p is TestPDBParser:
-        e.add('elements')
-    parser_attrs[p.parser] = (e, g)
+def collect_classes():
+    """Collect test classes of each format. Gross hacking"""
     
+    parser_attrs = {}
+
+    # iterate over all files in MDAnalysisTests.topology
+    for _, name, __ in pkgutil.iter_modules(MDAnalysisTests.topology.__path__):
+        try:
+            module = importlib.import_module(f"MDAnalysisTests.topology.{name}")
+        except Skipped:
+            continue
+        for name, obj in inspect.getmembers(module):
+            if name.startswith("Test") and inspect.isclass(obj):
+                try:
+                    parser = getattr(obj, "parser")
+                except AttributeError:
+                    continue
+                else:
+                    if parser not in parser_attrs:
+                        parser_attrs[parser] = {"expected_attrs": set(),
+                                                "guessed_attrs": set(),}
+                
+                for attr in parser_attrs[parser]:
+                    try:
+                        parser_attrs[parser][attr] |= set(getattr(obj, attr))
+                    except AttributeError:
+                        pass
+
+    for val in parser_attrs.values():
+        val["expected_attrs"] = val["expected_attrs"] - MANDATORY_ATTRS
+    
+    return parser_attrs
 
 class TopologyParsers(TableWriter):
     headings = ['Format', 'Description', 'Attributes read', 'Attributes guessed']
@@ -69,7 +67,9 @@ class TopologyParsers(TableWriter):
         super(TopologyParsers, self).__init__()
 
     def _set_up_input(self):
-        return [[x, *y] for x, y in parser_attrs.items()]
+        parser_attrs = collect_classes()
+        inp = [(x, y["expected_attrs"], y["guessed_attrs"]) for x, y in parser_attrs.items()]
+        return inp
 
     def get_line(self, parser, expected, guessed):
         line = super(TopologyParsers, self).get_line(parser, expected, guessed)
