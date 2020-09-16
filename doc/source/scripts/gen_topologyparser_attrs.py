@@ -91,7 +91,7 @@ class TopologyParsers(TableWriter):
     
     def _description(self, *args):
         key, label = self.keys[-1]
-        return DESCRIPTIONS[key]
+        return DESCRIPTIONS.get(key, '')
 
     
     def _format(self, *args):
