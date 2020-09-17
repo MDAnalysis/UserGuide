@@ -17,8 +17,8 @@ references and citation information.
 If you need functionality that is not already provided in MDAnalysis, there are 
 `several ways to write your own analysis <custom_trajectory_analysis.ipynb>`__.
 
-If you want to run your own script in parallel in MDAnalysis, here is the `documents to transform
-your code into parallel-compatible form <custom_parallel_analysis.ipynb>`__.
+If you want to run your own script in parallel in MDAnalysis, here is a `tutorial on make your code parallelizable
+<custom_parallel_analysis.ipynb>`__.
 
 
 Imports and dependencies
