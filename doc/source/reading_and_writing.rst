@@ -201,9 +201,9 @@ MDAnalysis supports pickling of most of its data structures and trajectory forma
     pickle.loads(pickle.dumps(psf))
 
 As for :class:`MDAnalysis.core.groups.AtomGroup`, during serialization, it will be pickled with its bound
-:class:`MDAnalysis.core.universe.Universe` which means after unpickling,
+:class:`MDAnalysis.core.universe.Universe`. This means that after unpickling,
 a new :class:`MDAnalysis.core.universe.Universe` will be created and
-be attached by the new :class:`MDAnalysis.core.groups.AtomGroup`. If the Universe is serialized
+be attached to the new :class:`MDAnalysis.core.groups.AtomGroup`. If the Universe is serialized
 with its :class:`MDAnalysis.core.groups.AtomGroup`, they will still be bound together afterwards:
 
 .. ipython:: python
@@ -218,8 +218,8 @@ with its :class:`MDAnalysis.core.groups.AtomGroup`, they will still be bound tog
     print("g_pickled.universe is u_pickled: ",
            u_pickled is g_pickled.universe)
 
-If multiple :class:`MDAnalysis.core.groups.AtomGroup` are bound to the same
-:class:`MDAnalysis.core.universe.Universe`, they will bound to the same one
+If multiple :class:`MDAnalysis.core.groups.AtomGroup`\ s are bound to the same
+:class:`MDAnalysis.core.universe.Universe`, they will also be bound to the same one
 after serialization:
 
 .. ipython:: python
