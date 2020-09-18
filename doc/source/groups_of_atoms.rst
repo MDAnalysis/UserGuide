@@ -66,7 +66,8 @@ For information on adding custom Residues or Segments, have a look at :ref:`addi
 
 Access to other classes via the :class:`~MDAnalysis.core.groups.AtomGroup` object can be pretty powerful, but also
 needs to be used with caution to avoid accessing data outside the intended selection. Therefore, we present two use
-cases showing commonly used applications on a simple extract from the PDB file:
+cases showing commonly used applications, for which we define :class:`~MDAnalysis.core.universe.Universe`
+on a simple extract from the PDB file:
 
 .. ipython:: python
 
@@ -102,6 +103,7 @@ cases showing commonly used applications on a simple extract from the PDB file:
     ATOM   1045  HA2 GLY B 123     -26.430  23.831 -11.600  1.00  0.00           H
     TER
     """)
+    u = mda.Universe(pdb, format="PDB")
 
 Use case: Sequence of residues by segment
 -----------------------------------------
@@ -109,26 +111,27 @@ In order to select only ATOM record types and get a list of residues by segment,
 
 .. ipython:: python
 
-    u = mda.Universe(pdb, format="PDB")
-    residues = list()
+    residues_by_seg = list()
     for seg in u.segments:
         p_seg = seg.atoms.select_atoms("record_type ATOM")
-        residues.append(p_seg.residues.resnames)
-    residues
+        residues_by_seg.append(p_seg.residues)
 
-As expected, HETATM record type lines are not considered.
+Residue names can be extracted using Python's list comprehensions. As required, HETATM record type lines are not
+considered:
 
-Although syntactically correct, accessing residues via segments (to avoid looping through segments),
-would lead to **unexpected** output
+.. ipython:: python
+
+    [rg.resnames for rg in residues_by_seg]
+
+Note that accessing residues by first selecting the segments of an :class:`~MDAnalysis.core.groups.AtomGroup` returns
+all the residues in that segment for both the ATOM and HETATM record types (no memory of the original selection).
+The meaning of this is: "give me all residue names from segments in which there is at least one of the selected atoms".
 
 .. ipython:: python
 
     selected_atoms = u.select_atoms("record_type ATOM")
-    all_residues = selected_atoms.segments.resnames
-    all_residues
-
-containing residues both for ATOM and HETATM record types; this construct means
-"give me all residue names from segments in which there is at least one of the selected atoms".
+    all_residues = selected_atoms.segments.residues
+    all_residues.resnames
 
 Use case: Atoms list grouped by residues
 ----------------------------------------
@@ -136,31 +139,38 @@ In order to list all the heavy protein backbone and sidechain atoms in every res
 
 .. ipython:: python
 
-    u = mda.Universe(pdb, format="PDB")
     atoms_in_residues = list()
     for seg in u.segments:
         p_seg = seg.atoms.select_atoms("record_type ATOM and not name H*")
         for p_res in p_seg.residues:
-            atoms_in_residues.append(p_seg.select_atoms(f"resid {p_res.resid} and resname {p_res.resname}").names)
-    atoms_in_residues
+            atoms_in_residues.append(p_seg.select_atoms(f"resid {p_res.resid} and resname {p_res.resname}"))
 
-As expected, HETATM record type lines and hydrogen atoms are not considered.
+Atom names can be extracted using Python's list comprehensions. As required, HETATM record type lines and hydrogen
+atoms are not considered:
 
-Although syntactically correct, accessing atoms via residues (to avoid looping through residues),
-would lead to **unexpected** output
+.. ipython:: python
+
+    [ag.names for ag in atoms_in_residues]
+
+The Python syntax can be further simplified by using ``split()`` function:
+
+.. ipython:: python
+
+    rds = u.select_atoms("record_type ATOM and not name H*").split("residue")
+    [ag.names for ag in rds]
+
+Note that accessing atoms by first selecting the residues of an :class:`~MDAnalysis.core.groups.AtomGroup` also
+returns hydrogen atoms (no memory of the original selection). The meaning of this is "give me all atom names from
+residues in which there is at least one of the selected atoms". However, it doesn't contain a nitrogen atom from XYZ
+residue as no atoms from this residue were in the :class:`~MDAnalysis.core.groups.AtomGroup`.
 
 .. ipython:: python
 
     all_atoms_in_residues = list()
     for seg in u.segments:
         p_seg = seg.atoms.select_atoms("record_type ATOM and not name H*")
-        all_atoms_in_residues.append(p_seg.residues.names)
-    all_atoms_in_residues
-
-containing hydrogen atoms; this construct means "give me all atom names from residues
-in which there is at least one of the selected atoms". Please note that it doesn't contain a
-nitrogen atom from XYZ residue as no atoms from this residue were in the
-:class:`~MDAnalysis.core.groups.AtomGroup`.
+        all_atoms_in_residues.append(p_seg.residues)
+    [atom.names for atom in all_atoms_in_residues]
 
 ---------------------------
 Fragments
