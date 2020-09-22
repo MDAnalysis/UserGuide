@@ -32,7 +32,11 @@ def collect_classes():
     for _, name, __ in pkgutil.iter_modules(MDAnalysisTests.topology.__path__):
         try:
             mod = importlib.import_module(f"MDAnalysisTests.topology.{name}")
-        except Skipped:
+        except Skipped as e:
+            # don't forget classes because we haven't got dependencies
+            # but don't error on other skippable reasons either
+            print(f"Skipped importing {name}. "
+                  "Maybe you need to install something? " + str(e))
             continue
         for name, obj in inspect.getmembers(mod):
             if name.startswith("Test") and inspect.isclass(obj):
