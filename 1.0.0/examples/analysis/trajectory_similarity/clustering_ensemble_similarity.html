@@ -491,9 +491,9 @@ div.rendered_html tbody tr:hover {
 <script>require=requirejs;</script><div class="section" id="Calculating-the-Clustering-Ensemble-Similarity-between-ensembles">
 <h1>Calculating the Clustering Ensemble Similarity between ensembles<a class="headerlink" href="#Calculating-the-Clustering-Ensemble-Similarity-between-ensembles" title="Permalink to this headline">¶</a></h1>
 <p>Here we compare the conformational ensembles of proteins in three trajectories, using the clustering ensemble similarity method.</p>
-<p><strong>Last executed:</strong> Feb 06, 2020 with MDAnalysis 0.20.2-dev0</p>
-<p><strong>Last updated:</strong> January 2020</p>
-<p><strong>Minimum version of MDAnalysis:</strong> 0.20.1</p>
+<p><strong>Last executed:</strong> Sep 25, 2020 with MDAnalysis 1.0.0</p>
+<p><strong>Last updated:</strong> September 2020</p>
+<p><strong>Minimum version of MDAnalysis:</strong> 1.0.0</p>
 <p><strong>Packages required:</strong></p>
 <ul class="simple">
 <li><p>MDAnalysis (<a class="bibtex reference internal" href="../../../references.html#michaud-agrawal-mdanalysis-2011" id="id1">[MADWB11]</a>, <a class="bibtex reference internal" href="../../../references.html#gowers-mdanalysis-2016" id="id2">[GLB+16]</a>)</p></li>
@@ -564,7 +564,7 @@ div.rendered_html tbody tr:hover {
 <h2>Calculating clustering similarity with default settings<a class="headerlink" href="#Calculating-clustering-similarity-with-default-settings" title="Permalink to this headline">¶</a></h2>
 <p>The clustering ensemble similarity method combines every trajectory into a whole space of conformations, and then uses a user-specified <code class="docutils literal notranslate"><span class="pre">clustering_method</span></code> to partition this into clusters. The population of each trajectory ensemble within each cluster is taken as a probability density function.</p>
 <p>The similarity of each probability density function is compared using the Jensen-Shannon divergence. This divergence has an upper bound of <span class="math notranslate nohighlight">\(\ln{(2)}\)</span>, representing no similarity between the ensembles, and a lower bound of 0.0, representing identical conformational ensembles.</p>
-<p>You do not need to align your trajectories, as the function will align it for you (along your <code class="docutils literal notranslate"><span class="pre">selection</span></code> atoms, which are <code class="docutils literal notranslate"><span class="pre">selection='name</span> <span class="pre">CA'</span></code> by default).</p>
+<p>You do not need to align your trajectories, as the function will align it for you (along your <code class="docutils literal notranslate"><span class="pre">select</span></code>ion atoms, which are <code class="docutils literal notranslate"><span class="pre">select='name</span> <span class="pre">CA'</span></code> by default).</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -633,7 +633,7 @@ We have found 49 clusters
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([ 0,  1,  2,  3, 98])
+&lt;Cluster with 5 elements, centroid=1, id=0&gt;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -725,7 +725,7 @@ damps the message passing to avoid numerical oscillations. <a class="reference e
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">ces1</span><span class="p">,</span> <span class="n">details1</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">ces</span><span class="p">([</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">],</span>
-                         <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
+                         <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
                          <span class="n">clustering_method</span><span class="o">=</span><span class="n">clustering_method</span><span class="p">,</span>
                          <span class="n">ncores</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
@@ -813,7 +813,7 @@ information.)</a></p>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">ces2</span><span class="p">,</span> <span class="n">details2</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">ces</span><span class="p">([</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">],</span>
-                         <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
+                         <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
                          <span class="n">clustering_method</span><span class="o">=</span><span class="p">[</span><span class="n">km1</span><span class="p">,</span> <span class="n">km2</span><span class="p">,</span> <span class="n">db1</span><span class="p">,</span> <span class="n">db2</span><span class="p">],</span>
                          <span class="n">ncores</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ces2</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">details2</span><span class="p">[</span><span class="s1">&#39;clustering&#39;</span><span class="p">]))</span>
@@ -887,7 +887,7 @@ Number of clusters in DBSCAN eps=1: 1
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">avgs</span><span class="p">,</span> <span class="n">stds</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">ces</span><span class="p">([</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">],</span>
-                         <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
+                         <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
                          <span class="n">clustering_method</span><span class="o">=</span><span class="n">clustering_method</span><span class="p">,</span>
                          <span class="n">estimate_error</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                          <span class="n">ncores</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -909,9 +909,9 @@ Number of clusters in DBSCAN eps=1: 1
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[0.        , 0.68394378, 0.69314718],
-       [0.68394378, 0.        , 0.68695471],
-       [0.69314718, 0.68695471, 0.        ]])
+array([[0.        , 0.68948563, 0.69314718],
+       [0.68948563, 0.        , 0.6892104 ],
+       [0.69314718, 0.6892104 , 0.        ]])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -929,9 +929,9 @@ array([[0.        , 0.68394378, 0.69314718],
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[0.00000000e+00, 7.79984746e-03, 8.59975057e-17],
-       [7.79984746e-03, 0.00000000e+00, 7.58419318e-03],
-       [8.59975057e-17, 7.58419318e-03, 0.00000000e+00]])
+array([[0.00000000e+00, 5.68506242e-03, 1.26584901e-16],
+       [5.68506242e-03, 0.00000000e+00, 6.07091046e-03],
+       [1.26584901e-16, 6.07091046e-03, 0.00000000e+00]])
 </pre></div></div>
 </div>
 </div>

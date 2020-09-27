@@ -488,9 +488,9 @@ div.rendered_html tbody tr:hover {
 <script>require=requirejs;</script><div class="section" id="Evaluating-convergence">
 <h1>Evaluating convergence<a class="headerlink" href="#Evaluating-convergence" title="Permalink to this headline">¶</a></h1>
 <p>Here we evaluate the convergence of a trajectory using the clustering ensemble similarity method and the dimensionality reduction ensemble similarity methods.</p>
-<p><strong>Last executed:</strong> Feb 06, 2020 with MDAnalysis 0.20.2-dev0</p>
-<p><strong>Last updated:</strong> January 2020</p>
-<p><strong>Minimum version of MDAnalysis:</strong> 0.20.1</p>
+<p><strong>Last executed:</strong> Sep 25, 2020 with MDAnalysis 1.0.0</p>
+<p><strong>Last updated:</strong> September 2020</p>
+<p><strong>Minimum version of MDAnalysis:</strong> 1.0.0</p>
 <p><strong>Packages required:</strong></p>
 <ul class="simple">
 <li><p>MDAnalysis (<a class="bibtex reference internal" href="../../../references.html#michaud-agrawal-mdanalysis-2011" id="id1">[MADWB11]</a>, <a class="bibtex reference internal" href="../../../references.html#gowers-mdanalysis-2016" id="id2">[GLB+16]</a>)</p></li>
@@ -556,7 +556,7 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">ces_conv</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">ces_convergence</span><span class="p">(</span><span class="n">u</span><span class="p">,</span>  <span class="c1"># universe</span>
                                   <span class="mi">10</span><span class="p">,</span>  <span class="c1"># window size</span>
-                                  <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>  <span class="c1"># default</span>
+                                  <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>  <span class="c1"># default</span>
 </pre></div>
 </div>
 </div>
@@ -652,7 +652,7 @@ Text(0, 0.5, &#39;Jensen-Shannon divergence&#39;)
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">ces_conv2</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">ces_convergence</span><span class="p">(</span><span class="n">u</span><span class="p">,</span>  <span class="c1"># universe</span>
                                   <span class="mi">10</span><span class="p">,</span>  <span class="c1"># window size</span>
-                                  <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
+                                  <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
                                   <span class="n">clustering_method</span><span class="o">=</span><span class="p">[</span><span class="n">km1</span><span class="p">,</span> <span class="n">km2</span><span class="p">,</span> <span class="n">km3</span><span class="p">]</span>
                                  <span class="p">)</span>
 <span class="n">ces_conv2</span><span class="o">.</span><span class="n">shape</span>
@@ -691,7 +691,7 @@ Text(0, 0.5, &#39;Jensen-Shannon divergence&#39;)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.legend.Legend at 0x11f47df28&gt;
+&lt;matplotlib.legend.Legend at 0x7fa762585e80&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -712,7 +712,7 @@ Text(0, 0.5, &#39;Jensen-Shannon divergence&#39;)
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">dres_conv</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">dres_convergence</span><span class="p">(</span><span class="n">u</span><span class="p">,</span>  <span class="c1"># universe</span>
                                   <span class="mi">10</span><span class="p">,</span>  <span class="c1"># window size</span>
-                                  <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>  <span class="c1"># default</span>
+                                  <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>  <span class="c1"># default</span>
 </pre></div>
 </div>
 </div>
@@ -732,14 +732,14 @@ Text(0, 0.5, &#39;Jensen-Shannon divergence&#39;)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[0.53383413],
-       [0.41463847],
-       [0.30425993],
-       [0.24385849],
-       [0.18008969],
-       [0.12072474],
-       [0.05691098],
-       [0.02318104],
+array([[0.53259849],
+       [0.40801451],
+       [0.3137567 ],
+       [0.25160251],
+       [0.19061233],
+       [0.12228127],
+       [0.05960165],
+       [0.03835858],
        [0.        ]])
 </pre></div></div>
 </div>
@@ -798,7 +798,7 @@ Text(0, 0.5, &#39;Jensen-Shannon divergence&#39;)
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">dres_conv2</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">dres_convergence</span><span class="p">(</span><span class="n">u</span><span class="p">,</span>  <span class="c1"># universe</span>
                                   <span class="mi">10</span><span class="p">,</span>  <span class="c1"># window size</span>
-                                  <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
+                                  <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
                                   <span class="n">dimensionality_reduction_method</span><span class="o">=</span><span class="p">[</span><span class="n">pc1</span><span class="p">,</span> <span class="n">pc2</span><span class="p">,</span> <span class="n">pc3</span><span class="p">]</span>
                                  <span class="p">)</span>
 <span class="n">dres_conv2</span><span class="o">.</span><span class="n">shape</span>
@@ -837,7 +837,7 @@ Text(0, 0.5, &#39;Jensen-Shannon divergence&#39;)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.legend.Legend at 0x1257dcb38&gt;
+&lt;matplotlib.legend.Legend at 0x7fa744815910&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">

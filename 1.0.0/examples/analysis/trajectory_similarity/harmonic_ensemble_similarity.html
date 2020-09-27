@@ -117,6 +117,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#Loading-files">Loading files</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Calculating-harmonic-similarity">Calculating harmonic similarity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#References">References</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">References</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="clustering_ensemble_similarity.html">Calculating the Clustering Ensemble Similarity between ensembles</a></li>
@@ -488,8 +489,9 @@ div.rendered_html tbody tr:hover {
 <script>require=requirejs;</script><div class="section" id="Calculating-the-Harmonic-Ensemble-Similarity-between-ensembles">
 <h1>Calculating the Harmonic Ensemble Similarity between ensembles<a class="headerlink" href="#Calculating-the-Harmonic-Ensemble-Similarity-between-ensembles" title="Permalink to this headline">¶</a></h1>
 <p>Here we compare the conformational ensembles of proteins in four trajectories, using the harmonic ensemble similarity method.</p>
-<p><strong>Last updated:</strong> January 2020</p>
-<p><strong>Minimum version of MDAnalysis:</strong> 0.21.0</p>
+<p><strong>Last executed:</strong> Sep 25, 2020 with MDAnalysis 1.0.0</p>
+<p><strong>Last updated:</strong> September 2020</p>
+<p><strong>Minimum version of MDAnalysis:</strong> 1.0.0</p>
 <p><strong>Packages required:</strong></p>
 <ul class="simple">
 <li><p>MDAnalysis (<a class="bibtex reference internal" href="../../../references.html#michaud-agrawal-mdanalysis-2011" id="id1">[MADWB11]</a>, <a class="bibtex reference internal" href="../../../references.html#gowers-mdanalysis-2016" id="id2">[GLB+16]</a>)</p></li>
@@ -503,8 +505,8 @@ div.rendered_html tbody tr:hover {
 <p class="admonition-title"><strong>Note</strong></p>
 <p>The metrics and methods in the <code class="docutils literal notranslate"><span class="pre">encore</span></code> module are from (<a class="bibtex reference internal" href="../../../references.html#tiberti-encore-2015" id="id3">[TPB+15]</a>). Please cite them when using the <code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.encore</span></code> module in published work.</p>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -520,19 +522,11 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-WARNING:root:sklearn.cluster could not be imported: some functionality will not be available in encore.fit_clusters()
-</pre></div></div>
-</div>
 <div class="section" id="Loading-files">
 <h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this headline">¶</a></h2>
-<p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (#beckstein_zipping_2009)</p>
+<p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<a class="bibtex reference internal" href="../../../references.html#beckstein-zipping-2009" id="id4">[BDPW09]</a>)</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -547,7 +541,7 @@ WARNING:root:sklearn.cluster could not be imported: some functionality will not 
 </div>
 <p>The trajectories can have different lengths, as seen below.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -570,12 +564,12 @@ WARNING:root:sklearn.cluster could not be imported: some functionality will not 
 <p>The harmonic ensemble similarity is then calculated using the symmetrised version of the Kullback-Leibler divergence. This has no upper bound, so you can get some very high values for very different ensembles.</p>
 <p>It is recommended that you align your trajectories before computing the harmonic similarity. You can either do this yourself with <code class="docutils literal notranslate"><span class="pre">align.AlignTraj</span></code>, or pass <code class="docutils literal notranslate"><span class="pre">align=True</span></code> into <code class="docutils literal notranslate"><span class="pre">encore.hes</span></code>. The latter option will align each of your Universes to the current timestep of the first Universe. Note that since <code class="docutils literal notranslate"><span class="pre">encore.hes</span></code> will pull your trajectories into memory, this changes the positions of your Universes.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">hes</span><span class="p">,</span> <span class="n">details</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">hes</span><span class="p">([</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">,</span> <span class="n">u4</span><span class="p">],</span>
-                         <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;backbone&#39;</span><span class="p">,</span>
+                         <span class="n">select</span><span class="o">=</span><span class="s1">&#39;backbone&#39;</span><span class="p">,</span>
                          <span class="n">align</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                          <span class="n">cov_estimator</span><span class="o">=</span><span class="s1">&#39;shrinkage&#39;</span><span class="p">,</span>
                          <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;mass&#39;</span><span class="p">)</span>
@@ -583,11 +577,37 @@ WARNING:root:sklearn.cluster could not be imported: some functionality will not 
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">hes</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[      0.        ,   24955.71872369, 1879874.46766093,
+         145622.25410607],
+       [  24955.71872369,       0.        , 1659867.54598667,
+         161102.3362092 ],
+       [1879874.46766093, 1659867.54598667,       0.        ,
+        9900092.71861893],
+       [ 145622.25410607,  161102.3362092 , 9900092.71861893,
+              0.        ]])
+</pre></div></div>
+</div>
+<p>The mean and covariance matrices for each Universe are saved in <code class="docutils literal notranslate"><span class="pre">details</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">details</span><span class="p">[</span><span class="s2">&quot;ensemble1_mean&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -597,21 +617,14 @@ WARNING:root:sklearn.cluster could not be imported: some functionality will not 
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[      0.        ,   24955.71870601, 1879874.4652541 ,
-         145622.25409916],
-       [  24955.71870601,       0.        , 1659867.54594567,
-         161102.33620648],
-       [1879874.4652541 , 1659867.54594567,       0.        ,
-        9900092.71845526],
-       [ 145622.25409916,  161102.33620648, 9900092.71845526,
-              0.        ]])
+array([14.349085 ,  7.2700276, -8.721732 , ..., 10.346109 , 16.531553 ,
+       -6.686297 ], dtype=float32)
 </pre></div></div>
 </div>
-<p>The mean and covariance matrices for each Universe are saved in <code class="docutils literal notranslate"><span class="pre">details</span></code>.</p>
 <div class="section" id="Plotting">
 <h3>Plotting<a class="headerlink" href="#Plotting" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -628,7 +641,7 @@ array([[      0.        ,   24955.71870601, 1879874.4652541 ,
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_trajectory_similarity_harmonic_ensemble_similarity_13_0.png" src="../../../_images/examples_analysis_trajectory_similarity_harmonic_ensemble_similarity_13_0.png" />
+<img alt="../../../_images/examples_analysis_trajectory_similarity_harmonic_ensemble_similarity_14_0.png" src="../../../_images/examples_analysis_trajectory_similarity_harmonic_ensemble_similarity_14_0.png" />
 </div>
 </div>
 </div>
@@ -640,6 +653,13 @@ array([[      0.        ,   24955.71870601, 1879874.4652541 ,
 <p>[2] N. Michaud-Agrawal, E. J. Denning, T. B. Woolf, and O. Beckstein. MDAnalysis: A Toolkit for the Analysis of Molecular Dynamics Simulations. <em>J. Comput. Chem</em>. 32 (2011), 2319-2327, <a class="reference external" href="https://dx.doi.org/10.1002/jcc.21787">doi:10.1002/jcc.21787</a>. PMCID:<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3144279/">PMC3144279</a></p>
 <p>[3] ENCORE: Software for Quantitative Ensemble Comparison. Matteo Tiberti, Elena Papaleo, Tone Bengtsen, Wouter Boomsma, Kresten Lindorff-Larsen. <em>PLoS Comput Biol.</em> 2015, 11, e1004415.</p>
 <p>[4] Beckstein O, Denning EJ, Perilla JR, Woolf TB. Zipping and unzipping of adenylate kinase: atomistic insights into the ensemble of open&lt;–&gt;closed transitions. <em>J Mol Biol</em>. 2009;394(1):160–176. <a class="reference external" href="https://dx.doi.org/10.1016%2Fj.jmb.2009.09.009">doi:10.1016/j.jmb.2009.09.009</a></p>
+</div>
+<div class="section" id="id5">
+<h2>References<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>[1] Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164">https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164</a>, doi:10.1016/j.jmb.2009.09.009.</p>
+<p>[2] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
+<p>[3] Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>, doi:10.1002/jcc.21787.</p>
+<p>[4] Matteo Tiberti, Elena Papaleo, Tone Bengtsen, Wouter Boomsma, and Kresten Lindorff-Larsen. ENCORE: Software for Quantitative Ensemble Comparison. PLOS Computational Biology, 11(10):e1004415, October 2015. 00031. URL: <a class="reference external" href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004415">https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004415</a>, doi:10.1371/journal.pcbi.1004415.</p>
 </div>
 </div>
 
