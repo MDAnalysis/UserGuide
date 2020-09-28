@@ -1,6 +1,7 @@
 ipython==7.14.0
 ipywidgets==7.5.1
 jupyter-contrib-nbextensions
+matplotlib==3.2.2
 MDAnalysis==1.0.0
 MDAnalysisTests==1.0.0
 msmb_theme==1.2.0
