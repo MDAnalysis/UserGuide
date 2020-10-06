@@ -47,7 +47,7 @@
           href="../../../_static/opensearch.xml"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Write your own contacts analysis method" href="contacts_custom.html" />
+    <link rel="next" title="Write your own native contacts analysis method" href="contacts_custom.html" />
     <link rel="prev" title="Q1 vs Q2 contact analysis" href="contacts_q1q2.html" /> 
 </head>
 
@@ -117,13 +117,14 @@
 <li class="toctree-l3"><a class="reference internal" href="contacts_native_fraction.html">Fraction of native contacts over a trajectory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contacts_q1q2.html">Q1 vs Q2 contact analysis</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Contact analysis: number of contacts within a cutoff</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Background">Background</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Loading-files">Loading files</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Defining-the-groups-for-contact-analysis">Defining the groups for contact analysis</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Calculating-number-of-contacts-within-a-cutoff">Calculating number of contacts within a cutoff</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#References">References</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="contacts_custom.html">Write your own contacts analysis method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contacts_custom.html">Write your own native contacts analysis method</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../trajectory_similarity/README.html">Trajectory similarity</a></li>
@@ -492,18 +493,20 @@ div.rendered_html tbody tr:hover {
 <script>require=requirejs;</script><div class="section" id="Contact-analysis:-number-of-contacts-within-a-cutoff">
 <h1>Contact analysis: number of contacts within a cutoff<a class="headerlink" href="#Contact-analysis:-number-of-contacts-within-a-cutoff" title="Permalink to this headline">¶</a></h1>
 <p>We calculate the number of salt bridges in an enzyme as it transitions from a closed to an open conformation.</p>
-<p><strong>Last executed:</strong> Feb 06, 2020 with MDAnalysis 0.20.2-dev0</p>
-<p><strong>Last updated:</strong> January 2020</p>
+<p><strong>Last updated:</strong> June 29, 2020 with MDAnalysis 1.0.0</p>
 <p><strong>Minimum version of MDAnalysis:</strong> 0.17.0</p>
 <p><strong>Packages required:</strong></p>
 <ul class="simple">
 <li><p>MDAnalysis (<a class="bibtex reference internal" href="../../../references.html#michaud-agrawal-mdanalysis-2011" id="id1">[MADWB11]</a>, <a class="bibtex reference internal" href="../../../references.html#gowers-mdanalysis-2016" id="id2">[GLB+16]</a>)</p></li>
 <li><p>MDAnalysisTests</p></li>
-</ul>
-<p><strong>Optional packages for visualisation:</strong></p>
-<ul class="simple">
 <li><p><a class="reference external" href="https://matplotlib.org">matplotlib</a></p></li>
 <li><p><a class="reference external" href="https://pandas.pydata.org">pandas</a></p></li>
+</ul>
+<p><strong>See also</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="contacts_custom.html"><span class="doc">Write your own contacts analysis method</span></a></p></li>
+<li><p><a class="reference internal" href="contacts_q1q2.html"><span class="doc">Q1 vs Q2 contact analysis</span></a></p></li>
+<li><p><a class="reference internal" href="contacts_native_fraction.html"><span class="doc">Fraction of native contacts over a trajectory</span></a></p></li>
 </ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -521,6 +524,11 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="section" id="Background">
+<h2>Background<a class="headerlink" href="#Background" title="Permalink to this headline">¶</a></h2>
+<p>Quantifying the number of contacts over a trajectory can give insight into the formation and rearrangements of secondary and tertiary structure. This is closely related to native contacts analysis; where the fraction of native contacts refers to the fraction of contacts retained by a protein from the contacts in a reference frame, the number of contacts simply counts how many residues are within a certain cutoff for each frame. No reference is necessary. Please see the <a class="reference internal" href="contacts_native_fraction.html#Background"><span class="std std-ref">Fraction of native
+contacts</span></a> for an introduction to native contacts analysis.</p>
+</div>
 <div class="section" id="Loading-files">
 <h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this headline">¶</a></h2>
 <p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<a class="bibtex reference internal" href="../../../references.html#beckstein-zipping-2009" id="id3">[BDPW09]</a>) The trajectory <code class="docutils literal notranslate"><span class="pre">DCD</span></code> samples a transition from a closed to an open conformation.</p>
@@ -536,7 +544,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Defining-the-groups-for-contact-analysis">
 <h2>Defining the groups for contact analysis<a class="headerlink" href="#Defining-the-groups-for-contact-analysis" title="Permalink to this headline">¶</a></h2>
-<p>We define salt bridges as contacts between NH/NZ in ARG/LYS and OE*/OD* in ASP/GLU. You may not want to use this definition for real work.</p>
+<p>We define salt bridges as contacts between NH/NZ in ARG/LYS and OE*/OD* in ASP/GLU. It is not recommend to use this overly simplistic definition for real work that you want to publish.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -683,7 +691,7 @@ Text(0, 0.5, &#39;# salt bridges&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_distances_and_contacts_contacts_within_cutoff_14_1.png" src="../../../_images/examples_analysis_distances_and_contacts_contacts_within_cutoff_14_1.png" />
+<img alt="../../../_images/examples_analysis_distances_and_contacts_contacts_within_cutoff_15_1.png" src="../../../_images/examples_analysis_distances_and_contacts_contacts_within_cutoff_15_1.png" />
 </div>
 </div>
 </div>
@@ -704,7 +712,7 @@ Text(0, 0.5, &#39;# salt bridges&#39;)
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="contacts_custom.html" class="btn btn-neutral float-right" title="Write your own contacts analysis method" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="contacts_custom.html" class="btn btn-neutral float-right" title="Write your own native contacts analysis method" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="contacts_q1q2.html" class="btn btn-neutral float-left" title="Q1 vs Q2 contact analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
