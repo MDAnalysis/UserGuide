@@ -116,6 +116,7 @@ versions.sort(key=lambda x: x["version"])
 # latest/index.html -> latest release
 # dev/index.html -> dev docs
 
+
 def redirect_sitemap(old_version, new_version):
     """Replace paths in copied sitemap.xml with new directory path
 
@@ -157,6 +158,7 @@ def copy_version(old_version, new_version):
     print(f"Copied {old_version} to {new_version}")
     redirect_sitemap(old_version, new_version)
     add_or_update_version(new_version)
+
 
 # Copy stable/ docs and write redirects from root level docs
 if latest:
