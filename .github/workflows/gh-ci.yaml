@@ -46,6 +46,7 @@ jobs:
 
     - name: build_docs
       run: |
+        conda activate mda-user-guide
         make -C ${SPHINX_DIR} html
 
     - name: deploy_docs
