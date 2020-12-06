@@ -44,15 +44,6 @@ jobs:
       run: |
         jupyter-nbextension enable nglview --py --sys-prefix
 
-        conda install ${{ env.CONDA_MDA_DEPS }}
-
-    - name: install_mda
-      run: |
-        # develop
-        git clone https://github.com/MDAnalysis/mdanalysis.git
-        cd mdanalysis
-        (cd package/ && python setup.py develop) && (cd testsuite/ && python setup.py install)
-
     - name: build_docs
       run: |
         make -C ${SPHINX_DIR} html
