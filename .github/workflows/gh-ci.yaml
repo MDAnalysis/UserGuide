@@ -14,8 +14,6 @@ defaults:
     shell: bash -l {0}
 
 env:
-  CONDA_DEPS: "jupyter_contrib_nbextensions nglview sphinx ipywidgets matplotlib==3.2.2 MDAnalysis MDAnalysisTests plotly"
-  PIP_DEPS: "sphinx_rtd_theme sphinx-sitemap nbsphinx ipython tabulate sphinxcontrib-bibtex pybtex msmb_theme==1.2.0"
   SPHINX_DIR: "doc/"
   HTML_DIR: "doc/build/html"
 
@@ -42,12 +40,13 @@ jobs:
 
     - name: install_deps
       run: |
-        conda install ${{ env.CONDA_DEPS }}
-        pip install ${{ env.PIP_DEPS }}
+        conda env create -f environment.yml
+        conda activate mda-user-guide
         jupyter-nbextension enable nglview --py --sys-prefix
 
     - name: build_docs
       run: |
+        conda activate mda-user-guide
         make -C ${SPHINX_DIR} html
 
     - name: deploy_docs
