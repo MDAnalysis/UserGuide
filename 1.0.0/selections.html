@@ -155,7 +155,6 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html#dimension-reduction">Dimension reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html#polymers-and-membranes">Polymers and membranes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/analysis/custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
@@ -252,14 +251,14 @@
 <span class="gh">Out[5]: </span><span class="go">&lt;AtomGroup with 190 atoms&gt;</span>
 </pre></div>
 </div>
-<p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">select_atoms()</span></code> method of a
-<code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code> or a
-<code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code> returns an
-<code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code>. These two methods have different behaviour: while <code class="xref py py-meth docutils literal notranslate"><span class="pre">Universe.select_atoms</span></code> operates on all the atoms in the universe, <code class="xref py py-meth docutils literal notranslate"><span class="pre">AtomGroup.select_atoms</span></code> only operates on the atoms within the original AtomGroup. A single selection phrase always returns an
-<code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code> with atoms sorted according to their
+<p>The <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.select_atoms" title="(in MDAnalysis v1.0.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">select_atoms()</span></code></a> method of a
+<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> or a
+<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a> returns an
+<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a>. These two methods have different behaviour: while <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.select_atoms" title="(in MDAnalysis v1.0.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Universe.select_atoms</span></code></a> operates on all the atoms in the universe, <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.select_atoms" title="(in MDAnalysis v1.0.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AtomGroup.select_atoms</span></code></a> only operates on the atoms within the original AtomGroup. A single selection phrase always returns an
+<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> with atoms sorted according to their
 index in the topology. This is to ensure that there are not any duplicates,
 which can happen with complicated selections. When order matters, <a class="reference internal" href="#ordered-selections"><span class="std std-ref">you can pass in multiple phrases</span></a>.</p>
-<p>This page documents selection keywords and their arguments. <code class="xref py py-meth docutils literal notranslate"><span class="pre">select_atoms()</span></code> also accepts keywords that modify the behaviour of the selection string and the resulting <code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code> (documented further down this page). For example, you can:</p>
+<p>This page documents selection keywords and their arguments. <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.select_atoms" title="(in MDAnalysis v1.0.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">select_atoms()</span></code></a> also accepts keywords that modify the behaviour of the selection string and the resulting <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> (documented further down this page). For example, you can:</p>
 <ul class="simple">
 <li><p>Pass in <a class="reference internal" href="#preexisting-selections"><span class="std std-ref">named AtomGroups as arguments</span></a>:</p></li>
 </ul>
@@ -469,15 +468,15 @@ selects 5th through 10th atoms, inclusive.</p>
 <dl class="simple">
 <dt>group <cite>group-name</cite></dt><dd><p>selects the atoms in the <code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code> passed to the function as an
 argument named <cite>group-name</cite>. Only the atoms common to <cite>group-name</cite> and the
-instance <code class="xref py py-meth docutils literal notranslate"><span class="pre">select_atoms()</span></code> was called
+instance <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.select_atoms" title="(in MDAnalysis v1.0.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">select_atoms()</span></code></a> was called
 from will be considered, unless <code class="docutils literal notranslate"><span class="pre">group</span></code> is preceded by the <code class="docutils literal notranslate"><span class="pre">global</span></code>
 keyword. <cite>group-name</cite> will be included in the parsing just by comparison of
 atom indices. This means that it is up to the user to make sure the
 <cite>group-name</cite> group was defined in an appropriate <code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code>.</p>
 </dd>
 <dt>global <em>selection</em></dt><dd><p>by default, when issuing
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">select_atoms()</span></code> from an
-<code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code>, selections and subselections
+<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.select_atoms" title="(in MDAnalysis v1.0.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">select_atoms()</span></code></a> from an
+<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a>, selections and subselections
 are returned intersected with the atoms of that instance.  Prefixing a
 selection term with <code class="docutils literal notranslate"><span class="pre">global</span></code> causes its selection to be returned in its
 entirety.  As an example, the <code class="docutils literal notranslate"><span class="pre">global</span></code> keyword allows for
@@ -485,20 +484,20 @@ entirety.  As an example, the <code class="docutils literal notranslate"><span c
 a group that does not contain any proteins. Were <code class="docutils literal notranslate"><span class="pre">global</span></code> absent, the
 result would be an empty selection since the <code class="docutils literal notranslate"><span class="pre">protein</span></code> subselection would
 itself be empty.  When calling
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">select_atoms()</span></code> from a
-<code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code>, <code class="docutils literal notranslate"><span class="pre">global</span></code> is ignored.</p>
+<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.select_atoms" title="(in MDAnalysis v1.0.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">select_atoms()</span></code></a> from a
+<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a>, <code class="docutils literal notranslate"><span class="pre">global</span></code> is ignored.</p>
 </dd>
 </dl>
 </div>
 </div>
 <div class="section" id="dynamic-selections">
 <span id="id2"></span><h2>Dynamic selections<a class="headerlink" href="#dynamic-selections" title="Permalink to this headline">¶</a></h2>
-<p>By default <code class="xref py py-meth docutils literal notranslate"><span class="pre">select_atoms()</span></code> returns an
-<code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code>, in which the list of atoms is
+<p>By default <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.select_atoms" title="(in MDAnalysis v1.0.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">select_atoms()</span></code></a> returns an
+<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a>, in which the list of atoms is
 constant across trajectory frame changes. If
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">select_atoms()</span></code> is invoked with named
+<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.select_atoms" title="(in MDAnalysis v1.0.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">select_atoms()</span></code></a> is invoked with named
 argument <code class="docutils literal notranslate"><span class="pre">updating</span></code> set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, an
-<code class="xref py py-class docutils literal notranslate"><span class="pre">UpdatingAtomGroup</span></code> instance will be returned
+<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.UpdatingAtomGroup" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">UpdatingAtomGroup</span></code></a> instance will be returned
 instead.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># A dynamic selection of corner atoms:</span>
 <span class="gp">In [12]: </span><span class="n">ag_updating</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;prop x &lt; 5 and prop y &lt; 5 and prop z &lt; 5&quot;</span><span class="p">,</span> <span class="n">updating</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -507,10 +506,10 @@ instead.</p>
 <span class="gh">Out[13]: </span><span class="go">&lt;AtomGroup with 917 atoms, with selection &#39;prop x &lt; 5 and prop y &lt; 5 and prop z &lt; 5&#39; on the entire Universe.&gt;</span>
 </pre></div>
 </div>
-<p>It behaves just like an <code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code>
+<p>It behaves just like an <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a>
 object, with the difference that the selection expressions are re-evaluated
 every time the trajectory frame changes (this happens lazily, only when the
-<code class="xref py py-class docutils literal notranslate"><span class="pre">UpdatingAtomGroup</span></code> object is accessed so that
+<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.UpdatingAtomGroup" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">UpdatingAtomGroup</span></code></a> object is accessed so that
 there is no redundant updating going on):</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
 <span class="gh">Out[14]: </span><span class="go">&lt; Timestep 1 with unit cell dimensions [ 0.  0.  0. 90. 90. 90.] &gt;</span>
@@ -522,8 +521,8 @@ there is no redundant updating going on):</p>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">group</span></code> selection keyword for
 <a class="reference internal" href="#preexisting-selections"><span class="std std-ref">Preexisting selections and modifiers</span></a>, one can
 make updating selections depend on
-<code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code>, or even other
-<code class="xref py py-class docutils literal notranslate"><span class="pre">UpdatingAtomGroup</span></code>, instances.
+<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a>, or even other
+<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.UpdatingAtomGroup" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">UpdatingAtomGroup</span></code></a>, instances.
 Likewise, making an updating selection from an already updating group will
 cause later updates to also reflect the updating of the base group:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">chained_ag_updating</span> <span class="o">=</span> <span class="n">ag_updating</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;resid 1:1000&quot;</span><span class="p">,</span> <span class="n">updating</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -539,8 +538,8 @@ cause later updates to also reflect the updating of the base group:</p>
 </pre></div>
 </div>
 <p>Finally, a non-updating selection or a slicing/addition operation made on an
-<code class="xref py py-class docutils literal notranslate"><span class="pre">UpdatingAtomGroup</span></code> will return a static
-<code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code>, which will no longer update
+<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.UpdatingAtomGroup" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">UpdatingAtomGroup</span></code></a> will return a static
+<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a>, which will no longer update
 across frames:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [20]: </span><span class="n">static_ag</span> <span class="o">=</span> <span class="n">ag_updating</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;resid 1:1000&quot;</span><span class="p">)</span>
 
@@ -557,8 +556,8 @@ across frames:</p>
 </div>
 <div class="section" id="ordered-selections">
 <span id="id3"></span><h2>Ordered selections<a class="headerlink" href="#ordered-selections" title="Permalink to this headline">¶</a></h2>
-<p><code class="xref py py-meth docutils literal notranslate"><span class="pre">select_atoms()</span></code> sorts the atoms
-in the <code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code> by atom index before
+<p><a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.select_atoms" title="(in MDAnalysis v1.0.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">select_atoms()</span></code></a> sorts the atoms
+in the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> by atom index before
 returning them (this is to eliminate possible duplicates in the
 selection). If the ordering of atoms is crucial (for instance when
 describing angles or dihedrals) or if duplicate atoms are required
@@ -575,7 +574,7 @@ them.</p>
 </pre></div>
 </div>
 <p>A shortcut is to provide <em>two or more</em> selections to
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">select_atoms()</span></code>, which then
+<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.select_atoms" title="(in MDAnalysis v1.0.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">select_atoms()</span></code></a>, which then
 does the concatenation automatically:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="nb">list</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;resid 3 and name CA&quot;</span><span class="p">,</span> <span class="s2">&quot;resid 2 and name CA&quot;</span><span class="p">))</span>
 <span class="gh">Out[16]: </span><span class="go"></span>
@@ -615,7 +614,7 @@ work as one might expect:</p>
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2019-2020, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein.
+        &copy; Copyright 2019-2020, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein.
 
     </p>
   </div>

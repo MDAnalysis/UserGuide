@@ -142,7 +142,6 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html#dimension-reduction">Dimension reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html#polymers-and-membranes">Polymers and membranes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/analysis/custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Advanced</span></p>
 <ul class="current">
@@ -233,7 +232,7 @@
 <span id="advanced-topology"></span><h1>Advanced topology concepts<a class="headerlink" href="#advanced-topology-concepts" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="adding-a-residue-or-segment-to-a-universe">
 <span id="adding-residue"></span><h2>Adding a Residue or Segment to a Universe<a class="headerlink" href="#adding-a-residue-or-segment-to-a-universe" title="Permalink to this headline">¶</a></h2>
-<p>To add a <code class="xref py py-class docutils literal notranslate"><span class="pre">Residue</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">Segment</span></code> to a topology, use the <code class="xref py py-meth docutils literal notranslate"><span class="pre">Universe.add_Residue</span></code> or <code class="xref py py-meth docutils literal notranslate"><span class="pre">Universe.add_Segment</span></code> methods.</p>
+<p>To add a <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.Residue" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Residue</span></code></a> or <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.Segment" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Segment</span></code></a> to a topology, use the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.add_Residue" title="(in MDAnalysis v1.0.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Universe.add_Residue</span></code></a> or <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.add_Segment" title="(in MDAnalysis v1.0.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Universe.add_Segment</span></code></a> methods.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">u</span><span class="o">.</span><span class="n">segments</span>
 <span class="go">&lt;SegmentGroup with 1 segment&gt;</span>
@@ -246,7 +245,7 @@
 <span class="go">&lt;AtomGroup with 0 atoms&gt;</span>
 </pre></div>
 </div>
-<p>To assign the last 100 residues from the <code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code> to this new Segment:</p>
+<p>To assign the last 100 residues from the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a> to this new Segment:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">u</span><span class="o">.</span><span class="n">residues</span><span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">:]</span><span class="o">.</span><span class="n">segments</span> <span class="o">=</span> <span class="n">newseg</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">newseg</span><span class="o">.</span><span class="n">atoms</span>
 <span class="go">&lt;AtomGroup with 1600 atoms&gt;</span>
@@ -300,7 +299,7 @@ AttributeError: AtomGroup has no attribute molecules
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2019-2020, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein.
+        &copy; Copyright 2019-2020, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein.
 
     </p>
   </div>
