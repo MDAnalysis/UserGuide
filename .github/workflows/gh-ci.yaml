@@ -45,7 +45,7 @@ jobs:
         jupyter-nbextension enable nglview --py --sys-prefix
 
         # develop
-        git clone git@github.com:MDAnalysis/mdanalysis.git
+        git clone https://github.com/MDAnalysis/mdanalysis.git
         cd mdanalysis/package
         python setup.py install
         cd ../testsuite
