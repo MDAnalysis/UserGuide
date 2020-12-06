@@ -1,7 +1,8 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -11,11 +12,6 @@
   
 
   
-  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-
-  
   
     <link rel="shortcut icon" href="_static/mdanalysis-logo.ico"/>
   
@@ -23,9 +19,7 @@
   
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -45,6 +39,11 @@
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within MDAnalysis User Guide  documentation"
           href="_static/opensearch.xml"/>
+
+  
+  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Reading and writing files" href="reading_and_writing.html" />
@@ -92,7 +91,6 @@
           
         </div>
 
-        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -155,6 +153,7 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html#dimension-reduction">Dimension reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html#polymers-and-membranes">Polymers and membranes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/analysis/custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
@@ -176,7 +175,6 @@
             
           
         </div>
-        
       </div>
     </nav>
 
@@ -215,7 +213,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="index.html">Docs</a> &raquo;</li>
         
       <li>Units and constants</li>
     
@@ -296,11 +294,11 @@ densities can be given in <span class="math notranslate nohighlight">\(g/cm^3\)<
 </table>
 <div class="section" id="unit-conversion">
 <h2>Unit conversion<a class="headerlink" href="#unit-conversion" title="Permalink to this headline">¶</a></h2>
-<p>Quantities can be converted from units with <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/units.html#MDAnalysis.units.convert" title="(in MDAnalysis v1.0.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">convert()</span></code></a>.
-<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/units.html#MDAnalysis.units.convert" title="(in MDAnalysis v1.0.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">convert()</span></code></a> simply multiplies the initial quantity with a
+<p>Quantities can be converted from units with <a class="reference external" href="https://docs.mdanalysis.org/1.0.0/documentation_pages/units.html#MDAnalysis.units.convert" title="(in MDAnalysis v1.0.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">convert()</span></code></a>.
+<a class="reference external" href="https://docs.mdanalysis.org/1.0.0/documentation_pages/units.html#MDAnalysis.units.convert" title="(in MDAnalysis v1.0.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">convert()</span></code></a> simply multiplies the initial quantity with a
 precomputed conversion factor, as obtained from
-<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/units.html#MDAnalysis.units.get_conversion_factor" title="(in MDAnalysis v1.0.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_conversion_factor()</span></code></a>.</p>
-<p>The computed conversion factors for each quantity type are stored in <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/units.html#module-MDAnalysis.units" title="(in MDAnalysis v1.0.0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.units</span></code></a> and shown below.</p>
+<a class="reference external" href="https://docs.mdanalysis.org/1.0.0/documentation_pages/units.html#MDAnalysis.units.get_conversion_factor" title="(in MDAnalysis v1.0.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_conversion_factor()</span></code></a>.</p>
+<p>The computed conversion factors for each quantity type are stored in <a class="reference external" href="https://docs.mdanalysis.org/1.0.0/documentation_pages/units.html#module-MDAnalysis.units" title="(in MDAnalysis v1.0.0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.units</span></code></a> and shown below.</p>
 </div>
 <div class="section" id="constants">
 <h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
@@ -639,8 +637,7 @@ precomputed conversion factor, as obtained from
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2019-2020, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein.
+        &copy; Copyright 2019-2020, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein.
 
     </p>
   </div>

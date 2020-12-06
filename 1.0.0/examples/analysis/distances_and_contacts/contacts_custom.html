@@ -1,19 +1,15 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Write your own contacts analysis method &mdash; MDAnalysis User Guide  documentation</title>
+  <title>Write your own native contacts analysis method &mdash; MDAnalysis User Guide  documentation</title>
   
-
-  
-  <link rel="stylesheet" href="../../../_static/css/msmb.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
 
   
   
@@ -23,9 +19,7 @@
   
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
@@ -45,6 +39,11 @@
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within MDAnalysis User Guide  documentation"
           href="../../../_static/opensearch.xml"/>
+
+  
+  <link rel="stylesheet" href="../../../_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Trajectory similarity" href="../trajectory_similarity/README.html" />
@@ -92,7 +91,6 @@
           
         </div>
 
-        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -117,8 +115,9 @@
 <li class="toctree-l3"><a class="reference internal" href="contacts_native_fraction.html">Fraction of native contacts over a trajectory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contacts_q1q2.html">Q1 vs Q2 contact analysis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contacts_within_cutoff.html">Contact analysis: number of contacts within a cutoff</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Write your own contacts analysis method</a><ul>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Write your own native contacts analysis method</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Loading-files">Loading files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Background">Background</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Defining-salt-bridges">Defining salt bridges</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Define-your-own-function">Define your own function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#References">References</a></li>
@@ -169,6 +168,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../README.html#dimension-reduction">Dimension reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#polymers-and-membranes">Polymers and membranes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
@@ -190,7 +190,6 @@
             
           
         </div>
-        
       </div>
     </nav>
 
@@ -229,13 +228,13 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
           <li><a href="../../README.html">Examples</a> &raquo;</li>
         
           <li><a href="README.html">Distances and contacts</a> &raquo;</li>
         
-      <li>Write your own contacts analysis method</li>
+      <li>Write your own native contacts analysis method</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -259,35 +258,21 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt *,
-div.nbinput.container div.input_area pre,
-div.nboutput.container div.output_area pre,
-div.nbinput.container div.input_area .highlight,
-div.nboutput.container div.output_area .highlight {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
     border: none;
-    padding: 0;
+    padding: 0 0;
     margin: 0;
     box-shadow: none;
-}
-
-div.nbinput.container > div[class*=highlight],
-div.nboutput.container > div[class*=highlight] {
-    margin: 0;
-}
-
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt * {
-    background: none;
-}
-
-div.nboutput.container div.output_area .highlight,
-div.nboutput.container div.output_area pre {
-    background: unset;
-}
-
-div.nboutput.container div.output_area div.highlight {
-    color: unset;  /* override Pygments text color */
 }
 
 /* avoid gaps between output lines */
@@ -388,7 +373,7 @@ div.nboutput.container div.output_area {
 div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
-    /*background: #f5f5f5;*/
+    background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
@@ -454,7 +439,6 @@ div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
     padding: 5px;
-    margin: 0;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -503,21 +487,23 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
-<script>require=requirejs;</script><div class="section" id="Write-your-own-contacts-analysis-method">
-<h1>Write your own contacts analysis method<a class="headerlink" href="#Write-your-own-contacts-analysis-method" title="Permalink to this headline">¶</a></h1>
+<script>require=requirejs;</script><div class="section" id="Write-your-own-native-contacts-analysis-method">
+<h1>Write your own native contacts analysis method<a class="headerlink" href="#Write-your-own-native-contacts-analysis-method" title="Permalink to this headline">¶</a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">contacts.Contacts</span></code> class has been designed to be extensible for your own analysis. Here we demonstrate how to define a new method to use to determine the fraction of native contacts.</p>
-<p><strong>Last executed:</strong> Feb 06, 2020 with MDAnalysis 0.20.2-dev0</p>
-<p><strong>Last updated:</strong> January 2020</p>
-<p><strong>Minimum version of MDAnalysis:</strong> 0.17.0</p>
+<p><strong>Last updated:</strong> June 29, 2020 with MDAnalysis 1.0.0</p>
+<p><strong>Minimum version of MDAnalysis:</strong> 1.0.0</p>
 <p><strong>Packages required:</strong></p>
 <ul class="simple">
 <li><p>MDAnalysis (<a class="bibtex reference internal" href="../../../references.html#michaud-agrawal-mdanalysis-2011" id="id1">[MADWB11]</a>, <a class="bibtex reference internal" href="../../../references.html#gowers-mdanalysis-2016" id="id2">[GLB+16]</a>)</p></li>
 <li><p>MDAnalysisTests</p></li>
-</ul>
-<p><strong>Optional packages for molecular and data visualisation:</strong></p>
-<ul class="simple">
 <li><p><a class="reference external" href="https://matplotlib.org">matplotlib</a></p></li>
 <li><p><a class="reference external" href="https://pandas.pydata.org">pandas</a></p></li>
+</ul>
+<p><strong>See also</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="contacts_native_fraction.html"><span class="doc">Fraction of native contacts over a trajectory</span></a> (pre-defined metrics and a general introduction to native contacts analysis)</p></li>
+<li><p><a class="reference internal" href="contacts_q1q2.html"><span class="doc">Q1 vs Q2 contact analysis</span></a></p></li>
+<li><p><a class="reference internal" href="contacts_within_cutoff.html"><span class="doc">Contact analysis: number of contacts within a cutoff</span></a></p></li>
 </ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -547,6 +533,10 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="Background">
+<h2>Background<a class="headerlink" href="#Background" title="Permalink to this headline">¶</a></h2>
+<p>Please see the <a class="reference internal" href="contacts_native_fraction.html#Background"><span class="std std-ref">Fraction of native contacts</span></a> for an introduction to general native contacts analysis.</p>
 </div>
 <div class="section" id="Defining-salt-bridges">
 <h2>Defining salt bridges<a class="headerlink" href="#Defining-salt-bridges" title="Permalink to this headline">¶</a></h2>
@@ -592,7 +582,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">ca</span> <span class="o">=</span> <span class="n">contacts</span><span class="o">.</span><span class="n">Contacts</span><span class="p">(</span><span class="n">u</span><span class="p">,</span>
-                       <span class="n">selection</span><span class="o">=</span><span class="p">(</span><span class="n">sel_acidic</span><span class="p">,</span> <span class="n">sel_basic</span><span class="p">),</span>
+                       <span class="n">select</span><span class="o">=</span><span class="p">(</span><span class="n">sel_acidic</span><span class="p">,</span> <span class="n">sel_basic</span><span class="p">),</span>
                        <span class="n">refgroup</span><span class="o">=</span><span class="p">(</span><span class="n">acidic</span><span class="p">,</span> <span class="n">basic</span><span class="p">),</span>
                        <span class="n">method</span><span class="o">=</span><span class="n">fraction_contacts_between</span><span class="p">,</span>
                        <span class="n">radius</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span>
@@ -601,7 +591,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
+<p>One easy way to post-process results is to turn them into a dataframe.</p>
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
@@ -609,11 +600,70 @@ div.rendered_html tbody tr:hover {
 <span></span><span class="n">ca_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ca</span><span class="o">.</span><span class="n">timeseries</span><span class="p">,</span>
                     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Frame&#39;</span><span class="p">,</span>
                              <span class="s1">&#39;Contacts from first frame&#39;</span><span class="p">])</span>
+<span class="n">ca_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Frame</th>
+      <th>Contacts from first frame</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.0</td>
+      <td>0.988764</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2.0</td>
+      <td>0.943820</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3.0</td>
+      <td>0.943820</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4.0</td>
+      <td>0.943820</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
 <div class="section" id="Plotting">
 <h3>Plotting<a class="headerlink" href="#Plotting" title="Permalink to this headline">¶</a></h3>
+<p>We can plot directly from a dataframe (below), or you could use it with other plotting packags such as <a class="reference external" href="seaborn.pydata.org/">seaborn</a>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -629,14 +679,14 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.axes._subplots.AxesSubplot at 0x113ad2ac8&gt;
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x119eadfd0&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_distances_and_contacts_contacts_custom_14_1.png" src="../../../_images/examples_analysis_distances_and_contacts_contacts_custom_14_1.png" />
+<img alt="../../../_images/examples_analysis_distances_and_contacts_contacts_custom_16_1.png" src="../../../_images/examples_analysis_distances_and_contacts_contacts_custom_16_1.png" />
 </div>
 </div>
 </div>
@@ -669,8 +719,7 @@ div.rendered_html tbody tr:hover {
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2019-2020, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein.
+        &copy; Copyright 2019-2020, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein.
 
     </p>
   </div>

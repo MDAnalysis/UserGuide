@@ -1,7 +1,8 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -11,11 +12,6 @@
   
 
   
-  <link rel="stylesheet" href="../../../_static/css/msmb.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
-
-  
   
     <link rel="shortcut icon" href="../../../_static/mdanalysis-logo.ico"/>
   
@@ -23,9 +19,7 @@
   
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
@@ -45,6 +39,11 @@
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within MDAnalysis User Guide  documentation"
           href="../../../_static/opensearch.xml"/>
+
+  
+  <link rel="stylesheet" href="../../../_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Structure" href="../structure/README.html" />
@@ -92,7 +91,6 @@
           
         </div>
 
-        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -166,6 +164,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../README.html#dimension-reduction">Dimension reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#polymers-and-membranes">Polymers and membranes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
@@ -187,7 +186,6 @@
             
           
         </div>
-        
       </div>
     </nav>
 
@@ -226,7 +224,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
           <li><a href="../../README.html">Examples</a> &raquo;</li>
         
@@ -256,35 +254,21 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt *,
-div.nbinput.container div.input_area pre,
-div.nboutput.container div.output_area pre,
-div.nbinput.container div.input_area .highlight,
-div.nboutput.container div.output_area .highlight {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
     border: none;
-    padding: 0;
+    padding: 0 0;
     margin: 0;
     box-shadow: none;
-}
-
-div.nbinput.container > div[class*=highlight],
-div.nboutput.container > div[class*=highlight] {
-    margin: 0;
-}
-
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt * {
-    background: none;
-}
-
-div.nboutput.container div.output_area .highlight,
-div.nboutput.container div.output_area pre {
-    background: unset;
-}
-
-div.nboutput.container div.output_area div.highlight {
-    color: unset;  /* override Pygments text color */
 }
 
 /* avoid gaps between output lines */
@@ -385,7 +369,7 @@ div.nboutput.container div.output_area {
 div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
-    /*background: #f5f5f5;*/
+    background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
@@ -451,7 +435,6 @@ div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
     padding: 5px;
-    margin: 0;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -503,9 +486,9 @@ div.rendered_html tbody tr:hover {
 <script>require=requirejs;</script><div class="section" id="Evaluating-convergence">
 <h1>Evaluating convergence<a class="headerlink" href="#Evaluating-convergence" title="Permalink to this headline">¶</a></h1>
 <p>Here we evaluate the convergence of a trajectory using the clustering ensemble similarity method and the dimensionality reduction ensemble similarity methods.</p>
-<p><strong>Last executed:</strong> Feb 06, 2020 with MDAnalysis 0.20.2-dev0</p>
-<p><strong>Last updated:</strong> January 2020</p>
-<p><strong>Minimum version of MDAnalysis:</strong> 0.20.1</p>
+<p><strong>Last executed:</strong> Sep 25, 2020 with MDAnalysis 1.0.0</p>
+<p><strong>Last updated:</strong> September 2020</p>
+<p><strong>Minimum version of MDAnalysis:</strong> 1.0.0</p>
 <p><strong>Packages required:</strong></p>
 <ul class="simple">
 <li><p>MDAnalysis (<a class="bibtex reference internal" href="../../../references.html#michaud-agrawal-mdanalysis-2011" id="id1">[MADWB11]</a>, <a class="bibtex reference internal" href="../../../references.html#gowers-mdanalysis-2016" id="id2">[GLB+16]</a>)</p></li>
@@ -571,7 +554,7 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">ces_conv</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">ces_convergence</span><span class="p">(</span><span class="n">u</span><span class="p">,</span>  <span class="c1"># universe</span>
                                   <span class="mi">10</span><span class="p">,</span>  <span class="c1"># window size</span>
-                                  <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>  <span class="c1"># default</span>
+                                  <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>  <span class="c1"># default</span>
 </pre></div>
 </div>
 </div>
@@ -667,7 +650,7 @@ Text(0, 0.5, &#39;Jensen-Shannon divergence&#39;)
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">ces_conv2</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">ces_convergence</span><span class="p">(</span><span class="n">u</span><span class="p">,</span>  <span class="c1"># universe</span>
                                   <span class="mi">10</span><span class="p">,</span>  <span class="c1"># window size</span>
-                                  <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
+                                  <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
                                   <span class="n">clustering_method</span><span class="o">=</span><span class="p">[</span><span class="n">km1</span><span class="p">,</span> <span class="n">km2</span><span class="p">,</span> <span class="n">km3</span><span class="p">]</span>
                                  <span class="p">)</span>
 <span class="n">ces_conv2</span><span class="o">.</span><span class="n">shape</span>
@@ -706,7 +689,7 @@ Text(0, 0.5, &#39;Jensen-Shannon divergence&#39;)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.legend.Legend at 0x11f47df28&gt;
+&lt;matplotlib.legend.Legend at 0x7fa762585e80&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -727,7 +710,7 @@ Text(0, 0.5, &#39;Jensen-Shannon divergence&#39;)
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">dres_conv</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">dres_convergence</span><span class="p">(</span><span class="n">u</span><span class="p">,</span>  <span class="c1"># universe</span>
                                   <span class="mi">10</span><span class="p">,</span>  <span class="c1"># window size</span>
-                                  <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>  <span class="c1"># default</span>
+                                  <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>  <span class="c1"># default</span>
 </pre></div>
 </div>
 </div>
@@ -747,14 +730,14 @@ Text(0, 0.5, &#39;Jensen-Shannon divergence&#39;)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[0.53383413],
-       [0.41463847],
-       [0.30425993],
-       [0.24385849],
-       [0.18008969],
-       [0.12072474],
-       [0.05691098],
-       [0.02318104],
+array([[0.53259849],
+       [0.40801451],
+       [0.3137567 ],
+       [0.25160251],
+       [0.19061233],
+       [0.12228127],
+       [0.05960165],
+       [0.03835858],
        [0.        ]])
 </pre></div></div>
 </div>
@@ -813,7 +796,7 @@ Text(0, 0.5, &#39;Jensen-Shannon divergence&#39;)
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">dres_conv2</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">dres_convergence</span><span class="p">(</span><span class="n">u</span><span class="p">,</span>  <span class="c1"># universe</span>
                                   <span class="mi">10</span><span class="p">,</span>  <span class="c1"># window size</span>
-                                  <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
+                                  <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
                                   <span class="n">dimensionality_reduction_method</span><span class="o">=</span><span class="p">[</span><span class="n">pc1</span><span class="p">,</span> <span class="n">pc2</span><span class="p">,</span> <span class="n">pc3</span><span class="p">]</span>
                                  <span class="p">)</span>
 <span class="n">dres_conv2</span><span class="o">.</span><span class="n">shape</span>
@@ -852,7 +835,7 @@ Text(0, 0.5, &#39;Jensen-Shannon divergence&#39;)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.legend.Legend at 0x1257dcb38&gt;
+&lt;matplotlib.legend.Legend at 0x7fa744815910&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -893,8 +876,7 @@ Text(0, 0.5, &#39;Jensen-Shannon divergence&#39;)
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2019-2020, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein.
+        &copy; Copyright 2019-2020, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein.
 
     </p>
   </div>

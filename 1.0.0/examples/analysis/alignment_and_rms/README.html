@@ -1,7 +1,8 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -11,11 +12,6 @@
   
 
   
-  <link rel="stylesheet" href="../../../_static/css/msmb.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
-
-  
   
     <link rel="shortcut icon" href="../../../_static/mdanalysis-logo.ico"/>
   
@@ -23,9 +19,7 @@
   
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
@@ -45,6 +39,11 @@
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within MDAnalysis User Guide  documentation"
           href="../../../_static/opensearch.xml"/>
+
+  
+  <link rel="stylesheet" href="../../../_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Aligning a structure to another" href="aligning_structure_to_another.html" />
@@ -92,7 +91,6 @@
           
         </div>
 
-        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -111,7 +109,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../transformations/README.html">Transformations</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Alignments and RMS fitting</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="aligning_structure_to_another.html">Aligning a structure to another</a></li>
-<li class="toctree-l3"><a class="reference internal" href="aligning_trajectory_to_first_frame.html">Aligning a trajectory to itself</a></li>
 <li class="toctree-l3"><a class="reference internal" href="aligning_trajectory.html">Aligning a trajectory to a reference</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rmsd.html">Calculating the root mean square deviation of atomic structures</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pairwise_rmsd.html">Calculating the pairwise RMSD of a trajectory</a></li>
@@ -162,6 +159,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../README.html#dimension-reduction">Dimension reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#polymers-and-membranes">Polymers and membranes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
@@ -183,7 +181,6 @@
             
           
         </div>
-        
       </div>
     </nav>
 
@@ -222,7 +219,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
           <li><a href="../../README.html">Examples</a> &raquo;</li>
         
@@ -247,7 +244,7 @@
             
   <div class="section" id="alignments-and-rms-fitting">
 <span id="alignment-and-rms"></span><h1>Alignments and RMS fitting<a class="headerlink" href="#alignments-and-rms-fitting" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/align.html#module-MDAnalysis.analysis.align" title="(in MDAnalysis v1.0.0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.align</span></code></a> and <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/rms.html#module-MDAnalysis.analysis.rms" title="(in MDAnalysis v1.0.0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.rms</span></code></a> modules contain the functions used for aligning structures, aligning trajectories, and calculating root mean squared quantities.</p>
+<p>The <a class="reference external" href="https://docs.mdanalysis.org/1.0.0/documentation_pages/analysis/align.html#module-MDAnalysis.analysis.align" title="(in MDAnalysis v1.0.0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.align</span></code></a> and <a class="reference external" href="https://docs.mdanalysis.org/1.0.0/documentation_pages/analysis/rms.html#module-MDAnalysis.analysis.rms" title="(in MDAnalysis v1.0.0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.rms</span></code></a> modules contain the functions used for aligning structures, aligning trajectories, and calculating root mean squared quantities.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>These modules use the fast QCP algorithm to calculate the root mean
@@ -258,7 +255,6 @@ cite these references when using these modules.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="aligning_structure_to_another.html">Aligning a structure to another</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aligning_trajectory_to_first_frame.html">Aligning a trajectory to itself</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aligning_trajectory.html">Aligning a trajectory to a reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rmsd.html">Calculating the root mean square deviation of atomic structures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pairwise_rmsd.html">Calculating the pairwise RMSD of a trajectory</a></li>
@@ -287,8 +283,7 @@ cite these references when using these modules.</p>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2019-2020, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein.
+        &copy; Copyright 2019-2020, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein.
 
     </p>
   </div>
