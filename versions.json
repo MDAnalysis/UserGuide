@@ -10,5 +10,11 @@
     "display": "2.0.0-dev0",
     "url": "https://userguide.mdanalysis.org/2.0.0-dev0",
     "latest": false
+  },
+  {
+    "version": "stable",
+    "display": "stable",
+    "url": "https://userguide.mdanalysis.org/stable",
+    "latest": false
   }
 ]
