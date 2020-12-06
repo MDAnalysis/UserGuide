@@ -44,6 +44,13 @@ jobs:
       run: |
         jupyter-nbextension enable nglview --py --sys-prefix
 
+        # develop
+        git clone git@github.com:MDAnalysis/mdanalysis.git
+        cd mdanalysis/package
+        python setup.py install
+        cd ../testsuite
+        python setup.py install
+
     - name: build_docs
       run: |
         make -C ${SPHINX_DIR} html
