@@ -181,6 +181,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/README.html#dimension-reduction">Dimension reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/README.html#polymers-and-membranes">Polymers and membranes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
@@ -273,20 +274,20 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><strong>Coordinate reader</strong></p></td>
-<td><p><a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/MOL2.html#MDAnalysis.coordinates.MOL2.MOL2Reader" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.coordinates.MOL2.MOL2Reader</span></code></a></p></td>
+<td><p><a class="reference external" href="https://docs.mdanalysis.org/1.0.0/documentation_pages/coordinates/MOL2.html#MDAnalysis.coordinates.MOL2.MOL2Reader" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.coordinates.MOL2.MOL2Reader</span></code></a></p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Coordinate writer</strong></p></td>
-<td><p><a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/MOL2.html#MDAnalysis.coordinates.MOL2.MOL2Writer" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.coordinates.MOL2.MOL2Writer</span></code></a></p></td>
+<td><p><a class="reference external" href="https://docs.mdanalysis.org/1.0.0/documentation_pages/coordinates/MOL2.html#MDAnalysis.coordinates.MOL2.MOL2Writer" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.coordinates.MOL2.MOL2Writer</span></code></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Topology parser</strong></p></td>
-<td><p><a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/topology/MOL2Parser.html#MDAnalysis.topology.MOL2Parser.MOL2Parser" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.topology.MOL2Parser.MOL2Parser</span></code></a></p></td>
+<td><p><a class="reference external" href="https://docs.mdanalysis.org/1.0.0/documentation_pages/topology/MOL2Parser.html#MDAnalysis.topology.MOL2Parser.MOL2Parser" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.topology.MOL2Parser.MOL2Parser</span></code></a></p></td>
 </tr>
 </tbody>
 </table>
 <p>The <a class="reference external" href="http://www.tripos.com/">Tripos</a> molecule structure format (<a class="reference external" href="http://chemyang.ccnu.edu.cn/ccb/server/AIMMS/mol2.pdf">MOL2</a>) is a commonly used format. It is used, for instance, by the <a class="reference external" href="http://dock.compbio.ucsf.edu/">DOCK</a> docking code.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p><a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/MOL2.html#MDAnalysis.coordinates.MOL2.MOL2Writer" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MOL2Writer</span></code></a> can only be used to write out previously loaded MOL2 files.
+<p><a class="reference external" href="https://docs.mdanalysis.org/1.0.0/documentation_pages/coordinates/MOL2.html#MDAnalysis.coordinates.MOL2.MOL2Writer" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MOL2Writer</span></code></a> can only be used to write out previously loaded MOL2 files.
 For example, if you’re trying to convert a PDB file to MOL2, you should
 use other tools such as <a class="reference external" href="http://www.rdkit.org/docs/GettingStartedInPython.html">rdkit</a>.</p>
 <p>Here is an example how to use <a class="reference external" href="http://www.rdkit.org/docs/GettingStartedInPython.html">rdkit</a> to convert a PDB to MOL:</p>
@@ -370,7 +371,7 @@ use other tools such as <a class="reference external" href="http://www.rdkit.org
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2019-2020, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein.
+        &copy; Copyright 2019-2020, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein.
 
     </p>
   </div>

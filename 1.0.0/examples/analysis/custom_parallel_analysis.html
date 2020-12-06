@@ -1,0 +1,1261 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Parallelizing analysis &mdash; MDAnalysis User Guide  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/mdanalysis-logo.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script src="../../_static/js/versions.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within MDAnalysis User Guide  documentation"
+          href="../../_static/opensearch.xml"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Standard residues in MDAnalysis selections" href="../../standard_selections.html" />
+    <link rel="prev" title="Writing your own trajectory analysis" href="custom_trajectory_analysis.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/user_guide.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently asked questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Examples</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data structures</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../universe.html">Universe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../atomgroup.html">AtomGroup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../groups_of_atoms.html">Groups of atoms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../selections.html">Atom selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../topology_system.html">The topology system</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Trajectories</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../trajectories/trajectories.html">Trajectories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trajectories/transformations.html">On-the-fly transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../units.html">Units and constants</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Input/output</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../reading_and_writing.html">Reading and writing files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../formats/index.html">Format overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../formats/guessing.html">Guessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../formats/auxiliary.html">Auxiliary files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../formats/selection_exporters.html">Selection exporters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../formats/format_reference.html">Format reference</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Analysis</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html#distances-and-contacts">Distances and contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html#trajectory-similarity">Trajectory similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html#structure">Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html#volumetric-analyses">Volumetric analyses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html#dimension-reduction">Dimension reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html#polymers-and-membranes">Polymers and membranes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Parallelizing analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Background">Background</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Loading-files">Loading files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Radius-of-gyration">Radius of gyration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Serial-Analysis">Serial Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Parallelization-in-a-simple-per-frame-fashion">Parallelization in a simple per-frame fashion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Frame-wise-form-of-the-function">Frame-wise form of the function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Parallelization-with-multiprocessing">Parallelization with multiprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Parallelization-with-dask">Parallelization with dask</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Parallelization-in-a-split-apply-combine-fashion">Parallelization in a split-apply-combine fashion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Block-analysis-function">Block analysis function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Split-the-trajectory">Split the trajectory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Apply-the-analysis-per-block">Apply the analysis per block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Combine-the-results">Combine the results</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Other-possible-parallelism-approaches-for-multiple-analyses">Other possible parallelism approaches for multiple analyses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#See-Also">See Also</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#References">References</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../standard_selections.html">Standard residues in MDAnalysis selections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_topology.html">Advanced topology concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../datasets.html">Example data</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing_code.html">Contributing to the main codebase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing_docs.html">Contributing to the user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing_releases_and_hotfixes.html">Preparing a release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_imports.html">Module imports in MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../testing.html">Tests in MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MDAnalysis User Guide</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Parallelizing analysis</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/examples/analysis/custom_parallel_analysis.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
+<script>require=requirejs;</script><div class="section" id="Parallelizing-analysis">
+<h1>Parallelizing analysis<a class="headerlink" href="#Parallelizing-analysis" title="Permalink to this headline">¶</a></h1>
+<p>As we approach the exascale barrier, researchers are handling increasingly large volumes of molecular dynamics (MD) data. Whilst MDAnalysis is a flexible and relatively fast framework for complex analysis tasks in MD simulations, implementing a parallel computing framework would play a pivotal role in accelerating the time to solution for such large datasets.</p>
+<p>This document illustrates how you can run your own analysis scripts in parallel with MDAnalysis.</p>
+<p><strong>Last executed:</strong> Sep 23, 2020 with MDAnalysis 2.0.0-dev0</p>
+<p><strong>Last updated:</strong> August 2020</p>
+<p><strong>Minimum version of MDAnalysis:</strong> 2.0.0</p>
+<p><strong>Packages required:</strong></p>
+<ul class="simple">
+<li><p>MDAnalysis (<a class="bibtex reference internal" href="../../references.html#michaud-agrawal-mdanalysis-2011" id="id1">[MADWB11]</a>, <a class="bibtex reference internal" href="../../references.html#gowers-mdanalysis-2016" id="id2">[GLB+16]</a>)</p></li>
+<li><p>MDAnalysisData</p></li>
+<li><p>dask (<a class="reference external" href="https://dask.org/">https://dask.org/</a>)</p></li>
+<li><p>dask.distributed (<a class="reference external" href="https://distributed.dask.org/en/latest/">https://distributed.dask.org/en/latest/</a>)</p></li>
+<li><p>joblib (<a class="reference external" href="https://joblib.readthedocs.io/en/latest/">https://joblib.readthedocs.io/en/latest/</a>)</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
+<span class="kn">from</span> <span class="nn">MDAnalysisData.adk_equilibrium</span> <span class="kn">import</span> <span class="n">fetch_adk_equilibrium</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">cpu_count</span>
+<span class="n">n_jobs</span> <span class="o">=</span> <span class="n">cpu_count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Background">
+<h2>Background<a class="headerlink" href="#Background" title="Permalink to this headline">¶</a></h2>
+<p>In MDAnalysis, most implemented analysis methods are based on <code class="docutils literal notranslate"><span class="pre">AnalysisBase</span></code>, which provides a generic API for users to write their own trajectory analysis. However, this framework only takes single-core power of the PC by iterating through the trajectory and running a frame-wise analysis. Below we aim to first explore some possible simple implementations of parallelism, including using multiprocessing and dask. We will also discuss the acceleration approaches that should be considered,
+ranging from your own multiple-core laptops/desktops to distributed clusters. “</p>
+<div class="section" id="Loading-files">
+<h3>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this headline">¶</a></h3>
+<p>The test files we will be working with here feature adenylate kinase (AdK), a phosopho-transferase enzyme. (<a class="bibtex reference internal" href="../../references.html#beckstein-zipping-2009" id="id3">[BDPW09]</a>). The trajectory has 4187 frames, which will take quite some time to run the analysis on with the conventional serial (single-core) approach.</p>
+<p>Note: downloading these datasets from MDAnalysisData may take some time.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">adk</span> <span class="o">=</span> <span class="n">fetch_adk_equilibrium</span><span class="p">()</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">adk</span><span class="o">.</span><span class="n">topology</span><span class="p">,</span> <span class="n">adk</span><span class="o">.</span><span class="n">trajectory</span><span class="p">)</span>
+<span class="n">protein</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;protein&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;DCDReader /home/scottzhuang/MDAnalysis_data/adk_equilibrium/1ake_007-nowater-core-dt240ps.dcd with 4187 frames of 3341 atoms&gt;
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Radius-of-gyration">
+<h3>Radius of gyration<a class="headerlink" href="#Radius-of-gyration" title="Permalink to this headline">¶</a></h3>
+<p>For a detail description of this analysis, read <a class="reference external" href="https://mdanalysis.org/UserGuide/examples/analysis/custom_trajectory_analysis.html">Writing your own trajectory</a>.</p>
+<p>Here is a common form of single-frame method that we can normally see inside <code class="docutils literal notranslate"><span class="pre">AnalysisBase</span></code>. It may contain both some dynamic parts that changes along time either implicitly or explicitly (e.g. <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>) and some static parts (e.g. a reference frame).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">radgyr</span><span class="p">(</span><span class="n">atomgroup</span><span class="p">,</span> <span class="n">masses</span><span class="p">,</span> <span class="n">total_mass</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="c1"># coordinates change for each frame</span>
+    <span class="n">coordinates</span> <span class="o">=</span> <span class="n">atomgroup</span><span class="o">.</span><span class="n">positions</span>
+    <span class="n">center_of_mass</span> <span class="o">=</span> <span class="n">atomgroup</span><span class="o">.</span><span class="n">center_of_mass</span><span class="p">()</span>
+
+    <span class="c1"># get squared distance from center</span>
+    <span class="n">ri_sq</span> <span class="o">=</span> <span class="p">(</span><span class="n">coordinates</span><span class="o">-</span><span class="n">center_of_mass</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="c1"># sum the unweighted positions</span>
+    <span class="n">sq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ri_sq</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">sq_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ri_sq</span><span class="p">[:,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># sum over y and z</span>
+    <span class="n">sq_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ri_sq</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># sum over x and z</span>
+    <span class="n">sq_z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ri_sq</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># sum over x and y</span>
+
+    <span class="c1"># make into array</span>
+    <span class="n">sq_rs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">sq</span><span class="p">,</span> <span class="n">sq_x</span><span class="p">,</span> <span class="n">sq_y</span><span class="p">,</span> <span class="n">sq_z</span><span class="p">])</span>
+
+    <span class="c1"># weight positions</span>
+    <span class="n">rog_sq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">masses</span><span class="o">*</span><span class="n">sq_rs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">total_mass</span>
+    <span class="c1"># square root and return</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">rog_sq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Serial-Analysis">
+<h3>Serial Analysis<a class="headerlink" href="#Serial-Analysis" title="Permalink to this headline">¶</a></h3>
+<p>Below is the serial version of the analysis that we normally use.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">:</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">radgyr</span><span class="p">(</span><span class="n">atomgroup</span><span class="o">=</span><span class="n">protein</span><span class="p">,</span>
+                         <span class="n">masses</span><span class="o">=</span><span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">,</span>
+                         <span class="n">total_mass</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;x-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;y-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;z-axis&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radius of gyration (Å)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frame&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/examples_analysis_custom_parallel_analysis_11_0.png" src="../../_images/examples_analysis_custom_parallel_analysis_11_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Parallelization-in-a-simple-per-frame-fashion">
+<h2>Parallelization in a simple per-frame fashion<a class="headerlink" href="#Parallelization-in-a-simple-per-frame-fashion" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Frame-wise-form-of-the-function">
+<h3>Frame-wise form of the function<a class="headerlink" href="#Frame-wise-form-of-the-function" title="Permalink to this headline">¶</a></h3>
+<p>The coordinates of the <code class="docutils literal notranslate"><span class="pre">atomgroup</span></code> analysed change with each frame of the trajectory. We need to explicitly point the analysis function to the frame that needs to be analysed with a <code class="docutils literal notranslate"><span class="pre">frame_index</span></code>: <code class="docutils literal notranslate"><span class="pre">atomgroup.universe.trajectory[frame_index]</span></code> in order to update the positions (and any other dynamic per-frame information) appropriately. Therefore, the first step to making the <code class="docutils literal notranslate"><span class="pre">radgyr</span></code> function parallelisable is to add a <code class="docutils literal notranslate"><span class="pre">frame_index</span></code> argument.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">radgyr_per_frame</span><span class="p">(</span><span class="n">frame_index</span><span class="p">,</span> <span class="n">atomgroup</span><span class="p">,</span> <span class="n">masses</span><span class="p">,</span> <span class="n">total_mass</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+    <span class="c1"># index the trajectory to set it to the frame_index frame</span>
+    <span class="n">atomgroup</span><span class="o">.</span><span class="n">universe</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[</span><span class="n">frame_index</span><span class="p">]</span>
+
+    <span class="c1"># coordinates change for each frame</span>
+    <span class="n">coordinates</span> <span class="o">=</span> <span class="n">atomgroup</span><span class="o">.</span><span class="n">positions</span>
+    <span class="n">center_of_mass</span> <span class="o">=</span> <span class="n">atomgroup</span><span class="o">.</span><span class="n">center_of_mass</span><span class="p">()</span>
+
+    <span class="c1"># get squared distance from center</span>
+    <span class="n">ri_sq</span> <span class="o">=</span> <span class="p">(</span><span class="n">coordinates</span><span class="o">-</span><span class="n">center_of_mass</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="c1"># sum the unweighted positions</span>
+    <span class="n">sq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ri_sq</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">sq_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ri_sq</span><span class="p">[:,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># sum over y and z</span>
+    <span class="n">sq_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ri_sq</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># sum over x and z</span>
+    <span class="n">sq_z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ri_sq</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># sum over x and y</span>
+
+    <span class="c1"># make into array</span>
+    <span class="n">sq_rs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">sq</span><span class="p">,</span> <span class="n">sq_x</span><span class="p">,</span> <span class="n">sq_y</span><span class="p">,</span> <span class="n">sq_z</span><span class="p">])</span>
+
+    <span class="c1"># weight positions</span>
+    <span class="n">rog_sq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">masses</span><span class="o">*</span><span class="n">sq_rs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">total_mass</span>
+    <span class="c1"># square root and return</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">rog_sq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Parallelization-with-multiprocessing">
+<h3>Parallelization with multiprocessing<a class="headerlink" href="#Parallelization-with-multiprocessing" title="Permalink to this headline">¶</a></h3>
+<p>The native parallelisation module in Python is called <a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html#module-multiprocessing">multiprocessing</a>. It contains useful tools to build a pool of working cores, map the function into different workers, and gather and order the results from all the workers.</p>
+<p>Below we use <code class="docutils literal notranslate"><span class="pre">Pool</span></code> from <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code> as a context manager. We can define how many cores (or workers) we want to use with <code class="docutils literal notranslate"><span class="pre">Pool(n_jobs)</span></code>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">multiprocessing</span>
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+</pre></div>
+</div>
+</div>
+<p>We use <code class="docutils literal notranslate"><span class="pre">functools.partial</span></code> to create a new method by supplying every argument needed for <code class="docutils literal notranslate"><span class="pre">radgyr_per_frame</span></code> <em>except</em> <code class="docutils literal notranslate"><span class="pre">frame_index</span></code>. We can do this because the <code class="docutils literal notranslate"><span class="pre">atomgroup</span></code>, <code class="docutils literal notranslate"><span class="pre">masses</span></code> etc. will not change when we iterate the function over each frame, but the <code class="docutils literal notranslate"><span class="pre">frame_index</span></code> will. We create a list of jobs where we use the <code class="docutils literal notranslate"><span class="pre">worker_pool</span></code> to map each <code class="docutils literal notranslate"><span class="pre">frame_index</span></code> to each job.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">run_per_frame</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">radgyr_per_frame</span><span class="p">,</span>
+                        <span class="n">atomgroup</span><span class="o">=</span><span class="n">protein</span><span class="p">,</span>
+                        <span class="n">masses</span><span class="o">=</span><span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">,</span>
+                        <span class="n">total_mass</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">))</span>
+
+<span class="n">frame_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">n_frames</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">with</span> <span class="n">Pool</span><span class="p">(</span><span class="n">n_jobs</span><span class="p">)</span> <span class="k">as</span> <span class="n">worker_pool</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">worker_pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">run_per_frame</span><span class="p">,</span> <span class="n">frame_values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">result</span></code> will be a list of arrays containing the result for each frame. Finally the results can be plotted along time.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;x-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;y-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;z-axis&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radius of gyration (Å)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frame&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/examples_analysis_custom_parallel_analysis_21_0.png" src="../../_images/examples_analysis_custom_parallel_analysis_21_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Parallelization-with-dask">
+<h3>Parallelization with dask<a class="headerlink" href="#Parallelization-with-dask" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://docs.dask.org/en/latest/">Dask</a> is a flexible library for parallel computing in Python. It provides advanced parallelism for analytics and has been integrated or utilized in many scientific softwares. It can be scaled from one single computer to a cluster of computers inside a HPC center.</p>
+<p>Dask has a dynamic task scheduling system with synchronous (single-threaded), threaded, multiprocessing and distributed schedulers. The wrapping function in dask, <code class="docutils literal notranslate"><span class="pre">dask.delayed</span></code>, mimics for loops and wraps Python code into a Dask graph. This code can then be easily run in parallel, and visualized with <code class="docutils literal notranslate"><span class="pre">dask.visualize()</span></code> to examine if the task is well distributed. The code inside <code class="docutils literal notranslate"><span class="pre">dask.delayed</span></code> is not run immediately on execution, but pushed into a job queue waiting for submission. You can
+read more on <a class="reference external" href="https://docs.dask.org/en/latest/delayed.html">dask website</a>.</p>
+<p>Comaring to <code class="docutils literal notranslate"><span class="pre">multiprocssing</span></code>, the downside of <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code> is that it is mostly focused on single-machine multicore parallelism (without extra manager). It is hard to operate on multimachine conditions. Below are two simple examples to use Dask to achieve the same task as <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code> does.</p>
+<p>The API of <code class="docutils literal notranslate"><span class="pre">dask</span></code> is similar to <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code>. It also creates a pool of workers for your single machine with the given resources.</p>
+<p>Note: The threaded scheduler in Dask (similar to <code class="docutils literal notranslate"><span class="pre">threading</span></code> in Python) should not be used as it will mess up with the state (timestep) of the trajectory.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">dask</span>
+<span class="kn">import</span> <span class="nn">dask.multiprocessing</span>
+<span class="n">dask</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">scheduler</span><span class="o">=</span><span class="s1">&#39;processes&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;dask.config.set at 0x7f4768417280&gt;
+</pre></div></div>
+</div>
+<p>Below is how you can utilize <code class="docutils literal notranslate"><span class="pre">dask.distributed</span></code> module to build a local cluster.</p>
+<p>Note: this is not really needed for your laptop/desktop. Using dask.distributed may even slow down the performance, but it provides a diagnostic dashboard that can provide valuable insight on performance and progress.</p>
+<p>See limitations here: <a class="reference external" href="https://distributed.dask.org/en/latest/limitations.html">https://distributed.dask.org/en/latest/limitations.html</a></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">dask.distributed</span> <span class="kn">import</span> <span class="n">Client</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">n_workers</span><span class="o">=</span><span class="n">n_jobs</span><span class="p">)</span>
+<span class="n">client</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<table style="border: 2px solid white;">
+<tr>
+<td style="vertical-align: top; border: 0px solid white">
+<h3 style="text-align: left;">Client</h3>
+<ul style="text-align: left; list-style: none; margin: 0; padding: 0;">
+  <li><b>Scheduler: </b>tcp://127.0.0.1:43029</li>
+  <li><b>Dashboard: </b><a href='http://127.0.0.1:8787/status' target='_blank'>http://127.0.0.1:8787/status</a></li>
+</ul>
+</td>
+<td style="vertical-align: top; border: 0px solid white">
+<h3 style="text-align: left;">Cluster</h3>
+<ul style="text-align: left; list-style:none; margin: 0; padding: 0;">
+  <li><b>Workers: </b>12</li>
+  <li><b>Cores: </b>12</li>
+  <li><b>Memory: </b>16.49 GB</li>
+</ul>
+</td>
+</tr>
+</table></div>
+</div>
+<p>First we have to create a list of jobs and transform them with <code class="docutils literal notranslate"><span class="pre">dask.delayed()</span></code> so they can be processed by Dask.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">job_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">frame_index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">n_frames</span><span class="p">):</span>
+    <span class="n">job_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dask</span><span class="o">.</span><span class="n">delayed</span><span class="p">(</span><span class="n">radgyr_per_frame</span><span class="p">(</span><span class="n">frame_index</span><span class="p">,</span>
+                                        <span class="n">atomgroup</span><span class="o">=</span><span class="n">protein</span><span class="p">,</span>
+                                        <span class="n">masses</span><span class="o">=</span><span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">,</span>
+                                        <span class="n">total_mass</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+<p>Then we simply use <code class="docutils literal notranslate"><span class="pre">dask.compute()</span></code> to get a list of ordered results.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">result</span> <span class="o">=</span> <span class="n">dask</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">job_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;x-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;y-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;z-axis&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radius of gyration (Å)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frame&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/examples_analysis_custom_parallel_analysis_30_0.png" src="../../_images/examples_analysis_custom_parallel_analysis_30_0.png" />
+</div>
+</div>
+<p>We can also use the old <code class="docutils literal notranslate"><span class="pre">radgyr</span></code> function because <code class="docutils literal notranslate"><span class="pre">dask</span></code> is more flexible on the input arguments.</p>
+<p>Note: the associated timestamp of <code class="docutils literal notranslate"><span class="pre">protein</span></code> will change during the trajectory iteration, so the processes are always aware which timestep the trajectory is in and change the <code class="docutils literal notranslate"><span class="pre">protein</span></code> (e.g. its coordinates) accordingly.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">job_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">:</span>
+    <span class="n">job_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dask</span><span class="o">.</span><span class="n">delayed</span><span class="p">(</span><span class="n">radgyr</span><span class="p">(</span><span class="n">atomgroup</span><span class="o">=</span><span class="n">protein</span><span class="p">,</span>
+                                        <span class="n">masses</span><span class="o">=</span><span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">,</span>
+                                        <span class="n">total_mass</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+<p>Then we simply use <code class="docutils literal notranslate"><span class="pre">dask.compute()</span></code> to get a list of ordered results.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">result</span> <span class="o">=</span> <span class="n">dask</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">job_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;x-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;y-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;z-axis&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radius of gyration (Å)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frame&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/examples_analysis_custom_parallel_analysis_35_0.png" src="../../_images/examples_analysis_custom_parallel_analysis_35_0.png" />
+</div>
+</div>
+<p>We can also use Dask dashboard (with dask.distributed.Client) to examine how jobs are distributed along all the workers. Each green bar below represents one job, i.e. running <code class="docutils literal notranslate"><span class="pre">radgyr</span></code> on one frame of the trajectory</p>
+<center><div style="width: 650px; text-align: center;"><p><img alt="Dask task stream" src="../../_images/per_frame_dask.png" /></p>
+</div></center></div>
+</div>
+<div class="section" id="Parallelization-in-a-split-apply-combine-fashion">
+<h2>Parallelization in a split-apply-combine fashion<a class="headerlink" href="#Parallelization-in-a-split-apply-combine-fashion" title="Permalink to this headline">¶</a></h2>
+<p>The aforementioned per-frame approach should normally be <strong>avoided</strong> because in <strong>each</strong> task, all the attributes (<code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>, <code class="docutils literal notranslate"><span class="pre">Universe</span></code>, and etc) need to be pickled. This pickling may take even more time than your lightweight analysis! Besides, in Dask, a significant amount of overhead time is needed to build a comprehensive Dask graph with thousands of tasks.</p>
+<p>Therefore, we should normally use a split-apply-combine scheme for parallel trajectory analysis. Here, the trajectory is <strong>split</strong> into blocks, analysis is performed separately and in parallel on each block (“apply”), and then results from each block are gathered and <strong>combined</strong>.</p>
+<center><div style="width: 650px; text-align: center;"><p><img alt="Split-apply-combine approach" src="../../_images/dask_sac.png" /></p>
+</div></center><p>Image from (<a class="bibtex reference internal" href="../../references.html#fan-pmda-2019" id="id4">[SFPG+19]</a>) used under CC-BY license.</p>
+<p>We will show a simple illustration of split-apply-combine approach with dask below:</p>
+<div class="section" id="Block-analysis-function">
+<h3>Block analysis function<a class="headerlink" href="#Block-analysis-function" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;dask.delayed</span></code> is a common syntax to decorate a function into delayed-enabled. It is the same as delaying the function by <code class="docutils literal notranslate"><span class="pre">dask.delayed(analyze_block)(bs,</span> <span class="pre">radgyr,</span> <span class="pre">...)</span></code> later on.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nd">@dask</span><span class="o">.</span><span class="n">delayed</span>
+<span class="k">def</span> <span class="nf">analyze_block</span><span class="p">(</span><span class="n">blockslice</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[</span><span class="n">blockslice</span><span class="o">.</span><span class="n">start</span><span class="p">:</span><span class="n">blockslice</span><span class="o">.</span><span class="n">stop</span><span class="p">]:</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Split-the-trajectory">
+<h3>Split the trajectory<a class="headerlink" href="#Split-the-trajectory" title="Permalink to this headline">¶</a></h3>
+<p>This is a very simple way to split the trajectory. It splits the trajectory into defined <code class="docutils literal notranslate"><span class="pre">n_blocks</span></code> which is normally the same as the number of cores you want to use.</p>
+<p>Since it is achieved by evenly dividing the <code class="docutils literal notranslate"><span class="pre">n_frames</span></code> by <code class="docutils literal notranslate"><span class="pre">n_blocks</span></code>, and setting the last block to end at the last frame, sometime it is not really balanced (e.g. the last block).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">n_frames</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">n_frames</span>
+<span class="n">n_blocks</span> <span class="o">=</span> <span class="n">n_jobs</span>   <span class="c1">#  it can be any realistic value (0 &lt; n_blocks &lt;= n_jobs)</span>
+
+<span class="n">n_frames_per_block</span> <span class="o">=</span> <span class="n">n_frames</span> <span class="o">//</span> <span class="n">n_blocks</span>
+<span class="n">blocks</span> <span class="o">=</span> <span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">n_frames_per_block</span><span class="p">,</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">n_frames_per_block</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_blocks</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">blocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">range</span><span class="p">((</span><span class="n">n_blocks</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">n_frames_per_block</span><span class="p">,</span> <span class="n">n_frames</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">blocks</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[range(0, 348),
+ range(348, 696),
+ range(696, 1044),
+ range(1044, 1392),
+ range(1392, 1740),
+ range(1740, 2088),
+ range(2088, 2436),
+ range(2436, 2784),
+ range(2784, 3132),
+ range(3132, 3480),
+ range(3480, 3828),
+ range(3828, 4187)]
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Apply-the-analysis-per-block">
+<h3>Apply the analysis per block<a class="headerlink" href="#Apply-the-analysis-per-block" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">jobs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">bs</span> <span class="ow">in</span> <span class="n">blocks</span><span class="p">:</span>
+    <span class="n">jobs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">analyze_block</span><span class="p">(</span><span class="n">bs</span><span class="p">,</span>
+                              <span class="n">radgyr</span><span class="p">,</span>
+                              <span class="n">protein</span><span class="p">,</span>
+                              <span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">,</span>
+                              <span class="n">total_mass</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">)))</span>
+<span class="n">jobs</span> <span class="o">=</span> <span class="n">dask</span><span class="o">.</span><span class="n">delayed</span><span class="p">(</span><span class="n">jobs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Using <code class="docutils literal notranslate"><span class="pre">visualize()</span></code> we can see that the trajectory is split into a few blocks instead of ~4000 jobs.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">jobs</span><span class="o">.</span><span class="n">visualize</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/examples_analysis_custom_parallel_analysis_51_0.png" src="../../_images/examples_analysis_custom_parallel_analysis_51_0.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">jobs</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Combine-the-results">
+<h3>Combine the results<a class="headerlink" href="#Combine-the-results" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;x-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;y-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;z-axis&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radius of gyration (Å)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frame&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/examples_analysis_custom_parallel_analysis_55_0.png" src="../../_images/examples_analysis_custom_parallel_analysis_55_0.png" />
+</div>
+</div>
+<p>If you look at the Dask dashboard (with dask.distributed.Client) this time, you will see each green bar below represents a per-block analysis for <code class="docutils literal notranslate"><span class="pre">radgyr</span></code>.</p>
+<center><div style="width: 650px; text-align: center;"><p><img alt="Dask task stream with blocks" src="../../_images/block_dask.png" /></p>
+</div></center></div>
+</div>
+<div class="section" id="Other-possible-parallelism-approaches-for-multiple-analyses">
+<h2>Other possible parallelism approaches for multiple analyses<a class="headerlink" href="#Other-possible-parallelism-approaches-for-multiple-analyses" title="Permalink to this headline">¶</a></h2>
+<p>You may want to perform multiple analyses (or analyze multiple trajectories). In this case, you can use some high-level parallelism, i.e. running all the serial analyses in parallel.</p>
+<p>Here we use <a class="reference external" href="https://joblib.readthedocs.io/en/latest/">joblib</a>. It is implemented on <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code> and provides lightweight pipelining in Python. Compared to <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code>, it has a simple API and convenient persistence of cached results.”</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
+<span class="kn">import</span> <span class="nn">multiprocessing</span>
+<span class="n">num_cores</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Here we leverage the power of <code class="docutils literal notranslate"><span class="pre">AnalysisFromFunction</span></code> to fast construct a class that will iterate through the trajectory and save the analysis results.</p>
+<p>If you want to know more about how <code class="docutils literal notranslate"><span class="pre">AnalysisFromFunction</span></code> works, you can read it from <a class="reference external" href="https://mdanalysis.org/UserGuide/examples/analysis/custom_trajectory_analysis.html">Writing your own trajectory</a>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">MDAnalysis.analysis.base</span> <span class="kn">import</span> <span class="n">AnalysisFromFunction</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">rog_1</span> <span class="o">=</span> <span class="n">AnalysisFromFunction</span><span class="p">(</span><span class="n">radgyr</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">,</span>
+                           <span class="n">protein</span><span class="p">,</span> <span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">,</span>
+                           <span class="n">total_mass</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">))</span>
+
+<span class="n">rog_2</span> <span class="o">=</span> <span class="n">AnalysisFromFunction</span><span class="p">(</span><span class="n">radgyr</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">,</span>
+                           <span class="n">protein</span><span class="p">,</span> <span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">,</span>
+                           <span class="n">total_mass</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">))</span>
+
+<span class="n">rog_3</span> <span class="o">=</span> <span class="n">AnalysisFromFunction</span><span class="p">(</span><span class="n">radgyr</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">,</span>
+                           <span class="n">protein</span><span class="p">,</span> <span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">,</span>
+                           <span class="n">total_mass</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">))</span>
+
+<span class="n">rog_4</span> <span class="o">=</span> <span class="n">AnalysisFromFunction</span><span class="p">(</span><span class="n">radgyr</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">,</span>
+                           <span class="n">protein</span><span class="p">,</span> <span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">,</span>
+                           <span class="n">total_mass</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">))</span>
+
+<span class="n">analysis_ensemble</span> <span class="o">=</span> <span class="p">[</span><span class="n">rog_1</span><span class="p">,</span> <span class="n">rog_2</span><span class="p">,</span> <span class="n">rog_3</span><span class="p">,</span> <span class="n">rog_4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">run_analysis</span></code> is a simple way to run the analysis and retrieve the results.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">run_analysis</span><span class="p">(</span><span class="n">analysis</span><span class="p">):</span>
+    <span class="n">analysis</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">analysis</span><span class="o">.</span><span class="n">results</span>
+</pre></div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">joblib.delayed</span></code> is different from <code class="docutils literal notranslate"><span class="pre">dask.delayed</span></code>; it cannot be used as a “pie” syntax (<code class="docutils literal notranslate"><span class="pre">&#64;joblib.delayed</span></code>), so you have to use it as below.</p>
+<p>Similiar to <code class="docutils literal notranslate"><span class="pre">dask.delayed</span></code>, the code inside <code class="docutils literal notranslate"><span class="pre">joblib.delayed</span></code> will not run immediately but be pushed into a job queue waiting for processing. In this case, <code class="docutils literal notranslate"><span class="pre">run_anlaysis()</span></code> is processed by <code class="docutils literal notranslate"><span class="pre">Parallel</span></code> with defined number of workers–<code class="docutils literal notranslate"><span class="pre">n_jobs</span></code>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">results_ensemble</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="n">num_cores</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">run_analysis</span><span class="p">)(</span><span class="n">analysis</span><span class="p">)</span>
+                                                <span class="k">for</span> <span class="n">analysis</span> <span class="ow">in</span> <span class="n">analysis_ensemble</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">results_ensemble</span></code> will be a list of <code class="docutils literal notranslate"><span class="pre">results</span></code> that is returned from <code class="docutils literal notranslate"><span class="pre">run_analysis</span></code>. You can further split and process each analysis.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">result_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">results_ensemble</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;x-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;y-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;z-axis&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">result_1</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radius of gyration (Å)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frame&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/examples_analysis_custom_parallel_analysis_68_0.png" src="../../_images/examples_analysis_custom_parallel_analysis_68_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="See-Also">
+<h2>See Also<a class="headerlink" href="#See-Also" title="Permalink to this headline">¶</a></h2>
+<p>The parallel version of MDAnalysis is still under development. For existing solutions and some implementations of parallel analysis, go to <a class="reference external" href="https://www.mdanalysis.org/pmda/">PMDA</a>. PMDA (<a class="bibtex reference internal" href="../../references.html#fan-pmda-2019" id="id5">[SFPG+19]</a>) applies the aforementioned split-apply-combine scheme with Dask. In the future, it may provide a framework that consolidates all the parallelisation schemes described in this tutorial.”</p>
+</div>
+<div class="section" id="References">
+<h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
+<p>[1] Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164">https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164</a>, doi:10.1016/j.jmb.2009.09.009.</p>
+<p>[2] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
+<p>[3] Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>, doi:10.1002/jcc.21787.</p>
+<p>[4] Max Linke Shujie Fan, Ioannis Paraskevakos, Richard J. Gowers, Michael Gecht, and Oliver Beckstein. PMDA - Parallel Molecular Dynamics Analysis. In Chris Calloway, David Lippa, Dillon Niederhut, and David Shupe, editors, Proceedings of the 18th Python in Science Conference, 134 – 142. 2019. doi:10.25080/Majora-7ddc1dd1-013.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../standard_selections.html" class="btn btn-neutral float-right" title="Standard residues in MDAnalysis selections" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="custom_trajectory_analysis.html" class="btn btn-neutral float-left" title="Writing your own trajectory analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019-2020, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein.
+
+    </p>
+  </div>
+ 
+<div class="footer"><p>Please see
+    our <a href="https://www.mdanalysis.org/pages/privacy/">Privacy Policy</a>
+    to learn how <a href="https://www.mdanalysis.org">MDAnalysis</a> collects data.</p>
+    <script data-goatcounter="https://mdanalysis.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <script>
+    var versions_json_url = 'https://userguide.mdanalysis.org/versions.json'
+</script>
+
+<div class="rst-versions" data-toggle="rst-versions" role="note"
+     aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"></span>
+        
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+        <dl id="versionselector">
+            <dt>Other Versions</dt>
+        </dl>
+
+    </div>
+</div>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
