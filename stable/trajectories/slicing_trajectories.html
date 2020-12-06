@@ -142,7 +142,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/analysis/README.html#dimension-reduction">Dimension reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/analysis/README.html#polymers-and-membranes">Polymers and membranes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/analysis/custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
@@ -226,7 +225,7 @@
             
   <div class="section" id="slicing-trajectories">
 <span id="id1"></span><h1>Slicing trajectories<a class="headerlink" href="#slicing-trajectories" title="Permalink to this headline">¶</a></h1>
-<p>MDAnalysis trajectories can be indexed to return a <a class="reference external" href="https://docs.mdanalysis.org/1.0.0/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.Timestep" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Timestep</span></code></a>, or sliced to give a <code class="xref py py-class docutils literal notranslate"><span class="pre">FrameIterator</span></code>.</p>
+<p>MDAnalysis trajectories can be indexed to return a <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.Timestep" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Timestep</span></code></a>, or sliced to give a <code class="xref py py-class docutils literal notranslate"><span class="pre">FrameIterator</span></code>.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 
 <span class="gp">In [2]: </span><span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span>
@@ -237,7 +236,7 @@
 <span class="gh">Out[4]: </span><span class="go">&lt; Timestep 4 with unit cell dimensions [ 0.  0.  0. 90. 90. 90.] &gt;</span>
 </pre></div>
 </div>
-<p>Indexing a trajectory shifts the <a class="reference external" href="https://docs.mdanalysis.org/1.0.0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a> to point towards that particular frame, updating dynamic data such as <code class="docutils literal notranslate"><span class="pre">Universe.atoms.positions</span></code>.</p>
+<p>Indexing a trajectory shifts the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a> to point towards that particular frame, updating dynamic data such as <code class="docutils literal notranslate"><span class="pre">Universe.atoms.positions</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The trajectory frame is not read from the MD data. It is the internal index assigned by MDAnalysis.</p>
@@ -246,7 +245,7 @@
 <span class="gh">Out[5]: </span><span class="go">4</span>
 </pre></div>
 </div>
-<p><em>Creating</em> a <code class="xref py py-class docutils literal notranslate"><span class="pre">FrameIterator</span></code> by slicing a trajectory does not shift the <a class="reference external" href="https://docs.mdanalysis.org/1.0.0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a> to a new frame, but <em>iterating</em> over the sliced trajectory will rewind the trajectory back to the first frame.</p>
+<p><em>Creating</em> a <code class="xref py py-class docutils literal notranslate"><span class="pre">FrameIterator</span></code> by slicing a trajectory does not shift the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a> to a new frame, but <em>iterating</em> over the sliced trajectory will rewind the trajectory back to the first frame.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="n">fiter</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[</span><span class="mi">10</span><span class="p">::</span><span class="mi">10</span><span class="p">]</span>
 
 <span class="gp">In [7]: </span><span class="n">frames</span> <span class="o">=</span> <span class="p">[</span><span class="n">ts</span><span class="o">.</span><span class="n">frame</span> <span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">fiter</span><span class="p">]</span>
@@ -317,7 +316,7 @@
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2019-2020, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein.
+        &copy; Copyright 2019-2020, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein.
 
     </p>
   </div>

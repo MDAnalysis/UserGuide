@@ -517,9 +517,9 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "Python (mda-user-guide)",
+   "display_name": "Python (mda0190)",
    "language": "python",
-   "name": "mda-user-guide"
+   "name": "mda0190"
   },
   "language_info": {
    "codemirror_mode": {
@@ -531,7 +531,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.8.3"
+   "version": "3.6.7"
   },
   "toc": {
    "base_numbering": 1,
