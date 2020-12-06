@@ -16,5 +16,11 @@
     "display": "stable",
     "url": "https://userguide.mdanalysis.org/stable",
     "latest": false
+  },
+  {
+    "version": "dev",
+    "display": "dev",
+    "url": "https://userguide.mdanalysis.org/dev",
+    "latest": false
   }
 ]
