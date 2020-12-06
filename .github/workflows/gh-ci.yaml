@@ -34,7 +34,7 @@ jobs:
         python-version: 3.7
         auto-update-conda: true
         channel-priority: flexible
-        channels: plotly, conda-forge
+        channels: plotly, conda-forge, biobuilds
         add-pip-as-python-dependency: true
         architecture: x64
         environment-file: environment.yml
