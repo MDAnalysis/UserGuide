@@ -40,13 +40,11 @@ jobs:
 
     - name: install_deps
       run: |
-        conda env create -f environment.yml
-        conda activate mda-user-guide
+        conda install -f environment.yml
         jupyter-nbextension enable nglview --py --sys-prefix
 
     - name: build_docs
       run: |
-        conda activate mda-user-guide
         make -C ${SPHINX_DIR} html
 
     - name: deploy_docs
