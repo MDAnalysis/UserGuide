@@ -26,7 +26,6 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
@@ -243,6 +242,20 @@ including many in this User Guide. If you are not interested in developing
 MDAnalysis or using the example files, you most likely don’t need the tests. If you want to
 run examples in the User Guide, install the tests.
 The tests are distributed separately from the main package.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are installing on Windows, you must have
+Microsoft Visual C++ 14.0 installed. If your installation
+fails with the error message:</p>
+<blockquote>
+<div><p>error: Microsoft Visual C++ 14.0 is required. Get it with “Build Tools for Visual Studio”: <a class="reference external" href="https://visualstudio.microsoft.com/downloads/">https://visualstudio.microsoft.com/downloads/</a></p>
+</div></blockquote>
+<p>Try installing Build Tools for Visual Studio from
+<a class="reference external" href="https://visualstudio.microsoft.com/downloads/">https://visualstudio.microsoft.com/downloads/</a> (scroll
+down to the Tools for Visual Studio section).</p>
+</div>
+<p>If you encounter any issues following these instructions, please
+ask for help on the <a class="reference external" href="https://groups.google.com/forum/#!forum/mdnalysis-discussion">user mailing list</a>.</p>
 <div class="section" id="conda">
 <h2>conda<a class="headerlink" href="#conda" title="Permalink to this headline">¶</a></h2>
 <p>To install the latest stable version of MDAnalysis via <code class="docutils literal notranslate"><span class="pre">conda</span></code>, use the following command. This installs all dependencies needed for full analysis functionality (excluding external programs such as <a class="reference external" href="http://www.holeprogram.org">HOLE</a>):</p>
