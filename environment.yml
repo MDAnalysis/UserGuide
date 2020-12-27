@@ -24,6 +24,7 @@ dependencies:
   - nglview==2.7.7
   - notebook==6.1.6
   - numpy==1.20.2
+  - parmed
   - parso==0.8.2
   - pip==20.3.3
   - plotly==4.14.1

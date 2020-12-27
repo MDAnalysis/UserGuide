@@ -12,3 +12,4 @@ Structure
    /examples/analysis/structure/average_rdf
    /examples/analysis/structure/site_specific_rdf
    /examples/analysis/structure/dihedrals
+   /examples/analysis/structure/hydrogen_bond_analysis
