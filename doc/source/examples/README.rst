@@ -13,6 +13,7 @@ MDAnalysis maintains a collection of Jupyter notebooks as examples of what the c
    quickstart
    constructing_universe
    transformations/README
+   other/README
 
 .. toctree::
    :maxdepth: 2
@@ -25,9 +26,3 @@ MDAnalysis maintains a collection of Jupyter notebooks as examples of what the c
    analysis/reduced_dimensions/README
    analysis/polymers_and_membranes/README
    analysis/volumetric/README
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Other packages
-
-   parmed_sim
