@@ -15,7 +15,25 @@ and are not needed for daily use of MDAnalysis. However, they are often used in 
 including many in this User Guide. If you are not interested in developing 
 MDAnalysis or using the example files, you most likely don't need the tests. If you want to 
 run examples in the User Guide, install the tests. 
-The tests are distributed separately from the main package. 
+The tests are distributed separately from the main package.
+
+.. note::
+
+    If you are installing on Windows, you must have
+    Microsoft Visual C++ 14.0 installed. If your installation
+    fails with the error message:
+
+        error: Microsoft Visual C++ 14.0 is required. Get it with "Build Tools for Visual Studio": https://visualstudio.microsoft.com/downloads/
+    
+    Try installing Build Tools for Visual Studio from
+    https://visualstudio.microsoft.com/downloads/ (scroll
+    down to the Tools for Visual Studio section).
+
+
+If you encounter any issues following these instructions, please
+ask for help on the `user mailing list`_.
+
+.. _`user mailing list`: https://groups.google.com/forum/#!forum/mdnalysis-discussion
 
 conda
 =====
