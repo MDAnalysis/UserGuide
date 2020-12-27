@@ -14,6 +14,7 @@ dependencies:
   - nbsphinx
   - nglview
   - numpy>=1.18.5
+  - parmed
   - pip
   - plotly
   - pybtex
