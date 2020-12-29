@@ -16,3 +16,4 @@ These are less detailed and in-depth than the ordinary tutorials.
    order_parameter
    vmd_macro
    gmx_ndx
+   bfactors
