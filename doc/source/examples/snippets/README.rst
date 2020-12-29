@@ -5,7 +5,7 @@
 Snippets
 ========
 
-Below are listed small examples of common tasks.
+Below is an unsorted list of small examples of common tasks.
 These are less detailed and in-depth than the ordinary tutorials.
 
 
@@ -14,3 +14,5 @@ These are less detailed and in-depth than the ordinary tutorials.
 
    trajectory_conversion
    order_parameter
+   vmd_macro
+   gmx_ndx
