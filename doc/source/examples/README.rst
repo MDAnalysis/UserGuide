@@ -13,6 +13,7 @@ MDAnalysis maintains a collection of Jupyter notebooks as examples of what the c
    quickstart
    constructing_universe
    transformations/README
+   snippets/README
 
 .. toctree::
    :maxdepth: 2
