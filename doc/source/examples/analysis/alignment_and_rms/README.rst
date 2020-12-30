@@ -20,7 +20,7 @@ The :mod:`MDAnalysis.analysis.align` and :mod:`MDAnalysis.analysis.rms` modules 
 
    /examples/analysis/alignment_and_rms/aligning_structure_to_another
    /examples/analysis/alignment_and_rms/aligning_trajectory_to_first_frame
-   /examples/analysis/alignment_and_rms/aligning_trajectory
+   /examples/analysis/alignment_and_rms/aligning_trajectory_to_frame
    /examples/analysis/alignment_and_rms/rmsd
    /examples/analysis/alignment_and_rms/pairwise_rmsd
    /examples/analysis/alignment_and_rms/rmsf
