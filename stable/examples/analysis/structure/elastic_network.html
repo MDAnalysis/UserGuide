@@ -487,9 +487,9 @@ div.rendered_html tbody tr:hover {
 <script>require=requirejs;</script><div class="section" id="Elastic-network-analysis">
 <h1>Elastic network analysis<a class="headerlink" href="#Elastic-network-analysis" title="Permalink to this headline">¶</a></h1>
 <p>Here we use a Gaussian network model to characterise conformational states of a trajectory.</p>
-<p><strong>Last executed:</strong> Feb 06, 2020 with MDAnalysis 0.20.2-dev0</p>
+<p><strong>Last executed:</strong> Dec 27, 2020 with MDAnalysis 1.0.0</p>
 <p><strong>Last updated:</strong> January 2020</p>
-<p><strong>Minimum version of MDAnalysis:</strong> 0.17.0</p>
+<p><strong>Minimum version of MDAnalysis:</strong> 1.0.0</p>
 <p><strong>Packages required:</strong></p>
 <ul class="simple">
 <li><p>MDAnalysis (<a class="bibtex reference internal" href="../../../references.html#michaud-agrawal-mdanalysis-2011" id="id1">[MADWB11]</a>, <a class="bibtex reference internal" href="../../../references.html#gowers-mdanalysis-2016" id="id2">[GLB+16]</a>)</p></li>
@@ -541,7 +541,7 @@ lower cutoff.</p>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">nma1</span> <span class="o">=</span> <span class="n">gnm</span><span class="o">.</span><span class="n">GNMAnalysis</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span>
-                      <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
+                      <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
                       <span class="n">cutoff</span><span class="o">=</span><span class="mf">7.0</span><span class="p">)</span>
 <span class="n">nma1</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
@@ -572,7 +572,7 @@ lower cutoff.</p>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">nma2</span> <span class="o">=</span> <span class="n">gnm</span><span class="o">.</span><span class="n">GNMAnalysis</span><span class="p">(</span><span class="n">u2</span><span class="p">,</span>
-                      <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
+                      <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
                       <span class="n">cutoff</span><span class="o">=</span><span class="mf">7.0</span><span class="p">)</span>
 <span class="n">nma2</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
@@ -641,7 +641,7 @@ lower cutoff.</p>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">nma_close</span> <span class="o">=</span> <span class="n">gnm</span><span class="o">.</span><span class="n">closeContactGNMAnalysis</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span>
-                                        <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
+                                        <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
                                         <span class="n">cutoff</span><span class="o">=</span><span class="mf">7.0</span><span class="p">,</span>
                                         <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;size&#39;</span><span class="p">)</span>
 <span class="n">nma_close</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
