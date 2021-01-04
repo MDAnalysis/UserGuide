@@ -70,9 +70,10 @@ Wherever possible, do not take these conversations to private channels, includin
    :hidden:
 
    installation
-   quickstart
+   examples/quickstart
    faq
    examples/README
+   API docs <https://docs.mdanalysis.org/stable/index.html>
 
 .. toctree::
    :maxdepth: 1
@@ -136,4 +137,5 @@ Wherever possible, do not take these conversations to private channels, includin
    preparing_releases_and_hotfixes
    module_imports
    testing
+   Development docs <https://docs.mdanalysis.org/dev/index.html>
    references
