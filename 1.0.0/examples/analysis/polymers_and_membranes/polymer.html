@@ -29,7 +29,7 @@
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script src="../../../_static/js/versions.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
@@ -100,9 +100,10 @@
               <p class="caption"><span class="caption-text">Getting started</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick start guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently asked questions</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../README.html">Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html">Quick start guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../constructing_universe.html">Constructing, modifying, and adding to a Universe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../transformations/README.html">Transformations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../alignment_and_rms/README.html">Alignments and RMS fitting</a></li>
@@ -124,6 +125,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../volumetric/README.html">Volumetric analyses</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Data structures</span></p>
 <ul>
@@ -176,6 +178,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../preparing_releases_and_hotfixes.html">Preparing a release</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../module_imports.html">Module imports in MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../testing.html">Tests in MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/dev/index.html">Development docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../references.html">References</a></li>
 </ul>
 
@@ -482,7 +485,7 @@ div.rendered_html tbody tr:hover {
 <script>require=requirejs;</script><div class="section" id="Determining-the-persistence-length-of-a-polymer">
 <h1>Determining the persistence length of a polymer<a class="headerlink" href="#Determining-the-persistence-length-of-a-polymer" title="Permalink to this headline">¶</a></h1>
 <p>Here we determine the persistence length of a polymer.</p>
-<p><strong>Last executed:</strong> Feb 06, 2020 with MDAnalysis 0.20.1</p>
+<p><strong>Last executed:</strong> Feb 06, 2020 with MDAnalysis 1.0.0</p>
 <p><strong>Last updated:</strong> January 2020</p>
 <p><strong>Minimum version of MDAnalysis:</strong> 0.20.1</p>
 <p><strong>Packages required:</strong></p>
@@ -556,7 +559,7 @@ div.rendered_html tbody tr:hover {
 <p>An exponential decay is then fitted to this, which yields the persistence length <span class="math notranslate nohighlight">\(l_P\)</span> from the average bond length <span class="math notranslate nohighlight">\(\bar{l_B}\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[C(n) \approx \exp\left( - \frac{n \bar{l_B}}{l_P} \right)\]</div>
-<p>We set up our <code class="docutils literal notranslate"><span class="pre">PersistenceLength</span></code> class. Note that every chain we pass into it must have the same length.</p>
+<p>We set up our <code class="docutils literal notranslate"><span class="pre">PersistenceLength</span></code> class (<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/polymer.html">API docs</a>). Note that every chain we pass into it must have the same length.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
@@ -650,7 +653,7 @@ The persistence length is 6.917464580166461
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019-2020, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein.
+        &copy; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein.
 
     </p>
   </div>

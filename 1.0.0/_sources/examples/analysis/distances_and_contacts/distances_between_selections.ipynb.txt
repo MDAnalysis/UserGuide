@@ -108,7 +108,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "`distances.distance_array` will produce an array with shape `(n, m)` distances if there are `n` positions in the reference array and `m` positions in the other configuration. If you want to calculate distances following the minimum image convention, you *must* pass the universe dimensions into the ``box`` keyword."
+    "`distances.distance_array`([API docs](https://docs.mdanalysis.org/stable/documentation_pages/analysis/distances.html#MDAnalysis.analysis.distances.distance_array)) will produce an array with shape `(n, m)` distances if there are `n` positions in the reference array and `m` positions in the other configuration. If you want to calculate distances following the minimum image convention, you *must* pass the universe dimensions into the ``box`` keyword."
    ]
   },
   {
@@ -335,9 +335,9 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "Python (mda0190)",
+   "display_name": "Python (mda-user-guide)",
    "language": "python",
-   "name": "mda0190"
+   "name": "mda-user-guide"
   },
   "language_info": {
    "codemirror_mode": {
@@ -349,7 +349,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.6.7"
+   "version": "3.8.3"
   },
   "toc": {
    "base_numbering": 1,

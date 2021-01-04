@@ -134,7 +134,7 @@
     "\n",
     "The similarity of each probability density function is compared using the Jensen-Shannon divergence. This divergence has an upper bound of $\\ln{(2)}$ and a lower bound of 0.0. Normally, $\\ln{(2)}$ represents no similarity between the ensembles, and 0.0 represents identical conformational ensembles. However, due to the stochastic nature of the dimension reduction, two identical symbols will not necessarily result in an exact divergence of 0.0. In addition, calculating the similarity with `dres()` twice will result in similar but not identical numbers.\n",
     "\n",
-    "You do not need to align your trajectories, as the function will align it for you (along your `select`ion atoms, which are `select='name CA'` by default). "
+    "You do not need to align your trajectories, as the function will align it for you (along your `select`ion atoms, which are `select='name CA'` by default). The function we use is `dres` ([API docs](https://docs.mdanalysis.org/stable/documentation_pages/analysis/encore/similarity.html#MDAnalysis.analysis.encore.similarity.dres))."
    ]
   },
   {

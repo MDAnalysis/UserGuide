@@ -122,7 +122,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "We set up the PSAnalysis with our list of Universes and labels. While `path_select` determines which atoms to calculate the path similarities for, `ref_select` determines which atoms to use to align each Universe to `reference`."
+    "We set up the PSAnalysis ([API docs](https://docs.mdanalysis.org/stable/documentation_pages/analysis/psa.html#MDAnalysis.analysis.psa.PSAnalysis)) with our list of Universes and labels. While `path_select` determines which atoms to calculate the path similarities for, `ref_select` determines which atoms to use to align each Universe to `reference`."
    ]
   },
   {
@@ -151,7 +151,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "For each Universe, we will generate a transition path containing each conformation from a trajectory. \n",
+    "For each Universe, we will generate a transition path containing each conformation from a trajectory using `generate_paths` ([API docs](https://docs.mdanalysis.org/stable/documentation_pages/analysis/psa.html#MDAnalysis.analysis.psa.PSAnalysis.generate_paths)).\n",
     "\n",
     "\n",
     "First, we will do a mass-weighted alignment of each trajectory to the reference structure `reference`, along the atoms `ref_select`. To turn off the mass weighting, set `weights=None`. If your trajectories are already aligned, you can skip the alignment with `align=False`."

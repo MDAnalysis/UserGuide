@@ -29,7 +29,7 @@
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script src="../../../_static/js/versions.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
@@ -100,9 +100,10 @@
               <p class="caption"><span class="caption-text">Getting started</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick start guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently asked questions</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../README.html">Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html">Quick start guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../constructing_universe.html">Constructing, modifying, and adding to a Universe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../transformations/README.html">Transformations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../alignment_and_rms/README.html">Alignments and RMS fitting</a></li>
@@ -123,6 +124,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../volumetric/README.html">Volumetric analyses</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Data structures</span></p>
 <ul>
@@ -175,6 +177,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../preparing_releases_and_hotfixes.html">Preparing a release</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../module_imports.html">Module imports in MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../testing.html">Tests in MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/dev/index.html">Development docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../references.html">References</a></li>
 </ul>
 
@@ -535,7 +538,7 @@ div.rendered_html tbody tr:hover {
 <h2>Principal component analysis<a class="headerlink" href="#Principal-component-analysis" title="Permalink to this headline">¶</a></h2>
 <p>Principal component analysis (PCA) is a statistical technique that decomposes a system of observations into linearly uncorrelated variables called <strong>principal components</strong>. These components are ordered so that the first principal component accounts for the largest variance in the data, and each following component accounts for lower and lower variance. PCA is often applied to molecular dynamics trajectories to extract the large-scale conformational motions or “essential dynamics” of a protein.
 The frame-by-frame conformational fluctuation can be considered a linear combination of the essential dynamics yielded by the PCA.</p>
-<p>In MDAnalysis, the method is as follows:</p>
+<p>In MDAnalysis, the method implemented in the PCA class (<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/pca.html">API docs</a>) is as follows:</p>
 <ol class="arabic simple">
 <li><p>Optionally align each frame in your trajectory to the first frame.</p></li>
 <li><p>Construct a 3N x 3N covariance for the N atoms in your trajectory. Optionally, you can provide a mean; otherwise the covariance is to the averaged structure over the trajectory.</p></li>
@@ -911,7 +914,7 @@ There are 855 backbone atoms in the analysis
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019-2020, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein.
+        &copy; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein.
 
     </p>
   </div>

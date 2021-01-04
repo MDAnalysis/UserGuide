@@ -29,7 +29,7 @@
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script src="../../../_static/js/versions.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
@@ -100,9 +100,10 @@
               <p class="caption"><span class="caption-text">Getting started</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick start guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently asked questions</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../README.html">Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html">Quick start guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../constructing_universe.html">Constructing, modifying, and adding to a Universe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../transformations/README.html">Transformations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../alignment_and_rms/README.html">Alignments and RMS fitting</a></li>
@@ -124,6 +125,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../volumetric/README.html">Volumetric analyses</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Data structures</span></p>
 <ul>
@@ -176,6 +178,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../preparing_releases_and_hotfixes.html">Preparing a release</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../module_imports.html">Module imports in MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../testing.html">Tests in MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/dev/index.html">Development docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../references.html">References</a></li>
 </ul>
 
@@ -482,7 +485,7 @@ div.rendered_html tbody tr:hover {
 <script>require=requirejs;</script><div class="section" id="Analysing-pore-dimensions-with-HOLE">
 <h1>Analysing pore dimensions with HOLE<a class="headerlink" href="#Analysing-pore-dimensions-with-HOLE" title="Permalink to this headline">¶</a></h1>
 <p>Here we use <code class="docutils literal notranslate"><span class="pre">HOLE</span></code> to analyse pore dimensions in a membrane.</p>
-<p><strong>Last executed:</strong> Feb 10, 2020 with MDAnalysis 0.20.2-dev0</p>
+<p><strong>Last executed:</strong> Feb 10, 2020 with MDAnalysis 1.0.0</p>
 <p><strong>Last updated:</strong> January 2020</p>
 <p><strong>Minimum version of MDAnalysis:</strong> 0.18.0</p>
 <p><strong>Packages required:</strong></p>
@@ -512,7 +515,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Using-HOLE-with-a-PDB-file">
 <h2>Using HOLE with a PDB file<a class="headerlink" href="#Using-HOLE-with-a-PDB-file" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.hole.HOLE</span></code> is a wrapper class that calls the <a class="reference external" href="http://www.holeprogram.org">HOLE</a> program. This means you must have installed the program yourself before you can use the class. You then need to pass the path to your <code class="docutils literal notranslate"><span class="pre">hole</span></code> executable to the class; in this example, <code class="docutils literal notranslate"><span class="pre">hole</span></code> is installed at <code class="docutils literal notranslate"><span class="pre">~/hole2/exe/hole</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.hole.HOLE</span></code> is a wrapper class (<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/hole2.html">API docs</a>) that calls the <a class="reference external" href="http://www.holeprogram.org">HOLE</a> program. This means you must have installed the program yourself before you can use the class. You then need to pass the path to your <code class="docutils literal notranslate"><span class="pre">hole</span></code> executable to the class; in this example, <code class="docutils literal notranslate"><span class="pre">hole</span></code> is installed at <code class="docutils literal notranslate"><span class="pre">~/hole2/exe/hole</span></code>.</p>
 <p>HOLE defines a series of points throughout the pore from which a sphere can be generated that does not overlap any atom (as defined by its van der Waals radius). (Please see (<a class="bibtex reference internal" href="../../../references.html#smart-pore-1993" id="id5">[SGW93]</a>, <a class="bibtex reference internal" href="../../../references.html#smart-hole-1996" id="id6">[SNW+96]</a>) for a complete explanation). By default, it ignores residues with the following names: “SOL”, “WAT”, “TIP”, “HOH”, “K”, “NA”, “CL”. You can change these with the <code class="docutils literal notranslate"><span class="pre">ignore_residues</span></code> keyword. Note that the residue names must have 3 characters. Wildcards <em>do not</em> work.</p>
 <p>The PDB file here is the experimental structure of the Gramicidin A channel. Note that we pass <code class="docutils literal notranslate"><span class="pre">HOLE</span></code> a PDB file directly, without creating a <code class="docutils literal notranslate"><span class="pre">MDAnalysis.Universe</span></code>.</p>
 <div class="nbinput nblast docutils container">
@@ -882,7 +885,7 @@ odict_keys([6.105012519709198, 4.883984723991125, 3.663035235691455, 2.442024543
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019-2020, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein.
+        &copy; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein.
 
     </p>
   </div>

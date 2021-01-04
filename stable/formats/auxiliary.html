@@ -29,7 +29,7 @@
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script src="../_static/js/versions.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -100,9 +100,10 @@
               <p class="caption"><span class="caption-text">Getting started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/quickstart.html">Quick start guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently asked questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/README.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Data structures</span></p>
 <ul>
@@ -164,6 +165,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../preparing_releases_and_hotfixes.html">Preparing a release</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_imports.html">Module imports in MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Tests in MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/dev/index.html">Development docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
 </ul>
 
@@ -282,7 +284,7 @@ reader for .xvg files.</p></td>
 <span class="gp">In [3]: </span><span class="n">aux</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">auxreader</span><span class="p">(</span><span class="n">XVG_BZ2</span><span class="p">)</span>
 
 <span class="gp">In [4]: </span><span class="n">aux</span>
-<span class="gh">Out[4]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7f88ec70de50&gt;</span>
+<span class="gh">Out[4]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7fb86a615990&gt;</span>
 </pre></div>
 </div>
 <p>In stand-alone use, an auxiliary reader allows you to iterate over each step in a set of auxiliary data.</p>
@@ -481,7 +483,7 @@ original auxiliary reader.</p>
 <span class="gp">In [30]: </span><span class="k">del</span> <span class="n">aux</span>
 
 <span class="gp">In [31]: </span><span class="n">mda</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">auxreader</span><span class="p">(</span><span class="o">**</span><span class="n">description</span><span class="p">)</span>
-<span class="gh">Out[31]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7f88d5f5fc50&gt;</span>
+<span class="gh">Out[31]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7fb86830cc50&gt;</span>
 </pre></div>
 </div>
 <p>The ‘description’ of any or all the auxiliaries added to a trajectory can be
@@ -520,7 +522,7 @@ obtained using <a class="reference external" href="https://docs.mdanalysis.org/1
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019-2020, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein.
+        &copy; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein.
 
     </p>
   </div>

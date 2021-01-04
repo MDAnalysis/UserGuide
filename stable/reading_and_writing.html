@@ -29,7 +29,7 @@
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script src="_static/js/versions.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
@@ -100,9 +100,10 @@
               <p class="caption"><span class="caption-text">Getting started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/quickstart.html">Quick start guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently asked questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/README.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Data structures</span></p>
 <ul>
@@ -176,6 +177,7 @@
 <li class="toctree-l1"><a class="reference internal" href="preparing_releases_and_hotfixes.html">Preparing a release</a></li>
 <li class="toctree-l1"><a class="reference internal" href="module_imports.html">Module imports in MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testing.html">Tests in MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/dev/index.html">Development docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 
@@ -352,13 +354,13 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/1.0.0/docum
 
 <span class="gp">In [16]: </span><span class="n">universe</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[16]: </span><span class="go"></span>
-<span class="go">array([[0.9463754 , 0.7865291 , 0.49890673],</span>
-<span class="go">       [0.38727167, 0.5346422 , 0.25373992],</span>
-<span class="go">       [0.1744579 , 0.71727306, 0.11494459],</span>
+<span class="go">array([[0.9289947 , 0.384364  , 0.12487827],</span>
+<span class="go">       [0.5299631 , 0.6248467 , 0.6581715 ],</span>
+<span class="go">       [0.3053811 , 0.07047455, 0.7020112 ],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.24773932, 0.5296129 , 0.39353976],</span>
-<span class="go">       [0.52307266, 0.8616822 , 0.47167727],</span>
-<span class="go">       [0.62384665, 0.9384821 , 0.20732725]], dtype=float32)</span>
+<span class="go">       [0.28297517, 0.16786303, 0.00436667],</span>
+<span class="go">       [0.00253904, 0.6975838 , 0.12699102],</span>
+<span class="go">       [0.7849917 , 0.06921352, 0.85091484]], dtype=float32)</span>
 </pre></div>
 </div>
 <p>or they can be directly passed in when creating a Universe.</p>
@@ -366,13 +368,13 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/1.0.0/docum
 
 <span class="gp">In [18]: </span><span class="n">universe2</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[18]: </span><span class="go"></span>
-<span class="go">array([[0.9463754 , 0.7865291 , 0.49890673],</span>
-<span class="go">       [0.38727167, 0.5346422 , 0.25373992],</span>
-<span class="go">       [0.1744579 , 0.71727306, 0.11494459],</span>
+<span class="go">array([[0.9289947 , 0.384364  , 0.12487827],</span>
+<span class="go">       [0.5299631 , 0.6248467 , 0.6581715 ],</span>
+<span class="go">       [0.3053811 , 0.07047455, 0.7020112 ],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.24773932, 0.5296129 , 0.39353976],</span>
-<span class="go">       [0.52307266, 0.8616822 , 0.47167727],</span>
-<span class="go">       [0.62384665, 0.9384821 , 0.20732725]], dtype=float32)</span>
+<span class="go">       [0.28297517, 0.16786303, 0.00436667],</span>
+<span class="go">       [0.00253904, 0.6975838 , 0.12699102],</span>
+<span class="go">       [0.7849917 , 0.06921352, 0.85091484]], dtype=float32)</span>
 </pre></div>
 </div>
 </div>
@@ -530,7 +532,7 @@ after serialization:</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019-2020, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein.
+        &copy; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein.
 
     </p>
   </div>
