@@ -3,7 +3,13 @@
 Examples
 ========
 
-MDAnalysis maintains a collection of Jupyter notebooks as examples of what the code can do. Each notebook can be downloaded from the source repository to run on your own computer, or viewed as an online tutorial on the user guide.
+|binder|
+
+MDAnalysis maintains a collection of Jupyter notebooks as examples
+of what the code can do. Each notebook can be downloaded from
+`GitHub`_ to run on your own computer, or viewed as an
+online tutorial on the user guide. You can also interact with
+each notebook on `Binder`_.
 
 
 .. toctree::
@@ -26,3 +32,9 @@ MDAnalysis maintains a collection of Jupyter notebooks as examples of what the c
    analysis/polymers_and_membranes/README
    analysis/volumetric/README
    
+.. |binder| image:: https://mybinder.org/badge_logo.svg
+   :alt: Binder
+   :target: https://mybinder.org/v2/gh/MDAnalysis/UserGuide/HEAD?urlpath=tree%2Fdoc%2Fsource%2Fexamples
+
+.. _Binder: https://mybinder.org/v2/gh/MDAnalysis/UserGuide/HEAD?urlpath=tree%2Fdoc%2Fsource%2Fexamples
+.. _GitHub: https://github.com/MDAnalysis/UserGuide/tree/master/doc/source/examples
