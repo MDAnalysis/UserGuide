@@ -29,7 +29,7 @@
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script src="_static/js/versions.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
@@ -111,6 +111,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#loading-from-files">Loading from files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#constructing-from-atomgroups">Constructing from AtomGroups</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#constructing-from-scratch">Constructing from scratch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#constructing-from-smiles">Constructing from SMILES</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#guessing-topology-attributes">Guessing topology attributes</a></li>
 </ul>
 </li>
@@ -341,6 +342,40 @@
 </div>
 <p><a class="reference internal" href="examples/constructing_universe.html"><span class="doc">See this notebook tutorial for more information.</span></a></p>
 </div>
+<div class="section" id="constructing-from-smiles">
+<h3>Constructing from SMILES<a class="headerlink" href="#constructing-from-smiles" title="Permalink to this headline">¶</a></h3>
+<p>Thanks to the interoperability with RDKit, a Universe can be constructed from a SMILES string with <code class="xref py py-meth docutils literal notranslate"><span class="pre">Universe.from_smiles</span></code>. Since the SMILES string usually contains information about heavy atoms only, this method automatically adds the appropriate number of hydrogens on all atoms, by setting <code class="code docutils literal notranslate"><span class="pre">addHs=True</span></code>. It is also possible to generate coordinates with <code class="code docutils literal notranslate"><span class="pre">generate_coordinates=True</span></code>. This will allow RDKit to generate one or more conformers for the given molecule. For example, setting <code class="code docutils literal notranslate"><span class="pre">numConfs=10</span></code> will generate 10 conformers, and each conformer will be read as a frame by the Universe.</p>
+<p>Here is a minimal example to create a Universe from one conformer of ethanol:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="o">.</span><span class="n">from_smiles</span><span class="p">(</span><span class="s2">&quot;CCO&quot;</span><span class="p">)</span>
+
+<span class="gp">In [17]: </span><span class="n">u</span>
+<span class="gh">Out[17]: </span><span class="go">&lt;Universe with 9 atoms&gt;</span>
+
+<span class="gp">In [18]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span>
+<span class="gh">Out[18]: </span><span class="go">&lt;RDKitReader with 1 frames of 9 atoms&gt;</span>
+</pre></div>
+</div>
+<p>Internally, calling the <code class="xref py py-meth docutils literal notranslate"><span class="pre">Universe.from_smiles</span></code> method does the following:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [19]: </span><span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
+
+<span class="gp">In [20]: </span><span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">AllChem</span>
+
+<span class="gp">In [21]: </span><span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s2">&quot;CCO&quot;</span><span class="p">)</span> <span class="c1"># ethanol</span>
+
+<span class="gp">In [22]: </span><span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AddHs</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+
+<span class="gp">In [23]: </span><span class="n">confids</span> <span class="o">=</span> <span class="n">AllChem</span><span class="o">.</span><span class="n">EmbedMultipleConfs</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">numConfs</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 1 conformer</span>
+
+<span class="gp">In [24]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;RDKIT&quot;</span><span class="p">)</span>
+
+<span class="gp">In [25]: </span><span class="n">u</span>
+<span class="gh">Out[25]: </span><span class="go">&lt;Universe with 9 atoms&gt;</span>
+
+<span class="gp">In [26]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span>
+<span class="gh">Out[26]: </span><span class="go">&lt;RDKitReader with 1 frames of 9 atoms&gt;</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="guessing-topology-attributes">
 <h3>Guessing topology attributes<a class="headerlink" href="#guessing-topology-attributes" title="Permalink to this headline">¶</a></h3>
 <p>MDAnalysis can guess two kinds of information. Sometimes MDAnalysis guesses information instead of reading it from certain file formats, which can lead to mistakes such as assigning atoms the wrong element or charge. See <a class="reference internal" href="formats/index.html#topology-parsers"><span class="std std-ref">the available topology parsers</span></a> for a case-by-case breakdown of which atom properties MDAnalysis guesses for each format. See <a class="reference internal" href="formats/guessing.html#guessing"><span class="std std-ref">Guessing</span></a> for how attributes are guessed, and <a class="reference internal" href="topology_system.html#topologyattr-defaults"><span class="std std-ref">Default values and attribute levels</span></a> for which attributes have default values.</p>
@@ -393,7 +428,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019-2020, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein.
+        &copy; Copyright 2019-2021, Lily Wang, Irfan Alibay, Cédric Bouysset, Rocco Meli, Richard J. Gowers, and Oliver Beckstein.
 
     </p>
   </div>

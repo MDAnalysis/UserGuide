@@ -29,7 +29,7 @@
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script src="_static/js/versions.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
@@ -351,13 +351,13 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/stable/docu
 
 <span class="gp">In [16]: </span><span class="n">universe</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[16]: </span><span class="go"></span>
-<span class="go">array([[0.75644094, 0.89643556, 0.35910255],</span>
-<span class="go">       [0.20862843, 0.67646855, 0.11390699],</span>
-<span class="go">       [0.06501427, 0.5610159 , 0.29173496],</span>
+<span class="go">array([[0.485509  , 0.96361595, 0.07149326],</span>
+<span class="go">       [0.42474467, 0.80891573, 0.8510668 ],</span>
+<span class="go">       [0.2802334 , 0.25300792, 0.7238946 ],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.0914131 , 0.4112218 , 0.6423535 ],</span>
-<span class="go">       [0.2407165 , 0.7051715 , 0.39630938],</span>
-<span class="go">       [0.10081811, 0.41318533, 0.34963   ]], dtype=float32)</span>
+<span class="go">       [0.9341712 , 0.169248  , 0.04420121],</span>
+<span class="go">       [0.07555094, 0.45906785, 0.02250011],</span>
+<span class="go">       [0.4901226 , 0.6014076 , 0.7852269 ]], dtype=float32)</span>
 </pre></div>
 </div>
 <p>or they can be directly passed in when creating a Universe.</p>
@@ -365,13 +365,13 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/stable/docu
 
 <span class="gp">In [18]: </span><span class="n">universe2</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[18]: </span><span class="go"></span>
-<span class="go">array([[0.75644094, 0.89643556, 0.35910255],</span>
-<span class="go">       [0.20862843, 0.67646855, 0.11390699],</span>
-<span class="go">       [0.06501427, 0.5610159 , 0.29173496],</span>
+<span class="go">array([[0.485509  , 0.96361595, 0.07149326],</span>
+<span class="go">       [0.42474467, 0.80891573, 0.8510668 ],</span>
+<span class="go">       [0.2802334 , 0.25300792, 0.7238946 ],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.0914131 , 0.4112218 , 0.6423535 ],</span>
-<span class="go">       [0.2407165 , 0.7051715 , 0.39630938],</span>
-<span class="go">       [0.10081811, 0.41318533, 0.34963   ]], dtype=float32)</span>
+<span class="go">       [0.9341712 , 0.169248  , 0.04420121],</span>
+<span class="go">       [0.07555094, 0.45906785, 0.02250011],</span>
+<span class="go">       [0.4901226 , 0.6014076 , 0.7852269 ]], dtype=float32)</span>
 </pre></div>
 </div>
 </div>
@@ -453,7 +453,7 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/stable/docu
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019-2020, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein.
+        &copy; Copyright 2019-2021, Lily Wang, Irfan Alibay, Cédric Bouysset, Rocco Meli, Richard J. Gowers, and Oliver Beckstein.
 
     </p>
   </div>
