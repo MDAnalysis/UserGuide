@@ -2,7 +2,7 @@
   MDAnalysis User Guide
 ================================
 
-|build| 
+|build| |binder|
 
 |usergroup| |developergroup|
 
@@ -30,3 +30,7 @@ This repository contains the `user guide`_ for MDAnalysis. The user guide origin
 .. |build| image:: https://travis-ci.com/MDAnalysis/UserGuide.svg?branch=master
    :alt: Build Status
    :target: https://travis-ci.com/MDAnalysis/UserGuide
+
+.. |binder| image:: https://mybinder.org/badge_logo.svg
+   :alt: Binder
+   :target: https://mybinder.org/v2/gh/MDAnalysis/UserGuide/HEAD?urlpath=tree%2Fdoc%2Fsource%2Fexamples
