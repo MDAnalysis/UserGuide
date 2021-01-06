@@ -33,4 +33,4 @@ This repository contains the `user guide`_ for MDAnalysis. The user guide origin
 
 .. |binder| image:: https://mybinder.org/badge_logo.svg
    :alt: Binder
-   :target: https://mybinder.org/v2/gh/MDAnalysis/UserGuide/HEAD?urlpath=tree%2Fdoc%2Fsource%2Fexamples
+   :target: https://mybinder.org/v2/gh/MDAnalysis/binder-env-userguide/main?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252FMDAnalysis%252FUserGuide%26urlpath%3Dtree%252FUserGuide%252Fdoc%252Fsource%252Fexamples%26branch%3Dmaster
