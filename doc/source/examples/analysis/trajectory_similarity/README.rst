@@ -16,3 +16,4 @@ A molecular dynamics trajectory with :math:`N` atoms can be considered through a
    /examples/analysis/trajectory_similarity/clustering_ensemble_similarity
    /examples/analysis/trajectory_similarity/dimension_reduction_ensemble_similarity
    /examples/analysis/trajectory_similarity/convergence
+   /examples/analysis/trajectory_similarity/encore

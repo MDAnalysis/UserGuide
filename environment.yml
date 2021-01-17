@@ -23,5 +23,5 @@ dependencies:
   - pip:
       - msmb_theme==1.2.0
       - sphinx-sitemap==1.0.2
-      - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=mdanalysis&subdirectory=package
-      - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=MDAnalysisTests&subdirectory=testsuite
+      - git+https://github.com/lilyminium/mdanalysis@ensemble#egg=mdanalysis&subdirectory=package
+      - git+https://github.com/lilyminium/mdanalysis@ensemble#egg=MDAnalysisTests&subdirectory=testsuite
