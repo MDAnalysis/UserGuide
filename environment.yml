@@ -1,5 +1,6 @@
 name: mda-user-guide
 channels:
+  - defaults
   - conda-forge
   - plotly
 dependencies:
@@ -14,8 +15,8 @@ dependencies:
   - pip
   - plotly
   - pybtex
-  - sphinx==2.2.0
-  - sphinxcontrib-bibtex
+  - sphinx
+  - sphinxcontrib-bibtex<2.0.0
   - sphinx_rtd_theme
   - tabulate
   - pip:

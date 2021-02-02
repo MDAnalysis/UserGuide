@@ -1,0 +1,113 @@
+name: mda_gh_ci
+on:
+  push:
+    branches:
+      - develop
+      - master
+  pull_request:
+    branches:
+      - develop
+      - master
+
+defaults:
+  run:
+    shell: bash -l {0}
+
+env:
+  SPHINX_DIR: "doc/"
+  HTML_DIR: "doc/build/html"
+
+
+jobs:
+  build_docs:
+    runs-on: ubuntu-latest
+    env:
+      CYTHON_TRACE_NOGIL: 1
+      MPLBACKEND: agg
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: setup_miniconda
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        python-version: 3.7
+        auto-update-conda: true
+        channel-priority: flexible
+        channels: plotly, conda-forge
+        add-pip-as-python-dependency: true
+        architecture: x64
+        environment-file: environment.yml
+        activate-environment: mda-user-guide
+
+    - name: install_deps
+      run: |
+        jupyter-nbextension enable nglview --py --sys-prefix
+
+    - name: build_docs
+      run: |
+        make -C ${SPHINX_DIR} html
+
+    - name: deploy_docs
+      if: github.event_name != 'pull_request'
+      env:
+        GH_USER: github-actions
+        GH_EMAIL: "github-action@users.noreply.github.com"
+        GH_REPOSITORY: "github.com/${{ github.repository }}.git"
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        URL: https://userguide.mdanalysis.org
+
+      run: |
+        # set up environment variables
+        # cannot execute bash to make variables in env section
+        # export URL for the Python script $UPDATE_JSON
+        export URL
+        export VERSION=$(python -c "import MDAnalysis; print(MDAnalysis.__version__)")
+        UPDATE_JSON=$(pwd)/maintainer/update_json_stubs_sitemap.py
+        BRANCH="${GITHUB_REF#refs/heads/}"
+
+        # the below turns off non-blocking as it causes large writes to stdout to fail
+        # (see https://github.com/travis-ci/travis-ci/issues/4704)
+        # commented out as this is not a problem with gh-actions
+        # python -c 'import os,sys,fcntl; flags = fcntl.fcntl(sys.stdout, fcntl.F_GETFL); fcntl.fcntl(sys.stdout, fcntl.F_SETFL, flags&~os.O_NONBLOCK);'
+        cd ${{ env.HTML_DIR }}
+
+        # move docs into version subfolder
+        mkdir ../${VERSION} && mv * ../${VERSION} && mv ../${VERSION} $VERSION
+
+        # set up git
+        REV=$(git rev-parse --short HEAD)
+        git init
+        git config user.name $GH_USER
+        git config user.email $GH_EMAIL
+        git remote add upstream "https://${GH_USER}:${GH_TOKEN}@${GH_REPOSITORY}"
+        git fetch --depth 50 upstream $BRANCH gh-pages
+        git reset upstream/gh-pages
+
+        # redirects and copies
+        mkdir latest
+        python $UPDATE_JSON
+        touch .
+        touch .nojekyll
+
+        git add -A ${VERSION}/
+        git add .nojekyll versions.json *.xml *.html index.html latest
+
+        for dirname in dev stable ; do
+          if [ -d $dirname ]; then git add $dirname; fi
+        done
+
+        # add redirect html files if they're generated
+        if [ "$(ls *.html | wc -l)" -ge "1" ]; then
+            # get list of directories and files present in the latest version
+            cd $VERSION && mdfiles=$(ls -d *) && cd -
+            for item in $mdfiles ; do
+                # if the directory/file exists in top level, add it
+                if [[ -f $item ]] || [[ -d $item ]]; then git add $item; fi
+            done
+        fi
+
+        # check for anything to commit
+        # https://stackoverflow.com/questions/3878624/how-do-i-programmatically-determine-if-there-are-uncommited-changes
+        git diff-index --quiet HEAD -- || git commit -m "rebuilt html docs for version ${VERSION} from branch ${BRANCH} with sphinx at ${REV}"
+        git push -q upstream HEAD:gh-pages
