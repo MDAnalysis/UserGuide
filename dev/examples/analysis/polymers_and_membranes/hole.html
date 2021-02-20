@@ -117,6 +117,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#Using-HOLE-with-a-PDB-file">Using HOLE with a PDB file</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Using-HOLE-with-a-trajectory">Using HOLE with a trajectory</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Ordering-HOLE-profiles-with-an-order-parameter">Ordering HOLE profiles with an order parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Deleting-HOLE-files">Deleting HOLE files</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#References">References</a></li>
 </ul>
 </li>
@@ -250,21 +251,35 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput.container,
-div.nbinput.container div.prompt,
-div.nbinput.container div.input_area,
-div.nbinput.container div[class*=highlight],
-div.nbinput.container div[class*=highlight] pre,
-div.nboutput.container,
-div.nboutput.container div.prompt,
-div.nboutput.container div.output_area,
-div.nboutput.container div[class*=highlight],
-div.nboutput.container div[class*=highlight] pre {
-    background: none;
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
     border: none;
-    padding: 0 0;
+    padding: 0;
     margin: 0;
     box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
 }
 
 /* avoid gaps between output lines */
@@ -365,7 +380,7 @@ div.nboutput.container div.output_area {
 div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
-    background: #f5f5f5;
+    /*background: #f5f5f5;*/
 }
 
 /* override MathJax center alignment in output cells */
@@ -431,6 +446,7 @@ div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
     padding: 5px;
+    margin: 0;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -482,9 +498,9 @@ div.rendered_html tbody tr:hover {
 <script>require=requirejs;</script><div class="section" id="Analysing-pore-dimensions-with-HOLE">
 <h1>Analysing pore dimensions with HOLE<a class="headerlink" href="#Analysing-pore-dimensions-with-HOLE" title="Permalink to this headline">¶</a></h1>
 <p>Here we use <code class="docutils literal notranslate"><span class="pre">HOLE</span></code> to analyse pore dimensions in a membrane.</p>
-<p><strong>Last executed:</strong> Feb 10, 2020 with MDAnalysis 0.20.2-dev0</p>
-<p><strong>Last updated:</strong> January 2020</p>
-<p><strong>Minimum version of MDAnalysis:</strong> 0.18.0</p>
+<p><strong>Last executed:</strong> Feb 20, 2020 with MDAnalysis 0.20.2-dev0</p>
+<p><strong>Last updated:</strong> February 2020</p>
+<p><strong>Minimum version of MDAnalysis:</strong> 1.0</p>
 <p><strong>Packages required:</strong></p>
 <ul class="simple">
 <li><p>MDAnalysis (<a class="bibtex reference internal" href="../../../references.html#michaud-agrawal-mdanalysis-2011" id="id1">[MADWB11]</a>, <a class="bibtex reference internal" href="../../../references.html#gowers-mdanalysis-2016" id="id2">[GLB+16]</a>)</p></li>
@@ -495,7 +511,7 @@ div.rendered_html tbody tr:hover {
 </ul>
 <div class="admonition note">
 <p class="admonition-title"><strong>Note</strong></p>
-<p>The classes in <code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.hole</span></code> are wrappers around the HOLE program. Please cite (<a class="bibtex reference internal" href="../../../references.html#smart-pore-1993" id="id3">[SGW93]</a>, <a class="bibtex reference internal" href="../../../references.html#smart-hole-1996" id="id4">[SNW+96]</a>) when using this module in published work.</p>
+<p>The classes in <code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.hole2</span></code> are wrappers around the HOLE program. Please cite (<a class="bibtex reference internal" href="../../../references.html#smart-pore-1993" id="id3">[SGW93]</a>, <a class="bibtex reference internal" href="../../../references.html#smart-hole-1996" id="id4">[SNW+96]</a>) when using this module in published work.</p>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -504,46 +520,50 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PDB_HOLE</span>
-<span class="kn">from</span> <span class="nn">MDAnalysis.analysis</span> <span class="kn">import</span> <span class="n">hole</span>
+<span class="kn">from</span> <span class="nn">MDAnalysis.analysis</span> <span class="kn">import</span> <span class="n">hole2</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
 <div class="section" id="Using-HOLE-with-a-PDB-file">
 <h2>Using HOLE with a PDB file<a class="headerlink" href="#Using-HOLE-with-a-PDB-file" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.hole.HOLE</span></code> is a wrapper class that calls the <a class="reference external" href="http://www.holeprogram.org">HOLE</a> program. This means you must have installed the program yourself before you can use the class. You then need to pass the path to your <code class="docutils literal notranslate"><span class="pre">hole</span></code> executable to the class; in this example, <code class="docutils literal notranslate"><span class="pre">hole</span></code> is installed at <code class="docutils literal notranslate"><span class="pre">~/hole2/exe/hole</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.hole2.hole</span></code> is a wrapper function that calls the <a class="reference external" href="http://www.holeprogram.org">HOLE</a> program. This means you must have installed the program yourself before you can use the <code class="docutils literal notranslate"><span class="pre">hole2</span></code> module. You then need to pass the path to your <code class="docutils literal notranslate"><span class="pre">hole</span></code> executable to the functions and classes in the modules; in this example, <code class="docutils literal notranslate"><span class="pre">hole</span></code> is installed at <code class="docutils literal notranslate"><span class="pre">~/hole2/exe/hole</span></code>.</p>
 <p>HOLE defines a series of points throughout the pore from which a sphere can be generated that does not overlap any atom (as defined by its van der Waals radius). (Please see (<a class="bibtex reference internal" href="../../../references.html#smart-pore-1993" id="id5">[SGW93]</a>, <a class="bibtex reference internal" href="../../../references.html#smart-hole-1996" id="id6">[SNW+96]</a>) for a complete explanation). By default, it ignores residues with the following names: “SOL”, “WAT”, “TIP”, “HOH”, “K”, “NA”, “CL”. You can change these with the <code class="docutils literal notranslate"><span class="pre">ignore_residues</span></code> keyword. Note that the residue names must have 3 characters. Wildcards <em>do not</em> work.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">hole</span></code> function allows you to specify points to begin searching at (<code class="docutils literal notranslate"><span class="pre">cpoint</span></code>) and a search direction (<code class="docutils literal notranslate"><span class="pre">cvect</span></code>), the sampling resolution (<code class="docutils literal notranslate"><span class="pre">sample</span></code>), and more. Please see the documentation for full details.</p>
 <p>The PDB file here is the experimental structure of the Gramicidin A channel. Note that we pass <code class="docutils literal notranslate"><span class="pre">HOLE</span></code> a PDB file directly, without creating a <code class="docutils literal notranslate"><span class="pre">MDAnalysis.Universe</span></code>.</p>
+<p>We are setting a <code class="docutils literal notranslate"><span class="pre">random_seed</span></code> here so that the results in the tutorial can be reproducible. This is normally not advised.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">h</span> <span class="o">=</span> <span class="n">hole</span><span class="o">.</span><span class="n">HOLE</span><span class="p">(</span><span class="n">PDB_HOLE</span><span class="p">,</span> <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;~/hole2/exe/hole&#39;</span><span class="p">,</span>
-              <span class="n">logfile</span><span class="o">=</span><span class="s1">&#39;hole1.out&#39;</span><span class="p">,</span>
-              <span class="n">sphpdb</span><span class="o">=</span><span class="s1">&#39;hole1.sph&#39;</span><span class="p">,</span>
-              <span class="n">raseed</span><span class="o">=</span><span class="mi">31415</span><span class="p">)</span>
-<span class="n">h</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-<span class="n">h</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+<span></span><span class="n">profiles</span> <span class="o">=</span> <span class="n">hole2</span><span class="o">.</span><span class="n">hole</span><span class="p">(</span><span class="n">PDB_HOLE</span><span class="p">,</span>
+                      <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;~/hole2/exe/hole&#39;</span><span class="p">,</span>
+                      <span class="n">outfile</span><span class="o">=</span><span class="s1">&#39;hole1.out&#39;</span><span class="p">,</span>
+                      <span class="n">sphpdb_file</span><span class="o">=</span><span class="s1">&#39;hole1.sph&#39;</span><span class="p">,</span>
+                      <span class="n">vdwradii_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                      <span class="n">random_seed</span><span class="o">=</span><span class="mi">31415</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">outfile</span></code> and <code class="docutils literal notranslate"><span class="pre">sphpdb_file</span></code> are the names of the files that HOLE will write out. <code class="docutils literal notranslate"><span class="pre">vdwradii_file</span></code> is a file of necessary van der Waals’ radii in a HOLE-readable format. If set to <code class="docutils literal notranslate"><span class="pre">None</span></code>, MDAnalysis will create a <code class="docutils literal notranslate"><span class="pre">simple2.rad</span></code> file with the built-in radii from the HOLE distribution.</p>
 <p>This will create several outputs in your directory:</p>
 <ul class="simple">
 <li><p><strong>hole1.out</strong>: the log file for HOLE.</p></li>
 <li><p><strong>hole1.sph</strong>: a PDB-like file containing the coordinates of the pore centers.</p></li>
 <li><p><strong>simple2.rad</strong>: file of Van der Waals’ radii</p></li>
-<li><p><strong>run_n/radii_n_m.dat.gz</strong>: the profile for each frame</p></li>
-<li><p><strong>tmp/pdb_name.pdb</strong>: the short name of a PDB file with your structure. As <code class="docutils literal notranslate"><span class="pre">hole</span></code> is a FORTRAN77 program, it is limited in how long of a filename that it can read.</p></li>
+<li><p>**tmp*/pdb_name.pdb**: the short name of a PDB file with your structure. As <code class="docutils literal notranslate"><span class="pre">hole</span></code> is a FORTRAN77 program, it is limited in how long of a filename that it can read. Symlinking the file to the current directory can shorten the path.</p></li>
 </ul>
-<p>The pore profile itself is in a dictionary at <code class="docutils literal notranslate"><span class="pre">h.profiles</span></code>. There is only one frame in this PDB file, so it is at <code class="docutils literal notranslate"><span class="pre">h.profiles[0]</span></code>.</p>
+<p>If you do not want to keep the files, set <code class="docutils literal notranslate"><span class="pre">keep_files=False</span></code>. Keep in mind that you will not be able to create a VMD surface without the sphpdb file.</p>
+<p>The pore profile itself is in the <code class="docutils literal notranslate"><span class="pre">profiles1</span></code> dictionary, indexed by frame. There is only one frame in this PDB file, so it is at <code class="docutils literal notranslate"><span class="pre">profiles1[0]</span></code>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">len</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">profiles</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span></span><span class="n">profiles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -553,21 +573,21 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-425
+(425,)
 </pre></div></div>
 </div>
 <p>Each profile is a <code class="docutils literal notranslate"><span class="pre">numpy.recarray</span></code> with the fields below as an entry for each <code class="docutils literal notranslate"><span class="pre">rxncoord</span></code>:</p>
 <ul class="simple">
-<li><p><strong>frame</strong>: the integer frame number</p></li>
-<li><p><strong>rxncoord</strong>: the distance along the pore axis in angstrom</p></li>
+<li><p><strong>rxn_coord</strong>: the distance along the pore axis in angstrom</p></li>
 <li><p><strong>radius</strong>: the pore radius in angstrom</p></li>
+<li><p><strong>cen_line_D</strong>: distance measured along the pore centre line - the first point found is set to zero.</p></li>
 </ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">h</span><span class="o">.</span><span class="n">profiles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">names</span>
+<span></span><span class="n">profiles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">names</span>
 </pre></div>
 </div>
 </div>
@@ -577,7 +597,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-(&#39;frame&#39;, &#39;rxncoord&#39;, &#39;radius&#39;)
+(&#39;rxn_coord&#39;, &#39;radius&#39;, &#39;cen_line_D&#39;)
 </pre></div></div>
 </div>
 <p>You can then proceed with your own analysis of the profiles.</p>
@@ -586,8 +606,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">rxncoords</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">profiles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">rxncoord</span>
-<span class="n">pore_length</span> <span class="o">=</span> <span class="n">rxncoords</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">rxncoords</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span></span><span class="n">rxn_coords</span> <span class="o">=</span> <span class="n">profiles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">rxn_coord</span>
+<span class="n">pore_length</span> <span class="o">=</span> <span class="n">rxn_coords</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">rxn_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The pore is </span><span class="si">{}</span><span class="s1"> angstroms long&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pore_length</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -600,54 +620,20 @@ div.rendered_html tbody tr:hover {
 The pore is 42.4 angstroms long
 </pre></div></div>
 </div>
-<p>Both <code class="docutils literal notranslate"><span class="pre">HOLE</span></code> and <code class="docutils literal notranslate"><span class="pre">HOLEtraj</span></code> (below) have the <code class="docutils literal notranslate"><span class="pre">min_radius()</span></code> function, which will return the minimum radius in angstrom for each frame. The resulting array has the shape (#n_frames, 2).</p>
+<p>You can create a VMD surface from the <code class="docutils literal notranslate"><span class="pre">hole1.sph</span></code> output file, using the <code class="docutils literal notranslate"><span class="pre">create_vmd_surface</span></code> function.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">h</span><span class="o">.</span><span class="n">min_radius</span><span class="p">()</span>
+<span></span><span class="n">hole2</span><span class="o">.</span><span class="n">create_vmd_surface</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;hole1.vmd&#39;</span><span class="p">,</span>
+                         <span class="n">sphpdb</span><span class="o">=</span><span class="s1">&#39;hole1.sph&#39;</span><span class="p">,</span>
+                         <span class="n">sph_process</span><span class="o">=</span><span class="s1">&#39;~/hole2/exe/sph_process&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-array([[0.     , 1.19707]])
-</pre></div></div>
-</div>
-<p>The class has a convenience <code class="docutils literal notranslate"><span class="pre">plot()</span></code> method to plot the coordinates of your pore.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">h</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_polymers_and_membranes_hole_14_0.png" src="../../../_images/examples_analysis_polymers_and_membranes_hole_14_0.png" />
-</div>
-</div>
-<p>You can also create a VMD surface from the <code class="docutils literal notranslate"><span class="pre">hole1.sph</span></code> output file, using the <code class="docutils literal notranslate"><span class="pre">create_vmd_surface</span></code> function.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">h</span><span class="o">.</span><span class="n">create_vmd_surface</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;hole1.vmd&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -661,13 +647,14 @@ array([[0.     , 1.19707]])
 <p><code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">hole1.vmd</span></code></p>
 <p>Your pore surface will be drawn as below.</p>
 <center><div style="width:200px; text-align:center;"><p><img alt="sphpdb.png" src="../../../_images/sphpdb.png" /></p>
-</div></center><p>MDAnalysis supports many of the options that can be customised in HOLE. For example, you can specify a starting point for the pore search within the pore with <code class="docutils literal notranslate"><span class="pre">cpoint</span></code>, and a <code class="docutils literal notranslate"><span class="pre">sample</span></code> distance (default: 0.2 angstrom) for the distance between the planes used in HOLE. Please see the <a class="reference external" href="https://www.mdanalysis.org/docs/documentation_pages/analysis/hole.html">MDAnalysis.analysis.hole</a> for more information.</p>
+</div></center><p>MDAnalysis supports many of the options that can be customised in HOLE. For example, you can specify a starting point for the pore search within the pore with <code class="docutils literal notranslate"><span class="pre">cpoint</span></code>, and a <code class="docutils literal notranslate"><span class="pre">sample</span></code> distance (default: 0.2 angstrom) for the distance between the planes used in HOLE. Please see the <a class="reference external" href="https://www.mdanalysis.org/docs/documentation_pages/analysis/hole2.html">MDAnalysis.analysis.hole2</a> for more information.</p>
 </div>
 <div class="section" id="Using-HOLE-with-a-trajectory">
 <h2>Using HOLE with a trajectory<a class="headerlink" href="#Using-HOLE-with-a-trajectory" title="Permalink to this headline">¶</a></h2>
-<p>One of the limitations of the <code class="docutils literal notranslate"><span class="pre">hole</span></code> program is that it can only accept PDB files. In order to use other formats with <code class="docutils literal notranslate"><span class="pre">hole</span></code>, or to run <code class="docutils literal notranslate"><span class="pre">hole</span></code> on trajectories, we can use the <code class="docutils literal notranslate"><span class="pre">hole.HOLEtraj</span></code> class with an <code class="docutils literal notranslate"><span class="pre">MDAnalysis.Universe</span></code>. While the example file below is a PDB, you can use any files to create your Universe.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<p>One of the limitations of the <code class="docutils literal notranslate"><span class="pre">hole</span></code> program is that it can only accept PDB files. In order to use other formats with <code class="docutils literal notranslate"><span class="pre">hole</span></code>, or to run <code class="docutils literal notranslate"><span class="pre">hole</span></code> on trajectories, we can use the <code class="docutils literal notranslate"><span class="pre">hole2.HoleAnalysis</span></code> class with an <code class="docutils literal notranslate"><span class="pre">MDAnalysis.Universe</span></code>. While the example file below is a PDB, you can use any files to create your Universe. You can also specify that the HOLE analysis is only run on a particular group of atoms with the <code class="docutils literal notranslate"><span class="pre">select</span></code> keyword (default value: ‘protein’).</p>
+<p>As with <code class="docutils literal notranslate"><span class="pre">hole()</span></code>, <code class="docutils literal notranslate"><span class="pre">HoleAnalysis</span></code> allows you to select a starting point for the search (<code class="docutils literal notranslate"><span class="pre">cpoint</span></code>). You can pass in a coordinate array; alternatively, you can use the center-of-geometry of your atom selection in each frame as the start.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -675,61 +662,139 @@ array([[0.     , 1.19707]])
 
 <span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">MULTIPDB_HOLE</span><span class="p">)</span>
 
-<span class="n">ht</span> <span class="o">=</span> <span class="n">hole</span><span class="o">.</span><span class="n">HOLEtraj</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;~/hole2/exe/hole&#39;</span><span class="p">,</span>
-                   <span class="n">logfile</span><span class="o">=</span><span class="s1">&#39;hole2.out&#39;</span><span class="p">,</span>
-                   <span class="n">sphpdb</span><span class="o">=</span><span class="s1">&#39;hole2.sph&#39;</span><span class="p">)</span>
-<span class="n">ht</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<p>Note that you do not need call <code class="docutils literal notranslate"><span class="pre">collect()</span></code> after calling <code class="docutils literal notranslate"><span class="pre">run()</span></code> with <code class="docutils literal notranslate"><span class="pre">HOLEtraj</span></code>. Again, the data is stored in <code class="docutils literal notranslate"><span class="pre">ht.profiles</span></code> as a dictionary of <code class="docutils literal notranslate"><span class="pre">numpy.recarray</span></code>s. The dictionary is indexed by frame; we can see the HOLE profile for the fourth frame below (truncated to 19.1126 angstrom from the pore axis). In this case, the <code class="docutils literal notranslate"><span class="pre">frame</span></code> field of each <code class="docutils literal notranslate"><span class="pre">recarray</span></code> is always 0.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ht</span><span class="o">.</span><span class="n">profiles</span><span class="p">[</span><span class="mi">3</span><span class="p">][:</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">ha</span> <span class="o">=</span> <span class="n">hole2</span><span class="o">.</span><span class="n">HoleAnalysis</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="s1">&#39;protein&#39;</span><span class="p">,</span>
+                        <span class="n">cpoint</span><span class="o">=</span><span class="s1">&#39;center_of_geometry&#39;</span><span class="p">,</span>
+                        <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;~/hole2/exe/hole&#39;</span><span class="p">)</span>
+<span class="n">ha</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">random_seed</span><span class="o">=</span><span class="mi">31415</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-rec.array([(0, -23.6126, 15.98192), (0, -23.5126, 14.41088),
-           (0, -23.4126, 12.88757), (0, -23.3126, 11.90096),
-           (0, -23.2126, 11.27921), (0, -23.1126, 11.02236),
-           (0, -23.0126, 10.96035), (0, -22.9126, 10.86575),
-           (0, -22.8126, 10.77124), (0, -22.7126, 10.67909)],
-          dtype=[(&#39;frame&#39;, &#39;&lt;i4&#39;), (&#39;rxncoord&#39;, &#39;&lt;f8&#39;), (&#39;radius&#39;, &#39;&lt;f8&#39;)])
+&lt;MDAnalysis.analysis.hole2.hole.HoleAnalysis at 0x10f3f1850&gt;
 </pre></div></div>
 </div>
-<p>Again, <code class="docutils literal notranslate"><span class="pre">plot()</span></code> can plot the HOLE radius over each pore coordinate, differentiating each frame with colour.</p>
+<div class="section" id="Working-with-the-data">
+<h3>Working with the data<a class="headerlink" href="#Working-with-the-data" title="Permalink to this headline">¶</a></h3>
+<p>Again, the data is stored in <code class="docutils literal notranslate"><span class="pre">ha.profiles</span></code> as a dictionary of <code class="docutils literal notranslate"><span class="pre">numpy.recarray</span></code>s. The dictionary is indexed by frame; we can see the HOLE profile for the fourth frame below (truncated to the first 10 values).</p>
 <div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ha</span><span class="o">.</span><span class="n">profiles</span><span class="p">[</span><span class="mi">3</span><span class="p">][:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+rec.array([(-21.01227, 15.3468 , -39.23993),
+           (-20.91227, 12.63403, -34.6473 ),
+           (-20.81227, 10.63723, -30.05467),
+           (-20.71227,  9.58447, -27.7256 ),
+           (-20.61227,  8.87309, -25.39653),
+           (-20.51227,  8.56876, -23.62047),
+           (-20.41227,  8.56275, -21.84441),
+           (-20.31227,  8.47622, -21.74275),
+           (-20.21227,  8.38983, -21.64108),
+           (-20.11227,  8.30039, -21.54024)],
+          dtype=[(&#39;rxn_coord&#39;, &#39;&lt;f8&#39;), (&#39;radius&#39;, &#39;&lt;f8&#39;), (&#39;cen_line_D&#39;, &#39;&lt;f8&#39;)])
+</pre></div></div>
+</div>
+<p>If you want to collect each individual property, use <code class="docutils literal notranslate"><span class="pre">gather()</span></code>. Setting <code class="docutils literal notranslate"><span class="pre">flat=True</span></code> flattens the lists of <code class="docutils literal notranslate"><span class="pre">rxn_coord</span></code>, <code class="docutils literal notranslate"><span class="pre">radius</span></code>, and <code class="docutils literal notranslate"><span class="pre">cen_line_D</span></code>, in order. You can select which frames you want by passing an iterable of frame indices to <code class="docutils literal notranslate"><span class="pre">frames</span></code>. <code class="docutils literal notranslate"><span class="pre">frames=None</span></code> returns all frames.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">gathered</span> <span class="o">=</span> <span class="n">ha</span><span class="o">.</span><span class="n">gather</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gathered</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+dict_keys([&#39;rxn_coord&#39;, &#39;radius&#39;, &#39;cen_line_D&#39;])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gathered</span><span class="p">[</span><span class="s1">&#39;rxn_coord&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+11
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">flat</span> <span class="o">=</span> <span class="n">ha</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">flat</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">flat</span><span class="p">[</span><span class="s1">&#39;rxn_coord&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+3983
+</pre></div></div>
+</div>
+<p>You may also want to collect the radii in bins of <code class="docutils literal notranslate"><span class="pre">rxn_coord</span></code> for the entire trajectory with the <code class="docutils literal notranslate"><span class="pre">bin_radii()</span></code> function. <code class="docutils literal notranslate"><span class="pre">range</span></code> should be a tuple of the lower and upper edges of the first and last bins, respectively. If <code class="docutils literal notranslate"><span class="pre">range=None</span></code>, the minimum and maximum values of <code class="docutils literal notranslate"><span class="pre">rxn_coord</span></code> are used.</p>
+<p><code class="docutils literal notranslate"><span class="pre">bins</span></code> can be either an iterable of (lower, upper) edges (in which case <code class="docutils literal notranslate"><span class="pre">range</span></code> is ignored), or a number specifying how many bins to create with <code class="docutils literal notranslate"><span class="pre">range</span></code>.</p>
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ht</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<span></span><span class="n">radii</span><span class="p">,</span> <span class="n">edges</span> <span class="o">=</span> <span class="n">ha</span><span class="o">.</span><span class="n">bin_radii</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_polymers_and_membranes_hole_24_0.png" src="../../../_images/examples_analysis_polymers_and_membranes_hole_24_0.png" />
-</div>
-</div>
-<p>The <code class="docutils literal notranslate"><span class="pre">plot3D()</span></code> function separates each frame onto its own axis in a 3D plot.</p>
-<div class="nbinput docutils container">
+<p>The closely related <code class="docutils literal notranslate"><span class="pre">histogram_radii()</span></code> function takes the same arguments as <code class="docutils literal notranslate"><span class="pre">bin_radii()</span></code> to group the pore radii, but allows you to specify an aggregating function with <code class="docutils literal notranslate"><span class="pre">aggregator</span></code> (default: <code class="docutils literal notranslate"><span class="pre">np.mean</span></code>) that will be applied to each array of radii. The arguments for this function, and returned values, are analogous to those for <code class="docutils literal notranslate"><span class="pre">np.histogram</span></code>.</p>
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ht</span><span class="o">.</span><span class="n">plot3D</span><span class="p">();</span>
+<span></span><span class="n">means</span><span class="p">,</span> <span class="n">edges</span> <span class="o">=</span> <span class="n">ha</span><span class="o">.</span><span class="n">histogram_radii</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                  <span class="n">aggregator</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>We can use this to plot the mean radii of the pore over the trajectory. (You can also accomplish this with the <code class="docutils literal notranslate"><span class="pre">plot_mean_profile()</span></code> function shown below, by setting <code class="docutils literal notranslate"><span class="pre">n_std=0</span></code>.)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">midpoints</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">edges</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">edges</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">midpoints</span><span class="p">,</span> <span class="n">means</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Mean HOLE radius $R$ ($\AA$)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Pore coordinate $\zeta$ ($\AA$)&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -737,19 +802,184 @@ rec.array([(0, -23.6126, 15.98192), (0, -23.5126, 14.41088),
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_polymers_and_membranes_hole_26_0.png" src="../../../_images/examples_analysis_polymers_and_membranes_hole_26_0.png" />
+<img alt="../../../_images/examples_analysis_polymers_and_membranes_hole_29_0.png" src="../../../_images/examples_analysis_polymers_and_membranes_hole_29_0.png" />
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">HoleAnalysis</span></code> also has the <code class="docutils literal notranslate"><span class="pre">min_radius()</span></code> function, which will return the minimum radius in angstrom for each frame. The resulting array has the shape (#n_frames, 2).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">min_radii</span> <span class="o">=</span> <span class="n">ha</span><span class="o">.</span><span class="n">min_radius</span><span class="p">()</span>
+<span class="n">min_radii</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[ 0.     , -0.23655],
+       [ 1.     ,  1.56731],
+       [ 2.     ,  1.53329],
+       [ 3.     ,  1.42503],
+       [ 4.     ,  1.2426 ],
+       [ 5.     ,  1.19813],
+       [ 6.     ,  1.29624],
+       [ 7.     ,  1.43776],
+       [ 8.     ,  1.51123],
+       [ 9.     ,  0.87855],
+       [10.     ,  0.99659]])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">min_radii</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">min_radii</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Minimum HOLE radius $R$ ($\AA$)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frame&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/examples_analysis_polymers_and_membranes_hole_32_0.png" src="../../../_images/examples_analysis_polymers_and_membranes_hole_32_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Visualising-the-VMD-surface">
+<h3>Visualising the VMD surface<a class="headerlink" href="#Visualising-the-VMD-surface" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">create_vmd_surface()</span></code> method is built into the <code class="docutils literal notranslate"><span class="pre">HoleAnalysis</span></code> class. It writes a VMD file that changes the pore surface for each frame in VMD. Again, load your file and source the file in the Tk Console:</p>
+<p><code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">holeanalysis.vmd</span></code></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ha</span><span class="o">.</span><span class="n">create_vmd_surface</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;holeanalysis.vmd&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;holeanalysis.vmd&#39;
+</pre></div></div>
+</div>
+<center><div style="width: 300px"><p><img alt="hole.gif" src="../../../_images/pore.gif" /></p>
+</div></center></div>
+<div class="section" id="Plotting">
+<h3>Plotting<a class="headerlink" href="#Plotting" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">HoleAnalysis</span></code> has several convenience methods for plotting. <code class="docutils literal notranslate"><span class="pre">plot()</span></code> plots the HOLE radius over each pore coordinate, differentiating each frame with colour.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ha</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/examples_analysis_polymers_and_membranes_hole_39_0.png" src="../../../_images/examples_analysis_polymers_and_membranes_hole_39_0.png" />
+</div>
+</div>
+<p>You can choose to plot specific frames, or specify colours or a colour map. Please see the documentation for a full description of arguments.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ha</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">frames</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/examples_analysis_polymers_and_membranes_hole_41_0.png" src="../../../_images/examples_analysis_polymers_and_membranes_hole_41_0.png" />
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">plot3D()</span></code> function separates each frame onto its own axis in a 3D plot.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ha</span><span class="o">.</span><span class="n">plot3D</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/examples_analysis_polymers_and_membranes_hole_43_0.png" src="../../../_images/examples_analysis_polymers_and_membranes_hole_43_0.png" />
+</div>
+</div>
+<p>You can choose to plot only the part of each pore lower than a certain radius by setting <code class="docutils literal notranslate"><span class="pre">r_max</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ha</span><span class="o">.</span><span class="n">plot3D</span><span class="p">(</span><span class="n">r_max</span><span class="o">=</span><span class="mf">2.5</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/examples_analysis_polymers_and_membranes_hole_45_0.png" src="../../../_images/examples_analysis_polymers_and_membranes_hole_45_0.png" />
+</div>
+</div>
+<p>You can also plot the mean and standard deviation of the pore radius over the pore coordinate.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ha</span><span class="o">.</span><span class="n">plot_mean_profile</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>  <span class="c1"># how much to chunk rxn_coord</span>
+                     <span class="n">n_std</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>  <span class="c1"># how many standard deviations from mean</span>
+                     <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span>  <span class="c1"># color of plot</span>
+                     <span class="n">fill_alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>  <span class="c1"># opacity of standard deviation</span>
+                     <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/examples_analysis_polymers_and_membranes_hole_47_0.png" src="../../../_images/examples_analysis_polymers_and_membranes_hole_47_0.png" />
+</div>
 </div>
 </div>
 </div>
 <div class="section" id="Ordering-HOLE-profiles-with-an-order-parameter">
 <h2>Ordering HOLE profiles with an order parameter<a class="headerlink" href="#Ordering-HOLE-profiles-with-an-order-parameter" title="Permalink to this headline">¶</a></h2>
-<p>If you are interested in the HOLE profiles over an order parameter, you can directly pass that into the analysis. Below, we use an order parameter of RMSD from a reference structure.</p>
+<p>If you are interested in the HOLE profiles over an order parameter, you can directly pass that into the analysis after it is run. Below, we use an order parameter of RMSD from a reference structure.</p>
 <div class="admonition note">
 <p class="admonition-title"><strong>Note</strong></p>
-<p>Please cite (<a class="bibtex reference internal" href="../../../references.html#stelzl-flexible-2014" id="id7">[SFSB14]</a>) when using the <code class="docutils literal notranslate"><span class="pre">orderparameter</span></code> functionality.</p>
+<p>Please cite (<a class="bibtex reference internal" href="../../../references.html#stelzl-flexible-2014" id="id7">[SFSB14]</a>) when using the <code class="docutils literal notranslate"><span class="pre">over_order_parameters</span></code> functionality.</p>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -763,7 +993,7 @@ rec.array([(0, -23.6126, 15.98192), (0, -23.5126, 14.41088),
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -773,37 +1003,23 @@ array([6.10501252e+00, 4.88398472e+00, 3.66303524e+00, 2.44202454e+00,
        3.66303410e+00, 4.88398478e+00, 6.10502262e+00])
 </pre></div></div>
 </div>
-<p>You can pass this in as <code class="docutils literal notranslate"><span class="pre">orderparameter</span></code>. The result <code class="docutils literal notranslate"><span class="pre">profiles</span></code> dictionary will have your order parameters as keys. <strong>You should be careful with this if your order parameter has repeated values, as duplicate keys are not possible; each duplicate key just overwrites the previous value.</strong></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<p>You can pass this in as <code class="docutils literal notranslate"><span class="pre">order_parameter</span></code>. The resulting <code class="docutils literal notranslate"><span class="pre">profiles</span></code> dictionary will have your order parameters as keys. <strong>You should be careful with this if your order parameter has repeated values, as duplicate keys are not possible; each duplicate key just overwrites the previous value.</strong></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ht2</span> <span class="o">=</span> <span class="n">hole</span><span class="o">.</span><span class="n">HOLEtraj</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;~/hole2/exe/hole&#39;</span><span class="p">,</span>
-                    <span class="n">logfile</span><span class="o">=</span><span class="s1">&#39;hole3.out&#39;</span><span class="p">,</span>
-                    <span class="n">sphpdb</span><span class="o">=</span><span class="s1">&#39;hole3.sph&#39;</span><span class="p">,</span>
-                    <span class="n">orderparameters</span><span class="o">=</span><span class="n">rmsd_values</span><span class="p">)</span>
-<span class="n">ht2</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-<span class="n">ht2</span><span class="o">.</span><span class="n">profiles</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span></span><span class="n">op_profiles</span> <span class="o">=</span> <span class="n">ha</span><span class="o">.</span><span class="n">over_order_parameters</span><span class="p">(</span><span class="n">rmsd_values</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-odict_keys([6.105012519709198, 4.883984723991125, 3.663035235691455, 2.4420245432434005, 1.2210052104208637, 1.6728554140225013e-07, 1.2210016190719406, 2.4420245634673616, 3.6630340992950225, 4.883984778674993, 6.105022620520391])
-</pre></div></div>
-</div>
-<p>You can see here that the dictionary does not order the entries by the order parameter. If you iterate over the class, it will return each (key, value) pair in sorted key order.</p>
+<p>You can see here that the dictionary does not order the entries by the order parameter. If you iterate over the dictionary, it will return each (key, value) pair in sorted key order.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">for</span> <span class="n">order_parameter</span><span class="p">,</span> <span class="n">profile</span> <span class="ow">in</span> <span class="n">ht2</span><span class="p">:</span>
+<span></span><span class="k">for</span> <span class="n">order_parameter</span><span class="p">,</span> <span class="n">profile</span> <span class="ow">in</span> <span class="n">op_profiles</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">order_parameter</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">profile</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -813,34 +1029,51 @@ odict_keys([6.105012519709198, 4.883984723991125, 3.663035235691455, 2.442024543
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-1.6728554140225013e-07 427
+1.6728554140225013e-07 543
 1.2210016190719406 389
-1.2210052104208637 411
-2.4420245432434005 421
-2.4420245634673616 389
-3.6630340992950225 383
-3.663035235691455 423
-4.883984723991125 419
-4.883984778674993 369
-6.105012519709198 455
-6.105022620520391 401
+1.2210052104208637 511
+2.4420245432434005 419
+2.4420245634673616 399
+3.6630340992950225 379
+3.663035235691455 443
+4.883984723991125 407
+4.883984778674993 149
+6.105012519709198 205
+6.105022620520391 139
 </pre></div></div>
 </div>
-<p>We can use this to plot the minimum radius as a function of RMSD from the reference structure.</p>
+<p>You can also select specific frames for the new profiles.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="n">min_radius</span> <span class="o">=</span> <span class="p">[[</span><span class="n">rmsd_i</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">radius</span><span class="o">.</span><span class="n">min</span><span class="p">()]</span> <span class="k">for</span> <span class="n">rmsd_i</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ht2</span><span class="p">]</span>
-<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">min_radius</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">arr</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">arr</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;order parameter RMSD $\rho$ ($\AA$)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;minimum HOLE pore radius $r$ ($\AA$)&quot;</span><span class="p">);</span>
+<span></span><span class="n">op_profiles</span> <span class="o">=</span> <span class="n">ha</span><span class="o">.</span><span class="n">over_order_parameters</span><span class="p">(</span><span class="n">rmsd_values</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
+<span class="n">op_profiles</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+dict_keys([1.2210052104208637, 4.883984778674993, 6.105012519709198])
+</pre></div></div>
+</div>
+<div class="section" id="id8">
+<h3>Plotting<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">HoleAnalysis</span></code> also provides convenience functions for plotting over order parameters. Unlike <code class="docutils literal notranslate"><span class="pre">plot()</span></code>, <code class="docutils literal notranslate"><span class="pre">plot_order_parameters()</span></code> requires an <code class="docutils literal notranslate"><span class="pre">aggregator</span></code> function that reduces an array of radii to a singular value. The default function is <code class="docutils literal notranslate"><span class="pre">min()</span></code>. You can also pass in functions such as <code class="docutils literal notranslate"><span class="pre">max()</span></code> or <code class="docutils literal notranslate"><span class="pre">np.mean()</span></code>, or define your own function to operate on an array and return a vlue.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ha</span><span class="o">.</span><span class="n">plot_order_parameters</span><span class="p">(</span><span class="n">rmsd_values</span><span class="p">,</span>
+                         <span class="n">aggregator</span><span class="o">=</span><span class="nb">min</span><span class="p">,</span>
+                         <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;RMSD to reference ($\AA$)&#39;</span><span class="p">,</span>
+                         <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Minimum HOLE pore radius $r$ ($\AA$)&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -848,8 +1081,131 @@ odict_keys([6.105012519709198, 4.883984723991125, 3.663035235691455, 2.442024543
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_polymers_and_membranes_hole_34_0.png" src="../../../_images/examples_analysis_polymers_and_membranes_hole_34_0.png" />
+<img alt="../../../_images/examples_analysis_polymers_and_membranes_hole_58_0.png" src="../../../_images/examples_analysis_polymers_and_membranes_hole_58_0.png" />
 </div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">plot3D_order_parameters()</span></code> functions in a similar way to <code class="docutils literal notranslate"><span class="pre">plot3D()</span></code>, although you need to pass in the order parameters.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ha</span><span class="o">.</span><span class="n">plot3D_order_parameters</span><span class="p">(</span><span class="n">rmsd_values</span><span class="p">,</span>
+                           <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;RMSD to reference ($\AA$)&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/examples_analysis_polymers_and_membranes_hole_60_0.png" src="../../../_images/examples_analysis_polymers_and_membranes_hole_60_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Deleting-HOLE-files">
+<h2>Deleting HOLE files<a class="headerlink" href="#Deleting-HOLE-files" title="Permalink to this headline">¶</a></h2>
+<p>The HOLE program and related MDAnalysis code write a number of files out. Both the <code class="docutils literal notranslate"><span class="pre">hole()</span></code> function and <code class="docutils literal notranslate"><span class="pre">HoleAnalysis</span></code> class contain ways to easily remove these files.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">hole()</span></code>, pass in <code class="docutils literal notranslate"><span class="pre">keep_files=False</span></code> to delete HOLE files as soon as the analysis is done. However, this will also remove the sphpdb file required to create a VMD surface from the analysis. If you need to write a VMD surface file, use the <code class="docutils literal notranslate"><span class="pre">HoleAnalysis</span></code> class instead.</p>
+<p>You can track the created files at the <code class="docutils literal notranslate"><span class="pre">tmp_files</span></code> attribute.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ha</span><span class="o">.</span><span class="n">tmp_files</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;simple2.rad&#39;,
+ &#39;hole000.out&#39;,
+ &#39;hole000.sph&#39;,
+ &#39;hole001.out&#39;,
+ &#39;hole001.sph&#39;,
+ &#39;hole002.out&#39;,
+ &#39;hole002.sph&#39;,
+ &#39;hole003.out&#39;,
+ &#39;hole003.sph&#39;,
+ &#39;hole004.out&#39;,
+ &#39;hole004.sph&#39;,
+ &#39;hole005.out&#39;,
+ &#39;hole005.sph&#39;,
+ &#39;hole006.out&#39;,
+ &#39;hole006.sph&#39;,
+ &#39;hole007.out&#39;,
+ &#39;hole007.sph&#39;,
+ &#39;hole008.out&#39;,
+ &#39;hole008.sph&#39;,
+ &#39;hole009.out&#39;,
+ &#39;hole009.sph&#39;,
+ &#39;hole010.out&#39;,
+ &#39;hole010.sph&#39;]
+</pre></div></div>
+</div>
+<p>The built-in method <code class="docutils literal notranslate"><span class="pre">delete_temporary_files()</span></code> will remove these.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ha</span><span class="o">.</span><span class="n">delete_temporary_files</span><span class="p">()</span>
+<span class="n">ha</span><span class="o">.</span><span class="n">tmp_files</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[]
+</pre></div></div>
+</div>
+<p>Alternatively, you can use <code class="docutils literal notranslate"><span class="pre">HoleAnalysis</span></code> as a context manager. When you exit the block, the temporary files will be deleted automatically.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">with</span> <span class="n">hole2</span><span class="o">.</span><span class="n">HoleAnalysis</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;~/hole2/exe/hole&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ha2</span><span class="p">:</span>
+    <span class="n">ha2</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+    <span class="n">ha2</span><span class="o">.</span><span class="n">create_vmd_surface</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;holeanalysis.vmd&#39;</span><span class="p">)</span>
+    <span class="n">ha2</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/examples_analysis_polymers_and_membranes_hole_66_0.png" src="../../../_images/examples_analysis_polymers_and_membranes_hole_66_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ha</span><span class="o">.</span><span class="n">profiles</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">radius</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+20.0962
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="References">
@@ -882,7 +1238,7 @@ odict_keys([6.105012519709198, 4.883984723991125, 3.663035235691455, 2.442024543
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019-2021, Lily Wang, Irfan Alibay, Cédric Bouysset, Rocco Meli, Richard J. Gowers, and Oliver Beckstein.
+        &copy; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein.
 
     </p>
   </div>

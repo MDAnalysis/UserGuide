@@ -111,7 +111,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#loading-from-files">Loading from files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#constructing-from-atomgroups">Constructing from AtomGroups</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#constructing-from-scratch">Constructing from scratch</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#constructing-from-smiles">Constructing from SMILES</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#guessing-topology-attributes">Guessing topology attributes</a></li>
 </ul>
 </li>
@@ -236,13 +235,13 @@
 <div><p><em>If you wish to make an apple pie from scratch, you must first invent the universe.</em></p>
 <p class="attribution">—Carl Sagan, Cosmos</p>
 </div></blockquote>
-<p>MDAnalysis is structured around two fundamental classes: the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a> and the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a>. Almost all code in MDAnalysis begins with <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a>, which contains all the information describing a molecular dynamics system.</p>
+<p>MDAnalysis is structured around two fundamental classes: the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a> and the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a>. Almost all code in MDAnalysis begins with <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a>, which contains all the information describing a molecular dynamics system.</p>
 <p>It has two key properties:</p>
 <ul class="simple">
-<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">atoms</span></code>: an <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> of the system’s atoms, providing access to important analysis methods (described below)</p></li>
-<li><p><a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.trajectory" title="(in MDAnalysis v1.0.0)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">trajectory</span></code></a>: the currently loaded trajectory reader</p></li>
+<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">atoms</span></code>: an <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> of the system’s atoms, providing access to important analysis methods (described below)</p></li>
+<li><p><a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.trajectory" title="(in MDAnalysis v1.0.1)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">trajectory</span></code></a>: the currently loaded trajectory reader</p></li>
 </ul>
-<p>A <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a> ties the static information from the “topology” (e.g. atom identities) to dynamically updating information from the “trajectory” (e.g. coordinates). A key feature of MDAnalysis is that an entire trajectory is not loaded into memory (unless the user explicitly does so with <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/memory.html#MDAnalysis.coordinates.memory.MemoryReader" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MemoryReader</span></code></a>). Instead, the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.trajectory" title="(in MDAnalysis v1.0.0)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">trajectory</span></code></a> attribute provides a view on a specific frame of the trajectory. This allows the analysis of arbitrarily long trajectories without a significant impact on memory.</p>
+<p>A <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a> ties the static information from the “topology” (e.g. atom identities) to dynamically updating information from the “trajectory” (e.g. coordinates). A key feature of MDAnalysis is that an entire trajectory is not loaded into memory (unless the user explicitly does so with <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/memory.html#MDAnalysis.coordinates.memory.MemoryReader" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MemoryReader</span></code></a>). Instead, the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.trajectory" title="(in MDAnalysis v1.0.1)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">trajectory</span></code></a> attribute provides a view on a specific frame of the trajectory. This allows the analysis of arbitrarily long trajectories without a significant impact on memory.</p>
 <div class="section" id="creating-a-universe">
 <h2>Creating a Universe<a class="headerlink" href="#creating-a-universe" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="loading-from-files">
@@ -256,7 +255,7 @@
 </div>
 <p>The line between topology and trajectory files is quite blurry. For example, a PDB or GRO file is considered both a topology and a trajectory file. The difference is that a <strong>topology file</strong> provides static information, such as atom identities (name, mass, etc.), charges, and bond connectivity. A <strong>trajectory file</strong> provides dynamic information, such as coordinates, velocities, forces, and box dimensions.</p>
 <p>If only a single file is provided, MDAnalysis tries to read both topology and trajectory information from it. When multiple trajectory files are provided, coordinates are loaded in the order given.</p>
-<p>The default arguments should create a Universe suited for most analysis applications. However, the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a> constructor also takes optional arguments.</p>
+<p>The default arguments should create a Universe suited for most analysis applications. However, the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a> constructor also takes optional arguments.</p>
 <p><strong>The following options specify how to treat the input:</strong></p>
 <ul class="simple">
 <li><p><code class="code docutils literal notranslate"><span class="pre">format</span></code>: the file format of the trajectory file/s. (default: None, formats are guessed)</p></li>
@@ -286,8 +285,8 @@
 <li><p><code class="code docutils literal notranslate"><span class="pre">transformations</span></code>: a function or list of functions for on-the-fly trajectory transformation.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">in_memory</span></code>: whether to load coordinates into memory (default: False)</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">in_memory_step</span></code>: only read every nth frame into an in-memory representation. (default: 1)</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">is_anchor</span></code>: whether to consider this Universe when unpickling <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a>s (default: True)</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">anchor_name</span></code>: the name of this Universe when unpickling <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a>s (default: None, automatically generated)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">is_anchor</span></code>: whether to consider this Universe when unpickling <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a>s (default: True)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">anchor_name</span></code>: the name of this Universe when unpickling <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a>s (default: None, automatically generated)</p></li>
 </ul>
 <p id="universe-kwargs">You can also pass in keywords for parsing the topology or coordinates. For example, many file formats do not specify the timestep for their trajectory. In these cases, MDAnalysis assumes that the default timestep is 1 ps. If this is incorrect, you can pass in a <code class="docutils literal notranslate"><span class="pre">dt</span></code> argument to modify the timestep. <strong>This does not modify timesteps for formats that include time information.</strong></p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PRM</span><span class="p">,</span> <span class="n">TRJ</span>
@@ -306,7 +305,7 @@
 </div>
 <div class="section" id="constructing-from-atomgroups">
 <h3>Constructing from AtomGroups<a class="headerlink" href="#constructing-from-atomgroups" title="Permalink to this headline">¶</a></h3>
-<p>A new Universe can be created from one or more <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> instances with <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Merge" title="(in MDAnalysis v1.0.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">Merge()</span></code></a>. The <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> instances can come from different Universes, meaning that this is one way to concatenate selections from different datasets.</p>
+<p>A new Universe can be created from one or more <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> instances with <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Merge" title="(in MDAnalysis v1.0.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">Merge()</span></code></a>. The <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> instances can come from different Universes, meaning that this is one way to concatenate selections from different datasets.</p>
 <p>For example, to combine a protein, ligand, and solvent from separate PDB files:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">u1</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="s2">&quot;protein.pdb&quot;</span><span class="p">)</span>
 <span class="n">u2</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="s2">&quot;ligand.pdb&quot;</span><span class="p">)</span>
@@ -318,7 +317,7 @@
 </div>
 <div class="section" id="constructing-from-scratch">
 <h3>Constructing from scratch<a class="headerlink" href="#constructing-from-scratch" title="Permalink to this headline">¶</a></h3>
-<p>A Universe can be constructed from scratch with <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.empty" title="(in MDAnalysis v1.0.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Universe.empty</span></code></a>. There are three stages to this process:</p>
+<p>A Universe can be constructed from scratch with <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.empty" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Universe.empty</span></code></a>. There are three stages to this process:</p>
 <blockquote>
 <div><ol class="arabic simple">
 <li><p>Create the blank Universe with specified number of atoms. If coordinates, set <code class="code docutils literal notranslate"><span class="pre">trajectory=True</span></code>.</p></li>
@@ -342,40 +341,6 @@
 </div>
 <p><a class="reference internal" href="examples/constructing_universe.html"><span class="doc">See this notebook tutorial for more information.</span></a></p>
 </div>
-<div class="section" id="constructing-from-smiles">
-<h3>Constructing from SMILES<a class="headerlink" href="#constructing-from-smiles" title="Permalink to this headline">¶</a></h3>
-<p>Thanks to the interoperability with RDKit, a Universe can be constructed from a SMILES string with <code class="xref py py-meth docutils literal notranslate"><span class="pre">Universe.from_smiles</span></code>. Since the SMILES string usually contains information about heavy atoms only, this method automatically adds the appropriate number of hydrogens on all atoms, by setting <code class="code docutils literal notranslate"><span class="pre">addHs=True</span></code>. It is also possible to generate coordinates with <code class="code docutils literal notranslate"><span class="pre">generate_coordinates=True</span></code>. This will allow RDKit to generate one or more conformers for the given molecule. For example, setting <code class="code docutils literal notranslate"><span class="pre">numConfs=10</span></code> will generate 10 conformers, and each conformer will be read as a frame by the Universe.</p>
-<p>Here is a minimal example to create a Universe from one conformer of ethanol:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="o">.</span><span class="n">from_smiles</span><span class="p">(</span><span class="s2">&quot;CCO&quot;</span><span class="p">)</span>
-
-<span class="gp">In [17]: </span><span class="n">u</span>
-<span class="gh">Out[17]: </span><span class="go">&lt;Universe with 9 atoms&gt;</span>
-
-<span class="gp">In [18]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span>
-<span class="gh">Out[18]: </span><span class="go">&lt;RDKitReader with 1 frames of 9 atoms&gt;</span>
-</pre></div>
-</div>
-<p>Internally, calling the <code class="xref py py-meth docutils literal notranslate"><span class="pre">Universe.from_smiles</span></code> method does the following:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [19]: </span><span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
-
-<span class="gp">In [20]: </span><span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">AllChem</span>
-
-<span class="gp">In [21]: </span><span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s2">&quot;CCO&quot;</span><span class="p">)</span> <span class="c1"># ethanol</span>
-
-<span class="gp">In [22]: </span><span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AddHs</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
-
-<span class="gp">In [23]: </span><span class="n">confids</span> <span class="o">=</span> <span class="n">AllChem</span><span class="o">.</span><span class="n">EmbedMultipleConfs</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">numConfs</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 1 conformer</span>
-
-<span class="gp">In [24]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;RDKIT&quot;</span><span class="p">)</span>
-
-<span class="gp">In [25]: </span><span class="n">u</span>
-<span class="gh">Out[25]: </span><span class="go">&lt;Universe with 9 atoms&gt;</span>
-
-<span class="gp">In [26]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span>
-<span class="gh">Out[26]: </span><span class="go">&lt;RDKitReader with 1 frames of 9 atoms&gt;</span>
-</pre></div>
-</div>
-</div>
 <div class="section" id="guessing-topology-attributes">
 <h3>Guessing topology attributes<a class="headerlink" href="#guessing-topology-attributes" title="Permalink to this headline">¶</a></h3>
 <p>MDAnalysis can guess two kinds of information. Sometimes MDAnalysis guesses information instead of reading it from certain file formats, which can lead to mistakes such as assigning atoms the wrong element or charge. See <a class="reference internal" href="formats/index.html#topology-parsers"><span class="std std-ref">the available topology parsers</span></a> for a case-by-case breakdown of which atom properties MDAnalysis guesses for each format. See <a class="reference internal" href="formats/guessing.html#guessing"><span class="std std-ref">Guessing</span></a> for how attributes are guessed, and <a class="reference internal" href="topology_system.html#topologyattr-defaults"><span class="std std-ref">Default values and attribute levels</span></a> for which attributes have default values.</p>
@@ -396,12 +361,12 @@
 </ul>
 </div></blockquote>
 <p><a class="reference internal" href="groups_of_atoms.html#residues-and-segments"><span class="std std-ref">Residues and Segments</span></a> are chemically meaningful groups of Atoms.</p>
-<p>Modifying a topology is typically done through the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a>, which contains several methods for adding properties:</p>
+<p>Modifying a topology is typically done through the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a>, which contains several methods for adding properties:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p><a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.add_TopologyAttr" title="(in MDAnalysis v1.0.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_TopologyAttr()</span></code></a></p></li>
-<li><p><a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.add_Residue" title="(in MDAnalysis v1.0.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_Residue()</span></code></a></p></li>
-<li><p><a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.add_Segment" title="(in MDAnalysis v1.0.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_Segment()</span></code></a></p></li>
+<li><p><a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.add_TopologyAttr" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_TopologyAttr()</span></code></a></p></li>
+<li><p><a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.add_Residue" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_Residue()</span></code></a></p></li>
+<li><p><a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.add_Segment" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_Segment()</span></code></a></p></li>
 </ul>
 </div></blockquote>
 <p>See <a class="reference internal" href="topology_system.html#topology-attributes"><span class="std std-ref">Topology attributes</span></a> for more information on which topology attributes can be added, and <a class="reference internal" href="examples/constructing_universe.html"><span class="doc">examples/constructing_universe.ipynb</span></a> for examples on adding attributes and Segments.</p>
@@ -428,7 +393,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019-2021, Lily Wang, Irfan Alibay, Cédric Bouysset, Rocco Meli, Richard J. Gowers, and Oliver Beckstein.
+        &copy; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein.
 
     </p>
   </div>
