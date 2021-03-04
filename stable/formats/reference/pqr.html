@@ -27,8 +27,6 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script src="../../_static/js/versions.js"></script>
     
@@ -73,7 +71,7 @@
             
             
               <div class="version">
-                1.0.0
+                1.0.1
               </div>
             
           
@@ -274,13 +272,13 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><strong>Coordinate reader</strong></p></td>
-<td><p><a class="reference external" href="https://docs.mdanalysis.org/1.0.0/documentation_pages/coordinates/PQR.html#MDAnalysis.coordinates.PQR.PQRReader" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.coordinates.PQR.PQRReader</span></code></a></p></td>
+<td><p><a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/coordinates/PQR.html#MDAnalysis.coordinates.PQR.PQRReader" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.coordinates.PQR.PQRReader</span></code></a></p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Coordinate writer</strong></p></td>
-<td><p><a class="reference external" href="https://docs.mdanalysis.org/1.0.0/documentation_pages/coordinates/PQR.html#MDAnalysis.coordinates.PQR.PQRWriter" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.coordinates.PQR.PQRWriter</span></code></a></p></td>
+<td><p><a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/coordinates/PQR.html#MDAnalysis.coordinates.PQR.PQRWriter" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.coordinates.PQR.PQRWriter</span></code></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Topology parser</strong></p></td>
-<td><p><a class="reference external" href="https://docs.mdanalysis.org/1.0.0/documentation_pages/topology/PQRParser.html#MDAnalysis.topology.PQRParser.PQRParser" title="(in MDAnalysis v1.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.topology.PQRParser.PQRParser</span></code></a></p></td>
+<td><p><a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/topology/PQRParser.html#MDAnalysis.topology.PQRParser.PQRParser" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.topology.PQRParser.PQRParser</span></code></a></p></td>
 </tr>
 </tbody>
 </table>
@@ -335,25 +333,25 @@ and can be omitted:</p>
 <h2>PQR specification<a class="headerlink" href="#pqr-specification" title="Permalink to this headline">¶</a></h2>
 <p>The PQR fields read are:</p>
 <dl class="glossary simple">
-<dt id="term-recordName">recordName</dt><dd><p>A string which specifies the type of PQR entry and should either be ATOM or
+<dt id="term-recordName">recordName<a class="headerlink" href="#term-recordName" title="Permalink to this term">¶</a></dt><dd><p>A string which specifies the type of PQR entry and should either be ATOM or
 HETATM.</p>
 </dd>
-<dt id="term-serial">serial</dt><dd><p>An integer which provides the atom index (but note that MDAnalysis renumbers
+<dt id="term-serial">serial<a class="headerlink" href="#term-serial" title="Permalink to this term">¶</a></dt><dd><p>An integer which provides the atom index (but note that MDAnalysis renumbers
 atoms so one cannot rely on the <em>serial</em>)</p>
 </dd>
-<dt id="term-atomName">atomName</dt><dd><p>A string which provides the atom name.</p>
+<dt id="term-atomName">atomName<a class="headerlink" href="#term-atomName" title="Permalink to this term">¶</a></dt><dd><p>A string which provides the atom name.</p>
 </dd>
-<dt id="term-residueName">residueName</dt><dd><p>A string which provides the residue name.</p>
+<dt id="term-residueName">residueName<a class="headerlink" href="#term-residueName" title="Permalink to this term">¶</a></dt><dd><p>A string which provides the residue name.</p>
 </dd>
-<dt id="term-chainID">chainID</dt><dd><p>An optional string which provides the chain ID of the atom.</p>
+<dt id="term-chainID">chainID<a class="headerlink" href="#term-chainID" title="Permalink to this term">¶</a></dt><dd><p>An optional string which provides the chain ID of the atom.</p>
 </dd>
-<dt id="term-residueNumber">residueNumber</dt><dd><p>An integer which provides the residue index.</p>
+<dt id="term-residueNumber">residueNumber<a class="headerlink" href="#term-residueNumber" title="Permalink to this term">¶</a></dt><dd><p>An integer which provides the residue index.</p>
 </dd>
-<dt id="term-X-Y-Z">X Y Z</dt><dd><p>Three floats which provide the atomic coordiantes.</p>
+<dt id="term-X-Y-Z">X Y Z<a class="headerlink" href="#term-X-Y-Z" title="Permalink to this term">¶</a></dt><dd><p>Three floats which provide the atomic coordiantes.</p>
 </dd>
-<dt id="term-charge">charge</dt><dd><p>A float which provides the atomic charge (in electrons).</p>
+<dt id="term-charge">charge<a class="headerlink" href="#term-charge" title="Permalink to this term">¶</a></dt><dd><p>A float which provides the atomic charge (in electrons).</p>
 </dd>
-<dt id="term-radius">radius</dt><dd><p>A float which provides the atomic radius (in Å).</p>
+<dt id="term-radius">radius<a class="headerlink" href="#term-radius" title="Permalink to this term">¶</a></dt><dd><p>A float which provides the atomic radius (in Å).</p>
 </dd>
 </dl>
 <p>Clearly, this format can deviate wildly from <a class="reference external" href="http://www.wwpdb.org/documentation/file-format">PDB</a> due to the use of whitespaces
