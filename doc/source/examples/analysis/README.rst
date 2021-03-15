@@ -52,3 +52,5 @@ them separately, e.g.::
 .. include:: /examples/analysis/reduced_dimensions/README.rst
 
 .. include:: /examples/analysis/polymers_and_membranes/README.rst
+
+.. include:: /examples/analysis/hydrogen_bonds/README.rst
