@@ -1,25 +1,35 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Universe &mdash; MDAnalysis User Guide  documentation</title>
   
 
   
+  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
   
     <link rel="shortcut icon" href="_static/mdanalysis-logo.ico"/>
   
+
   
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -27,6 +37,8 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script src="_static/js/versions.js"></script>
     
@@ -36,11 +48,6 @@
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within MDAnalysis User Guide  documentation"
           href="_static/opensearch.xml"/>
-
-  
-  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="AtomGroup" href="atomgroup.html" />
@@ -88,6 +95,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -95,7 +103,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <p><span class="caption-text">Getting started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/quickstart.html">Quick start guide</a></li>
@@ -103,7 +111,7 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/README.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Data structures</span></p>
+<p><span class="caption-text">Data structures</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Universe</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#creating-a-universe">Creating a Universe</a><ul>
@@ -121,14 +129,14 @@
 <li class="toctree-l1"><a class="reference internal" href="selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="topology_system.html">The topology system</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Trajectories</span></p>
+<p><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="units.html">Units and constants</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Input/output</span></p>
+<p><span class="caption-text">Input/output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formats/index.html">Format overview</a></li>
@@ -137,7 +145,7 @@
 <li class="toctree-l1"><a class="reference internal" href="formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formats/format_reference.html">Format reference</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Analysis</span></p>
+<p><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -150,13 +158,13 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced</span></p>
+<p><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="datasets.html">Example data</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing_code.html">Contributing to the main codebase</a></li>
@@ -171,6 +179,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -205,18 +214,20 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Universe</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/universe.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -230,7 +241,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="universe">
+  <section id="universe">
 <span id="id1"></span><h1>Universe<a class="headerlink" href="#universe" title="Permalink to this headline">¶</a></h1>
 <blockquote>
 <div><p><em>If you wish to make an apple pie from scratch, you must first invent the universe.</em></p>
@@ -243,9 +254,9 @@
 <li><p><a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.trajectory" title="(in MDAnalysis v1.0.1)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">trajectory</span></code></a>: the currently loaded trajectory reader</p></li>
 </ul>
 <p>A <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a> ties the static information from the “topology” (e.g. atom identities) to dynamically updating information from the “trajectory” (e.g. coordinates). A key feature of MDAnalysis is that an entire trajectory is not loaded into memory (unless the user explicitly does so with <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/coordinates/memory.html#MDAnalysis.coordinates.memory.MemoryReader" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MemoryReader</span></code></a>). Instead, the <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.trajectory" title="(in MDAnalysis v1.0.1)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">trajectory</span></code></a> attribute provides a view on a specific frame of the trajectory. This allows the analysis of arbitrarily long trajectories without a significant impact on memory.</p>
-<div class="section" id="creating-a-universe">
+<section id="creating-a-universe">
 <h2>Creating a Universe<a class="headerlink" href="#creating-a-universe" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="loading-from-files">
+<section id="loading-from-files">
 <span id="universe-loading"></span><h3>Loading from files<a class="headerlink" href="#loading-from-files" title="Permalink to this headline">¶</a></h3>
 <p>A Universe is typically created from a “topology” file, with optional “trajectory” file/s. Trajectory files must have the coordinates in the same order as atoms in the topology. See <a class="reference internal" href="formats/index.html#formats"><span class="std std-ref">Formats</span></a> for the topology and trajectory formats supported by MDAnalysis, and how to load each specific format.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">Universe</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">trajectory</span><span class="p">)</span>
@@ -303,8 +314,8 @@
 <span class="gh">Out[11]: </span><span class="go">5</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="constructing-from-atomgroups">
+</section>
+<section id="constructing-from-atomgroups">
 <h3>Constructing from AtomGroups<a class="headerlink" href="#constructing-from-atomgroups" title="Permalink to this headline">¶</a></h3>
 <p>A new Universe can be created from one or more <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> instances with <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/universe.html#MDAnalysis.core.universe.Merge" title="(in MDAnalysis v1.0.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">Merge()</span></code></a>. The <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> instances can come from different Universes, meaning that this is one way to concatenate selections from different datasets.</p>
 <p>For example, to combine a protein, ligand, and solvent from separate PDB files:</p>
@@ -315,8 +326,8 @@
 <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;system.pdb&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="constructing-from-scratch">
+</section>
+<section id="constructing-from-scratch">
 <h3>Constructing from scratch<a class="headerlink" href="#constructing-from-scratch" title="Permalink to this headline">¶</a></h3>
 <p>A Universe can be constructed from scratch with <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.empty" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Universe.empty</span></code></a>. There are three stages to this process:</p>
 <blockquote>
@@ -341,13 +352,13 @@
 </pre></div>
 </div>
 <p><a class="reference internal" href="examples/constructing_universe.html"><span class="doc">See this notebook tutorial for more information.</span></a></p>
-</div>
-<div class="section" id="guessing-topology-attributes">
+</section>
+<section id="guessing-topology-attributes">
 <h3>Guessing topology attributes<a class="headerlink" href="#guessing-topology-attributes" title="Permalink to this headline">¶</a></h3>
 <p>MDAnalysis can guess two kinds of information. Sometimes MDAnalysis guesses information instead of reading it from certain file formats, which can lead to mistakes such as assigning atoms the wrong element or charge. See <a class="reference internal" href="formats/index.html#topology-parsers"><span class="std std-ref">the available topology parsers</span></a> for a case-by-case breakdown of which atom properties MDAnalysis guesses for each format. See <a class="reference internal" href="formats/guessing.html#guessing"><span class="std std-ref">Guessing</span></a> for how attributes are guessed, and <a class="reference internal" href="topology_system.html#topologyattr-defaults"><span class="std std-ref">Default values and attribute levels</span></a> for which attributes have default values.</p>
-</div>
-</div>
-<div class="section" id="universe-properties-and-methods">
+</section>
+</section>
+<section id="universe-properties-and-methods">
 <span id="universe-properties"></span><h2>Universe properties and methods<a class="headerlink" href="#universe-properties-and-methods" title="Permalink to this headline">¶</a></h2>
 <p>A Universe holds master groups of atoms and topology objects:</p>
 <blockquote>
@@ -371,30 +382,24 @@
 </ul>
 </div></blockquote>
 <p>See <a class="reference internal" href="topology_system.html#topology-attributes"><span class="std std-ref">Topology attributes</span></a> for more information on which topology attributes can be added, and <a class="reference internal" href="examples/constructing_universe.html"><span class="doc">examples/constructing_universe.ipynb</span></a> for examples on adding attributes and Segments.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="atomgroup.html" class="btn btn-neutral float-right" title="AtomGroup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="examples/analysis/volumetric/linear_density.html" class="btn btn-neutral float-left" title="Computing mass and charge density on each axis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="atomgroup.html" class="btn btn-neutral float-right" title="AtomGroup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="examples/analysis/volumetric/linear_density.html" class="btn btn-neutral float-left" title="Computing mass and charge density on each axis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein.
+        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>
@@ -408,7 +413,6 @@
 
 
 </footer>
-
         </div>
       </div>
 

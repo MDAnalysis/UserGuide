@@ -1,25 +1,35 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Analysis &mdash; MDAnalysis User Guide  documentation</title>
   
 
   
+  <link rel="stylesheet" href="../../_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
   
     <link rel="shortcut icon" href="../../_static/mdanalysis-logo.ico"/>
   
+
   
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -27,9 +37,9 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script src="../../_static/js/versions.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -38,11 +48,6 @@
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within MDAnalysis User Guide  documentation"
           href="../../_static/opensearch.xml"/>
-
-  
-  <link rel="stylesheet" href="../../_static/css/msmb.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Writing your own trajectory analysis" href="custom_trajectory_analysis.html" />
@@ -90,6 +95,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -97,7 +103,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <p><span class="caption-text">Getting started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick start guide</a></li>
@@ -105,7 +111,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../README.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Data structures</span></p>
+<p><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../atomgroup.html">AtomGroup</a></li>
@@ -113,14 +119,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../topology_system.html">The topology system</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Trajectories</span></p>
+<p><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../units.html">Units and constants</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Input/output</span></p>
+<p><span class="caption-text">Input/output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../formats/index.html">Format overview</a></li>
@@ -129,26 +135,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../../formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../formats/format_reference.html">Format reference</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Analysis</span></p>
+<p><span class="caption-text">Analysis</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Analysis</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#imports-and-dependencies">Imports and dependencies</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#alignments-and-rms-fitting">Alignments and RMS fitting</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="alignment_and_rms/aligning_structure_to_another.html">Aligning a structure to another</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alignment_and_rms/aligning_trajectory.html">Aligning a trajectory to a reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alignment_and_rms/aligning_trajectory_to_frame.html">Aligning a trajectory to itself</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alignment_and_rms/rmsd.html">Calculating the root mean square deviation of atomic structures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alignment_and_rms/pairwise_rmsd.html">Calculating the pairwise RMSD of a trajectory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alignment_and_rms/rmsf.html">Calculating the root mean square fluctuation over a trajectory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#alignments-and-rms-fitting">Alignments and RMS fitting</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#distances-and-contacts">Distances and contacts</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="distances_and_contacts/distances_between_atomgroups.html">Atom-wise distances between matching AtomGroups</a></li>
 <li class="toctree-l2"><a class="reference internal" href="distances_and_contacts/distances_between_selections.html">All distances between two selections</a></li>
 <li class="toctree-l2"><a class="reference internal" href="distances_and_contacts/distances_within_selection.html">All distances within a selection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="distances_and_contacts/contacts_native_fraction.html">Fraction of native contacts over a trajectory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="distances_and_contacts/contacts_q1q2.html">Q1 vs Q2 contact analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="distances_and_contacts/contacts_within_cutoff.html">Contact analysis: number of contacts within a cutoff</a></li>
 <li class="toctree-l2"><a class="reference internal" href="distances_and_contacts/contacts_custom.html">Write your own native contacts analysis method</a></li>
@@ -173,8 +172,7 @@
 <li class="toctree-l2"><a class="reference internal" href="volumetric/linear_density.html">Computing mass and charge density on each axis</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#dimension-reduction">Dimension reduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="reduced_dimensions/pca.html">Principal component analysis of a trajectory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#dimension-reduction">Dimension reduction</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#polymers-and-membranes">Polymers and membranes</a><ul>
@@ -185,13 +183,13 @@
 <li class="toctree-l1"><a class="reference internal" href="custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced</span></p>
+<p><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../datasets.html">Example data</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing_code.html">Contributing to the main codebase</a></li>
@@ -206,6 +204,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -240,18 +239,20 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Analysis</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/examples/analysis/README.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -265,7 +266,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="analysis">
+  <section id="analysis">
 <span id="id1"></span><h1>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h1>
 <p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">analysis</span></code> module of MDAnalysis provides the tools needed to analyse your data.
 Several analyses are included with the package. These range from standard algorithms
@@ -277,7 +278,7 @@ references and citation information.</p>
 <p>If you need functionality that is not already provided in MDAnalysis, there are
 <a class="reference internal" href="custom_trajectory_analysis.html"><span class="doc">several ways to write your own analysis</span></a>.</p>
 <p>If you want to run your own script in parallel in MDAnalysis, here is a <a class="reference internal" href="custom_parallel_analysis.html"><span class="doc">tutorial on make your code parallelizable</span></a>.</p>
-<div class="section" id="imports-and-dependencies">
+<section id="imports-and-dependencies">
 <h2>Imports and dependencies<a class="headerlink" href="#imports-and-dependencies" title="Permalink to this headline">¶</a></h2>
 <p>Analysis modules are not imported by default. In order to use them, you will need to import
 them separately, e.g.:</p>
@@ -292,9 +293,9 @@ The Python packages are not automatically installed with <cite>pip</cite>, altho
 <p>Other modules require external programs. For example, <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/analysis/hole.html#module-MDAnalysis.analysis.hole" title="(in MDAnalysis v1.0.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">hole</span></code></a> requires
 the <a class="reference external" href="http://www.holeprogram.org/">HOLE</a> programs. You will need to install these yourself.</p>
 </div>
-</div>
-</div>
-<div class="section" id="alignments-and-rms-fitting">
+</section>
+</section>
+<section id="alignments-and-rms-fitting">
 <span id="alignment-and-rms"></span><h1>Alignments and RMS fitting<a class="headerlink" href="#alignments-and-rms-fitting" title="Permalink to this headline">¶</a></h1>
 <p>The <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/analysis/align.html#module-MDAnalysis.analysis.align" title="(in MDAnalysis v1.0.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.align</span></code></a> and <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/analysis/rms.html#module-MDAnalysis.analysis.rms" title="(in MDAnalysis v1.0.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.rms</span></code></a> modules contain the functions used for aligning structures, aligning trajectories, and calculating root mean squared quantities.</p>
 <div class="admonition note">
@@ -305,17 +306,9 @@ the rotation matrix <em>R</em> that minimizes the RMSD <a class="bibtex referenc
 cite these references when using these modules.</p>
 </div>
 <div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="alignment_and_rms/aligning_structure_to_another.html">Aligning a structure to another</a></li>
-<li class="toctree-l1"><a class="reference internal" href="alignment_and_rms/aligning_trajectory.html">Aligning a trajectory to a reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="alignment_and_rms/aligning_trajectory_to_frame.html">Aligning a trajectory to itself</a></li>
-<li class="toctree-l1"><a class="reference internal" href="alignment_and_rms/rmsd.html">Calculating the root mean square deviation of atomic structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="alignment_and_rms/pairwise_rmsd.html">Calculating the pairwise RMSD of a trajectory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="alignment_and_rms/rmsf.html">Calculating the root mean square fluctuation over a trajectory</a></li>
-</ul>
 </div>
-</div>
-<div class="section" id="distances-and-contacts">
+</section>
+<section id="distances-and-contacts">
 <h1>Distances and contacts<a class="headerlink" href="#distances-and-contacts" title="Permalink to this headline">¶</a></h1>
 <p>The <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/analysis/distances.html#module-MDAnalysis.analysis.distances" title="(in MDAnalysis v1.0.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.distances</span></code></a> module provides functions to rapidly compute distances. These largely take in coordinate arrays.</p>
 <div class="toctree-wrapper compound">
@@ -329,14 +322,13 @@ cite these references when using these modules.</p>
 <p><a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/analysis/contacts.html#module-MDAnalysis.analysis.contacts" title="(in MDAnalysis v1.0.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.contacts</span></code></a> contains functions and a class to analyse the fraction of native contacts over a trajectory.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="distances_and_contacts/contacts_native_fraction.html">Fraction of native contacts over a trajectory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="distances_and_contacts/contacts_q1q2.html">Q1 vs Q2 contact analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="distances_and_contacts/contacts_within_cutoff.html">Contact analysis: number of contacts within a cutoff</a></li>
 <li class="toctree-l1"><a class="reference internal" href="distances_and_contacts/contacts_custom.html">Write your own native contacts analysis method</a></li>
 </ul>
 </div>
-</div>
-<div class="section" id="trajectory-similarity">
+</section>
+<section id="trajectory-similarity">
 <span id="id4"></span><h1>Trajectory similarity<a class="headerlink" href="#trajectory-similarity" title="Permalink to this headline">¶</a></h1>
 <p>A molecular dynamics trajectory with <span class="math notranslate nohighlight">\(N\)</span> atoms can be considered through a path through <span class="math notranslate nohighlight">\(3N\)</span>-dimensional molecular configuration space. MDAnalysis contains a number of algorithms to compare the conformational ensembles of different trajectories. Most of these are in the <code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.encore</span></code> module (<a class="bibtex reference internal" href="../../references.html#tiberti-encore-2015" id="id5">[TPB+15]</a>) and compare estimated probability distributions to measure similarity. The <a class="reference external" href="/examples/analysis/trajectory_similarity/psa.html">path similarity analysis</a> compares the RMSD between pairs of structures in conformation transition paths. <code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.encore</span></code> also contains functions for evaluating the conformational convergence of a trajectory using the <a class="reference external" href="/examples/analysis/trajectory_similarity/clustering_ensemble_similarity.html">similarity over conformation clusters</a> or <a class="reference external" href="/examples/analysis/trajectory_similarity/dimension_reduction_ensemble_similarity.html">similarity in a reduced dimensional space</a>.</p>
 <div class="toctree-wrapper compound">
@@ -348,8 +340,8 @@ cite these references when using these modules.</p>
 <li class="toctree-l1"><a class="reference internal" href="trajectory_similarity/convergence.html">Evaluating convergence</a></li>
 </ul>
 </div>
-</div>
-<div class="section" id="structure">
+</section>
+<section id="structure">
 <h1>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
@@ -359,28 +351,25 @@ cite these references when using these modules.</p>
 <li class="toctree-l1"><a class="reference internal" href="structure/dihedrals.html">Protein dihedral angle analysis</a></li>
 </ul>
 </div>
-</div>
-<div class="section" id="volumetric-analyses">
+</section>
+<section id="volumetric-analyses">
 <h1>Volumetric analyses<a class="headerlink" href="#volumetric-analyses" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="volumetric/linear_density.html">Computing mass and charge density on each axis</a></li>
 </ul>
 </div>
-</div>
-<div class="section" id="dimension-reduction">
+</section>
+<section id="dimension-reduction">
 <h1>Dimension reduction<a class="headerlink" href="#dimension-reduction" title="Permalink to this headline">¶</a></h1>
 <p>A molecular dynamics trajectory with <span class="math notranslate nohighlight">\(N\)</span> atoms can be considered through a path through <span class="math notranslate nohighlight">\(3N\)</span>-dimensional molecular configuration space. It remains difficult to extract important dynamics or compare trajectory similarity from such a high-dimensional space. However, collective motions and physically relevant states can often be effectively described with low-dimensional representations of the conformational space explored over the trajectory. MDAnalysis implements two methods for dimensionality reduction.</p>
 <p><strong>Principal component analysis</strong> is a common linear dimensionality reduction technique that maps the coordinates in each frame of your trajectory to a linear combination of orthogonal vectors. The vectors are called <em>principal components</em>, and they are ordered such that the first principal component accounts for the most variance in the original data (i.e. the largest uncorrelated motion in your trajectory), and each successive component accounts for less and less variance. Trajectory coordinates can be transformed onto a lower-dimensional space (<em>essential subspace</em>) constructed from these principal components in order to compare conformations. Your trajectory can also be projected onto each principal component in order to visualise the motion described by that component.</p>
 <p><strong>Diffusion maps</strong> are a non-linear dimensionality reduction technique that embeds the coordinates of each frame onto a lower-dimensional space, such that the distance between each frame in the lower-dimensional space represents their “diffusion distance”, or similarity. It integrates local information about the similarity of each point to its neighours, into a global geometry of the intrinsic manifold. This means that this technique is not suitable for trajectories where the transitions between conformational states is not well-sampled (e.g. replica exchange simulations), as the regions may become disconnected and a meaningful global geometry cannot be approximated. Unlike PCA, there is no explicit mapping between the components of the lower-dimensional space and the original atomic coordinates; no physical interpretation of the eigenvectors is immediately available.</p>
 <p>For computing similarity, see the tutorials in <a class="reference internal" href="trajectory_similarity/README.html#trajectory-similarity"><span class="std std-ref">Trajectory similarity</span></a>.</p>
 <div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="reduced_dimensions/pca.html">Principal component analysis of a trajectory</a></li>
-</ul>
 </div>
-</div>
-<div class="section" id="polymers-and-membranes">
+</section>
+<section id="polymers-and-membranes">
 <h1>Polymers and membranes<a class="headerlink" href="#polymers-and-membranes" title="Permalink to this headline">¶</a></h1>
 <p>MDAnalysis has several analyses specifically for polymers, membranes, and membrane proteins.</p>
 <div class="toctree-wrapper compound">
@@ -389,29 +378,23 @@ cite these references when using these modules.</p>
 <li class="toctree-l1"><a class="reference internal" href="polymers_and_membranes/hole.html">Analysing pore dimensions with HOLE</a></li>
 </ul>
 </div>
-</div>
+</section>
 
 
            </div>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="custom_trajectory_analysis.html" class="btn btn-neutral float-right" title="Writing your own trajectory analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../../formats/reference/xyz.html" class="btn btn-neutral float-left" title="XYZ trajectory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="custom_trajectory_analysis.html" class="btn btn-neutral float-right" title="Writing your own trajectory analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../../formats/reference/xyz.html" class="btn btn-neutral float-left" title="XYZ trajectory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein.
+        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>
@@ -425,7 +408,6 @@ cite these references when using these modules.</p>
 
 
 </footer>
-
         </div>
       </div>
 

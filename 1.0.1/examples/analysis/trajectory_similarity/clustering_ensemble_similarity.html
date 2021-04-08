@@ -1,25 +1,35 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Calculating the Clustering Ensemble Similarity between ensembles &mdash; MDAnalysis User Guide  documentation</title>
   
 
   
+  <link rel="stylesheet" href="../../../_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+
+  
   
     <link rel="shortcut icon" href="../../../_static/mdanalysis-logo.ico"/>
   
+
   
   
 
   
-  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
@@ -27,9 +37,9 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script src="../../../_static/js/versions.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
@@ -38,11 +48,6 @@
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within MDAnalysis User Guide  documentation"
           href="../../../_static/opensearch.xml"/>
-
-  
-  <link rel="stylesheet" href="../../../_static/css/msmb.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Calculating the Dimension Reduction Ensemble Similarity between ensembles" href="dimension_reduction_ensemble_similarity.html" />
@@ -90,6 +95,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -97,14 +103,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <p><span class="caption-text">Getting started</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick start guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently asked questions</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../README.html">Examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../quickstart.html">Quick start guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../constructing_universe.html">Constructing, modifying, and adding to a Universe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../transformations/README.html">Transformations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../alignment_and_rms/README.html">Alignments and RMS fitting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../distances_and_contacts/README.html">Distances and contacts</a></li>
@@ -132,7 +137,7 @@
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Data structures</span></p>
+<p><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../atomgroup.html">AtomGroup</a></li>
@@ -140,14 +145,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../topology_system.html">The topology system</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Trajectories</span></p>
+<p><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../units.html">Units and constants</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Input/output</span></p>
+<p><span class="caption-text">Input/output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/index.html">Format overview</a></li>
@@ -156,7 +161,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/format_reference.html">Format reference</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Analysis</span></p>
+<p><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -169,13 +174,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced</span></p>
+<p><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../datasets.html">Example data</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing_code.html">Contributing to the main codebase</a></li>
@@ -190,6 +195,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -224,11 +230,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../../README.html">Examples</a> &raquo;</li>
         
@@ -239,7 +247,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../../_sources/examples/analysis/trajectory_similarity/clustering_ensemble_similarity.ipynb.txt" rel="nofollow"> View page source</a>
           
         
@@ -502,7 +510,7 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
-<script>require=requirejs;</script><div class="section" id="Calculating-the-Clustering-Ensemble-Similarity-between-ensembles">
+<script>require=requirejs;</script><section id="Calculating-the-Clustering-Ensemble-Similarity-between-ensembles">
 <h1>Calculating the Clustering Ensemble Similarity between ensembles<a class="headerlink" href="#Calculating-the-Clustering-Ensemble-Similarity-between-ensembles" title="Permalink to this headline">¶</a></h1>
 <p>Here we compare the conformational ensembles of proteins in three trajectories, using the clustering ensemble similarity method.</p>
 <p><strong>Last executed:</strong> Sep 25, 2020 with MDAnalysis 1.0.0</p>
@@ -539,7 +547,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="section" id="Loading-files">
+<section id="Loading-files">
 <h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this headline">¶</a></h2>
 <p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<a class="bibtex reference internal" href="../../../references.html#beckstein-zipping-2009" id="id4">[BDPW09]</a>)</p>
 <div class="nbinput nblast docutils container">
@@ -573,8 +581,8 @@ div.rendered_html tbody tr:hover {
 98 102 100
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Calculating-clustering-similarity-with-default-settings">
+</section>
+<section id="Calculating-clustering-similarity-with-default-settings">
 <h2>Calculating clustering similarity with default settings<a class="headerlink" href="#Calculating-clustering-similarity-with-default-settings" title="Permalink to this headline">¶</a></h2>
 <p>The clustering ensemble similarity method (<code class="docutils literal notranslate"><span class="pre">ces</span></code>, <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/encore/similarity.html#MDAnalysis.analysis.encore.similarity.ces">API docs here</a>) combines every trajectory into a whole space of conformations, and then uses a user-specified <code class="docutils literal notranslate"><span class="pre">clustering_method</span></code> to partition this into clusters. The population of each trajectory ensemble within each cluster is taken as a probability density function.</p>
 <p>The similarity of each probability density function is compared using the Jensen-Shannon divergence. This divergence has an upper bound of <span class="math notranslate nohighlight">\(\ln{(2)}\)</span>, representing no similarity between the ensembles, and a lower bound of 0.0, representing identical conformational ensembles.</p>
@@ -688,7 +696,7 @@ The ID of this cluster is: 0
 The centroid is 1
 </pre></div></div>
 </div>
-<div class="section" id="Plotting">
+<section id="Plotting">
 <h3>Plotting<a class="headerlink" href="#Plotting" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
@@ -712,9 +720,9 @@ The centroid is 1
 <img alt="../../../_images/examples_analysis_trajectory_similarity_clustering_ensemble_similarity_20_0.png" src="../../../_images/examples_analysis_trajectory_similarity_clustering_ensemble_similarity_20_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="Calculating-clustering-similarity-with-one-method">
+</section>
+</section>
+<section id="Calculating-clustering-similarity-with-one-method">
 <h2>Calculating clustering similarity with one method<a class="headerlink" href="#Calculating-clustering-similarity-with-one-method" title="Permalink to this headline">¶</a></h2>
 <p>Clustering methods should be subclasses of <code class="docutils literal notranslate"><span class="pre">analysis.encore.clustering.ClusteringMethod</span></code>, initialised with your chosen parameters. Below, we set up an affinity progragation scheme, which uses message-passing to choose a number of ‘exemplar’ points to represent the data and updates these points until they converge. The <code class="docutils literal notranslate"><span class="pre">preference</span></code> parameter controls how many exemplars are used – a higher value results in more clusters, while a lower value results in fewer clusters. The <code class="docutils literal notranslate"><span class="pre">damping</span></code> factor
 damps the message passing to avoid numerical oscillations. <a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html#affinity-propagation">(See the scikit-learn user guide for more information.)</a></p>
@@ -745,7 +753,7 @@ damps the message passing to avoid numerical oscillations. <a class="reference e
 </pre></div>
 </div>
 </div>
-<div class="section" id="id5">
+<section id="id5">
 <h3>Plotting<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
@@ -769,16 +777,16 @@ damps the message passing to avoid numerical oscillations. <a class="reference e
 <img alt="../../../_images/examples_analysis_trajectory_similarity_clustering_ensemble_similarity_27_0.png" src="../../../_images/examples_analysis_trajectory_similarity_clustering_ensemble_similarity_27_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="Calculating-clustering-similarity-with-multiple-methods">
+</section>
+</section>
+<section id="Calculating-clustering-similarity-with-multiple-methods">
 <h2>Calculating clustering similarity with multiple methods<a class="headerlink" href="#Calculating-clustering-similarity-with-multiple-methods" title="Permalink to this headline">¶</a></h2>
 <p>You may want to try different clustering methods, or use different parameters within the methods. <code class="docutils literal notranslate"><span class="pre">encore.ces</span></code> allows you to pass a list of <code class="docutils literal notranslate"><span class="pre">clustering_method</span></code>s to be applied.</p>
 <div class="admonition note">
 <p class="admonition-title"><strong>Note</strong></p>
 <p>To use the other ENCORE methods available, you need to install <a class="reference external" href="https://scikit-learn.org/stable/">scikit-learn</a>.</p>
 </div>
-<div class="section" id="Trying-out-different-clustering-parameters">
+<section id="Trying-out-different-clustering-parameters">
 <h3>Trying out different clustering parameters<a class="headerlink" href="#Trying-out-different-clustering-parameters" title="Permalink to this headline">¶</a></h3>
 <p>The KMeans clustering algorithm separates samples into <span class="math notranslate nohighlight">\(n\)</span> groups of equal variance, with centroids that minimise the inertia. You must choose how many clusters to partition. <a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html#k-means">(See the scikit-learn user guide for more information.)</a></p>
 <div class="nbinput nblast docutils container">
@@ -842,8 +850,8 @@ information.)</a></p>
 4 4
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="id6">
+</section>
+<section id="id6">
 <h3>Plotting<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
@@ -890,9 +898,9 @@ information.)</a></p>
 Number of clusters in DBSCAN eps=1: 1
 </pre></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="Estimating-the-error-in-a-clustering-ensemble-similarity-analysis">
+</section>
+</section>
+<section id="Estimating-the-error-in-a-clustering-ensemble-similarity-analysis">
 <h2>Estimating the error in a clustering ensemble similarity analysis<a class="headerlink" href="#Estimating-the-error-in-a-clustering-ensemble-similarity-analysis" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">encore.ces</span></code> also allows for error estimation using a bootstrapping method. This returns the average Jensen-Shannon divergence, and standard deviation over the samples.</p>
 <div class="nbinput nblast docutils container">
@@ -948,37 +956,31 @@ array([[0.00000000e+00, 5.68506242e-03, 1.26584901e-16],
        [1.26584901e-16, 6.07091046e-03, 0.00000000e+00]])
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="References">
+</section>
+<section id="References">
 <h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
 <p>[1] Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164">https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164</a>, doi:10.1016/j.jmb.2009.09.009.</p>
 <p>[2] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
 <p>[3] Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>, doi:10.1002/jcc.21787.</p>
 <p>[4] Matteo Tiberti, Elena Papaleo, Tone Bengtsen, Wouter Boomsma, and Kresten Lindorff-Larsen. ENCORE: Software for Quantitative Ensemble Comparison. PLOS Computational Biology, 11(10):e1004415, October 2015. 00031. URL: <a class="reference external" href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004415">https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004415</a>, doi:10.1371/journal.pcbi.1004415.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="dimension_reduction_ensemble_similarity.html" class="btn btn-neutral float-right" title="Calculating the Dimension Reduction Ensemble Similarity between ensembles" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="harmonic_ensemble_similarity.html" class="btn btn-neutral float-left" title="Calculating the Harmonic Ensemble Similarity between ensembles" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="dimension_reduction_ensemble_similarity.html" class="btn btn-neutral float-right" title="Calculating the Dimension Reduction Ensemble Similarity between ensembles" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="harmonic_ensemble_similarity.html" class="btn btn-neutral float-left" title="Calculating the Harmonic Ensemble Similarity between ensembles" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein.
+        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>
@@ -992,7 +994,6 @@ array([[0.00000000e+00, 5.68506242e-03, 1.26584901e-16],
 
 
 </footer>
-
         </div>
       </div>
 

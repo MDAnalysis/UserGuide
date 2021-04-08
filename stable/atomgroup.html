@@ -1,25 +1,35 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>AtomGroup &mdash; MDAnalysis User Guide  documentation</title>
   
 
   
+  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
   
     <link rel="shortcut icon" href="_static/mdanalysis-logo.ico"/>
   
+
   
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -27,6 +37,8 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script src="_static/js/versions.js"></script>
     
@@ -36,11 +48,6 @@
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within MDAnalysis User Guide  documentation"
           href="_static/opensearch.xml"/>
-
-  
-  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Groups of atoms" href="groups_of_atoms.html" />
@@ -88,6 +95,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -95,7 +103,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <p><span class="caption-text">Getting started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/quickstart.html">Quick start guide</a></li>
@@ -103,7 +111,7 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/README.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Data structures</span></p>
+<p><span class="caption-text">Data structures</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="universe.html">Universe</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">AtomGroup</a><ul>
@@ -125,14 +133,14 @@
 <li class="toctree-l1"><a class="reference internal" href="selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="topology_system.html">The topology system</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Trajectories</span></p>
+<p><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="units.html">Units and constants</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Input/output</span></p>
+<p><span class="caption-text">Input/output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formats/index.html">Format overview</a></li>
@@ -141,7 +149,7 @@
 <li class="toctree-l1"><a class="reference internal" href="formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formats/format_reference.html">Format reference</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Analysis</span></p>
+<p><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -154,13 +162,13 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced</span></p>
+<p><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="datasets.html">Example data</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing_code.html">Contributing to the main codebase</a></li>
@@ -175,6 +183,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -209,18 +218,20 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>AtomGroup</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/atomgroup.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -234,16 +245,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="atomgroup">
+  <section id="atomgroup">
 <span id="id1"></span><h1>AtomGroup<a class="headerlink" href="#atomgroup" title="Permalink to this headline">¶</a></h1>
 <p>A <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a> contains all particles in the molecular system. MDAnalysis calls a particle an <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.Atom" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a>, regardless of whether it really is (e.g. it may be a united-atom particle or coarse-grained bead). <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.Atom" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a>s are grouped with an <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a>; the ‘master’ <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> of a Universe is accessible at <code class="code docutils literal notranslate"><span class="pre">Universe.atoms</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> is probably the most important object in MDAnalysis. Virtually everything can be accessed through an <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a>.</p>
 </div>
-<div class="section" id="creating-an-atomgroup">
+<section id="creating-an-atomgroup">
 <h2>Creating an AtomGroup<a class="headerlink" href="#creating-an-atomgroup" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="atom-selection-language">
+<section id="atom-selection-language">
 <h3>Atom selection language<a class="headerlink" href="#atom-selection-language" title="Permalink to this headline">¶</a></h3>
 <p>AtomGroup instances are typically created with <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.select_atoms" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Universe.select_atoms</span></code></a> or by manipulating another <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a>, e.g. by slicing.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
@@ -257,8 +268,8 @@
 </pre></div>
 </div>
 <p>See <a class="reference internal" href="selections.html#selections"><span class="std std-ref">Atom selection language</span></a> for more information.</p>
-</div>
-<div class="section" id="indexing-and-slicing">
+</section>
+<section id="indexing-and-slicing">
 <h3>Indexing and slicing<a class="headerlink" href="#indexing-and-slicing" title="Permalink to this headline">¶</a></h3>
 <p>An <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> can be indexed and sliced like a list:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -290,8 +301,8 @@
 <span class="gp">In [13]: </span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">arr</span><span class="p">]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="group-operators-and-set-methods">
+</section>
+<section id="group-operators-and-set-methods">
 <h3>Group operators and set methods<a class="headerlink" href="#group-operators-and-set-methods" title="Permalink to this headline">¶</a></h3>
 <p>MDAnalysis supports a number of ways to compare <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a>s or construct a new one: group operators (e.g. <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.concatenate" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate()</span></code></a>, <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.subtract" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">subtract()</span></code></a>) and set methods (e.g. <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.union" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">union()</span></code></a>, <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.difference" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">difference()</span></code></a>). Group operators achieve a similar outcome to set methods. However, a key difference is that <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.concatenate" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate()</span></code></a> and <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.subtract" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">subtract()</span></code></a> preserve the order of the atoms and any duplicates. <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.union" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">union()</span></code></a> and <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.difference" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">difference()</span></code></a> return an <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> where each atom is unique, and ordered by its topology index.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="n">ag1</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
@@ -414,8 +425,8 @@ that are part of <code class="docutils literal notranslate"><span class="pre">s<
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="groupby-and-split">
+</section>
+<section id="groupby-and-split">
 <h3>Groupby and split<a class="headerlink" href="#groupby-and-split" title="Permalink to this headline">¶</a></h3>
 <p>An <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> can be constructed from another by separating atoms by properties.</p>
 <p><a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.split" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AtomGroup.split</span></code></a> can create a list of <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a>s by splitting another <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> by the ‘level’ of connectivity: one of <em>atom</em>, <em>residue</em>, <em>molecule</em>, or <em>segment</em>.</p>
@@ -451,8 +462,8 @@ that are part of <code class="docutils literal notranslate"><span class="pre">s<
 <span class="go"> (15.999, &#39;SOL&#39;): &lt;AtomGroup with 11084 atoms&gt;}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="constructing-from-atoms">
+</section>
+<section id="constructing-from-atoms">
 <h3>Constructing from Atoms<a class="headerlink" href="#constructing-from-atoms" title="Permalink to this headline">¶</a></h3>
 <p>An <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> can be created from an iterable of <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.Atom" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a> instances:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [24]: </span><span class="n">atom1</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
@@ -486,8 +497,8 @@ that are part of <code class="docutils literal notranslate"><span class="pre">s<
 <span class="go">&lt;AtomGroup [&lt;Atom 5: CA of type C of resname MET, resid 1 and segid SYSTEM and altLoc &gt;, &lt;Atom 7: CB of type C of resname MET, resid 1 and segid SYSTEM and altLoc &gt;, &lt;Atom 3: H2 of type H of resname MET, resid 1 and segid SYSTEM and altLoc &gt;]&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="order-and-uniqueness">
+</section>
+<section id="order-and-uniqueness">
 <h3>Order and uniqueness<a class="headerlink" href="#order-and-uniqueness" title="Permalink to this headline">¶</a></h3>
 <p>These methods of creating an <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> result in a sorted, unique list of atoms:</p>
 <blockquote>
@@ -507,8 +518,8 @@ that are part of <code class="docutils literal notranslate"><span class="pre">s<
 <li><p>Constructing directly from <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.Atom" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a>s</p></li>
 </ul>
 </div></blockquote>
-</div>
-<div class="section" id="empty-atomgroups">
+</section>
+<section id="empty-atomgroups">
 <h3>Empty AtomGroups<a class="headerlink" href="#empty-atomgroups" title="Permalink to this headline">¶</a></h3>
 <p>MDAnalysis can also work with empty AtomGroups:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [35]: </span><span class="n">null</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[[]]</span>
@@ -543,39 +554,33 @@ that are part of <code class="docutils literal notranslate"><span class="pre">s<
 </pre></div>
 </div>
 <p>This allows analysis methods to skip over empty AtomGroups instead of raising an error, which is helpful as occasionally empty AtomGroups can arise from selection logic that is too restrictive (e.g. <a class="reference internal" href="selections.html#geometric"><span class="std std-ref">geometric selections</span></a>).</p>
-</div>
-<div class="section" id="dynamically-updating-atomgroups">
+</section>
+<section id="dynamically-updating-atomgroups">
 <h3>Dynamically updating AtomGroups<a class="headerlink" href="#dynamically-updating-atomgroups" title="Permalink to this headline">¶</a></h3>
 <p>A normal AtomGroup is static, and the atoms within it do not change as the trajectory frame changes. Several methods require dynamically updating AtomGroups. These are typically created using atom selection language. See <a class="reference internal" href="selections.html#dynamic-selections"><span class="std std-ref">Dynamic selections</span></a> for more information.</p>
-</div>
-</div>
-<div class="section" id="methods">
+</section>
+</section>
+<section id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
 <p>Most of the analysis functionality in MDAnalysis is implemented in <a class="reference internal" href="examples/analysis/README.html#analysis"><span class="std std-ref">the analysis module</span></a>, but many interesting methods can be accessed from an <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> directly. For example, Bonds, Angles, Dihedrals and ImproperDihedrals <a class="reference internal" href="topology_system.html#topology-objects"><span class="std std-ref">can be created from AtomGroups</span></a>. Providing that required topology attributes are present, <a class="reference internal" href="topology_system.html#topology-groupmethods"><span class="std std-ref">a number of analysis methods are also available</span></a> to a <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a>, <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.ResidueGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResidueGroup</span></code></a>, and <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.SegmentGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">SegmentGroup</span></code></a>.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="groups_of_atoms.html" class="btn btn-neutral float-right" title="Groups of atoms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="universe.html" class="btn btn-neutral float-left" title="Universe" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="groups_of_atoms.html" class="btn btn-neutral float-right" title="Groups of atoms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="universe.html" class="btn btn-neutral float-left" title="Universe" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein.
+        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>
@@ -589,7 +594,6 @@ that are part of <code class="docutils literal notranslate"><span class="pre">s<
 
 
 </footer>
-
         </div>
       </div>
 

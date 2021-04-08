@@ -1,25 +1,35 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Auxiliary files &mdash; MDAnalysis User Guide  documentation</title>
   
 
   
+  <link rel="stylesheet" href="../_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
   
     <link rel="shortcut icon" href="../_static/mdanalysis-logo.ico"/>
   
+
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -27,6 +37,8 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script src="../_static/js/versions.js"></script>
     
@@ -36,11 +48,6 @@
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within MDAnalysis User Guide  documentation"
           href="../_static/opensearch.xml"/>
-
-  
-  <link rel="stylesheet" href="../_static/css/msmb.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Selection exporters" href="selection_exporters.html" />
@@ -88,6 +95,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -95,7 +103,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <p><span class="caption-text">Getting started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/quickstart.html">Quick start guide</a></li>
@@ -103,7 +111,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/README.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Data structures</span></p>
+<p><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../atomgroup.html">AtomGroup</a></li>
@@ -111,14 +119,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../topology_system.html">The topology system</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Trajectories</span></p>
+<p><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../units.html">Units and constants</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Input/output</span></p>
+<p><span class="caption-text">Input/output</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Format overview</a></li>
@@ -136,7 +144,7 @@
 <li class="toctree-l1"><a class="reference internal" href="selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="format_reference.html">Format reference</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Analysis</span></p>
+<p><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples/analysis/README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/analysis/README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -149,13 +157,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/analysis/custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced</span></p>
+<p><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../datasets.html">Example data</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing_code.html">Contributing to the main codebase</a></li>
@@ -170,6 +178,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -204,18 +213,20 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Auxiliary files</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/formats/auxiliary.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -229,10 +240,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="auxiliary-files">
+  <section id="auxiliary-files">
 <span id="auxiliary"></span><h1>Auxiliary files<a class="headerlink" href="#auxiliary-files" title="Permalink to this headline">¶</a></h1>
 <p>Auxiliary readers allow you to read in timeseries data accompanying a trajectory, that is not stored in the regular trajectory file.</p>
-<div class="section" id="supported-formats">
+<section id="supported-formats">
 <h2>Supported formats<a class="headerlink" href="#supported-formats" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><table class="docutils align-default">
@@ -272,8 +283,8 @@ reader for .xvg files.</p></td>
 </tbody>
 </table>
 </div></blockquote>
-</div>
-<div class="section" id="reading-data-directly">
+</section>
+<section id="reading-data-directly">
 <h2>Reading data directly<a class="headerlink" href="#reading-data-directly" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 
@@ -282,7 +293,7 @@ reader for .xvg files.</p></td>
 <span class="gp">In [3]: </span><span class="n">aux</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">auxreader</span><span class="p">(</span><span class="n">XVG_BZ2</span><span class="p">)</span>
 
 <span class="gp">In [4]: </span><span class="n">aux</span>
-<span class="gh">Out[4]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7f22be6ab750&gt;</span>
+<span class="gh">Out[4]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7f6ca1cd5350&gt;</span>
 </pre></div>
 </div>
 <p>In stand-alone use, an auxiliary reader allows you to iterate over each step in a set of auxiliary data.</p>
@@ -314,8 +325,8 @@ reader for .xvg files.</p></td>
 <span class="gh">Out[8]: </span><span class="go">MDAnalysis.auxiliary.XVG.XVGFileReader</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="loading-data-into-a-universe">
+</section>
+<section id="loading-data-into-a-universe">
 <h2>Loading data into a Universe<a class="headerlink" href="#loading-data-into-a-universe" title="Permalink to this headline">¶</a></h2>
 <p>Auxiliary data may be added to a trajectory Reader through the
 <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.add_auxiliary" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_auxiliary()</span></code></a> method. Auxiliary data
@@ -339,8 +350,8 @@ guess an appropriate reader.</p>
 <span class="go"> -1801.6234 ]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="passing-arguments-to-auxiliary-data">
+</section>
+<section id="passing-arguments-to-auxiliary-data">
 <h2>Passing arguments to auxiliary data<a class="headerlink" href="#passing-arguments-to-auxiliary-data" title="Permalink to this headline">¶</a></h2>
 <p>For alignment with trajectory data, auxiliary readers provide methods to
 assign each auxiliary step to the nearest trajectory timestep, read all steps
@@ -351,8 +362,8 @@ the auxiliary data for that timestep.</p>
 of the auxiliary step, <code class="docutils literal notranslate"><span class="pre">dt</span></code> of the trajectory and time at the first frame of the
 trajectory. If there are no auxiliary steps assigned to a given timestep (or none within
 <code class="docutils literal notranslate"><span class="pre">cutoff</span></code>, if set), the representative value(s) are set to <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>.</p>
-</div>
-<div class="section" id="iterating-over-auxiliary-data">
+</section>
+<section id="iterating-over-auxiliary-data">
 <h2>Iterating over auxiliary data<a class="headerlink" href="#iterating-over-auxiliary-data" title="Permalink to this headline">¶</a></h2>
 <p>Auxiliary data may not perfectly line up with the trajectory, or have missing data.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PDB</span><span class="p">,</span> <span class="n">TRR</span>
@@ -426,8 +437,8 @@ over the auxiliary independent of the trajectory.</p>
 </div>
 <p>The trajectory remains unchanged, and the auxiliary will be returned to the current
 timestep after iteration is complete.</p>
-</div>
-<div class="section" id="accessing-auxiliary-attributes">
+</section>
+<section id="accessing-auxiliary-attributes">
 <h2>Accessing auxiliary attributes<a class="headerlink" href="#accessing-auxiliary-attributes" title="Permalink to this headline">¶</a></h2>
 <p>To check the values of attributes of an added auxiliary, use
 <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.get_aux_attribute" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_aux_attribute()</span></code></a>.</p>
@@ -455,8 +466,8 @@ directly by using <a class="reference external" href="https://docs.mdanalysis.or
 <span class="go">        1386.0378 , -2699.3118 ])</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="recreating-auxiliaries">
+</section>
+<section id="recreating-auxiliaries">
 <h2>Recreating auxiliaries<a class="headerlink" href="#recreating-auxiliaries" title="Permalink to this headline">¶</a></h2>
 <p>To recreate an auxiliary, the set of attributes necessary to replicate it can
 first be obtained with <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/auxiliary/base.html#MDAnalysis.auxiliary.base.AuxReader.get_description" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_description()</span></code></a>.
@@ -481,7 +492,7 @@ original auxiliary reader.</p>
 <span class="gp">In [30]: </span><span class="k">del</span> <span class="n">aux</span>
 
 <span class="gp">In [31]: </span><span class="n">mda</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">auxreader</span><span class="p">(</span><span class="o">**</span><span class="n">description</span><span class="p">)</span>
-<span class="gh">Out[31]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7f22bebe23d0&gt;</span>
+<span class="gh">Out[31]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7f6ca16af250&gt;</span>
 </pre></div>
 </div>
 <p>The ‘description’ of any or all the auxiliaries added to a trajectory can be
@@ -497,30 +508,24 @@ obtained using <a class="reference external" href="https://docs.mdanalysis.org/1
 <span class="gp">   ...: </span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="selection_exporters.html" class="btn btn-neutral float-right" title="Selection exporters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="guessing.html" class="btn btn-neutral float-left" title="Guessing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="selection_exporters.html" class="btn btn-neutral float-right" title="Selection exporters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="guessing.html" class="btn btn-neutral float-left" title="Guessing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein.
+        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>
@@ -534,7 +539,6 @@ obtained using <a class="reference external" href="https://docs.mdanalysis.org/1
 
 
 </footer>
-
         </div>
       </div>
 
