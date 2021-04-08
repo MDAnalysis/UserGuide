@@ -15,9 +15,9 @@ dependencies:
   - pip
   - plotly
   - pybtex
-  - sphinx
+  - sphinx==3.4.2
   - sphinxcontrib-bibtex<2.0.0
-  - sphinx_rtd_theme
+  - sphinx_rtd_theme==0.5.1
   - tabulate
   - pip:
       - msmb_theme==1.2.0
