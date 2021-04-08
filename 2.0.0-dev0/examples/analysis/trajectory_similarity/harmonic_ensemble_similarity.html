@@ -1,25 +1,35 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Calculating the Harmonic Ensemble Similarity between ensembles &mdash; MDAnalysis User Guide  documentation</title>
   
 
   
+  <link rel="stylesheet" href="../../../_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+
+  
   
     <link rel="shortcut icon" href="../../../_static/mdanalysis-logo.ico"/>
   
+
   
   
 
   
-  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
@@ -38,11 +48,6 @@
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within MDAnalysis User Guide  documentation"
           href="../../../_static/opensearch.xml"/>
-
-  
-  <link rel="stylesheet" href="../../../_static/css/msmb.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Calculating the Clustering Ensemble Similarity between ensembles" href="clustering_ensemble_similarity.html" />
@@ -90,6 +95,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -97,14 +103,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <p><span class="caption-text">Getting started</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick start guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently asked questions</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../README.html">Examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../quickstart.html">Quick start guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../constructing_universe.html">Constructing, modifying, and adding to a Universe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../transformations/README.html">Transformations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../alignment_and_rms/README.html">Alignments and RMS fitting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../distances_and_contacts/README.html">Distances and contacts</a></li>
@@ -128,7 +133,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Data structures</span></p>
+<p><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../atomgroup.html">AtomGroup</a></li>
@@ -136,14 +141,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../topology_system.html">The topology system</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Trajectories</span></p>
+<p><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../units.html">Units and constants</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Input/output</span></p>
+<p><span class="caption-text">Input/output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/index.html">Format overview</a></li>
@@ -152,7 +157,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/format_reference.html">Format reference</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Analysis</span></p>
+<p><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -164,13 +169,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../README.html#polymers-and-membranes">Polymers and membranes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced</span></p>
+<p><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../datasets.html">Example data</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing_code.html">Contributing to the main codebase</a></li>
@@ -184,6 +189,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -218,11 +224,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../../README.html">Examples</a> &raquo;</li>
         
@@ -233,7 +241,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../../_sources/examples/analysis/trajectory_similarity/harmonic_ensemble_similarity.ipynb.txt" rel="nofollow"> View page source</a>
           
         
@@ -496,7 +504,7 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
-<script>require=requirejs;</script><div class="section" id="Calculating-the-Harmonic-Ensemble-Similarity-between-ensembles">
+<script>require=requirejs;</script><section id="Calculating-the-Harmonic-Ensemble-Similarity-between-ensembles">
 <h1>Calculating the Harmonic Ensemble Similarity between ensembles<a class="headerlink" href="#Calculating-the-Harmonic-Ensemble-Similarity-between-ensembles" title="Permalink to this headline">¶</a></h1>
 <p>Here we compare the conformational ensembles of proteins in four trajectories, using the harmonic ensemble similarity method.</p>
 <p><strong>Last updated:</strong> January 2020</p>
@@ -539,7 +547,7 @@ div.rendered_html tbody tr:hover {
 WARNING:root:sklearn.cluster could not be imported: some functionality will not be available in encore.fit_clusters()
 </pre></div></div>
 </div>
-<div class="section" id="Loading-files">
+<section id="Loading-files">
 <h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this headline">¶</a></h2>
 <p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (#beckstein_zipping_2009)</p>
 <div class="nbinput nblast docutils container">
@@ -574,8 +582,8 @@ WARNING:root:sklearn.cluster could not be imported: some functionality will not 
 98 102 10
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Calculating-harmonic-similarity">
+</section>
+<section id="Calculating-harmonic-similarity">
 <h2>Calculating harmonic similarity<a class="headerlink" href="#Calculating-harmonic-similarity" title="Permalink to this headline">¶</a></h2>
 <p>The harmonic ensemble similarity method treats the conformational ensemble within each trajectory as a high-dimensional Gaussian distribution <span class="math notranslate nohighlight">\(N(\mu, \Sigma)\)</span>. The mean <span class="math notranslate nohighlight">\(\mu\)</span> is estimated as the average over the ensemble. The covariance matrix <span class="math notranslate nohighlight">\(\Sigma\)</span> is calculated either using a shrinkage estimator (<code class="docutils literal notranslate"><span class="pre">cov_estimator='shrinkage'</span></code>) or a maximum-likelihood method (<code class="docutils literal notranslate"><span class="pre">cov_estimator='ml'</span></code>).</p>
 <p>The harmonic ensemble similarity is then calculated using the symmetrised version of the Kullback-Leibler divergence. This has no upper bound, so you can get some very high values for very different ensembles.</p>
@@ -619,7 +627,7 @@ array([[      0.        ,   24955.71870601, 1879874.4652541 ,
 </pre></div></div>
 </div>
 <p>The mean and covariance matrices for each Universe are saved in <code class="docutils literal notranslate"><span class="pre">details</span></code>.</p>
-<div class="section" id="Plotting">
+<section id="Plotting">
 <h3>Plotting<a class="headerlink" href="#Plotting" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
@@ -642,39 +650,33 @@ array([[      0.        ,   24955.71870601, 1879874.4652541 ,
 <img alt="../../../_images/examples_analysis_trajectory_similarity_harmonic_ensemble_similarity_13_0.png" src="../../../_images/examples_analysis_trajectory_similarity_harmonic_ensemble_similarity_13_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="References">
+</section>
+</section>
+<section id="References">
 <h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
 <p>[1] R. J. Gowers, M. Linke, J. Barnoud, T. J. E. Reddy, M. N. Melo, S. L. Seyler, D. L. Dotson, J. Domanski, S. Buchoux, I. M. Kenney, and O. Beckstein. <a class="reference external" href="http://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">MDAnalysis: A Python package for the rapid analysis of molecular dynamics simulations</a>. In S. Benthall and S. Rostrup, editors, <em>Proceedings of the 15th Python in Science Conference</em>, pages 98-105, Austin, TX, 2016. SciPy, doi:
 <a class="reference external" href="https://doi.org/10.25080/majora-629e541a-00e">10.25080/majora-629e541a-00e</a>.</p>
 <p>[2] N. Michaud-Agrawal, E. J. Denning, T. B. Woolf, and O. Beckstein. MDAnalysis: A Toolkit for the Analysis of Molecular Dynamics Simulations. <em>J. Comput. Chem</em>. 32 (2011), 2319-2327, <a class="reference external" href="https://dx.doi.org/10.1002/jcc.21787">doi:10.1002/jcc.21787</a>. PMCID:<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3144279/">PMC3144279</a></p>
 <p>[3] ENCORE: Software for Quantitative Ensemble Comparison. Matteo Tiberti, Elena Papaleo, Tone Bengtsen, Wouter Boomsma, Kresten Lindorff-Larsen. <em>PLoS Comput Biol.</em> 2015, 11, e1004415.</p>
 <p>[4] Beckstein O, Denning EJ, Perilla JR, Woolf TB. Zipping and unzipping of adenylate kinase: atomistic insights into the ensemble of open&lt;–&gt;closed transitions. <em>J Mol Biol</em>. 2009;394(1):160–176. <a class="reference external" href="https://dx.doi.org/10.1016%2Fj.jmb.2009.09.009">doi:10.1016/j.jmb.2009.09.009</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="clustering_ensemble_similarity.html" class="btn btn-neutral float-right" title="Calculating the Clustering Ensemble Similarity between ensembles" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="psa.html" class="btn btn-neutral float-left" title="Comparing the geometric similarity of trajectories" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="clustering_ensemble_similarity.html" class="btn btn-neutral float-right" title="Calculating the Clustering Ensemble Similarity between ensembles" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="psa.html" class="btn btn-neutral float-left" title="Comparing the geometric similarity of trajectories" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein.
+        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>
@@ -688,7 +690,6 @@ array([[      0.        ,   24955.71870601, 1879874.4652541 ,
 
 
 </footer>
-
         </div>
       </div>
 

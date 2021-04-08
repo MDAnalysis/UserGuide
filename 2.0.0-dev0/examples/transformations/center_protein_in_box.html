@@ -1,25 +1,35 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Centering a trajectory in the box &mdash; MDAnalysis User Guide  documentation</title>
   
 
   
+  <link rel="stylesheet" href="../../_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
   
     <link rel="shortcut icon" href="../../_static/mdanalysis-logo.ico"/>
   
+
   
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -38,11 +48,6 @@
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within MDAnalysis User Guide  documentation"
           href="../../_static/opensearch.xml"/>
-
-  
-  <link rel="stylesheet" href="../../_static/css/msmb.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Alignments and RMS fitting" href="../analysis/alignment_and_rms/README.html" />
@@ -90,6 +95,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -97,14 +103,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <p><span class="caption-text">Getting started</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick start guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently asked questions</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../README.html">Examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../quickstart.html">Quick start guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../constructing_universe.html">Constructing, modifying, and adding to a Universe</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="README.html">Transformations</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Centering a trajectory in the box</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Loading-files">Loading files</a></li>
@@ -128,7 +133,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Data structures</span></p>
+<p><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../atomgroup.html">AtomGroup</a></li>
@@ -136,14 +141,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../topology_system.html">The topology system</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Trajectories</span></p>
+<p><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../units.html">Units and constants</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Input/output</span></p>
+<p><span class="caption-text">Input/output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../formats/index.html">Format overview</a></li>
@@ -152,7 +157,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../formats/format_reference.html">Format reference</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Analysis</span></p>
+<p><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../analysis/README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../analysis/README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -164,13 +169,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../analysis/README.html#polymers-and-membranes">Polymers and membranes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced</span></p>
+<p><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../datasets.html">Example data</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing_code.html">Contributing to the main codebase</a></li>
@@ -184,6 +189,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -218,11 +224,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../README.html">Examples</a> &raquo;</li>
         
@@ -233,7 +241,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/examples/transformations/center_protein_in_box.ipynb.txt" rel="nofollow"> View page source</a>
           
         
@@ -496,7 +504,7 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
-<script>require=requirejs;</script><div class="section" id="Centering-a-trajectory-in-the-box">
+<script>require=requirejs;</script><section id="Centering-a-trajectory-in-the-box">
 <h1>Centering a trajectory in the box<a class="headerlink" href="#Centering-a-trajectory-in-the-box" title="Permalink to this headline">¶</a></h1>
 <p>Here we use MDAnalysis transformations to make a protein whole, center it in the box, and then wrap the water back into the box. We then look at how to do this on-the-fly.</p>
 <p><strong>Last updated:</strong> July 3, 2020 with MDAnalysis 1.0.0</p>
@@ -530,7 +538,7 @@ div.rendered_html tbody tr:hover {
 <div class="output_area docutils container">
 <script type="application/vnd.jupyter.widget-view+json">{"model_id": "33719b2e23374559b80febdfb86e437e", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-<div class="section" id="Loading-files">
+<section id="Loading-files">
 <h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this headline">¶</a></h2>
 <p>The test files we will be working with here are trajectories of a adenylate kinase (AdK), a phosophotransferase enzyme. (<a class="bibtex reference internal" href="../../references.html#beckstein-zipping-2009" id="id4">[BDPW09]</a>)</p>
 <p>For the step-by-step transformations, we need to load the trajectory into memory so that our changes to the coordinates persist. If your trajectory is too large for that, see the <a class="reference external" href="#Doing-all-this-on-the-fly">on-the-fly transformation</a> section for how to do this out-of-memory.</p>
@@ -543,8 +551,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="Before-transformation">
+</section>
+<section id="Before-transformation">
 <h2>Before transformation<a class="headerlink" href="#Before-transformation" title="Permalink to this headline">¶</a></h2>
 <p>If you have NGLView installed, you can view the trajectory as it currently is.</p>
 <div class="nbinput nblast docutils container">
@@ -560,10 +568,10 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <p>Otherwise, we embed a gif of it below.</p>
-<p><img alt="original" src="../../_images/original.gif" /></p>
+<img alt="original" src="../../_images/original.gif" />
 <p>For easier analysis and nicer visualisation, we want to center this protein in the box.</p>
-</div>
-<div class="section" id="Unwrapping-the-protein">
+</section>
+<section id="Unwrapping-the-protein">
 <h2>Unwrapping the protein<a class="headerlink" href="#Unwrapping-the-protein" title="Permalink to this headline">¶</a></h2>
 <p>The first step is to “unwrap” the protein from the border of the box, to make the protein whole. MDAnalysis provides the <code class="docutils literal notranslate"><span class="pre">AtomGroup.unwrap</span></code> function to do this easily. Note that this function requires your universe to have bonds in it.</p>
 <p>We loop over the trajectory to unwrap for each frame.</p>
@@ -593,9 +601,9 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <p>Over the course of the trajectory it leaves the box.</p>
-<p><img alt="unwrapped" src="../../_images/unwrapped.gif" /></p>
-</div>
-<div class="section" id="Centering-in-the-box">
+<img alt="unwrapped" src="../../_images/unwrapped.gif" />
+</section>
+<section id="Centering-in-the-box">
 <h2>Centering in the box<a class="headerlink" href="#Centering-in-the-box" title="Permalink to this headline">¶</a></h2>
 <p>The next step is to center the protein in the box. We calculate the center-of-mass of the protein and the center of the box for each timestep. We then move <em>all</em> the atoms so that the protein center-of-mass is in the center of the box.</p>
 <p>If you don’t have masses in your trajectory, try using the <code class="docutils literal notranslate"><span class="pre">center_of_geometry</span></code>.</p>
@@ -625,9 +633,9 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<p><img alt="centered" src="../../_images/centered.gif" /></p>
-</div>
-<div class="section" id="Wrapping-the-solvent-back-into-the-box">
+<img alt="centered" src="../../_images/centered.gif" />
+</section>
+<section id="Wrapping-the-solvent-back-into-the-box">
 <h2>Wrapping the solvent back into the box<a class="headerlink" href="#Wrapping-the-solvent-back-into-the-box" title="Permalink to this headline">¶</a></h2>
 <p>Luckily, MDAnalysis also has <code class="docutils literal notranslate"><span class="pre">AtomGroup.wrap</span></code> to wrap molecules back into the box. Our trajectory has dimensions defined, which the function will find automatically. If your trajectory does not, or you wish to use a differently sized box, you can pass in a <code class="docutils literal notranslate"><span class="pre">box</span></code> with dimensions in the form <code class="docutils literal notranslate"><span class="pre">[lx,</span> <span class="pre">ly,</span> <span class="pre">lz,</span> <span class="pre">alpha,</span> <span class="pre">beta,</span> <span class="pre">gamma]</span></code>.</p>
 <div class="nbinput nblast docutils container">
@@ -655,9 +663,9 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<p><img alt="wrapped" src="../../_images/wrapped.gif" /></p>
-</div>
-<div class="section" id="Doing-all-this-on-the-fly">
+<img alt="wrapped" src="../../_images/wrapped.gif" />
+</section>
+<section id="Doing-all-this-on-the-fly">
 <h2>Doing all this on-the-fly<a class="headerlink" href="#Doing-all-this-on-the-fly" title="Permalink to this headline">¶</a></h2>
 <p>Running all the transformations above can be difficult if your trajectory is large, or your computational resources are limited. Use on-the-fly transformations to keep your data out-of-memory.</p>
 <p>Some common transformations are defined in <code class="docutils literal notranslate"><span class="pre">MDAnalysis.transformations</span></code>.</p>
@@ -709,38 +717,32 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<p><img alt="on the fly" src="../../_images/on_the_fly.gif" /></p>
-</div>
-<div class="section" id="References">
+<img alt="on the fly" src="../../_images/on_the_fly.gif" />
+</section>
+<section id="References">
 <h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
 <p>[1] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
 <p>[2] Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>, doi:10.1002/jcc.21787.</p>
 <p>[3] Hai Nguyen, David A Case, and Alexander S Rose. NGLview–interactive molecular graphics for Jupyter notebooks. Bioinformatics, 34(7):1241–1242, April 2018. 00024. URL: <a class="reference external" href="https://academic.oup.com/bioinformatics/article/34/7/1241/4721781">https://academic.oup.com/bioinformatics/article/34/7/1241/4721781</a>, doi:10.1093/bioinformatics/btx789.</p>
 <p>[4] Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164">https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164</a>, doi:10.1016/j.jmb.2009.09.009.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../analysis/alignment_and_rms/README.html" class="btn btn-neutral float-right" title="Alignments and RMS fitting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="README.html" class="btn btn-neutral float-left" title="Transformations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="../analysis/alignment_and_rms/README.html" class="btn btn-neutral float-right" title="Alignments and RMS fitting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="README.html" class="btn btn-neutral float-left" title="Transformations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein.
+        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>
@@ -754,7 +756,6 @@ div.rendered_html tbody tr:hover {
 
 
 </footer>
-
         </div>
       </div>
 

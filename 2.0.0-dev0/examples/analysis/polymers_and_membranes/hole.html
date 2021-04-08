@@ -1,25 +1,35 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Analysing pore dimensions with HOLE &mdash; MDAnalysis User Guide  documentation</title>
   
 
   
+  <link rel="stylesheet" href="../../../_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+
+  
   
     <link rel="shortcut icon" href="../../../_static/mdanalysis-logo.ico"/>
   
+
   
   
 
   
-  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
@@ -38,11 +48,6 @@
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within MDAnalysis User Guide  documentation"
           href="../../../_static/opensearch.xml"/>
-
-  
-  <link rel="stylesheet" href="../../../_static/css/msmb.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Volumetric analyses" href="../volumetric/README.html" />
@@ -90,6 +95,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -97,14 +103,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <p><span class="caption-text">Getting started</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick start guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently asked questions</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../README.html">Examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../quickstart.html">Quick start guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../constructing_universe.html">Constructing, modifying, and adding to a Universe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../transformations/README.html">Transformations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../alignment_and_rms/README.html">Alignments and RMS fitting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../distances_and_contacts/README.html">Distances and contacts</a></li>
@@ -127,7 +132,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Data structures</span></p>
+<p><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../atomgroup.html">AtomGroup</a></li>
@@ -135,14 +140,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../topology_system.html">The topology system</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Trajectories</span></p>
+<p><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../units.html">Units and constants</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Input/output</span></p>
+<p><span class="caption-text">Input/output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/index.html">Format overview</a></li>
@@ -151,7 +156,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/format_reference.html">Format reference</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Analysis</span></p>
+<p><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -163,13 +168,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../README.html#polymers-and-membranes">Polymers and membranes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced</span></p>
+<p><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../datasets.html">Example data</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing_code.html">Contributing to the main codebase</a></li>
@@ -183,6 +188,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -217,11 +223,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../../README.html">Examples</a> &raquo;</li>
         
@@ -232,7 +240,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../../_sources/examples/analysis/polymers_and_membranes/hole.ipynb.txt" rel="nofollow"> View page source</a>
           
         
@@ -495,7 +503,7 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
-<script>require=requirejs;</script><div class="section" id="Analysing-pore-dimensions-with-HOLE">
+<script>require=requirejs;</script><section id="Analysing-pore-dimensions-with-HOLE">
 <h1>Analysing pore dimensions with HOLE<a class="headerlink" href="#Analysing-pore-dimensions-with-HOLE" title="Permalink to this headline">¶</a></h1>
 <p>Here we use <code class="docutils literal notranslate"><span class="pre">HOLE</span></code> to analyse pore dimensions in a membrane.</p>
 <p><strong>Last executed:</strong> Feb 20, 2020 with MDAnalysis 0.20.2-dev0</p>
@@ -527,7 +535,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="section" id="Using-HOLE-with-a-PDB-file">
+<section id="Using-HOLE-with-a-PDB-file">
 <h2>Using HOLE with a PDB file<a class="headerlink" href="#Using-HOLE-with-a-PDB-file" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.hole2.hole</span></code> is a wrapper function that calls the <a class="reference external" href="http://www.holeprogram.org">HOLE</a> program. This means you must have installed the program yourself before you can use the <code class="docutils literal notranslate"><span class="pre">hole2</span></code> module. You then need to pass the path to your <code class="docutils literal notranslate"><span class="pre">hole</span></code> executable to the functions and classes in the modules; in this example, <code class="docutils literal notranslate"><span class="pre">hole</span></code> is installed at <code class="docutils literal notranslate"><span class="pre">~/hole2/exe/hole</span></code>.</p>
 <p>HOLE defines a series of points throughout the pore from which a sphere can be generated that does not overlap any atom (as defined by its van der Waals radius). (Please see (<a class="bibtex reference internal" href="../../../references.html#smart-pore-1993" id="id5">[SGW93]</a>, <a class="bibtex reference internal" href="../../../references.html#smart-hole-1996" id="id6">[SNW+96]</a>) for a complete explanation). By default, it ignores residues with the following names: “SOL”, “WAT”, “TIP”, “HOH”, “K”, “NA”, “CL”. You can change these with the <code class="docutils literal notranslate"><span class="pre">ignore_residues</span></code> keyword. Note that the residue names must have 3 characters. Wildcards <em>do not</em> work.</p>
@@ -646,10 +654,10 @@ The pore is 42.4 angstroms long
 <p>Load the output file in Extensions &gt; Tk Console:</p>
 <p><code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">hole1.vmd</span></code></p>
 <p>Your pore surface will be drawn as below.</p>
-<center><div style="width:200px; text-align:center;"><p><img alt="sphpdb.png" src="../../../_images/sphpdb.png" /></p>
+<center><div style="width:200px; text-align:center;"><img alt="sphpdb.png" src="../../../_images/sphpdb.png" />
 </div></center><p>MDAnalysis supports many of the options that can be customised in HOLE. For example, you can specify a starting point for the pore search within the pore with <code class="docutils literal notranslate"><span class="pre">cpoint</span></code>, and a <code class="docutils literal notranslate"><span class="pre">sample</span></code> distance (default: 0.2 angstrom) for the distance between the planes used in HOLE. Please see the <a class="reference external" href="https://www.mdanalysis.org/docs/documentation_pages/analysis/hole2.html">MDAnalysis.analysis.hole2</a> for more information.</p>
-</div>
-<div class="section" id="Using-HOLE-with-a-trajectory">
+</section>
+<section id="Using-HOLE-with-a-trajectory">
 <h2>Using HOLE with a trajectory<a class="headerlink" href="#Using-HOLE-with-a-trajectory" title="Permalink to this headline">¶</a></h2>
 <p>One of the limitations of the <code class="docutils literal notranslate"><span class="pre">hole</span></code> program is that it can only accept PDB files. In order to use other formats with <code class="docutils literal notranslate"><span class="pre">hole</span></code>, or to run <code class="docutils literal notranslate"><span class="pre">hole</span></code> on trajectories, we can use the <code class="docutils literal notranslate"><span class="pre">hole2.HoleAnalysis</span></code> class with an <code class="docutils literal notranslate"><span class="pre">MDAnalysis.Universe</span></code>. While the example file below is a PDB, you can use any files to create your Universe. You can also specify that the HOLE analysis is only run on a particular group of atoms with the <code class="docutils literal notranslate"><span class="pre">select</span></code> keyword (default value: ‘protein’).</p>
 <p>As with <code class="docutils literal notranslate"><span class="pre">hole()</span></code>, <code class="docutils literal notranslate"><span class="pre">HoleAnalysis</span></code> allows you to select a starting point for the search (<code class="docutils literal notranslate"><span class="pre">cpoint</span></code>). You can pass in a coordinate array; alternatively, you can use the center-of-geometry of your atom selection in each frame as the start.</p>
@@ -678,7 +686,7 @@ The pore is 42.4 angstroms long
 &lt;MDAnalysis.analysis.hole2.hole.HoleAnalysis at 0x10f3f1850&gt;
 </pre></div></div>
 </div>
-<div class="section" id="Working-with-the-data">
+<section id="Working-with-the-data">
 <h3>Working with the data<a class="headerlink" href="#Working-with-the-data" title="Permalink to this headline">¶</a></h3>
 <p>Again, the data is stored in <code class="docutils literal notranslate"><span class="pre">ha.profiles</span></code> as a dictionary of <code class="docutils literal notranslate"><span class="pre">numpy.recarray</span></code>s. The dictionary is indexed by frame; we can see the HOLE profile for the fourth frame below (truncated to the first 10 values).</p>
 <div class="nbinput docutils container">
@@ -853,8 +861,8 @@ array([[ 0.     , -0.23655],
 <img alt="../../../_images/examples_analysis_polymers_and_membranes_hole_32_0.png" src="../../../_images/examples_analysis_polymers_and_membranes_hole_32_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="Visualising-the-VMD-surface">
+</section>
+<section id="Visualising-the-VMD-surface">
 <h3>Visualising the VMD surface<a class="headerlink" href="#Visualising-the-VMD-surface" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">create_vmd_surface()</span></code> method is built into the <code class="docutils literal notranslate"><span class="pre">HoleAnalysis</span></code> class. It writes a VMD file that changes the pore surface for each frame in VMD. Again, load your file and source the file in the Tk Console:</p>
 <p><code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">holeanalysis.vmd</span></code></p>
@@ -876,9 +884,9 @@ array([[ 0.     , -0.23655],
 &#39;holeanalysis.vmd&#39;
 </pre></div></div>
 </div>
-<center><div style="width: 300px"><p><img alt="hole.gif" src="../../../_images/pore.gif" /></p>
-</div></center></div>
-<div class="section" id="Plotting">
+<center><div style="width: 300px"><img alt="hole.gif" src="../../../_images/pore.gif" />
+</div></center></section>
+<section id="Plotting">
 <h3>Plotting<a class="headerlink" href="#Plotting" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">HoleAnalysis</span></code> has several convenience methods for plotting. <code class="docutils literal notranslate"><span class="pre">plot()</span></code> plots the HOLE radius over each pore coordinate, differentiating each frame with colour.</p>
 <div class="nbinput docutils container">
@@ -969,9 +977,9 @@ array([[ 0.     , -0.23655],
 <img alt="../../../_images/examples_analysis_polymers_and_membranes_hole_47_0.png" src="../../../_images/examples_analysis_polymers_and_membranes_hole_47_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="Ordering-HOLE-profiles-with-an-order-parameter">
+</section>
+</section>
+<section id="Ordering-HOLE-profiles-with-an-order-parameter">
 <h2>Ordering HOLE profiles with an order parameter<a class="headerlink" href="#Ordering-HOLE-profiles-with-an-order-parameter" title="Permalink to this headline">¶</a></h2>
 <p>If you are interested in the HOLE profiles over an order parameter, you can directly pass that into the analysis after it is run. Below, we use an order parameter of RMSD from a reference structure.</p>
 <div class="admonition note">
@@ -1062,7 +1070,7 @@ array([6.10501252e+00, 4.88398472e+00, 3.66303524e+00, 2.44202454e+00,
 dict_keys([1.2210052104208637, 4.883984778674993, 6.105012519709198])
 </pre></div></div>
 </div>
-<div class="section" id="id8">
+<section id="id8">
 <h3>Plotting<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">HoleAnalysis</span></code> also provides convenience functions for plotting over order parameters. Unlike <code class="docutils literal notranslate"><span class="pre">plot()</span></code>, <code class="docutils literal notranslate"><span class="pre">plot_order_parameters()</span></code> requires an <code class="docutils literal notranslate"><span class="pre">aggregator</span></code> function that reduces an array of radii to a singular value. The default function is <code class="docutils literal notranslate"><span class="pre">min()</span></code>. You can also pass in functions such as <code class="docutils literal notranslate"><span class="pre">max()</span></code> or <code class="docutils literal notranslate"><span class="pre">np.mean()</span></code>, or define your own function to operate on an array and return a vlue.</p>
 <div class="nbinput docutils container">
@@ -1102,9 +1110,9 @@ dict_keys([1.2210052104208637, 4.883984778674993, 6.105012519709198])
 <img alt="../../../_images/examples_analysis_polymers_and_membranes_hole_60_0.png" src="../../../_images/examples_analysis_polymers_and_membranes_hole_60_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="Deleting-HOLE-files">
+</section>
+</section>
+<section id="Deleting-HOLE-files">
 <h2>Deleting HOLE files<a class="headerlink" href="#Deleting-HOLE-files" title="Permalink to this headline">¶</a></h2>
 <p>The HOLE program and related MDAnalysis code write a number of files out. Both the <code class="docutils literal notranslate"><span class="pre">hole()</span></code> function and <code class="docutils literal notranslate"><span class="pre">HoleAnalysis</span></code> class contain ways to easily remove these files.</p>
 <p>For <code class="docutils literal notranslate"><span class="pre">hole()</span></code>, pass in <code class="docutils literal notranslate"><span class="pre">keep_files=False</span></code> to delete HOLE files as soon as the analysis is done. However, this will also remove the sphpdb file required to create a VMD surface from the analysis. If you need to write a VMD surface file, use the <code class="docutils literal notranslate"><span class="pre">HoleAnalysis</span></code> class instead.</p>
@@ -1207,38 +1215,32 @@ dict_keys([1.2210052104208637, 4.883984778674993, 6.105012519709198])
 20.0962
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="References">
+</section>
+<section id="References">
 <h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
 <p>[1] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
 <p>[2] Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>, doi:10.1002/jcc.21787.</p>
 <p>[3] O S Smart, J M Goodfellow, and B A Wallace. The pore dimensions of gramicidin A. Biophysical Journal, 65(6):2455–2460, December 1993. 00522. URL: <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1225986/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1225986/</a>, doi:10.1016/S0006-3495(93)81293-1.</p>
 <p>[4] O. S. Smart, J. G. Neduvelil, X. Wang, B. A. Wallace, and M. S. Sansom. HOLE: a program for the analysis of the pore dimensions of ion channel structural models. Journal of Molecular Graphics, 14(6):354–360, 376, December 1996. 00935. doi:10.1016/s0263-7855(97)00009-x.</p>
 <p>[5] Lukas S. Stelzl, Philip W. Fowler, Mark S. P. Sansom, and Oliver Beckstein. Flexible gates generate occluded intermediates in the transport cycle of LacY. Journal of Molecular Biology, 426(3):735–751, February 2014. 00000. URL: <a class="reference external" href="https://asu.pure.elsevier.com/en/publications/flexible-gates-generate-occluded-intermediates-in-the-transport-c">https://asu.pure.elsevier.com/en/publications/flexible-gates-generate-occluded-intermediates-in-the-transport-c</a>, doi:10.1016/j.jmb.2013.10.024.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../volumetric/README.html" class="btn btn-neutral float-right" title="Volumetric analyses" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="polymer.html" class="btn btn-neutral float-left" title="Determining the persistence length of a polymer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="../volumetric/README.html" class="btn btn-neutral float-right" title="Volumetric analyses" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="polymer.html" class="btn btn-neutral float-left" title="Determining the persistence length of a polymer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein.
+        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>
@@ -1252,7 +1254,6 @@ dict_keys([1.2210052104208637, 4.883984778674993, 6.105012519709198])
 
 
 </footer>
-
         </div>
       </div>
 

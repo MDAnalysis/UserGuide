@@ -1,25 +1,35 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Standard residues in MDAnalysis selections &mdash; MDAnalysis User Guide  documentation</title>
   
 
   
+  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
   
     <link rel="shortcut icon" href="_static/mdanalysis-logo.ico"/>
   
+
   
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -38,11 +48,6 @@
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within MDAnalysis User Guide  documentation"
           href="_static/opensearch.xml"/>
-
-  
-  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Advanced topology concepts" href="advanced_topology.html" />
@@ -90,6 +95,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -97,14 +103,14 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <p><span class="caption-text">Getting started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/quickstart.html">Quick start guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently asked questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/README.html">Examples</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Data structures</span></p>
+<p><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="atomgroup.html">AtomGroup</a></li>
@@ -112,14 +118,14 @@
 <li class="toctree-l1"><a class="reference internal" href="selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="topology_system.html">The topology system</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Trajectories</span></p>
+<p><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="units.html">Units and constants</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Input/output</span></p>
+<p><span class="caption-text">Input/output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formats/index.html">Format overview</a></li>
@@ -128,7 +134,7 @@
 <li class="toctree-l1"><a class="reference internal" href="formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formats/format_reference.html">Format reference</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Analysis</span></p>
+<p><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -140,7 +146,7 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html#polymers-and-membranes">Polymers and membranes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced</span></p>
+<p><span class="caption-text">Advanced</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Standard residues in MDAnalysis selections</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#proteins">Proteins</a><ul>
@@ -158,7 +164,7 @@
 <li class="toctree-l1"><a class="reference internal" href="advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="datasets.html">Example data</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing_code.html">Contributing to the main codebase</a></li>
@@ -172,6 +178,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -206,18 +213,20 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Standard residues in MDAnalysis selections</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/standard_selections.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -231,9 +240,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="standard-residues-in-mdanalysis-selections">
+  <section id="standard-residues-in-mdanalysis-selections">
 <span id="standard-selections"></span><h1>Standard residues in MDAnalysis selections<a class="headerlink" href="#standard-residues-in-mdanalysis-selections" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="proteins">
+<section id="proteins">
 <span id="protein-selection"></span><h2>Proteins<a class="headerlink" href="#proteins" title="Permalink to this headline">¶</a></h2>
 <p>The residue names listed here are accessible via the “protein” keyword in the <a class="reference internal" href="selections.html#selections"><span class="std std-ref">Atom selection language</span></a>.</p>
 <p>The below names are drawn from the CHARMM 27, OPLS-AA, GROMOS 53A6, AMBER 03, and AMBER 99sb*-ILDN force fields.</p>
@@ -368,7 +377,7 @@
 </tr>
 </tbody>
 </table>
-<div class="section" id="protein-backbone">
+<section id="protein-backbone">
 <h3>Protein backbone<a class="headerlink" href="#protein-backbone" title="Permalink to this headline">¶</a></h3>
 <p>Protein backbone atoms in MDAnalysis belong to a recognised protein residue and have the atom names:</p>
 <table class="docutils align-default">
@@ -386,9 +395,9 @@
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="section" id="nucleic-acids">
+</section>
+</section>
+<section id="nucleic-acids">
 <span id="nucleic-selection"></span><h2>Nucleic acids<a class="headerlink" href="#nucleic-acids" title="Permalink to this headline">¶</a></h2>
 <p>The residue names listed here are accessible via the “nucleic” keyword in the <a class="reference internal" href="selections.html#selections"><span class="std std-ref">Atom selection language</span></a>.</p>
 <p>The below names are drawn from largely from the CHARMM force field.</p>
@@ -451,7 +460,7 @@
 </tr>
 </tbody>
 </table>
-<div class="section" id="nucleic-backbone">
+<section id="nucleic-backbone">
 <h3>Nucleic backbone<a class="headerlink" href="#nucleic-backbone" title="Permalink to this headline">¶</a></h3>
 <p>Nucleic backbone atoms in MDAnalysis belong to a recognised nucleic acid residue and have the atom names:</p>
 <table class="docutils align-default">
@@ -471,8 +480,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="nucleobases">
+</section>
+<section id="nucleobases">
 <span id="nucleobase-selection"></span><h3>Nucleobases<a class="headerlink" href="#nucleobases" title="Permalink to this headline">¶</a></h3>
 <p>Nucleobase atoms from nucleic acid residues are recognised based on their names in CHARMM.</p>
 <table class="docutils align-default">
@@ -507,8 +516,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="nucleic-sugars">
+</section>
+<section id="nucleic-sugars">
 <h3>Nucleic sugars<a class="headerlink" href="#nucleic-sugars" title="Permalink to this headline">¶</a></h3>
 <p>Nucleic sugar atoms from nucleic acid residues are recognised by MDAnalysis if they have the atom names:</p>
 <table class="docutils align-default">
@@ -528,31 +537,25 @@
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="advanced_topology.html" class="btn btn-neutral float-right" title="Advanced topology concepts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="examples/analysis/custom_trajectory_analysis.html" class="btn btn-neutral float-left" title="Writing your own trajectory analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="advanced_topology.html" class="btn btn-neutral float-right" title="Advanced topology concepts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="examples/analysis/custom_trajectory_analysis.html" class="btn btn-neutral float-left" title="Writing your own trajectory analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein.
+        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>
@@ -566,7 +569,6 @@
 
 
 </footer>
-
         </div>
       </div>
 

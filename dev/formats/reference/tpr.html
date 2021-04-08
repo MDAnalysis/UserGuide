@@ -1,25 +1,35 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>TPR (GROMACS run topology files) &mdash; MDAnalysis User Guide  documentation</title>
   
 
   
+  <link rel="stylesheet" href="../../_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
   
     <link rel="shortcut icon" href="../../_static/mdanalysis-logo.ico"/>
   
+
   
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -38,11 +48,6 @@
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within MDAnalysis User Guide  documentation"
           href="../../_static/opensearch.xml"/>
-
-  
-  <link rel="stylesheet" href="../../_static/css/msmb.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="TRJ, MDCRD, CRDBOX (AMBER ASCII trajectory)" href="trj.html" />
@@ -90,6 +95,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -97,14 +103,14 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <p><span class="caption-text">Getting started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/quickstart.html">Quick start guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently asked questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/README.html">Examples</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Data structures</span></p>
+<p><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../atomgroup.html">AtomGroup</a></li>
@@ -112,14 +118,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../topology_system.html">The topology system</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Trajectories</span></p>
+<p><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../units.html">Units and constants</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Input/output</span></p>
+<p><span class="caption-text">Input/output</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Format overview</a></li>
@@ -169,7 +175,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Analysis</span></p>
+<p><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -181,13 +187,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/README.html#polymers-and-membranes">Polymers and membranes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced</span></p>
+<p><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../datasets.html">Example data</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing_code.html">Contributing to the main codebase</a></li>
@@ -201,6 +207,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -235,11 +242,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../format_reference.html">Format reference</a> &raquo;</li>
         
@@ -248,7 +257,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/formats/reference/tpr.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -262,7 +271,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="tpr-gromacs-run-topology-files">
+  <section id="tpr-gromacs-run-topology-files">
 <span id="tpr-format"></span><h1>TPR (GROMACS run topology files)<a class="headerlink" href="#tpr-gromacs-run-topology-files" title="Permalink to this headline">¶</a></h1>
 <table class="docutils align-default">
 <colgroup>
@@ -282,7 +291,7 @@
 <p>GROMACS indexes atom numbers and residue numbers from 1 in user-readable files. However, the MDAnalysis TPRParser creates atom <code class="code docutils literal notranslate"><span class="pre">ids</span></code> and residue <code class="code docutils literal notranslate"><span class="pre">resids</span></code> <em>from 0</em>. This means that if your atom is numbered 3 in your GRO, ITP, or TOP file, it will have an <code class="code docutils literal notranslate"><span class="pre">Atom.id</span></code> of 2 in MDAnalysis. Likewise, if your residue ALA has a residue number of 4 in your GRO file, it will have a <code class="code docutils literal notranslate"><span class="pre">Residue.resid</span></code> number of 3 in MDAnalysis. Finally, molecules are also numbered from 0, in the attribute <code class="code docutils literal notranslate"><span class="pre">molnums</span></code>.</p>
 <p>Atom <code class="code docutils literal notranslate"><span class="pre">indices</span></code> and residue <code class="code docutils literal notranslate"><span class="pre">resindices</span></code> are MDAnalysis derived and always index from 0, no matter the file type.</p>
 </div>
-<div class="section" id="supported-versions">
+<section id="supported-versions">
 <h2>Supported versions<a class="headerlink" href="#supported-versions" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-default" id="id1">
 <caption><span class="caption-text">TPR format versions and generations read by <code class="xref py py-func docutils literal notranslate"><span class="pre">MDAnalysis.topology.TPRParser.parse()</span></code>.</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
@@ -354,8 +363,8 @@
 <p>For further discussion and notes see <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/issues/2">Issue 2</a>. Please <em>open a new issue</em> in
 the <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/issues">Issue Tracker</a> when a new or different TPR file format version should be
 supported.</p>
-</div>
-<div class="section" id="tpr-specification">
+</section>
+<section id="tpr-specification">
 <h2>TPR specification<a class="headerlink" href="#tpr-specification" title="Permalink to this headline">¶</a></h2>
 <p>The TPR reader is a pure-python implementation of a basic TPR
 parser. Currently the following sections of the topology are parsed:</p>
@@ -554,8 +563,8 @@ parser. Currently the following sections of the topology are parsed:</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="developer-notes">
+</section>
+<section id="developer-notes">
 <h2>Developer notes<a class="headerlink" href="#developer-notes" title="Permalink to this headline">¶</a></h2>
 <p>This tpr parser is written according to the following files</p>
 <ul class="simple">
@@ -572,30 +581,24 @@ parser. Currently the following sections of the topology are parsed:</p>
 <code class="file docutils literal notranslate"><span class="pre">gmxdump.c</span></code> or <code class="file docutils literal notranslate"><span class="pre">tpxio.c</span></code>, those with <code class="docutils literal notranslate"><span class="pre">extract_</span></code> are new.</p>
 <p>Wherever <code class="docutils literal notranslate"><span class="pre">fver_err(fver)</span></code> is used, it means the tpx version problem
 has not been solved. Versions prior to Gromacs 4.0.x are not supported.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="trj.html" class="btn btn-neutral float-right" title="TRJ, MDCRD, CRDBOX (AMBER ASCII trajectory)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="top.html" class="btn btn-neutral float-left" title="TOP, PRMTOP, PARM7 (AMBER topology)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="trj.html" class="btn btn-neutral float-right" title="TRJ, MDCRD, CRDBOX (AMBER ASCII trajectory)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="top.html" class="btn btn-neutral float-left" title="TOP, PRMTOP, PARM7 (AMBER topology)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein.
+        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>
@@ -609,7 +612,6 @@ has not been solved. Versions prior to Gromacs 4.0.x are not supported.</p>
 
 
 </footer>
-
         </div>
       </div>
 
