@@ -17,6 +17,7 @@ In order to remain memory-efficient, MDAnalysis does not load every frame of you
 The typical way to change a timestep is to index it. ``Universe.trajectory`` can be thought of as a list of :class:`~MDAnalysis.coordinates.base.Timestep`\ s, a data structure that holds information for the current time frame. For example, you can query its length.
 
 .. ipython:: python
+    :okwarning:
 
     import MDAnalysis as mda
     from MDAnalysis.tests.datafiles import PSF, DCD

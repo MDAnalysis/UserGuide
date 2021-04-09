@@ -73,6 +73,7 @@ which case :func:`~MDAnalysis.auxiliary.core.get_auxreader_for` is used to
 guess an appropriate reader.
 
 .. ipython:: python
+    :okwarning:
 
     from MDAnalysis.tests.datafiles import PDB_xvf, TRR_xvf
     u = mda.Universe(PDB_xvf, TRR_xvf)

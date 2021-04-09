@@ -20,6 +20,7 @@ Atom selection language
 AtomGroup instances are typically created with :meth:`Universe.select_atoms <MDAnalysis.core.universe.Universe.select_atoms>` or by manipulating another :class:`~MDAnalysis.core.groups.AtomGroup`, e.g. by slicing.
 
 .. ipython:: python
+    :okwarning:
 
     import MDAnalysis as mda
     from MDAnalysis.tests.datafiles import PDB

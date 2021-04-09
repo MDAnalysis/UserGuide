@@ -22,6 +22,7 @@ same selection of atoms in a different package, for example, to
 visualize the atoms in VMD_. 
 
 .. ipython:: python
+    :okwarning:
 
     import MDAnalysis as mda
     from MDAnalysis.tests.datafiles import PDB

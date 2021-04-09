@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Q1 vs Q2 contact analysis &mdash; MDAnalysis User Guide  documentation</title>
@@ -37,8 +36,6 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script src="../../../_static/js/versions.js"></script>
     
@@ -51,7 +48,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Contact analysis: number of contacts within a cutoff" href="contacts_within_cutoff.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="contacts_native_fraction.html" /> 
+    <link rel="prev" title="Fraction of native contacts over a trajectory" href="contacts_native_fraction.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -103,19 +100,21 @@
               
             
             
-              <p><span class="caption-text">Getting started</span></p>
+              <p class="caption"><span class="caption-text">Getting started</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick start guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently asked questions</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../README.html">Examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../quickstart.html">Quick start guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../constructing_universe.html">Constructing, modifying, and adding to a Universe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../transformations/README.html">Transformations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../alignment_and_rms/README.html">Alignments and RMS fitting</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="README.html">Distances and contacts</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="distances_between_atomgroups.html">Atom-wise distances between matching AtomGroups</a></li>
 <li class="toctree-l3"><a class="reference internal" href="distances_between_selections.html">All distances between two selections</a></li>
 <li class="toctree-l3"><a class="reference internal" href="distances_within_selection.html">All distances within a selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contacts_native_fraction.html">Fraction of native contacts over a trajectory</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Q1 vs Q2 contact analysis</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Background">Background</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Loading-files">Loading files</a></li>
@@ -136,7 +135,7 @@
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p><span class="caption-text">Data structures</span></p>
+<p class="caption"><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../atomgroup.html">AtomGroup</a></li>
@@ -144,14 +143,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../topology_system.html">The topology system</a></li>
 </ul>
-<p><span class="caption-text">Trajectories</span></p>
+<p class="caption"><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../units.html">Units and constants</a></li>
 </ul>
-<p><span class="caption-text">Input/output</span></p>
+<p class="caption"><span class="caption-text">Input/output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/index.html">Format overview</a></li>
@@ -160,7 +159,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/format_reference.html">Format reference</a></li>
 </ul>
-<p><span class="caption-text">Analysis</span></p>
+<p class="caption"><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -173,13 +172,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
-<p><span class="caption-text">Advanced</span></p>
+<p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../datasets.html">Example data</a></li>
 </ul>
-<p><span class="caption-text">Contributing</span></p>
+<p class="caption"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing_code.html">Contributing to the main codebase</a></li>
@@ -509,7 +508,7 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
-<script>require=requirejs;</script><section id="Q1-vs-Q2-contact-analysis">
+<script>require=requirejs;</script><div class="section" id="Q1-vs-Q2-contact-analysis">
 <h1>Q1 vs Q2 contact analysis<a class="headerlink" href="#Q1-vs-Q2-contact-analysis" title="Permalink to this headline">¶</a></h1>
 <p>Here we calculate a Q1 vs Q2 plot, where Q1 refers to fraction of native contacts along a trajectory with reference to the first frame, and Q2 represents the fraction of native contacts with reference to the last.</p>
 <p><strong>Last executed:</strong> Sep 25, 2020 with MDAnalysis 1.0.0</p>
@@ -548,11 +547,11 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<section id="Background">
+<div class="section" id="Background">
 <h2>Background<a class="headerlink" href="#Background" title="Permalink to this headline">¶</a></h2>
-<p>Please see the Fraction of native contacts for an introduction to general native contacts analysis.</p>
-</section>
-<section id="Loading-files">
+<p>Please see the <a class="reference internal" href="contacts_native_fraction.html#Background"><span class="std std-ref">Fraction of native contacts</span></a> for an introduction to general native contacts analysis.</p>
+</div>
+<div class="section" id="Loading-files">
 <h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this headline">¶</a></h2>
 <p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<a class="bibtex reference internal" href="../../../references.html#beckstein-zipping-2009" id="id5">[BDPW09]</a>) The trajectory <code class="docutils literal notranslate"><span class="pre">DCD</span></code> samples a transition from a closed to an open conformation.</p>
 <div class="nbinput nblast docutils container">
@@ -564,8 +563,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-</section>
-<section id="Calculating-Q1-vs-Q2">
+</div>
+<div class="section" id="Calculating-Q1-vs-Q2">
 <h2>Calculating Q1 vs Q2<a class="headerlink" href="#Calculating-Q1-vs-Q2" title="Permalink to this headline">¶</a></h2>
 <p>We choose to calculate contacts for all the alpha-carbons in the protein, and define the contact radius cutoff at 8 Angstrom. <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/contacts.html#MDAnalysis.analysis.contacts.q1q2">contacts.q1q2</a> returns a <code class="docutils literal notranslate"><span class="pre">contacts.Contacts</span></code> object, which we can run directly.</p>
 <div class="nbinput nblast docutils container">
@@ -654,7 +653,7 @@ div.rendered_html tbody tr:hover {
 </table>
 </div></div>
 </div>
-<section id="Plotting">
+<div class="section" id="Plotting">
 <h3>Plotting<a class="headerlink" href="#Plotting" title="Permalink to this headline">¶</a></h3>
 <p>We can plot the fraction of native contacts over time.</p>
 <div class="nbinput docutils container">
@@ -701,17 +700,17 @@ Text(0, 0.5, &#39;Fraction of native contacts&#39;)
 <img alt="../../../_images/examples_analysis_distances_and_contacts_contacts_q1q2_14_0.png" src="../../../_images/examples_analysis_distances_and_contacts_contacts_q1q2_14_0.png" />
 </div>
 </div>
-</section>
-</section>
-<section id="References">
+</div>
+</div>
+<div class="section" id="References">
 <h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
 <p>[1] Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164">https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164</a>, doi:10.1016/j.jmb.2009.09.009.</p>
 <p>[2] R. B. Best, G. Hummer, and W. A. Eaton. Native contacts determine protein folding mechanisms in atomistic simulations. Proceedings of the National Academy of Sciences, 110(44):17874–17879, October 2013. 00259. URL: <a class="reference external" href="http://www.pnas.org/cgi/doi/10.1073/pnas.1311599110">http://www.pnas.org/cgi/doi/10.1073/pnas.1311599110</a>, doi:10.1073/pnas.1311599110.</p>
 <p>[3] Joel Franklin, Patrice Koehl, Sebastian Doniach, and Marc Delarue. MinActionPath: maximum likelihood trajectory for large-scale structural transitions in a coarse-grained locally harmonic energy landscape. Nucleic Acids Research, 35(suppl_2):W477–W482, July 2007. 00083. URL: <a class="reference external" href="https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/gkm342">https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/gkm342</a>, doi:10.1093/nar/gkm342.</p>
 <p>[4] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
 <p>[5] Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>, doi:10.1002/jcc.21787.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
@@ -720,7 +719,7 @@ Text(0, 0.5, &#39;Fraction of native contacts&#39;)
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="contacts_within_cutoff.html" class="btn btn-neutral float-right" title="Contact analysis: number of contacts within a cutoff" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="contacts_native_fraction.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="contacts_native_fraction.html" class="btn btn-neutral float-left" title="Fraction of native contacts over a trajectory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

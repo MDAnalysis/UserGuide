@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Reading and writing files &mdash; MDAnalysis User Guide  documentation</title>
@@ -37,8 +36,6 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script src="_static/js/versions.js"></script>
     
@@ -103,7 +100,7 @@
               
             
             
-              <p><span class="caption-text">Getting started</span></p>
+              <p class="caption"><span class="caption-text">Getting started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/quickstart.html">Quick start guide</a></li>
@@ -111,7 +108,7 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/README.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p><span class="caption-text">Data structures</span></p>
+<p class="caption"><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="atomgroup.html">AtomGroup</a></li>
@@ -119,14 +116,14 @@
 <li class="toctree-l1"><a class="reference internal" href="selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="topology_system.html">The topology system</a></li>
 </ul>
-<p><span class="caption-text">Trajectories</span></p>
+<p class="caption"><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="units.html">Units and constants</a></li>
 </ul>
-<p><span class="caption-text">Input/output</span></p>
+<p class="caption"><span class="caption-text">Input/output</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Reading and writing files</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#input">Input</a><ul>
@@ -156,7 +153,7 @@
 <li class="toctree-l1"><a class="reference internal" href="formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formats/format_reference.html">Format reference</a></li>
 </ul>
-<p><span class="caption-text">Analysis</span></p>
+<p class="caption"><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -169,13 +166,13 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
-<p><span class="caption-text">Advanced</span></p>
+<p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="datasets.html">Example data</a></li>
 </ul>
-<p><span class="caption-text">Contributing</span></p>
+<p class="caption"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing_code.html">Contributing to the main codebase</a></li>
@@ -252,9 +249,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="reading-and-writing-files">
+  <div class="section" id="reading-and-writing-files">
 <span id="reading-and-writing"></span><h1>Reading and writing files<a class="headerlink" href="#reading-and-writing-files" title="Permalink to this headline">¶</a></h1>
-<section id="input">
+<div class="section" id="input">
 <h2>Input<a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h2>
 <p>Read information from topology and coordinate files to create a <a class="reference internal" href="universe.html#universe-loading"><span class="std std-ref">Universe</span></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
@@ -270,7 +267,7 @@
 <p class="admonition-title">See also</p>
 <p>See <a class="reference internal" href="universe.html#universe-loading"><span class="std std-ref">Loading from files</span></a> for more information on loading data into a Universe from files.</p>
 </div>
-<section id="reading-multiple-trajectories">
+<div class="section" id="reading-multiple-trajectories">
 <span id="chainreader"></span><h3>Reading multiple trajectories<a class="headerlink" href="#reading-multiple-trajectories" title="Permalink to this headline">¶</a></h3>
 <p>A Universe can load multiple trajectories, which are concatenated in the order given. One exception to this is with <a class="reference internal" href="formats/reference/xtc.html#xtc-format"><span class="std std-ref">XTC</span></a> and <a class="reference internal" href="formats/reference/trr.html#trr-format"><span class="std std-ref">TRR</span></a> files. If the <code class="docutils literal notranslate"><span class="pre">continuous=True</span></code> flag is <a class="reference internal" href="universe.html#universe-kwargs"><span class="std std-ref">passed to Universe</span></a>, MDAnalysis will try to stitch them together so that the trajectory is as time-continuous as possible. This means that there will be no duplicate time-frames, or jumps back in time.</p>
 <p>As an example, the following depicted trajectory is split into four parts. The column represents the time. As you can see, some segments overlap. With <code class="docutils literal notranslate"><span class="pre">continuous=True</span></code>, only the frames marked with a + will be read.</p>
@@ -286,7 +283,7 @@
 <p>While you can set <code class="docutils literal notranslate"><span class="pre">continuous=True</span></code> for either XTC or TRR files, you cannot mix different formats.</p>
 </div>
 <p>More information can be found at the API reference for <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/coordinates/chain.html#MDAnalysis.coordinates.chain.ChainReader" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChainReader</span></code></a>.</p>
-<section id="trajectory-formats">
+<div class="section" id="trajectory-formats">
 <h4>Trajectory formats<a class="headerlink" href="#trajectory-formats" title="Permalink to this headline">¶</a></h4>
 <p>If no <code class="docutils literal notranslate"><span class="pre">format</span></code> keyword is provided, <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/coordinates/chain.html#MDAnalysis.coordinates.chain.ChainReader" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChainReader</span></code></a> will try to guess the format for each file from its extension. You can force <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/coordinates/chain.html#MDAnalysis.coordinates.chain.ChainReader" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChainReader</span></code></a> to use the same format for every file by using the <code class="docutils literal notranslate"><span class="pre">format</span></code> keyword. You can also specify which format to use by file, by passing in a sequence of <code class="docutils literal notranslate"><span class="pre">(filename,</span> <span class="pre">format)</span></code> tuples.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
@@ -299,11 +296,11 @@
 <span class="gh">Out[4]: </span><span class="go">&lt;ChainReader containing adk_oplsaa.gro, adk_oplsaa.pdb, adk_oplsaa.gro with 3 frames of 47681 atoms&gt;</span>
 </pre></div>
 </div>
-</section>
-</section>
-<section id="in-memory-trajectories">
+</div>
+</div>
+<div class="section" id="in-memory-trajectories">
 <span id="memory-reader"></span><h3>In-memory trajectories<a class="headerlink" href="#in-memory-trajectories" title="Permalink to this headline">¶</a></h3>
-<section id="reading-trajectories-into-memory">
+<div class="section" id="reading-trajectories-into-memory">
 <h4>Reading trajectories into memory<a class="headerlink" href="#reading-trajectories-into-memory" title="Permalink to this headline">¶</a></h4>
 <p>If your device has sufficient memory to load an entire trajectory into memory, then analysis can be sped up substantially by transferring the
 trajectory to memory. This makes it possible to
@@ -320,8 +317,8 @@ automatically transfers a trajectory to memory:</p>
 </pre></div>
 </div>
 <p>MDAnalysis uses the <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/coordinates/memory.html#MDAnalysis.coordinates.memory.MemoryReader" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MemoryReader</span></code></a> class to load this data in.</p>
-</section>
-<section id="transferring-trajectories-into-memory">
+</div>
+<div class="section" id="transferring-trajectories-into-memory">
 <h4>Transferring trajectories into memory<a class="headerlink" href="#transferring-trajectories-into-memory" title="Permalink to this headline">¶</a></h4>
 <p>The decision to transfer the trajectory to memory can be made at any
 time with the
@@ -333,8 +330,8 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/docum
 </pre></div>
 </div>
 <p>This operation may take a while (passing <code class="docutils literal notranslate"><span class="pre">verbose=True</span></code> to <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.transfer_to_memory" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transfer_to_memory()</span></code></a> will display a progress bar). However, subsequent operations on the trajectory will be very fast.</p>
-</section>
-<section id="building-trajectories-in-memory">
+</div>
+<div class="section" id="building-trajectories-in-memory">
 <h4>Building trajectories in memory<a class="headerlink" href="#building-trajectories-in-memory" title="Permalink to this headline">¶</a></h4>
 <p><a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/coordinates/memory.html#MDAnalysis.coordinates.memory.MemoryReader" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MemoryReader</span></code></a> can also be used to directly generate a trajectory as a numpy array.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="kn">from</span> <span class="nn">MDAnalysisTests.datafiles</span> <span class="kn">import</span> <span class="n">PDB</span>
@@ -363,13 +360,13 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/docum
 
 <span class="gp">In [16]: </span><span class="n">universe</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[16]: </span><span class="go"></span>
-<span class="go">array([[0.29207   , 0.79377997, 0.11575193],</span>
-<span class="go">       [0.7563043 , 0.4817213 , 0.70840156],</span>
-<span class="go">       [0.7211401 , 0.73782414, 0.21850698],</span>
+<span class="go">array([[0.58870256, 0.4329703 , 0.32452425],</span>
+<span class="go">       [0.08962246, 0.03610667, 0.69566447],</span>
+<span class="go">       [0.54795444, 0.15993515, 0.7701365 ],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.7885892 , 0.9908905 , 0.43975323],</span>
-<span class="go">       [0.50418633, 0.00468872, 0.9861772 ],</span>
-<span class="go">       [0.07570606, 0.731668  , 0.73214316]], dtype=float32)</span>
+<span class="go">       [0.13942565, 0.24603386, 0.7845013 ],</span>
+<span class="go">       [0.23145254, 0.12166602, 0.9529951 ],</span>
+<span class="go">       [0.9322198 , 0.05112517, 0.05410314]], dtype=float32)</span>
 </pre></div>
 </div>
 <p>or they can be directly passed in when creating a Universe.</p>
@@ -377,25 +374,25 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/docum
 
 <span class="gp">In [18]: </span><span class="n">universe2</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[18]: </span><span class="go"></span>
-<span class="go">array([[0.29207   , 0.79377997, 0.11575193],</span>
-<span class="go">       [0.7563043 , 0.4817213 , 0.70840156],</span>
-<span class="go">       [0.7211401 , 0.73782414, 0.21850698],</span>
+<span class="go">array([[0.58870256, 0.4329703 , 0.32452425],</span>
+<span class="go">       [0.08962246, 0.03610667, 0.69566447],</span>
+<span class="go">       [0.54795444, 0.15993515, 0.7701365 ],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.7885892 , 0.9908905 , 0.43975323],</span>
-<span class="go">       [0.50418633, 0.00468872, 0.9861772 ],</span>
-<span class="go">       [0.07570606, 0.731668  , 0.73214316]], dtype=float32)</span>
+<span class="go">       [0.13942565, 0.24603386, 0.7845013 ],</span>
+<span class="go">       [0.23145254, 0.12166602, 0.9529951 ],</span>
+<span class="go">       [0.9322198 , 0.05112517, 0.05410314]], dtype=float32)</span>
 </pre></div>
 </div>
-</section>
-<section id="in-memory-trajectories-of-an-atom-selection">
+</div>
+<div class="section" id="in-memory-trajectories-of-an-atom-selection">
 <h4>In-memory trajectories of an atom selection<a class="headerlink" href="#in-memory-trajectories-of-an-atom-selection" title="Permalink to this headline">¶</a></h4>
 <p>Creating a trajectory of an atom selection requires transferring the appropriate units. This is often needed when using <code class="xref py py-meth docutils literal notranslate"><span class="pre">Merge()</span></code> to create a new Universe, as coordinates are not automatically loaded in.</p>
-</section>
-</section>
-</section>
-<section id="output">
+</div>
+</div>
+</div>
+<div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
-<section id="frames-and-trajectories">
+<div class="section" id="frames-and-trajectories">
 <h3>Frames and trajectories<a class="headerlink" href="#frames-and-trajectories" title="Permalink to this headline">¶</a></h3>
 <p>MDAnalysis <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a>s can be written out to a <a class="reference internal" href="formats/index.html#coordinate-readers"><span class="std std-ref">number of formats</span></a> with <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.write" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a>. For example, to write the current frame as a PDB:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PDB</span><span class="p">,</span> <span class="n">TRR</span>
@@ -420,9 +417,9 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/1.0.1/docum
 </pre></div>
 </div>
 <p>You can pass keyword arguments to some format writers. For example, the <a class="reference internal" href="formats/reference/data.html#data-format"><span class="std std-ref">LAMMPS DATA</span></a> format allows the <code class="docutils literal notranslate"><span class="pre">lengthunit</span></code> and <code class="docutils literal notranslate"><span class="pre">timeunit</span></code> keywords to specify the output units.</p>
-</section>
-</section>
-<section id="pickling">
+</div>
+</div>
+<div class="section" id="pickling">
 <h2>Pickling<a class="headerlink" href="#pickling" title="Permalink to this headline">¶</a></h2>
 <p>MDAnalysis supports pickling of most of its data structures and trajectory formats. Unsupported attributes can be found in PR <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/issues/2887">#2887</a>.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [19]: </span><span class="kn">import</span> <span class="nn">pickle</span>
@@ -518,8 +515,8 @@ after serialization:</p>
 <span class="go">g_pickled.universe is h_pickled.universe:  True</span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

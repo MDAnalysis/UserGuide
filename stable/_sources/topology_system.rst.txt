@@ -113,6 +113,7 @@ Modifying TopologyAttrs
 Existing topology attributes can be directly modified by assigning new values.
 
 .. ipython:: python
+    :okwarning:
 
     import MDAnalysis as mda
     from MDAnalysis.tests.datafiles import PDB
@@ -197,6 +198,7 @@ These accept the following values:
 Prior to version 0.21.0, objects could be added to a Universe with :meth:`~MDAnalysis.core.universe.Universe.add_TopologyAttr`. 
 
 .. ipython:: python
+    :okwarning:
 
     hasattr(pdb, 'angles')
     pdb.add_TopologyAttr('angles', [(0, 1, 2), (2, 3, 4)])
