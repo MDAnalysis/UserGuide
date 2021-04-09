@@ -1,7 +1,6 @@
 name: mda-user-guide
 channels:
   - conda-forge
-  - plotly
 dependencies:
   - cython==0.29.21
   - ipywidgets
