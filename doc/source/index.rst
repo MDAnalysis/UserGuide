@@ -73,6 +73,7 @@ Wherever possible, do not take these conversations to private channels, includin
    examples/quickstart
    faq
    examples/README
+   API docs <https://docs.mdanalysis.org/stable/index.html>
 
 .. toctree::
    :maxdepth: 1
