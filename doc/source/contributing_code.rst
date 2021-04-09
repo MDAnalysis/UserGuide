@@ -4,7 +4,7 @@
 Contributing to the main codebase
 =================================
 
-If you would like to contribute, start by searching through the `issues <https://github.com/MDAnalysis/mdanalysis/issues>`_ and :ref:`pull requests <https://github.com/MDAnalysis/mdanalysis/pulls>` to see whether someone else has raised a similar idea or question.
+If you would like to contribute, start by searching through the `issues <https://github.com/MDAnalysis/mdanalysis/issues>`_ and `pull requests <https://github.com/MDAnalysis/mdanalysis/pulls>`_ to see whether someone else has raised a similar idea or question.
 
 If you don't see your idea or problem listed, do one of the following:
 
@@ -18,7 +18,7 @@ Here is an overview of the development workflow for code or inline code document
     #. :ref:`Set up an isolated virtual environment <create-virtual-environment>` for code development
     #. :ref:`Build development versions <build-mdanalysis-develop>` of MDAnalysis and MDAnalysisTests on your computer into the virtual environment
     #. :ref:`Create a new branch off the develop branch <create-code-branch>`
-    #. :ref:`Add your new feature or bug fix <writing new code>` or :ref:`add your new documentation <guidelines-for-docstrings>`
+    #. :ref:`Add your new feature or bug fix <writing-new-code>` or :ref:`add your new documentation <guidelines-for-docstrings>`
     #. :ref:`Add and run tests <testing>` (if adding to the code)
     #. :ref:`Build and view the documentation <building-code-documentation>` (if adding to the docs)
     #. :ref:`Commit and push your changes, and open a pull request. <adding-code-to-mda>`
