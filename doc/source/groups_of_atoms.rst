@@ -70,6 +70,7 @@ cases showing commonly used applications, for which we define :class:`~MDAnalysi
 on a simple extract from the PDB file:
 
 .. ipython:: python
+    :okwarning:
 
     import MDAnalysis as mda
     import io
@@ -138,6 +139,7 @@ Use case: Atoms list grouped by residues
 In order to list all the heavy protein backbone and sidechain atoms in every residue, one needs to call:
 
 .. ipython:: python
+    :okwarning:
 
     atoms_in_residues = list()
     for seg in u.segments:
@@ -194,6 +196,7 @@ See :ref:`topology-objects` for more on bonds and which file formats give MDAnal
 You can also look at which fragment a particular :class:`~MDAnalysis.core.groups.Atom` belongs to:
 
 .. ipython:: python
+    :okwarning:
 
     u.atoms[0].fragment  # first atom of lysozyme
 

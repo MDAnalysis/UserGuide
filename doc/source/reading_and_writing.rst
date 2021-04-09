@@ -118,6 +118,7 @@ Building trajectories in memory
 :class:`~MDAnalysis.coordinates.memory.MemoryReader` can also be used to directly generate a trajectory as a numpy array.
 
 .. ipython:: python
+    :okwarning:
 
     from MDAnalysisTests.datafiles import PDB
     from MDAnalysis.coordinates.memory import MemoryReader
@@ -137,6 +138,7 @@ The :meth:`~MDAnalysis.core.universe.Universe.load_new` method can be used to lo
 or they can be directly passed in when creating a Universe.
 
 .. ipython:: python
+    :okwarning:
 
     universe2 = mda.Universe(PDB, coordinates, format=MemoryReader)
     universe2.atoms.positions
@@ -194,6 +196,7 @@ Pickling
 MDAnalysis supports pickling of most of its data structures and trajectory formats. Unsupported attributes can be found in PR `#2887 <https://github.com/MDAnalysis/mdanalysis/issues/2887>`_.
 
 .. ipython:: python
+    :okwarning:
 
     import pickle
     from MDAnalysis.tests.datafiles import PSF, DCD
