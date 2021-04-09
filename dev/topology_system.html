@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>The topology system &mdash; MDAnalysis User Guide  documentation</title>
@@ -37,8 +36,6 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script src="_static/js/versions.js"></script>
     
@@ -103,7 +100,7 @@
               
             
             
-              <p><span class="caption-text">Getting started</span></p>
+              <p class="caption"><span class="caption-text">Getting started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/quickstart.html">Quick start guide</a></li>
@@ -111,7 +108,7 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/README.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p><span class="caption-text">Data structures</span></p>
+<p class="caption"><span class="caption-text">Data structures</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="atomgroup.html">AtomGroup</a></li>
@@ -137,14 +134,14 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">Trajectories</span></p>
+<p class="caption"><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="units.html">Units and constants</a></li>
 </ul>
-<p><span class="caption-text">Input/output</span></p>
+<p class="caption"><span class="caption-text">Input/output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formats/index.html">Format overview</a></li>
@@ -153,7 +150,7 @@
 <li class="toctree-l1"><a class="reference internal" href="formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formats/format_reference.html">Format reference</a></li>
 </ul>
-<p><span class="caption-text">Analysis</span></p>
+<p class="caption"><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -165,13 +162,13 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html#polymers-and-membranes">Polymers and membranes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 </ul>
-<p><span class="caption-text">Advanced</span></p>
+<p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="datasets.html">Example data</a></li>
 </ul>
-<p><span class="caption-text">Contributing</span></p>
+<p class="caption"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing_code.html">Contributing to the main codebase</a></li>
@@ -247,7 +244,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="the-topology-system">
+  <div class="section" id="the-topology-system">
 <span id="topology-system"></span><h1>The topology system<a class="headerlink" href="#the-topology-system" title="Permalink to this headline">¶</a></h1>
 <p>MDAnalysis groups static data about a <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a> into its topology. This is typically loaded from a topology file. Topology information falls into 3 categories:</p>
 <blockquote>
@@ -258,10 +255,10 @@
 </ul>
 </div></blockquote>
 <p>Users will almost never interact directly with a <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/topology.html#MDAnalysis.core.topology.Topology" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>. Modifying atom containers or topology attributes is typically done through <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a>. Methods for viewing containers or topology attributes, or for calculating topology object values, are accessed through <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a>.</p>
-<section id="topology-attributes">
+<div class="section" id="topology-attributes">
 <span id="id1"></span><h2>Topology attributes<a class="headerlink" href="#topology-attributes" title="Permalink to this headline">¶</a></h2>
 <p>MDAnalysis supports a range of topology attributes for each <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.Atom" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a> and <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a>. If an attribute is defined for an Atom, it will be for an AtomGroup, and vice versa – however, they are accessed with singular and plural versions of the attribute specifically.</p>
-<section id="canonical-attributes">
+<div class="section" id="canonical-attributes">
 <h3>Canonical attributes<a class="headerlink" href="#canonical-attributes" title="Permalink to this headline">¶</a></h3>
 <p>These attributes are derived for every <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a>, including Universes created with <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.empty" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">empty()</span></code></a>. They encode the MDAnalysis order of each object.</p>
 <table class="docutils align-default">
@@ -327,8 +324,8 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="format-specific-attributes">
+</div>
+<div class="section" id="format-specific-attributes">
 <h3>Format-specific attributes<a class="headerlink" href="#format-specific-attributes" title="Permalink to this headline">¶</a></h3>
 <p>The table below lists attributes that are read from supported formats. These can also be <a class="reference internal" href="#add-topologyattrs"><span class="std std-ref">added to a Universe</span></a> created from a file that does not support them.</p>
 <table class="docutils align-default">
@@ -508,8 +505,8 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="connectivity-information">
+</div>
+<div class="section" id="connectivity-information">
 <span id="topologyobject-attr"></span><h3>Connectivity information<a class="headerlink" href="#connectivity-information" title="Permalink to this headline">¶</a></h3>
 <p>MDAnalysis can also read connectivity information, if the file provides it. These become available as <a class="reference internal" href="#topology-objects"><span class="std std-ref">Topology objects</span></a>, which have additional functionality.</p>
 <table class="docutils align-default">
@@ -543,8 +540,8 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="adding-topologyattrs">
+</div>
+<div class="section" id="adding-topologyattrs">
 <span id="add-topologyattrs"></span><h3>Adding TopologyAttrs<a class="headerlink" href="#adding-topologyattrs" title="Permalink to this headline">¶</a></h3>
 <p>Each of the attributes above can be added to a Universe if it was not available in the file with <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.add_TopologyAttr" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_TopologyAttr()</span></code></a>.</p>
 <p><a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.add_TopologyAttr" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_TopologyAttr()</span></code></a> takes two arguments:</p>
@@ -579,8 +576,8 @@
 </pre></div>
 </div>
 <p>The number of values provided should correspond with the “level” of the attribute. For example, B-factors are atomic-level information. However, residue names and residue ids apply to residues. See a <a class="reference internal" href="#topologyattr-defaults"><span class="std std-ref">table of attribute levels and default values</span></a> for more information.</p>
-</section>
-<section id="modifying-topologyattrs">
+</div>
+<div class="section" id="modifying-topologyattrs">
 <h3>Modifying TopologyAttrs<a class="headerlink" href="#modifying-topologyattrs" title="Permalink to this headline">¶</a></h3>
 <p>Existing topology attributes can be directly modified by assigning new values.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
@@ -620,8 +617,8 @@
 <span class="go">NotImplementedError: Cannot set resnames from AtomGroup. Use &#39;AtomGroup.residues.resnames = &#39;</span>
 </pre></div>
 </div>
-</section>
-<section id="default-values-and-attribute-levels">
+</div>
+<div class="section" id="default-values-and-attribute-levels">
 <span id="topologyattr-defaults"></span><h3>Default values and attribute levels<a class="headerlink" href="#default-values-and-attribute-levels" title="Permalink to this headline">¶</a></h3>
 <p>Topology information in MDAnalysis is always associated with a level: one of atom, residue, or segment. For example, <code class="code docutils literal notranslate"><span class="pre">indices</span></code> is Atom information, <code class="code docutils literal notranslate"><span class="pre">resindices</span></code> is Residue information, and <code class="code docutils literal notranslate"><span class="pre">segindices</span></code> is Segment information. Many topology attributes also have default values, so that they can be <a class="reference internal" href="#add-topologyattrs"><span class="std std-ref">added to a Universe without providing explicit values</span></a>, and expected types. The table below lists which attributes have default values, what they are, and the information level.</p>
 <table class="docutils align-default">
@@ -871,9 +868,9 @@
 </tr>
 </tbody>
 </table>
-</section>
-</section>
-<section id="topology-objects">
+</div>
+</div>
+<div class="section" id="topology-objects">
 <span id="id2"></span><h2>Topology objects<a class="headerlink" href="#topology-objects" title="Permalink to this headline">¶</a></h2>
 <p>MDAnalysis defines four types of <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/topologyobjects.html#MDAnalysis.core.topologyobjects.TopologyObject" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologyObject</span></code></a> by connectivity:</p>
 <blockquote>
@@ -895,7 +892,7 @@
 </ul>
 </div></blockquote>
 <p>Groups of these are held in <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/topologyobjects.html#MDAnalysis.core.topologyobjects.TopologyGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologyGroup</span></code></a>s. The master groups of TopologyObjects are <a class="reference internal" href="universe.html#universe-properties"><span class="std std-ref">accessible as properties of a Universe</span></a>. TopologyObjects are typically read from a file with connectivity information (<a class="reference internal" href="#topologyobject-attr"><span class="std std-ref">see the supported formats here</span></a>). However, they can be created in two ways: by adding them to a Universe, or by creating them from an <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a>. Bonds can be guessed based on distance and Van der Waals’ radii with <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.guess_bonds" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AtomGroup.guess_bonds</span></code></a>.</p>
-<section id="adding-to-a-universe">
+<div class="section" id="adding-to-a-universe">
 <h3>Adding to a Universe<a class="headerlink" href="#adding-to-a-universe" title="Permalink to this headline">¶</a></h3>
 <p>As of version 0.21.0, there are specific methods for adding <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/topologyobjects.html#MDAnalysis.core.topologyobjects.TopologyObject" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologyObject</span></code></a>s to a <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a>:</p>
 <blockquote>
@@ -925,8 +922,8 @@
 </pre></div>
 </div>
 <p>Both of these methods add the new objects to the associated master <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/topologyobjects.html#MDAnalysis.core.topologyobjects.TopologyGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologyGroup</span></code></a> in the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a>.</p>
-</section>
-<section id="creating-with-an-atomgroup">
+</div>
+<div class="section" id="creating-with-an-atomgroup">
 <h3>Creating with an AtomGroup<a class="headerlink" href="#creating-with-an-atomgroup" title="Permalink to this headline">¶</a></h3>
 <p>An <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> can be represented as a bond, angle, dihedral angle, or improper angle <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/topologyobjects.html#MDAnalysis.core.topologyobjects.TopologyObject" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologyObject</span></code></a> through the respective properties:</p>
 <blockquote>
@@ -955,8 +952,8 @@
 </pre></div>
 </div>
 <p>These AtomGroup <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/topologyobjects.html#MDAnalysis.core.topologyobjects.TopologyObject" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologyObject</span></code></a>s are not added to the associated master <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/topologyobjects.html#MDAnalysis.core.topologyobjects.TopologyGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologyGroup</span></code></a> in the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a>.</p>
-</section>
-<section id="deleting-from-a-universe">
+</div>
+<div class="section" id="deleting-from-a-universe">
 <h3>Deleting from a Universe<a class="headerlink" href="#deleting-from-a-universe" title="Permalink to this headline">¶</a></h3>
 <p>As of version 0.21.0, there are specific methods for deleting <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/topologyobjects.html#MDAnalysis.core.topologyobjects.TopologyObject" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopologyObject</span></code></a>s from a <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a>:</p>
 <blockquote>
@@ -967,9 +964,9 @@
 <li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">delete_Impropers()</span></code></p></li>
 </ul>
 </div></blockquote>
-</section>
-</section>
-<section id="topology-specific-methods">
+</div>
+</div>
+<div class="section" id="topology-specific-methods">
 <span id="topology-groupmethods"></span><h2>Topology-specific methods<a class="headerlink" href="#topology-specific-methods" title="Permalink to this headline">¶</a></h2>
 <p>A number of analysis and transformation methods are defined for <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a>, <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.ResidueGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResidueGroup</span></code></a>, and <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.SegmentGroup" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">SegmentGroup</span></code></a> that require specific properties to be available. The primary requirement is the <cite>positions</cite> attribute. With positions, you can easily compute a center of geometry:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">center_of_geometry</span><span class="p">()</span>
@@ -1045,8 +1042,8 @@
 </tr>
 </tbody>
 </table>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

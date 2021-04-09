@@ -123,3 +123,4 @@ This installation does not download all the datasets; instead, the datasets are 
 
 
 .. _`HOLE`: http://www.holeprogram.org
+.. _mdanalysisdata: https://www.mdanalysis.org/MDAnalysisData/

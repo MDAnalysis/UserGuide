@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Units and constants &mdash; MDAnalysis User Guide  documentation</title>
@@ -37,9 +36,9 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script src="_static/js/versions.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
@@ -103,7 +102,7 @@
               
             
             
-              <p><span class="caption-text">Getting started</span></p>
+              <p class="caption"><span class="caption-text">Getting started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/quickstart.html">Quick start guide</a></li>
@@ -111,7 +110,7 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/README.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p><span class="caption-text">Data structures</span></p>
+<p class="caption"><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="atomgroup.html">AtomGroup</a></li>
@@ -119,7 +118,7 @@
 <li class="toctree-l1"><a class="reference internal" href="selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="topology_system.html">The topology system</a></li>
 </ul>
-<p><span class="caption-text">Trajectories</span></p>
+<p class="caption"><span class="caption-text">Trajectories</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
@@ -139,7 +138,7 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">Input/output</span></p>
+<p class="caption"><span class="caption-text">Input/output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formats/index.html">Format overview</a></li>
@@ -148,7 +147,7 @@
 <li class="toctree-l1"><a class="reference internal" href="formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formats/format_reference.html">Format reference</a></li>
 </ul>
-<p><span class="caption-text">Analysis</span></p>
+<p class="caption"><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -160,13 +159,13 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html#polymers-and-membranes">Polymers and membranes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 </ul>
-<p><span class="caption-text">Advanced</span></p>
+<p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="datasets.html">Example data</a></li>
 </ul>
-<p><span class="caption-text">Contributing</span></p>
+<p class="caption"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing_code.html">Contributing to the main codebase</a></li>
@@ -242,7 +241,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="units-and-constants">
+  <div class="section" id="units-and-constants">
 <span id="units"></span><h1>Units and constants<a class="headerlink" href="#units-and-constants" title="Permalink to this headline">¶</a></h1>
 <p>The units of MDAnalysis trajectories are the <strong>Å</strong> (<strong>ångström</strong>) for
 <strong>length</strong> and <strong>ps</strong> (<strong>picosecond</strong>) for <strong>time</strong>. Regardless of how the
@@ -300,17 +299,17 @@ densities can be given in <span class="math notranslate nohighlight">\(g/cm^3\)<
 </tr>
 </tbody>
 </table>
-<section id="unit-conversion">
+<div class="section" id="unit-conversion">
 <h2>Unit conversion<a class="headerlink" href="#unit-conversion" title="Permalink to this headline">¶</a></h2>
 <p>Quantities can be converted from units with <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/units.html#MDAnalysis.units.convert" title="(in MDAnalysis v1.0.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">convert()</span></code></a>.
 <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/units.html#MDAnalysis.units.convert" title="(in MDAnalysis v1.0.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">convert()</span></code></a> simply multiplies the initial quantity with a
 precomputed conversion factor, as obtained from
 <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/units.html#MDAnalysis.units.get_conversion_factor" title="(in MDAnalysis v1.0.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_conversion_factor()</span></code></a>.</p>
 <p>The computed conversion factors for each quantity type are stored in <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/units.html#module-MDAnalysis.units" title="(in MDAnalysis v1.0.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.units</span></code></a> and shown below.</p>
-</section>
-<section id="constants">
+</div>
+<div class="section" id="constants">
 <h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
-<section id="length">
+<div class="section" id="length">
 <h3>Length<a class="headerlink" href="#length" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><table class="docutils align-default">
@@ -357,8 +356,8 @@ precomputed conversion factor, as obtained from
 </tbody>
 </table>
 </div></blockquote>
-</section>
-<section id="density">
+</div>
+<div class="section" id="density">
 <h3>Density<a class="headerlink" href="#density" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><table class="docutils align-default">
@@ -405,8 +404,8 @@ precomputed conversion factor, as obtained from
 </tbody>
 </table>
 </div></blockquote>
-</section>
-<section id="time">
+</div>
+<div class="section" id="time">
 <h3>Time<a class="headerlink" href="#time" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><table class="docutils align-default">
@@ -453,8 +452,8 @@ precomputed conversion factor, as obtained from
 </tbody>
 </table>
 </div></blockquote>
-</section>
-<section id="charge">
+</div>
+<div class="section" id="charge">
 <h3>Charge<a class="headerlink" href="#charge" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><table class="docutils align-default">
@@ -483,8 +482,8 @@ precomputed conversion factor, as obtained from
 </tbody>
 </table>
 </div></blockquote>
-</section>
-<section id="speed">
+</div>
+<div class="section" id="speed">
 <h3>Speed<a class="headerlink" href="#speed" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><table class="docutils align-default">
@@ -549,8 +548,8 @@ precomputed conversion factor, as obtained from
 </tbody>
 </table>
 </div></blockquote>
-</section>
-<section id="force">
+</div>
+<div class="section" id="force">
 <h3>Force<a class="headerlink" href="#force" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><table class="docutils align-default">
@@ -591,8 +590,8 @@ precomputed conversion factor, as obtained from
 </tbody>
 </table>
 </div></blockquote>
-</section>
-<section id="energy">
+</div>
+<div class="section" id="energy">
 <h3>Energy<a class="headerlink" href="#energy" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><table class="docutils align-default">
@@ -621,9 +620,9 @@ precomputed conversion factor, as obtained from
 </tbody>
 </table>
 </div></blockquote>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>

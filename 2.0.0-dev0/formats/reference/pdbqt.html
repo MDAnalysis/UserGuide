@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>PDBQT (Autodock structure) &mdash; MDAnalysis User Guide  documentation</title>
@@ -37,8 +36,6 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script src="../../_static/js/versions.js"></script>
     
@@ -103,7 +100,7 @@
               
             
             
-              <p><span class="caption-text">Getting started</span></p>
+              <p class="caption"><span class="caption-text">Getting started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/quickstart.html">Quick start guide</a></li>
@@ -111,7 +108,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../examples/README.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p><span class="caption-text">Data structures</span></p>
+<p class="caption"><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../atomgroup.html">AtomGroup</a></li>
@@ -119,14 +116,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../topology_system.html">The topology system</a></li>
 </ul>
-<p><span class="caption-text">Trajectories</span></p>
+<p class="caption"><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../units.html">Units and constants</a></li>
 </ul>
-<p><span class="caption-text">Input/output</span></p>
+<p class="caption"><span class="caption-text">Input/output</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Format overview</a></li>
@@ -176,7 +173,7 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">Analysis</span></p>
+<p class="caption"><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -188,13 +185,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/README.html#polymers-and-membranes">Polymers and membranes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 </ul>
-<p><span class="caption-text">Advanced</span></p>
+<p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../datasets.html">Example data</a></li>
 </ul>
-<p><span class="caption-text">Contributing</span></p>
+<p class="caption"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing_code.html">Contributing to the main codebase</a></li>
@@ -272,7 +269,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="pdbqt-autodock-structure">
+  <div class="section" id="pdbqt-autodock-structure">
 <span id="pdbqt-format"></span><h1>PDBQT (Autodock structure)<a class="headerlink" href="#pdbqt-autodock-structure" title="Permalink to this headline">¶</a></h1>
 <table class="docutils align-default">
 <colgroup>
@@ -291,7 +288,7 @@
 </tr>
 </tbody>
 </table>
-<section id="reading-in">
+<div class="section" id="reading-in">
 <h2>Reading in<a class="headerlink" href="#reading-in" title="Permalink to this headline">¶</a></h2>
 <p>MDAnalysis reads coordinates from <a class="reference external" href="http://autodock.scripps.edu/faqs-help/faq/what-is-the-format-of-a-pdbqt-file">PDBQT</a> files and additional optional
 data such as B-factors, partial charge and <a class="reference external" href="http://autodock.scripps.edu/">AutoDock</a> atom types.  It
@@ -305,8 +302,8 @@ available in this case).</p>
 <li><p>Connectivity is not supported (i.e. bonds are not read)</p></li>
 </ul>
 </div></blockquote>
-</section>
-<section id="writing-out">
+</div>
+<div class="section" id="writing-out">
 <h2>Writing out<a class="headerlink" href="#writing-out" title="Permalink to this headline">¶</a></h2>
 <p>MDAnalysis implements a subset of the <a class="reference external" href="http://www.wwpdb.org/documentation/file-format-content/format32/v3.2.html">PDB</a> 3.2 standard and the <a class="reference external" href="http://autodock.scripps.edu/faqs-help/faq/what-is-the-format-of-a-pdbqt-file">PDBQT</a> spec. Unlike the <a class="reference internal" href="pdb.html#pdb-format"><span class="std std-ref">PDB, ENT (Standard PDB file)</span></a> writer, MDAnalysis cannot write multi-frame trajectories to a PDBQT file.</p>
 <p>If the Universe is missing fields that are <a class="reference internal" href="#pdbqt-spec"><span class="std std-ref">required in a PDBQT file</span></a>, MDAnalysis provides default values and raises a warning. There are 2 exceptions to this:</p>
@@ -331,8 +328,8 @@ available in this case).</p>
 <li><p>charges: 0.0</p></li>
 </ul>
 </div></blockquote>
-</section>
-<section id="pdbqt-specification">
+</div>
+<div class="section" id="pdbqt-specification">
 <span id="pdbqt-spec"></span><h2>PDBQT specification<a class="headerlink" href="#pdbqt-specification" title="Permalink to this headline">¶</a></h2>
 <dl class="simple">
 <dt>Records read:</dt><dd><ul class="simple">
@@ -515,8 +512,8 @@ available in this case).</p>
 <span class="mf">123456789.123456789</span><span class="o">.</span><span class="mf">123456789.123456789</span><span class="o">.</span><span class="mf">123456789.123456789</span><span class="o">.</span><span class="mf">123456789.123456789</span><span class="o">.</span> <span class="p">(</span><span class="n">column</span> <span class="n">reference</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

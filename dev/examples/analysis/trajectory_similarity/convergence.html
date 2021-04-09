@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Evaluating convergence &mdash; MDAnalysis User Guide  documentation</title>
@@ -37,9 +36,9 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script src="../../../_static/js/versions.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
@@ -103,13 +102,14 @@
               
             
             
-              <p><span class="caption-text">Getting started</span></p>
+              <p class="caption"><span class="caption-text">Getting started</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick start guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently asked questions</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../README.html">Examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../quickstart.html">Quick start guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../constructing_universe.html">Constructing, modifying, and adding to a Universe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../transformations/README.html">Transformations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../alignment_and_rms/README.html">Alignments and RMS fitting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../distances_and_contacts/README.html">Distances and contacts</a></li>
@@ -134,7 +134,7 @@
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p><span class="caption-text">Data structures</span></p>
+<p class="caption"><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../atomgroup.html">AtomGroup</a></li>
@@ -142,14 +142,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../topology_system.html">The topology system</a></li>
 </ul>
-<p><span class="caption-text">Trajectories</span></p>
+<p class="caption"><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../units.html">Units and constants</a></li>
 </ul>
-<p><span class="caption-text">Input/output</span></p>
+<p class="caption"><span class="caption-text">Input/output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/index.html">Format overview</a></li>
@@ -158,7 +158,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/format_reference.html">Format reference</a></li>
 </ul>
-<p><span class="caption-text">Analysis</span></p>
+<p class="caption"><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -170,13 +170,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../README.html#polymers-and-membranes">Polymers and membranes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 </ul>
-<p><span class="caption-text">Advanced</span></p>
+<p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../datasets.html">Example data</a></li>
 </ul>
-<p><span class="caption-text">Contributing</span></p>
+<p class="caption"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing_code.html">Contributing to the main codebase</a></li>
@@ -505,7 +505,7 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
-<script>require=requirejs;</script><section id="Evaluating-convergence">
+<script>require=requirejs;</script><div class="section" id="Evaluating-convergence">
 <h1>Evaluating convergence<a class="headerlink" href="#Evaluating-convergence" title="Permalink to this headline">¶</a></h1>
 <p>Here we evaluate the convergence of a trajectory using the clustering ensemble similarity method and the dimensionality reduction ensemble similarity methods.</p>
 <p><strong>Last executed:</strong> Feb 06, 2020 with MDAnalysis 0.20.2-dev0</p>
@@ -542,7 +542,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<section id="Loading-files">
+<div class="section" id="Loading-files">
 <h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this headline">¶</a></h2>
 <p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<a class="bibtex reference internal" href="../../../references.html#beckstein-zipping-2009" id="id4">[BDPW09]</a>)</p>
 <div class="nbinput nblast docutils container">
@@ -554,8 +554,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-</section>
-<section id="Evaluating-convergence-with-similarity-measures">
+</div>
+<div class="section" id="Evaluating-convergence-with-similarity-measures">
 <h2>Evaluating convergence with similarity measures<a class="headerlink" href="#Evaluating-convergence-with-similarity-measures" title="Permalink to this headline">¶</a></h2>
 <p>The convergence of the trajectory is evaluated by the similarity of the conformation ensembles in windows of the trajectory. The trajectory is divided into windows that increase by <code class="docutils literal notranslate"><span class="pre">window_size</span></code> frames. For example, if your trajectory had 13 frames and you specified a <code class="docutils literal notranslate"><span class="pre">window_size=3</span></code>, your windows would be:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">Window</span> <span class="mi">1</span><span class="p">:</span> <span class="o">---</span>
@@ -566,7 +566,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>Where <code class="docutils literal notranslate"><span class="pre">-</span></code> represents 1 frame.</p>
 <p>These are compared using either the similarity of their clusters (<code class="docutils literal notranslate"><span class="pre">ces_convergence</span></code>) or their reduced dimension coordinates (<code class="docutils literal notranslate"><span class="pre">dres_convergence</span></code>). The rate at which the similarity values drop to 0 is indicative of how much the trajectory keeps on resampling the same regions of the conformational space, and therefore is the rate of convergence.</p>
-<section id="Using-default-arguments-with-clustering-ensemble-similarity">
+<div class="section" id="Using-default-arguments-with-clustering-ensemble-similarity">
 <h3>Using default arguments with clustering ensemble similarity<a class="headerlink" href="#Using-default-arguments-with-clustering-ensemble-similarity" title="Permalink to this headline">¶</a></h3>
 <p>See <a class="reference internal" href="clustering_ensemble_similarity.html#Calculating-clustering-similarity-with-default-settings"><span class="std std-ref">clustering_ensemble_similarity.ipynb</span></a> for an introduction to comparing trajectories via clustering.</p>
 <div class="nbinput nblast docutils container">
@@ -636,8 +636,8 @@ Text(0, 0.5, &#39;Jensen-Shannon divergence&#39;)
 <img alt="../../../_images/examples_analysis_trajectory_similarity_convergence_13_1.png" src="../../../_images/examples_analysis_trajectory_similarity_convergence_13_1.png" />
 </div>
 </div>
-</section>
-<section id="Comparing-different-clustering-methods">
+</div>
+<div class="section" id="Comparing-different-clustering-methods">
 <h3>Comparing different clustering methods<a class="headerlink" href="#Comparing-different-clustering-methods" title="Permalink to this headline">¶</a></h3>
 <p>You may want to try different clustering methods, or use different parameters within the methods. <code class="docutils literal notranslate"><span class="pre">encore.ces_convergence</span></code> allows you to pass a list of <code class="docutils literal notranslate"><span class="pre">clustering_methods</span></code> to be applied, much like <a class="reference internal" href="clustering_ensemble_similarity.html#Calculating-clustering-similarity-with-multiple-methods"><span class="std std-ref">normal clustering ensemble similarity methods</span></a>.</p>
 <div class="admonition note">
@@ -721,8 +721,8 @@ Text(0, 0.5, &#39;Jensen-Shannon divergence&#39;)
 <img alt="../../../_images/examples_analysis_trajectory_similarity_convergence_21_1.png" src="../../../_images/examples_analysis_trajectory_similarity_convergence_21_1.png" />
 </div>
 </div>
-</section>
-<section id="Using-default-arguments-with-dimension-reduction-ensemble-similarity">
+</div>
+<div class="section" id="Using-default-arguments-with-dimension-reduction-ensemble-similarity">
 <h3>Using default arguments with dimension reduction ensemble similarity<a class="headerlink" href="#Using-default-arguments-with-dimension-reduction-ensemble-similarity" title="Permalink to this headline">¶</a></h3>
 <p>See <a class="reference internal" href="dimension_reduction_ensemble_similarity.html#Calculating-dimension-reduction-similarity-with-default-settings"><span class="std std-ref">dimension_reduction_ensemble_similarity.ipynb</span></a> for an introduction on comparing trajectories via dimensionality reduction.</p>
 <div class="nbinput nblast docutils container">
@@ -791,8 +791,8 @@ Text(0, 0.5, &#39;Jensen-Shannon divergence&#39;)
 <img alt="../../../_images/examples_analysis_trajectory_similarity_convergence_27_1.png" src="../../../_images/examples_analysis_trajectory_similarity_convergence_27_1.png" />
 </div>
 </div>
-</section>
-<section id="Comparing-different-dimensionality-reduction-methods">
+</div>
+<div class="section" id="Comparing-different-dimensionality-reduction-methods">
 <h3>Comparing different dimensionality reduction methods<a class="headerlink" href="#Comparing-different-dimensionality-reduction-methods" title="Permalink to this headline">¶</a></h3>
 <p>Again, you may want to compare the performance of different methods.</p>
 <p>Principal component analysis uses singular value decomposition to project data onto a lower dimensional space. <a class="reference external" href="https://scikit-learn.org/stable/modules/decomposition.html#pca">(See the scikit-learn user guide for more information.)</a></p>
@@ -867,16 +867,16 @@ Text(0, 0.5, &#39;Jensen-Shannon divergence&#39;)
 <img alt="../../../_images/examples_analysis_trajectory_similarity_convergence_33_1.png" src="../../../_images/examples_analysis_trajectory_similarity_convergence_33_1.png" />
 </div>
 </div>
-</section>
-</section>
-<section id="References">
+</div>
+</div>
+<div class="section" id="References">
 <h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
 <p>[1] Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164">https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164</a>, doi:10.1016/j.jmb.2009.09.009.</p>
 <p>[2] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
 <p>[3] Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>, doi:10.1002/jcc.21787.</p>
 <p>[4] Matteo Tiberti, Elena Papaleo, Tone Bengtsen, Wouter Boomsma, and Kresten Lindorff-Larsen. ENCORE: Software for Quantitative Ensemble Comparison. PLOS Computational Biology, 11(10):e1004415, October 2015. 00031. URL: <a class="reference external" href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004415">https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004415</a>, doi:10.1371/journal.pcbi.1004415.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

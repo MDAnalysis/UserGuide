@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Trajectories &mdash; MDAnalysis User Guide  documentation</title>
@@ -37,8 +36,6 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script src="../_static/js/versions.js"></script>
     
@@ -103,7 +100,7 @@
               
             
             
-              <p><span class="caption-text">Getting started</span></p>
+              <p class="caption"><span class="caption-text">Getting started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/quickstart.html">Quick start guide</a></li>
@@ -111,7 +108,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/README.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p><span class="caption-text">Data structures</span></p>
+<p class="caption"><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../atomgroup.html">AtomGroup</a></li>
@@ -119,14 +116,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../topology_system.html">The topology system</a></li>
 </ul>
-<p><span class="caption-text">Trajectories</span></p>
+<p class="caption"><span class="caption-text">Trajectories</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../units.html">Units and constants</a></li>
 </ul>
-<p><span class="caption-text">Input/output</span></p>
+<p class="caption"><span class="caption-text">Input/output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../formats/index.html">Format overview</a></li>
@@ -135,7 +132,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../formats/format_reference.html">Format reference</a></li>
 </ul>
-<p><span class="caption-text">Analysis</span></p>
+<p class="caption"><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples/analysis/README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/analysis/README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -147,13 +144,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/analysis/README.html#polymers-and-membranes">Polymers and membranes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 </ul>
-<p><span class="caption-text">Advanced</span></p>
+<p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../datasets.html">Example data</a></li>
 </ul>
-<p><span class="caption-text">Contributing</span></p>
+<p class="caption"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing_code.html">Contributing to the main codebase</a></li>
@@ -229,7 +226,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="trajectories">
+  <div class="section" id="trajectories">
 <span id="id1"></span><h1>Trajectories<a class="headerlink" href="#trajectories" title="Permalink to this headline">¶</a></h1>
 <p>In MDAnalysis, static data is contained in your universe Topology, while dynamic data is drawn from its trajectory at <code class="docutils literal notranslate"><span class="pre">Universe.trajectory</span></code>. This is typically loaded from a trajectory file and includes information such as:</p>
 <blockquote>
@@ -296,7 +293,7 @@ In order to remain memory-efficient, MDAnalysis does not load every frame of you
 </pre></div>
 </div>
 <p>Sometimes you may wish to only transform part of the trajectory, or to not write a file out. In these cases, MDAnalysis supports <a class="reference internal" href="transformations.html#transformations"><span class="std std-ref">“on-the-fly” transformations</span></a> that are performed on a frame when it is read.</p>
-</section>
+</div>
 
 
            </div>

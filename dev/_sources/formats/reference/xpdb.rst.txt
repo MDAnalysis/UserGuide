@@ -16,6 +16,7 @@ by popular programs such as VMD_.
 As extended PDB files are very similar to PDB files, tell MDAnalysis to use the Extended PDB parser by passing in the ``topology_format`` keyword.
 
 .. ipython:: python
+    :okwarning:
 
     import MDAnalysis as mda
     from MDAnalysis.tests.datafiles import PDB

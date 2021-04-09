@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>PQR file (PDB2PQR / APBS) &mdash; MDAnalysis User Guide  documentation</title>
@@ -37,8 +36,6 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script src="../../_static/js/versions.js"></script>
     
@@ -103,7 +100,7 @@
               
             
             
-              <p><span class="caption-text">Getting started</span></p>
+              <p class="caption"><span class="caption-text">Getting started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/quickstart.html">Quick start guide</a></li>
@@ -111,7 +108,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../examples/README.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p><span class="caption-text">Data structures</span></p>
+<p class="caption"><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../atomgroup.html">AtomGroup</a></li>
@@ -119,14 +116,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../topology_system.html">The topology system</a></li>
 </ul>
-<p><span class="caption-text">Trajectories</span></p>
+<p class="caption"><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../units.html">Units and constants</a></li>
 </ul>
-<p><span class="caption-text">Input/output</span></p>
+<p class="caption"><span class="caption-text">Input/output</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Format overview</a></li>
@@ -176,7 +173,7 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">Analysis</span></p>
+<p class="caption"><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -188,13 +185,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/README.html#polymers-and-membranes">Polymers and membranes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 </ul>
-<p><span class="caption-text">Advanced</span></p>
+<p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../datasets.html">Example data</a></li>
 </ul>
-<p><span class="caption-text">Contributing</span></p>
+<p class="caption"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing_code.html">Contributing to the main codebase</a></li>
@@ -272,7 +269,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="pqr-file-pdb2pqr-apbs">
+  <div class="section" id="pqr-file-pdb2pqr-apbs">
 <span id="pqr-format"></span><h1>PQR file (PDB2PQR / APBS)<a class="headerlink" href="#pqr-file-pdb2pqr-apbs" title="Permalink to this headline">¶</a></h1>
 <table class="docutils align-default">
 <colgroup>
@@ -304,7 +301,7 @@ option are guaranteed to conform to the above format:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pdb2pqr</span> <span class="o">--</span><span class="n">ff</span><span class="o">=</span><span class="n">charmm</span> <span class="o">--</span><span class="n">whitespace</span> <span class="mi">4</span><span class="n">ake</span><span class="o">.</span><span class="n">pdb</span> <span class="mi">4</span><span class="n">ake</span><span class="o">.</span><span class="n">pqr</span>
 </pre></div>
 </div>
-<section id="reading-in">
+<div class="section" id="reading-in">
 <h2>Reading in<a class="headerlink" href="#reading-in" title="Permalink to this headline">¶</a></h2>
 <p>MDAnalysis reads data on a per-line basis from PQR files using the following format:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">recordName</span> <span class="n">serial</span> <span class="n">atomName</span> <span class="n">residueName</span> <span class="n">chainID</span> <span class="n">residueNumber</span> <span class="n">X</span> <span class="n">Y</span> <span class="n">Z</span> <span class="n">charge</span> <span class="n">radius</span>
@@ -318,8 +315,8 @@ format is read:</p>
 <p>Anything else will raise a <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.9)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a>.</p>
 <p>The whitespace is the most important feature of this format: fields
 <em>must</em> be separated by at least one space or tab character.</p>
-</section>
-<section id="writing-out">
+</div>
+<div class="section" id="writing-out">
 <h2>Writing out<a class="headerlink" href="#writing-out" title="Permalink to this headline">¶</a></h2>
 <p>Charges (“Q”) are taken from the <code class="xref py py-attr docutils literal notranslate"><span class="pre">MDAnalysis.core.groups.Atom.charge</span></code> attribute while radii are obtained from the <code class="xref py py-attr docutils literal notranslate"><span class="pre">MDAnalysis.core.groups.Atom.radius</span></code> attribute.</p>
 <blockquote>
@@ -337,37 +334,37 @@ and can be omitted:</p>
 <span class="n">ATOM</span>     <span class="mi">37</span> <span class="n">HH11</span>  <span class="n">ARG</span>     <span class="mi">2</span>      <span class="o">-</span><span class="mf">6.042</span>   <span class="mf">25.480</span>    <span class="mf">4.723</span>  <span class="mf">0.4600</span> <span class="mf">0.2245</span>
 </pre></div>
 </div>
-</section>
-<section id="pqr-specification">
+</div>
+<div class="section" id="pqr-specification">
 <h2>PQR specification<a class="headerlink" href="#pqr-specification" title="Permalink to this headline">¶</a></h2>
 <p>The PQR fields read are:</p>
 <dl class="glossary simple">
-<dt id="term-recordName">recordName</dt><dd><p>A string which specifies the type of PQR entry and should either be ATOM or
+<dt id="term-recordName">recordName<a class="headerlink" href="#term-recordName" title="Permalink to this term">¶</a></dt><dd><p>A string which specifies the type of PQR entry and should either be ATOM or
 HETATM.</p>
 </dd>
-<dt id="term-serial">serial</dt><dd><p>An integer which provides the atom index (but note that MDAnalysis renumbers
+<dt id="term-serial">serial<a class="headerlink" href="#term-serial" title="Permalink to this term">¶</a></dt><dd><p>An integer which provides the atom index (but note that MDAnalysis renumbers
 atoms so one cannot rely on the <em>serial</em>)</p>
 </dd>
-<dt id="term-atomName">atomName</dt><dd><p>A string which provides the atom name.</p>
+<dt id="term-atomName">atomName<a class="headerlink" href="#term-atomName" title="Permalink to this term">¶</a></dt><dd><p>A string which provides the atom name.</p>
 </dd>
-<dt id="term-residueName">residueName</dt><dd><p>A string which provides the residue name.</p>
+<dt id="term-residueName">residueName<a class="headerlink" href="#term-residueName" title="Permalink to this term">¶</a></dt><dd><p>A string which provides the residue name.</p>
 </dd>
-<dt id="term-chainID">chainID</dt><dd><p>An optional string which provides the chain ID of the atom.</p>
+<dt id="term-chainID">chainID<a class="headerlink" href="#term-chainID" title="Permalink to this term">¶</a></dt><dd><p>An optional string which provides the chain ID of the atom.</p>
 </dd>
-<dt id="term-residueNumber">residueNumber</dt><dd><p>An integer which provides the residue index.</p>
+<dt id="term-residueNumber">residueNumber<a class="headerlink" href="#term-residueNumber" title="Permalink to this term">¶</a></dt><dd><p>An integer which provides the residue index.</p>
 </dd>
-<dt id="term-X-Y-Z">X Y Z</dt><dd><p>Three floats which provide the atomic coordiantes.</p>
+<dt id="term-X-Y-Z">X Y Z<a class="headerlink" href="#term-X-Y-Z" title="Permalink to this term">¶</a></dt><dd><p>Three floats which provide the atomic coordiantes.</p>
 </dd>
-<dt id="term-charge">charge</dt><dd><p>A float which provides the atomic charge (in electrons).</p>
+<dt id="term-charge">charge<a class="headerlink" href="#term-charge" title="Permalink to this term">¶</a></dt><dd><p>A float which provides the atomic charge (in electrons).</p>
 </dd>
-<dt id="term-radius">radius</dt><dd><p>A float which provides the atomic radius (in Å).</p>
+<dt id="term-radius">radius<a class="headerlink" href="#term-radius" title="Permalink to this term">¶</a></dt><dd><p>A float which provides the atomic radius (in Å).</p>
 </dd>
 </dl>
 <p>Clearly, this format can deviate wildly from <a class="reference external" href="http://www.wwpdb.org/documentation/file-format">PDB</a> due to the use of whitespaces
 rather than specific column widths and alignments. This deviation can be
 particularly significant when large coordinate values are used.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Protein dihedral angle analysis &mdash; MDAnalysis User Guide  documentation</title>
@@ -37,9 +36,9 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script src="../../../_static/js/versions.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
@@ -103,13 +102,14 @@
               
             
             
-              <p><span class="caption-text">Getting started</span></p>
+              <p class="caption"><span class="caption-text">Getting started</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick start guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently asked questions</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../README.html">Examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../quickstart.html">Quick start guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../constructing_universe.html">Constructing, modifying, and adding to a Universe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../transformations/README.html">Transformations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../alignment_and_rms/README.html">Alignments and RMS fitting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../distances_and_contacts/README.html">Distances and contacts</a></li>
@@ -136,7 +136,7 @@
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p><span class="caption-text">Data structures</span></p>
+<p class="caption"><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../atomgroup.html">AtomGroup</a></li>
@@ -144,14 +144,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../topology_system.html">The topology system</a></li>
 </ul>
-<p><span class="caption-text">Trajectories</span></p>
+<p class="caption"><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../units.html">Units and constants</a></li>
 </ul>
-<p><span class="caption-text">Input/output</span></p>
+<p class="caption"><span class="caption-text">Input/output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/index.html">Format overview</a></li>
@@ -160,7 +160,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/format_reference.html">Format reference</a></li>
 </ul>
-<p><span class="caption-text">Analysis</span></p>
+<p class="caption"><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -172,13 +172,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../README.html#polymers-and-membranes">Polymers and membranes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 </ul>
-<p><span class="caption-text">Advanced</span></p>
+<p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../datasets.html">Example data</a></li>
 </ul>
-<p><span class="caption-text">Contributing</span></p>
+<p class="caption"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing_code.html">Contributing to the main codebase</a></li>
@@ -507,7 +507,7 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
-<script>require=requirejs;</script><section id="Protein-dihedral-angle-analysis">
+<script>require=requirejs;</script><div class="section" id="Protein-dihedral-angle-analysis">
 <h1>Protein dihedral angle analysis<a class="headerlink" href="#Protein-dihedral-angle-analysis" title="Permalink to this headline">¶</a></h1>
 <p>We look at backbone dihedral angles and generate Ramachandran and Janin plots.</p>
 <p>The methods and examples shown here are only applicable to Universes where protein residue names have standard names, i.e. the backbone is comprised of –N–CA–C–N–CA– atoms.</p>
@@ -537,7 +537,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<section id="Loading-files">
+<div class="section" id="Loading-files">
 <h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this headline">¶</a></h2>
 <p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<a class="bibtex reference internal" href="../../../references.html#beckstein-zipping-2009" id="id3">[BDPW09]</a>)</p>
 <div class="nbinput docutils container">
@@ -559,8 +559,8 @@ div.rendered_html tbody tr:hover {
 There are 214 residues in the protein
 </pre></div></div>
 </div>
-</section>
-<section id="Selecting-dihedral-atom-groups">
+</div>
+<div class="section" id="Selecting-dihedral-atom-groups">
 <h2>Selecting dihedral atom groups<a class="headerlink" href="#Selecting-dihedral-atom-groups" title="Permalink to this headline">¶</a></h2>
 <p>Proteins have canonical dihedral angles defined on the backbone atoms. <span class="math notranslate nohighlight">\(\phi\)</span> (phi), <span class="math notranslate nohighlight">\(\psi\)</span> (psi) and <span class="math notranslate nohighlight">\(\omega\)</span> (omega) are backbone angles. The side-chain dihedral angles are called <span class="math notranslate nohighlight">\(\chi_n\)</span> (chi-<span class="math notranslate nohighlight">\(n\)</span>), and can vary in number.</p>
 <center><div style="width: 250px; text-align: center;"><img alt="dihedral angles in proteins" src="../../../_images/dihedrals.png" />
@@ -603,8 +603,8 @@ SOL: None
 <li><p><span class="math notranslate nohighlight">\(\omega\)</span> angle (<code class="docutils literal notranslate"><span class="pre">Residue.omega_selection</span></code>)</p></li>
 <li><p><span class="math notranslate nohighlight">\(\chi_1\)</span> angle (<code class="docutils literal notranslate"><span class="pre">Residue.chi1_selection</span></code>)</p></li>
 </ul>
-</section>
-<section id="Calculating-dihedral-angles">
+</div>
+<div class="section" id="Calculating-dihedral-angles">
 <h2>Calculating dihedral angles<a class="headerlink" href="#Calculating-dihedral-angles" title="Permalink to this headline">¶</a></h2>
 <p>Dihedral angles can be calculated directly from the AtomGroup, by converting it to a <code class="docutils literal notranslate"><span class="pre">Dihedral</span></code> object.</p>
 <div class="nbinput docutils container">
@@ -655,7 +655,7 @@ SOL: None
 (10, 5)
 </pre></div></div>
 </div>
-<section id="Plotting">
+<div class="section" id="Plotting">
 <h3>Plotting<a class="headerlink" href="#Plotting" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
@@ -708,9 +708,9 @@ SOL: None
 <img alt="../../../_images/examples_analysis_structure_dihedrals_16_0.png" src="../../../_images/examples_analysis_structure_dihedrals_16_0.png" />
 </div>
 </div>
-</section>
-</section>
-<section id="Ramachandran-analysis">
+</div>
+</div>
+<div class="section" id="Ramachandran-analysis">
 <h2>Ramachandran analysis<a class="headerlink" href="#Ramachandran-analysis" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Ramachandran</span></code> class calculates the <span class="math notranslate nohighlight">\(\phi\)</span> and <span class="math notranslate nohighlight">\(\psi\)</span> angles of the selected residues over the course of the trajectory, again saving it into <code class="docutils literal notranslate"><span class="pre">.angles</span></code>. If residues are given that do not contain a <span class="math notranslate nohighlight">\(\phi\)</span> and <span class="math notranslate nohighlight">\(\psi\)</span> angle, they are omitted from the results. For example, the angles returned are from every residue in the protein <em>except</em> the first and last, for which a <span class="math notranslate nohighlight">\(\phi\)</span> angle and a <span class="math notranslate nohighlight">\(\psi\)</span> angle do not exist, respectively.</p>
 <p>The returned <code class="docutils literal notranslate"><span class="pre">angles</span></code> are in the shape (<code class="docutils literal notranslate"><span class="pre">n_frames</span></code>, <code class="docutils literal notranslate"><span class="pre">n_residues</span></code>, 2) where the last dimension holds the <span class="math notranslate nohighlight">\(\phi\)</span> and <span class="math notranslate nohighlight">\(\psi\)</span> angle.</p>
@@ -788,8 +788,8 @@ SOL: None
 <img alt="../../../_images/examples_analysis_structure_dihedrals_22_1.png" src="../../../_images/examples_analysis_structure_dihedrals_22_1.png" />
 </div>
 </div>
-</section>
-<section id="Janin-analysis">
+</div>
+<div class="section" id="Janin-analysis">
 <h2>Janin analysis<a class="headerlink" href="#Janin-analysis" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Janin</span></code> class works similarly to the <code class="docutils literal notranslate"><span class="pre">Ramachandran</span></code> analysis, but looks at the <span class="math notranslate nohighlight">\(\chi_1\)</span> and <span class="math notranslate nohighlight">\(\chi_2\)</span> angles instead. It therefore ignores all residues without a long enough side-chain, such as alanine, cysteine, and so on.</p>
 <p>Again, the returned <code class="docutils literal notranslate"><span class="pre">angles</span></code> are in the shape (<code class="docutils literal notranslate"><span class="pre">n_frames</span></code>, <code class="docutils literal notranslate"><span class="pre">n_residues</span></code>, 2) where the last dimension holds the <span class="math notranslate nohighlight">\(\chi_1\)</span> and <span class="math notranslate nohighlight">\(\chi_2\)</span> angle. We can see that only about half of the residues in AdK have side-chains long enough for this analysis.</p>
@@ -841,16 +841,16 @@ SOL: None
 <img alt="../../../_images/examples_analysis_structure_dihedrals_26_1.png" src="../../../_images/examples_analysis_structure_dihedrals_26_1.png" />
 </div>
 </div>
-</section>
-<section id="References">
+</div>
+<div class="section" id="References">
 <h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
 <p>[1] Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164">https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164</a>, doi:10.1016/j.jmb.2009.09.009.</p>
 <p>[2] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
 <p>[3] Joël Janin, Shoshanna Wodak, Michael Levitt, and Bernard Maigret. Conformation of amino acid side-chains in proteins. Journal of Molecular Biology, 125(3):357 – 386, 1978. 00874. URL: <a class="reference external" href="http://www.sciencedirect.com/science/article/pii/0022283678904084">http://www.sciencedirect.com/science/article/pii/0022283678904084</a>, doi:10.1016/0022-2836(78)90408-4.</p>
 <p>[4] Simon C. Lovell, Ian W. Davis, W. Bryan Arendall, Paul I. W. de Bakker, J. Michael Word, Michael G. Prisant, Jane S. Richardson, and David C. Richardson. Structure validation by Cα geometry: ϕ,ψ and Cβ deviation. Proteins: Structure, Function, and Bioinformatics, 50(3):437–450, January 2003. 03997. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/prot.10286">http://doi.wiley.com/10.1002/prot.10286</a>, doi:10.1002/prot.10286.</p>
 <p>[5] Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>, doi:10.1002/jcc.21787.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

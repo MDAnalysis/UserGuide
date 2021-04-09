@@ -28,6 +28,7 @@ Although you can only call :meth:`~MDAnalysis.coordinates.base.ProtoReader.add_t
 * wraps water back into the box
 
 .. ipython:: python
+    :okwarning:
 
     # create new Universe for new transformations
     u = mda.Universe(TPR, XTC)
