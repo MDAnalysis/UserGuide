@@ -2,26 +2,34 @@ name: mda-user-guide
 channels:
   - conda-forge
 dependencies:
-  - cython==0.29.21
-  - ipywidgets
-  - ipython==7.19.0
+  - cython
+  - decorator==4.4.2
+  - docutils==0.15.2
+  - ipywidgets==7.6.3
+  - ipython==7.22.0
+  - jedi==0.18.0
   - jupyter_contrib_nbextensions==0.5.1
   - matplotlib==3.2.2
   - mdanalysis
   - MDAnalysisTests
-  - nbsphinx==0.7.1
+  - nbclient==0.5.3
+  - nbconvert==6.0.7
+  - nbformat==5.0.8
+  - nbsphinx==0.8.1
+  - networkx==2.5.1
   - nglview==2.7.7
   - notebook==6.1.6
-  - numpy==1.19.2
-  - numpy>=1.18.5
+  - numpy==1.20.2
+  - parso==0.8.2
   - pip==20.3.3
   - plotly==4.14.1
   - pybtex==0.23.0
   - python
-  - sphinx==3.4.1
+  - sphinx==3.5.3
   - sphinxcontrib-bibtex==1.0.0
-  - sphinx_rtd_theme==0.4.3
+  - sphinx_rtd_theme==0.5.2
   - tabulate==0.8.7
+  - widgetsnbextension==3.5.1
   - pip:
       - msmb_theme==1.2.0
       - sphinx-sitemap==1.0.2
