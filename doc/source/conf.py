@@ -25,7 +25,6 @@ from ipywidgets.embed import DEFAULT_EMBED_REQUIREJS_URL
 
 project = 'MDAnalysis User Guide'
 
-
 def sort_authors(filename):
     """Generate sorted list of authors from AUTHORS"""
     authors = []
