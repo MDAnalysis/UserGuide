@@ -27,7 +27,8 @@ All other lines are ignored. Multi-`MODEL`_ PDB files are read as trajectories w
 
 .. important:: 
 
-    MDAnalysis does not read atom elements or charges from a PDB file, even when they are provided. Instead, elements are guessed from atom names.
+    Previously, MDAnalysis did not read elements from a file.
+    Now, if valid elements are provided, MDAnalysis will read them in and will *not* guess them from atom names.
 
 MDAnalysis attempts to read ``segid`` attributes from the *segID* column. If this column does not contain information, segments are instead created from chainIDs. If chainIDs are also not present, then ``segid``\ s are set to the default ``'SYSTEM'`` value.
 

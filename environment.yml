@@ -3,8 +3,10 @@ channels:
   - conda-forge
 dependencies:
   - cython
+  - dask
   - decorator==4.4.2
   - docutils==0.15.2
+  - graphviz
   - ipywidgets==7.6.3
   - ipython==7.22.0
   - jedi==0.18.0
@@ -13,6 +15,7 @@ dependencies:
   - matplotlib==3.2.2
   - mdanalysis
   - MDAnalysisTests
+  - mdanalysisdata
   - nbclient==0.5.3
   - nbconvert==6.0.7
   - nbformat==5.0.8

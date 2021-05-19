@@ -17,6 +17,7 @@ Prior to MDAnalysis version 0.21.0 and GROMACS 2019.5, MDAnalysis failed to pars
 .. important::
 
     A Universe created with a GRO file and a Universe created with a corresponding TPR file will have *different* :ref:`atom and residue numbering <TPR-format>`, due to how a TPR file is parsed.
+    **This behaviour will change in 2.0.0 where TPR parsing will be made consistent with the other file formats.**
 
 Writing out
 ===========
