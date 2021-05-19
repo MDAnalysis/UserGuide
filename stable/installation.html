@@ -278,6 +278,12 @@ ask for help on the <a class="reference external" href="https://groups.google.co
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge MDAnalysisTests
 </pre></div>
 </div>
+<p>If you intend to use MDAnalysis in JupyterLab, you will have to install
+an extra package for the progress bar in analysis classes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge nodejs
+jupyter labextension install @jupyter-widgets/jupyterlab-manager
+</pre></div>
+</div>
 </div>
 <div class="section" id="pip">
 <h2>pip<a class="headerlink" href="#pip" title="Permalink to this headline">¶</a></h2>
@@ -291,6 +297,12 @@ ask for help on the <a class="reference external" href="https://groups.google.co
 </div>
 <p>To install/upgrade tests:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install --upgrade MDAnalysisTests
+</pre></div>
+</div>
+<p>If you intend to use MDAnalysis in JupyterLab, you will have to install
+an extra package for the progress bar in analysis classes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install nodejs
+jupyter labextension install @jupyter-widgets/jupyterlab-manager
 </pre></div>
 </div>
 </div>

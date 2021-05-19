@@ -55,6 +55,14 @@ To install the tests:
 
     conda install -c conda-forge MDAnalysisTests
 
+If you intend to use MDAnalysis in JupyterLab, you will have to install
+an extra package for the progress bar in analysis classes:
+
+.. code-block:: bash
+
+    conda install -c conda-forge nodejs
+    jupyter labextension install @jupyter-widgets/jupyterlab-manager
+
 pip
 =====
 The following command will install or upgrade the latest stable version of MDAnalysis via ``pip``, with core dependencies. This means that some packages required by specific analysis modules will not be installed.
@@ -74,6 +82,15 @@ To install/upgrade tests:
 .. code-block:: bash
 
     pip install --upgrade MDAnalysisTests
+
+If you intend to use MDAnalysis in JupyterLab, you will have to install
+an extra package for the progress bar in analysis classes:
+
+.. code-block:: bash
+
+    pip install nodejs
+    jupyter labextension install @jupyter-widgets/jupyterlab-manager
+
 
 Development versions
 ====================
