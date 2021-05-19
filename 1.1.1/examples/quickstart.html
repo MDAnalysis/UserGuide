@@ -508,6 +508,7 @@ div.rendered_html tbody tr:hover {
 <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
 <script>require=requirejs;</script><div class="section" id="Quick-start-guide">
 <h1>Quick start guide<a class="headerlink" href="#Quick-start-guide" title="Permalink to this headline">¶</a></h1>
+<p><strong>Last executed:</strong> May 18, 2021 with MDAnalysis 1.1.1</p>
 <p>MDAnalysis version: ≥ 0.18.0</p>
 <p>Last updated: Dec 2020</p>
 <p>This guide is designed as a basic introduction to MDAnalysis to get you up and running. You can see more complex tasks in our <a class="reference external" href="https://userguide.mdanalysis.org/stable/examples/README.html">Example notebooks</a>. This page outlines how to:</p>
@@ -538,7 +539,7 @@ div.rendered_html tbody tr:hover {
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 &lt;Universe with 3341 atoms&gt;
-1.0.0
+1.1.1
 </pre></div></div>
 </div>
 <p>This tutorial assumes that you already have MDAnalysis installed. Running the cell above should give something similar to:</p>
@@ -873,17 +874,17 @@ False
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{(&#39;ALA&#39;, &#39;HN&#39;): &lt;AtomGroup with 2 atoms&gt;,
- (&#39;ALA&#39;, &#39;C&#39;): &lt;AtomGroup with 1 atom&gt;,
- (&#39;ASP&#39;, &#39;N&#39;): &lt;AtomGroup with 1 atom&gt;,
- (&#39;ASP&#39;, &#39;C&#39;): &lt;AtomGroup with 1 atom&gt;,
- (&#39;THR&#39;, &#39;N&#39;): &lt;AtomGroup with 1 atom&gt;,
+{(&#39;LYS&#39;, &#39;N&#39;): &lt;AtomGroup with 1 atom&gt;,
+ (&#39;ASN&#39;, &#39;O&#39;): &lt;AtomGroup with 1 atom&gt;,
+ (&#39;GLN&#39;, &#39;C&#39;): &lt;AtomGroup with 1 atom&gt;,
  (&#39;GLU&#39;, &#39;N&#39;): &lt;AtomGroup with 1 atom&gt;,
+ (&#39;ALA&#39;, &#39;C&#39;): &lt;AtomGroup with 1 atom&gt;,
+ (&#39;ALA&#39;, &#39;HN&#39;): &lt;AtomGroup with 2 atoms&gt;,
+ (&#39;THR&#39;, &#39;N&#39;): &lt;AtomGroup with 1 atom&gt;,
  (&#39;ILE&#39;, &#39;C&#39;): &lt;AtomGroup with 2 atoms&gt;,
  (&#39;LEU&#39;, &#39;N&#39;): &lt;AtomGroup with 1 atom&gt;,
- (&#39;GLN&#39;, &#39;C&#39;): &lt;AtomGroup with 1 atom&gt;,
- (&#39;ASN&#39;, &#39;O&#39;): &lt;AtomGroup with 1 atom&gt;,
- (&#39;LYS&#39;, &#39;N&#39;): &lt;AtomGroup with 1 atom&gt;,
+ (&#39;ASP&#39;, &#39;N&#39;): &lt;AtomGroup with 1 atom&gt;,
+ (&#39;ASP&#39;, &#39;C&#39;): &lt;AtomGroup with 1 atom&gt;,
  (&#39;ARG&#39;, &#39;N&#39;): &lt;AtomGroup with 1 atom&gt;}
 </pre></div></div>
 </div>
@@ -984,7 +985,7 @@ False
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-37.99234750892497
+37.99234750892498
 </pre></div></div>
 </div>
 <p>Note that the order of the atoms matters for angles, dihedrals, and impropers. The value returned for an angle is the angle between first and third atom, with the apex at the second. Fancy indexing is one way to get an ordered AtomGroup.</p>
@@ -1027,7 +1028,7 @@ False
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-106.20364651944931
+106.2036465194493
 </pre></div></div>
 </div>
 </div>
@@ -1251,7 +1252,7 @@ Frame:  10, Time:   11 ps, Rgyr: 16.8521 A
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.axes._subplots.AxesSubplot at 0x11f2c1f10&gt;
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f8a7c26f250&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1468,7 +1469,7 @@ formats</a>, each with their own <a class="reference external" href="https://use
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;MDAnalysis.analysis.rms.RMSD at 0x11f297210&gt;
+&lt;MDAnalysis.analysis.rms.RMSD at 0x7f8a7c37c590&gt;
 </pre></div></div>
 </div>
 <p>The results are stored in the <code class="docutils literal notranslate"><span class="pre">.rmsd</span></code> attribute. This is an array with the shape <code class="docutils literal notranslate"><span class="pre">(n_frames,</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">n_selections)</span></code>.</p>
@@ -1550,7 +1551,7 @@ formats</a>, each with their own <a class="reference external" href="https://use
   <tbody>
     <tr>
       <th>1.0</th>
-      <td>6.391203e-07</td>
+      <td>5.834344e-07</td>
       <td>4.263638e-08</td>
       <td>5.443850e-08</td>
     </tr>
@@ -1597,7 +1598,7 @@ formats</a>, each with their own <a class="reference external" href="https://use
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.axes._subplots.AxesSubplot at 0x11fad1e50&gt;
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f8a7c419dd0&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">

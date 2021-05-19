@@ -503,7 +503,7 @@ div.rendered_html tbody tr:hover {
 </ol>
 <p>The building blocks and methods shown here are only suitable for analyses that involve iterating over the trajectory once.</p>
 <p>If you implement your own analysis method, please consider <a class="reference external" href="https://www.mdanalysis.org/UserGuide/contributing.html">contributing it to the MDAnalysis codebase!</a></p>
-<p><strong>Last executed:</strong> Feb 07, 2020 with MDAnalysis 0.20.2-dev0</p>
+<p><strong>Last executed:</strong> May 18, 2021 with MDAnalysis 1.1.1</p>
 <p><strong>Last updated:</strong> February 2020</p>
 <p><strong>Minimum version of MDAnalysis:</strong> 0.19.0</p>
 <p><strong>Packages required:</strong></p>
@@ -587,7 +587,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Creating-an-analysis-from-a-function">
 <h2>Creating an analysis from a function<a class="headerlink" href="#Creating-an-analysis-from-a-function" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.base.AnalysisFromFunction</span></code> can create an analysis from a function that works on AtomGroups. It requires the function itself, the trajectory to operate on, and then the arguments / keyword arguments necessary for the function.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
@@ -598,6 +598,24 @@ div.rendered_html tbody tr:hover {
 <span class="n">rog</span><span class="o">.</span><span class="n">run</span><span class="p">();</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/lily/anaconda3/envs/mda-user-guide/lib/python3.7/site-packages/MDAnalysis/analysis/base.py:282: DeprecationWarning: The structure of the `results` array will change in MDAnalysis version 2.0.
+  &#34;MDAnalysis version 2.0.&#34;, category=DeprecationWarning
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;MDAnalysis.analysis.base.AnalysisFromFunction at 0x7fb6be5a3210&gt;
+</pre></div></div>
 </div>
 <p>Running the analysis iterates over the trajectory. The output is saved in <code class="docutils literal notranslate"><span class="pre">rog.results</span></code>, which has the same number of rows, as frames in the trajectory.</p>
 <div class="nbinput docutils container">
@@ -632,11 +650,20 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0.5, 0, &#39;Frame&#39;)
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/examples_analysis_custom_trajectory_analysis_10_0.png" src="../../_images/examples_analysis_custom_trajectory_analysis_10_0.png" />
+<img alt="../../_images/examples_analysis_custom_trajectory_analysis_10_1.png" src="../../_images/examples_analysis_custom_trajectory_analysis_10_1.png" />
 </div>
 </div>
 <p>You can also re-run the analysis with different frame selections.</p>
@@ -654,6 +681,15 @@ div.rendered_html tbody tr:hover {
 <span class="n">rog_10</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/lily/anaconda3/envs/mda-user-guide/lib/python3.7/site-packages/MDAnalysis/analysis/base.py:282: DeprecationWarning: The structure of the `results` array will change in MDAnalysis version 2.0.
+  &#34;MDAnalysis version 2.0.&#34;, category=DeprecationWarning
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
@@ -677,11 +713,20 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0.5, 0, &#39;Frame&#39;)
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/examples_analysis_custom_trajectory_analysis_13_0.png" src="../../_images/examples_analysis_custom_trajectory_analysis_13_0.png" />
+<img alt="../../_images/examples_analysis_custom_trajectory_analysis_13_1.png" src="../../_images/examples_analysis_custom_trajectory_analysis_13_1.png" />
 </div>
 </div>
 </div>
@@ -699,7 +744,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <p>To run the analysis, pass exactly the same arguments as you would for <code class="docutils literal notranslate"><span class="pre">AnalysisFromFunction</span></code>.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
@@ -710,6 +755,24 @@ div.rendered_html tbody tr:hover {
 <span class="n">rog_u1</span><span class="o">.</span><span class="n">run</span><span class="p">();</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/lily/anaconda3/envs/mda-user-guide/lib/python3.7/site-packages/MDAnalysis/analysis/base.py:282: DeprecationWarning: The structure of the `results` array will change in MDAnalysis version 2.0.
+  &#34;MDAnalysis version 2.0.&#34;, category=DeprecationWarning
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;MDAnalysis.analysis.base.analysis_class.&lt;locals&gt;.WrapperClass at 0x7fb6bec3b610&gt;
+</pre></div></div>
 </div>
 <p>As with <code class="docutils literal notranslate"><span class="pre">AnalysisFromFunction</span></code>, the results are in <code class="docutils literal notranslate"><span class="pre">results</span></code>.</p>
 <div class="nbinput docutils container">
@@ -725,15 +788,24 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0.5, 0, &#39;Frame&#39;)
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/examples_analysis_custom_trajectory_analysis_19_0.png" src="../../_images/examples_analysis_custom_trajectory_analysis_19_0.png" />
+<img alt="../../_images/examples_analysis_custom_trajectory_analysis_19_1.png" src="../../_images/examples_analysis_custom_trajectory_analysis_19_1.png" />
 </div>
 </div>
 <p>You can reuse the class for other trajectories and selections.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
@@ -746,6 +818,24 @@ div.rendered_html tbody tr:hover {
 <span class="n">rog_u2</span><span class="o">.</span><span class="n">run</span><span class="p">();</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/lily/anaconda3/envs/mda-user-guide/lib/python3.7/site-packages/MDAnalysis/analysis/base.py:282: DeprecationWarning: The structure of the `results` array will change in MDAnalysis version 2.0.
+  &#34;MDAnalysis version 2.0.&#34;, category=DeprecationWarning
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;MDAnalysis.analysis.base.analysis_class.&lt;locals&gt;.WrapperClass at 0x7fb6bee51f90&gt;
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
@@ -760,11 +850,20 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0.5, 0, &#39;Frame&#39;)
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/examples_analysis_custom_trajectory_analysis_22_0.png" src="../../_images/examples_analysis_custom_trajectory_analysis_22_0.png" />
+<img alt="../../_images/examples_analysis_custom_trajectory_analysis_22_1.png" src="../../_images/examples_analysis_custom_trajectory_analysis_22_1.png" />
 </div>
 </div>
 </div>
@@ -874,10 +973,8 @@ div.rendered_html tbody tr:hover {
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-Step    98/98 [100.0%]
-</pre></div></div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4288ee805e9244e19932a236e7f290b7", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>As calculated in <code class="docutils literal notranslate"><span class="pre">_conclude()</span></code>, the average radii of gyrations are at <code class="docutils literal notranslate"><span class="pre">rog.average</span></code>.</p>
 <div class="nbinput docutils container">
@@ -1055,11 +1152,20 @@ array([18.26549552, 12.85342131, 15.37359575, 16.29185734])
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0, 0.5, &#39;Radius of gyration (A)&#39;)
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/examples_analysis_custom_trajectory_analysis_32_0.png" src="../../_images/examples_analysis_custom_trajectory_analysis_32_0.png" />
+<img alt="../../_images/examples_analysis_custom_trajectory_analysis_32_1.png" src="../../_images/examples_analysis_custom_trajectory_analysis_32_1.png" />
 </div>
 </div>
 <p>We can also run the analysis over a subset of frames, the same as the output from <code class="docutils literal notranslate"><span class="pre">AnalysisFromFunction</span></code> and <code class="docutils literal notranslate"><span class="pre">analysis_class</span></code>.</p>
@@ -1073,12 +1179,19 @@ array([18.26549552, 12.85342131, 15.37359575, 16.29185734])
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area stderr docutils container">
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9bddfb9c6bb645d4a126c959ecfc862e", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
 <div class="highlight"><pre>
-Step    10/10 [100.0%]
+&lt;__main__.RadiusOfGyration2 at 0x7fb6bef4e690&gt;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1245,11 +1358,20 @@ Step    10/10 [100.0%]
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0, 0.5, &#39;Radius of gyration (A)&#39;)
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/examples_analysis_custom_trajectory_analysis_37_0.png" src="../../_images/examples_analysis_custom_trajectory_analysis_37_0.png" />
+<img alt="../../_images/examples_analysis_custom_trajectory_analysis_37_1.png" src="../../_images/examples_analysis_custom_trajectory_analysis_37_1.png" />
 </div>
 </div>
 </div>

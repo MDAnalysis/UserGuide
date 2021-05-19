@@ -506,7 +506,11 @@ div.rendered_html tbody tr:hover {
 <script>require=requirejs;</script><div class="section" id="Analysing-pore-dimensions-with-HOLE">
 <h1>Analysing pore dimensions with HOLE<a class="headerlink" href="#Analysing-pore-dimensions-with-HOLE" title="Permalink to this headline">¶</a></h1>
 <p>Here we use <code class="docutils literal notranslate"><span class="pre">HOLE</span></code> to analyse pore dimensions in a membrane.</p>
-<p><strong>Last executed:</strong> Feb 10, 2020 with MDAnalysis 1.0.0</p>
+<div class="admonition warning">
+<p class="admonition-title"><strong>Warning</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.hole</span></code> is now deprecated in favor of <code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.hole2</span></code>, and will be removed in 2.0.0.</p>
+</div>
+<p><strong>Last executed:</strong> May 18, 2021 with MDAnalysis 1.1.1</p>
 <p><strong>Last updated:</strong> January 2020</p>
 <p><strong>Minimum version of MDAnalysis:</strong> 0.18.0</p>
 <p><strong>Packages required:</strong></p>
@@ -653,11 +657,20 @@ array([[0.     , 1.19707]])
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fd3d17e2d90&gt;
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_polymers_and_membranes_hole_14_0.png" src="../../../_images/examples_analysis_polymers_and_membranes_hole_14_0.png" />
+<img alt="../../../_images/examples_analysis_polymers_and_membranes_hole_14_1.png" src="../../../_images/examples_analysis_polymers_and_membranes_hole_14_1.png" />
 </div>
 </div>
 <p>You can also create a VMD surface from the <code class="docutils literal notranslate"><span class="pre">hole1.sph</span></code> output file, using the <code class="docutils literal notranslate"><span class="pre">create_vmd_surface</span></code> function.</p>
@@ -690,7 +703,7 @@ array([[0.     , 1.19707]])
 <div class="section" id="Using-HOLE-with-a-trajectory">
 <h2>Using HOLE with a trajectory<a class="headerlink" href="#Using-HOLE-with-a-trajectory" title="Permalink to this headline">¶</a></h2>
 <p>One of the limitations of the <code class="docutils literal notranslate"><span class="pre">hole</span></code> program is that it can only accept PDB files. In order to use other formats with <code class="docutils literal notranslate"><span class="pre">hole</span></code>, or to run <code class="docutils literal notranslate"><span class="pre">hole</span></code> on trajectories, we can use the <code class="docutils literal notranslate"><span class="pre">hole.HOLEtraj</span></code> class with an <code class="docutils literal notranslate"><span class="pre">MDAnalysis.Universe</span></code>. While the example file below is a PDB, you can use any files to create your Universe.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
@@ -705,6 +718,15 @@ array([[0.     , 1.19707]])
 <span class="n">ht</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/lily/anaconda3/envs/mda-user-guide/lib/python3.7/site-packages/MDAnalysis/coordinates/PDB.py:864: DeprecationWarning: Using the last letter of the segid for the chainID is now deprecated and will be changed in 2.0. In 2.0, the chainID attribute will be used if it exists, or a placeholder value.
+  &#34;exists, or a placeholder value.&#34;, DeprecationWarning)
+</pre></div></div>
 </div>
 <p>Note that you do not need call <code class="docutils literal notranslate"><span class="pre">collect()</span></code> after calling <code class="docutils literal notranslate"><span class="pre">run()</span></code> with <code class="docutils literal notranslate"><span class="pre">HOLEtraj</span></code>. Again, the data is stored in <code class="docutils literal notranslate"><span class="pre">ht.profiles</span></code> as a dictionary of <code class="docutils literal notranslate"><span class="pre">numpy.recarray</span></code>s. The dictionary is indexed by frame; we can see the HOLE profile for the fourth frame below (truncated to 19.1126 angstrom from the pore axis). In this case, the <code class="docutils literal notranslate"><span class="pre">frame</span></code> field of each <code class="docutils literal notranslate"><span class="pre">recarray</span></code> is always 0.</p>
 <div class="nbinput docutils container">
@@ -722,11 +744,11 @@ array([[0.     , 1.19707]])
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-rec.array([(0, -23.6126, 15.98192), (0, -23.5126, 14.41088),
-           (0, -23.4126, 12.88757), (0, -23.3126, 11.90096),
-           (0, -23.2126, 11.27921), (0, -23.1126, 11.02236),
-           (0, -23.0126, 10.96035), (0, -22.9126, 10.86575),
-           (0, -22.8126, 10.77124), (0, -22.7126, 10.67909)],
+rec.array([(0, -18.6126, 16.58975), (0, -18.5126, 13.39834),
+           (0, -18.4126, 10.82539), (0, -18.3126,  8.86034),
+           (0, -18.2126,  7.28037), (0, -18.1126,  6.4542 ),
+           (0, -18.0126,  6.48675), (0, -17.9126,  6.39647),
+           (0, -17.8126,  6.30656), (0, -17.7126,  6.21605)],
           dtype=[(&#39;frame&#39;, &#39;&lt;i4&#39;), (&#39;rxncoord&#39;, &#39;&lt;f8&#39;), (&#39;radius&#39;, &#39;&lt;f8&#39;)])
 </pre></div></div>
 </div>
@@ -740,11 +762,20 @@ rec.array([(0, -23.6126, 15.98192), (0, -23.5126, 14.41088),
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fd3d257be90&gt;
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_polymers_and_membranes_hole_24_0.png" src="../../../_images/examples_analysis_polymers_and_membranes_hole_24_0.png" />
+<img alt="../../../_images/examples_analysis_polymers_and_membranes_hole_24_1.png" src="../../../_images/examples_analysis_polymers_and_membranes_hole_24_1.png" />
 </div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">plot3D()</span></code> function separates each frame onto its own axis in a 3D plot.</p>
@@ -757,11 +788,20 @@ rec.array([(0, -23.6126, 15.98192), (0, -23.5126, 14.41088),
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.axes._subplots.Axes3DSubplot at 0x7fd3d26da990&gt;
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_polymers_and_membranes_hole_26_0.png" src="../../../_images/examples_analysis_polymers_and_membranes_hole_26_0.png" />
+<img alt="../../../_images/examples_analysis_polymers_and_membranes_hole_26_1.png" src="../../../_images/examples_analysis_polymers_and_membranes_hole_26_1.png" />
 </div>
 </div>
 </div>
@@ -793,7 +833,7 @@ rec.array([(0, -23.6126, 15.98192), (0, -23.5126, 14.41088),
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 array([6.10501252e+00, 4.88398472e+00, 3.66303524e+00, 2.44202454e+00,
-       1.22100521e+00, 1.67285541e-07, 1.22100162e+00, 2.44202456e+00,
+       1.22100521e+00, 2.36577481e-07, 1.22100162e+00, 2.44202456e+00,
        3.66303410e+00, 4.88398478e+00, 6.10502262e+00])
 </pre></div></div>
 </div>
@@ -812,13 +852,22 @@ array([6.10501252e+00, 4.88398472e+00, 3.66303524e+00, 2.44202454e+00,
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/lily/anaconda3/envs/mda-user-guide/lib/python3.7/site-packages/MDAnalysis/coordinates/PDB.py:864: DeprecationWarning: Using the last letter of the segid for the chainID is now deprecated and will be changed in 2.0. In 2.0, the chainID attribute will be used if it exists, or a placeholder value.
+  &#34;exists, or a placeholder value.&#34;, DeprecationWarning)
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-odict_keys([6.105012519709198, 4.883984723991125, 3.663035235691455, 2.4420245432434005, 1.2210052104208637, 1.6728554140225013e-07, 1.2210016190719406, 2.4420245634673616, 3.6630340992950225, 4.883984778674993, 6.105022620520391])
+odict_keys([6.1050125197092, 4.883984723991119, 3.663035235691455, 2.442024543243412, 1.2210052104208522, 2.3657748143998805e-07, 1.2210016190719406, 2.4420245634673843, 3.663034099295049, 4.883984778674987, 6.105022620520385])
 </pre></div></div>
 </div>
 <p>You can see here that the dictionary does not order the entries by the order parameter. If you iterate over the class, it will return each (key, value) pair in sorted key order.</p>
@@ -837,17 +886,17 @@ odict_keys([6.105012519709198, 4.883984723991125, 3.663035235691455, 2.442024543
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-1.6728554140225013e-07 427
-1.2210016190719406 389
-1.2210052104208637 411
-2.4420245432434005 421
-2.4420245634673616 389
-3.6630340992950225 383
-3.663035235691455 423
-4.883984723991125 419
-4.883984778674993 369
-6.105012519709198 455
-6.105022620520391 401
+2.3657748143998805e-07 413
+1.2210016190719406 443
+1.2210052104208522 517
+2.442024543243412 435
+2.4420245634673843 345
+3.663034099295049 397
+3.663035235691455 421
+4.883984723991119 433
+4.883984778674987 393
+6.1050125197092 467
+6.105022620520385 403
 </pre></div></div>
 </div>
 <p>We can use this to plot the minimum radius as a function of RMSD from the reference structure.</p>
@@ -868,11 +917,20 @@ odict_keys([6.105012519709198, 4.883984723991125, 3.663035235691455, 2.442024543
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0, 0.5, &#39;minimum HOLE pore radius $r$ ($\\AA$)&#39;)
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_polymers_and_membranes_hole_34_0.png" src="../../../_images/examples_analysis_polymers_and_membranes_hole_34_0.png" />
+<img alt="../../../_images/examples_analysis_polymers_and_membranes_hole_34_1.png" src="../../../_images/examples_analysis_polymers_and_membranes_hole_34_1.png" />
 </div>
 </div>
 </div>

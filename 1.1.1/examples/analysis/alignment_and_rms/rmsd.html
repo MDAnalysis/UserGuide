@@ -515,6 +515,7 @@ div.rendered_html tbody tr:hover {
 <script>require=requirejs;</script><div class="section" id="Calculating-the-root-mean-square-deviation-of-atomic-structures">
 <h1>Calculating the root mean square deviation of atomic structures<a class="headerlink" href="#Calculating-the-root-mean-square-deviation-of-atomic-structures" title="Permalink to this headline">¶</a></h1>
 <p>We calculate the RMSD of domains in adenylate kinase as it transitions from an open to closed structure, and look at calculating weighted RMSDs.</p>
+<p><strong>Last executed:</strong> May 18, 2021 with MDAnalysis 1.1.1</p>
 <p><strong>Last updated:</strong> June 26, 2020 with MDAnalysis 1.0.0</p>
 <p><strong>Minimum version of MDAnalysis:</strong> 1.0.0</p>
 <p><strong>Packages required:</strong></p>
@@ -646,7 +647,7 @@ metric suffers from the problem of <em>degeneracy</em>: many different structure
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;MDAnalysis.analysis.rms.RMSD at 0x11ad568d0&gt;
+&lt;MDAnalysis.analysis.rms.RMSD at 0x7fd5bdec9310&gt;
 </pre></div></div>
 </div>
 <p>The data is saved in <code class="docutils literal notranslate"><span class="pre">R.rmsd</span></code> as an array.</p>
@@ -876,7 +877,7 @@ Text(0, 0.5, &#39;RMSD ($\\AA$)&#39;)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;MDAnalysis.analysis.rms.RMSD at 0x11a837ed0&gt;
+&lt;MDAnalysis.analysis.rms.RMSD at 0x7fd5be5c4710&gt;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -936,7 +937,7 @@ custom arrays. A custom array should have the same number of values as there are
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;MDAnalysis.analysis.rms.RMSD at 0x11a87d890&gt;
+&lt;MDAnalysis.analysis.rms.RMSD at 0x7fd5be5c4b90&gt;
 </pre></div></div>
 </div>
 <p>The plot looks largely the same as above because all the alpha-carbons and individual backbone atoms have the same mass. Below we show how you can pass in custom weights.</p>
@@ -956,11 +957,20 @@ custom arrays. A custom array should have the same number of values as there are
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0, 0.5, &#39;Mass-weighted RMSD ($\\AA$)&#39;)
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_alignment_and_rms_rmsd_27_0.png" src="../../../_images/examples_analysis_alignment_and_rms_rmsd_27_0.png" />
+<img alt="../../../_images/examples_analysis_alignment_and_rms_rmsd_27_1.png" src="../../../_images/examples_analysis_alignment_and_rms_rmsd_27_1.png" />
 </div>
 </div>
 </div>
@@ -1012,7 +1022,7 @@ Shape of C-alpha charges: (214,)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;MDAnalysis.analysis.rms.RMSD at 0x11a84e250&gt;
+&lt;MDAnalysis.analysis.rms.RMSD at 0x7fd5be717410&gt;
 </pre></div></div>
 </div>
 <p>You can see in the below graph that the NMP domain has much higher RMSD than before, as each particle is weighted by its residue number. Conversely, the CORE domain doesn’t really change much. We could potentially infer from this that residues later in the NMP domain (with a higher residue number) are mobile during the length of the trajectory, whereas residues later in the CORE domain do not seem to contribute significantly to the RMSD.</p>

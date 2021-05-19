@@ -503,6 +503,7 @@ div.rendered_html tbody tr:hover {
 <script>require=requirejs;</script><div class="section" id="Computing-mass-and-charge-density-on-each-axis">
 <h1>Computing mass and charge density on each axis<a class="headerlink" href="#Computing-mass-and-charge-density-on-each-axis" title="Permalink to this headline">¶</a></h1>
 <p>Here we compute the mass and charge density of water along the three cartesian axes of a fixed-volume unit cell (i.e. from a simulation in the NVT ensemble).</p>
+<p><strong>Last executed:</strong> May 18, 2021 with MDAnalysis 1.1.1</p>
 <p><strong>Last updated:</strong> February 2020</p>
 <p><strong>Minimum version of MDAnalysis:</strong> 0.17.0</p>
 <p><strong>Packages required:</strong></p>
@@ -569,7 +570,7 @@ div.rendered_html tbody tr:hover {
 </pre></div></div>
 </div>
 <p>You can choose to compute the density of individual atoms, residues, segments, or fragments (groups of bonded atoms with no bonds to any atom outside the group). By default, the grouping is for <code class="docutils literal notranslate"><span class="pre">atoms</span></code>.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
@@ -578,6 +579,15 @@ div.rendered_html tbody tr:hover {
                             <span class="n">grouping</span><span class="o">=</span><span class="s1">&#39;atoms&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/lily/anaconda3/envs/mda-user-guide/lib/python3.7/site-packages/MDAnalysis/analysis/lineardensity.py:111: DeprecationWarning: The structure of the `results` dictionary will change in MDAnalysis version 2.0.
+  category=DeprecationWarning
+</pre></div></div>
 </div>
 <p>The results of the analysis are in <code class="docutils literal notranslate"><span class="pre">density.results</span></code>.</p>
 <div class="nbinput docutils container">
@@ -706,7 +716,7 @@ dict_keys([&#39;dim&#39;, &#39;slice volume&#39;, &#39;pos&#39;, &#39;pos_std&#3
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&lt;matplotlib.lines.Line2D at 0x112cbe198&gt;]
+[&lt;matplotlib.lines.Line2D at 0x7fa363aeae50&gt;]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -719,8 +729,8 @@ dict_keys([&#39;dim&#39;, &#39;slice volume&#39;, &#39;pos&#39;, &#39;pos_std&#3
 </div>
 <div class="section" id="References">
 <h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
-<p>[1] Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164">https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164</a>, doi:10.1016/j.jmb.2009.09.009.</p>
-<p>[2] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
+<p>[1] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
+<p>[2] Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>, doi:10.1002/jcc.21787.</p>
 </div>
 </div>
 

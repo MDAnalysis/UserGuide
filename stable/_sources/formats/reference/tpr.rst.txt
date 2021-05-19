@@ -11,7 +11,13 @@ A GROMACS TPR file is a portable binary run input file. It contains both topolog
 
 .. important:: **Atom ids, residue resids, and molnums**
 
-    GROMACS indexes atom numbers and residue numbers from 1 in user-readable files. However, the MDAnalysis TPRParser creates atom :code:`ids` and residue :code:`resids` *from 0*. This means that if your atom is numbered 3 in your GRO, ITP, or TOP file, it will have an :code:`Atom.id` of 2 in MDAnalysis. Likewise, if your residue ALA has a residue number of 4 in your GRO file, it will have a :code:`Residue.resid` number of 3 in MDAnalysis. Finally, molecules are also numbered from 0, in the attribute :code:`molnums`.
+    GROMACS indexes atom numbers and residue numbers from 1 in user-readable files.
+    However, the MDAnalysis TPRParser creates atom :code:`ids` and residue :code:`resids` *from 0*.
+    This means that if your atom is numbered 3 in your GRO, ITP, or TOP file, it will have an :code:`Atom.id` of 2 in MDAnalysis.
+    Likewise, if your residue ALA has a residue number of 4 in your GRO file, it will have a :code:`Residue.resid` number of 3 in MDAnalysis.
+    Finally, molecules are also numbered from 0, in the attribute :code:`molnums`.
+
+    **This will change in version 2.0.0. The TPRParser will number resids, ids, etc. from 1 to be consistent with other formats.**
 
     Atom :code:`indices` and residue :code:`resindices` are MDAnalysis derived and always index from 0, no matter the file type.
 
