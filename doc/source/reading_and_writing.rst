@@ -89,6 +89,7 @@ The most straightforward way to do this is to pass ``in_memory=True`` to :class:
 automatically transfers a trajectory to memory:
 
 .. ipython:: python
+    :okwarning:
 
     from MDAnalysis.tests.datafiles import TPR, XTC
 
@@ -106,6 +107,7 @@ time with the
 of a :class:`~MDAnalysis.core.universe.Universe`:
 
 .. ipython:: python
+    :okwarning:
 
     universe = mda.Universe(TPR, XTC)
     universe.transfer_to_memory()
