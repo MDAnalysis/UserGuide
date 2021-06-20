@@ -312,7 +312,11 @@ jupyter labextension install @jupyter-widgets/jupyterlab-manager
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/MDAnalysis/mdanalysis
 <span class="nb">cd</span> mdanalysis
 <span class="c1"># assuming you have already installed required dependencies</span>
-pip install -e .
+pip install -e package/
+</pre></div>
+</div>
+<p>And to install the test suite:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -e testsuite/
 </pre></div>
 </div>
 <div class="section" id="testing">
