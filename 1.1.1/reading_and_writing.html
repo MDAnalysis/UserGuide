@@ -144,7 +144,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#frames-and-trajectories">Frames and trajectories</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#pickling">Pickling</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="formats/index.html">Format overview</a></li>
@@ -360,13 +359,13 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/1.1.1/docum
 
 <span class="gp">In [16]: </span><span class="n">universe</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[16]: </span><span class="go"></span>
-<span class="go">array([[0.61894715, 0.361172  , 0.83071506],</span>
-<span class="go">       [0.18916209, 0.42246312, 0.6216186 ],</span>
-<span class="go">       [0.7825626 , 0.96284264, 0.58995694],</span>
+<span class="go">array([[0.85640633, 0.7302515 , 0.03675731],</span>
+<span class="go">       [0.48963854, 0.6397229 , 0.8761021 ],</span>
+<span class="go">       [0.6064224 , 0.06884933, 0.22951967],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.44921532, 0.35971004, 0.35080132],</span>
-<span class="go">       [0.0402739 , 0.42140728, 0.683255  ],</span>
-<span class="go">       [0.39386958, 0.03051492, 0.28780055]], dtype=float32)</span>
+<span class="go">       [0.25642064, 0.9463705 , 0.70328534],</span>
+<span class="go">       [0.74235964, 0.05944894, 0.10017929],</span>
+<span class="go">       [0.8805772 , 0.25984895, 0.31933096]], dtype=float32)</span>
 </pre></div>
 </div>
 <p>or they can be directly passed in when creating a Universe.</p>
@@ -374,13 +373,13 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/1.1.1/docum
 
 <span class="gp">In [18]: </span><span class="n">universe2</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[18]: </span><span class="go"></span>
-<span class="go">array([[0.61894715, 0.361172  , 0.83071506],</span>
-<span class="go">       [0.18916209, 0.42246312, 0.6216186 ],</span>
-<span class="go">       [0.7825626 , 0.96284264, 0.58995694],</span>
+<span class="go">array([[0.85640633, 0.7302515 , 0.03675731],</span>
+<span class="go">       [0.48963854, 0.6397229 , 0.8761021 ],</span>
+<span class="go">       [0.6064224 , 0.06884933, 0.22951967],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.44921532, 0.35971004, 0.35080132],</span>
-<span class="go">       [0.0402739 , 0.42140728, 0.683255  ],</span>
-<span class="go">       [0.39386958, 0.03051492, 0.28780055]], dtype=float32)</span>
+<span class="go">       [0.25642064, 0.9463705 , 0.70328534],</span>
+<span class="go">       [0.74235964, 0.05944894, 0.10017929],</span>
+<span class="go">       [0.8805772 , 0.25984895, 0.31933096]], dtype=float32)</span>
 </pre></div>
 </div>
 </div>
@@ -417,103 +416,6 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/1.1.1/docum
 </pre></div>
 </div>
 <p>You can pass keyword arguments to some format writers. For example, the <a class="reference internal" href="formats/reference/data.html#data-format"><span class="std std-ref">LAMMPS DATA</span></a> format allows the <code class="docutils literal notranslate"><span class="pre">lengthunit</span></code> and <code class="docutils literal notranslate"><span class="pre">timeunit</span></code> keywords to specify the output units.</p>
-</div>
-</div>
-<div class="section" id="pickling">
-<h2>Pickling<a class="headerlink" href="#pickling" title="Permalink to this headline">¶</a></h2>
-<p>MDAnalysis supports pickling of most of its data structures and trajectory formats. Unsupported attributes can be found in PR <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/issues/2887">#2887</a>.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [19]: </span><span class="kn">import</span> <span class="nn">pickle</span>
-
-<span class="gp">In [20]: </span><span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span>
-
-<span class="gp">In [21]: </span><span class="n">psf</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
-
-<span class="gp">In [22]: </span><span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">psf</span><span class="p">))</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NotImplementedError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">22</span><span class="o">-</span><span class="n">b42e836d3096</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">psf</span><span class="p">))</span>
-
-<span class="nn">/usr/share/miniconda/envs/mda-user-guide/lib/python3.7/site-packages/MDAnalysis/core/universe.py</span> in <span class="ni">__getstate__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">745</span> 
-<span class="g g-Whitespace">    </span><span class="mi">746</span>     <span class="k">def</span> <span class="nf">__getstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">747</span>         <span class="k">raise</span> <span class="ne">NotImplementedError</span>
-<span class="g g-Whitespace">    </span><span class="mi">748</span> 
-<span class="g g-Whitespace">    </span><span class="mi">749</span>     <span class="k">def</span> <span class="nf">__setstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
-
-<span class="ne">NotImplementedError</span>: 
-</pre></div>
-</div>
-<p>As for <a class="reference external" href="https://docs.mdanalysis.org/1.1.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.core.groups.AtomGroup</span></code></a>, during serialization, it will be pickled with its bound
-<a class="reference external" href="https://docs.mdanalysis.org/1.1.1/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.core.universe.Universe</span></code></a>. This means that after unpickling,
-a new <a class="reference external" href="https://docs.mdanalysis.org/1.1.1/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.core.universe.Universe</span></code></a> will be created and
-be attached to the new <a class="reference external" href="https://docs.mdanalysis.org/1.1.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.core.groups.AtomGroup</span></code></a>. If the Universe is serialized
-with its <a class="reference external" href="https://docs.mdanalysis.org/1.1.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.core.groups.AtomGroup</span></code></a>, they will still be bound together afterwards:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [23]: </span><span class="kn">import</span> <span class="nn">pickle</span>
-
-<span class="gp">In [24]: </span><span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span>
-
-<span class="gp">In [25]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
-
-<span class="gp">In [26]: </span><span class="n">g</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span>
-
-<span class="gp">In [27]: </span><span class="n">g_pickled</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">g</span><span class="p">))</span>
-
-<span class="gp">In [28]: </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;g_pickled.universe is u: &quot;</span><span class="p">,</span> <span class="n">u</span> <span class="ow">is</span> <span class="n">g_pickled</span><span class="o">.</span><span class="n">universe</span><span class="p">)</span>
-<span class="go">g_pickled.universe is u:  True</span>
-
-<span class="gp">In [29]: </span><span class="n">g_pickled</span><span class="p">,</span> <span class="n">u_pickled</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">((</span><span class="n">g</span><span class="p">,</span> <span class="n">u</span><span class="p">)))</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NotImplementedError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">29</span><span class="o">-</span><span class="mi">9</span><span class="n">bc0d65a8459</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">g_pickled</span><span class="p">,</span> <span class="n">u_pickled</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">((</span><span class="n">g</span><span class="p">,</span> <span class="n">u</span><span class="p">)))</span>
-
-<span class="nn">/usr/share/miniconda/envs/mda-user-guide/lib/python3.7/site-packages/MDAnalysis/core/universe.py</span> in <span class="ni">__getstate__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">745</span> 
-<span class="g g-Whitespace">    </span><span class="mi">746</span>     <span class="k">def</span> <span class="nf">__getstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">747</span>         <span class="k">raise</span> <span class="ne">NotImplementedError</span>
-<span class="g g-Whitespace">    </span><span class="mi">748</span> 
-<span class="g g-Whitespace">    </span><span class="mi">749</span>     <span class="k">def</span> <span class="nf">__setstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
-
-<span class="ne">NotImplementedError</span>: 
-
-<span class="gp">In [30]: </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;g_pickled.universe is u_pickled: &quot;</span><span class="p">,</span>
-<span class="gp">   ....: </span>       <span class="n">u_pickled</span> <span class="ow">is</span> <span class="n">g_pickled</span><span class="o">.</span><span class="n">universe</span><span class="p">)</span>
-<span class="gp">   ....: </span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">30</span><span class="o">-</span><span class="mi">680</span><span class="n">b1c4d2f4c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;g_pickled.universe is u_pickled: &quot;</span><span class="p">,</span>
-<span class="ne">----&gt; </span><span class="mi">2</span>        <span class="n">u_pickled</span> <span class="ow">is</span> <span class="n">g_pickled</span><span class="o">.</span><span class="n">universe</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;u_pickled&#39; is not defined
-</pre></div>
-</div>
-<p>If multiple <a class="reference external" href="https://docs.mdanalysis.org/1.1.1/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v1.1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.core.groups.AtomGroup</span></code></a>s are bound to the same
-<a class="reference external" href="https://docs.mdanalysis.org/1.1.1/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.core.universe.Universe</span></code></a>, they will also be bound to the same one
-after serialization:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [31]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
-
-<span class="gp">In [32]: </span><span class="n">g</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
-
-<span class="gp">In [33]: </span><span class="n">h</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
-
-<span class="gp">In [34]: </span><span class="n">g_pickled</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">g</span><span class="p">))</span>
-
-<span class="gp">In [35]: </span><span class="n">h_pickled</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
-
-<span class="gp">In [36]: </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;g_pickled.universe is h_pickled.universe : &quot;</span><span class="p">,</span>
-<span class="gp">   ....: </span>       <span class="n">g_pickled</span><span class="o">.</span><span class="n">universe</span> <span class="ow">is</span> <span class="n">h_pickled</span><span class="o">.</span><span class="n">universe</span><span class="p">)</span>
-<span class="gp">   ....: </span>
-<span class="go">g_pickled.universe is h_pickled.universe :  True</span>
-
-<span class="gp">In [37]: </span><span class="n">g_pickled</span><span class="p">,</span> <span class="n">h_pickled</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">((</span><span class="n">g</span><span class="p">,</span> <span class="n">h</span><span class="p">)))</span>
-
-<span class="gp">In [38]: </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;g_pickled.universe is h_pickled.universe: &quot;</span><span class="p">,</span>
-<span class="gp">   ....: </span>       <span class="n">g_pickled</span><span class="o">.</span><span class="n">universe</span> <span class="ow">is</span> <span class="n">h_pickled</span><span class="o">.</span><span class="n">universe</span><span class="p">)</span>
-<span class="gp">   ....: </span>
-<span class="go">g_pickled.universe is h_pickled.universe:  True</span>
-</pre></div>
 </div>
 </div>
 </div>
