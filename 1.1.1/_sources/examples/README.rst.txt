@@ -19,6 +19,7 @@ each notebook on `Binder`_.
    quickstart
    constructing_universe
    transformations/README
+   other/README
 
 .. toctree::
    :maxdepth: 2

@@ -11,3 +11,4 @@ MDAnalysis has several analyses specifically for polymers, membranes, and membra
 
    /examples/analysis/polymers_and_membranes/polymer
    /examples/analysis/polymers_and_membranes/hole
+   /examples/analysis/polymers_and_membranes/hole2

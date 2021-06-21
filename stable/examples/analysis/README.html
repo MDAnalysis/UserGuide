@@ -176,15 +176,17 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#volumetric-analyses">Volumetric analyses</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="volumetric/linear_density.html">Computing mass and charge density on each axis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="volumetric/density_analysis.html">Calculating the solvent density around a protein</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#dimension-reduction">Dimension reduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="reduced_dimensions/pca.html">Principal component analysis of a trajectory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reduced_dimensions/diffusion_map.html">Non-linear dimension reduction to diffusion maps</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#polymers-and-membranes">Polymers and membranes</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="polymers_and_membranes/polymer.html">Determining the persistence length of a polymer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="polymers_and_membranes/hole.html">Analysing pore dimensions with HOLE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymers_and_membranes/hole.html">(Deprecated) Analysing pore dimensions with HOLE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polymers_and_membranes/hole2.html">Analysing pore dimensions with HOLE2</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
@@ -304,7 +306,14 @@ the <a class="reference external" href="http://www.holeprogram.org/">HOLE</a> pr
 </div>
 <div class="section" id="alignments-and-rms-fitting">
 <span id="alignment-and-rms"></span><h1>Alignments and RMS fitting<a class="headerlink" href="#alignments-and-rms-fitting" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference external" href="https://docs.mdanalysis.org/1.1.1/documentation_pages/analysis/align.html#module-MDAnalysis.analysis.align" title="(in MDAnalysis v1.1.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.align</span></code></a> and <a class="reference external" href="https://docs.mdanalysis.org/1.1.1/documentation_pages/analysis/rms.html#module-MDAnalysis.analysis.rms" title="(in MDAnalysis v1.1.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.rms</span></code></a> modules contain the functions used for aligning structures, aligning trajectories, and calculating root mean squared quantities.</p>
+<p>The <a class="reference external" href="https://docs.mdanalysis.org/1.1.1/documentation_pages/analysis/align.html#module-MDAnalysis.analysis.align" title="(in MDAnalysis v1.1.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.align</span></code></a> and <a class="reference external" href="https://docs.mdanalysis.org/1.1.1/documentation_pages/analysis/rms.html#module-MDAnalysis.analysis.rms" title="(in MDAnalysis v1.1.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.rms</span></code></a>
+modules contain the functions used for aligning structures,
+aligning trajectories, and calculating root mean squared quantities.</p>
+<p>Demonstrations of alignment are in <a class="reference external" href="/examples/analysis/alignment_and_rms/aligning_structure_to_another.ipynb">align_structure</a>,
+<a class="reference external" href="/examples/analysis/alignment_and_rms/aligning_trajectory_to_first_frame.ipynb">align_trajectory_first</a>, and <a class="reference external" href="/examples/analysis/alignment_and_rms/aligning_trajectory.ipynb">align_trajectory</a>. Another example of
+generating an average structure from an alignment is demonstrated in
+<a class="reference external" href="/examples/analysis/alignment_and_rms/rmsf.ipynb">rmsf</a>. Typically, trajectories need to be aligned for RMSD and
+RMSF values to make sense.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>These modules use the fast QCP algorithm to calculate the root mean
@@ -373,18 +382,24 @@ cite these references when using these modules.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="volumetric/linear_density.html">Computing mass and charge density on each axis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="volumetric/density_analysis.html">Calculating the solvent density around a protein</a></li>
 </ul>
 </div>
 </div>
 <div class="section" id="dimension-reduction">
 <h1>Dimension reduction<a class="headerlink" href="#dimension-reduction" title="Permalink to this headline">¶</a></h1>
-<p>A molecular dynamics trajectory with <span class="math notranslate nohighlight">\(N\)</span> atoms can be considered through a path through <span class="math notranslate nohighlight">\(3N\)</span>-dimensional molecular configuration space. It remains difficult to extract important dynamics or compare trajectory similarity from such a high-dimensional space. However, collective motions and physically relevant states can often be effectively described with low-dimensional representations of the conformational space explored over the trajectory. MDAnalysis implements two methods for dimensionality reduction.</p>
-<p><strong>Principal component analysis</strong> is a common linear dimensionality reduction technique that maps the coordinates in each frame of your trajectory to a linear combination of orthogonal vectors. The vectors are called <em>principal components</em>, and they are ordered such that the first principal component accounts for the most variance in the original data (i.e. the largest uncorrelated motion in your trajectory), and each successive component accounts for less and less variance. Trajectory coordinates can be transformed onto a lower-dimensional space (<em>essential subspace</em>) constructed from these principal components in order to compare conformations. Your trajectory can also be projected onto each principal component in order to visualise the motion described by that component.</p>
-<p><strong>Diffusion maps</strong> are a non-linear dimensionality reduction technique that embeds the coordinates of each frame onto a lower-dimensional space, such that the distance between each frame in the lower-dimensional space represents their “diffusion distance”, or similarity. It integrates local information about the similarity of each point to its neighours, into a global geometry of the intrinsic manifold. This means that this technique is not suitable for trajectories where the transitions between conformational states is not well-sampled (e.g. replica exchange simulations), as the regions may become disconnected and a meaningful global geometry cannot be approximated. Unlike PCA, there is no explicit mapping between the components of the lower-dimensional space and the original atomic coordinates; no physical interpretation of the eigenvectors is immediately available.</p>
+<p>A molecular dynamics trajectory with <span class="math notranslate nohighlight">\(N\)</span> atoms can be considered
+a path through <span class="math notranslate nohighlight">\(3N\)</span>-dimensional molecular configuration space.
+It remains difficult to extract important dynamics or compare trajectory
+similarity from such a high-dimensional space. However, collective motions
+and physically relevant states can often be effectively described with
+low-dimensional representations of the conformational space explored over
+the trajectory. MDAnalysis implements two methods for dimensionality
+reduction.</p>
 <p>For computing similarity, see the tutorials in <a class="reference internal" href="trajectory_similarity/README.html#trajectory-similarity"><span class="std std-ref">Trajectory similarity</span></a>.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="reduced_dimensions/pca.html">Principal component analysis of a trajectory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reduced_dimensions/diffusion_map.html">Non-linear dimension reduction to diffusion maps</a></li>
 </ul>
 </div>
 </div>
@@ -394,7 +409,8 @@ cite these references when using these modules.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="polymers_and_membranes/polymer.html">Determining the persistence length of a polymer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="polymers_and_membranes/hole.html">Analysing pore dimensions with HOLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="polymers_and_membranes/hole.html">(Deprecated) Analysing pore dimensions with HOLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="polymers_and_membranes/hole2.html">Analysing pore dimensions with HOLE2</a></li>
 </ul>
 </div>
 </div>
