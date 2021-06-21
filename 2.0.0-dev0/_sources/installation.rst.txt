@@ -84,7 +84,14 @@ To install development versions of MDAnalysis, you can compile it from source. I
     git clone https://github.com/MDAnalysis/mdanalysis
     cd mdanalysis
     # assuming you have already installed required dependencies
-    pip install -e .
+    pip install -e package/
+
+And to install the test suite:
+
+.. code-block:: bash
+
+    pip install -e testsuite/
+
 
 Testing
 -------
