@@ -17,10 +17,18 @@ env:
   SPHINX_DIR: "doc/"
   HTML_DIR: "doc/build/html"
 
+concurrency:
+  # Same overly cautious group naming as on core library
+  group: "${{ github.ref }}-${{ github.head_ref }}"
+  cancel-in-progress: true
 
 jobs:
   build_docs:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [3.6, 3.7, 3.8, 3.9]
     env:
       CYTHON_TRACE_NOGIL: 1
       MPLBACKEND: agg
@@ -31,7 +39,7 @@ jobs:
     - name: setup_miniconda
       uses: conda-incubator/setup-miniconda@v2
       with:
-        python-version: 3.7
+        python-version: ${{ matrix.python-version }}
         auto-update-conda: true
         channel-priority: flexible
         channels: plotly, conda-forge
