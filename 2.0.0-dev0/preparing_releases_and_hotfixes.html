@@ -269,13 +269,13 @@
 <ol class="arabic">
 <li><p>Declare feature freeze on <code class="docutils literal notranslate"><span class="pre">develop</span></code> via the <a class="reference external" href="https://groups.google.com/forum/#!forum/mdnalysis-devel">developer mailing list</a></p></li>
 <li><p>Create a release branch from <code class="docutils literal notranslate"><span class="pre">develop</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">release</span><span class="o">-</span><span class="mf">0.7</span><span class="o">.</span><span class="mi">6</span> <span class="n">develop</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">release</span><span class="o">-</span><span class="mf">0.7.6</span> <span class="n">develop</span>
 </pre></div>
 </div>
 </li>
 <li><p>Finalise the <code class="docutils literal notranslate"><span class="pre">CHANGELOG</span></code> with the release number and date. Summarize important changes and add all authors that contributed to this release.</p></li>
 <li><p>Make sure the version number is right:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">maintainer</span><span class="o">/</span><span class="n">change_release</span><span class="o">.</span><span class="n">sh</span> <span class="mf">0.7</span><span class="o">.</span><span class="mi">6</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">maintainer</span><span class="o">/</span><span class="n">change_release</span><span class="o">.</span><span class="n">sh</span> <span class="mf">0.7.6</span>
 </pre></div>
 </div>
 </li>
@@ -326,16 +326,16 @@ python setup.py build --build-lib<span class="o">=</span>.
 </li>
 <li><p>If everything works, merge the branch into master and tag the release:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">master</span>
-<span class="n">git</span> <span class="n">merge</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">ff</span> <span class="n">release</span><span class="o">-</span><span class="mf">0.7</span><span class="o">.</span><span class="mi">6</span>
-<span class="n">git</span> <span class="n">tag</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;release 0.7.5 of MDAnalysis and MDAnalysisTests&#39;</span> <span class="n">release</span><span class="o">-</span><span class="mf">0.7</span><span class="o">.</span><span class="mi">5</span>
+<span class="n">git</span> <span class="n">merge</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">ff</span> <span class="n">release</span><span class="o">-</span><span class="mf">0.7.6</span>
+<span class="n">git</span> <span class="n">tag</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;release 0.7.5 of MDAnalysis and MDAnalysisTests&#39;</span> <span class="n">release</span><span class="o">-</span><span class="mf">0.7.5</span>
 <span class="n">git</span> <span class="n">push</span> <span class="o">--</span><span class="n">tags</span> <span class="n">origin</span> <span class="n">master</span>
 </pre></div>
 </div>
 </li>
 <li><p>Merge the branch back into <code class="docutils literal notranslate"><span class="pre">develop</span></code> (this is not required if the only change was the version number):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">develop</span>
-<span class="n">git</span> <span class="n">merge</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">ff</span> <span class="n">release</span><span class="o">-</span><span class="mf">0.7</span><span class="o">.</span><span class="mi">6</span>
-<span class="o">./</span><span class="n">maintainer</span><span class="o">/</span><span class="n">change_release</span><span class="o">.</span><span class="n">sh</span> <span class="mf">0.7</span><span class="o">.</span><span class="mi">7</span><span class="o">-</span><span class="n">devel</span>
+<span class="n">git</span> <span class="n">merge</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">ff</span> <span class="n">release</span><span class="o">-</span><span class="mf">0.7.6</span>
+<span class="o">./</span><span class="n">maintainer</span><span class="o">/</span><span class="n">change_release</span><span class="o">.</span><span class="n">sh</span> <span class="mf">0.7.7</span><span class="o">-</span><span class="n">devel</span>
 <span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;version number changed to 0.7.7-devel&quot;</span>
 </pre></div>
 </div>
@@ -379,7 +379,7 @@ python setup.py build --build-lib<span class="o">=</span>.
 </li>
 <li><p>Create a ReleaseXYZ wiki page, modelled after e.g. <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/wiki/Release062">Release062</a> (using the <code class="docutils literal notranslate"><span class="pre">CHANGELOG</span></code> as a reference). Add it to the <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/wiki/Release-Notes">Release Notes</a>.</p></li>
 <li><p>Delete the release branch:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">d</span> <span class="n">release</span><span class="o">-</span><span class="mf">0.7</span><span class="o">.</span><span class="mi">6</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">d</span> <span class="n">release</span><span class="o">-</span><span class="mf">0.7.6</span>
 </pre></div>
 </div>
 </li>

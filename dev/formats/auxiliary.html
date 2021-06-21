@@ -288,7 +288,7 @@ reader for .xvg files.</p></td>
 <span class="gp">In [3]: </span><span class="n">aux</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">auxreader</span><span class="p">(</span><span class="n">XVG_BZ2</span><span class="p">)</span>
 
 <span class="gp">In [4]: </span><span class="n">aux</span>
-<span class="gh">Out[4]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7f8dfbd87810&gt;</span>
+<span class="gh">Out[4]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7f303cc69c90&gt;</span>
 </pre></div>
 </div>
 <p>In stand-alone use, an auxiliary reader allows you to iterate over each step in a set of auxiliary data.</p>
@@ -310,7 +310,7 @@ reader for .xvg files.</p></td>
 <span class="go">50.0</span>
 </pre></div>
 </div>
-<p>The <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/auxiliary/core.html#MDAnalysis.auxiliary.core.auxreader" title="(in MDAnalysis v1.0.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">auxreader()</span></code></a> function uses the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/auxiliary/core.html#MDAnalysis.auxiliary.core.get_auxreader_for" title="(in MDAnalysis v1.0.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_auxreader_for()</span></code></a> to return an appropriate class. This can guess the format either from a filename, ‘</p>
+<p>The <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/auxiliary/core.html#MDAnalysis.auxiliary.core.auxreader" title="(in MDAnalysis v1.1.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">auxreader()</span></code></a> function uses the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/auxiliary/core.html#MDAnalysis.auxiliary.core.get_auxreader_for" title="(in MDAnalysis v1.1.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_auxreader_for()</span></code></a> to return an appropriate class. This can guess the format either from a filename, ‘</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">mda</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">get_auxreader_for</span><span class="p">(</span><span class="n">XVG_BZ2</span><span class="p">)</span>
 <span class="gh">Out[7]: </span><span class="go">MDAnalysis.auxiliary.XVG.XVGReader</span>
 </pre></div>
@@ -324,9 +324,9 @@ reader for .xvg files.</p></td>
 <div class="section" id="loading-data-into-a-universe">
 <h2>Loading data into a Universe<a class="headerlink" href="#loading-data-into-a-universe" title="Permalink to this headline">¶</a></h2>
 <p>Auxiliary data may be added to a trajectory Reader through the
-<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.add_auxiliary" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_auxiliary()</span></code></a> method. Auxiliary data
+<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.add_auxiliary" title="(in MDAnalysis v1.1.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_auxiliary()</span></code></a> method. Auxiliary data
 may be passed in as a AuxReader instance, or directly as e.g. a filename, in
-which case <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/auxiliary/core.html#MDAnalysis.auxiliary.core.get_auxreader_for" title="(in MDAnalysis v1.0.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_auxreader_for()</span></code></a> is used to
+which case <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/auxiliary/core.html#MDAnalysis.auxiliary.core.get_auxreader_for" title="(in MDAnalysis v1.1.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_auxreader_for()</span></code></a> is used to
 guess an appropriate reader.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PDB_xvf</span><span class="p">,</span> <span class="n">TRR_xvf</span>
 
@@ -382,9 +382,9 @@ trajectory. If there are no auxiliary steps assigned to a given timestep (or non
 <span class="go">900.0000610351562 [nan nan nan nan]</span>
 </pre></div>
 </div>
-<p>The trajectory <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProtoReader</span></code></a> methods
-<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.next_as_aux" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">next_as_aux()</span></code></a> and
-<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.iter_as_aux" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iter_as_aux()</span></code></a> allow for movement
+<p>The trajectory <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader" title="(in MDAnalysis v1.1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProtoReader</span></code></a> methods
+<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.next_as_aux" title="(in MDAnalysis v1.1.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">next_as_aux()</span></code></a> and
+<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.iter_as_aux" title="(in MDAnalysis v1.1.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iter_as_aux()</span></code></a> allow for movement
 through only trajectory timesteps for which auxiliary data is available.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [17]: </span><span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">u_long</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">iter_as_aux</span><span class="p">(</span><span class="s1">&#39;protein_force&#39;</span><span class="p">):</span>
 <span class="gp">   ....: </span>    <span class="nb">print</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">ts</span><span class="o">.</span><span class="n">aux</span><span class="o">.</span><span class="n">protein_force</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span>
@@ -410,7 +410,7 @@ is less frequent.</p>
 </div>
 <p>In order to acess auxiliary values at every individual step, including those
 outside the time range of the trajectory,
-<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.iter_auxiliary" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iter_auxiliary()</span></code></a> allows iteration
+<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.iter_auxiliary" title="(in MDAnalysis v1.1.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iter_auxiliary()</span></code></a> allows iteration
 over the auxiliary independent of the trajectory.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [21]: </span><span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">u_short</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">iter_auxiliary</span><span class="p">(</span><span class="s1">&#39;protein_force&#39;</span><span class="p">):</span>
 <span class="gp">   ....: </span>    <span class="nb">print</span><span class="p">(</span><span class="n">step</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
@@ -436,18 +436,18 @@ timestep after iteration is complete.</p>
 <div class="section" id="accessing-auxiliary-attributes">
 <h2>Accessing auxiliary attributes<a class="headerlink" href="#accessing-auxiliary-attributes" title="Permalink to this headline">¶</a></h2>
 <p>To check the values of attributes of an added auxiliary, use
-<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.get_aux_attribute" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_aux_attribute()</span></code></a>.</p>
+<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.get_aux_attribute" title="(in MDAnalysis v1.1.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_aux_attribute()</span></code></a>.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [23]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">get_aux_attribute</span><span class="p">(</span><span class="s1">&#39;protein_force&#39;</span><span class="p">,</span> <span class="s1">&#39;dt&#39;</span><span class="p">)</span>
 <span class="gh">Out[23]: </span><span class="go">50.0</span>
 </pre></div>
 </div>
 <p>If attributes are settable, they can be changed using
-<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.set_aux_attribute" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_aux_attribute()</span></code></a>.</p>
+<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.set_aux_attribute" title="(in MDAnalysis v1.1.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_aux_attribute()</span></code></a>.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [24]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">set_aux_attribute</span><span class="p">(</span><span class="s1">&#39;protein_force&#39;</span><span class="p">,</span> <span class="s1">&#39;data_selector&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>The auxiliary may be renamed using <code class="docutils literal notranslate"><span class="pre">set_aux_attribute</span></code> with ‘auxname’, or more
-directly by using <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.rename_aux" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">rename_aux()</span></code></a>.</p>
+directly by using <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.rename_aux" title="(in MDAnalysis v1.1.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">rename_aux()</span></code></a>.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [25]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">ts</span><span class="o">.</span><span class="n">aux</span><span class="o">.</span><span class="n">protein_force</span>
 <span class="gh">Out[25]: </span><span class="go"></span>
 <span class="go">array([    0.     ,   200.71288, -1552.2849 , ...,   128.4072 ,</span>
@@ -465,9 +465,9 @@ directly by using <a class="reference external" href="https://docs.mdanalysis.or
 <div class="section" id="recreating-auxiliaries">
 <h2>Recreating auxiliaries<a class="headerlink" href="#recreating-auxiliaries" title="Permalink to this headline">¶</a></h2>
 <p>To recreate an auxiliary, the set of attributes necessary to replicate it can
-first be obtained with <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/auxiliary/base.html#MDAnalysis.auxiliary.base.AuxReader.get_description" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_description()</span></code></a>.
+first be obtained with <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/auxiliary/base.html#MDAnalysis.auxiliary.base.AuxReader.get_description" title="(in MDAnalysis v1.1.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_description()</span></code></a>.
 The returned dictionary can then be passed to
-<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/auxiliary/core.html#MDAnalysis.auxiliary.core.auxreader" title="(in MDAnalysis v1.0.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">auxreader()</span></code></a> to load a new copy of the
+<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/auxiliary/core.html#MDAnalysis.auxiliary.core.auxreader" title="(in MDAnalysis v1.1.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">auxreader()</span></code></a> to load a new copy of the
 original auxiliary reader.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [28]: </span><span class="n">description</span> <span class="o">=</span> <span class="n">aux</span><span class="o">.</span><span class="n">get_description</span><span class="p">()</span>
 
@@ -487,15 +487,15 @@ original auxiliary reader.</p>
 <span class="gp">In [30]: </span><span class="k">del</span> <span class="n">aux</span>
 
 <span class="gp">In [31]: </span><span class="n">mda</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">auxreader</span><span class="p">(</span><span class="o">**</span><span class="n">description</span><span class="p">)</span>
-<span class="gh">Out[31]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7f8e128da6d0&gt;</span>
+<span class="gh">Out[31]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7f3025d6b290&gt;</span>
 </pre></div>
 </div>
 <p>The ‘description’ of any or all the auxiliaries added to a trajectory can be
-obtained using <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.get_aux_descriptions" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_aux_descriptions()</span></code></a>.</p>
+obtained using <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.get_aux_descriptions" title="(in MDAnalysis v1.1.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_aux_descriptions()</span></code></a>.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [32]: </span><span class="n">descriptions</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">get_aux_descriptions</span><span class="p">([</span><span class="s1">&#39;f&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>To reload, pass the dictionary into <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.add_auxiliary" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_auxiliary()</span></code></a>.</p>
+<p>To reload, pass the dictionary into <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.add_auxiliary" title="(in MDAnalysis v1.1.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_auxiliary()</span></code></a>.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">u2</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PDB</span><span class="p">,</span> <span class="n">TRR</span><span class="p">)</span>
 
 <span class="gp">In [2]: </span><span class="k">for</span> <span class="n">desc</span> <span class="ow">in</span> <span class="n">descriptions</span><span class="p">:</span>

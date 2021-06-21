@@ -238,7 +238,7 @@
 </div></blockquote>
 <p>Although these properties look static, they are actually dynamic, and the data contained within can change.
 In order to remain memory-efficient, MDAnalysis does not load every frame of your trajectory into memory at once. Instead, a Universe has a state: the particular timestep that it is currently associated with in the trajectory. When the timestep changes, the data in the properties above shifts accordingly.</p>
-<p>The typical way to change a timestep is to index it. <code class="docutils literal notranslate"><span class="pre">Universe.trajectory</span></code> can be thought of as a list of <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.Timestep" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Timestep</span></code></a>s, a data structure that holds information for the current time frame. For example, you can query its length.</p>
+<p>The typical way to change a timestep is to index it. <code class="docutils literal notranslate"><span class="pre">Universe.trajectory</span></code> can be thought of as a list of <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.Timestep" title="(in MDAnalysis v1.1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Timestep</span></code></a>s, a data structure that holds information for the current time frame. For example, you can query its length.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 
 <span class="gp">In [2]: </span><span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span>
@@ -251,12 +251,12 @@ In order to remain memory-efficient, MDAnalysis does not load every frame of you
 </div>
 <p>When a trajectory is first loaded from a file, it is set to the first frame (with index 0), by default.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">ts</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
-<span class="go">&lt; Timestep 0 with unit cell dimensions [ 0.  0.  0. 90. 90. 90.] &gt; 0.9999999119200186</span>
+<span class="go">&lt; Timestep 0 with unit cell dimensions None &gt; 0.9999999119200186</span>
 </pre></div>
 </div>
 <p>Indexing the trajectory returns the timestep for that frame, and sets the Universe to point to that frame until the timestep next changes.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
-<span class="gh">Out[6]: </span><span class="go">&lt; Timestep 3 with unit cell dimensions [ 0.  0.  0. 90. 90. 90.] &gt;</span>
+<span class="gh">Out[6]: </span><span class="go">&lt; Timestep 3 with unit cell dimensions None &gt;</span>
 </pre></div>
 </div>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Time of fourth frame&#39;</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>

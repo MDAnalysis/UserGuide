@@ -280,10 +280,10 @@
 <p class="admonition-title">Note</p>
 <p>While you can set <code class="docutils literal notranslate"><span class="pre">continuous=True</span></code> for either XTC or TRR files, you cannot mix different formats.</p>
 </div>
-<p>More information can be found at the API reference for <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/chain.html#MDAnalysis.coordinates.chain.ChainReader" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChainReader</span></code></a>.</p>
+<p>More information can be found at the API reference for <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/chain.html#MDAnalysis.coordinates.chain.ChainReader" title="(in MDAnalysis v1.1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChainReader</span></code></a>.</p>
 <div class="section" id="trajectory-formats">
 <h4>Trajectory formats<a class="headerlink" href="#trajectory-formats" title="Permalink to this headline">¶</a></h4>
-<p>If no <code class="docutils literal notranslate"><span class="pre">format</span></code> keyword is provided, <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/chain.html#MDAnalysis.coordinates.chain.ChainReader" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChainReader</span></code></a> will try to guess the format for each file from its extension. You can force <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/chain.html#MDAnalysis.coordinates.chain.ChainReader" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChainReader</span></code></a> to use the same format for every file by using the <code class="docutils literal notranslate"><span class="pre">format</span></code> keyword. You can also specify which format to use by file, by passing in a sequence of <code class="docutils literal notranslate"><span class="pre">(filename,</span> <span class="pre">format)</span></code> tuples.</p>
+<p>If no <code class="docutils literal notranslate"><span class="pre">format</span></code> keyword is provided, <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/chain.html#MDAnalysis.coordinates.chain.ChainReader" title="(in MDAnalysis v1.1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChainReader</span></code></a> will try to guess the format for each file from its extension. You can force <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/chain.html#MDAnalysis.coordinates.chain.ChainReader" title="(in MDAnalysis v1.1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChainReader</span></code></a> to use the same format for every file by using the <code class="docutils literal notranslate"><span class="pre">format</span></code> keyword. You can also specify which format to use by file, by passing in a sequence of <code class="docutils literal notranslate"><span class="pre">(filename,</span> <span class="pre">format)</span></code> tuples.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 
 <span class="gp">In [2]: </span><span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PDB</span><span class="p">,</span> <span class="n">GRO</span>
@@ -305,33 +305,33 @@ trajectory to memory. This makes it possible to
 operate on raw coordinates using existing MDAnalysis tools. In
 addition, it allows the user to make changes to the coordinates in a
 trajectory (e.g. through
-<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.positions" title="(in MDAnalysis v1.0.1)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">AtomGroup.positions</span></code></a>) without having
+<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.positions" title="(in MDAnalysis v1.1.1)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">AtomGroup.positions</span></code></a>) without having
 to write the entire state to file.</p>
-<p>The most straightforward way to do this is to pass <code class="docutils literal notranslate"><span class="pre">in_memory=True</span></code> to <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a>, which
+<p>The most straightforward way to do this is to pass <code class="docutils literal notranslate"><span class="pre">in_memory=True</span></code> to <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a>, which
 automatically transfers a trajectory to memory:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">TPR</span><span class="p">,</span> <span class="n">XTC</span>
 
 <span class="gp">In [6]: </span><span class="n">universe</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">TPR</span><span class="p">,</span> <span class="n">XTC</span><span class="p">,</span> <span class="n">in_memory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>MDAnalysis uses the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/memory.html#MDAnalysis.coordinates.memory.MemoryReader" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MemoryReader</span></code></a> class to load this data in.</p>
+<p>MDAnalysis uses the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/memory.html#MDAnalysis.coordinates.memory.MemoryReader" title="(in MDAnalysis v1.1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MemoryReader</span></code></a> class to load this data in.</p>
 </div>
 <div class="section" id="transferring-trajectories-into-memory">
 <h4>Transferring trajectories into memory<a class="headerlink" href="#transferring-trajectories-into-memory" title="Permalink to this headline">¶</a></h4>
 <p>The decision to transfer the trajectory to memory can be made at any
 time with the
-<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.transfer_to_memory" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transfer_to_memory()</span></code></a> method
-of a <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a>:</p>
+<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.transfer_to_memory" title="(in MDAnalysis v1.1.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transfer_to_memory()</span></code></a> method
+of a <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a>:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">universe</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">TPR</span><span class="p">,</span> <span class="n">XTC</span><span class="p">)</span>
 
 <span class="gp">In [8]: </span><span class="n">universe</span><span class="o">.</span><span class="n">transfer_to_memory</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>This operation may take a while (passing <code class="docutils literal notranslate"><span class="pre">verbose=True</span></code> to <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.transfer_to_memory" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transfer_to_memory()</span></code></a> will display a progress bar). However, subsequent operations on the trajectory will be very fast.</p>
+<p>This operation may take a while (passing <code class="docutils literal notranslate"><span class="pre">verbose=True</span></code> to <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.transfer_to_memory" title="(in MDAnalysis v1.1.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transfer_to_memory()</span></code></a> will display a progress bar). However, subsequent operations on the trajectory will be very fast.</p>
 </div>
 <div class="section" id="building-trajectories-in-memory">
 <h4>Building trajectories in memory<a class="headerlink" href="#building-trajectories-in-memory" title="Permalink to this headline">¶</a></h4>
-<p><a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/memory.html#MDAnalysis.coordinates.memory.MemoryReader" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MemoryReader</span></code></a> can also be used to directly generate a trajectory as a numpy array.</p>
+<p><a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/memory.html#MDAnalysis.coordinates.memory.MemoryReader" title="(in MDAnalysis v1.1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MemoryReader</span></code></a> can also be used to directly generate a trajectory as a numpy array.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="kn">from</span> <span class="nn">MDAnalysisTests.datafiles</span> <span class="kn">import</span> <span class="n">PDB</span>
 
 <span class="gp">In [10]: </span><span class="kn">from</span> <span class="nn">MDAnalysis.coordinates.memory</span> <span class="kn">import</span> <span class="n">MemoryReader</span>
@@ -351,20 +351,20 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/stable/docu
 <span class="go">       [ 62.961,  47.239,   3.753]], dtype=float32)</span>
 </pre></div>
 </div>
-<p>The <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.load_new" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">load_new()</span></code></a> method can be used to load coordinates into a Universe, replacing the old coordinates:</p>
+<p>The <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.load_new" title="(in MDAnalysis v1.1.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">load_new()</span></code></a> method can be used to load coordinates into a Universe, replacing the old coordinates:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="n">coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">universe</span><span class="o">.</span><span class="n">atoms</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
 
 <span class="gp">In [15]: </span><span class="n">universe</span><span class="o">.</span><span class="n">load_new</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="n">MemoryReader</span><span class="p">);</span>
 
 <span class="gp">In [16]: </span><span class="n">universe</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[16]: </span><span class="go"></span>
-<span class="go">array([[0.32313004, 0.18010233, 0.85260475],</span>
-<span class="go">       [0.35237938, 0.5898242 , 0.7572593 ],</span>
-<span class="go">       [0.22123696, 0.25221324, 0.8776106 ],</span>
+<span class="go">array([[0.07417509, 0.7932203 , 0.27300742],</span>
+<span class="go">       [0.5724419 , 0.03837074, 0.09905484],</span>
+<span class="go">       [0.68652785, 0.50962347, 0.5820817 ],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.22895855, 0.7682662 , 0.6469093 ],</span>
-<span class="go">       [0.8065538 , 0.80916184, 0.8220276 ],</span>
-<span class="go">       [0.21389925, 0.7302736 , 0.02685369]], dtype=float32)</span>
+<span class="go">       [0.33204216, 0.257319  , 0.758723  ],</span>
+<span class="go">       [0.5275203 , 0.19467315, 0.4455523 ],</span>
+<span class="go">       [0.38122135, 0.80673903, 0.9410425 ]], dtype=float32)</span>
 </pre></div>
 </div>
 <p>or they can be directly passed in when creating a Universe.</p>
@@ -372,13 +372,13 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/stable/docu
 
 <span class="gp">In [18]: </span><span class="n">universe2</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[18]: </span><span class="go"></span>
-<span class="go">array([[0.32313004, 0.18010233, 0.85260475],</span>
-<span class="go">       [0.35237938, 0.5898242 , 0.7572593 ],</span>
-<span class="go">       [0.22123696, 0.25221324, 0.8776106 ],</span>
+<span class="go">array([[0.07417509, 0.7932203 , 0.27300742],</span>
+<span class="go">       [0.5724419 , 0.03837074, 0.09905484],</span>
+<span class="go">       [0.68652785, 0.50962347, 0.5820817 ],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.22895855, 0.7682662 , 0.6469093 ],</span>
-<span class="go">       [0.8065538 , 0.80916184, 0.8220276 ],</span>
-<span class="go">       [0.21389925, 0.7302736 , 0.02685369]], dtype=float32)</span>
+<span class="go">       [0.33204216, 0.257319  , 0.758723  ],</span>
+<span class="go">       [0.5275203 , 0.19467315, 0.4455523 ],</span>
+<span class="go">       [0.38122135, 0.80673903, 0.9410425 ]], dtype=float32)</span>
 </pre></div>
 </div>
 </div>
@@ -392,7 +392,7 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/stable/docu
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="frames-and-trajectories">
 <h3>Frames and trajectories<a class="headerlink" href="#frames-and-trajectories" title="Permalink to this headline">¶</a></h3>
-<p>MDAnalysis <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a>s can be written out to a <a class="reference internal" href="formats/index.html#coordinate-readers"><span class="std std-ref">number of formats</span></a> with <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.write" title="(in MDAnalysis v1.0.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a>. For example, to write the current frame as a PDB:</p>
+<p>MDAnalysis <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a>s can be written out to a <a class="reference internal" href="formats/index.html#coordinate-readers"><span class="std std-ref">number of formats</span></a> with <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.write" title="(in MDAnalysis v1.1.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a>. For example, to write the current frame as a PDB:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PDB</span><span class="p">,</span> <span class="n">TRR</span>
 <span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PDB</span><span class="p">,</span> <span class="n">TRR</span><span class="p">)</span>
 <span class="n">ag</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;name CA&quot;</span><span class="p">)</span>
