@@ -9,6 +9,7 @@ dependencies:
   - graphviz
   - ipywidgets==7.6.3
   - ipython==7.22.0
+  - ipygany
   - jedi==0.18.0
   - jinja2<3.0
   - jupyter_contrib_nbextensions==0.5.1
@@ -24,11 +25,14 @@ dependencies:
   - nglview==2.7.7
   - notebook==6.1.6
   - numpy==1.20.2
+  - parmed
   - parso==0.8.2
   - pip==20.3.3
   - plotly==4.14.1
   - pybtex==0.23.0
   - python
+  - pyvista
+  - scikit-image
   - sphinx==3.5.3
   - sphinxcontrib-bibtex==1.0.0
   - sphinx_rtd_theme==0.5.2
