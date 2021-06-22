@@ -8,6 +8,7 @@ Atom selection language
 AtomGroups can be created by selecting atoms using the MDAnalysis atom selection language:
 
 .. ipython:: python
+    :okwarning:
 
     import MDAnalysis as mda
     from MDAnalysis.tests.datafiles import PSF, DCD
@@ -373,6 +374,7 @@ The most straightforward way to concatenate two AtomGroups is by using the
 ``+`` operator:
 
 .. ipython:: python
+    :okwarning:
 
     ordered = u.select_atoms("resid 3 and name CA") + u.select_atoms("resid 2 and name CA")
     list(ordered)
@@ -382,6 +384,7 @@ A shortcut is to provide *two or more* selections to
 does the concatenation automatically:
 
 .. ipython:: python
+    :okwarning:
 
     list(u.select_atoms("resid 3 and name CA", "resid 2 and name CA"))
 
@@ -390,6 +393,7 @@ Just for comparison to show that a single selection string does not
 work as one might expect:
 
 .. ipython:: python
+    :okwarning:
 
     list(u.select_atoms("(resid 3 or resid 2) and name CA"))
 

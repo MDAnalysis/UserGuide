@@ -8,6 +8,7 @@ Slicing trajectories
 MDAnalysis trajectories can be indexed to return a :class:`~MDAnalysis.coordinates.base.Timestep`, or sliced to give a :class:`~MDAnalysis.coordinates.base.FrameIterator`. 
 
 .. ipython:: python
+    :okwarning:
 
     import MDAnalysis as mda
     from MDAnalysis.tests.datafiles import PSF, DCD
@@ -51,6 +52,7 @@ You can also create a sliced trajectory with boolean indexing and fancy indexing
     print(bools)
 
 .. ipython:: python
+    :okwarning:
 
     fiter = u.trajectory[bools]
     print([ts.frame for ts in fiter])

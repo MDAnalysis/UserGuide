@@ -114,6 +114,7 @@ A Universe can be constructed from scratch with :meth:`Universe.empty <MDAnalysi
 For example, to construct a universe with 6 atoms in 2 residues:
 
 .. ipython:: python
+    :okwarning:
 
     u = mda.Universe.empty(6, 2, atom_resindex=[0, 0, 0, 1, 1, 1], trajectory=True)
     u.add_TopologyAttr('masses')
