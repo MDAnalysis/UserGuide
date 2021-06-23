@@ -171,7 +171,9 @@
 <li class="toctree-l1"><a class="reference internal" href="analysis/README.html#volumetric-analyses">Volumetric analyses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analysis/README.html#dimension-reduction">Dimension reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analysis/README.html#polymers-and-membranes">Polymers and membranes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis/README.html#hydrogen-bond-analysis">Hydrogen Bond Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis/custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
@@ -187,6 +189,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../preparing_releases_and_hotfixes.html">Preparing a release</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_imports.html">Module imports in MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Tests in MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/dev/index.html">Development docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
 </ul>
 
@@ -507,8 +510,8 @@ div.rendered_html tbody tr:hover {
 <script>require=requirejs;</script><div class="section" id="Quick-start-guide">
 <h1>Quick start guide<a class="headerlink" href="#Quick-start-guide" title="Permalink to this headline">¶</a></h1>
 <p>MDAnalysis version: ≥ 0.18.0</p>
-<p>Last updated: November 2019</p>
-<p>This guide is designed as a basic introduction to MDAnalysis to get you up and running. You can see more complex tasks in our <a class="reference external" href="https://mdanalysis.org/UserGuide/examples/README.html">Example notebooks</a>. This page outlines how to:</p>
+<p>Last updated: Dec 2020</p>
+<p>This guide is designed as a basic introduction to MDAnalysis to get you up and running. You can see more complex tasks in our <a class="reference external" href="https://userguide.mdanalysis.org/stable/examples/README.html">Example notebooks</a>. This page outlines how to:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="#Loading-a-structure-or-trajectory">load a molecular dynamics structure or trajectory</a></p></li>
 <li><p><a class="reference external" href="#Working-with-groups-of-atoms">work with AtomGroups, a central data structure in MDAnalysis</a></p></li>
@@ -536,12 +539,12 @@ div.rendered_html tbody tr:hover {
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 &lt;Universe with 3341 atoms&gt;
-0.20.1
+1.0.0
 </pre></div></div>
 </div>
 <p>This tutorial assumes that you already have MDAnalysis installed. Running the cell above should give something similar to:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&lt;Universe with 3341 atoms&gt;</span>
-<span class="go">0.20.1</span>
+<span class="go">1.0.0</span>
 </pre></div>
 </div>
 <p>If you get an error message, you need to install MDAnalysis. If your version is under <code class="docutils literal notranslate"><span class="pre">0.18.0</span></code>, you need to upgrade MDAnalysis. <a class="reference external" href="https://www.mdanalysis.org/UserGuide/installation">Instructions for both are here.</a> After installing, restart this notebook.</p>
@@ -711,7 +714,7 @@ False
 &lt;AtomGroup [&lt;Atom 3337: HA1 of type 6 of resname GLY, resid 214 and segid 4AKE&gt;, &lt;Atom 3340: OT1 of type 72 of resname GLY, resid 214 and segid 4AKE&gt;, &lt;Atom 3341: OT2 of type 72 of resname GLY, resid 214 and segid 4AKE&gt;, &lt;Atom 3338: HA2 of type 6 of resname GLY, resid 214 and segid 4AKE&gt;, &lt;Atom 3340: OT1 of type 72 of resname GLY, resid 214 and segid 4AKE&gt;, &lt;Atom 3337: HA1 of type 6 of resname GLY, resid 214 and segid 4AKE&gt;]&gt;
 </pre></div></div>
 </div>
-<p>MDAnalysis has also implemented a <a class="reference external" href="https://www.mdanalysis.org/UserGuide/selections">powerful atom selection language</a> that is similar to existing languages in <a class="reference external" href="https://www.ks.uiuc.edu/Research/vmd/">VMD</a>, <a class="reference external" href="https://pymol.org/2/">PyMol</a>, and other packages. This is available with the <code class="docutils literal notranslate"><span class="pre">.select_atoms()</span></code> function of an <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code> or <code class="docutils literal notranslate"><span class="pre">Universe</span></code> instance:</p>
+<p>MDAnalysis has also implemented a <a class="reference external" href="https://userguide.mdanalysis.org/stable/selections.html">powerful atom selection language</a> that is similar to existing languages in <a class="reference external" href="https://www.ks.uiuc.edu/Research/vmd/">VMD</a>, <a class="reference external" href="https://pymol.org/2/">PyMol</a>, and other packages. This is available with the <code class="docutils literal notranslate"><span class="pre">.select_atoms()</span></code> function of an <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code> or <code class="docutils literal notranslate"><span class="pre">Universe</span></code> instance:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
@@ -773,7 +776,7 @@ False
 <p class="admonition-title"><strong>Note</strong></p>
 <p>An <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code> created from a selection is sorted and duplicate elements are removed. This is not true for an <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code> produced by slicing. Thus, slicing can be used when the order of atoms is crucial.</p>
 </div>
-<p>The <a class="reference external" href="https://www.mdanalysis.org/UserGuide/atomgroup">user guide</a> has a complete rundown of creating <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>s through indexing, selection language, and set methods.</p>
+<p>The <a class="reference external" href="https://userguide.mdanalysis.org/stable/atomgroup.html">user guide</a> has a complete rundown of creating <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>s through indexing, selection language, and set methods.</p>
 </div>
 <div class="section" id="Getting-atom-information-from-AtomGroups">
 <h3>Getting atom information from AtomGroups<a class="headerlink" href="#Getting-atom-information-from-AtomGroups" title="Permalink to this headline">¶</a></h3>
@@ -885,7 +888,7 @@ False
  (&#39;ARG&#39;, &#39;N&#39;): &lt;AtomGroup with 1 atom&gt;}
 </pre></div></div>
 </div>
-<p>A complete list of topology attributes can be found <a class="reference external" href="https://www.mdanalysis.org/UserGuide/topology_system.html#topology-attributes">in the user guide.</a></p>
+<p>A complete list of topology attributes can be found <a class="reference external" href="https://userguide.mdanalysis.org/stable/topology_system.html">in the user guide.</a></p>
 </div>
 <div class="section" id="AtomGroup-positions-and-methods">
 <h3>AtomGroup positions and methods<a class="headerlink" href="#AtomGroup-positions-and-methods" title="Permalink to this headline">¶</a></h3>
@@ -923,7 +926,7 @@ False
 <li><p><code class="docutils literal notranslate"><span class="pre">.radius_of_gyration()</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">.bsphere()</span></code> (the bounding sphere of the selection)</p></li>
 </ul>
-<p>See the <a class="reference external" href="https://www.mdanalysis.org/UserGuide/topology_system.html#topology-specific-methods">user guide</a> for a complete list and description of AtomGroup methods.</p>
+<p>See the <a class="reference external" href="https://userguide.mdanalysis.org/stable/topology_system.html">user guide</a> for a complete list and description of AtomGroup methods.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
@@ -943,11 +946,11 @@ False
 </div>
 <div class="admonition note">
 <p class="admonition-title"><strong>Note</strong></p>
-<p>The <code class="docutils literal notranslate"><span class="pre">.center_of_mass()</span></code> function, like many of the analysis modules in MDAnalysis, relies on having accurate mass properties available. <a class="reference external" href="https://www.mdanalysis.org/UserGuide/formats/guessing.html#masses">Particle masses may not always be available or accurate!</a></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">.center_of_mass()</span></code> function, like many of the analysis modules in MDAnalysis, relies on having accurate mass properties available. <a class="reference external" href="https://userguide.mdanalysis.org/stable/formats/guessing.html#masses">Particle masses may not always be available or accurate!</a></p>
 <p>Currently, MDAnalysis assigns masses to particles based on their element or ‘atom type’, which is guessed from the particle name. If MDAnalysis guesses incorrectly (e.g. a calcium atom called CA is treated as a <span class="math notranslate nohighlight">\(C_{\alpha}\)</span>), the mass of that atom will be inaccurate. If MDAnalysis has no idea what the particle is (e.g. coarse-grained beads), it will raise a warning, and give that particle a mass of 0.</p>
 <p>To be certain that MDAnalysis is using the correct masses, you can set them manually.</p>
 </div>
-<p>MDAnalysis can also create <a class="reference external" href="https://www.mdanalysis.org/UserGuide/topology_system.html#topology-objects">topology geometries</a> such as bonds, angles, dihedral angles, and improper angles from an <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>. This <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code> has a special requirement: only the atoms involved in the geometry can be in the group. For example, an <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code> used to create a bond can only have 2 atoms in it; an <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code> used to create a dihedral or improper angle must have 4 atoms.</p>
+<p>MDAnalysis can also create <a class="reference external" href="https://userguide.mdanalysis.org/stable/topology_system.html#topology-objects">topology geometries</a> such as bonds, angles, dihedral angles, and improper angles from an <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>. This <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code> has a special requirement: only the atoms involved in the geometry can be in the group. For example, an <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code> used to create a bond can only have 2 atoms in it; an <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code> used to create a dihedral or improper angle must have 4 atoms.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
@@ -1032,7 +1035,7 @@ False
 </div>
 <div class="section" id="Working-with-trajectories">
 <h2>Working with trajectories<a class="headerlink" href="#Working-with-trajectories" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference external" href="https://mdanalysis.org/UserGuide/trajectories/trajectories.html">trajectory of a Universe contains the changing coordinate information</a>. The number of frames in a trajectory is its length:</p>
+<p>The <a class="reference external" href="https://userguide.mdanalysis.org/stable/trajectories/trajectories.html">trajectory of a Universe contains the changing coordinate information</a>. The number of frames in a trajectory is its length:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
@@ -1090,7 +1093,7 @@ Frame:  18, Time:   19 ps, Rgyr: 17.0784 A
 Frame:  19, Time:   20 ps, Rgyr: 17.1265 A
 </pre></div></div>
 </div>
-<p>After iteration, the trajectory ‘resets’ back to the first frame. Please see <a class="reference external" href="https://mdanalysis.org/UserGuide/trajectories/trajectories.html">the user guide</a> for more information.</p>
+<p>After iteration, the trajectory ‘resets’ back to the first frame. Please see <a class="reference external" href="https://userguide.mdanalysis.org/stable/trajectories/trajectories.html">the user guide</a> for more information.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
@@ -1263,7 +1266,7 @@ Frame:  10, Time:   11 ps, Rgyr: 16.8521 A
 <h3>Dynamic selection<a class="headerlink" href="#Dynamic-selection" title="Permalink to this headline">¶</a></h3>
 <p>As seen above, coordinates change while iterating over the trajectory. Therefore, properties calculated from the coordinates, such as the radius of gyration, also change.</p>
 <p>Selections are often defined on static properties that do not change when moving through a trajectory. Above, the static selection is all the atoms that are in a protein. You can define the selection once and then recalculate the property of interest for each frame of the trajectory.</p>
-<p>However, some selections contain distance-dependent queries (such as <code class="docutils literal notranslate"><span class="pre">around</span></code> or <code class="docutils literal notranslate"><span class="pre">point</span></code>, <a class="reference external" href="https://www.mdanalysis.org/UserGuide/selections">see selection keywords for more details</a>). In this case, the selection should be updated for each time step using a dynamic selection by setting the keyword <code class="docutils literal notranslate"><span class="pre">updating=True</span></code>. This command gives an <code class="docutils literal notranslate"><span class="pre">UpdatingAtomGroup</span></code> rather than a static <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>.</p>
+<p>However, some selections contain distance-dependent queries (such as <code class="docutils literal notranslate"><span class="pre">around</span></code> or <code class="docutils literal notranslate"><span class="pre">point</span></code>, <a class="reference external" href="https://userguide.mdanalysis.org/stable/selections.html">see selection keywords for more details</a>). In this case, the selection should be updated for each time step using a dynamic selection by setting the keyword <code class="docutils literal notranslate"><span class="pre">updating=True</span></code>. This command gives an <code class="docutils literal notranslate"><span class="pre">UpdatingAtomGroup</span></code> rather than a static <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
@@ -1362,7 +1365,8 @@ Frame:  10, Time:   11 ps, Rgyr: 16.8521 A
 </div>
 <div class="section" id="Writing-out-coordinates">
 <h2>Writing out coordinates<a class="headerlink" href="#Writing-out-coordinates" title="Permalink to this headline">¶</a></h2>
-<p>MDAnalysis supports <a class="reference external" href="https://www.mdanalysis.org/UserGuide/reading_and_writing.html#output">writing data out</a> into a range of file formats, including both single frame formats (e.g. PDB, GRO) and trajectory writers (e.g. XTC, DCD, and multi-frame PDB files). The user guide has a <a class="reference external" href="https://mdanalysis.org/UserGuide/formats/index.html">complete list of formats</a>, each with their own <a class="reference external" href="https://mdanalysis.org/UserGuide/formats/format_reference.html">reference pages</a>.</p>
+<p>MDAnalysis supports <a class="reference external" href="https://userguide.mdanalysis.org/stable/selections.html">writing data out</a> into a range of file formats, including both single frame formats (e.g. PDB, GRO) and trajectory writers (e.g. XTC, DCD, and multi-frame PDB files). (You can <a class="reference external" href="https://userguide.mdanalysis.org/stable/formats/selection_exporters.html">also write selections out to other programs, such as VMD macros.</a>)The user guide has a <a class="reference external" href="https://userguide.mdanalysis.org/stable/formats/index.html">complete list of
+formats</a>, each with their own <a class="reference external" href="https://userguide.mdanalysis.org/stable/formats/format_reference.html">reference pages</a>.</p>
 <div class="section" id="Single-frame">
 <h3>Single frame<a class="headerlink" href="#Single-frame" title="Permalink to this headline">¶</a></h3>
 <p>The most straightforward way to write to a file that can only hold a single frame is to use the <code class="docutils literal notranslate"><span class="pre">write()</span></code> method of any <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>. MDAnalysis uses the file extension to determine the output file format. For instance, to only write out the <span class="math notranslate nohighlight">\(C_{\alpha}\)</span> atoms to a file in GRO format:</p>
@@ -1373,7 +1377,7 @@ Frame:  10, Time:   11 ps, Rgyr: 16.8521 A
 </div>
 <div class="section" id="Trajectories">
 <h3>Trajectories<a class="headerlink" href="#Trajectories" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference external" href="https://www.mdanalysis.org/UserGuide/reading_and_writing.html#output">standard way to write out trajectories</a> is to:</p>
+<p>The <a class="reference external" href="https://userguide.mdanalysis.org/stable/reading_and_writing.html#output">standard way to write out trajectories</a> is to:</p>
 <ol class="arabic simple">
 <li><p>Open a trajectory <code class="docutils literal notranslate"><span class="pre">Writer</span></code> and specify how many atoms a frame will contain</p></li>
 <li><p>Iterate through the trajectory and write coordinates frame-by-frame with <code class="docutils literal notranslate"><span class="pre">Writer.write()</span></code></p></li>
@@ -1390,7 +1394,7 @@ Frame:  10, Time:   11 ps, Rgyr: 16.8521 A
 </div>
 <div class="section" id="Analysis">
 <h2>Analysis<a class="headerlink" href="#Analysis" title="Permalink to this headline">¶</a></h2>
-<p>MDAnalysis comes with a <a class="reference external" href="https://www.mdanalysis.org/UserGuide/analysis">diverse set of analysis modules</a>, and the building blocks to <a class="reference external" href="https://mdanalysis.org/UserGuide/examples/analysis/custom_trajectory_analysis.html">implement your own</a>.</p>
+<p>MDAnalysis comes with a <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis_modules.html">diverse set of analysis modules</a>, and the building blocks to <a class="reference external" href="https://userguide.mdanalysis.org/stable/examples/analysis/custom_trajectory_analysis.html">implement your own</a>. (Please see a list of analysis tutorials in the <a class="reference external" href="https://userguide.mdanalysis.org/stable/examples/analysis/README.html">user guide</a>.)</p>
 <p>The majority of these follow a common interface:</p>
 <ol class="arabic simple">
 <li><p>Initialise the analysis with a <code class="docutils literal notranslate"><span class="pre">Universe</span></code> and other required parameters.</p></li>
@@ -1398,7 +1402,7 @@ Frame:  10, Time:   11 ps, Rgyr: 16.8521 A
 <li><p>Results are stored within the class.</p></li>
 <li><p>Often, a function is available to operate on single frames.</p></li>
 </ol>
-<p><strong>However, not all analysis uses this model. It is important to check the documentation for each analysis.</strong> You can also see examples in the <a class="reference external" href="https://www.mdanalysis.org/UserGuide/examples/">Example gallery</a>.</p>
+<p><strong>However, not all analysis uses this model. It is important to check the documentation for each analysis.</strong> You can also see examples in the <a class="reference external" href="https://userguide.mdanalysis.org/stable/examples/README.html">Example gallery</a>.</p>
 <p>Below, simple RMSD analysis is shown. The <code class="docutils literal notranslate"><span class="pre">rms</span></code> module follows the interface above.</p>
 <div class="section" id="RMSD">
 <h3>RMSD<a class="headerlink" href="#RMSD" title="Permalink to this headline">¶</a></h3>
@@ -1604,7 +1608,7 @@ Frame:  10, Time:   11 ps, Rgyr: 16.8521 A
 <img alt="../_images/examples_quickstart_97_1.png" src="../_images/examples_quickstart_97_1.png" />
 </div>
 </div>
-<p>See the <a class="reference external" href="https://mdanalysis.org/UserGuide/examples/README.html">analysis documentation</a> for more information.</p>
+<p>See the <a class="reference external" href="https://userguide.mdanalysis.org/stable/examples/analysis/README.html#alignments-and-rms-fitting">the RMSD and alignment notebooks</a> for more information.</p>
 </div>
 </div>
 <div class="section" id="References">
@@ -1652,7 +1656,7 @@ doi:<a class="reference external" href="https://doi.org/10.25080/Majora-629e541a
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>

@@ -116,6 +116,7 @@
 <li class="toctree-l2"><a class="reference internal" href="analysis/reduced_dimensions/README.html">Dimension reduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="analysis/polymers_and_membranes/README.html">Polymers and membranes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="analysis/volumetric/README.html">Volumetric analyses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis/hydrogen_bonds/README.html">Hydrogen Bond Analysis</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
@@ -154,7 +155,9 @@
 <li class="toctree-l1"><a class="reference internal" href="analysis/README.html#volumetric-analyses">Volumetric analyses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analysis/README.html#dimension-reduction">Dimension reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analysis/README.html#polymers-and-membranes">Polymers and membranes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis/README.html#hydrogen-bond-analysis">Hydrogen Bond Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis/custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
@@ -170,6 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../preparing_releases_and_hotfixes.html">Preparing a release</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_imports.html">Module imports in MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testing.html">Tests in MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/dev/index.html">Development docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
 </ul>
 
@@ -254,8 +258,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="analysis/alignment_and_rms/README.html">Alignments and RMS fitting</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="analysis/alignment_and_rms/aligning_structure_to_another.html">Aligning a structure to another</a></li>
-<li class="toctree-l2"><a class="reference internal" href="analysis/alignment_and_rms/aligning_trajectory_to_first_frame.html">Aligning a trajectory to itself</a></li>
 <li class="toctree-l2"><a class="reference internal" href="analysis/alignment_and_rms/aligning_trajectory.html">Aligning a trajectory to a reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis/alignment_and_rms/aligning_trajectory_to_frame.html">Aligning a trajectory to itself</a></li>
 <li class="toctree-l2"><a class="reference internal" href="analysis/alignment_and_rms/rmsd.html">Calculating the root mean square deviation of atomic structures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="analysis/alignment_and_rms/pairwise_rmsd.html">Calculating the pairwise RMSD of a trajectory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="analysis/alignment_and_rms/rmsf.html">Calculating the root mean square fluctuation over a trajectory</a></li>
@@ -268,7 +272,7 @@
 <li class="toctree-l2"><a class="reference internal" href="analysis/distances_and_contacts/contacts_native_fraction.html">Fraction of native contacts over a trajectory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="analysis/distances_and_contacts/contacts_q1q2.html">Q1 vs Q2 contact analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="analysis/distances_and_contacts/contacts_within_cutoff.html">Contact analysis: number of contacts within a cutoff</a></li>
-<li class="toctree-l2"><a class="reference internal" href="analysis/distances_and_contacts/contacts_custom.html">Write your own contacts analysis method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis/distances_and_contacts/contacts_custom.html">Write your own native contacts analysis method</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="analysis/trajectory_similarity/README.html">Trajectory similarity</a><ul>
@@ -300,6 +304,12 @@
 <li class="toctree-l2"><a class="reference internal" href="analysis/volumetric/linear_density.html">Computing mass and charge density on each axis</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="analysis/hydrogen_bonds/README.html">Hydrogen Bond Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="analysis/hydrogen_bonds/hbonds.html">Calculating hydrogen bonds: the basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis/hydrogen_bonds/hbonds-selections.html">Calculating hydrogen bonds: advanced selections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis/hydrogen_bonds/hbonds-lifetimes.html">Calculating hydrogen bond lifetimes</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -318,7 +328,7 @@
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>

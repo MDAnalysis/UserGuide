@@ -133,6 +133,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../reduced_dimensions/README.html">Dimension reduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../polymers_and_membranes/README.html">Polymers and membranes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../volumetric/README.html">Volumetric analyses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hydrogen_bonds/README.html">Hydrogen Bond Analysis</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
@@ -171,7 +172,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../README.html#volumetric-analyses">Volumetric analyses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#dimension-reduction">Dimension reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#polymers-and-membranes">Polymers and membranes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#hydrogen-bond-analysis">Hydrogen Bond Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
@@ -187,6 +190,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../preparing_releases_and_hotfixes.html">Preparing a release</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../module_imports.html">Module imports in MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../testing.html">Tests in MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/dev/index.html">Development docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../references.html">References</a></li>
 </ul>
 
@@ -592,7 +596,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Aligning-trajectories">
 <h2>Aligning trajectories<a class="headerlink" href="#Aligning-trajectories" title="Permalink to this headline">¶</a></h2>
-<p>We set up the PSAnalysis with our list of Universes and labels. While <code class="docutils literal notranslate"><span class="pre">path_select</span></code> determines which atoms to calculate the path similarities for, <code class="docutils literal notranslate"><span class="pre">ref_select</span></code> determines which atoms to use to align each Universe to <code class="docutils literal notranslate"><span class="pre">reference</span></code>.</p>
+<p>We set up the PSAnalysis (<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/psa.html#MDAnalysis.analysis.psa.PSAnalysis">API docs</a>) with our list of Universes and labels. While <code class="docutils literal notranslate"><span class="pre">path_select</span></code> determines which atoms to calculate the path similarities for, <code class="docutils literal notranslate"><span class="pre">ref_select</span></code> determines which atoms to use to align each Universe to <code class="docutils literal notranslate"><span class="pre">reference</span></code>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -611,7 +615,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Generating-paths">
 <h2>Generating paths<a class="headerlink" href="#Generating-paths" title="Permalink to this headline">¶</a></h2>
-<p>For each Universe, we will generate a transition path containing each conformation from a trajectory.</p>
+<p>For each Universe, we will generate a transition path containing each conformation from a trajectory using <code class="docutils literal notranslate"><span class="pre">generate_paths</span></code> (<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/psa.html#MDAnalysis.analysis.psa.PSAnalysis.generate_paths">API docs</a>).</p>
 <p>First, we will do a mass-weighted alignment of each trajectory to the reference structure <code class="docutils literal notranslate"><span class="pre">reference</span></code>, along the atoms <code class="docutils literal notranslate"><span class="pre">ref_select</span></code>. To turn off the mass weighting, set <code class="docutils literal notranslate"><span class="pre">weights=None</span></code>. If your trajectories are already aligned, you can skip the alignment with <code class="docutils literal notranslate"><span class="pre">align=False</span></code>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -968,7 +972,7 @@ array([[ 0.        ,  1.33312649, 22.37205967,  2.04737475,  7.55204694],
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>

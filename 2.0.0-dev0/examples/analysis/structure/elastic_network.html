@@ -129,6 +129,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../reduced_dimensions/README.html">Dimension reduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../polymers_and_membranes/README.html">Polymers and membranes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../volumetric/README.html">Volumetric analyses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hydrogen_bonds/README.html">Hydrogen Bond Analysis</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
@@ -167,7 +168,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../README.html#volumetric-analyses">Volumetric analyses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#dimension-reduction">Dimension reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#polymers-and-membranes">Polymers and membranes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#hydrogen-bond-analysis">Hydrogen Bond Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
@@ -183,6 +186,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../preparing_releases_and_hotfixes.html">Preparing a release</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../module_imports.html">Module imports in MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../testing.html">Tests in MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/dev/index.html">Development docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../references.html">References</a></li>
 </ul>
 
@@ -507,9 +511,9 @@ div.rendered_html tbody tr:hover {
 <script>require=requirejs;</script><div class="section" id="Elastic-network-analysis">
 <h1>Elastic network analysis<a class="headerlink" href="#Elastic-network-analysis" title="Permalink to this headline">¶</a></h1>
 <p>Here we use a Gaussian network model to characterise conformational states of a trajectory.</p>
-<p><strong>Last executed:</strong> Feb 06, 2020 with MDAnalysis 0.20.2-dev0</p>
+<p><strong>Last executed:</strong> Dec 27, 2020 with MDAnalysis 1.0.0</p>
 <p><strong>Last updated:</strong> January 2020</p>
-<p><strong>Minimum version of MDAnalysis:</strong> 0.17.0</p>
+<p><strong>Minimum version of MDAnalysis:</strong> 1.0.0</p>
 <p><strong>Packages required:</strong></p>
 <ul class="simple">
 <li><p>MDAnalysis (<a class="bibtex reference internal" href="../../../references.html#michaud-agrawal-mdanalysis-2011" id="id1">[MADWB11]</a>, <a class="bibtex reference internal" href="../../../references.html#gowers-mdanalysis-2016" id="id2">[GLB+16]</a>)</p></li>
@@ -554,13 +558,14 @@ div.rendered_html tbody tr:hover {
 <h2>Using a Gaussian network model<a class="headerlink" href="#Using-a-Gaussian-network-model" title="Permalink to this headline">¶</a></h2>
 <p>Using a Gaussian network model to represent a molecule as an elastic network, we can characterise the concerted motions of a protein, and the dominance of these motions, over a trajectory. The analysis is applied to the atoms in the <code class="docutils literal notranslate"><span class="pre">selection</span></code>. If two atoms are within the <code class="docutils literal notranslate"><span class="pre">cutoff</span></code> distance (default: 7 ångström), they are considered to be bound by a spring. This analysis is reasonably robust to the choice of cutoff (between 5-9 Å), but the singular value decomposition may not converge with a
 lower cutoff.</p>
+<p>We use the GNMAnalysis class (<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/gnm.html#MDAnalysis.analysis.gnm.GNMAnalysis">API docs</a>) for the analysis.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">nma1</span> <span class="o">=</span> <span class="n">gnm</span><span class="o">.</span><span class="n">GNMAnalysis</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span>
-                      <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
+                      <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
                       <span class="n">cutoff</span><span class="o">=</span><span class="mf">7.0</span><span class="p">)</span>
 <span class="n">nma1</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
@@ -591,7 +596,7 @@ lower cutoff.</p>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">nma2</span> <span class="o">=</span> <span class="n">gnm</span><span class="o">.</span><span class="n">GNMAnalysis</span><span class="p">(</span><span class="n">u2</span><span class="p">,</span>
-                      <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
+                      <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
                       <span class="n">cutoff</span><span class="o">=</span><span class="mf">7.0</span><span class="p">)</span>
 <span class="n">nma2</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
@@ -660,7 +665,7 @@ lower cutoff.</p>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">nma_close</span> <span class="o">=</span> <span class="n">gnm</span><span class="o">.</span><span class="n">closeContactGNMAnalysis</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span>
-                                        <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
+                                        <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
                                         <span class="n">cutoff</span><span class="o">=</span><span class="mf">7.0</span><span class="p">,</span>
                                         <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;size&#39;</span><span class="p">)</span>
 <span class="n">nma_close</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
@@ -730,7 +735,7 @@ lower cutoff.</p>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>

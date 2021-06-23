@@ -131,6 +131,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../reduced_dimensions/README.html">Dimension reduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../polymers_and_membranes/README.html">Polymers and membranes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../volumetric/README.html">Volumetric analyses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hydrogen_bonds/README.html">Hydrogen Bond Analysis</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
@@ -169,7 +170,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../README.html#volumetric-analyses">Volumetric analyses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#dimension-reduction">Dimension reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#polymers-and-membranes">Polymers and membranes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#hydrogen-bond-analysis">Hydrogen Bond Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
@@ -185,6 +188,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../preparing_releases_and_hotfixes.html">Preparing a release</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../module_imports.html">Module imports in MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../testing.html">Tests in MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/dev/index.html">Development docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../references.html">References</a></li>
 </ul>
 
@@ -550,7 +554,8 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Calculating-the-site-specific-radial-distribution-function">
 <h2>Calculating the site-specific radial distribution function<a class="headerlink" href="#Calculating-the-site-specific-radial-distribution-function" title="Permalink to this headline">¶</a></h2>
-<p>A radial distribution function <span class="math notranslate nohighlight">\(g_{ab}(r)\)</span> describes the time-averaged density of particles in <span class="math notranslate nohighlight">\(b\)</span> from the reference group <span class="math notranslate nohighlight">\(a\)</span> at distance <span class="math notranslate nohighlight">\(r\)</span>. It is normalised so that it becomes 1 for large separations in a homogenous system. See <a class="reference internal" href="average_rdf.html"><span class="doc">the tutorial on averaged RDFs</span></a> for more information. The <code class="docutils literal notranslate"><span class="pre">InterRDF_s</span></code> class allows you to compute RDFs on an atom-to-atom basis, rather than simply giving the averaged RDF as in <code class="docutils literal notranslate"><span class="pre">InterRDF</span></code>.</p>
+<p>A radial distribution function <span class="math notranslate nohighlight">\(g_{ab}(r)\)</span> describes the time-averaged density of particles in <span class="math notranslate nohighlight">\(b\)</span> from the reference group <span class="math notranslate nohighlight">\(a\)</span> at distance <span class="math notranslate nohighlight">\(r\)</span>. It is normalised so that it becomes 1 for large separations in a homogenous system. See <a class="reference internal" href="average_rdf.html"><span class="doc">the tutorial on averaged RDFs</span></a> for more information. The <code class="docutils literal notranslate"><span class="pre">InterRDF_s</span></code> class (<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/rdf.html#MDAnalysis.analysis.rdf.InterRDF_s">API docs</a>) allows you to
+compute RDFs on an atom-to-atom basis, rather than simply giving the averaged RDF as in <code class="docutils literal notranslate"><span class="pre">InterRDF</span></code>.</p>
 <p>Below, I calculate the RDF between selected alpha-carbons and the water atoms within 15 angstroms of CA60, <em>in the first frame of the trajectory</em>. The water group does not update over the trajectory as the water moves towards and away from the alpha-carbon.</p>
 <p>The RDF is limited to a spherical shell around each atom by <code class="docutils literal notranslate"><span class="pre">range</span></code>. Note that the range is defined around <em>each atom</em>, rather than the center-of-mass of the entire group.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">density=True</span></code>, the final RDF is over the average density of the selected atoms in the trajectory box, making it comparable to the output of <code class="docutils literal notranslate"><span class="pre">rdf.InterRDF</span></code>. If <code class="docutils literal notranslate"><span class="pre">density=False</span></code>, the density is not taken into account. This can make it difficult to compare RDFs between AtomGroups that contain different numbers of atoms.</p>
@@ -841,7 +846,7 @@ The water atom with the highest distribution around CA60 has index 568
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>

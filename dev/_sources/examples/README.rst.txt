@@ -25,4 +25,4 @@ MDAnalysis maintains a collection of Jupyter notebooks as examples of what the c
    analysis/reduced_dimensions/README
    analysis/polymers_and_membranes/README
    analysis/volumetric/README
-   
+   analysis/hydrogen_bonds/README

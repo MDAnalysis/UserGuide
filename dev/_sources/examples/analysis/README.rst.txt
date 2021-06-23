@@ -8,15 +8,17 @@ Analysis
 The :mod:`~MDAnalysis.analysis` module of MDAnalysis provides the tools needed to analyse your data. 
 Several analyses are included with the package. These range from standard algorithms 
 (e.g. :ref:`calculating root mean squared quantities <alignment-and-rms>`) to unique algorithms such as 
-the `path similarity analysis <examples/analysis/trajectory_similarity/psa.ipynb>`__.
+the `path similarity analysis <trajectory_similarity/psa.ipynb>`__.
 
 Generally these bundled analyses are contributed by various researchers who use the code for their own work. 
 Please refer to the individual module documentation or relevant user guide tutorials for additional 
 references and citation information.
 
 If you need functionality that is not already provided in MDAnalysis, there are 
-`several ways to write your own analysis <examples/analysis/custom_trajectory_analysis.ipynb>`__.
+`several ways to write your own analysis <custom_trajectory_analysis.ipynb>`__.
 
+If you want to run your own script in parallel in MDAnalysis, here is a `tutorial on make your code parallelizable
+<custom_parallel_analysis.ipynb>`__.
 
 
 Imports and dependencies
@@ -50,3 +52,5 @@ them separately, e.g.::
 .. include:: /examples/analysis/reduced_dimensions/README.rst
 
 .. include:: /examples/analysis/polymers_and_membranes/README.rst
+
+.. include:: /examples/analysis/hydrogen_bonds/README.rst

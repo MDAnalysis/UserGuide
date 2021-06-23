@@ -123,7 +123,7 @@
 <li class="toctree-l3"><a class="reference internal" href="contacts_native_fraction.html">Fraction of native contacts over a trajectory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contacts_q1q2.html">Q1 vs Q2 contact analysis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contacts_within_cutoff.html">Contact analysis: number of contacts within a cutoff</a></li>
-<li class="toctree-l3"><a class="reference internal" href="contacts_custom.html">Write your own contacts analysis method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contacts_custom.html">Write your own native contacts analysis method</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../trajectory_similarity/README.html">Trajectory similarity</a></li>
@@ -131,6 +131,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../reduced_dimensions/README.html">Dimension reduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../polymers_and_membranes/README.html">Polymers and membranes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../volumetric/README.html">Volumetric analyses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hydrogen_bonds/README.html">Hydrogen Bond Analysis</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
@@ -169,7 +170,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../README.html#volumetric-analyses">Volumetric analyses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#dimension-reduction">Dimension reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#polymers-and-membranes">Polymers and membranes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#hydrogen-bond-analysis">Hydrogen Bond Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
@@ -185,6 +188,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../preparing_releases_and_hotfixes.html">Preparing a release</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../module_imports.html">Module imports in MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../testing.html">Tests in MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/dev/index.html">Development docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../references.html">References</a></li>
 </ul>
 
@@ -568,7 +572,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">distances.dist</span></code> returns the residue numbers of both selections given. The <code class="docutils literal notranslate"><span class="pre">offset</span></code> keyword adds an offset to these residue numbers to help with comparison to each other and other file formats. Here we are happy with our residue numbers, so we use the default offset of 0. (See the documentation of <code class="docutils literal notranslate"><span class="pre">distances.dist</span></code> for more information.)</p>
+<p><code class="docutils literal notranslate"><span class="pre">distances.dist</span></code>(<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/distances.html#MDAnalysis.analysis.distances.dist">API docs</a>) returns the residue numbers of both selections given. The <code class="docutils literal notranslate"><span class="pre">offset</span></code> keyword adds an offset to these residue numbers to help with comparison to each other and other file formats. Here we are happy with our residue numbers, so we use the default offset of 0. (See the documentation of <code class="docutils literal notranslate"><span class="pre">distances.dist</span></code> for more information.)</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -682,7 +686,7 @@ div.rendered_html tbody tr:hover {
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>

@@ -181,7 +181,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/README.html#volumetric-analyses">Volumetric analyses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/README.html#dimension-reduction">Dimension reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/README.html#polymers-and-membranes">Polymers and membranes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/README.html#hydrogen-bond-analysis">Hydrogen Bond Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
@@ -197,6 +199,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../preparing_releases_and_hotfixes.html">Preparing a release</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../module_imports.html">Module imports in MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../testing.html">Tests in MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/dev/index.html">Development docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
 </ul>
 
@@ -276,7 +279,7 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><strong>Coordinate reader</strong></p></td>
-<td><p><a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/coordinates/TRJ.html#MDAnalysis.coordinates.TRJ.TRJReader" title="(in MDAnalysis v1.1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.coordinates.TRJ.TRJReader</span></code></a></p></td>
+<td><p><a class="reference external" href="https://docs.mdanalysis.org/2.0.0-dev0/documentation_pages/coordinates/TRJ.html#MDAnalysis.coordinates.TRJ.TRJReader" title="(in MDAnalysis v2.0.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.coordinates.TRJ.TRJReader</span></code></a></p></td>
 </tr>
 </tbody>
 </table>
@@ -287,7 +290,7 @@
 suffix ‘.crd’. This extension conflicts with the CHARMM CRD
 format and MDAnalysis <em>will not correctly autodetect AMBER “.crd”
 trajectories</em>. Instead, explicitly provide the <code class="docutils literal notranslate"><span class="pre">format=&quot;TRJ&quot;</span></code>
-argument to <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v1.1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a>:</p>
+argument to <a class="reference external" href="https://docs.mdanalysis.org/2.0.0-dev0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v2.0.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">MDAnalysis</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="s2">&quot;top.prmtop&quot;</span><span class="p">,</span> <span class="s2">&quot;traj.crd&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;TRJ&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -332,7 +335,7 @@ assumed to be non-periodic (for technical reasons).
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>

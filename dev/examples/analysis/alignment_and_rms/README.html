@@ -111,8 +111,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../transformations/README.html">Transformations</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Alignments and RMS fitting</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="aligning_structure_to_another.html">Aligning a structure to another</a></li>
-<li class="toctree-l3"><a class="reference internal" href="aligning_trajectory_to_first_frame.html">Aligning a trajectory to itself</a></li>
 <li class="toctree-l3"><a class="reference internal" href="aligning_trajectory.html">Aligning a trajectory to a reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aligning_trajectory_to_frame.html">Aligning a trajectory to itself</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rmsd.html">Calculating the root mean square deviation of atomic structures</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pairwise_rmsd.html">Calculating the pairwise RMSD of a trajectory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rmsf.html">Calculating the root mean square fluctuation over a trajectory</a></li>
@@ -124,6 +124,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../reduced_dimensions/README.html">Dimension reduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../polymers_and_membranes/README.html">Polymers and membranes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../volumetric/README.html">Volumetric analyses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hydrogen_bonds/README.html">Hydrogen Bond Analysis</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
@@ -162,7 +163,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../README.html#volumetric-analyses">Volumetric analyses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#dimension-reduction">Dimension reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#polymers-and-membranes">Polymers and membranes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#hydrogen-bond-analysis">Hydrogen Bond Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
@@ -178,6 +181,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../preparing_releases_and_hotfixes.html">Preparing a release</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../module_imports.html">Module imports in MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../testing.html">Tests in MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/dev/index.html">Development docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../references.html">References</a></li>
 </ul>
 
@@ -250,7 +254,7 @@
             
   <div class="section" id="alignments-and-rms-fitting">
 <span id="alignment-and-rms"></span><h1>Alignments and RMS fitting<a class="headerlink" href="#alignments-and-rms-fitting" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/align.html#module-MDAnalysis.analysis.align" title="(in MDAnalysis v1.1.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.align</span></code></a> and <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/rms.html#module-MDAnalysis.analysis.rms" title="(in MDAnalysis v1.1.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.rms</span></code></a> modules contain the functions used for aligning structures, aligning trajectories, and calculating root mean squared quantities.</p>
+<p>The <a class="reference external" href="https://docs.mdanalysis.org/2.0.0-dev0/documentation_pages/analysis/align.html#module-MDAnalysis.analysis.align" title="(in MDAnalysis v2.0.0-dev0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.align</span></code></a> and <a class="reference external" href="https://docs.mdanalysis.org/2.0.0-dev0/documentation_pages/analysis/rms.html#module-MDAnalysis.analysis.rms" title="(in MDAnalysis v2.0.0-dev0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.rms</span></code></a> modules contain the functions used for aligning structures, aligning trajectories, and calculating root mean squared quantities.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>These modules use the fast QCP algorithm to calculate the root mean
@@ -261,8 +265,8 @@ cite these references when using these modules.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="aligning_structure_to_another.html">Aligning a structure to another</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aligning_trajectory_to_first_frame.html">Aligning a trajectory to itself</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aligning_trajectory.html">Aligning a trajectory to a reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aligning_trajectory_to_frame.html">Aligning a trajectory to itself</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rmsd.html">Calculating the root mean square deviation of atomic structures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pairwise_rmsd.html">Calculating the pairwise RMSD of a trajectory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rmsf.html">Calculating the root mean square fluctuation over a trajectory</a></li>
@@ -284,7 +288,7 @@ cite these references when using these modules.</p>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>

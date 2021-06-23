@@ -130,6 +130,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../reduced_dimensions/README.html">Dimension reduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../polymers_and_membranes/README.html">Polymers and membranes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../volumetric/README.html">Volumetric analyses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hydrogen_bonds/README.html">Hydrogen Bond Analysis</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
@@ -168,7 +169,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../README.html#volumetric-analyses">Volumetric analyses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#dimension-reduction">Dimension reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#polymers-and-membranes">Polymers and membranes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#hydrogen-bond-analysis">Hydrogen Bond Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
@@ -184,6 +187,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../preparing_releases_and_hotfixes.html">Preparing a release</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../module_imports.html">Module imports in MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../testing.html">Tests in MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/dev/index.html">Development docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../references.html">References</a></li>
 </ul>
 
@@ -508,9 +512,9 @@ div.rendered_html tbody tr:hover {
 <script>require=requirejs;</script><div class="section" id="Evaluating-convergence">
 <h1>Evaluating convergence<a class="headerlink" href="#Evaluating-convergence" title="Permalink to this headline">¶</a></h1>
 <p>Here we evaluate the convergence of a trajectory using the clustering ensemble similarity method and the dimensionality reduction ensemble similarity methods.</p>
-<p><strong>Last executed:</strong> Feb 06, 2020 with MDAnalysis 0.20.2-dev0</p>
-<p><strong>Last updated:</strong> January 2020</p>
-<p><strong>Minimum version of MDAnalysis:</strong> 0.20.1</p>
+<p><strong>Last executed:</strong> Sep 25, 2020 with MDAnalysis 1.0.0</p>
+<p><strong>Last updated:</strong> September 2020</p>
+<p><strong>Minimum version of MDAnalysis:</strong> 1.0.0</p>
 <p><strong>Packages required:</strong></p>
 <ul class="simple">
 <li><p>MDAnalysis (<a class="bibtex reference internal" href="../../../references.html#michaud-agrawal-mdanalysis-2011" id="id1">[MADWB11]</a>, <a class="bibtex reference internal" href="../../../references.html#gowers-mdanalysis-2016" id="id2">[GLB+16]</a>)</p></li>
@@ -568,7 +572,7 @@ div.rendered_html tbody tr:hover {
 <p>These are compared using either the similarity of their clusters (<code class="docutils literal notranslate"><span class="pre">ces_convergence</span></code>) or their reduced dimension coordinates (<code class="docutils literal notranslate"><span class="pre">dres_convergence</span></code>). The rate at which the similarity values drop to 0 is indicative of how much the trajectory keeps on resampling the same regions of the conformational space, and therefore is the rate of convergence.</p>
 <div class="section" id="Using-default-arguments-with-clustering-ensemble-similarity">
 <h3>Using default arguments with clustering ensemble similarity<a class="headerlink" href="#Using-default-arguments-with-clustering-ensemble-similarity" title="Permalink to this headline">¶</a></h3>
-<p>See <a class="reference internal" href="clustering_ensemble_similarity.html#Calculating-clustering-similarity-with-default-settings"><span class="std std-ref">clustering_ensemble_similarity.ipynb</span></a> for an introduction to comparing trajectories via clustering.</p>
+<p>See <a class="reference internal" href="clustering_ensemble_similarity.html#Calculating-clustering-similarity-with-default-settings"><span class="std std-ref">clustering_ensemble_similarity.ipynb</span></a> for an introduction to comparing trajectories via clustering. See the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/encore/similarity.html#MDAnalysis.analysis.encore.similarity.ces_convergence">API documentation for ces_convergence</a> for more information.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -576,7 +580,7 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">ces_conv</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">ces_convergence</span><span class="p">(</span><span class="n">u</span><span class="p">,</span>  <span class="c1"># universe</span>
                                   <span class="mi">10</span><span class="p">,</span>  <span class="c1"># window size</span>
-                                  <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>  <span class="c1"># default</span>
+                                  <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>  <span class="c1"># default</span>
 </pre></div>
 </div>
 </div>
@@ -672,7 +676,7 @@ Text(0, 0.5, &#39;Jensen-Shannon divergence&#39;)
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">ces_conv2</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">ces_convergence</span><span class="p">(</span><span class="n">u</span><span class="p">,</span>  <span class="c1"># universe</span>
                                   <span class="mi">10</span><span class="p">,</span>  <span class="c1"># window size</span>
-                                  <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
+                                  <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
                                   <span class="n">clustering_method</span><span class="o">=</span><span class="p">[</span><span class="n">km1</span><span class="p">,</span> <span class="n">km2</span><span class="p">,</span> <span class="n">km3</span><span class="p">]</span>
                                  <span class="p">)</span>
 <span class="n">ces_conv2</span><span class="o">.</span><span class="n">shape</span>
@@ -711,7 +715,7 @@ Text(0, 0.5, &#39;Jensen-Shannon divergence&#39;)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.legend.Legend at 0x11f47df28&gt;
+&lt;matplotlib.legend.Legend at 0x7fa762585e80&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -724,7 +728,7 @@ Text(0, 0.5, &#39;Jensen-Shannon divergence&#39;)
 </div>
 <div class="section" id="Using-default-arguments-with-dimension-reduction-ensemble-similarity">
 <h3>Using default arguments with dimension reduction ensemble similarity<a class="headerlink" href="#Using-default-arguments-with-dimension-reduction-ensemble-similarity" title="Permalink to this headline">¶</a></h3>
-<p>See <a class="reference internal" href="dimension_reduction_ensemble_similarity.html#Calculating-dimension-reduction-similarity-with-default-settings"><span class="std std-ref">dimension_reduction_ensemble_similarity.ipynb</span></a> for an introduction on comparing trajectories via dimensionality reduction.</p>
+<p>See <a class="reference internal" href="dimension_reduction_ensemble_similarity.html#Calculating-dimension-reduction-similarity-with-default-settings"><span class="std std-ref">dimension_reduction_ensemble_similarity.ipynb</span></a> for an introduction on comparing trajectories via dimensionality reduction. We now use the <code class="docutils literal notranslate"><span class="pre">dres_convergence</span></code> function (<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/encore/similarity.html#MDAnalysis.analysis.encore.similarity.dres_convergence">API docs</a>).</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
@@ -732,7 +736,7 @@ Text(0, 0.5, &#39;Jensen-Shannon divergence&#39;)
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">dres_conv</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">dres_convergence</span><span class="p">(</span><span class="n">u</span><span class="p">,</span>  <span class="c1"># universe</span>
                                   <span class="mi">10</span><span class="p">,</span>  <span class="c1"># window size</span>
-                                  <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>  <span class="c1"># default</span>
+                                  <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>  <span class="c1"># default</span>
 </pre></div>
 </div>
 </div>
@@ -752,14 +756,14 @@ Text(0, 0.5, &#39;Jensen-Shannon divergence&#39;)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[0.53383413],
-       [0.41463847],
-       [0.30425993],
-       [0.24385849],
-       [0.18008969],
-       [0.12072474],
-       [0.05691098],
-       [0.02318104],
+array([[0.53259849],
+       [0.40801451],
+       [0.3137567 ],
+       [0.25160251],
+       [0.19061233],
+       [0.12228127],
+       [0.05960165],
+       [0.03835858],
        [0.        ]])
 </pre></div></div>
 </div>
@@ -818,7 +822,7 @@ Text(0, 0.5, &#39;Jensen-Shannon divergence&#39;)
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">dres_conv2</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">dres_convergence</span><span class="p">(</span><span class="n">u</span><span class="p">,</span>  <span class="c1"># universe</span>
                                   <span class="mi">10</span><span class="p">,</span>  <span class="c1"># window size</span>
-                                  <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
+                                  <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
                                   <span class="n">dimensionality_reduction_method</span><span class="o">=</span><span class="p">[</span><span class="n">pc1</span><span class="p">,</span> <span class="n">pc2</span><span class="p">,</span> <span class="n">pc3</span><span class="p">]</span>
                                  <span class="p">)</span>
 <span class="n">dres_conv2</span><span class="o">.</span><span class="n">shape</span>
@@ -857,7 +861,7 @@ Text(0, 0.5, &#39;Jensen-Shannon divergence&#39;)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.legend.Legend at 0x1257dcb38&gt;
+&lt;matplotlib.legend.Legend at 0x7fa744815910&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -892,7 +896,7 @@ Text(0, 0.5, &#39;Jensen-Shannon divergence&#39;)
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>

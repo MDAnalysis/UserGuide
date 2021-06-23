@@ -50,7 +50,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Calculating the pairwise RMSD of a trajectory" href="pairwise_rmsd.html" />
-    <link rel="prev" title="Aligning a trajectory to a reference" href="aligning_trajectory.html" /> 
+    <link rel="prev" title="Aligning a trajectory to itself" href="aligning_trajectory_to_frame.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -113,8 +113,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../transformations/README.html">Transformations</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="README.html">Alignments and RMS fitting</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="aligning_structure_to_another.html">Aligning a structure to another</a></li>
-<li class="toctree-l3"><a class="reference internal" href="aligning_trajectory_to_first_frame.html">Aligning a trajectory to itself</a></li>
 <li class="toctree-l3"><a class="reference internal" href="aligning_trajectory.html">Aligning a trajectory to a reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aligning_trajectory_to_frame.html">Aligning a trajectory to itself</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Calculating the root mean square deviation of atomic structures</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Loading-files">Loading files</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Background">Background</a></li>
@@ -135,6 +135,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../reduced_dimensions/README.html">Dimension reduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../polymers_and_membranes/README.html">Polymers and membranes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../volumetric/README.html">Volumetric analyses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hydrogen_bonds/README.html">Hydrogen Bond Analysis</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
@@ -173,7 +174,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../README.html#volumetric-analyses">Volumetric analyses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#dimension-reduction">Dimension reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#polymers-and-membranes">Polymers and membranes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#hydrogen-bond-analysis">Hydrogen Bond Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
@@ -189,6 +192,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../preparing_releases_and_hotfixes.html">Preparing a release</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../module_imports.html">Module imports in MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../testing.html">Tests in MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/dev/index.html">Development docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../references.html">References</a></li>
 </ul>
 
@@ -582,7 +586,7 @@ metric suffers from the problem of <em>degeneracy</em>: many different structure
 <p>The contribution of each particle <span class="math notranslate nohighlight">\(i\)</span> to the final RMSD value can also <a class="reference external" href="#Weighted-RMSD-of-a-trajectory">be weighted</a> by <span class="math notranslate nohighlight">\(w_i\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\text{RMSD}(\mathbf{x}, \mathbf{x}^\text{ref}) = \sqrt{\frac{\sum_{i=1}^{n}{w_i|\mathbf{x}_i-\mathbf{x}_i^{\text{ref}}|^2}}{\sum_{i-1}^n w_i}}\]</div>
-<p>RMSD analyses are frequently weighted by mass. The MDAnalysis <code class="docutils literal notranslate"><span class="pre">RMSD</span></code> class allows you to both <a class="reference external" href="#Mass">select mass-weighting</a> with <code class="docutils literal notranslate"><span class="pre">weights='mass'</span></code> or <code class="docutils literal notranslate"><span class="pre">weights_groupselections='mass'</span></code>, or to <a class="reference external" href="#Custom-weights">pass custom arrays</a> into either keyword.</p>
+<p>RMSD analyses are frequently weighted by mass. The MDAnalysis RMSD class (<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/rms.html#MDAnalysis.analysis.rms.RMSD">API docs</a>) allows you to both <a class="reference external" href="#Mass">select mass-weighting</a> with <code class="docutils literal notranslate"><span class="pre">weights='mass'</span></code> or <code class="docutils literal notranslate"><span class="pre">weights_groupselections='mass'</span></code>, or to <a class="reference external" href="#Custom-weights">pass custom arrays</a> into either keyword.</p>
 </div>
 <div class="section" id="RMSD-between-two-sets-of-coordinates">
 <h2>RMSD between two sets of coordinates<a class="headerlink" href="#RMSD-between-two-sets-of-coordinates" title="Permalink to this headline">¶</a></h2>
@@ -1067,14 +1071,14 @@ Text(0, 0.5, &#39;Charge-weighted RMSD ($\\AA$)&#39;)
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="pairwise_rmsd.html" class="btn btn-neutral float-right" title="Calculating the pairwise RMSD of a trajectory" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="aligning_trajectory.html" class="btn btn-neutral float-left" title="Aligning a trajectory to a reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="aligning_trajectory_to_frame.html" class="btn btn-neutral float-left" title="Aligning a trajectory to itself" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>

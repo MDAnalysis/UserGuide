@@ -125,7 +125,7 @@
 <li class="toctree-l3"><a class="reference internal" href="contacts_native_fraction.html">Fraction of native contacts over a trajectory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contacts_q1q2.html">Q1 vs Q2 contact analysis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contacts_within_cutoff.html">Contact analysis: number of contacts within a cutoff</a></li>
-<li class="toctree-l3"><a class="reference internal" href="contacts_custom.html">Write your own contacts analysis method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contacts_custom.html">Write your own native contacts analysis method</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../trajectory_similarity/README.html">Trajectory similarity</a></li>
@@ -133,6 +133,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../reduced_dimensions/README.html">Dimension reduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../polymers_and_membranes/README.html">Polymers and membranes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../volumetric/README.html">Volumetric analyses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hydrogen_bonds/README.html">Hydrogen Bond Analysis</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
@@ -171,7 +172,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../README.html#volumetric-analyses">Volumetric analyses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#dimension-reduction">Dimension reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#polymers-and-membranes">Polymers and membranes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#hydrogen-bond-analysis">Hydrogen Bond Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Advanced</span></p>
 <ul>
@@ -187,6 +190,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../preparing_releases_and_hotfixes.html">Preparing a release</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../module_imports.html">Module imports in MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../testing.html">Tests in MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/dev/index.html">Development docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../references.html">References</a></li>
 </ul>
 
@@ -511,7 +515,7 @@ div.rendered_html tbody tr:hover {
 <script>require=requirejs;</script><div class="section" id="All-distances-within-a-selection">
 <h1>All distances within a selection<a class="headerlink" href="#All-distances-within-a-selection" title="Permalink to this headline">¶</a></h1>
 <p>Here we calculate the distance of every atom to every other atom in a selection, and show how we can extend this to residues.</p>
-<p><strong>Last executed:</strong> Feb 06, 2020 with MDAnalysis 0.20.2-dev0</p>
+<p><strong>Last executed:</strong> Feb 06, 2020 with MDAnalysis 1.0.0</p>
 <p><strong>Last updated:</strong> January 2020</p>
 <p><strong>Minimum version of MDAnalysis:</strong> 0.19.0</p>
 <p><strong>Packages required:</strong></p>
@@ -574,7 +578,7 @@ div.rendered_html tbody tr:hover {
 214
 </pre></div></div>
 </div>
-<p>When given an array with <span class="math notranslate nohighlight">\(n\)</span> positions, <code class="docutils literal notranslate"><span class="pre">distances.self_distance_array</span></code> returns the distances in a flat vector with length <span class="math notranslate nohighlight">\(\frac{n(n-1)}{2}\)</span>. These correspond to the flattened upper triangular values of a square distance matrix.</p>
+<p>When given an array with <span class="math notranslate nohighlight">\(n\)</span> positions, <code class="docutils literal notranslate"><span class="pre">distances.self_distance_array</span></code> (<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/distances.html#MDAnalysis.analysis.distances.self_distance_array">API docs</a>) returns the distances in a flat vector with length <span class="math notranslate nohighlight">\(\frac{n(n-1)}{2}\)</span>. These correspond to the flattened upper triangular values of a square distance matrix.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -780,7 +784,7 @@ Text(0, 0.5, &#39;Distance (Angstrom)&#39;)
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2021, Lily Wang, Irfan Alibay, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>
