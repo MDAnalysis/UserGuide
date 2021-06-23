@@ -1,5 +1,6 @@
 name: mda-user-guide
 channels:
+  - defaults
   - conda-forge
 dependencies:
   - cython

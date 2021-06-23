@@ -115,6 +115,7 @@ Wherever possible, do not take these conversations to private channels, includin
 
    examples/analysis/README
    examples/analysis/custom_trajectory_analysis
+   examples/analysis/custom_parallel_analysis
 
 .. toctree::
    :maxdepth: 1
@@ -136,4 +137,5 @@ Wherever possible, do not take these conversations to private channels, includin
    preparing_releases_and_hotfixes
    module_imports
    testing
+   Development docs <https://docs.mdanalysis.org/dev/index.html>
    references

@@ -2,10 +2,9 @@
   MDAnalysis User Guide
 ================================
 
-|build| 
+|build| |binder|
 
 |usergroup| |developergroup|
-
 
 MDAnalysis is a Python toolkit to analyse molecular dynamics files and trajectories in `many popular formats`_. MDAnalysis can write most of these formats, too, together with atom selections for use in visualisation tools or other analysis programs. It provides a fast framework for complex analysis tasks, as well as flexible tooling to construct your own analyses.
 
@@ -31,3 +30,7 @@ This repository contains the `user guide`_ for MDAnalysis. The user guide origin
 .. |build| image:: https://travis-ci.com/MDAnalysis/UserGuide.svg?branch=master
    :alt: Build Status
    :target: https://travis-ci.com/MDAnalysis/UserGuide
+
+.. |binder| image:: https://mybinder.org/badge_logo.svg
+   :alt: Binder
+   :target: https://mybinder.org/v2/gh/MDAnalysis/UserGuide/HEAD?urlpath=tree%2Fdoc%2Fsource%2Fexamples
