@@ -130,6 +130,23 @@ The plugin `pytest-xdist <https://github.com/pytest-dev/pytest-xdist>`_ can be u
     pip install pytest-xdist
     pytest --disable-pytest-warnings --pyargs MDAnalysisTests --numprocesses 4
 
+Optimised installations for specific CPU architectures
+------------------------------------------------------
+
+An experimental option for compiling the C/C++ in MDAnalysis with architecture specific optimisations enabled has been developed.
+
+This can be activated by uncommenting the "march=native" option in `setup.cfg` and will result in the compiler using CPU architecture specific
+optimisations on x86_64 (equivalent of `-march=native` compiler flag) and ARM platforms (equivalent of `-mcpu=native` compiler flag).
+
+Note that currently, no additional optimisations are applied on Windows or if using an MSVC compiler.
+Use of this option will result in performance gains where data and pipelining dependencies can be easily identified by the compiler and autovectorisation applied.
+
+.. warning::
+    Use of this option is considered **advanced** and will reduce the binary compatibility of MDAnalysis significantly,
+    making it usable only on a matching CPU architecture to the one it is compiled on.
+
+For example, if you plan on using MDAnalysis on a heterogenous system, such as a supercomputer, where the login node you compile on and the
+compute node you run MDAnalysis on have different CPU architectures, you should avoid this option, or you should compile directly on the compute node.
 
 Additional datasets
 ===================
@@ -148,3 +165,4 @@ This installation does not download all the datasets; instead, the datasets are 
 
 .. _`HOLE`: http://www.holeprogram.org
 .. _mdanalysisdata: https://www.mdanalysis.org/MDAnalysisData/
+
