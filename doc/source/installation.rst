@@ -143,7 +143,7 @@ Use of this option will result in performance gains where data and pipelining de
 
 .. warning::
     Use of this option is considered **advanced** and will reduce the binary compatibility of MDAnalysis significantly,
-    making it usable only on a matching CPU architecture to the one it is compiled on. We **strongly** reccomend that you run the testsuite on your intended platform.
+    making it usable only on a matching CPU architecture to the one it is compiled on. We **strongly** recommend that you run the testsuite on your intended platform
     before proceeding.
 
 For example, if you plan on using MDAnalysis on a heterogenous system, such as a supercomputer, where the login node you compile on and the
