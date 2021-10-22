@@ -136,7 +136,11 @@ Optimised installations for specific CPU architectures
 An experimental option for compiling the C/C++ in MDAnalysis with architecture specific optimisations enabled has been developed.
 
 This can be activated by uncommenting the "march=native" option in `setup.cfg` and will result in the compiler using CPU architecture specific
-optimisations on x86_64 (equivalent of `-march=native` compiler flag) and ARM platforms (equivalent of `-mcpu=native` compiler flag).
+optimisations on x86_64 (equivalent of `-march=native` compiler flag), ARM platforms (equivalent of `-mcpu=native` compiler flag)
+and PowerPC platforms (equivalent of `-mcpu=native` and `-mtune=native` compiler flag).
+
+If you wish to build for a **specific** architecture, rather than using compiler detection, you can replace `native` with the architecture of your choice.
+A full list of supported options should be provided by your compiler. The list for GCC_ is provided here: 
 
 Note that currently, no additional optimisations are applied on Windows or if using an MSVC compiler.
 Use of this option will result in performance gains where data and pipelining dependencies can be easily identified by the compiler and autovectorisation applied.
@@ -165,5 +169,5 @@ This installation does not download all the datasets; instead, the datasets are 
 
 
 .. _`HOLE`: http://www.holeprogram.org
-.. _mdanalysisdata: https://www.mdanalysis.org/MDAnalysisData/
-
+.. _GCC: https://gcc.gnu.org/onlinedocs/gcc/x86-Options.html
+.. _mdanalysisdata: https://www.mdanalysis.org/MDAnalysisData
