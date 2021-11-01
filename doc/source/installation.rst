@@ -130,28 +130,39 @@ The plugin `pytest-xdist <https://github.com/pytest-dev/pytest-xdist>`_ can be u
     pip install pytest-xdist
     pytest --disable-pytest-warnings --pyargs MDAnalysisTests --numprocesses 4
 
-Optimised installations for specific CPU architectures
-------------------------------------------------------
+Custom compiler flags and optimised installations
+-------------------------------------------------
 
-An experimental option for compiling the C/C++ in MDAnalysis with architecture specific optimisations enabled has been developed.
+You can pass any additional compiler flags for the C/C++ compiler using the `extra_cflags` variable in `setup.cfg`.
+This allows you to add any additional compiler options required for your architecture. 
 
-This can be activated by uncommenting the "march=native" option in `setup.cfg` and will result in the compiler using CPU architecture specific
-optimisations on x86_64 (equivalent of `-march=native` compiler flag), ARM platforms (equivalent of `-mcpu=native` compiler flag)
-and PowerPC platforms (equivalent of `-mcpu=native` and `-mtune=native` compiler flag).
+This option can also be used to tune your MDAnalysis installation for your current architecture using `-march`, `-mtune`, `-mcpu` and related compiler flags.
+The use of these compiler flags allows CPU architecture specific optimisations. An example for an x86_64 machine would be to change the
 
-If you wish to build for a **specific** architecture, rather than using compiler detection, you can replace `native` with the architecture of your choice.
-A full list of supported options should be provided by your compiler. The list for GCC_ is provided here: 
+.. code-block:: YAML
 
-Note that currently, no additional optimisations are applied on Windows or if using an MSVC compiler.
-Use of this option will result in performance gains where data and pipelining dependencies can be easily identified by the compiler and autovectorisation applied.
+    #extra_cflags =
+
+line in `setup.cfg` to instead be:
+
+.. code-block:: YAML
+
+    extra_cflags = -march=native -mtune=native
+
+Use of these flags can give a significant performance boost where the compiler can effectively autovectorise.
+
+Be sure to use the recommended flags for your target architecture. For example, ARM platforms reccomend against the use of `-mtune` in favour of `-mcpu`, while
+PowerPC platforms prefer both `-mcpu` and `-mtune`.
+
+Full dicussion of the these flags is available elsewhere and a list of supported options should be provided by your compiler. The list for GCC_ is provided here. 
 
 .. warning::
-    Use of this option is considered **advanced** and will reduce the binary compatibility of MDAnalysis significantly,
+    Use of these compiler options is considered **advanced** and may reduce the binary compatibility of MDAnalysis significantly, especially if using `-march`,
     making it usable only on a matching CPU architecture to the one it is compiled on. We **strongly** recommend that you run the testsuite on your intended platform
     before proceeding.
 
 For example, if you plan on using MDAnalysis on a heterogenous system, such as a supercomputer, where the login node you compile on and the
-compute node you run MDAnalysis on have different CPU architectures, you should avoid this option, or you should compile directly on the compute node.
+compute node you run MDAnalysis on have different CPU architectures, you should avoid this option unless you know what you are doing, or you should compile directly on the compute node.
 
 Additional datasets
 ===================
