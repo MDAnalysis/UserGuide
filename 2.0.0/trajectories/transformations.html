@@ -122,6 +122,7 @@
 <li class="toctree-l1"><a class="reference internal" href="trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">On-the-fly transformations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#example-workflows">Example workflows</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#custom-transformations">Custom transformations</a></li>
 </ul>
 </li>
@@ -252,11 +253,15 @@
 </pre></div>
 </div>
 <p>Other implemented transformations include functions to <a class="reference external" href="https://docs.mdanalysis.org/2.0.0/documentation_pages/transformations/translate.html#module-MDAnalysis.transformations.translate" title="(in MDAnalysis v2.0.0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">translate</span></code></a>, <a class="reference external" href="https://docs.mdanalysis.org/2.0.0/documentation_pages/transformations/rotate.html#module-MDAnalysis.transformations.rotate" title="(in MDAnalysis v2.0.0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">rotate</span></code></a>, <a class="reference external" href="https://docs.mdanalysis.org/2.0.0/documentation_pages/transformations/fit.html#module-MDAnalysis.transformations.fit" title="(in MDAnalysis v2.0.0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fit</span></code></a> an <a class="reference external" href="https://docs.mdanalysis.org/2.0.0/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v2.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> to a reference, and <a class="reference external" href="https://docs.mdanalysis.org/2.0.0/documentation_pages/transformations/wrap.html#module-MDAnalysis.transformations.wrap" title="(in MDAnalysis v2.0.0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">wrap</span></code></a> or unwrap groups in the unit cell. (Please see the MDAnalysis <a class="reference external" href="https://www.mdanalysis.org/2020/03/09/on-the-fly-transformations/">on-the-fly transformations blog post</a> contains a more complete introduction to these fitting and wrapping functions.)</p>
-<p>Although you can only call <a class="reference external" href="https://docs.mdanalysis.org/2.0.0/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.add_transformations" title="(in MDAnalysis v2.0.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_transformations()</span></code></a> <em>once</em>, you can pass in multiple transformations in a list, which will be executed in order. For example, the below workflow:</p>
+<p>Although you can only call <a class="reference external" href="https://docs.mdanalysis.org/2.0.0/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.add_transformations" title="(in MDAnalysis v2.0.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_transformations()</span></code></a> <em>once</em>, you can pass in multiple transformations in a list, which will be executed in order.</p>
+<p>There is a <a class="reference external" href="examples/transformations/center_protein_in_box.html">transformations tutorial</a> that shows in more detail how to use transformations. A few simple examples are given below.</p>
+<div class="section" id="example-workflows">
+<h2>Example workflows<a class="headerlink" href="#example-workflows" title="Permalink to this headline">¶</a></h2>
+<p>The workflow below</p>
 <ul class="simple">
-<li><p>makes all molecules whole (unwraps them over periodic boundary conditions)</p></li>
-<li><p>centers the protein in the center of the box</p></li>
-<li><p>wraps water back into the box</p></li>
+<li><p>makes all molecules whole (unwraps them over periodic boundary conditions),</p></li>
+<li><p>centers the protein in the center of the box,</p></li>
+<li><p>wraps water back into the box.</p></li>
 </ul>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># create new Universe for new transformations</span>
 <span class="gp">In [8]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">TPR</span><span class="p">,</span> <span class="n">XTC</span><span class="p">)</span>
@@ -273,12 +278,13 @@
 <span class="gp">In [12]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">add_transformations</span><span class="p">(</span><span class="o">*</span><span class="n">workflow</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="examples/transformations/center_protein_in_box.ipynb#Doing-all-this-on-the-fly">Please see the full tutorial for more information.</a></p>
+<p><a class="reference external" href="examples/transformations/center_protein_in_box.html#Doing-all-this-on-the-fly">Please see the full tutorial for more information.</a></p>
 <p>If your transformation does not depend on something within the <a class="reference external" href="https://docs.mdanalysis.org/2.0.0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v2.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a> (e.g. a chosen <a class="reference external" href="https://docs.mdanalysis.org/2.0.0/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v2.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a>), you can also create a <a class="reference external" href="https://docs.mdanalysis.org/2.0.0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v2.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a> directly with transformations. The code below translates coordinates 1 angstrom up on the z-axis:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">TPR</span><span class="p">,</span> <span class="n">XTC</span><span class="p">,</span> <span class="n">transformations</span><span class="o">=</span><span class="p">[</span><span class="n">trans</span><span class="o">.</span><span class="n">translate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])])</span>
 </pre></div>
 </div>
 <p>If you need a different transformation, it is easy to implement your own.</p>
+</div>
 <div class="section" id="custom-transformations">
 <h2>Custom transformations<a class="headerlink" href="#custom-transformations" title="Permalink to this headline">¶</a></h2>
 <p>At its core, a transformation function must only take a <a class="reference external" href="https://docs.mdanalysis.org/2.0.0/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.Timestep" title="(in MDAnalysis v2.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Timestep</span></code></a> as its input and return the <a class="reference external" href="https://docs.mdanalysis.org/2.0.0/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.Timestep" title="(in MDAnalysis v2.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Timestep</span></code></a> as the output.</p>
