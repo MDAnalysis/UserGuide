@@ -23,7 +23,7 @@ Other implemented transformations include functions to :mod:`~MDAnalysis.transfo
 
 Although you can only call :meth:`~MDAnalysis.coordinates.base.ProtoReader.add_transformations` *once*, you can pass in multiple transformations in a list, which will be executed in order.
 
-There is a `transformations tutorial <examples/transformations/center_protein_in_box.html>`_ that shows in more detail how to use transformations. A few simple examples are given below.
+There is a `transformations tutorial <../examples/transformations/center_protein_in_box.html>`_ that shows in more detail how to use transformations. A few simple examples are given below.
 
 
 -----------------
@@ -48,7 +48,7 @@ The workflow below
                 trans.wrap(water, compound='residues')]
     u.trajectory.add_transformations(*workflow)
 
-`Please see the full tutorial for more information. <examples/transformations/center_protein_in_box.html#Doing-all-this-on-the-fly>`_
+`Please see the full tutorial for more information. <../examples/transformations/center_protein_in_box.html#Doing-all-this-on-the-fly>`_
 
 If your transformation does not depend on something within the :class:`~MDAnalysis.core.universe.Universe` (e.g. a chosen :class:`~MDAnalysis.core.groups.AtomGroup`), you can also create a :class:`~MDAnalysis.core.universe.Universe` directly with transformations. The code below translates coordinates 1 angstrom up on the z-axis:
 
