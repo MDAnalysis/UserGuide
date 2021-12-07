@@ -161,7 +161,7 @@ In cases where you might encounter multiple CPU architectures (e.g. on a superco
 Additional datasets
 ===================
 
-:ref:`MDAnalysisData is an additional package <mdanalysisdata>` with datasets that can be used in example tutorials. You can install it with ``conda`` or ``pip``:
+MDAnalysisData_ is an additional package with datasets that can be used in example tutorials. You can install it with ``conda`` or ``pip``:
 
 .. code-block:: bash
 
@@ -175,6 +175,6 @@ This installation does not download all the datasets; instead, the datasets are 
 
 .. _`HOLE`: http://www.holeprogram.org
 .. _GCC: https://gcc.gnu.org/onlinedocs/gcc/x86-Options.html
-.. _mdanalysisdata: https://www.mdanalysis.org/MDAnalysisData
+.. _MDAnalysisData: https://www.mdanalysis.org/MDAnalysisData/
 .. _wiki: https://wiki.gentoo.org/wiki/GCC_optimization#-march
 .. _ARM: https://community.arm.com/arm-community-blogs/b/tools-software-ides-blog/posts/compiler-flags-across-architectures-march-mtune-and-mcpu

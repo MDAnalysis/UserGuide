@@ -21,11 +21,20 @@ The :mod:`MDAnalysis.transformations` module contains a collection of transforma
 
 Other implemented transformations include functions to :mod:`~MDAnalysis.transformations.translate`, :mod:`~MDAnalysis.transformations.rotate`, :mod:`~MDAnalysis.transformations.fit` an :class:`~MDAnalysis.core.groups.AtomGroup` to a reference, and :mod:`~MDAnalysis.transformations.wrap` or unwrap groups in the unit cell. (Please see the MDAnalysis `on-the-fly transformations blog post`_ contains a more complete introduction to these fitting and wrapping functions.)
 
-Although you can only call :meth:`~MDAnalysis.coordinates.base.ProtoReader.add_transformations` *once*, you can pass in multiple transformations in a list, which will be executed in order. For example, the below workflow:
+Although you can only call :meth:`~MDAnalysis.coordinates.base.ProtoReader.add_transformations` *once*, you can pass in multiple transformations in a list, which will be executed in order.
 
-* makes all molecules whole (unwraps them over periodic boundary conditions)
-* centers the protein in the center of the box
-* wraps water back into the box
+There is a `transformations tutorial <../examples/transformations/center_protein_in_box.html>`_ that shows in more detail how to use transformations. A few simple examples are given below.
+
+
+-----------------
+Example workflows
+-----------------
+
+The workflow below
+
+* makes all molecules whole (unwraps them over periodic boundary conditions),
+* centers the protein in the center of the box,
+* wraps water back into the box.
 
 .. ipython:: python
     :okwarning:
@@ -39,7 +48,7 @@ Although you can only call :meth:`~MDAnalysis.coordinates.base.ProtoReader.add_t
                 trans.wrap(water, compound='residues')]
     u.trajectory.add_transformations(*workflow)
 
-`Please see the full tutorial for more information. <examples/transformations/center_protein_in_box.ipynb#Doing-all-this-on-the-fly>`_
+`Please see the full tutorial for more information. <../examples/transformations/center_protein_in_box.html#Doing-all-this-on-the-fly>`_
 
 If your transformation does not depend on something within the :class:`~MDAnalysis.core.universe.Universe` (e.g. a chosen :class:`~MDAnalysis.core.groups.AtomGroup`), you can also create a :class:`~MDAnalysis.core.universe.Universe` directly with transformations. The code below translates coordinates 1 angstrom up on the z-axis:
 
