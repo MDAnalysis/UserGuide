@@ -133,7 +133,7 @@ The plugin `pytest-xdist <https://github.com/pytest-dev/pytest-xdist>`_ can be u
 Custom compiler flags and optimised installations
 -------------------------------------------------
 
-You can pass any additional compiler flags for the C/C++ compiler using the `extra_cflags` variable in `setup.cfg`.
+You can pass any additional compiler flags for the C/C++ compiler using the ``extra_cflags`` variable in ``setup.cfg``.
 This allows you to add any additional compiler options required for your architecture. 
 
 This option can also be used to tune your MDAnalysis installation for your current architecture using `-march`, `-mtune`, `-mcpu` and related compiler flags.
