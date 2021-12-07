@@ -151,7 +151,7 @@ line in `setup.cfg` to instead be:
 
 Use of these flags can give a significant performance boost where the compiler can effectively autovectorise.
 
-Be sure to use the recommended flags for your target architecture. For example, ARM platforms reccomend against the use of `-mtune` in favour of `-mcpu`, while
+Be sure to use the recommended flags for your target architecture. For example, ARM platforms recommend using ``-mcpu`` *instead* of ``-mcpu``, while
 PowerPC platforms prefer both `-mcpu` and `-mtune`.
 
 Full dicussion of the these flags is available elsewhere and a list of supported options should be provided by your compiler. The list for GCC_ is provided here. 
