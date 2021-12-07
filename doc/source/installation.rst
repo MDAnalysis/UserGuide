@@ -137,24 +137,19 @@ You can pass any additional compiler flags for the C/C++ compiler using the ``ex
 This allows you to add any additional compiler options required for your architecture. 
 
 For example, ``extra_cflags`` can also be used to tune your MDAnalysis installation for your current architecture using the `-march`, `-mtune`, `-mcpu` and related compiler flags.
-*Which* particular compiler flags to use depends on your CPU architecture. An example for an x86_64 machine would be to change the
+*Which* particular compiler flags to use depends on your CPU architecture. An example for an x86_64 machine would be to change the line in `setup.cfg` as follows:
 
-.. code-block:: YAML
+.. code-block:: diff
 
-    #extra_cflags =
-
-line in `setup.cfg` to instead be:
-
-.. code-block:: YAML
-
-    extra_cflags = -march=native -mtune=native
+	- #extra_cflags = 
+	+ extra_cflags = -march=native -mtune=native
 
 Use of these flags can give a significant performance boost where the compiler can effectively autovectorise.
 
 Be sure to use the recommended flags for your target architecture. For example, ARM platforms recommend using ``-mcpu`` *instead* of ``-mcpu``, while
 PowerPC platforms prefer *both* ``-mcpu`` and ``-mtune``.
 
-Full dicussion of the these flags is available elsewhere and a list of supported options should be provided by your compiler. The list for GCC_ is provided here. 
+Full dicussion of the these flags is available elsewhere (such as here in this wiki_ or in this ARM_ blog post) and a list of supported options should be provided by your compiler. The list for GCC_ is provided here. 
 
 .. warning::
     Use of these compiler options is considered **advanced** and may reduce the binary compatibility of MDAnalysis significantly, especially if using `-march`,
@@ -181,3 +176,5 @@ This installation does not download all the datasets; instead, the datasets are 
 .. _`HOLE`: http://www.holeprogram.org
 .. _GCC: https://gcc.gnu.org/onlinedocs/gcc/x86-Options.html
 .. _mdanalysisdata: https://www.mdanalysis.org/MDAnalysisData
+.. _wiki: https://wiki.gentoo.org/wiki/GCC_optimization#-march
+.. _ARM: https://community.arm.com/arm-community-blogs/b/tools-software-ides-blog/posts/compiler-flags-across-architectures-march-mtune-and-mcpu
