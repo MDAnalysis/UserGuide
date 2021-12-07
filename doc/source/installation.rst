@@ -158,7 +158,7 @@ Full dicussion of the these flags is available elsewhere and a list of supported
 
 .. warning::
     Use of these compiler options is considered **advanced** and may reduce the binary compatibility of MDAnalysis significantly, especially if using `-march`,
-    making it usable only on a matching CPU architecture to the one it is compiled on. We **strongly** recommend that you run the testsuite on your intended platform
+    making it usable only on a matching CPU architecture to the one it is compiled on. We **strongly** recommend that you run the test suite on your intended platform
     before proceeding.
 
 For example, if you plan on using MDAnalysis on a heterogenous system, such as a supercomputer, where the login node you compile on and the
