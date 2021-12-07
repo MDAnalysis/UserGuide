@@ -134,7 +134,7 @@ The plugin `pytest-xdist <https://github.com/pytest-dev/pytest-xdist>`_ can be u
 Additional datasets
 ===================
 
-:ref:`MDAnalysisData is an additional package <mdanalysisdata>` with datasets that can be used in example tutorials. You can install it with ``conda`` or ``pip``:
+MDAnalysisData_ is an additional package with datasets that can be used in example tutorials. You can install it with ``conda`` or ``pip``:
 
 .. code-block:: bash
 
@@ -147,4 +147,4 @@ This installation does not download all the datasets; instead, the datasets are 
 
 
 .. _`HOLE`: http://www.holeprogram.org
-.. _mdanalysisdata: https://www.mdanalysis.org/MDAnalysisData/
+.. _MDAnalysisData: https://www.mdanalysis.org/MDAnalysisData/
