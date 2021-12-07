@@ -161,8 +161,7 @@ Full dicussion of the these flags is available elsewhere and a list of supported
     making it usable only on a matching CPU architecture to the one it is compiled on. We **strongly** recommend that you run the test suite on your intended platform
     before proceeding with analysis.
 
-For example, if you plan on using MDAnalysis on a heterogenous system, such as a supercomputer, where the login node you compile on and the
-compute node you run MDAnalysis on have different CPU architectures, you should avoid this option unless you know what you are doing, or you should compile directly on the compute node.
+In cases where you might encounter multiple CPU architectures (e.g. on a supercomputer where the login node and compute node have different architectures), you should avoid changing these options unless you are experienced with compiling software in these situations.
 
 Additional datasets
 ===================
