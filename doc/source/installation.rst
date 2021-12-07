@@ -137,7 +137,7 @@ You can pass any additional compiler flags for the C/C++ compiler using the ``ex
 This allows you to add any additional compiler options required for your architecture. 
 
 For example, ``extra_cflags`` can also be used to tune your MDAnalysis installation for your current architecture using the `-march`, `-mtune`, `-mcpu` and related compiler flags.
-The use of these compiler flags allows CPU architecture specific optimisations. An example for an x86_64 machine would be to change the
+*Which* particular compiler flags to use depends on your CPU architecture. An example for an x86_64 machine would be to change the
 
 .. code-block:: YAML
 
