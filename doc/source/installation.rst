@@ -130,6 +130,33 @@ The plugin `pytest-xdist <https://github.com/pytest-dev/pytest-xdist>`_ can be u
     pip install pytest-xdist
     pytest --disable-pytest-warnings --pyargs MDAnalysisTests --numprocesses 4
 
+Custom compiler flags and optimised installations
+-------------------------------------------------
+
+You can pass any additional compiler flags for the C/C++ compiler using the ``extra_cflags`` variable in ``setup.cfg``.
+This allows you to add any additional compiler options required for your architecture. 
+
+For example, ``extra_cflags`` can be used to tune your MDAnalysis installation for your current architecture using the `-march`, `-mtune`, `-mcpu` and related compiler flags.
+*Which* particular compiler flags to use depends on your CPU architecture. An example for an x86_64 machine would be to change the line in `setup.cfg` as follows:
+
+.. code-block:: diff
+
+	- #extra_cflags = 
+	+ extra_cflags = -march=native -mtune=native
+
+Use of these flags can give a significant performance boost where the compiler can effectively autovectorise.
+
+Be sure to use the recommended flags for your target architecture. For example, ARM platforms recommend using ``-mcpu`` *instead* of ``-mcpu``, while
+PowerPC platforms prefer *both* ``-mcpu`` and ``-mtune``.
+
+Full dicussion of the these flags is available elsewhere (such as here in this wiki_ or in this ARM_ blog post) and a list of supported options should be provided by your compiler. The list for GCC_ is provided here. 
+
+.. warning::
+    Use of these compiler options is considered **advanced** and may reduce the binary compatibility of MDAnalysis significantly, especially if using `-march`,
+    making it usable only on a matching CPU architecture to the one it is compiled on. We **strongly** recommend that you run the test suite on your intended platform
+    before proceeding with analysis.
+
+In cases where you might encounter multiple CPU architectures (e.g. on a supercomputer where the login node and compute node have different architectures), you should avoid changing these options unless you are experienced with compiling software in these situations.
 
 Additional datasets
 ===================
@@ -147,4 +174,7 @@ This installation does not download all the datasets; instead, the datasets are 
 
 
 .. _`HOLE`: http://www.holeprogram.org
+.. _GCC: https://gcc.gnu.org/onlinedocs/gcc/x86-Options.html
 .. _MDAnalysisData: https://www.mdanalysis.org/MDAnalysisData/
+.. _wiki: https://wiki.gentoo.org/wiki/GCC_optimization#-march
+.. _ARM: https://community.arm.com/arm-community-blogs/b/tools-software-ides-blog/posts/compiler-flags-across-architectures-march-mtune-and-mcpu
