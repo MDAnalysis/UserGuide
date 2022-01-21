@@ -1,0 +1,275 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Determining the persistence length of a polymer\n",
+    "\n",
+    "Here we determine the persistence length of a polymer.\n",
+    "\n",
+    "**Last executed:** Dec 27, 2020 with MDAnalysis 1.0.0\n",
+    "\n",
+    "**Last updated:** January 2020\n",
+    "\n",
+    "**Minimum version of MDAnalysis:** 1.0.0\n",
+    "\n",
+    "**Packages required:**\n",
+    "    \n",
+    "* MDAnalysis (<a data-cite=\"michaud-agrawal_mdanalysis_2011\" href=\"https://doi.org/10.1002/jcc.21787\">Michaud-Agrawal *et al.*, 2011</a>, <a data-cite=\"gowers_mdanalysis_2016\" href=\"https://doi.org/10.25080/Majora-629e541a-00e\">Gowers *et al.*, 2016</a>)\n",
+    "* MDAnalysisTests"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import MDAnalysis as mda\n",
+    "from MDAnalysis.tests.datafiles import TRZ_psf, TRZ\n",
+    "from MDAnalysis.analysis import polymer\n",
+    "%matplotlib inline"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Loading files"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The test files we will be working with here feature a pure polymer melt of a polyamide."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "u = mda.Universe(TRZ_psf, TRZ)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Choosing the chains and backbone atoms"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We can define the chains of polyamide to be the common definition of a molecule: where each atom is bonded to at least one other in the group, and not bonded to any atom outside the group. MDAnalysis provides these as `fragments`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "chains = u.atoms.fragments"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We then want to select only the backbone atoms for each chain, i.e. only the carbons and nitrogens."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "backbones = [ch.select_atoms('not name O* H*') for ch in chains]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "This should give us AtomGroups where the spatial arrangement is linear. However, the atoms are in index order. We can use `sort_backbone` to arrange our atom groups into their linear arrangement order."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "sorted_bb = [polymer.sort_backbone(bb) for bb in backbones]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Calculating the persistence length"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The persistence length is the length at which two points on the polymer chain become decorrelated. This is determined by first measuring the autocorrelation $C(n)$ of two bond vectors $(\\mathbf{a}_i, \\mathbf{a}_{i + n})$ separated by $n$ bonds, where\n",
+    "\n",
+    "$$ C(n) = \\langle \\cos\\theta_{i, i+n} \\rangle = \\langle \\mathbf{a_i} \\cdot \\mathbf{a_{i+n}} \\rangle $$\n",
+    "\n",
+    "An exponential decay is then fitted to this, which yields the persistence length $l_P$ from the average bond length $\\bar{l_B}$.\n",
+    "\n",
+    "$$ C(n) \\approx \\exp\\left( - \\frac{n \\bar{l_B}}{l_P} \\right)$$\n",
+    "\n",
+    "We set up our `PersistenceLength` class ([API docs](https://docs.mdanalysis.org/stable/documentation_pages/analysis/polymer.html)). Note that every chain we pass into it must have the same length."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<MDAnalysis.analysis.polymer.PersistenceLength at 0x7f80e4e66dc0>"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "plen = polymer.PersistenceLength(sorted_bb)\n",
+    "plen.run()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The average bond length is found at `plen.lb`, the calculated persistence length at `plen.lp`, the measured autocorrelation at `plen.results` and the modelled decorrelation fit at `plen.fit`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(179,)\n",
+      "The persistence length is 6.917464580166461\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(plen.results.shape)\n",
+    "print('The persistence length is {}'.format(plen.lp))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "`MDAnalysis.analysis.polymer.PersistenceLength` provides a convenience method to plot the results."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<matplotlib.axes._subplots.AxesSubplot at 0x7f80e548d4c0>"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    },
+    {
+     "data": {
+      "image/png": "iVBORw0KGgoAAAANSUhEUgAAAYUAAAEGCAYAAACKB4k+AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4yLjIsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+WH4yJAAAgAElEQVR4nO3deXxU5b3H8c9vJgkhENkJyJJEBGSRoEQQuFqLSnG/Wq0L1drW8rJWq96rVS/tbaultdW2dsFSqr22imKtWi1q0aJW64JGRWUXhEBAWWWHbPO7f8wkhJCQIZnMlu/79corc855cubHkMx3znnO8xxzd0RERAACiS5ARESSh0JBRERqKRRERKSWQkFERGopFEREpFZGogtoie7du3tBQUGiyxARSSnvvPPOZnfv0dC2lA6FgoICSkpKEl2GiEhKMbPSxrbp9JGIiNRSKIiISC2FgoiI1ErpPgURkYZUVlZSVlbGvn37El1KQmVnZ9O3b18yMzOj/hmFgoiknbKyMnJzcykoKMDMEl1OQrg7W7ZsoaysjMLCwqh/Li6nj8zsj2a20cwWNrLdzOzXZrbCzD4ws+Oj2vE770BBAcyaFctyRSTF7du3j27durXZQAAwM7p163bYR0vx6lN4AJh0iO1nAAMjX1OA30W959JSmDJFwSAiB2jLgVCjOa9BXELB3V8Bth6iyXnAnz3sTaCzmfVuar8bO3QJP9izB6ZOjUWpIiJtWrJcfdQHWFtnuSyy7iBmNsXMSsysZGPHrpQHI90ia9a0epEiItEKBoOMHDmS4cOHc84557Bt27aY7r+goIDNmzezbds27r333pjtN1lCoaFjnAbv/uPuM9292N2L3YxVXSLZ0b9/K5YnImlt1qxw/2QgELN+yvbt27NgwQIWLlxI165dmT59eov32ZB0DYUyoF+d5b7A+mh+cFmPfMjJgWnTWqUwEUlzs2aF+yVLS8G9Vfopx44dy7p16wBYuXIlkyZNYtSoUZx00kksXboUgMcee4zhw4dTVFTEySefDMADDzzAtddeW7ufs88+m5dffvmAfd96662sXLmSkSNHcvPNN7e41mS5JPVp4Fozmw2MAba7+ydN/ZC5s3zACJg6BSZPbvUiRSQNTZ0a7pesq6afMgbvK9XV1cybN4+vf/3rAEyZMoUZM2YwcOBA5s+fzzXXXMOLL77I7bffzty5c+nTp89hnWq68847WbhwIQsWLGhxrRCnUDCzR4BTgO5mVgZ8H8gEcPcZwLPAmcAKYA/w1Wj2m5UZZNmFV8DkE1qjbBFpCxrrj2xhP+XevXsZOXIkq1evZtSoUZx++uns2rWL119/nYsuuqi2XXl5OQDjx4/nyiuv5Etf+hIXXHBBi567JeISCu5+aRPbHfjW4e43OzPIsg07m12XiAj9+4dPGTW0vgVq+hS2b9/O2WefzfTp07nyyivp3Llzg5/qZ8yYwfz583nmmWcYOXIkCxYsICMjg1AoVNsmHiO0k6VPoVmyM4Os3bqX3eVViS5FRFLVtGnhfsm6YthP2alTJ379619z99130759ewoLC3nssceA8Kjj999/Hwj3NYwZM4bbb7+d7t27s3btWgoKCliwYAGhUIi1a9fy1ltvHbT/3Nxcdu6M3Yfj1A6FjHD5H23cleBKRCRlTZ4MM2dCfj6Yhb/PnBnTfsrjjjuOoqIiZs+ezaxZs7j//vspKipi2LBhPPXUUwDcfPPNHHvssQwfPpyTTz6ZoqIixo8fT2FhIcceeyw33XQTxx9/8GQP3bp1Y/z48QwfPjwmHc0WPnOTmkaMPN53TLqDn31xBF86oV/TPyAibcKSJUsYMmRIostICg29Fmb2jrsXN9Q+pY8UsjICZGcG1K8gIhIjKR0KAIPyclmuUBARiYm0CIWlnyoURERiIeVDYXBeLpt2lrN1d0WiSxERSXkpHwqDeuUC6BSSiEgMpHwoDM5TKIiIxErKh0LeEe04IjuDZepXEJEkUjN1ds3X6tWrGTduHACrV6/m4YcfTnCFDUuWCfGazcw4ptcROlIQkaRSM81FXa+//jqwPxQuu+yyRJR2SCl/pAAwqFdHln26k1QeiCci6a9jx45AeLrrV199lZEjR/LLX/4ywVUdKOWPFCDcr7BjXxUbdpTTq1N2ossRkSTyw78vYvH6HTHd59Ajj+D75ww7ZJuaWVIBCgsLefLJJ2u33Xnnndx9993MmTMnpnXFQlqEwqBIZ/PST3coFEQkKTR0+igVpFUoLN+wk1MG90xwNSKSTJr6RC8HSos+hS4dsuiZ245ln2q2VBFJfrGe7jqW0iIUAAb30hxIIpIaRowYQUZGBkVFRepobi2D83J5aH4p1SEnGLBElyMibdyuXQefuahZl5mZybx58+JdUlTS5khhUK9c9lWGWLt1T9ONRUSkQWkTCjXTXejeCiIizZc2oTAwLzwoRNNdiAigwaw07zVIm1DIycqgf9ccHSmICNnZ2WzZsqVNB4O7s2XLFrKzD2/sVtp0NEPkLmw6UhBp8/r27UtZWRmbNm1KdCkJlZ2dTd++fQ/rZ9IqFAb36sjLyzZSXlVNu4xgossRkQTJzMyksLAw0WWkpLQ5fQQwuNcRVIWcVZt3J7oUEZGUlF6hUHMFkk4hiYg0S1qFQmH3DmQETCObRUSaKa1CISsjwFE9OuhIQUSkmdIqFCB8BZIuSxURaZ64hYKZTTKzZWa2wsxubWB7JzP7u5m9b2aLzOyrzXmewXm5rN26l93lVS0vWkSkjYlLKJhZEJgOnAEMBS41s6H1mn0LWOzuRcApwM/NLOtwn2twr3Bn80cbNY22iMjhiteRwmhghbt/7O4VwGzgvHptHMg1MwM6AluBw/64XxMKGsQmInL44hUKfYC1dZbLIuvq+i0wBFgPfAhc7+6h+jsysylmVmJmJQ2NVuzXJYfszID6FUREmiFeodDQDQ7qT0ryBWABcCQwEvitmR1x0A+5z3T3Yncv7tGjx0E7DQQsPN2FQkFE5LDFKxTKgH51lvsSPiKo66vAEx62AlgFHNOcJxuUl6vLUkVEmiFeofA2MNDMCiOdx5cAT9drswY4FcDM8oDBwMfNebLBebls3FnOZ7srWlCyiEjbE5dQcPcq4FpgLrAE+Iu7LzKzq83s6kizO4BxZvYhMA+4xd03N+f5BvXSDXdERJojbrOkuvuzwLP11s2o83g9MDEWz3VMzRVIG3Zy4lHdYrFLEZE2Ie1GNAP0zG1Hp/aZ6lcQETlMaRkKZsZgXYEkInLY0jIUAAb16siyT3e26dvxiYgcrrQNhcF5uezYV8WGHeWJLkVEJGWkbSgMitxwZ8mnOxJciYhI6kjbUBjWpxMBg/fWbEt0KSIiKSNtQ6FjuwyG9D6Cd0q3JroUEZGUkbahAFCc34X31myjqvqgefVERKQB6R0KBV3ZU1HNkk90aaqISDTSPBS6AFCiU0giIlFJ61Do3ak9fTq3p2T1Z4kuRUQkJaR1KED4aKGkdKsGsYmIRCH9QyG/Cxt2lFP22d5ElyIikvTSPhRG5XcF1K8gIhKNtA+Fwb1yyW2XoX4FEZEopH0oBAPGcfldFAoiIlFI+1CAcL/C8o072b63MtGliIgktfQNhVmzoKAAAgGKb7sGd3h3jY4WREQOJT1DYdYsmDIFSkvBnZELXiUYqqZkzquJrkxEJKnF7R7NcTV1KuzZU7uYU1nOsA0rKdmcwJpERFJAeh4prFlz0KrissW83yWfiipNjici0pj0DIX+/Q9aVbxuCfsy27Fo/fYEFCQikhrSMxSmTYOcnANWFW9ZBcA7pepsFhFpTHqGwuTJMHMm5OeDGeTn0/Oen9G/a47GK4iIHEJ6djRDOBgmTz5gVfGjC3jlo024O2aWoMJERJJXeh4pNGJUQRc276qgdMuephuLiLRBbSoUTigIT4739mpNjici0pA2FQpH9+jIEdkZ6mwWEWlEmwqFQMAYld+FEoWCiEiD4hYKZjbJzJaZ2Qozu7WRNqeY2QIzW2Rm/2qNOooLurJi4y4+213RGrsXEUlpcQkFMwsC04EzgKHApWY2tF6bzsC9wLnuPgy4qDVqKc7vAmi8gohIQ+J1pDAaWOHuH7t7BTAbOK9em8uAJ9x9DYC7b2yNQor6dSYzaDqFJCLSgHiFQh9gbZ3lssi6ugYBXczsZTN7x8yuaGhHZjbFzErMrGTTpk2HXUh2ZpDhfTpRoiuQREQOEq9QaGikmNdbzgBGAWcBXwC+Z2aDDvoh95nuXuzuxT169GhWMcX5Xfhg3XbKq6qb9fMiIukqXqFQBvSrs9wXWN9Am3+4+2533wy8AhS1RjGj8rtSURVi4TpNjiciUle8QuFtYKCZFZpZFnAJ8HS9Nk8BJ5lZhpnlAGOAJa1RTHFBuLP5bc2DJCJygLjMfeTuVWZ2LTAXCAJ/dPdFZnZ1ZPsMd19iZv8APgBCwH3uvrA16unesR2F3TuEJ8f7XGs8g4hIaorbhHju/izwbL11M+ot3wXcFY96RuV3Yd6SDZocT0SkjjY1ormuEwq68NmeSlZu2p3oUkREkkabDYVR+eHJ8d4p1aWpIiI12mwoDOjRgS45mby1Sp3NIiI12mwomBnjju7Ov5ZvpDpUf8iEiEjb1GZDAWDi0Dw276pgwVodLYiIQBsPhc8f05PMoPH8og2JLkVEJCm06VA4IjuTE4/qxvOLw5emioi0dW06FAAmDuvFqs27WblpV6JLERFJuDYfCqcPyQNgrk4hiYgcfiiYWYfITXPSQq9O2RT17cTzixUKIiJNhoKZBczsMjN7xsw2AkuBTyK3zLzLzAa2fpmta+KwXry/dhufbt+X6FJERBIqmiOFl4ABwG1AL3fv5+49gZOAN4E7zezLrVhjq5s4NHwK6YUlOloQkbYtmgnxTnP3yvor3X0r8DjwuJllxryyODq6Z0cKu3fghcUbuPzE/ESXIyKSME0eKdQEgpndY41MJ9pQaCS9WbOgoAACAaywkIls4Y2Vm9mxL/X+KSIisXI4Hc27gKfNrAOAmU00s9dap6xWNmsWTJkCpaXgDqWlnD5jGpXVzsvLDv++zyIi6SLq+ym4+3fN7DLgZTMrB3YDt7ZaZa1p6lTYs+eAVcd9/D7d9+3g+UWfcm7RkQkqTEQksaIOBTM7FfgG4TDoDXzd3Ze1VmGtas2ag1YFPcRpy95gTqeulFdV0y4jba66FRGJ2uGcPpoKfM/dTwEuBB41swmtUlVr69+/wdUTt61kV3kVb36seyyISNsUdSi4+wR3/3fk8YfAGcCPWquwVjVtGuTkHLguJ4dx11xGTlaQ5xd9mpi6REQSLJrBa41dcfQJcOqh2iStyZNh5kzIzwez8PeZM8m+fDKfG9SDFxZvIKR7LIhIGxTV4DUzu87MDjjnYmZZwFgz+xPwlVaprjVNngyrV0MoFP4+eTIAE4flsXFnOe+XbUtoeSIiiRBNKEwCqoFHzGy9mS02s4+Bj4BLgV+6+wOtWGNcTRicRzBgmgtJRNqkaK4+uhnY4+7jIyOXuwN73T0tP0p3ysnkxKO68sLiDdwy6ZhElyMiElfRHClcDvwOwiOX3f0Td99mZleZ2W2tW15iTBzaixUbd+keCyLS5kQTCnvdfU8D6x8EUnoivMacXjNBnk4hiUgbE1UomFnv+ivdvRyoin1JiXdk5/YM73OELk0VkTYnmlD4OfCUmR0wfaiZ9QRCrVJVEpg4tBfvrd3Gxh26x4KItB3RzJL6GDAdeMfM5pjZj8zsx8BrwN2tXWCiTByWhzv8c8nGRJciIhI3UY1odvc/AYXAX4BMYB9wqbvPasXaEmpwXi79u+bwwmKdQhKRtuNwprnY6e5/dvdb3P12dy85nCcys0lmtszMVphZo7OrmtkJZlZtZhcezv5jzcyYODSP11ZsYfse3WNBRNqGw5kQr9nMLEj4FNQZwFDgUjMb2ki7nwJz41FXU84/vg8V1SEee2dtoksREYmLuIQCMBpY4e4fu3sFMBs4r4F21xG+xWfiT+TPmsWwcUWMKlvMg7NfIfRQ2p4pExGpFa9Q6APU/bhdFllXy8z6AOcDMw61IzObYmYlZlayaVMr3SWtzp3Zrnh3DqW5PXhl2vTwehGRNBavUGhoFtX605DeA9zi7tWH2pG7z3T3Yncv7tGjR8wKPECdO7Odsex1uu/6jAeHnR5eLyKSxuIVCmVAvzrLfYH19doUA7PNbDXhm/jca2b/GZ/y6qlzZ7asUBWXfjCXFwcUs3Z7eULKERGJl3iFwtvAQDMrjEy5fQnwdN0G7l7o7gXuXgD8FbjG3f8Wp/oOVO/ObJcteI6AOw+dfHFCyhERiZe4hIK7VwHXEr6qaAnwF3dfZGZXm9nV8ajhsNS7M1vvnVuY+PHbPDr8VPZVHvLslohISotm6uyYcPdngWfrrWuwU9ndr4xHTY2K3HCHqVPDp5L69+fy04fz3KoAf39/PRcV9zv0z4uIpKh4nT5KPfXuzDZ2ypcY2LMjf36jFHfdqlNE0pNCIUpmxhVj8/lw3XYWrE3L+wuJiCgUDsf5x/elY7sMHnyjNNGliIi0CoXCYejYLoMLju/DnA8+YfMuXZ4qIulHoXCYrhibT0V1iEff1nxIIpJ+FAqH6eieuYwb0I2H56+hqjpt7zEkIm2UQqEZrhibz7pte5m3NPHz9omIxJJCoRlOG5JH707Z6nAWkbSjUGiGjGCAyWP68+8Vm1lx7BgIBKCgQLOoikjKUyg008Vr3iazuoqH8kaCO5SWhqfbVjCISApTKDRTjx/8D2ctfZXHjz2V3ZnZ4ZV79mh6bRFJaQqF5lqzhsvffYad7Towu2jiAetFRFKVQqG5+vfn+PVLGb96Ab8Zdwnb23WoXS8ikqoUCs01bRqWk8PUF+9ne3ZHfjPukvB029OmJboyEZFmUyg01+TJMHMmQ3NCfOnDf/KnUeew6jf37Z92W0QkBSkUWiIyvfZ/P/pTMtu3487MgYmuSESkRRQKMdAzN5trThnA3EUbePPjLYkuR0Sk2RQKMXLVSUdxZKdsfvTMYkIh3YRHRFKTQiFGsjOD3HLGMSxct4Mn3luX6HJERJpFoRBD54w4kqJ+nblr7lL2VFSFRzcXFGgaDBFJGQqFGAoEjO+dNYQNO8qZ+du/hae9KC3VNBgikjIUCjFWXNCVs47tze/XB/g00P7AjZoGQ0SSnEKhFdx6xjFUE+Cuky8/eKOmwRCRJKZQaAX9uubw1Y9e4vFjT+PDvAEHbtQ0GCKSxBQKreRbXxxNtz3b+dGEq6i9QFXTYIhIklMotJIjrpjMjUdnMr//scwdNBby82HmTE2DISJJTaHQii751hcZlNeR26+8g22LlysQRCTpKRRaUUYwwF0XFrFpVzn//Zf3NdJZRJKeQqGVFfXrzHfPGsq8pRuZ+erHB27U4DYRSTJxCwUzm2Rmy8xshZnd2sD2yWb2QeTrdTMrildtre2KsfmcdWxv7pq7jLdWbQ2vnDVLg9tEJOnEJRTMLAhMB84AhgKXmtnQes1WAZ9z9xHAHcDMeNQWD2bGnV88ln5d2nPdI++yeVd5eBDbnj0HNtTgNhFJsHgdKYwGVrj7x+5eAcwGzqvbwN1fd/fPIotvAn3jVFtc5GZncu/kUXy2p5IbZi+gem1Zww01uE1EEiheodAHWFtnuSyyrjFfB55raIOZTTGzEjMr2bRpUwxLbH1DjzyC288dxr9XbOa3k77RcCMNbhORBIpXKFgD6xq8FMfMPk84FG5paLu7z3T3Yncv7tGjRwxLjI+LT+jHBcf14Z5jz+K1QaMP3KjBbSKSYPEKhTKgX53lvsD6+o3MbARwH3Ceu6flLczMjB+dP5yje+Zy/UXfZcPgEWCmwW0ikhTiFQpvAwPNrNDMsoBLgKfrNjCz/sATwOXuvjxOdSVETlYG904+nt2WyXU3zqCqsgpWr1YgiEjCxSUU3L0KuBaYCywB/uLui8zsajO7OtLsf4FuwL1mtsDMSuJRW6IMzMvlxxcM561VW/nFC4fIQI1lEJE4yojXE7n7s8Cz9dbNqPP4KuCqeNWTDM4/ri9vrdrKvS+vpG+XHC4bU6+TuWYsQ82lqzVjGUBHFSLSKjSiOcG+f84wPj+4B//z5Ic8+MbqAzdqLIOIxJlCIcGyM4PMuHwUpw3J43tPLeL/Xlu1f2NjYxY0lkFEWolCIQm0ywhy7+Tj+cKwPH7498X84ZXIHEmNjVnQWAYRaSUKhSSRlRHgt5cdz1nH9mbas0u49+UV4TELOTkHNtRYBhFpRQqFJJIZDPCrS0ZybtGR/Owfy/hNr9HhsQv5+Y2PZdDVSSISQ3G7+kiikxEM8MuLR5IRMH7+wnKqTj2BG1atwqyBQeG6OklEYkxHCkkoGDDuuqiIi0b15VfzPuLu55fh3sCsILo6SURiTEcKSSoYMH76xRFkBANMf2klW3ZV8P1zhtE+K7i/ka5OEpEY05FCEgsEjGn/OZxrThnA7LfXct70f7Ps0537G+jqJBGJMYVCkgsEjO9MOoY/f200W3dXcu5v/81Db5aGTydFe3WSOqNFJEoKhRRx8qAePHf9SYw5qhvf/dtCrpn1LtvP/1J0Vyfptp8iEiVrsAMzRRQXF3tJSVrPm3eQUMi5798f87N/LCPviGx+dclIigu6Nv4DBQXhIKgvPz88M6uItDlm9o67Fze0TUcKKSYQMKacPIDHvzmOYMC4eOab/GbeR1SHGgl3dUaLyGFQKKSoon6deebb/8HZI3rz8xeWc8nMN3h/7baDG6ozWkQOg0IhheVmZ3LPxSP5+UVFfLxpN+dNf41rH36X0i279zeKpjNaHdEiEqE+hTSxc18lf3jlY/7w6iqqQiEmj8nnuglH061ju/Cb/NSp4VNG/fuHA6GmM7r+qGgIh4ZuDSqStg7Vp6BQSDMbd+zjnnkf8ejba2mfGWTKyUdx1UmF5GQ1Mk5RHdEibY5CoQ1asXEXd81dytxFG+iR244bThvIhaP60i4jeGDDQCB8qWp9ZhAKxadYEYkrXX3UBh3dsyO/v7yYx785lvyuOUx9ciEn/ngeP352Cas21+lziKYjWn0OIm2GjhTaAHfn9ZVbmDW/lOcXbaAq5Iwb0I3LxvRn4vsvkXX1IfoU1OcgknZ0+khqbdy5j8dKynh4/hrWbdtL945ZXNR+B5f+8cf0X/LewR3R6nMQSTsKBTlIdch55aNNPDx/DfOWbMCBE/K7cuqQnpw6JI8BPTqE7+GgPgeRtKM+BTlIMGB8fnBP/nBFMa/dOoEbTh3EzvIqfvLcUk77xb/4/N0vc8ecxbxefCqVgeDBO6jfF6F+B5G0oFAQendqz/WnDeS560/itVsncMd5w8jv1oEH3yjlsgk3cPy3H+bac7/D48MmsKZTHt7Q4DdNuieJ0tQHkpZuj9U+UoW7p+zXqFGjXFrPrn2V/o+Fn/jNdz7uo65/2PNvmeP5t8zxUVOf9qv+9Lbf+9IKf3PlZt9z1NHu4Tg48Cs/f//OHnoovGwW/v7QQwn6V0lKaer35qGH3HNyDvy9y8nZ366l22O1j2j+LXEElHgj76sJf2NvyZdCIX6qq0O+aN12f/CN1X7jo+/5KXe9VBsSA276m59zxS/8+6dO8dkjTveSI4/x7Vk54V9+9+j/aCQsid48Dqm164zm9yY//9AfSFq6PVb7SLK/AYWCtIrNO/f5C4s+9Z+ec51ffMmP/Zgb/1obFPm3zPEx1z3oX77vTf/hf/6XPzJiopf0Oca3Zud6qKE/mrbkUG+msfrU2dLtsaqzJa9FNG+2Zg23qflA0tLtsdpHtMHR2h8GIs8xCtwVCtJqIm8QVRbw0k55/sKA0X7vf1zqN/7kCT/7168eFBZDbnzMT//adL/ywu/7d5/80Ge8vML//ttH/b3jTvYNHbt4VUFB8n46bqmm3kxj8akzHqdMoqmzZj/NDZZYvNkmy5FCU/+WaP9PYhTkSREKwCRgGbACuLWB7Qb8OrL9A+D4pvapUEgih/hlrM4v8DWd8vyfA07w+4rP9R9OuMq/cf5UP2PK73zED+YeEBj5t8zxwpuf8lHXPuSTvv+Uf/m+N/3GR9/zHz+z2P/wykp/8t0yf2npBn9vzWe+atMu37qr3KuqQy2uMeo2Lf0019QbSKq8EUZTZ0uDJVUCMh6nuWIc5IcKhbiMUzCzILAcOB0oA94GLnX3xXXanAlcB5wJjAF+5e5jDrVfjVNIEU2Mit4x8BjWbS9n3RE9WdepJ5s7dGZzTmc29TiSTSeezOad5WzaVU5FVePjInKzM+hcXU7nDWXk7txGToaRM/QYcgYNoH1WkJzlS8l56gly9uwkp3IfORX7yAk47b99LR3O/AI5WUHaP/t3cm76L3K2b6VddSVWr86oR3cfalbapsZ9RDNYsKl9tHR7rOpsqk1TzxGL1zsW22P1HIf6t8T59S4GStzt4MZxGrxmZmOBH7j7FyLLtwG4+0/qtPk98LK7PxJZXgac4u6fNLZfhUIKackbJeAPzWLHdTewOdCObe1z2d6uI9s6dWP7V77OtqFFbF+wkO2vzWdbZnt2tsthT2Y2e7Pas7tHL/YGs9izt5zqhsZbHEJmdSVZVZVkEiKzezeyPl1PVvk+MqurwttqvmdlkHXK58gMGplla8ma/waZ5fsIhkIEvZpgMEhgwucJDh1CYObvCW7bRtBDBEIhgh4iGKom0KkTGf9zG4H33iU4+xGC5ftqtwcyMwhe+RWC48cTCBjBa79FcOMGAqEQAXcMx9yxnj3hgf/DvnIltnFDeF3NNghvf+Rh7NJL4dMNB25zx3rlYY//FTDsgvOxTz7Zv62mbe/eMGcO9txz2B23Y3v37t9HdjvsBz/Azjk7vI+hQ7BQqHYfB/y/Ll8Op5wC69aFV1Fne58+8K9/hR8/9TT84uewfn34uW+6Cc49r8H/L2vwLe7wNLUPi+JJGm3x5JNw18+wsnXhf+Mt34Hzzw9vO3EsrCsL/3zdP4W+feDN+dCvL3VfotrXywzKyiJt+9b+HR30eq9bB6NH17Y9c/dnCQ+FC4FJ7n5VZPlyYIy7X1unzRzgTnf/d2R5HnCLu9PsF1MAAAfUSURBVDf6rq9QSBOx+BTUxHYPBCgPZLA3M5s9mdnsyarz/R8vsKeimr1XXMnuyPbyjEwqA5lUBjOoyMik8upvUnH/A1QGg1QEM6kMZlIRzKAyENk++kQqq0NULF9BRcipCGYSCgSotgDVgSChYJDqnI5UV1URqqqmOhDATcOEJDG6//TsRkOhkUn2Y66hJ6+fRtG0wcymAFMA+uuWkulh2rSGD63rDpBr6l7TTWy3/v3JLi0lu7qSLvt27t+enw9D8sKPty9vPFgu+B381xONb3/wpvDjwClNn5qJHDX5mjVU5xdQffsdhC6+hKpQiFAIqt2pDjmhyPe6j8PfoXrOHELT7yW0YQPeqxf+zWvwL3wBJ/L0c+fiM2fiGzbivfLwb3wDP+308AllHP45D+6/H9+4Ec/Lw7/6NXzChMjPe/gP78WX8D//Gd+8Ge/RA7/8cvzkz+1/DjyyP2r3u3/Z4bXX8Pvuxysq9r8O7drB174G48eFl197Hf/rX2HzFujeDS68EMaNO+jla+qzazQfbZv6ANzkPqJ4Em+i0SFLmD8ff/JJ2LoVunYNH0WMGVO7jQcfhIqK/c+QlQWXXw6jI23eCrfxisr9+8zKgi9/GcaMjuznLfypp7jn0EXGpZN5LDC3zvJtwG312vyecD9DzfIyoPeh9quO5jTSVAduMnTUxaJDsa1JlTEXqSAWF0pEkOhxCoSPSD4GCoEs4H1gWL02ZwHPET5iOBF4q6n9KhTakFhdRdLaVx8l2SAlkYYkPBTCNXAm4SuQVgJTI+uuBq6OPDZgemT7h0BxU/tUKLQxrX25aKwkSx0ijThUKGjqbBGRNkZTZ4uISFQUCiIiUkuhICIitRQKIiJSS6EgIiK1FAoiIlJLoSAiIrUUCiIiUkuhICIitRQKIiJSS6EgIiK1FAoiIlJLoSAiIrVSepZUM9tJ+GY8yaw7sDnRRTRBNcaGamy5ZK8P0qPGfHfv0dCGeN2Os7Usa2z612RhZiWqseVUY2wke43JXh+kf406fSQiIrUUCiIiUivVQ2FmoguIgmqMDdUYG8leY7LXB2leY0p3NIuISGyl+pGCiIjEkEJBRERqpWwomNkkM1tmZivM7NZE1wNgZn80s41mtrDOuq5m9oKZfRT53iWB9fUzs5fMbImZLTKz65Owxmwze8vM3o/U+MNkq7FOrUEze8/M5iRjjWa22sw+NLMFZlaSpDV2NrO/mtnSyO/l2GSq0cwGR16/mq8dZnZDktV4Y+RvZaGZPRL5G2p2fSkZCmYWBKYDZwBDgUvNbGhiqwLgAWBSvXW3AvPcfSAwL7KcKFXAf7v7EOBE4FuR1y2ZaiwHJrh7ETASmGRmJyZZjTWuB5bUWU7GGj/v7iPrXLOebDX+CviHux8DFBF+PZOmRndfFnn9RgKjgD3Ak8lSo5n1Ab4NFLv7cCAIXNKi+tw95b6AscDcOsu3Abcluq5ILQXAwjrLy4Dekce9CQ+4S3idkXqeAk5P1hqBHOBdYEyy1Qj0jfyxTQDmJOP/NbAa6F5vXdLUCBwBrCJywUsy1livronAa8lUI9AHWAt0JTwYeU6kzmbXl5JHCux/IWqURdYlozx3/wQg8r1ngusBwMwKgOOA+SRZjZHTMguAjcAL7p50NQL3AN8BQnXWJVuNDjxvZu+Y2ZTIumSq8ShgE/B/kdNw95lZhySrsa5LgEcij5OiRndfB9wNrAE+Aba7+/MtqS9VQ8EaWKdra6NkZh2Bx4Eb3H1Houupz92rPXy43hcYbWbDE11TXWZ2NrDR3d9JdC1NGO/uxxM+zfotMzs50QXVkwEcD/zO3Y8DdpP401kNMrMs4FzgsUTXUlekr+A8oBA4EuhgZl9uyT5TNRTKgH51lvsC6xNUS1M2mFlvgMj3jYksxswyCQfCLHd/IrI6qWqs4e7bgJcJ99MkU43jgXPNbDUwG5hgZg+RXDXi7usj3zcSPg8+muSqsQwoixwJAvyVcEgkU401zgDedfcNkeVkqfE0YJW7b3L3SuAJYFxL6kvVUHgbGGhmhZEEvwR4OsE1NeZp4CuRx18hfB4/IczMgPuBJe7+izqbkqnGHmbWOfK4PeFf+qUkUY3ufpu793X3AsK/ey+6+5dJohrNrIOZ5dY8JnyeeSFJVKO7fwqsNbPBkVWnAotJohrruJT9p44geWpcA5xoZjmRv+9TCXfWN7++RHfetKCD5UxgObASmJroeiI1PUL4vF4l4U9BXwe6Ee6Q/CjyvWsC6/sPwqfZPgAWRL7OTLIaRwDvRWpcCPxvZH3S1Fiv3lPY39GcNDUSPl//fuRrUc3fSDLVGKlnJFAS+f/+G9AlCWvMAbYAneqsS5oagR8S/uC0EHgQaNeS+jTNhYiI1ErV00ciItIKFAoiIlJLoSAiIrUUCiIiUkuhICIitRQKIiJSS6EgIiK1FAoiMWRmJ5jZB5E57TtE5rlPqrmbRA5Fg9dEYszMfgRkA+0Jz+3zkwSXJBI1hYJIjEXm43ob2AeMc/fqBJckEjWdPhKJva5ARyCX8BGDSMrQkYJIjJnZ04Sn1C4kfPeraxNckkjUMhJdgEg6MbMrgCp3fzhyL/HXzWyCu7+Y6NpEoqEjBRERqaU+BRERqaVQEBGRWgoFERGppVAQEZFaCgUREamlUBARkVoKBRERqfX/CAbeKPbw5cAAAAAASUVORK5CYII=\n",
+      "text/plain": [
+       "<Figure size 432x288 with 1 Axes>"
+      ]
+     },
+     "metadata": {
+      "needs_background": "light"
+     },
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "plen.plot()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## References\n",
+    "\n",
+    "[1] Richard&nbsp;J. Gowers, Max Linke, Jonathan Barnoud, Tyler J.&nbsp;E. Reddy, Manuel&nbsp;N. Melo, Sean&nbsp;L. Seyler, Jan Domański, David&nbsp;L. Dotson, Sébastien Buchoux, Ian&nbsp;M. Kenney, and Oliver Beckstein.\n",
+    "<span class=\"bibtex-protected\">MDAnalysis</span>: <span class=\"bibtex-protected\">A</span> <span class=\"bibtex-protected\">Python</span> <span class=\"bibtex-protected\">Package</span> for the <span class=\"bibtex-protected\">Rapid</span> <span class=\"bibtex-protected\">Analysis</span> of <span class=\"bibtex-protected\">Molecular</span> <span class=\"bibtex-protected\">Dynamics</span> <span class=\"bibtex-protected\">Simulations</span>.\n",
+    "<em>Proceedings of the 15th Python in Science Conference</em>, pages 98–105, 2016.\n",
+    "00152.\n",
+    "URL: <a href=\"https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html\">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, <a href=\"https://doi.org/10.25080/Majora-629e541a-00e\">doi:10.25080/Majora-629e541a-00e</a>.\n",
+    "\n",
+    "[2] Naveen Michaud-Agrawal, Elizabeth&nbsp;J. Denning, Thomas&nbsp;B. Woolf, and Oliver Beckstein.\n",
+    "<span class=\"bibtex-protected\">MDAnalysis</span>: <span class=\"bibtex-protected\">A</span> toolkit for the analysis of molecular dynamics simulations.\n",
+    "<em>Journal of Computational Chemistry</em>, 32(10):2319–2327, July 2011.\n",
+    "00778.\n",
+    "URL: <a href=\"http://doi.wiley.com/10.1002/jcc.21787\">http://doi.wiley.com/10.1002/jcc.21787</a>, <a href=\"https://doi.org/10.1002/jcc.21787\">doi:10.1002/jcc.21787</a>."
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python (mda-user-guide)",
+   "language": "python",
+   "name": "mda-user-guide"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.3"
+  },
+  "toc": {
+   "base_numbering": 1,
+   "nav_menu": {},
+   "number_sections": false,
+   "sideBar": true,
+   "skip_h1_title": false,
+   "title_cell": "Table of Contents",
+   "title_sidebar": "Contents",
+   "toc_cell": false,
+   "toc_position": {},
+   "toc_section_display": true,
+   "toc_window_display": false
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
