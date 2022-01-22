@@ -511,6 +511,7 @@ div.rendered_html tbody tr:hover {
 <script>require=requirejs;</script><div class="section" id="Centering-a-trajectory-in-the-box">
 <h1>Centering a trajectory in the box<a class="headerlink" href="#Centering-a-trajectory-in-the-box" title="Permalink to this headline">¶</a></h1>
 <p>Here we use MDAnalysis transformations to make a protein whole, center it in the box, and then wrap the water back into the box. We then look at how to do this on-the-fly.</p>
+<p><strong>Last executed:</strong> May 18, 2021 with MDAnalysis 1.1.1</p>
 <p><strong>Last updated:</strong> July 3, 2020 with MDAnalysis 1.0.0</p>
 <p><strong>Minimum version of MDAnalysis:</strong> 1.0.0</p>
 <p><strong>Packages required:</strong></p>
@@ -540,13 +541,13 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "33719b2e23374559b80febdfb86e437e", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "6e1e261b7d8948669237fdbd3b045f94", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="section" id="Loading-files">
 <h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this headline">¶</a></h2>
 <p>The test files we will be working with here are trajectories of a adenylate kinase (AdK), a phosophotransferase enzyme. (<a class="bibtex reference internal" href="../../references.html#beckstein-zipping-2009" id="id4">[BDPW09]</a>)</p>
 <p>For the step-by-step transformations, we need to load the trajectory into memory so that our changes to the coordinates persist. If your trajectory is too large for that, see the <a class="reference external" href="#Doing-all-this-on-the-fly">on-the-fly transformation</a> section for how to do this out-of-memory.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
@@ -555,11 +556,20 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/lily/anaconda3/envs/mda-user-guide/lib/python3.7/site-packages/MDAnalysis/topology/tpr/utils.py:395: DeprecationWarning: TPR files index residues from 0. From MDAnalysis version 2.0, resids will start at 1 instead. If you wish to keep indexing resids from 0, please set `tpr_resid_from_one=False` as a keyword argument when you create a new Topology or Universe.
+  category=DeprecationWarning)
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="Before-transformation">
 <h2>Before transformation<a class="headerlink" href="#Before-transformation" title="Permalink to this headline">¶</a></h2>
 <p>If you have NGLView installed, you can view the trajectory as it currently is.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
@@ -570,6 +580,12 @@ div.rendered_html tbody tr:hover {
 <span class="n">view</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "747207a0a28b477fa43e5ec915bf774e", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>Otherwise, we embed a gif of it below.</p>
 <img alt="original" src="../../_images/original.gif" />
@@ -592,8 +608,8 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <p>As you can see, the protein is now whole, but not centered.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -604,6 +620,12 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "53e333103a1c490f87ac3415b05383c8", "version_major": 2, "version_minor": 0}</script></div>
+</div>
 <p>Over the course of the trajectory it leaves the box.</p>
 <img alt="unwrapped" src="../../_images/unwrapped.gif" />
 </div>
@@ -612,7 +634,7 @@ div.rendered_html tbody tr:hover {
 <p>The next step is to center the protein in the box. We calculate the center-of-mass of the protein and the center of the box for each timestep. We then move <em>all</em> the atoms so that the protein center-of-mass is in the center of the box.</p>
 <p>If you don’t have masses in your trajectory, try using the <code class="docutils literal notranslate"><span class="pre">center_of_geometry</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -625,8 +647,8 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <p>The protein is now in the center of the box, but the solvent is likely outside it, as we have just moved all the atoms.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -637,13 +659,19 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ffafb11337d442b09e45fc652b257ffa", "version_major": 2, "version_minor": 0}</script></div>
+</div>
 <img alt="centered" src="../../_images/centered.gif" />
 </div>
 <div class="section" id="Wrapping-the-solvent-back-into-the-box">
 <h2>Wrapping the solvent back into the box<a class="headerlink" href="#Wrapping-the-solvent-back-into-the-box" title="Permalink to this headline">¶</a></h2>
 <p>Luckily, MDAnalysis also has <code class="docutils literal notranslate"><span class="pre">AtomGroup.wrap</span></code> to wrap molecules back into the box. Our trajectory has dimensions defined, which the function will find automatically. If your trajectory does not, or you wish to use a differently sized box, you can pass in a <code class="docutils literal notranslate"><span class="pre">box</span></code> with dimensions in the form <code class="docutils literal notranslate"><span class="pre">[lx,</span> <span class="pre">ly,</span> <span class="pre">lz,</span> <span class="pre">alpha,</span> <span class="pre">beta,</span> <span class="pre">gamma]</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -655,8 +683,8 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <p>And now it is centered!</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -667,6 +695,12 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8f41410bd3104877a8ae051035db8a79", "version_major": 2, "version_minor": 0}</script></div>
+</div>
 <img alt="wrapped" src="../../_images/wrapped.gif" />
 </div>
 <div class="section" id="Doing-all-this-on-the-fly">
@@ -674,7 +708,7 @@ div.rendered_html tbody tr:hover {
 <p>Running all the transformations above can be difficult if your trajectory is large, or your computational resources are limited. Use on-the-fly transformations to keep your data out-of-memory.</p>
 <p>Some common transformations are defined in <code class="docutils literal notranslate"><span class="pre">MDAnalysis.transformations</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -683,8 +717,8 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <p>We re-load our universe.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -695,9 +729,18 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/lily/anaconda3/envs/mda-user-guide/lib/python3.7/site-packages/MDAnalysis/topology/tpr/utils.py:395: DeprecationWarning: TPR files index residues from 0. From MDAnalysis version 2.0, resids will start at 1 instead. If you wish to keep indexing resids from 0, please set `tpr_resid_from_one=False` as a keyword argument when you create a new Topology or Universe.
+  category=DeprecationWarning)
+</pre></div></div>
+</div>
 <p>From version 1.0.0 onwards, the <code class="docutils literal notranslate"><span class="pre">MDAnalysis.transformations</span></code> module contains <code class="docutils literal notranslate"><span class="pre">wrap</span></code> and <code class="docutils literal notranslate"><span class="pre">unwrap</span></code> functions that correspond with the <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code> versions above. You can only use <code class="docutils literal notranslate"><span class="pre">add_transformations</span></code> <em>once</em>, so pass them all at the same time.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -709,8 +752,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -721,14 +764,20 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "83a594d115544b05a869e15986b77e81", "version_major": 2, "version_minor": 0}</script></div>
+</div>
 <img alt="on the fly" src="../../_images/on_the_fly.gif" />
 </div>
 <div class="section" id="References">
 <h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
-<p>[1] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
-<p>[2] Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>, doi:10.1002/jcc.21787.</p>
-<p>[3] Hai Nguyen, David A Case, and Alexander S Rose. NGLview–interactive molecular graphics for Jupyter notebooks. Bioinformatics, 34(7):1241–1242, April 2018. 00024. URL: <a class="reference external" href="https://academic.oup.com/bioinformatics/article/34/7/1241/4721781">https://academic.oup.com/bioinformatics/article/34/7/1241/4721781</a>, doi:10.1093/bioinformatics/btx789.</p>
-<p>[4] Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164">https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164</a>, doi:10.1016/j.jmb.2009.09.009.</p>
+<p>[1] Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164">https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164</a>, doi:10.1016/j.jmb.2009.09.009.</p>
+<p>[2] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
+<p>[3] Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>, doi:10.1002/jcc.21787.</p>
+<p>[4] Hai Nguyen, David A Case, and Alexander S Rose. NGLview–interactive molecular graphics for Jupyter notebooks. Bioinformatics, 34(7):1241–1242, April 2018. 00024. URL: <a class="reference external" href="https://academic.oup.com/bioinformatics/article/34/7/1241/4721781">https://academic.oup.com/bioinformatics/article/34/7/1241/4721781</a>, doi:10.1093/bioinformatics/btx789.</p>
 </div>
 </div>
 

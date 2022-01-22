@@ -290,7 +290,12 @@
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p><strong>Atom ids, residue resids, and molnums</strong></p>
-<p>GROMACS indexes atom numbers and residue numbers from 1 in user-readable files. However, the MDAnalysis TPRParser creates atom <code class="code docutils literal notranslate"><span class="pre">ids</span></code> and residue <code class="code docutils literal notranslate"><span class="pre">resids</span></code> <em>from 0</em>. This means that if your atom is numbered 3 in your GRO, ITP, or TOP file, it will have an <code class="code docutils literal notranslate"><span class="pre">Atom.id</span></code> of 2 in MDAnalysis. Likewise, if your residue ALA has a residue number of 4 in your GRO file, it will have a <code class="code docutils literal notranslate"><span class="pre">Residue.resid</span></code> number of 3 in MDAnalysis. Finally, molecules are also numbered from 0, in the attribute <code class="code docutils literal notranslate"><span class="pre">molnums</span></code>.</p>
+<p>GROMACS indexes atom numbers and residue numbers from 1 in user-readable files.
+However, the MDAnalysis TPRParser creates atom <code class="code docutils literal notranslate"><span class="pre">ids</span></code> and residue <code class="code docutils literal notranslate"><span class="pre">resids</span></code> <em>from 0</em>.
+This means that if your atom is numbered 3 in your GRO, ITP, or TOP file, it will have an <code class="code docutils literal notranslate"><span class="pre">Atom.id</span></code> of 2 in MDAnalysis.
+Likewise, if your residue ALA has a residue number of 4 in your GRO file, it will have a <code class="code docutils literal notranslate"><span class="pre">Residue.resid</span></code> number of 3 in MDAnalysis.
+Finally, molecules are also numbered from 0, in the attribute <code class="code docutils literal notranslate"><span class="pre">molnums</span></code>.</p>
+<p><strong>This will change in version 2.0.0. The TPRParser will number resids, ids, etc. from 1 to be consistent with other formats.</strong></p>
 <p>Atom <code class="code docutils literal notranslate"><span class="pre">indices</span></code> and residue <code class="code docutils literal notranslate"><span class="pre">resindices</span></code> are MDAnalysis derived and always index from 0, no matter the file type.</p>
 </div>
 <div class="section" id="supported-versions">

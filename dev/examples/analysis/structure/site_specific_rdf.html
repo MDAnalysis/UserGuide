@@ -514,7 +514,7 @@ div.rendered_html tbody tr:hover {
 <script>require=requirejs;</script><div class="section" id="Calculating-the-RDF-atom-to-atom">
 <h1>Calculating the RDF atom-to-atom<a class="headerlink" href="#Calculating-the-RDF-atom-to-atom" title="Permalink to this headline">¶</a></h1>
 <p>We calculate the site-specific radial distribution functions of solvent around certain atoms.</p>
-<p><strong>Last executed:</strong> Feb 06, 2020 with MDAnalysis 0.20.2-dev0</p>
+<p><strong>Last executed:</strong> May 18, 2021 with MDAnalysis 1.1.1</p>
 <p><strong>Last updated:</strong> February 2020</p>
 <p><strong>Minimum version of MDAnalysis:</strong> 0.19.0</p>
 <p><strong>Packages required:</strong></p>
@@ -543,7 +543,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Loading-files">
 <h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this headline">¶</a></h2>
 <p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<a class="bibtex reference internal" href="../../../references.html#beckstein-zipping-2009" id="id3">[BDPW09]</a>)</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
@@ -551,6 +551,15 @@ div.rendered_html tbody tr:hover {
 <span></span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">TPR</span><span class="p">,</span> <span class="n">XTC</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/lily/anaconda3/envs/mda-user-guide/lib/python3.7/site-packages/MDAnalysis/topology/tpr/utils.py:395: DeprecationWarning: TPR files index residues from 0. From MDAnalysis version 2.0, resids will start at 1 instead. If you wish to keep indexing resids from 0, please set `tpr_resid_from_one=False` as a keyword argument when you create a new Topology or Universe.
+  category=DeprecationWarning)
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Calculating-the-site-specific-radial-distribution-function">
@@ -560,7 +569,7 @@ compute RDFs on an atom-to-atom basis, rather than simply giving the averaged RD
 <p>Below, I calculate the RDF between selected alpha-carbons and the water atoms within 15 angstroms of CA60, <em>in the first frame of the trajectory</em>. The water group does not update over the trajectory as the water moves towards and away from the alpha-carbon.</p>
 <p>The RDF is limited to a spherical shell around each atom by <code class="docutils literal notranslate"><span class="pre">range</span></code>. Note that the range is defined around <em>each atom</em>, rather than the center-of-mass of the entire group.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">density=True</span></code>, the final RDF is over the average density of the selected atoms in the trajectory box, making it comparable to the output of <code class="docutils literal notranslate"><span class="pre">rdf.InterRDF</span></code>. If <code class="docutils literal notranslate"><span class="pre">density=False</span></code>, the density is not taken into account. This can make it difficult to compare RDFs between AtomGroups that contain different numbers of atoms.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
@@ -580,6 +589,15 @@ compute RDFs on an atom-to-atom basis, rather than simply giving the averaged RD
 <span class="n">ss_rdf</span><span class="o">.</span><span class="n">run</span><span class="p">();</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;MDAnalysis.analysis.rdf.InterRDF_s at 0x7fe8a0ab7090&gt;
+</pre></div></div>
 </div>
 <p>Like <code class="docutils literal notranslate"><span class="pre">rdf.InterRDF</span></code>, the distance bins are available at <code class="docutils literal notranslate"><span class="pre">ss_rdf.bins</span></code>.</p>
 <div class="nbinput docutils container">
@@ -649,15 +667,15 @@ array([0.        , 0.        , 0.        , 0.        , 0.        ,
        0.        , 0.        , 0.        , 0.        , 0.        ,
        0.        , 0.        , 0.        , 0.        , 0.        ,
        0.        , 0.        , 0.        , 0.        , 0.        ,
-       0.41218412, 0.        , 0.        , 0.        , 0.        ,
-       0.        , 0.        , 0.        , 0.        , 0.19906709,
-       0.18622866, 0.        , 0.1640152 , 0.        , 0.        ,
-       0.        , 0.13003857, 0.        , 0.        , 0.        ,
-       0.        , 0.        , 0.09591515, 0.        , 0.        ,
+       0.0023665 , 0.        , 0.        , 0.        , 0.        ,
+       0.        , 0.        , 0.        , 0.        , 0.00114292,
+       0.00106921, 0.        , 0.00094167, 0.        , 0.        ,
+       0.        , 0.0007466 , 0.        , 0.        , 0.        ,
+       0.        , 0.        , 0.00055068, 0.        , 0.        ,
        0.        , 0.        , 0.        , 0.        , 0.        ,
        0.        , 0.        , 0.        , 0.        , 0.        ,
-       0.        , 0.05427213, 0.        , 0.        , 0.        ,
-       0.        , 0.        , 0.04435226, 0.04296637, 0.        ,
+       0.        , 0.0003116 , 0.        , 0.        , 0.        ,
+       0.        , 0.        , 0.00025464, 0.00024669, 0.        ,
        0.        , 0.        , 0.        , 0.        , 0.        ,
        0.        , 0.        , 0.        , 0.        , 0.        ])
 </pre></div></div>
@@ -675,11 +693,20 @@ array([0.        , 0.        , 0.        , 0.        , 0.        ,
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0.5, 1.0, &#39;RDF between CA61 and MW6364&#39;)
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_structure_site_specific_rdf_14_0.png" src="../../../_images/examples_analysis_structure_site_specific_rdf_14_0.png" />
+<img alt="../../../_images/examples_analysis_structure_site_specific_rdf_14_1.png" src="../../../_images/examples_analysis_structure_site_specific_rdf_14_1.png" />
 </div>
 </div>
 <p>If you are having trouble finding pairs of atoms where the results are not simply 0, you can use Numpy functions to find the indices of the nonzero values. Below we count the nonzero entries in the first <code class="docutils literal notranslate"><span class="pre">rdf</span></code> array.</p>
@@ -717,7 +744,7 @@ array([0.        , 0.        , 0.        , 0.        , 0.        ,
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-0.04893740480237007
+0.00028096744025732525
 </pre></div></div>
 </div>
 <p>Right now, we don’t care which particular bin has a nonzero value. Let’s find which water atom is the most present around the alpha-carbon of residue 60, i.e. the first atom.</p>
@@ -778,18 +805,27 @@ The water atom with the highest distribution around CA60 has index 568
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0.5, 1.0, &#39;RDF between CA60 and HW16364&#39;)
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_structure_site_specific_rdf_23_0.png" src="../../../_images/examples_analysis_structure_site_specific_rdf_23_0.png" />
+<img alt="../../../_images/examples_analysis_structure_site_specific_rdf_23_1.png" src="../../../_images/examples_analysis_structure_site_specific_rdf_23_1.png" />
 </div>
 </div>
 </div>
 <div class="section" id="The-site-specific-RDF-without-densities">
 <h2>The site-specific RDF without densities<a class="headerlink" href="#The-site-specific-RDF-without-densities" title="Permalink to this headline">¶</a></h2>
 <p>When the <code class="docutils literal notranslate"><span class="pre">density</span></code> of the selected atom groups over the box volume is not accounted for, your distribution values will be proportionally lower.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
@@ -804,6 +840,36 @@ The water atom with the highest distribution around CA60 has index 568
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[array([[[0. , 0. , 0. , ..., 0.1, 0.1, 0.1],
+         [0. , 0. , 0. , ..., 0.1, 0.1, 0.1],
+         [0. , 0. , 0. , ..., 0.1, 0.1, 0.1],
+         ...,
+         [0. , 0. , 0. , ..., 0.1, 0.1, 0.1],
+         [0. , 0. , 0. , ..., 0.1, 0.1, 0.1],
+         [0. , 0. , 0. , ..., 0.1, 0.1, 0.1]],
+
+        [[0. , 0. , 0. , ..., 0. , 0.1, 0.1],
+         [0. , 0. , 0. , ..., 0. , 0. , 0. ],
+         [0. , 0. , 0. , ..., 0.1, 0.1, 0.1],
+         ...,
+         [0. , 0. , 0. , ..., 0.1, 0.1, 0.1],
+         [0. , 0. , 0. , ..., 0.1, 0.1, 0.1],
+         [0. , 0. , 0. , ..., 0.1, 0.1, 0.1]]]),
+ array([[[0. , 0. , 0. , ..., 0. , 0.1, 0.1],
+         [0. , 0. , 0. , ..., 0. , 0. , 0. ],
+         [0. , 0. , 0. , ..., 0.1, 0.1, 0.1],
+         ...,
+         [0. , 0. , 0. , ..., 0. , 0. , 0.1],
+         [0. , 0. , 0. , ..., 0. , 0. , 0. ],
+         [0. , 0. , 0. , ..., 0. , 0. , 0. ]]])]
+</pre></div></div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
@@ -817,11 +883,20 @@ The water atom with the highest distribution around CA60 has index 568
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0.5, 1.0, &#39;RDF between CA61 and MW6364&#39;)
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_structure_site_specific_rdf_27_0.png" src="../../../_images/examples_analysis_structure_site_specific_rdf_27_0.png" />
+<img alt="../../../_images/examples_analysis_structure_site_specific_rdf_27_1.png" src="../../../_images/examples_analysis_structure_site_specific_rdf_27_1.png" />
 </div>
 </div>
 </div>

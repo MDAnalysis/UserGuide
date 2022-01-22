@@ -297,7 +297,8 @@
 <p>Prior to MDAnalysis version 0.21.0 and GROMACS 2019.5, MDAnalysis failed to parse GRO files with box sizes where an axis length was longer than 10 characters.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>A Universe created with a GRO file and a Universe created with a corresponding TPR file will have <em>different</em> <a class="reference internal" href="tpr.html#tpr-format"><span class="std std-ref">atom and residue numbering</span></a>, due to how a TPR file is parsed.</p>
+<p>A Universe created with a GRO file and a Universe created with a corresponding TPR file will have <em>different</em> <a class="reference internal" href="tpr.html#tpr-format"><span class="std std-ref">atom and residue numbering</span></a>, due to how a TPR file is parsed.
+<strong>This behaviour will change in 2.0.0 where TPR parsing will be made consistent with the other file formats.</strong></p>
 </div>
 </div>
 <div class="section" id="writing-out">

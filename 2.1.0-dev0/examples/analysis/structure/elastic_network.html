@@ -560,7 +560,7 @@ div.rendered_html tbody tr:hover {
 <p>Using a Gaussian network model to represent a molecule as an elastic network, we can characterise the concerted motions of a protein, and the dominance of these motions, over a trajectory. The analysis is applied to the atoms in the <code class="docutils literal notranslate"><span class="pre">selection</span></code>. If two atoms are within the <code class="docutils literal notranslate"><span class="pre">cutoff</span></code> distance (default: 7 ångström), they are considered to be bound by a spring. This analysis is reasonably robust to the choice of cutoff (between 5-9 Å), but the singular value decomposition may not converge with a
 lower cutoff.</p>
 <p>We use the GNMAnalysis class (<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/gnm.html#MDAnalysis.analysis.gnm.GNMAnalysis">API docs</a>) for the analysis.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
@@ -571,6 +571,15 @@ lower cutoff.</p>
 <span class="n">nma1</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/lily/anaconda3/envs/mda-user-guide/lib/python3.7/site-packages/MDAnalysis/analysis/gnm.py:294: DeprecationWarning: The structure of the `results` list will change in MDAnalysis version 2.0.
+  category=DeprecationWarning
+</pre></div></div>
 </div>
 <p>The output is saved in <code class="docutils literal notranslate"><span class="pre">nma1.results</span></code>: the time in picoseconds, the first eigenvalue, and the first eigenvector, associated with each frame.</p>
 <div class="nbinput docutils container">

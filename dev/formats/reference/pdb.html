@@ -310,7 +310,8 @@ details):</p>
 <p>All other lines are ignored. Multi-<a class="reference external" href="http://www.wwpdb.org/documentation/file-format-content/format32/sect9.html#MODEL">MODEL</a> PDB files are read as trajectories with a default timestep of 1 ps <a class="reference internal" href="../../universe.html#universe-kwargs"><span class="std std-ref">(pass in the dt argument to change this)</span></a>. Currently, MDAnalysis <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/issues/1133">cannot read multi-model PDB files written by VMD</a>, as VMD uses the keyword “END” to separate models instead of “MODEL”/”ENDMDL” keywords.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>MDAnalysis does not read atom elements or charges from a PDB file, even when they are provided. Instead, elements are guessed from atom names.</p>
+<p>Previously, MDAnalysis did not read elements from a file.
+Now, if valid elements are provided, MDAnalysis will read them in and will <em>not</em> guess them from atom names.</p>
 </div>
 <p>MDAnalysis attempts to read <code class="docutils literal notranslate"><span class="pre">segid</span></code> attributes from the <em>segID</em> column. If this column does not contain information, segments are instead created from chainIDs. If chainIDs are also not present, then <code class="docutils literal notranslate"><span class="pre">segid</span></code>s are set to the default <code class="docutils literal notranslate"><span class="pre">'SYSTEM'</span></code> value.</p>
 </div>

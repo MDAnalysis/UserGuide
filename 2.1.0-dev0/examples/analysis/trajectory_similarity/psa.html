@@ -520,7 +520,7 @@ div.rendered_html tbody tr:hover {
 <li><p>the Hausdorff distance</p></li>
 <li><p>the discrete Fréchet</p></li>
 </ul>
-<p><strong>Last executed:</strong> Feb 06, 2020 with MDAnalysis 0.20.2-dev0</p>
+<p><strong>Last executed:</strong> May 18, 2021 with MDAnalysis 1.1.1</p>
 <p><strong>Last updated:</strong> January 2020</p>
 <p><strong>Minimum version of MDAnalysis:</strong> 0.18.0</p>
 <p><strong>Packages required:</strong></p>
@@ -597,7 +597,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Aligning-trajectories">
 <h2>Aligning trajectories<a class="headerlink" href="#Aligning-trajectories" title="Permalink to this headline">¶</a></h2>
-<p>We set up the PSAnalysis (<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/psa.html#MDAnalysis.analysis.psa.PSAnalysis">API docs</a>) with our list of Universes and labels. While <code class="docutils literal notranslate"><span class="pre">path_select</span></code> determines which atoms to calculate the path similarities for, <code class="docutils literal notranslate"><span class="pre">ref_select</span></code> determines which atoms to use to align each Universe to <code class="docutils literal notranslate"><span class="pre">reference</span></code>.</p>
+<p>We set up the PSAnalysis (<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/psa.html#MDAnalysis.analysis.psa.PSAnalysis">API docs</a>) with our list of Universes and labels. While <code class="docutils literal notranslate"><span class="pre">path_select</span></code> determines which atoms to calculate the path similarities for, <code class="docutils literal notranslate"><span class="pre">select</span></code> determines which atoms to use to align each Universe to <code class="docutils literal notranslate"><span class="pre">reference</span></code>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -608,7 +608,7 @@ div.rendered_html tbody tr:hover {
 <span class="n">ps</span> <span class="o">=</span> <span class="n">psa</span><span class="o">.</span><span class="n">PSAnalysis</span><span class="p">([</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">,</span> <span class="n">u4</span><span class="p">,</span> <span class="n">u5</span><span class="p">],</span>
                     <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span>
                     <span class="n">reference</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span>
-                    <span class="n">ref_select</span><span class="o">=</span><span class="n">CORE_sel</span><span class="p">,</span>
+                    <span class="n">select</span><span class="o">=</span><span class="n">CORE_sel</span><span class="p">,</span>
                     <span class="n">path_select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -617,7 +617,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Generating-paths">
 <h2>Generating paths<a class="headerlink" href="#Generating-paths" title="Permalink to this headline">¶</a></h2>
 <p>For each Universe, we will generate a transition path containing each conformation from a trajectory using <code class="docutils literal notranslate"><span class="pre">generate_paths</span></code> (<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/psa.html#MDAnalysis.analysis.psa.PSAnalysis.generate_paths">API docs</a>).</p>
-<p>First, we will do a mass-weighted alignment of each trajectory to the reference structure <code class="docutils literal notranslate"><span class="pre">reference</span></code>, along the atoms <code class="docutils literal notranslate"><span class="pre">ref_select</span></code>. To turn off the mass weighting, set <code class="docutils literal notranslate"><span class="pre">weights=None</span></code>. If your trajectories are already aligned, you can skip the alignment with <code class="docutils literal notranslate"><span class="pre">align=False</span></code>.</p>
+<p>First, we will do a mass-weighted alignment of each trajectory to the reference structure <code class="docutils literal notranslate"><span class="pre">reference</span></code>, along the atoms in <code class="docutils literal notranslate"><span class="pre">select</span></code>. To turn off the mass weighting, set <code class="docutils literal notranslate"><span class="pre">weights=None</span></code>. If your trajectories are already aligned, you can skip the alignment with <code class="docutils literal notranslate"><span class="pre">align=False</span></code>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -639,7 +639,7 @@ div.rendered_html tbody tr:hover {
 <p>The directed Hausdorff distance of <span class="math notranslate nohighlight">\(P\)</span> to <span class="math notranslate nohighlight">\(Q\)</span> is the distance between the two points, <span class="math notranslate nohighlight">\(p \in P\)</span> and its structural nearest neighbour <span class="math notranslate nohighlight">\(q \in Q\)</span>, for the point <span class="math notranslate nohighlight">\(p\)</span> where the distance is greatest. This is not commutative, i.e. the directed Hausdorff distance from <span class="math notranslate nohighlight">\(Q\)</span> to <span class="math notranslate nohighlight">\(P\)</span> is not the same. (See <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.distance.directed_hausdorff.html">scipy.spatial.distance.directed_hausdorff</a> for more
 information).</p>
 <p>In MDAnalysis, the Hausdorff distance is the RMSD between a pair of conformations in <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(Q\)</span>, where the one of the conformations in the pair has the least similar nearest neighbour.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
@@ -647,17 +647,6 @@ information).</p>
 <span></span><span class="n">ps</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">metric</span><span class="o">=</span><span class="s1">&#39;hausdorff&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/Users/lily/anaconda3/envs/mdanalysis/lib/python3.7/site-packages/MDAnalysis/analysis/psa.py:1556: DeprecationWarning: `save_result` is deprecated!
-`save_result` will be removed in release 1.0.0.
-You can save the distance matrix :attr:`D` to a numpy file with ``np.save(filename, PSAnalysis.D)``.
-  self.save_result(filename=filename)
-</pre></div></div>
 </div>
 <p>The distance matrix is saved in <code class="docutils literal notranslate"><span class="pre">ps.D</span></code>.</p>
 <div class="nbinput docutils container">
@@ -714,7 +703,8 @@ array([[ 0.        ,  1.33312648, 22.37206002,  2.04737477,  7.55204678],
    [0.0, 29.134480368642226, 29.134480368642226, 9.204524628710315]],
   &#39;ivl&#39;: [&#39;2&#39;, &#39;4&#39;, &#39;3&#39;, &#39;0&#39;, &#39;1&#39;],
   &#39;leaves&#39;: [2, 4, 3, 0, 1],
-  &#39;color_list&#39;: [&#39;g&#39;, &#39;g&#39;, &#39;b&#39;, &#39;b&#39;]},
+  &#39;color_list&#39;: [&#39;C1&#39;, &#39;C1&#39;, &#39;C0&#39;, &#39;C0&#39;],
+  &#39;leaves_color_list&#39;: [&#39;C0&#39;, &#39;C0&#39;, &#39;C1&#39;, &#39;C1&#39;, &#39;C1&#39;]},
  array([[ 0.        , 25.74534554, 22.42282661, 22.37206002, 22.3991666 ],
         [25.74534554,  0.        ,  7.67052252,  7.55204678,  7.55032598],
         [22.42282661,  7.67052252,  0.        ,  2.04737477,  2.07957562],
@@ -771,7 +761,8 @@ array([[ 0.        ,  1.33312648, 22.37206002,  2.04737477,  7.55204678],
    [0.0, 22.372060021101248, 22.372060021101248, 7.550325981004795]],
   &#39;ivl&#39;: [&#39;2&#39;, &#39;4&#39;, &#39;3&#39;, &#39;0&#39;, &#39;1&#39;],
   &#39;leaves&#39;: [2, 4, 3, 0, 1],
-  &#39;color_list&#39;: [&#39;g&#39;, &#39;g&#39;, &#39;b&#39;, &#39;b&#39;]},
+  &#39;color_list&#39;: [&#39;C1&#39;, &#39;C1&#39;, &#39;C0&#39;, &#39;C0&#39;],
+  &#39;leaves_color_list&#39;: [&#39;C0&#39;, &#39;C0&#39;, &#39;C1&#39;, &#39;C1&#39;, &#39;C1&#39;]},
  array([[ 0.        , 25.74534554, 22.42282661, 22.37206002, 22.3991666 ],
         [25.74534554,  0.        ,  7.67052252,  7.55204678,  7.55032598],
         [22.42282661,  7.67052252,  0.        ,  2.04737477,  2.07957562],
@@ -818,17 +809,6 @@ array([[ 0.        ,  1.33312648, 22.37206002,  2.04737477,  7.55204678],
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/Users/lily/anaconda3/envs/mdanalysis/lib/python3.7/site-packages/MDAnalysis/analysis/psa.py:1556: DeprecationWarning: `save_result` is deprecated!
-`save_result` will be removed in release 1.0.0.
-You can save the distance matrix :attr:`D` to a numpy file with ``np.save(filename, PSAnalysis.D)``.
-  self.save_result(filename=filename)
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
@@ -873,7 +853,8 @@ array([[ 0.        ,  1.33312649, 22.37205967,  2.04737475,  7.55204694],
    [0.0, 29.134480014437507, 29.134480014437507, 9.204524708552725]],
   &#39;ivl&#39;: [&#39;2&#39;, &#39;4&#39;, &#39;3&#39;, &#39;0&#39;, &#39;1&#39;],
   &#39;leaves&#39;: [2, 4, 3, 0, 1],
-  &#39;color_list&#39;: [&#39;g&#39;, &#39;g&#39;, &#39;b&#39;, &#39;b&#39;]},
+  &#39;color_list&#39;: [&#39;C1&#39;, &#39;C1&#39;, &#39;C0&#39;, &#39;C0&#39;],
+  &#39;leaves_color_list&#39;: [&#39;C0&#39;, &#39;C0&#39;, &#39;C1&#39;, &#39;C1&#39;, &#39;C1&#39;]},
  array([[ 0.        , 25.74534511, 22.42282569, 22.37205967, 22.39916723],
         [25.74534511,  0.        ,  7.67052241,  7.55204694,  7.55032613],
         [22.42282569,  7.67052241,  0.        ,  2.04737475,  2.07957565],
@@ -925,7 +906,8 @@ array([[ 0.        ,  1.33312649, 22.37205967,  2.04737475,  7.55204694],
    [0.0, 22.37205966687729, 22.37205966687729, 7.550326126269361]],
   &#39;ivl&#39;: [&#39;2&#39;, &#39;4&#39;, &#39;3&#39;, &#39;0&#39;, &#39;1&#39;],
   &#39;leaves&#39;: [2, 4, 3, 0, 1],
-  &#39;color_list&#39;: [&#39;g&#39;, &#39;g&#39;, &#39;b&#39;, &#39;b&#39;]},
+  &#39;color_list&#39;: [&#39;C1&#39;, &#39;C1&#39;, &#39;C0&#39;, &#39;C0&#39;],
+  &#39;leaves_color_list&#39;: [&#39;C0&#39;, &#39;C0&#39;, &#39;C1&#39;, &#39;C1&#39;, &#39;C1&#39;]},
  array([[ 0.        , 25.74534511, 22.42282569, 22.37205967, 22.39916723],
         [25.74534511,  0.        ,  7.67052241,  7.55204694,  7.55032613],
         [22.42282569,  7.67052241,  0.        ,  2.04737475,  2.07957565],
