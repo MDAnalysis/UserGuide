@@ -24,6 +24,7 @@
   
 
   
+    <link rel="canonical" href="https://userguide.mdanalysis.org/examples/analysis/alignment_and_rms/README.html" />
 
   
   <!--[if lt IE 9]>
@@ -48,7 +49,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Aligning a structure to another" href="aligning_structure_to_another.html" />
-    <link rel="prev" title="Centering a trajectory in the box" href="../../transformations/center_protein_in_box.html" /> 
+    <link rel="prev" title="Using ParmEd with MDAnalysis and OpenMM to simulate a selection of atoms" href="../../other/parmed_sim.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -109,6 +110,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../quickstart.html">Quick start guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../constructing_universe.html">Constructing, modifying, and adding to a Universe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../transformations/README.html">Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../other/README.html">Other</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Alignments and RMS fitting</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="aligning_structure_to_another.html">Aligning a structure to another</a></li>
 <li class="toctree-l3"><a class="reference internal" href="aligning_trajectory.html">Aligning a trajectory to a reference</a></li>
@@ -124,7 +126,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../reduced_dimensions/README.html">Dimension reduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../polymers_and_membranes/README.html">Polymers and membranes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../volumetric/README.html">Volumetric analyses</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../hydrogen_bonds/README.html">Hydrogen Bond Analysis</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
@@ -254,7 +255,14 @@
             
   <div class="section" id="alignments-and-rms-fitting">
 <span id="alignment-and-rms"></span><h1>Alignments and RMS fitting<a class="headerlink" href="#alignments-and-rms-fitting" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference external" href="https://docs.mdanalysis.org/2.1.0-dev0/documentation_pages/analysis/align.html#module-MDAnalysis.analysis.align" title="(in MDAnalysis v2.1.0-dev0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.align</span></code></a> and <a class="reference external" href="https://docs.mdanalysis.org/2.1.0-dev0/documentation_pages/analysis/rms.html#module-MDAnalysis.analysis.rms" title="(in MDAnalysis v2.1.0-dev0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.rms</span></code></a> modules contain the functions used for aligning structures, aligning trajectories, and calculating root mean squared quantities.</p>
+<p>The <a class="reference external" href="https://docs.mdanalysis.org/2.1.0-dev0/documentation_pages/analysis/align.html#module-MDAnalysis.analysis.align" title="(in MDAnalysis v2.1.0-dev0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.align</span></code></a> and <a class="reference external" href="https://docs.mdanalysis.org/2.1.0-dev0/documentation_pages/analysis/rms.html#module-MDAnalysis.analysis.rms" title="(in MDAnalysis v2.1.0-dev0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.rms</span></code></a>
+modules contain the functions used for aligning structures,
+aligning trajectories, and calculating root mean squared quantities.</p>
+<p>Demonstrations of alignment are in <a class="reference external" href="/examples/analysis/alignment_and_rms/aligning_structure_to_another.ipynb">align_structure</a>,
+<a class="reference external" href="/examples/analysis/alignment_and_rms/aligning_trajectory_to_first_frame.ipynb">align_trajectory_first</a>, and <a class="reference external" href="/examples/analysis/alignment_and_rms/aligning_trajectory.ipynb">align_trajectory</a>. Another example of
+generating an average structure from an alignment is demonstrated in
+<a class="reference external" href="/examples/analysis/alignment_and_rms/rmsf.ipynb">rmsf</a>. Typically, trajectories need to be aligned for RMSD and
+RMSF values to make sense.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>These modules use the fast QCP algorithm to calculate the root mean
@@ -281,14 +289,14 @@ cite these references when using these modules.</p>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="aligning_structure_to_another.html" class="btn btn-neutral float-right" title="Aligning a structure to another" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../../transformations/center_protein_in_box.html" class="btn btn-neutral float-left" title="Centering a trajectory in the box" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../other/parmed_sim.html" class="btn btn-neutral float-left" title="Using ParmEd with MDAnalysis and OpenMM to simulate a selection of atoms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2022, Lily Wang, Irfan Alibay, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2022, Lily Wang, Irfan Alibay, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>

@@ -24,6 +24,7 @@
   
 
   
+    <link rel="canonical" href="https://userguide.mdanalysis.org/topology_system.html" />
 
   
   <!--[if lt IE 9]>
@@ -653,23 +654,23 @@
 <td><p>atom</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>atomiccharges</p></td>
+<tr class="row-even"><td><p>aromaticities</p></td>
+<td><p>aromaticity</p></td>
+<td><p>False</p></td>
+<td><p>atom</p></td>
+<td><p>&lt;class ‘bool’&gt;</p></td>
+</tr>
+<tr class="row-odd"><td><p>atomiccharges</p></td>
 <td><p>atomiccharge</p></td>
 <td><p>No default values</p></td>
 <td><p>atom</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>atomnums</p></td>
+<tr class="row-even"><td><p>atomnums</p></td>
 <td><p>atomnum</p></td>
 <td><p>No default values</p></td>
 <td><p>atom</p></td>
 <td></td>
-</tr>
-<tr class="row-even"><td><p>bfactors</p></td>
-<td><p>bfactor</p></td>
-<td><p>0.0</p></td>
-<td><p>atom</p></td>
-<td><p>&lt;class ‘float’&gt;</p></td>
 </tr>
 <tr class="row-odd"><td><p>bonds</p></td>
 <td><p>bonds</p></td>
@@ -695,175 +696,181 @@
 <td><p>atom</p></td>
 <td><p>&lt;class ‘float’&gt;</p></td>
 </tr>
-<tr class="row-odd"><td><p>cmaps</p></td>
+<tr class="row-odd"><td><p>chiralities</p></td>
+<td><p>chirality</p></td>
+<td><p>No default values</p></td>
+<td><p>atom</p></td>
+<td><p>U1</p></td>
+</tr>
+<tr class="row-even"><td><p>cmaps</p></td>
 <td><p>cmaps</p></td>
 <td><p>No default values</p></td>
 <td><p>atom</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>dihedrals</p></td>
+<tr class="row-odd"><td><p>dihedrals</p></td>
 <td><p>dihedrals</p></td>
 <td><p>No default values</p></td>
 <td><p>atom</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>elements</p></td>
+<tr class="row-even"><td><p>elements</p></td>
 <td><p>element</p></td>
 <td><p>‘’</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘object’&gt;</p></td>
 </tr>
-<tr class="row-even"><td><p>epsilon14s</p></td>
+<tr class="row-odd"><td><p>epsilon14s</p></td>
 <td><p>epsilon14</p></td>
 <td><p>0.0</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘float’&gt;</p></td>
 </tr>
-<tr class="row-odd"><td><p>epsilons</p></td>
+<tr class="row-even"><td><p>epsilons</p></td>
 <td><p>epsilon</p></td>
 <td><p>0.0</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘float’&gt;</p></td>
 </tr>
-<tr class="row-even"><td><p>gbscreens</p></td>
+<tr class="row-odd"><td><p>gbscreens</p></td>
 <td><p>gbscreen</p></td>
 <td><p>0.0</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘float’&gt;</p></td>
 </tr>
-<tr class="row-odd"><td><p>icodes</p></td>
+<tr class="row-even"><td><p>icodes</p></td>
 <td><p>icode</p></td>
 <td><p>‘’</p></td>
 <td><p>residue</p></td>
 <td><p>&lt;class ‘object’&gt;</p></td>
 </tr>
-<tr class="row-even"><td><p>ids</p></td>
+<tr class="row-odd"><td><p>ids</p></td>
 <td><p>id</p></td>
 <td><p>continuous sequence from 1 to n_atoms</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘int’&gt;</p></td>
 </tr>
-<tr class="row-odd"><td><p>impropers</p></td>
+<tr class="row-even"><td><p>impropers</p></td>
 <td><p>impropers</p></td>
 <td><p>No default values</p></td>
 <td><p>atom</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>masses</p></td>
+<tr class="row-odd"><td><p>masses</p></td>
 <td><p>mass</p></td>
 <td><p>0.0</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘numpy.float64’&gt;</p></td>
 </tr>
-<tr class="row-odd"><td><p>models</p></td>
+<tr class="row-even"><td><p>models</p></td>
 <td><p>model</p></td>
 <td><p>No default values</p></td>
 <td><p>segment</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>molnums</p></td>
+<tr class="row-odd"><td><p>molnums</p></td>
 <td><p>molnum</p></td>
 <td><p>No default values</p></td>
 <td><p>residue</p></td>
 <td><p>&lt;class ‘numpy.int64’&gt;</p></td>
 </tr>
-<tr class="row-odd"><td><p>moltypes</p></td>
+<tr class="row-even"><td><p>moltypes</p></td>
 <td><p>moltype</p></td>
-<td><p>No default values</p></td>
+<td><p>‘’</p></td>
 <td><p>residue</p></td>
 <td><p>&lt;class ‘object’&gt;</p></td>
 </tr>
-<tr class="row-even"><td><p>names</p></td>
+<tr class="row-odd"><td><p>names</p></td>
 <td><p>name</p></td>
 <td><p>‘’</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘object’&gt;</p></td>
 </tr>
-<tr class="row-odd"><td><p>nbindices</p></td>
+<tr class="row-even"><td><p>nbindices</p></td>
 <td><p>nbindex</p></td>
 <td><p>0</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘int’&gt;</p></td>
 </tr>
-<tr class="row-even"><td><p>occupancies</p></td>
+<tr class="row-odd"><td><p>occupancies</p></td>
 <td><p>occupancy</p></td>
 <td><p>0.0</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘float’&gt;</p></td>
 </tr>
-<tr class="row-odd"><td><p>radii</p></td>
+<tr class="row-even"><td><p>radii</p></td>
 <td><p>radius</p></td>
 <td><p>0.0</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘float’&gt;</p></td>
 </tr>
-<tr class="row-even"><td><p>record_types</p></td>
+<tr class="row-odd"><td><p>record_types</p></td>
 <td><p>record_type</p></td>
 <td><p>‘ATOM’</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘object’&gt;</p></td>
 </tr>
-<tr class="row-odd"><td><p>resids</p></td>
+<tr class="row-even"><td><p>resids</p></td>
 <td><p>resid</p></td>
 <td><p>continuous sequence from 1 to n_residues</p></td>
 <td><p>residue</p></td>
 <td><p>&lt;class ‘int’&gt;</p></td>
 </tr>
-<tr class="row-even"><td><p>resnames</p></td>
+<tr class="row-odd"><td><p>resnames</p></td>
 <td><p>resname</p></td>
 <td><p>‘’</p></td>
 <td><p>residue</p></td>
 <td><p>&lt;class ‘object’&gt;</p></td>
 </tr>
-<tr class="row-odd"><td><p>resnums</p></td>
+<tr class="row-even"><td><p>resnums</p></td>
 <td><p>resnum</p></td>
 <td><p>continuous sequence from 1 to n_residues</p></td>
 <td><p>residue</p></td>
 <td><p>&lt;class ‘int’&gt;</p></td>
 </tr>
-<tr class="row-even"><td><p>rmin14s</p></td>
+<tr class="row-odd"><td><p>rmin14s</p></td>
 <td><p>rmin14</p></td>
 <td><p>0.0</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘float’&gt;</p></td>
 </tr>
-<tr class="row-odd"><td><p>rmins</p></td>
+<tr class="row-even"><td><p>rmins</p></td>
 <td><p>rmin</p></td>
 <td><p>0.0</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘float’&gt;</p></td>
 </tr>
-<tr class="row-even"><td><p>segids</p></td>
+<tr class="row-odd"><td><p>segids</p></td>
 <td><p>segid</p></td>
 <td><p>‘’</p></td>
 <td><p>segment</p></td>
 <td><p>&lt;class ‘object’&gt;</p></td>
 </tr>
-<tr class="row-odd"><td><p>solventradii</p></td>
+<tr class="row-even"><td><p>solventradii</p></td>
 <td><p>solventradius</p></td>
 <td><p>0.0</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘float’&gt;</p></td>
 </tr>
-<tr class="row-even"><td><p>tempfactors</p></td>
+<tr class="row-odd"><td><p>tempfactors</p></td>
 <td><p>tempfactor</p></td>
 <td><p>0.0</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘float’&gt;</p></td>
 </tr>
-<tr class="row-odd"><td><p>type_indices</p></td>
+<tr class="row-even"><td><p>type_indices</p></td>
 <td><p>type_index</p></td>
 <td><p>No default values</p></td>
 <td><p>atom</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>types</p></td>
+<tr class="row-odd"><td><p>types</p></td>
 <td><p>type</p></td>
 <td><p>‘’</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘object’&gt;</p></td>
 </tr>
-<tr class="row-odd"><td><p>ureybradleys</p></td>
+<tr class="row-even"><td><p>ureybradleys</p></td>
 <td><p>ureybradleys</p></td>
 <td><p>No default values</p></td>
 <td><p>atom</p></td>
@@ -1062,7 +1069,7 @@
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2022, Lily Wang, Irfan Alibay, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2022, Lily Wang, Irfan Alibay, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>

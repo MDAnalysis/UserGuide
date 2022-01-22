@@ -24,6 +24,7 @@
   
 
   
+    <link rel="canonical" href="https://userguide.mdanalysis.org/selections.html" />
 
   
   <!--[if lt IE 9]>
@@ -306,16 +307,24 @@ grouping. For example:</p></li>
 <span class="gh">Out[10]: </span><span class="go">&lt;AtomGroup with 0 atoms&gt;</span>
 </pre></div>
 </div>
-<ul class="simple">
+<ul>
 <li><p>String selections such as names and residue names can be
-matched with Unix shell-style wildcards. Using <code class="docutils literal notranslate"><span class="pre">*</span></code>
-in a string matches any number of any characters; <code class="docutils literal notranslate"><span class="pre">?</span></code>
-matches any single character; <code class="docutils literal notranslate"><span class="pre">[seq]</span></code> matches any character in <em>seq</em>;
-and <code class="docutils literal notranslate"><span class="pre">[!seq]</span></code> matches any character not in <em>seq</em>. For example,
+matched with Unix shell-style wildcards. These rules include:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">*</span></code>  in a string matches any number of any characters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">?</span></code> matches any single character</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[seq]</span></code> matches any character in <em>seq</em>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[!seq]</span></code> matches any character not in <em>seq</em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[!?]</span></code> selects empty strings</p></li>
+</ul>
+</div></blockquote>
+<p>For example,
 the string <code class="docutils literal notranslate"><span class="pre">GL*</span></code> selects all strings that start with “GL”,
 such as “GLU”, “GLY”, “GLX29”, “GLN”. <code class="docutils literal notranslate"><span class="pre">GL[YN]</span></code> will select all “GLY” and
 “GLN” strings. Any number of patterns can be included in the search.
-For more information on pattern matching, see the <a class="reference external" href="https://docs.python.org/3/library/fnmatch.html#module-fnmatch" title="(in Python v3.10)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fnmatch</span></code></a> documentation.</p></li>
+For more information on pattern matching, see the <a class="reference external" href="https://docs.python.org/3/library/fnmatch.html#module-fnmatch" title="(in Python v3.10)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fnmatch</span></code></a> documentation.</p>
+</li>
 </ul>
 <div class="section" id="simple-selections">
 <h3>Simple selections<a class="headerlink" href="#simple-selections" title="Permalink to this headline">¶</a></h3>
@@ -365,6 +374,10 @@ DMPC segment</p>
 often the case with high-resolution crystal structures
 e.g. <code class="code docutils literal notranslate"><span class="pre">resid</span> <span class="pre">4</span> <span class="pre">and</span> <span class="pre">resname</span> <span class="pre">ALA</span> <span class="pre">and</span> <span class="pre">altloc</span> <span class="pre">B</span></code> selects only the atoms of ALA-4
 that have an altloc B record.</p>
+</dd>
+<dt>icode <em>icode</em></dt><dd><p>a selector for atoms where insertion codes are available. This can be combined
+with residue numbers using the <code class="docutils literal notranslate"><span class="pre">resid</span></code> selector above.
+e.g. <code class="code docutils literal notranslate"><span class="pre">icode</span> <span class="pre">[!?]</span></code> selects atoms <em>without</em> insertion codes.</p>
 </dd>
 <dt>moltype <em>molecule-type</em></dt><dd><p>select by the <code class="docutils literal notranslate"><span class="pre">moltype</span></code> <a class="reference internal" href="topology_system.html#topology-attributes"><span class="std std-ref">topology attribute</span></a>, e.g. <code class="docutils literal notranslate"><span class="pre">moltype</span> <span class="pre">Protein_A</span></code>. At the moment, only the TPR format defines the <code class="docutils literal notranslate"><span class="pre">moltype</span></code>.</p>
 </dd>
@@ -613,7 +626,7 @@ work as one might expect:</p>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2022, Lily Wang, Irfan Alibay, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2022, Lily Wang, Irfan Alibay, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>

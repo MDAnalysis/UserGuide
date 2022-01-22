@@ -4,7 +4,14 @@
 Dimension reduction
 ===================
 
-A molecular dynamics trajectory with :math:`N` atoms can be considered through a path through :math:`3N`-dimensional molecular configuration space. It remains difficult to extract important dynamics or compare trajectory similarity from such a high-dimensional space. However, collective motions and physically relevant states can often be effectively described with low-dimensional representations of the conformational space explored over the trajectory. MDAnalysis implements two methods for dimensionality reduction. 
+A molecular dynamics trajectory with :math:`N` atoms can be considered
+a path through :math:`3N`-dimensional molecular configuration space.
+It remains difficult to extract important dynamics or compare trajectory
+similarity from such a high-dimensional space. However, collective motions
+and physically relevant states can often be effectively described with
+low-dimensional representations of the conformational space explored over
+the trajectory. MDAnalysis implements two methods for dimensionality
+reduction.
 
 **Principal component analysis** is a common linear dimensionality reduction technique that maps the coordinates in each frame of your trajectory to a linear combination of orthogonal vectors. The vectors are called *principal components*, and they are ordered such that the first principal component accounts for the most variance in the original data (i.e. the largest uncorrelated motion in your trajectory), and each successive component accounts for less and less variance. Trajectory coordinates can be transformed onto a lower-dimensional space (*essential subspace*) constructed from these principal components in order to compare conformations. Your trajectory can also be projected onto each principal component in order to visualise the motion described by that component.
 
@@ -17,3 +24,4 @@ For computing similarity, see the tutorials in :ref:`trajectory-similarity`.
    :maxdepth: 1
 
    /examples/analysis/reduced_dimensions/pca
+   /examples/analysis/reduced_dimensions/diffusion_map

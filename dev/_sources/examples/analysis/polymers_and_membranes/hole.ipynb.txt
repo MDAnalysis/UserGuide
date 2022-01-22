@@ -8,7 +8,7 @@
     "\n",
     "Here we use `HOLE` to analyse pore dimensions in a membrane.\n",
     "\n",
-    "**Last executed:** Feb 20, 2020 with MDAnalysis 0.20.2-dev0\n",
+    "**Last executed:** Feb 10, 2020 with MDAnalysis 1.0.0\n",
     "\n",
     "**Last updated:** February 2020\n",
     "\n",
@@ -1093,9 +1093,9 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "Python (mda)",
+   "display_name": "Python (mda-user-guide)",
    "language": "python",
-   "name": "mda"
+   "name": "mda-user-guide"
   },
   "language_info": {
    "codemirror_mode": {
@@ -1107,7 +1107,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.7.6"
+   "version": "3.8.3"
   },
   "toc": {
    "base_numbering": 1,

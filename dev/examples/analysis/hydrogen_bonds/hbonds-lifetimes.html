@@ -24,6 +24,7 @@
   
 
   
+    <link rel="canonical" href="https://userguide.mdanalysis.org/examples/analysis/hydrogen_bonds/hbonds-lifetimes.html" />
 
   
   <!--[if lt IE 9]>
@@ -49,7 +50,7 @@
           href="../../../_static/opensearch.xml"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Universe" href="../../../universe.html" />
+    <link rel="next" title="Writing your own trajectory analysis" href="../custom_trajectory_analysis.html" />
     <link rel="prev" title="Calculating hydrogen bonds: advanced selections" href="hbonds-selections.html" /> 
 </head>
 
@@ -103,38 +104,11 @@
             
             
               <p class="caption"><span class="caption-text">Getting started</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick start guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently asked questions</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../README.html">Examples</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html">Quick start guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../constructing_universe.html">Constructing, modifying, and adding to a Universe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../transformations/README.html">Transformations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../alignment_and_rms/README.html">Alignments and RMS fitting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../distances_and_contacts/README.html">Distances and contacts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../trajectory_similarity/README.html">Trajectory similarity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../structure/README.html">Structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../reduced_dimensions/README.html">Dimension reduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../polymers_and_membranes/README.html">Polymers and membranes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../volumetric/README.html">Volumetric analyses</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="README.html">Hydrogen Bond Analysis</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="hbonds.html">Calculating hydrogen bonds: the basics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hbonds-selections.html">Calculating hydrogen bonds: advanced selections</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Calculating hydrogen bond lifetimes</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Loading-files">Loading files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Find-all-hydrogen-bonds">Find all hydrogen bonds</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Calculate-hydrogen-bond-lifetimes">Calculate hydrogen bond lifetimes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Calculating-the-time-constant">Calculating the time constant</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Intermittent-lifetime">Intermittent lifetime</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Hydrogen-bond-lifetime-of-individual-hydrogen-bonds">Hydrogen bond lifetime of individual hydrogen bonds</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#References">References</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Data structures</span></p>
@@ -239,9 +213,7 @@
     
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="../../README.html">Examples</a> &raquo;</li>
-        
-          <li><a href="README.html">Hydrogen Bond Analysis</a> &raquo;</li>
+          <li><a href="../README.html">Analysis</a> &raquo;</li>
         
       <li>Calculating hydrogen bond lifetimes</li>
     
@@ -957,7 +929,7 @@ LYS-211-NZ      HZ3     GLU-204-OE1     count=92
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../../../universe.html" class="btn btn-neutral float-right" title="Universe" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../custom_trajectory_analysis.html" class="btn btn-neutral float-right" title="Writing your own trajectory analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="hbonds-selections.html" class="btn btn-neutral float-left" title="Calculating hydrogen bonds: advanced selections" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
@@ -965,7 +937,7 @@ LYS-211-NZ      HZ3     GLU-204-OE1     count=92
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2022, Lily Wang, Irfan Alibay, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2022, Lily Wang, Irfan Alibay, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>

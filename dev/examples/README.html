@@ -24,6 +24,7 @@
   
 
   
+    <link rel="canonical" href="https://userguide.mdanalysis.org/examples/README.html" />
 
   
   <!--[if lt IE 9]>
@@ -109,6 +110,7 @@
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html">Quick start guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="constructing_universe.html">Constructing, modifying, and adding to a Universe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transformations/README.html">Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="other/README.html">Other</a></li>
 <li class="toctree-l2"><a class="reference internal" href="analysis/alignment_and_rms/README.html">Alignments and RMS fitting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="analysis/distances_and_contacts/README.html">Distances and contacts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="analysis/trajectory_similarity/README.html">Trajectory similarity</a></li>
@@ -116,7 +118,6 @@
 <li class="toctree-l2"><a class="reference internal" href="analysis/reduced_dimensions/README.html">Dimension reduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="analysis/polymers_and_membranes/README.html">Polymers and membranes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="analysis/volumetric/README.html">Volumetric analyses</a></li>
-<li class="toctree-l2"><a class="reference internal" href="analysis/hydrogen_bonds/README.html">Hydrogen Bond Analysis</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
@@ -244,13 +245,19 @@
             
   <div class="section" id="examples">
 <h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
-<p>MDAnalysis maintains a collection of Jupyter notebooks as examples of what the code can do. Each notebook can be downloaded from the source repository to run on your own computer, or viewed as an online tutorial on the user guide.</p>
+<p><a class="reference external" href="https://mybinder.org/v2/gh/MDAnalysis/binder-env-userguide/main?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252FMDAnalysis%252FUserGuide%26urlpath%3Dtree%252FUserGuide%252Fdoc%252Fsource%252Fexamples%26branch%3Dmaster"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
+<p>MDAnalysis maintains a collection of Jupyter notebooks as examples
+of what the code can do. Each notebook can be downloaded from
+<a class="reference external" href="https://github.com/MDAnalysis/UserGuide/tree/master/doc/source/examples">GitHub</a> to run on your own computer, or viewed as an
+online tutorial on the user guide. You can also interact with
+each notebook on <a class="reference external" href="https://mybinder.org/v2/gh/MDAnalysis/binder-env-userguide/main?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252FMDAnalysis%252FUserGuide%26urlpath%3Dtree%252FUserGuide%252Fdoc%252Fsource%252Fexamples%26branch%3Dmaster">Binder</a>.</p>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">General</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick start guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="constructing_universe.html">Constructing, modifying, and adding to a Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transformations/README.html">Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other/README.html">Other</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -293,6 +300,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="analysis/reduced_dimensions/README.html">Dimension reduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="analysis/reduced_dimensions/pca.html">Principal component analysis of a trajectory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis/reduced_dimensions/diffusion_map.html">Non-linear dimension reduction to diffusion maps</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="analysis/polymers_and_membranes/README.html">Polymers and membranes</a><ul>
@@ -302,12 +310,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="analysis/volumetric/README.html">Volumetric analyses</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="analysis/volumetric/linear_density.html">Computing mass and charge density on each axis</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="analysis/hydrogen_bonds/README.html">Hydrogen Bond Analysis</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="analysis/hydrogen_bonds/hbonds.html">Calculating hydrogen bonds: the basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="analysis/hydrogen_bonds/hbonds-selections.html">Calculating hydrogen bonds: advanced selections</a></li>
-<li class="toctree-l2"><a class="reference internal" href="analysis/hydrogen_bonds/hbonds-lifetimes.html">Calculating hydrogen bond lifetimes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis/volumetric/density_analysis.html">Calculating the solvent density around a protein</a></li>
 </ul>
 </li>
 </ul>
@@ -328,7 +331,7 @@
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2022, Lily Wang, Irfan Alibay, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2022, Lily Wang, Irfan Alibay, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>
