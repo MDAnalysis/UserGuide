@@ -36,6 +36,7 @@ doc/build
 *.xtc
 *.pkl
 *.dat
+*.dx
 
 # example files
 doc/source/examples/**/*.*
