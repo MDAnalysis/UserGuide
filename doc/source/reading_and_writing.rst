@@ -191,3 +191,51 @@ Alternatively, iterate over the trajectory frame-by-frame with :func:`~MDAnalysi
             w.write(ag)
 
 You can pass keyword arguments to some format writers. For example, the :ref:`LAMMPS DATA <DATA-format>` format allows the ``lengthunit`` and ``timeunit`` keywords to specify the output units.  
+
+Pickling
+========
+
+MDAnalysis supports pickling of most of its data structures and trajectory formats. Unsupported attributes can be found in PR `#2887 <https://github.com/MDAnalysis/mdanalysis/issues/2887>`_.
+
+.. ipython:: python
+    :okwarning:
+
+    import pickle
+    from MDAnalysis.tests.datafiles import PSF, DCD
+    psf = mda.Universe(PSF, DCD)
+    pickle.loads(pickle.dumps(psf))
+
+As for :class:`MDAnalysis.core.groups.AtomGroup`, during serialization, it will be pickled with its bound
+:class:`MDAnalysis.core.universe.Universe`. This means that after unpickling,
+a new :class:`MDAnalysis.core.universe.Universe` will be created and
+be attached to the new :class:`MDAnalysis.core.groups.AtomGroup`. If the Universe is serialized
+with its :class:`MDAnalysis.core.groups.AtomGroup`, they will still be bound together afterwards:
+
+.. ipython:: python
+
+    import pickle
+    from MDAnalysis.tests.datafiles import PSF, DCD
+    u = mda.Universe(PSF, DCD)
+    g = u.atoms
+    g_pickled = pickle.loads(pickle.dumps(g))
+    print("g_pickled.universe is u: ", u is g_pickled.universe)
+    g_pickled, u_pickled = pickle.loads(pickle.dumps((g, u)))
+    print("g_pickled.universe is u_pickled: ",
+           u_pickled is g_pickled.universe)
+
+If multiple :class:`MDAnalysis.core.groups.AtomGroup`\ s are bound to the same
+:class:`MDAnalysis.core.universe.Universe`, they will also be bound to the same one
+after serialization:
+
+.. ipython:: python
+
+    u = mda.Universe(PSF, DCD)
+    g = u.atoms[:2]
+    h = u.atoms[2:4]
+    g_pickled = pickle.loads(pickle.dumps(g))
+    h_pickled = pickle.loads(pickle.dumps(h))
+    print("g_pickled.universe is h_pickled.universe : ",
+           g_pickled.universe is h_pickled.universe)
+    g_pickled, h_pickled = pickle.loads(pickle.dumps((g, h)))
+    print("g_pickled.universe is h_pickled.universe: ",
+           g_pickled.universe is h_pickled.universe)
