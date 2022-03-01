@@ -505,16 +505,16 @@ div.rendered_html tbody tr:hover {
 </ol>
 <p>The building blocks and methods shown here are only suitable for analyses that involve iterating over the trajectory once.</p>
 <p>If you implement your own analysis method, please consider <a class="reference external" href="https://www.mdanalysis.org/UserGuide/contributing.html">contributing it to the MDAnalysis codebase!</a></p>
-<p><strong>Last executed:</strong> May 18, 2021 with MDAnalysis 1.1.1</p>
-<p><strong>Last updated:</strong> February 2020</p>
-<p><strong>Minimum version of MDAnalysis:</strong> 0.19.0</p>
+<p><strong>Last executed:</strong> Mar 1st, 2022 with MDAnalysis 2.0.0</p>
+<p><strong>Last updated:</strong> March 2022</p>
+<p><strong>Minimum version of MDAnalysis:</strong> 2.0.0</p>
 <p><strong>Packages required:</strong></p>
 <ul class="simple">
 <li><p>MDAnalysis (<a class="bibtex reference internal" href="../../references.html#michaud-agrawal-mdanalysis-2011" id="id1">[MADWB11]</a>, <a class="bibtex reference internal" href="../../references.html#gowers-mdanalysis-2016" id="id2">[GLB+16]</a>)</p></li>
 <li><p>MDAnalysisTests</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -542,7 +542,7 @@ div.rendered_html tbody tr:hover {
 \[R_{i, x} = \sqrt{\frac{\sum_i m_i [r_{i, y}^2 + r_{i, z}^2]}{\sum_i m_i}}\]</div>
 <p>Below, we define a function that takes an AtomGroup and calculates the radii of gyration. We could write this function to only need the AtomGroup. However, we also add in a <code class="docutils literal notranslate"><span class="pre">masses</span></code> argument and a <code class="docutils literal notranslate"><span class="pre">total_mass</span></code> keyword to avoid recomputing the mass and total mass for each frame.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -574,7 +574,7 @@ div.rendered_html tbody tr:hover {
 <h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this headline">¶</a></h2>
 <p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<a class="bibtex reference internal" href="../../references.html#beckstein-zipping-2009" id="id3">[BDPW09]</a>)</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -589,8 +589,8 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Creating-an-analysis-from-a-function">
 <h2>Creating an analysis from a function<a class="headerlink" href="#Creating-an-analysis-from-a-function" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.base.AnalysisFromFunction</span></code> can create an analysis from a function that works on AtomGroups. It requires the function itself, the trajectory to operate on, and then the arguments / keyword arguments necessary for the function.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -601,36 +601,37 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
+<p>Running the analysis iterates over the trajectory. The output is saved in <code class="docutils literal notranslate"><span class="pre">rog.results.timeseries</span></code>, which has the same number of rows, as frames in the trajectory. You can access the results both at <code class="docutils literal notranslate"><span class="pre">rog.results.timeseries</span></code> and <code class="docutils literal notranslate"><span class="pre">rog.results['timeseries']</span></code>:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
 </div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/Users/lily/anaconda3/envs/mda-user-guide/lib/python3.7/site-packages/MDAnalysis/analysis/base.py:282: DeprecationWarning: The structure of the `results` array will change in MDAnalysis version 2.0.
-  &#34;MDAnalysis version 2.0.&#34;, category=DeprecationWarning
-</pre></div></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">rog</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;timeseries&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;MDAnalysis.analysis.base.AnalysisFromFunction at 0x7fb6be5a3210&gt;
+(98, 4)
 </pre></div></div>
 </div>
-<p>Running the analysis iterates over the trajectory. The output is saved in <code class="docutils literal notranslate"><span class="pre">rog.results</span></code>, which has the same number of rows, as frames in the trajectory.</p>
+<p>gives the same outputs as:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">rog</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">shape</span>
+<span></span><span class="n">rog</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">timeseries</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -644,7 +645,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;x-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;y-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;z-axis&#39;</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">rog</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">rog</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;timeseries&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radius of gyration (Å)&#39;</span><span class="p">)</span>
@@ -652,20 +653,11 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Text(0.5, 0, &#39;Frame&#39;)
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/examples_analysis_custom_trajectory_analysis_10_1.png" src="../../_images/examples_analysis_custom_trajectory_analysis_10_1.png" />
+<img alt="../../_images/examples_analysis_custom_trajectory_analysis_12_0.png" src="../../_images/examples_analysis_custom_trajectory_analysis_12_0.png" />
 </div>
 </div>
 <p>You can also re-run the analysis with different frame selections.</p>
@@ -680,18 +672,9 @@ Text(0.5, 0, &#39;Frame&#39;)
                               <span class="n">total_mass</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">))</span>
 
 <span class="n">rog_10</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
-<span class="n">rog_10</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">rog_10</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;timeseries&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/Users/lily/anaconda3/envs/mda-user-guide/lib/python3.7/site-packages/MDAnalysis/analysis/base.py:282: DeprecationWarning: The structure of the `results` array will change in MDAnalysis version 2.0.
-  &#34;MDAnalysis version 2.0.&#34;, category=DeprecationWarning
-</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
@@ -707,7 +690,7 @@ Text(0.5, 0, &#39;Frame&#39;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">rog_10</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+<span></span><span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">rog_10</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;timeseries&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radius of gyration (Å)&#39;</span><span class="p">)</span>
@@ -715,20 +698,11 @@ Text(0.5, 0, &#39;Frame&#39;)
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Text(0.5, 0, &#39;Frame&#39;)
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/examples_analysis_custom_trajectory_analysis_13_1.png" src="../../_images/examples_analysis_custom_trajectory_analysis_13_1.png" />
+<img alt="../../_images/examples_analysis_custom_trajectory_analysis_15_0.png" src="../../_images/examples_analysis_custom_trajectory_analysis_15_0.png" />
 </div>
 </div>
 </div>
@@ -746,7 +720,7 @@ Text(0.5, 0, &#39;Frame&#39;)
 </div>
 </div>
 <p>To run the analysis, pass exactly the same arguments as you would for <code class="docutils literal notranslate"><span class="pre">AnalysisFromFunction</span></code>.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
@@ -758,31 +732,13 @@ Text(0.5, 0, &#39;Frame&#39;)
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/Users/lily/anaconda3/envs/mda-user-guide/lib/python3.7/site-packages/MDAnalysis/analysis/base.py:282: DeprecationWarning: The structure of the `results` array will change in MDAnalysis version 2.0.
-  &#34;MDAnalysis version 2.0.&#34;, category=DeprecationWarning
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;MDAnalysis.analysis.base.analysis_class.&lt;locals&gt;.WrapperClass at 0x7fb6bec3b610&gt;
-</pre></div></div>
-</div>
 <p>As with <code class="docutils literal notranslate"><span class="pre">AnalysisFromFunction</span></code>, the results are in <code class="docutils literal notranslate"><span class="pre">results</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">rog_u1</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+<span></span><span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">rog_u1</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;timeseries&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radius of gyration (Å)&#39;</span><span class="p">)</span>
@@ -790,25 +746,16 @@ Text(0.5, 0, &#39;Frame&#39;)
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Text(0.5, 0, &#39;Frame&#39;)
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/examples_analysis_custom_trajectory_analysis_19_1.png" src="../../_images/examples_analysis_custom_trajectory_analysis_19_1.png" />
+<img alt="../../_images/examples_analysis_custom_trajectory_analysis_21_0.png" src="../../_images/examples_analysis_custom_trajectory_analysis_21_0.png" />
 </div>
 </div>
 <p>You can reuse the class for other trajectories and selections.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -821,30 +768,12 @@ Text(0.5, 0, &#39;Frame&#39;)
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/Users/lily/anaconda3/envs/mda-user-guide/lib/python3.7/site-packages/MDAnalysis/analysis/base.py:282: DeprecationWarning: The structure of the `results` array will change in MDAnalysis version 2.0.
-  &#34;MDAnalysis version 2.0.&#34;, category=DeprecationWarning
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;MDAnalysis.analysis.base.analysis_class.&lt;locals&gt;.WrapperClass at 0x7fb6bee51f90&gt;
-</pre></div></div>
-</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">rog_u2</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+<span></span><span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">rog_u2</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;timeseries&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radius of gyration (Å)&#39;</span><span class="p">)</span>
@@ -852,20 +781,11 @@ Text(0.5, 0, &#39;Frame&#39;)
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Text(0.5, 0, &#39;Frame&#39;)
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/examples_analysis_custom_trajectory_analysis_22_1.png" src="../../_images/examples_analysis_custom_trajectory_analysis_22_1.png" />
+<img alt="../../_images/examples_analysis_custom_trajectory_analysis_24_0.png" src="../../_images/examples_analysis_custom_trajectory_analysis_24_0.png" />
 </div>
 </div>
 </div>
@@ -900,7 +820,7 @@ Text(0.5, 0, &#39;Frame&#39;)
 </ul>
 <p>Below, we create the class <code class="docutils literal notranslate"><span class="pre">RadiusOfGyration2</span></code> to run the analysis function that we have defined above, and add extra information such as the time of the corresponding frame.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -964,7 +884,7 @@ Text(0.5, 0, &#39;Frame&#39;)
 </div>
 <p>Because <code class="docutils literal notranslate"><span class="pre">RadiusOfGyration2</span></code> calculates the masses of the selected AtomGroup itself, we do not need to pass it in ourselves.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -976,11 +896,11 @@ Text(0.5, 0, &#39;Frame&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4288ee805e9244e19932a236e7f290b7", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8ef117cab66f4916b99a96755f0fee71", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>As calculated in <code class="docutils literal notranslate"><span class="pre">_conclude()</span></code>, the average radii of gyrations are at <code class="docutils literal notranslate"><span class="pre">rog.average</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -989,7 +909,7 @@ Text(0.5, 0, &#39;Frame&#39;)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -999,7 +919,7 @@ array([18.26549552, 12.85342131, 15.37359575, 16.29185734])
 </div>
 <p>The results are available at <code class="docutils literal notranslate"><span class="pre">rog.results</span></code> as an array or <code class="docutils literal notranslate"><span class="pre">rog.df</span></code> as a DataFrame.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1008,7 +928,7 @@ array([18.26549552, 12.85342131, 15.37359575, 16.29185734])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1145,7 +1065,7 @@ array([18.26549552, 12.85342131, 15.37359575, 16.29185734])
 </div>
 <p>Using this DataFrame we can easily plot our results.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1154,25 +1074,16 @@ array([18.26549552, 12.85342131, 15.37359575, 16.29185734])
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Text(0, 0.5, &#39;Radius of gyration (A)&#39;)
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/examples_analysis_custom_trajectory_analysis_32_1.png" src="../../_images/examples_analysis_custom_trajectory_analysis_32_1.png" />
+<img alt="../../_images/examples_analysis_custom_trajectory_analysis_34_0.png" src="../../_images/examples_analysis_custom_trajectory_analysis_34_0.png" />
 </div>
 </div>
 <p>We can also run the analysis over a subset of frames, the same as the output from <code class="docutils literal notranslate"><span class="pre">AnalysisFromFunction</span></code> and <code class="docutils literal notranslate"><span class="pre">analysis_class</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1181,23 +1092,14 @@ Text(0, 0.5, &#39;Radius of gyration (A)&#39;)
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9bddfb9c6bb645d4a126c959ecfc862e", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;__main__.RadiusOfGyration2 at 0x7fb6bef4e690&gt;
-</pre></div></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "0ae4135647cf4b858e45c2a573c1b391", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1206,7 +1108,7 @@ Text(0, 0.5, &#39;Radius of gyration (A)&#39;)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1215,7 +1117,7 @@ Text(0, 0.5, &#39;Radius of gyration (A)&#39;)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1224,7 +1126,7 @@ Text(0, 0.5, &#39;Radius of gyration (A)&#39;)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1350,7 +1252,7 @@ Text(0, 0.5, &#39;Radius of gyration (A)&#39;)
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1360,20 +1262,11 @@ Text(0, 0.5, &#39;Radius of gyration (A)&#39;)
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Text(0, 0.5, &#39;Radius of gyration (A)&#39;)
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/examples_analysis_custom_trajectory_analysis_37_1.png" src="../../_images/examples_analysis_custom_trajectory_analysis_37_1.png" />
+<img alt="../../_images/examples_analysis_custom_trajectory_analysis_39_0.png" src="../../_images/examples_analysis_custom_trajectory_analysis_39_0.png" />
 </div>
 </div>
 </div>
@@ -1404,7 +1297,7 @@ Text(0, 0.5, &#39;Radius of gyration (A)&#39;)
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2022, Lily Wang, Irfan Alibay, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2022, Lily Wang, Irfan Alibay, Florent Langenfeld, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>
