@@ -26,10 +26,9 @@ This repository contains the `user guide`_ for MDAnalysis. The user guide origin
    :alt: Developer Google Group
    :target: http://developers.mdanalysis.org
 
-
-.. |build| image:: https://travis-ci.com/MDAnalysis/UserGuide.svg?branch=master
+.. |build| image:: https://github.com/MDAnalysis/UserGuide/actions/workflows/gh-ci.yaml/badge.svg
    :alt: Build Status
-   :target: https://travis-ci.com/MDAnalysis/UserGuide
+   :target: https://github.com/MDAnalysis/UserGuide/actions/workflows/gh-ci.yaml
 
 .. |binder| image:: https://mybinder.org/badge_logo.svg
    :alt: Binder
