@@ -604,7 +604,7 @@ A typical function docstring looks like the following:
 
     ::
 
-        def func(arg1, arg2):
+        def func(arg1, arg2, arg3):
             """Summary line.
 
             Extended description of function.
@@ -615,6 +615,8 @@ A typical function docstring looks like the following:
                 Description of `arg1`
             arg2 : str
                 Description of `arg2`
+            arg3 : list[int]
+                Description of `arg3`
 
 
             Returns
