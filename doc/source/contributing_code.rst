@@ -627,6 +627,8 @@ A typical function docstring looks like the following:
             """
             return True
 
+Notes: Funtions should consistently follow the type hinting recommendations throughout Wherever needed following `type hinting pep-0484 <https://www.python.org/dev/peps/pep-0484/>`_
+
 .. seealso::
 
     The `napoleon documentation <https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html>`_ has further breakdowns of docstrings at the module, function, class, method, variable, and other levels.
