@@ -627,7 +627,7 @@ A typical function docstring looks like the following:
             """
             return True
 
-Notes: Funtions should consistently follow the type hinting recommendations throughout Wherever needed following `type hinting pep-0484 <https://www.python.org/dev/peps/pep-0484/>`_
+Notes: Functions should consistently follow the type hinting recommendations throughout by following `type hinting pep-0484 <https://www.python.org/dev/peps/pep-0484/>`_
 
 .. seealso::
 
