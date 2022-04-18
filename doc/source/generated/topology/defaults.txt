@@ -6,13 +6,14 @@ Atom           AtomGroup      default                                   level   
 =============  =============  ========================================  =======  =======================
 altLocs        altLoc         ''                                        atom     <class 'object'>
 angles         angles         No default values                         atom
+aromaticities  aromaticity    False                                     atom     <class 'bool'>
 atomiccharges  atomiccharge   No default values                         atom
 atomnums       atomnum        No default values                         atom
-bfactors       bfactor        0.0                                       atom     <class 'float'>
 bonds          bonds          No default values                         atom
 chainIDs       chainID        ''                                        atom     <class 'object'>
 chargegroups   chargegroup    No default values                         atom
 charges        charge         0.0                                       atom     <class 'float'>
+chiralities    chirality      No default values                         atom     U1
 cmaps          cmaps          No default values                         atom
 dihedrals      dihedrals      No default values                         atom
 elements       element        ''                                        atom     <class 'object'>
@@ -25,7 +26,7 @@ impropers      impropers      No default values                         atom
 masses         mass           0.0                                       atom     <class 'numpy.float64'>
 models         model          No default values                         segment
 molnums        molnum         No default values                         residue  <class 'numpy.int64'>
-moltypes       moltype        No default values                         residue  <class 'object'>
+moltypes       moltype        ''                                        residue  <class 'object'>
 names          name           ''                                        atom     <class 'object'>
 nbindices      nbindex        0                                         atom     <class 'int'>
 occupancies    occupancy      0.0                                       atom     <class 'float'>
