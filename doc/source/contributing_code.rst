@@ -265,7 +265,7 @@ Install the dependencies:
           griddataformats gsd hypothesis "joblib>=0.12" matplotlib \
           msmb_theme==1.2.0 netcdf4 networkx "numpy>=1.17.3" \
           parmed psutil pytest scikit-learn scipy "seaborn>=0.7.0,<0.9" \
-          sphinx==1.8.5 sphinx_rtd_theme "tidynamics>=1.0.0" \
+          sphinx sphinx_rtd_theme "tidynamics>=1.0.0" \
           "tqdm>=4.43.0"
 
 Some packages, such as ``clustalw``, are not available via pip.
