@@ -627,7 +627,17 @@ A typical function docstring looks like the following:
             """
             return True
 
-Notes: Functions should consistently follow the type hinting recommendations throughout by following `type hinting pep-0484 <https://www.python.org/dev/peps/pep-0484/>`_
+.. note::
+    
+    While MDAnalysis continues to support Python versions under 3.9,
+    type hinting should follow the syntax first laid out in
+    `PEP 484 – Type Hints <https://www.python.org/dev/peps/pep-0484/>`_.
+    However, as shown in the example above, function **documentation**
+    should follow the type hinting recommendations laid out in
+    `PEP 585 – Type Hinting Generics In Standard Collections <https://peps.python.org/pep-0585/>`_.
+    That means that for now, type hinting should still import from ``typing``
+    and a dictionary would still be hinted as ``Dict[Tuple[str, str], int]``.
+    However, the corresponding docstring would describe the argument as ``dict[tuple[str, str], int]``.
 
 .. seealso::
 
