@@ -10,7 +10,7 @@ If you don't see your idea or problem listed, do one of the following:
 
     * If your contribution is **minor**, such as a typo fix, go ahead and fix it by following the guide below and :ref:`open a pull request <adding-code-to-mda>`.
 
-    * If your contribution is **major**, such as a bug fix or a new feature, start by opening an issue first. That way, other people can weigh in on the discussion before you do any work. If you also create a pull request, you should link it to the issue by including the issue number in the pull request’s description.
+    * If your contribution is **major**, such as a bug fix or a new feature, start by opening an issue first. That way, other people can weigh in on the discussion before you do any work. If you also create a pull request, you should link it to the issue by including the issue number in the pull request's description.
 
 Here is an overview of the development workflow for code or inline code documentation, as expanded on throughout the rest of the page.
 
