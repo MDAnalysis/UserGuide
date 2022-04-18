@@ -214,7 +214,7 @@ First we need to install dependencies. You'll need a mix of conda and pip instal
             biopython chemfiles clustalw==2.1 codecov cython \
             griddataformats gsd hypothesis "joblib>=0.12" \
             matplotlib mmtf-python mock netcdf4 networkx \
-            "numpy>=1.17.3" psutil pytest scikit-learn scipy \
+            "numpy>=1.18.0" psutil pytest scikit-learn scipy \
             "seaborn>=0.7.0,<0.9" sphinx==1.8.5 "tidynamics>=1.0.0" \
             "tqdm>=4.43.0" parmed
 
