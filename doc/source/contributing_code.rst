@@ -108,7 +108,7 @@ To list the packages installed in your current environment:
 
 .. note::
     When you finish developing MDAnalysis you can deactivate the environment with
-    :code:`conda deactivate`, in order to retrn to your root environment.
+    :code:`conda deactivate`, in order to return to your root environment.
 
 See the full `conda documentation <http://conda.pydata.org/docs>`__ for more details.
 
@@ -142,7 +142,7 @@ Now you can install packages via pip without affecting your global environment. 
 
 .. note::
     When you finish developing MDAnalysis you can deactivate the environment with
-    :code:`deactivate`, in order to retrn to your root environment.
+    :code:`deactivate`, in order to return to your root environment.
 
 The `virtualenvwrapper package <https://virtualenvwrapper.readthedocs.io/en/latest/>`_ makes virtual environments easier to use. It provides some very useful features:
 
