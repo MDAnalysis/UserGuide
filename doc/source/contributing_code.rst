@@ -263,8 +263,8 @@ Install the dependencies:
 
         pip install biopython chemfiles codecov cython \
           griddataformats gsd hypothesis "joblib>=0.12" matplotlib \
-          msmb_theme==1.2.0 netcdf4 networkx "numpy>=1.17.3" \
-          parmed psutil pytest scikit-learn scipy "seaborn>=0.7.0,<0.9" \
+          msmb_theme==1.2.0 netcdf4 networkx "numpy>=1.18.0" \
+          parmed psutil pytest scikit-learn scipy "seaborn>=0.7.0" \
           sphinx sphinx_rtd_theme "tidynamics>=1.0.0" \
           "tqdm>=4.43.0"
 
