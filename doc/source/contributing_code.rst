@@ -215,7 +215,7 @@ First we need to install dependencies. You'll need a mix of conda and pip instal
             griddataformats gsd hypothesis "joblib>=0.12" \
             matplotlib mmtf-python mock netcdf4 networkx \
             "numpy>=1.18.0" psutil pytest scikit-learn scipy \
-            "seaborn>=0.7.0,<0.9" sphinx==1.8.5 "tidynamics>=1.0.0" \
+            "seaborn>=0.7.0" sphinx "tidynamics>=1.0.0" \
             "tqdm>=4.43.0" parmed
 
         # documentation dependencies
