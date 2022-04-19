@@ -123,7 +123,7 @@ To use virtual environments you have to install the virtualenv package first. Th
 
     .. code-block:: bash
 
-        pip install virtualenv
+        python -m pip install virtualenv
 
 Virtual environments can be created for each project directory.
 
@@ -155,7 +155,7 @@ You first need to install ``virtualenvwrapper`` *outside* of a virtual environme
 
     .. code-block:: bash
 
-        pip install virtualenvwrapper
+        python -m pip install virtualenvwrapper
 
 Then, you need to load it into your terminal session. Add the following lines in ``~/.bashrc``. They will be executed every time you open a new terminal session:
 
@@ -216,10 +216,10 @@ First we need to install dependencies. You'll need a mix of conda and pip instal
             matplotlib mmtf-python mock netcdf4 networkx \
             "numpy>=1.18.0" psutil pytest scikit-learn scipy \
             "seaborn>=0.7.0" sphinx "tidynamics>=1.0.0" \
-            "tqdm>=4.43.0" parmed
+            "tqdm>=4.43.0"
 
         # documentation dependencies
-        pip install sphinx-sitemap sphinx_rtd_theme msmb_theme==1.2.0
+        python -m pip install sphinx-sitemap sphinx_rtd_theme msmb_theme==1.2.0
 
 Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.7. We will now install MDAnalysis. 
 
@@ -230,11 +230,11 @@ Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also
 
         # Build and install the MDAnalysis package
         cd package/
-        pip install -e .
+        python -m pip install -e .
         
         # Build and install the test suite
         cd ../testsuite/
-        pip install -e .
+        python -m pip install -e .
 
 At this point you should be able to import MDAnalysis from your locally built version. If you are running the development version, this is visible from the version number ending in :code:`-dev0`. For example:
 
@@ -261,10 +261,11 @@ Install the dependencies:
 
     .. code-block:: bash
 
-        pip install biopython chemfiles codecov cython \
+        python -m pip install \
+          biopython chemfiles codecov cython \
           griddataformats gsd hypothesis "joblib>=0.12" matplotlib \
           msmb_theme==1.2.0 netcdf4 networkx "numpy>=1.18.0" \
-          parmed psutil pytest scikit-learn scipy "seaborn>=0.7.0" \
+          psutil pytest scikit-learn scipy "seaborn>=0.7.0" \
           sphinx sphinx_rtd_theme "tidynamics>=1.0.0" \
           "tqdm>=4.43.0"
 
@@ -279,11 +280,11 @@ Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also
 
         # Build and install the MDAnalysis package
         cd package/
-        pip install -e .
+        python -m pip install -e .
         
         # Build and install the test suite
         cd ../testsuite/
-        pip install -e .
+        python -m pip install -e .
 
 At this point you should be able to import MDAnalysis from your locally built version. If you are running the development version, this is visible from the version number ending in "-dev0". For example:
 
