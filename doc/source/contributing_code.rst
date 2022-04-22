@@ -63,6 +63,8 @@ You can do this either with :ref:`conda <dev-with-conda>` or :ref:`pip <dev-with
 .. note::
     If you are a first time contributor and/or don't have a lot of experience managing
     your own Python virtual environments, we **strongly** suggest using :code:`conda`.
+    You only need to follow the sections corresponding to the installation method you
+    choose.
 
 .. _dev-with-conda:
 
