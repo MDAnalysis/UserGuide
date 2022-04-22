@@ -210,7 +210,7 @@ First we need to install dependencies. You'll need a mix of conda and pip instal
 
     .. code-block:: bash
 
-        conda install -c biobuilds -c conda-forge \
+        conda install -c bioconda -c conda-forge \
             biopython chemfiles clustalw==2.1 codecov cython \
             griddataformats gsd hypothesis "joblib>=0.12" \
             matplotlib mmtf-python mock netcdf4 networkx \
