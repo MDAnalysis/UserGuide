@@ -507,8 +507,8 @@ div.rendered_html tbody tr:hover {
 <h1>Parallelizing analysis<a class="headerlink" href="#Parallelizing-analysis" title="Permalink to this headline">¶</a></h1>
 <p>As we approach the exascale barrier, researchers are handling increasingly large volumes of molecular dynamics (MD) data. Whilst MDAnalysis is a flexible and relatively fast framework for complex analysis tasks in MD simulations, implementing a parallel computing framework would play a pivotal role in accelerating the time to solution for such large datasets.</p>
 <p>This document illustrates how you can run your own analysis scripts in parallel with MDAnalysis.</p>
-<p><strong>Last executed:</strong> Sep 23, 2020 with MDAnalysis 2.0.0-dev0</p>
-<p><strong>Last updated:</strong> August 2020</p>
+<p><strong>Last executed:</strong> Mar 1st, 2022 with MDAnalysis 2.0.0</p>
+<p><strong>Last updated:</strong> March 2022</p>
 <p><strong>Minimum version of MDAnalysis:</strong> 2.0.0</p>
 <p><strong>Packages required:</strong></p>
 <ul class="simple">
@@ -1158,7 +1158,7 @@ read more on <a class="reference external" href="https://docs.dask.org/en/latest
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">result_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">results_ensemble</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+<span></span><span class="n">result_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">results_ensemble</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;timeseries&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
 
 <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;x-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;y-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;z-axis&#39;</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">result_1</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
@@ -1204,7 +1204,7 @@ read more on <a class="reference external" href="https://docs.dask.org/en/latest
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2022, Lily Wang, Irfan Alibay, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2022, Lily Wang, Irfan Alibay, Florent Langenfeld, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>

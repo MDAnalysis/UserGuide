@@ -10,7 +10,7 @@ If you don't see your idea or problem listed, do one of the following:
 
     * If your contribution is **minor**, such as a typo fix, go ahead and fix it by following the guide below and :ref:`open a pull request <adding-code-to-mda>`.
 
-    * If your contribution is **major**, such as a bug fix or a new feature, start by opening an issue first. That way, other people can weigh in on the discussion before you do any work. If you also create a pull request, you should link it to the issue by including the issue number in the pull request’s description.
+    * If your contribution is **major**, such as a bug fix or a new feature, start by opening an issue first. That way, other people can weigh in on the discussion before you do any work. If you also create a pull request, you should link it to the issue by including the issue number in the pull request's description.
 
 Here is an overview of the development workflow for code or inline code documentation, as expanded on throughout the rest of the page.
 
@@ -60,6 +60,12 @@ both modules in development mode.
 
 You can do this either with :ref:`conda <dev-with-conda>` or :ref:`pip <dev-with-pip>`.
 
+.. note::
+    If you are a first time contributor and/or don't have a lot of experience managing
+    your own Python virtual environments, we **strongly** suggest using :code:`conda`.
+    You only need to follow the sections corresponding to the installation method you
+    choose.
+
 .. _dev-with-conda:
 
 With conda
@@ -87,6 +93,9 @@ Activate the environment to build MDAnalysis into it:
 
         conda activate mdanalysis-dev
 
+.. warning::
+    Make sure the :code:`mdanalysis-dev` environment is active when developing MDAnalysis.
+
 To view your environments:
 
     .. code-block:: bash
@@ -99,13 +108,11 @@ To list the packages installed in your current environment:
 
         conda list
 
-To return to your root environment:
+.. note::
+    When you finish developing MDAnalysis you can deactivate the environment with
+    :code:`conda deactivate`, in order to return to your root environment.
 
-    .. code-block:: bash
-
-        conda deactivate
-
-See the full conda docs `here <http://conda.pydata.org/docs>`__.
+See the full `conda documentation <http://conda.pydata.org/docs>`__ for more details.
 
 .. _dev-with-pip:
 
@@ -114,15 +121,11 @@ With pip and virtualenv
 
 Like conda, virtual environments managed with `virtualenv <https://virtualenv.pypa.io/en/latest/>`_ allow you to use different versions of Python and Python packages for your different project. Unlike conda, virtualenv is not a general-purpose package manager. Instead, it leverages what is available on your system, and lets you install Python packages using pip.
 
-To use virtual environments you have to install the virtualenv package first. This can be done with either pip or the package manager of your system:
+To use virtual environments you have to install the virtualenv package first. This can be done with pip:
 
     .. code-block:: bash
 
-        pip install virtualenv
-        # or on ubuntu
-        sudo apt install virtualenv
-        # or on fedora
-        sudo dnf install python-virtualenv
+        python -m pip install virtualenv
 
 Virtual environments can be created for each project directory.
 
@@ -137,11 +140,11 @@ This will create a new folder ``my-project-env``. This folder contains the virtu
 
         source myproject-env/bin/activate
 
-Now you can install packages via pip without affecting your global environment. The packages that you install when the environment is activated will be available in terminal sessions that have the environment activated. You can deactivate the virtual environment by running:
+Now you can install packages via pip without affecting your global environment. The packages that you install when the environment is activated will be available in terminal sessions that have the environment activated. 
 
-    .. code-block:: bash
-
-        deactivate
+.. note::
+    When you finish developing MDAnalysis you can deactivate the environment with
+    :code:`deactivate`, in order to return to your root environment.
 
 The `virtualenvwrapper package <https://virtualenvwrapper.readthedocs.io/en/latest/>`_ makes virtual environments easier to use. It provides some very useful features:
 
@@ -154,11 +157,7 @@ You first need to install ``virtualenvwrapper`` *outside* of a virtual environme
 
     .. code-block:: bash
 
-        pip install virtualenvwrapper
-        # or on ubuntu
-        sudo apt install virtualenvwrapper
-        # or on fedora
-        sudo dnf install python-virtualenvwrapper
+        python -m pip install virtualenvwrapper
 
 Then, you need to load it into your terminal session. Add the following lines in ``~/.bashrc``. They will be executed every time you open a new terminal session:
 
@@ -202,38 +201,77 @@ This sets the number of files to 4096. However, this command only applies to you
 Building MDAnalysis
 -------------------
 
-Make sure that you have :ref:`cloned the repository <forking-code-repo>`  
-and activated your virtual environment. First we need to install dependencies. If you're using conda, you'll need a mix of conda and pip installations:
+With conda
+----------
+
+.. note::
+    Make sure that you have :ref:`cloned the repository <forking-code-repo>`  
+    and activated your virtual environment with :code:`conda activate mdanalysis-dev`.
+    
+First we need to install dependencies. You'll need a mix of conda and pip installations:
 
     .. code-block:: bash
 
-        conda install -c biobuilds -c conda-forge \
+        conda install -c bioconda -c conda-forge \
             biopython chemfiles clustalw==2.1 codecov cython \
             griddataformats gsd hypothesis "joblib>=0.12" \
             matplotlib mmtf-python mock netcdf4 networkx \
-            "numpy>=1.17.3" psutil pytest scikit-learn scipy \
-            "seaborn>=0.7.0,<0.9" sphinx==1.8.5 "tidynamics>=1.0.0" \
+            "numpy>=1.18.0" psutil pytest scikit-learn scipy \
+            "seaborn>=0.7.0" sphinx "tidynamics>=1.0.0" \
             "tqdm>=4.43.0"
 
-        # if using conda with python 3.7 or 3.8, also run
-        conda install -c conda-forge parmed
-
-        # if using conda with other versions of python, also run
-        pip install parmed
-
         # documentation dependencies
-        pip install sphinx-sitemap sphinx_rtd_theme msmb_theme==1.2.0
+        python -m pip install sphinx-sitemap sphinx_rtd_theme msmb_theme==1.2.0
 
-If you're using pip, it is a little simpler. However, some packages such as ``clustalw`` are not available via pip.
+Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.7. We will now install MDAnalysis. 
 
     .. code-block:: bash
 
-        pip install biopython chemfiles codecov cython \
+        # go to the mdanalysis source directory
+        cd mdanalysis/
+
+        # Build and install the MDAnalysis package
+        cd package/
+        python -m pip install -e .
+        
+        # Build and install the test suite
+        cd ../testsuite/
+        python -m pip install -e .
+
+At this point you should be able to import MDAnalysis from your locally built version. If you are running the development version, this is visible from the version number ending in :code:`-dev0`. For example:
+
+    .. code-block:: bash
+
+        $ python  # start an interpreter
+        >>> import MDAnalysis as mda
+        >>> mda.__version__
+        '2.1.0-dev0'
+
+.. note::
+    If your version number does not end in :code:`-dev0`, you may be on the ``master`` branch. In your ``mdanalysis/`` directory, switch to the ``develop`` branch:
+    :code:`git checkout develop`.
+
+With pip and virtualenv
+-----------------------
+
+.. note::
+    Make sure that you have :ref:`cloned the repository <forking-code-repo>`  
+    and activated your virtual environment with :code:`source myproject-env/bin/activate`
+    (or :code:`workon my-project` if you used the `virtualenvwrapper package <https://virtualenvwrapper.readthedocs.io/en/latest/>`_)
+
+Install the dependencies:
+
+    .. code-block:: bash
+
+        python -m pip install \
+          biopython chemfiles codecov cython \
           griddataformats gsd hypothesis "joblib>=0.12" matplotlib \
-          msmb_theme==1.2.0 netcdf4 networkx "numpy>=1.17.3" \
-          parmed psutil pytest scikit-learn scipy "seaborn>=0.7.0,<0.9" \
-          sphinx==1.8.5 sphinx_rtd_theme "tidynamics>=1.0.0" \
+          msmb_theme==1.2.0 netcdf4 networkx "numpy>=1.18.0" \
+          psutil pytest scikit-learn scipy "seaborn>=0.7.0" \
+          sphinx sphinx_rtd_theme "tidynamics>=1.0.0" \
           "tqdm>=4.43.0"
+
+Some packages, such as ``clustalw``, are not available via pip.
 
 Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.4. We will now install MDAnalysis. 
 
@@ -244,11 +282,11 @@ Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also
 
         # Build and install the MDAnalysis package
         cd package/
-        pip install -e .
+        python -m pip install -e .
         
         # Build and install the test suite
         cd ../testsuite/
-        pip install -e .
+        python -m pip install -e .
 
 At this point you should be able to import MDAnalysis from your locally built version. If you are running the development version, this is visible from the version number ending in "-dev0". For example:
 
@@ -257,14 +295,11 @@ At this point you should be able to import MDAnalysis from your locally built ve
         $ python  # start an interpreter
         >>> import MDAnalysis as mda
         >>> mda.__version__
-        '0.20.2-dev0'
+        '2.1.0-dev0'
 
-If your version number does not end in "-dev0", you may be on the ``master`` branch. In your ``mdanalysis/`` directory, switch to the ``develop`` branch:
-
-    .. code-block:: bash
-
-        $ git checkout develop
-        Switched to branch 'develop'
+.. note::
+    If your version number does not end in :code:`-dev0`, you may be on the ``master`` branch. In your ``mdanalysis/`` directory, switch to the ``develop`` branch:
+    :code:`git checkout develop`.
 
 
 .. _branches-in-mdanalysis:

@@ -167,7 +167,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#on-a-mac">On a Mac</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#building-mdanalysis">Building MDAnalysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-mdanalysis">Building MDAnalysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">With conda</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">With pip and virtualenv</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#branches-in-mdanalysis">Branches in MDAnalysis</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#creating-a-branch">Creating a branch</a></li>
 </ul>
@@ -320,6 +324,13 @@ of MDAnalysis that do not interfere with each other, or your own stable version.
 Since MDAnalysis is split into the actual package and a test suite, you need to install
 both modules in development mode.</p>
 <p>You can do this either with <a class="reference internal" href="#dev-with-conda"><span class="std std-ref">conda</span></a> or <a class="reference internal" href="#dev-with-pip"><span class="std std-ref">pip</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are a first time contributor and/or don’t have a lot of experience managing
+your own Python virtual environments, we <strong>strongly</strong> suggest using <code class="code docutils literal notranslate"><span class="pre">conda</span></code>.
+You only need to follow the sections corresponding to the installation method you
+choose.</p>
+</div>
 <div class="section" id="with-conda">
 <span id="dev-with-conda"></span><h4>With conda<a class="headerlink" href="#with-conda" title="Permalink to this headline">¶</a></h4>
 <p>Install either <a class="reference external" href="https://www.anaconda.com/download/">Anaconda</a>
@@ -344,6 +355,10 @@ touching existing environments that may have stable versions of MDAnalysis. :</p
 </pre></div>
 </div>
 </div></blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Make sure the <code class="code docutils literal notranslate"><span class="pre">mdanalysis-dev</span></code> environment is active when developing MDAnalysis.</p>
+</div>
 <p>To view your environments:</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda info -e
@@ -356,24 +371,19 @@ touching existing environments that may have stable versions of MDAnalysis. :</p
 </pre></div>
 </div>
 </div></blockquote>
-<p>To return to your root environment:</p>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda deactivate
-</pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you finish developing MDAnalysis you can deactivate the environment with
+<code class="code docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code>, in order to return to your root environment.</p>
 </div>
-</div></blockquote>
-<p>See the full conda docs <a class="reference external" href="http://conda.pydata.org/docs">here</a>.</p>
+<p>See the full <a class="reference external" href="http://conda.pydata.org/docs">conda documentation</a> for more details.</p>
 </div>
 <div class="section" id="with-pip-and-virtualenv">
 <span id="dev-with-pip"></span><h4>With pip and virtualenv<a class="headerlink" href="#with-pip-and-virtualenv" title="Permalink to this headline">¶</a></h4>
 <p>Like conda, virtual environments managed with <a class="reference external" href="https://virtualenv.pypa.io/en/latest/">virtualenv</a> allow you to use different versions of Python and Python packages for your different project. Unlike conda, virtualenv is not a general-purpose package manager. Instead, it leverages what is available on your system, and lets you install Python packages using pip.</p>
-<p>To use virtual environments you have to install the virtualenv package first. This can be done with either pip or the package manager of your system:</p>
+<p>To use virtual environments you have to install the virtualenv package first. This can be done with pip:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install virtualenv
-<span class="c1"># or on ubuntu</span>
-sudo apt install virtualenv
-<span class="c1"># or on fedora</span>
-sudo dnf install python-virtualenv
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m pip install virtualenv
 </pre></div>
 </div>
 </div></blockquote>
@@ -390,12 +400,12 @@ virtualenv my-project-env
 </pre></div>
 </div>
 </div></blockquote>
-<p>Now you can install packages via pip without affecting your global environment. The packages that you install when the environment is activated will be available in terminal sessions that have the environment activated. You can deactivate the virtual environment by running:</p>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>deactivate
-</pre></div>
+<p>Now you can install packages via pip without affecting your global environment. The packages that you install when the environment is activated will be available in terminal sessions that have the environment activated.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you finish developing MDAnalysis you can deactivate the environment with
+<code class="code docutils literal notranslate"><span class="pre">deactivate</span></code>, in order to return to your root environment.</p>
 </div>
-</div></blockquote>
 <p>The <a class="reference external" href="https://virtualenvwrapper.readthedocs.io/en/latest/">virtualenvwrapper package</a> makes virtual environments easier to use. It provides some very useful features:</p>
 <blockquote>
 <div><ul class="simple">
@@ -407,11 +417,7 @@ virtualenv my-project-env
 </div></blockquote>
 <p>You first need to install <code class="docutils literal notranslate"><span class="pre">virtualenvwrapper</span></code> <em>outside</em> of a virtual environment:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install virtualenvwrapper
-<span class="c1"># or on ubuntu</span>
-sudo apt install virtualenvwrapper
-<span class="c1"># or on fedora</span>
-sudo dnf install python-virtualenvwrapper
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m pip install virtualenvwrapper
 </pre></div>
 </div>
 </div></blockquote>
@@ -449,39 +455,79 @@ mkdir -p <span class="si">${</span><span class="nv">WORKON_HOME</span><span clas
 </div>
 <div class="section" id="building-mdanalysis">
 <span id="build-mdanalysis-develop"></span><h3>Building MDAnalysis<a class="headerlink" href="#building-mdanalysis" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h4>With conda<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Make sure that you have <a class="reference internal" href="#forking-code-repo"><span class="std std-ref">cloned the repository</span></a>
-and activated your virtual environment. First we need to install dependencies. If you’re using conda, you’ll need a mix of conda and pip installations:</p>
+and activated your virtual environment with <code class="code docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">mdanalysis-dev</span></code>.</p>
+</div>
+<p>First we need to install dependencies. You’ll need a mix of conda and pip installations:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c biobuilds -c conda-forge <span class="se">\</span>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c bioconda -c conda-forge <span class="se">\</span>
     biopython chemfiles <span class="nv">clustalw</span><span class="o">==</span><span class="m">2</span>.1 codecov cython <span class="se">\</span>
     griddataformats gsd hypothesis <span class="s2">&quot;joblib&gt;=0.12&quot;</span> <span class="se">\</span>
     matplotlib mmtf-python mock netcdf4 networkx <span class="se">\</span>
-    <span class="s2">&quot;numpy&gt;=1.17.3&quot;</span> psutil pytest scikit-learn scipy <span class="se">\</span>
-    <span class="s2">&quot;seaborn&gt;=0.7.0,&lt;0.9&quot;</span> <span class="nv">sphinx</span><span class="o">==</span><span class="m">1</span>.8.5 <span class="s2">&quot;tidynamics&gt;=1.0.0&quot;</span> <span class="se">\</span>
+    <span class="s2">&quot;numpy&gt;=1.18.0&quot;</span> psutil pytest scikit-learn scipy <span class="se">\</span>
+    <span class="s2">&quot;seaborn&gt;=0.7.0&quot;</span> sphinx <span class="s2">&quot;tidynamics&gt;=1.0.0&quot;</span> <span class="se">\</span>
     <span class="s2">&quot;tqdm&gt;=4.43.0&quot;</span>
 
-<span class="c1"># if using conda with python 3.7 or 3.8, also run</span>
-conda install -c conda-forge parmed
-
-<span class="c1"># if using conda with other versions of python, also run</span>
-pip install parmed
-
 <span class="c1"># documentation dependencies</span>
-pip install sphinx-sitemap sphinx_rtd_theme <span class="nv">msmb_theme</span><span class="o">==</span><span class="m">1</span>.2.0
+python -m pip install sphinx-sitemap sphinx_rtd_theme <span class="nv">msmb_theme</span><span class="o">==</span><span class="m">1</span>.2.0
 </pre></div>
 </div>
 </div></blockquote>
-<p>If you’re using pip, it is a little simpler. However, some packages such as <code class="docutils literal notranslate"><span class="pre">clustalw</span></code> are not available via pip.</p>
+<p>Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.7. We will now install MDAnalysis.</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install biopython chemfiles codecov cython <span class="se">\</span>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># go to the mdanalysis source directory</span>
+<span class="nb">cd</span> mdanalysis/
+
+<span class="c1"># Build and install the MDAnalysis package</span>
+<span class="nb">cd</span> package/
+python -m pip install -e .
+
+<span class="c1"># Build and install the test suite</span>
+<span class="nb">cd</span> ../testsuite/
+python -m pip install -e .
+</pre></div>
+</div>
+</div></blockquote>
+<p>At this point you should be able to import MDAnalysis from your locally built version. If you are running the development version, this is visible from the version number ending in <code class="code docutils literal notranslate"><span class="pre">-dev0</span></code>. For example:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python  <span class="c1"># start an interpreter</span>
+&gt;&gt;&gt; import MDAnalysis as mda
+&gt;&gt;&gt; mda.__version__
+<span class="s1">&#39;2.1.0-dev0&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If your version number does not end in <code class="code docutils literal notranslate"><span class="pre">-dev0</span></code>, you may be on the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch. In your <code class="docutils literal notranslate"><span class="pre">mdanalysis/</span></code> directory, switch to the <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch:
+<code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">develop</span></code>.</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h4>With pip and virtualenv<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure that you have <a class="reference internal" href="#forking-code-repo"><span class="std std-ref">cloned the repository</span></a>
+and activated your virtual environment with <code class="code docutils literal notranslate"><span class="pre">source</span> <span class="pre">myproject-env/bin/activate</span></code>
+(or <code class="code docutils literal notranslate"><span class="pre">workon</span> <span class="pre">my-project</span></code> if you used the <a class="reference external" href="https://virtualenvwrapper.readthedocs.io/en/latest/">virtualenvwrapper package</a>)</p>
+</div>
+<p>Install the dependencies:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m pip install <span class="se">\</span>
+  biopython chemfiles codecov cython <span class="se">\</span>
   griddataformats gsd hypothesis <span class="s2">&quot;joblib&gt;=0.12&quot;</span> matplotlib <span class="se">\</span>
-  <span class="nv">msmb_theme</span><span class="o">==</span><span class="m">1</span>.2.0 netcdf4 networkx <span class="s2">&quot;numpy&gt;=1.17.3&quot;</span> <span class="se">\</span>
-  parmed psutil pytest scikit-learn scipy <span class="s2">&quot;seaborn&gt;=0.7.0,&lt;0.9&quot;</span> <span class="se">\</span>
-  <span class="nv">sphinx</span><span class="o">==</span><span class="m">1</span>.8.5 sphinx_rtd_theme <span class="s2">&quot;tidynamics&gt;=1.0.0&quot;</span> <span class="se">\</span>
+  <span class="nv">msmb_theme</span><span class="o">==</span><span class="m">1</span>.2.0 netcdf4 networkx <span class="s2">&quot;numpy&gt;=1.18.0&quot;</span> <span class="se">\</span>
+  psutil pytest scikit-learn scipy <span class="s2">&quot;seaborn&gt;=0.7.0&quot;</span> <span class="se">\</span>
+  sphinx sphinx_rtd_theme <span class="s2">&quot;tidynamics&gt;=1.0.0&quot;</span> <span class="se">\</span>
   <span class="s2">&quot;tqdm&gt;=4.43.0&quot;</span>
 </pre></div>
 </div>
 </div></blockquote>
+<p>Some packages, such as <code class="docutils literal notranslate"><span class="pre">clustalw</span></code>, are not available via pip.</p>
 <p>Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.4. We will now install MDAnalysis.</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># go to the mdanalysis source directory</span>
@@ -489,11 +535,11 @@ pip install sphinx-sitemap sphinx_rtd_theme <span class="nv">msmb_theme</span><s
 
 <span class="c1"># Build and install the MDAnalysis package</span>
 <span class="nb">cd</span> package/
-pip install -e .
+python -m pip install -e .
 
 <span class="c1"># Build and install the test suite</span>
 <span class="nb">cd</span> ../testsuite/
-pip install -e .
+python -m pip install -e .
 </pre></div>
 </div>
 </div></blockquote>
@@ -502,20 +548,19 @@ pip install -e .
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python  <span class="c1"># start an interpreter</span>
 &gt;&gt;&gt; import MDAnalysis as mda
 &gt;&gt;&gt; mda.__version__
-<span class="s1">&#39;0.20.2-dev0&#39;</span>
+<span class="s1">&#39;2.1.0-dev0&#39;</span>
 </pre></div>
 </div>
 </div></blockquote>
-<p>If your version number does not end in “-dev0”, you may be on the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch. In your <code class="docutils literal notranslate"><span class="pre">mdanalysis/</span></code> directory, switch to the <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch:</p>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git checkout develop
-Switched to branch <span class="s1">&#39;develop&#39;</span>
-</pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If your version number does not end in <code class="code docutils literal notranslate"><span class="pre">-dev0</span></code>, you may be on the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch. In your <code class="docutils literal notranslate"><span class="pre">mdanalysis/</span></code> directory, switch to the <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch:
+<code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">develop</span></code>.</p>
 </div>
-</div></blockquote>
+</div>
 </div>
 <div class="section" id="branches-in-mdanalysis">
-<span id="id1"></span><h3>Branches in MDAnalysis<a class="headerlink" href="#branches-in-mdanalysis" title="Permalink to this headline">¶</a></h3>
+<span id="id4"></span><h3>Branches in MDAnalysis<a class="headerlink" href="#branches-in-mdanalysis" title="Permalink to this headline">¶</a></h3>
 <p>There are two important branches in MDAnalysis:</p>
 <blockquote>
 <div><ul class="simple">
@@ -551,7 +596,7 @@ and switch in between them using the <code class="docutils literal notranslate">
 </div>
 </div>
 <div class="section" id="writing-new-code">
-<span id="id2"></span><h3>Writing new code<a class="headerlink" href="#writing-new-code" title="Permalink to this headline">¶</a></h3>
+<span id="id5"></span><h3>Writing new code<a class="headerlink" href="#writing-new-code" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="code-formatting-in-python">
 <h4>Code formatting in Python<a class="headerlink" href="#code-formatting-in-python" title="Permalink to this headline">¶</a></h4>
 <p>MDAnalysis is a project with a long history and many contributors; it hasn’t used a consistent coding style. Since version 0.11.0, we are trying to update all the code to conform with <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8</a>. Our strategy is to update the style every time we touch an old function and thus switch to <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8</a> continuously.</p>
@@ -711,7 +756,7 @@ reapplied after updating with <code class="docutils literal notranslate"><span c
 <p>and <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/pulls">create a pull request</a>.</p>
 </div>
 <div class="section" id="creating-a-pull-request">
-<span id="id3"></span><h4>Creating a pull request<a class="headerlink" href="#creating-a-pull-request" title="Permalink to this headline">¶</a></h4>
+<span id="id6"></span><h4>Creating a pull request<a class="headerlink" href="#creating-a-pull-request" title="Permalink to this headline">¶</a></h4>
 <p>The typical approach to adding your code to MDAnalysis is to make a <a class="reference external" href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests">pull request</a> on GitHub. Please make sure that your contribution <a class="reference internal" href="#test-code"><span class="std std-ref">passes all tests</span></a>. If there are test failures, you will need to address them before we can review your contribution and eventually merge them. If you have problems with making the tests pass, please ask for help! (You can do this in the comments of the pull request).</p>
 <blockquote>
 <div><ol class="arabic">
@@ -932,7 +977,7 @@ n_atoms, n_residues : int
 <div class="section" id="adding-your-documentation-to-mdanalysis">
 <h3>Adding your documentation to MDAnalysis<a class="headerlink" href="#adding-your-documentation-to-mdanalysis" title="Permalink to this headline">¶</a></h3>
 <p>As with any contribution to an MDAnalysis repository, <a class="reference internal" href="#adding-code-to-mda"><span class="std std-ref">commit and push</span></a> your documentation contributions to GitHub. If <em>any fixes in the restructured text</em> are needed, <em>put them in their own commit</em> (and do not include any generated files under <cite>docs/html</cite>). Try to keep all reST fixes in the one commit. <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">FILE</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">--amend</span></code> is your friend when piling more and more small reST fixes onto a single “fixed reST” commit.</p>
-<p>We recommend <a class="reference internal" href="#building-code-documentation"><span class="std std-ref">building the docs locally first</span></a> to preview your changes. Then, <a class="reference internal" href="#id3"><span class="std std-ref">create a pull request</span></a>. All the tests in the MDAnalysis test suite will run, but only one checks that the documents compile correctly.</p>
+<p>We recommend <a class="reference internal" href="#building-code-documentation"><span class="std std-ref">building the docs locally first</span></a> to preview your changes. Then, <a class="reference internal" href="#id6"><span class="std std-ref">create a pull request</span></a>. All the tests in the MDAnalysis test suite will run, but only one checks that the documents compile correctly.</p>
 </div>
 <div class="section" id="viewing-the-documentation-interactively">
 <h3>Viewing the documentation interactively<a class="headerlink" href="#viewing-the-documentation-interactively" title="Permalink to this headline">¶</a></h3>
@@ -968,7 +1013,7 @@ n_atoms, n_residues : int
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2022, Lily Wang, Irfan Alibay, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2022, Lily Wang, Irfan Alibay, Florent Langenfeld, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>
