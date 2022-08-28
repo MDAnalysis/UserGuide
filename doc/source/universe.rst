@@ -9,14 +9,14 @@ Universe
 
     -- Carl Sagan, Cosmos
 
-MDAnalysis is structured around two fundamental classes: the :class:`~MDAnalysis.core.universe.Universe` and the :class:`~MDAnalysis.core.groups.AtomGroup`. Almost all code in MDAnalysis begins with :class:`~MDAnalysis.core.universe.Universe`, which contains all the information describing a molecular dynamics system. 
+MDAnalysis is structured around two fundamental classes: the :class:`~MDAnalysis.core.universe.Universe` and the :class:`~MDAnalysis.core.groups.AtomGroup`. Almost all code in MDAnalysis begins with :class:`~MDAnalysis.core.universe.Universe`, which contains all the information describing a molecular dynamics system.
 
 It has two key properties:
 
 * :attr:`~MDAnalysis.core.universe.Universe.atoms`: an :class:`~MDAnalysis.core.groups.AtomGroup` of the system's atoms, providing access to important analysis methods (described below)
 * :attr:`~MDAnalysis.core.universe.Universe.trajectory`: the currently loaded trajectory reader
 
-A :class:`~MDAnalysis.core.universe.Universe` ties the static information from the "topology" (e.g. atom identities) to dynamically updating information from the "trajectory" (e.g. coordinates). A key feature of MDAnalysis is that an entire trajectory is not loaded into memory (unless the user explicitly does so with :class:`~MDAnalysis.coordinates.memory.MemoryReader`). Instead, the :attr:`~MDAnalysis.core.universe.Universe.trajectory` attribute provides a view on a specific frame of the trajectory. This allows the analysis of arbitrarily long trajectories without a significant impact on memory. 
+A :class:`~MDAnalysis.core.universe.Universe` ties the static information from the "topology" (e.g. atom identities) to dynamically updating information from the "trajectory" (e.g. coordinates). A key feature of MDAnalysis is that an entire trajectory is not loaded into memory (unless the user explicitly does so with :class:`~MDAnalysis.coordinates.memory.MemoryReader`). Instead, the :attr:`~MDAnalysis.core.universe.Universe.trajectory` attribute provides a view on a specific frame of the trajectory. This allows the analysis of arbitrarily long trajectories without a significant impact on memory.
 
 -------------------
 Creating a Universe
@@ -29,14 +29,14 @@ Loading from files
 
 A Universe is typically created from a "topology" file, with optional "trajectory" file/s. Trajectory files must have the coordinates in the same order as atoms in the topology. See :ref:`Formats <formats>` for the topology and trajectory formats supported by MDAnalysis, and how to load each specific format. ::
 
-    u = Universe(topology, trajectory)          
+    u = Universe(topology, trajectory)
     u = Universe(pdbfile)                       # read atoms and coordinates from PDB or GRO
     u = Universe(topology, [traj1, traj2, ...]) # read from a list of trajectories
     u = Universe(topology, traj1, traj2, ...)   # read from multiple trajectories
 
-The line between topology and trajectory files is quite blurry. For example, a PDB or GRO file is considered both a topology and a trajectory file. The difference is that a **topology file** provides static information, such as atom identities (name, mass, etc.), charges, and bond connectivity. A **trajectory file** provides dynamic information, such as coordinates, velocities, forces, and box dimensions. 
+The line between topology and trajectory files is quite blurry. For example, a PDB or GRO file is considered both a topology and a trajectory file. The difference is that a **topology file** provides static information, such as atom identities (name, mass, etc.), charges, and bond connectivity. A **trajectory file** provides dynamic information, such as coordinates, velocities, forces, and box dimensions.
 
-If only a single file is provided, MDAnalysis tries to read both topology and trajectory information from it. When multiple trajectory files are provided, coordinates are loaded in the order given. 
+If only a single file is provided, MDAnalysis tries to read both topology and trajectory information from it. When multiple trajectory files are provided, coordinates are loaded in the order given.
 
 The default arguments should create a Universe suited for most analysis applications. However, the :class:`~MDAnalysis.core.universe.Universe` constructor also takes optional arguments.
 
@@ -58,7 +58,7 @@ The default arguments should create a Universe suited for most analysis applicat
     u2 = mda.Universe(GRO, XTC, XTC, all_coordinates=False, continuous=False)
     print([int(ts.time) for ts in u2.trajectory])
 
-    
+
 
 **The following options modify the created Universe:**
 
@@ -84,12 +84,12 @@ You can also pass in keywords for parsing the topology or coordinates. For examp
     user_timestep.trajectory.dt
 
 
-    
+
 
 Constructing from AtomGroups
 ----------------------------
 
-A new Universe can be created from one or more :class:`~MDAnalysis.core.groups.AtomGroup` instances with :func:`~MDAnalysis.core.universe.Merge()`. The :class:`~MDAnalysis.core.groups.AtomGroup` instances can come from different Universes, meaning that this is one way to concatenate selections from different datasets. 
+A new Universe can be created from one or more :class:`~MDAnalysis.core.groups.AtomGroup` instances with :func:`~MDAnalysis.core.universe.Merge()`. The :class:`~MDAnalysis.core.groups.AtomGroup` instances can come from different Universes, meaning that this is one way to concatenate selections from different datasets.
 
 For example, to combine a protein, ligand, and solvent from separate PDB files:
 
@@ -107,9 +107,9 @@ Constructing from scratch
 
 A Universe can be constructed from scratch with :meth:`Universe.empty <MDAnalysis.core.universe.Universe.empty>`. There are three stages to this process:
 
-    #. Create the blank Universe with specified number of atoms. If coordinates, set :code:`trajectory=True`. 
+    #. Create the blank Universe with specified number of atoms. If coordinates, set :code:`trajectory=True`.
     #. Add topology attributes such as atom names.
-    #. (Optional) Load coordinates. 
+    #. (Optional) Load coordinates.
 
 For example, to construct a universe with 6 atoms in 2 residues:
 
@@ -119,19 +119,44 @@ For example, to construct a universe with 6 atoms in 2 residues:
     u = mda.Universe.empty(6, 2, atom_resindex=[0, 0, 0, 1, 1, 1], trajectory=True)
     u.add_TopologyAttr('masses')
     coordinates = np.empty((1000,  # number of frames
-                            u.atoms.n_atoms, 
+                            u.atoms.n_atoms,
                             3))
     u.load_new(coordinates, order='fac')
 
 
 `See this notebook tutorial for more information. <examples/constructing_universe.ipynb>`_
 
+.. _guessing-topology-attributes:
 
+----------------------------
 Guessing topology attributes
 ----------------------------
 
-MDAnalysis can guess two kinds of information. Sometimes MDAnalysis guesses information instead of reading it from certain file formats, which can lead to mistakes such as assigning atoms the wrong element or charge. See :ref:`the available topology parsers <topology-parsers>` for a case-by-case breakdown of which atom properties MDAnalysis guesses for each format. See :ref:`guessing` for how attributes are guessed, and :ref:`topologyattr-defaults` for which attributes have default values.
+MDAnalysis has a guesser library that hold various guesser classes. Each guesser class is tailored to be context-specific. For example, PDBGuesser is specific for guessing attributes for PDB file format. See :ref:`guessing` for more details about the available context-aware guessers.
+The Universe has the ability to guess an attribute within a specific context at the universe creation or by using :meth:`~MDAnalysis.core.universe.Universe.guess_TopologyAttributes` API.
+For example, to guess ``element`` attribute for a PDB file by either of two ways:
 
+.. ipython:: python
+    :okwarning:
+
+    u = mda.Universe(PDB, context='PDB', to_guess=['elements'])
+
+or by using the :meth:`~MDAnalysis.core.universe.Universe.guess_TopologyAttributes` API
+
+.. ipython:: python
+    :okwarning:
+
+    u = mda.Universe(PDB)
+    u.guess_TopologyAttributes(context='PDB', to_guess=['elements'])
+
+**The following options modify how to guess attribute(s):**
+
+* :code:`context`: the context of the guesser to be used in guessing the attribute. You can pass either a string representing the context (see :ref:`guessing` for more detail about available guessers and their context), or as an object of a guesser class. The default value of the context is :code:`default`, which corresponds to a generic :class:`~MDAnalysis.guesser.default_guesser.DefaultGuesser`, that is not specific to any context. You can pass a context once, and whenever you call :meth:`~MDAnalysis.core.universe.Universe.guess_TopologyAttributes` again without passing context, it will assume that  you still using the same context.
+* :code:`to_guess`: a list of the desired attributes to be guessed. This has to be the plural name of the attributes (masses not mass).
+* :code:`**kwargs`: to pass any supplemental data to the :meth:`~MDAnalysis.core.universe.Universe.guess_TopologyAttributes` API that can be useful in guessing some attributes (eg. passing vdwradii for bond guessing).
+
+For now, MDAnalysis automatically guess :code:`types` and :code:`masses` for nearly all topology formats at the universe creation level. This is done using the :class:`~MDAnalysis.guesser.default_guesser.DefaultGuesser`, which maybe not accurate for all contexts.
+You can easily override this as mentioned above, by using context specific guesser if there is one exists for your data.
 
 .. _universe-properties:
 
