@@ -25,6 +25,7 @@ dependencies:
   - nglview==2.7.7
   - notebook==6.1.6
   - numpy==1.20.2
+  - packaging
   - parmed
   - parso==0.8.2
   - pip==20.3.3
@@ -36,6 +37,7 @@ dependencies:
   - sphinx==3.5.3
   - sphinxcontrib-bibtex==1.0.0
   - sphinx_rtd_theme==0.5.2
+  - threadpoolctl
   - tabulate==0.8.7
   - widgetsnbextension==3.5.1
   - Jinja2==2.11
