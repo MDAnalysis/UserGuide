@@ -6,7 +6,7 @@ Auxiliary files
 ===============
 
 
-Auxiliary readers allows you to read in timeseries data accompanying a trajectory that is not stored in the regular trajectory file.
+Auxiliary readers allow you to read in timeseries data accompanying a trajectory that is not stored in the regular trajectory file.
 
 Supported formats
 -----------------
