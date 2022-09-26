@@ -25,7 +25,6 @@ from MDAnalysisTests.topology.test_hoomdxml import TestHoomdXMLParser
 from MDAnalysisTests.topology.test_lammpsdata import LammpsBase, TestDumpParser
 from MDAnalysisTests.topology.test_mmtf import TestMMTFParser
 from MDAnalysisTests.topology.test_mol2 import TestMOL2Base
-from MDAnalysisTests.topology.test_parmed import BaseTestParmedParser
 from MDAnalysisTests.topology.test_pdb import TestPDBParser
 from MDAnalysisTests.topology.test_pdbqt import TestPDBQT
 from MDAnalysisTests.topology.test_pqr import TestPQRParser
@@ -35,6 +34,8 @@ from MDAnalysisTests.topology.test_tprparser import TPRAttrs
 from MDAnalysisTests.topology.test_txyz import TestTXYZParser
 from MDAnalysisTests.topology.test_xpdb import TestXPDBParser
 from MDAnalysisTests.topology.test_xyz import XYZBase
+from MDAnalysisTests.converters.test_parmed_parser import BaseTestParmedParser
+
 
 PARSER_TESTS = (TestCRDParser, TestDLPHistoryParser, TestDLPConfigParser, 
                 TestDMSParser, TestFHIAIMS, GMSBase,
@@ -45,9 +46,12 @@ PARSER_TESTS = (TestCRDParser, TestDLPHistoryParser, TestDLPConfigParser,
                 TestPRMParser, TPRAttrs, TestTXYZParser, 
                 TestXPDBParser, XYZBase, TestDumpParser)
 
+
 MANDATORY_ATTRS = set(mandatory_attrs) 
 
+
 parser_attrs = {}
+
 
 for p in PARSER_TESTS:
     e, g = set(p.expected_attrs)-MANDATORY_ATTRS, set(p.guessed_attrs)
@@ -127,6 +131,7 @@ class TopologyAttrs(TableWriter):
     
     def _supported_formats(self, name, singular, description):
         return ', '.join(sorted(self.attrs[name]))
+
 
 class ConnectivityAttrs(TopologyAttrs):
     headings = ('Atom', 'AtomGroup', 'Supported formats')
