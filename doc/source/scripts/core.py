@@ -40,6 +40,7 @@ DESCRIPTIONS = {
     'TXYZ': 'Tinker file',
     'XTC': 'GROMACS compressed trajectory',
     'XYZ': 'XYZ file',
+    'H5MD': 'H5MD (HDF5) trajectory format'
 }
 
 ATTR_DESCRIPTIONS = {
