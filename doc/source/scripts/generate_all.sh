@@ -2,6 +2,8 @@
 
 GENPATH=$(echo $(cd $(dirname $0) && pwd -P))
 
+which python
+
 python $GENPATH/gen_format_overview_classes.py
 python $GENPATH/gen_selection_exporters.py
 python $GENPATH/gen_standard_selections.py
