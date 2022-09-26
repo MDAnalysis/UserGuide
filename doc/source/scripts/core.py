@@ -42,6 +42,9 @@ DESCRIPTIONS = {
     'XYZ': 'XYZ file',
     'H5MD': '`H5MD <https://www.nongnu.org/h5md/index.html>`_ trajectory format',
     'RDKIT': '`RDKit <https://www.rdkit.org/>`_ Molecule',
+    'OPENMMAPP': '`OpenMM <https://openmm.org/>`_ Application layer objects',
+    'OPENMMSIMULATION': '`OpenMM <https://openmm.org/>`_ Simulation objects',
+    'OPENMMTOPOLOGY': '`OpenMM <https://openmm.org/>`_ Topology object',
 }
 
 ATTR_DESCRIPTIONS = {
