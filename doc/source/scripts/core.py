@@ -40,7 +40,8 @@ DESCRIPTIONS = {
     'TXYZ': 'Tinker file',
     'XTC': 'GROMACS compressed trajectory',
     'XYZ': 'XYZ file',
-    'H5MD': 'H5MD (HDF5) trajectory format'
+    'H5MD': '`H5MD <https://www.nongnu.org/h5md/index.html>`_ trajectory format',
+    'RDKIT': '`RDKit <https://www.rdkit.org/>`_ Molecule',
 }
 
 ATTR_DESCRIPTIONS = {
