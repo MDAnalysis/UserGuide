@@ -29,7 +29,7 @@ dependencies:
   - pip
   - plotly
   - pybtex
-  - python==3.8
+  - python
   - pyvista
   - scikit-image
   - sphinx
