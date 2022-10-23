@@ -133,7 +133,7 @@ Guessing topology attributes
 ----------------------------
 
 MDAnalysis has a guesser library that hold various guesser classes. Each guesser class is tailored to be context-specific. For example, PDBGuesser is specific for guessing attributes for PDB file format. See :ref:`guessing` for more details about the available context-aware guessers.
-The Universe has the ability to guess an attribute within a specific context at the universe creation or by using :meth:`~MDAnalysis.core.universe.Universe.guess_TopologyAttributes` API.
+The Universe has :meth:`~MDAnalysis.core.universe.Universe.guess_TopologyAttributes` API, which ability to guess an attribute within a specific context either at the universe creation or by using the API directly.
 For example, to guess ``element`` attribute for a PDB file by either of two ways:
 
 .. ipython:: python
@@ -141,7 +141,7 @@ For example, to guess ``element`` attribute for a PDB file by either of two ways
 
     u = mda.Universe(PDB, context='PDB', to_guess=['elements'])
 
-or by using the :meth:`~MDAnalysis.core.universe.Universe.guess_TopologyAttributes` API
+or
 
 .. ipython:: python
     :okwarning:
@@ -151,12 +151,14 @@ or by using the :meth:`~MDAnalysis.core.universe.Universe.guess_TopologyAttribut
 
 **The following options modify how to guess attribute(s):**
 
-* :code:`context`: the context of the guesser to be used in guessing the attribute. You can pass either a string representing the context (see :ref:`guessing` for more detail about available guessers and their context), or as an object of a guesser class. The default value of the context is :code:`default`, which corresponds to a generic :class:`~MDAnalysis.guesser.default_guesser.DefaultGuesser`, that is not specific to any context. You can pass a context once, and whenever you call :meth:`~MDAnalysis.core.universe.Universe.guess_TopologyAttributes` again without passing context, it will assume that  you still using the same context.
-* :code:`to_guess`: a list of the desired attributes to be guessed. This has to be the plural name of the attributes (masses not mass).
+* :code:`context`: the context of the guesser to be used in guessing the attribute. You can pass either a string representing the context (see :ref:`guessing` for more detail about available guessers and their context), or as an object of a guesser class. The default value of the context is :code:`default`, which corresponds to a generic :class:`~MDAnalysis.guesser.default_guesser.DefaultGuesser`, that is not specific to any context. You can pass a context once, and whenever you call :meth:`~MDAnalysis.core.universe.Universe.guess_TopologyAttributes` again it will assume that you still using the same context. N.B.: If you didn't pass any ``context`` to the API, it will use the :class:`~MDAnalysis.guesser.default_guesser.DefaultGuesser`
+
+* :code:`to_guess`: list of the attributes to be guessed (these attributes will be either guessed if they don't exist in the universe or partially guessed by only filling its empty values if universe has the attribute). This has to be the plural name of the attributes (masses not mass).
+* :code:`force_guess`: a list of attributes to be forced guessed (these attributes will be either guessed if they don't exist in the universe or their values will be completely overwritten by guessed ones if the universe has the attribute). This has to be the plural name of the attributes (masses not mass).
 * :code:`**kwargs`: to pass any supplemental data to the :meth:`~MDAnalysis.core.universe.Universe.guess_TopologyAttributes` API that can be useful in guessing some attributes (eg. passing vdwradii for bond guessing).
 
-For now, MDAnalysis automatically guess :code:`types` and :code:`masses` for nearly all topology formats at the universe creation level. This is done using the :class:`~MDAnalysis.guesser.default_guesser.DefaultGuesser`, which maybe not accurate for all contexts.
-You can easily override this as mentioned above, by using context specific guesser if there is one exists for your data.
+For now, MDAnalysis automatically guess :code:`types` and * :code:`masses` at the universe creation by having a default value of the :code:`to_guess` parameter to be * :code`['types', 'masses']`. This is done using the :class:`~MDAnalysis.guesser.default_guesser.DefaultGuesser`.
+you can stop this by passing ``()`` to the ``to_guess`` parameter.
 
 .. _universe-properties:
 
