@@ -9,14 +9,14 @@ Universe
 
     -- Carl Sagan, Cosmos
 
-MDAnalysis is structured around two fundamental classes: the :class:`~MDAnalysis.core.universe.Universe` and the :class:`~MDAnalysis.core.groups.AtomGroup`. Almost all code in MDAnalysis begins with :class:`~MDAnalysis.core.universe.Universe`, which contains all the information describing a molecular dynamics system.
+MDAnalysis is structured around two fundamental classes: the :class:`~MDAnalysis.core.universe.Universe` and the :class:`~MDAnalysis.core.groups.AtomGroup`. Almost all code in MDAnalysis begins with :class:`~MDAnalysis.core.universe.Universe`, which contains all the information describing a molecular dynamics system. 
 
 It has two key properties:
 
 * :attr:`~MDAnalysis.core.universe.Universe.atoms`: an :class:`~MDAnalysis.core.groups.AtomGroup` of the system's atoms, providing access to important analysis methods (described below)
 * :attr:`~MDAnalysis.core.universe.Universe.trajectory`: the currently loaded trajectory reader
 
-A :class:`~MDAnalysis.core.universe.Universe` ties the static information from the "topology" (e.g. atom identities) to dynamically updating information from the "trajectory" (e.g. coordinates). A key feature of MDAnalysis is that an entire trajectory is not loaded into memory (unless the user explicitly does so with :class:`~MDAnalysis.coordinates.memory.MemoryReader`). Instead, the :attr:`~MDAnalysis.core.universe.Universe.trajectory` attribute provides a view on a specific frame of the trajectory. This allows the analysis of arbitrarily long trajectories without a significant impact on memory.
+A :class:`~MDAnalysis.core.universe.Universe` ties the static information from the "topology" (e.g. atom identities) to dynamically updating information from the "trajectory" (e.g. coordinates). A key feature of MDAnalysis is that an entire trajectory is not loaded into memory (unless the user explicitly does so with :class:`~MDAnalysis.coordinates.memory.MemoryReader`). Instead, the :attr:`~MDAnalysis.core.universe.Universe.trajectory` attribute provides a view on a specific frame of the trajectory. This allows the analysis of arbitrarily long trajectories without a significant impact on memory. 
 
 -------------------
 Creating a Universe
@@ -34,9 +34,9 @@ A Universe is typically created from a "topology" file, with optional "trajector
     u = Universe(topology, [traj1, traj2, ...]) # read from a list of trajectories
     u = Universe(topology, traj1, traj2, ...)   # read from multiple trajectories
 
-The line between topology and trajectory files is quite blurry. For example, a PDB or GRO file is considered both a topology and a trajectory file. The difference is that a **topology file** provides static information, such as atom identities (name, mass, etc.), charges, and bond connectivity. A **trajectory file** provides dynamic information, such as coordinates, velocities, forces, and box dimensions.
+The line between topology and trajectory files is quite blurry. For example, a PDB or GRO file is considered both a topology and a trajectory file. The difference is that a **topology file** provides static information, such as atom identities (name, mass, etc.), charges, and bond connectivity. A **trajectory file** provides dynamic information, such as coordinates, velocities, forces, and box dimensions. 
 
-If only a single file is provided, MDAnalysis tries to read both topology and trajectory information from it. When multiple trajectory files are provided, coordinates are loaded in the order given.
+If only a single file is provided, MDAnalysis tries to read both topology and trajectory information from it. When multiple trajectory files are provided, coordinates are loaded in the order given. 
 
 The default arguments should create a Universe suited for most analysis applications. However, the :class:`~MDAnalysis.core.universe.Universe` constructor also takes optional arguments.
 
@@ -107,7 +107,7 @@ Constructing from scratch
 
 A Universe can be constructed from scratch with :meth:`Universe.empty <MDAnalysis.core.universe.Universe.empty>`. There are three stages to this process:
 
-    #. Create the blank Universe with specified number of atoms. If coordinates, set :code:`trajectory=True`.
+    #. Create the blank Universe with specified number of atoms. If coordinates, set :code:`trajectory=True`. 
     #. Add topology attributes such as atom names.
     #. (Optional) Load coordinates.
 
