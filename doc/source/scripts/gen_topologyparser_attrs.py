@@ -59,7 +59,8 @@ for p in PARSER_TESTS:
     if p is TestPDBParser:
         e.add('elements')
     parser_attrs[p.parser] = (e, g)
-    
+    print(p.parser, e, g)
+
 
 class TopologyParsers(TableWriter):
     headings = ['Format', 'Description', 'Attributes read', 'Attributes guessed']
