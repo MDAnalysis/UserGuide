@@ -34,14 +34,12 @@ from MDAnalysisTests.topology.test_tprparser import TPRAttrs
 from MDAnalysisTests.topology.test_txyz import TestTXYZParser
 from MDAnalysisTests.topology.test_xpdb import TestXPDBParser
 from MDAnalysisTests.topology.test_xyz import XYZBase
-from MDAnalysisTests.converters.test_parmed_parser import BaseTestParmedParser
 
 
 PARSER_TESTS = (TestCRDParser, TestDLPHistoryParser, TestDLPConfigParser, 
                 TestDMSParser, TestFHIAIMS, GMSBase,
                 TestGROParser, TestGSDParser, TestHoomdXMLParser, 
-                LammpsBase, TestMMTFParser, TestMOL2Base, 
-                BaseTestParmedParser,
+                LammpsBase, TestMMTFParser, TestMOL2Base,
                 TestPDBParser, TestPDBQT, TestPQRParser, PSFBase, 
                 TestPRMParser, TPRAttrs, TestTXYZParser, 
                 TestXPDBParser, XYZBase, TestDumpParser)
@@ -59,7 +57,6 @@ for p in PARSER_TESTS:
     if p is TestPDBParser:
         e.add('elements')
     parser_attrs[p.parser] = (e, g)
-    print(p.parser, e, g)
 
 
 class TopologyParsers(TableWriter):
