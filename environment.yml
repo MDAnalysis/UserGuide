@@ -44,5 +44,3 @@ dependencies:
   - pip:
       - msmb_theme
       - sphinx-sitemap
-      - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=mdanalysis&subdirectory=package
-      - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=MDAnalysisTests&subdirectory=testsuite
