@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Atom-wise distances between matching AtomGroups &mdash; MDAnalysis User Guide  documentation</title>
@@ -13,6 +14,8 @@
   
   <link rel="stylesheet" href="../../../_static/css/msmb.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/msmb.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
 
   
@@ -33,11 +36,15 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script src="../../../_static/js/versions.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
@@ -101,7 +108,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick start guide</a></li>
@@ -137,7 +144,7 @@
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Data structures</span></p>
+<p class="caption" role="heading"><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../atomgroup.html">AtomGroup</a></li>
@@ -145,14 +152,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../topology_system.html">The topology system</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Trajectories</span></p>
+<p class="caption" role="heading"><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../units.html">Units and constants</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Input/output</span></p>
+<p class="caption" role="heading"><span class="caption-text">Input/output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/index.html">Format overview</a></li>
@@ -161,7 +168,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/format_reference.html">Format reference</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Analysis</span></p>
+<p class="caption" role="heading"><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -175,13 +182,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced</span></p>
+<p class="caption" role="heading"><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../datasets.html">Example data</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing_code.html">Contributing to the main codebase</a></li>
@@ -472,11 +479,12 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
 /* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
 div.rendered_html table {
   border: none;
   border-collapse: collapse;
@@ -485,10 +493,14 @@ div.rendered_html table {
   font-size: 12px;
   table-layout: fixed;
 }
+.jp-RenderedHTMLCommon thead,
 div.rendered_html thead {
   border-bottom: 1px solid black;
   vertical-align: bottom;
 }
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
 div.rendered_html tr,
 div.rendered_html th,
 div.rendered_html td {
@@ -500,26 +512,29 @@ div.rendered_html td {
   max-width: none;
   border: none;
 }
+.jp-RenderedHTMLCommon th,
 div.rendered_html th {
   font-weight: bold;
 }
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
 div.rendered_html tbody tr:nth-child(odd) {
   background: #f5f5f5;
 }
+.jp-RenderedHTMLCommon tbody tr:hover,
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
-<script>require=requirejs;</script><div class="section" id="Atom-wise-distances-between-matching-AtomGroups">
-<h1>Atom-wise distances between matching AtomGroups<a class="headerlink" href="#Atom-wise-distances-between-matching-AtomGroups" title="Permalink to this headline">¶</a></h1>
+<script>require=requirejs;</script><section id="Atom-wise-distances-between-matching-AtomGroups">
+<h1>Atom-wise distances between matching AtomGroups<a class="headerlink" href="#Atom-wise-distances-between-matching-AtomGroups" title="Permalink to this heading">¶</a></h1>
 <p>Here we compare the distances between alpha-carbons of the enzyme adenylate kinase in its open and closed conformations. <code class="docutils literal notranslate"><span class="pre">distances.dist</span></code> can be used to calculate distances between atom groups with the <em>same number of atoms</em> within them.</p>
 <p><strong>Last executed:</strong> May 18, 2021 with MDAnalysis 1.1.1</p>
 <p><strong>Last updated:</strong> January 2020</p>
 <p><strong>Minimum version of MDAnalysis:</strong> 0.19.0</p>
 <p><strong>Packages required:</strong></p>
 <ul class="simple">
-<li><p>MDAnalysis (<a class="bibtex reference internal" href="../../../references.html#michaud-agrawal-mdanalysis-2011" id="id1">[MADWB11]</a>, <a class="bibtex reference internal" href="../../../references.html#gowers-mdanalysis-2016" id="id2">[GLB+16]</a>)</p></li>
+<li><p>MDAnalysis (<span id="id1">[<a class="reference internal" href="../../../references.html#id11" title="Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: http://doi.wiley.com/10.1002/jcc.21787 (visited on 2020-02-05), doi:10.1002/jcc.21787.">MADWB11</a>]</span>, <span id="id2">[<a class="reference internal" href="../../../references.html#id3" title="Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html (visited on 2020-02-05), doi:10.25080/Majora-629e541a-00e.">GLB+16</a>]</span>)</p></li>
 <li><p>MDAnalysisTests</p></li>
 </ul>
 <p><strong>Optional packages for visualisation:</strong></p>
@@ -530,8 +545,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PDB_small</span><span class="p">,</span> <span class="n">PDB_closed</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.analysis</span> <span class="kn">import</span> <span class="n">distances</span>
 
@@ -540,9 +554,9 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="section" id="Loading-files">
-<h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this headline">¶</a></h2>
-<p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<a class="bibtex reference internal" href="../../../references.html#beckstein-zipping-2009" id="id3">[BDPW09]</a>) AdK has three domains:</p>
+<section id="Loading-files">
+<h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this heading">¶</a></h2>
+<p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<span id="id3">[<a class="reference internal" href="../../../references.html#id14" title="Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164 (visited on 2020-02-05), doi:10.1016/j.jmb.2009.09.009.">BDPW09</a>]</span>) AdK has three domains:</p>
 <ul class="simple">
 <li><p>CORE</p></li>
 <li><p>LID: an ATP-binding domain (residues 122-159)</p></li>
@@ -553,22 +567,20 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">u1</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PDB_small</span><span class="p">)</span>   <span class="c1"># open AdK</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u1</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PDB_small</span><span class="p">)</span>   <span class="c1"># open AdK</span>
 <span class="n">u2</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PDB_closed</span><span class="p">)</span>  <span class="c1"># closed AdK</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="Calculating-the-distance-between-CA-atoms">
-<h2>Calculating the distance between CA atoms<a class="headerlink" href="#Calculating-the-distance-between-CA-atoms" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Calculating-the-distance-between-CA-atoms">
+<h2>Calculating the distance between CA atoms<a class="headerlink" href="#Calculating-the-distance-between-CA-atoms" title="Permalink to this heading">¶</a></h2>
 <p>We select the atoms named ‘CA’ of each Universe.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ca1</span> <span class="o">=</span> <span class="n">u1</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ca1</span> <span class="o">=</span> <span class="n">u1</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>
 <span class="n">ca2</span> <span class="o">=</span> <span class="n">u2</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -578,21 +590,19 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">resids1</span><span class="p">,</span> <span class="n">resids2</span><span class="p">,</span> <span class="n">dist</span> <span class="o">=</span> <span class="n">distances</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="n">ca1</span><span class="p">,</span> <span class="n">ca2</span><span class="p">,</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resids1</span><span class="p">,</span> <span class="n">resids2</span><span class="p">,</span> <span class="n">dist</span> <span class="o">=</span> <span class="n">distances</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="n">ca1</span><span class="p">,</span> <span class="n">ca2</span><span class="p">,</span>
                                         <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># for residue numbers</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="Plotting">
-<h3>Plotting<a class="headerlink" href="#Plotting" title="Permalink to this headline">¶</a></h3>
+<section id="Plotting">
+<h3>Plotting<a class="headerlink" href="#Plotting" title="Permalink to this heading">¶</a></h3>
 <p>Below, we plot the distance over the residue numbers and highlight the LID and NMP domains of the protein. The LID domain in particular moves a significant distance between its opened and closed conformations.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">resids1</span><span class="p">,</span> <span class="n">dist</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">resids1</span><span class="p">,</span> <span class="n">dist</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Ca distance (Angstrom)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="mi">122</span><span class="p">,</span> <span class="mi">159</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;LID&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;NMP&#39;</span><span class="p">)</span>
@@ -616,30 +626,28 @@ div.rendered_html tbody tr:hover {
 <img alt="../../../_images/examples_analysis_distances_and_contacts_distances_between_atomgroups_11_1.png" src="../../../_images/examples_analysis_distances_and_contacts_distances_between_atomgroups_11_1.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="Calculating-the-distance-with-periodic-boundary-conditions">
-<h2>Calculating the distance with periodic boundary conditions<a class="headerlink" href="#Calculating-the-distance-with-periodic-boundary-conditions" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="Calculating-the-distance-with-periodic-boundary-conditions">
+<h2>Calculating the distance with periodic boundary conditions<a class="headerlink" href="#Calculating-the-distance-with-periodic-boundary-conditions" title="Permalink to this heading">¶</a></h2>
 <p>It is common to want to calculate distances with the minimum image convention. To do this, you <em>must</em> pass the unitcell dimensions of the system to the <code class="docutils literal notranslate"><span class="pre">box</span></code> keyword, <strong>even if your Universe has dimensions defined</strong>.</p>
 <p>This should have the format: <code class="docutils literal notranslate"><span class="pre">[lx,</span> <span class="pre">ly,</span> <span class="pre">lz,</span> <span class="pre">alpha,</span> <span class="pre">beta,</span> <span class="pre">gamma]</span></code>, where the first three numbers are the box lengths along each axis and the last three are the angles of the box.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">resids1_box</span><span class="p">,</span> <span class="n">resids2_box</span><span class="p">,</span> <span class="n">dist_box</span> <span class="o">=</span> <span class="n">distances</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="n">ca1</span><span class="p">,</span> <span class="n">ca2</span><span class="p">,</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resids1_box</span><span class="p">,</span> <span class="n">resids2_box</span><span class="p">,</span> <span class="n">dist_box</span> <span class="o">=</span> <span class="n">distances</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="n">ca1</span><span class="p">,</span> <span class="n">ca2</span><span class="p">,</span>
                                                     <span class="n">box</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="id4">
-<h3>Plotting<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<section id="id4">
+<h3>Plotting<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">resids1_box</span><span class="p">,</span> <span class="n">dist_box</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">resids1_box</span><span class="p">,</span> <span class="n">dist_box</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Ca distance (Angstrom)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="mi">122</span><span class="p">,</span> <span class="mi">159</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;LID&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;NMP&#39;</span><span class="p">)</span>
@@ -663,15 +671,15 @@ div.rendered_html tbody tr:hover {
 <img alt="../../../_images/examples_analysis_distances_and_contacts_distances_between_atomgroups_16_1.png" src="../../../_images/examples_analysis_distances_and_contacts_distances_between_atomgroups_16_1.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="References">
-<h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="References">
+<h2>References<a class="headerlink" href="#References" title="Permalink to this heading">¶</a></h2>
 <p>[1] Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164">https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164</a>, doi:10.1016/j.jmb.2009.09.009.</p>
 <p>[2] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
 <p>[3] Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>, doi:10.1002/jcc.21787.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

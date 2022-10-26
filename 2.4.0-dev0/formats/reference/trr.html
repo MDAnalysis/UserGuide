@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>TRR (GROMACS lossless trajectory file) &mdash; MDAnalysis User Guide  documentation</title>
@@ -13,6 +14,8 @@
   
   <link rel="stylesheet" href="../../_static/css/msmb.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/msmb.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -33,11 +36,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script src="../../_static/js/versions.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -101,7 +106,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/quickstart.html">Quick start guide</a></li>
@@ -109,7 +114,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../examples/README.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Data structures</span></p>
+<p class="caption" role="heading"><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../atomgroup.html">AtomGroup</a></li>
@@ -117,14 +122,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../topology_system.html">The topology system</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Trajectories</span></p>
+<p class="caption" role="heading"><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../units.html">Units and constants</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Input/output</span></p>
+<p class="caption" role="heading"><span class="caption-text">Input/output</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Format overview</a></li>
@@ -174,7 +179,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Analysis</span></p>
+<p class="caption" role="heading"><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -188,13 +193,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced</span></p>
+<p class="caption" role="heading"><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../datasets.html">Example data</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing_code.html">Contributing to the main codebase</a></li>
@@ -273,13 +278,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trr-gromacs-lossless-trajectory-file">
-<span id="trr-format"></span><h1>TRR (GROMACS lossless trajectory file)<a class="headerlink" href="#trr-gromacs-lossless-trajectory-file" title="Permalink to this headline">¶</a></h1>
+  <section id="trr-gromacs-lossless-trajectory-file">
+<span id="trr-format"></span><h1>TRR (GROMACS lossless trajectory file)<a class="headerlink" href="#trr-gromacs-lossless-trajectory-file" title="Permalink to this heading">¶</a></h1>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 32%" />
-<col style="width: 68%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><strong>Coordinate reader</strong></p></td>
 <td><p><a class="reference external" href="https://docs.mdanalysis.org/2.4.0-dev0/documentation_pages/coordinates/TRR.html#MDAnalysis.coordinates.TRR.TRRReader" title="(in MDAnalysis v2.4.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.coordinates.TRR.TRRReader</span></code></a></p></td>
@@ -294,25 +295,26 @@
 <p class="admonition-title">Important</p>
 <p>MDAnalysis currently treats trajectories with damaged frames by truncating them at the frame before. Check that you are loading a valid file with <a class="reference external" href="http://manual.gromacs.org/documentation/current/onlinehelp/gmx-check.html">gmx check</a>.</p>
 </div>
-<div class="section" id="reading-in">
-<h2>Reading in<a class="headerlink" href="#reading-in" title="Permalink to this headline">¶</a></h2>
-<p>MDAnalysis uses XDR based readers for GROMACS formats, which store offsets on the disk. The offsets are used to enable access to random frames efficiently. These offsets will be generated automatically the first time the trajectory is opened, and offsets are generally stored in hidden <code class="docutils literal notranslate"><span class="pre">*_offsets.npz</span></code> files. <a class="footnote-reference brackets" href="#error" id="id1">1</a></p>
+<section id="reading-in">
+<h2>Reading in<a class="headerlink" href="#reading-in" title="Permalink to this heading">¶</a></h2>
+<p>MDAnalysis uses XDR based readers for GROMACS formats, which store offsets on the disk. The offsets are used to enable access to random frames efficiently. These offsets will be generated automatically the first time the trajectory is opened, and offsets are generally stored in hidden <code class="docutils literal notranslate"><span class="pre">*_offsets.npz</span></code> files. <a class="footnote-reference brackets" href="#error" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
 <p>Trajectories split across multiple files can be <a class="reference internal" href="../../reading_and_writing.html#chainreader"><span class="std std-ref">read continuously into MDAnalysis</span></a> with <code class="docutils literal notranslate"><span class="pre">continuous=True</span></code>, in the style of <a class="reference external" href="http://manual.gromacs.org/documentation/2018/onlinehelp/gmx-trjcat.html">gmx trjcat</a>.</p>
-</div>
-<div class="section" id="writing-out">
-<h2>Writing out<a class="headerlink" href="#writing-out" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="writing-out">
+<h2>Writing out<a class="headerlink" href="#writing-out" title="Permalink to this heading">¶</a></h2>
 <p>If the <code class="docutils literal notranslate"><span class="pre">data</span></code> dictionary of a <code class="xref py py-class docutils literal notranslate"><span class="pre">Timestep</span></code> contains a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> value, this will be used for the written TRR file. Otherwise, lambda is set to 0.</p>
-</div>
-<div class="section" id="developer-notes">
-<h2>Developer notes<a class="headerlink" href="#developer-notes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="developer-notes">
+<h2>Developer notes<a class="headerlink" href="#developer-notes" title="Permalink to this heading">¶</a></h2>
 <p>It sometimes can happen that the stored offsets get out off sync with the trajectory they refer to. For this the offsets also store the number of atoms, size of the file and last modification time. If any of them change, the offsets are recalculated. Writing of the offset file can fail when the directory where the trajectory file resides is not writable or if the disk is full. In this case a warning message will be shown but the offsets will nevertheless be used during the lifetime of the trajectory Reader. However, the next time the trajectory is opened, the offsets will have to be rebuilt again.</p>
-<dl class="footnote brackets">
-<dt class="label" id="error"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Occasionally, MDAnalysis fails to read XDR offsets, resulting in an error. The workaround for this is to create the Universe with regenerated offsets by using the keyword argument <code class="docutils literal notranslate"><span class="pre">refresh_offsets=True</span></code>, as documented in <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/issues/1893">Issue 1893</a>.</p>
-</dd>
-</dl>
-</div>
-</div>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="error" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Occasionally, MDAnalysis fails to read XDR offsets, resulting in an error. The workaround for this is to create the Universe with regenerated offsets by using the keyword argument <code class="docutils literal notranslate"><span class="pre">refresh_offsets=True</span></code>, as documented in <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/issues/1893">Issue 1893</a>.</p>
+</aside>
+</aside>
+</section>
+</section>
 
 
            </div>

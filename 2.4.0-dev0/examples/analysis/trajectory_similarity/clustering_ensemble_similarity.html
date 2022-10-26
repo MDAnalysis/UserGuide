@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Calculating the Clustering Ensemble Similarity between ensembles &mdash; MDAnalysis User Guide  documentation</title>
@@ -13,6 +14,8 @@
   
   <link rel="stylesheet" href="../../../_static/css/msmb.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/msmb.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
 
   
@@ -33,13 +36,15 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script src="../../../_static/js/versions.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
@@ -103,7 +108,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick start guide</a></li>
@@ -139,7 +144,7 @@
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Data structures</span></p>
+<p class="caption" role="heading"><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../atomgroup.html">AtomGroup</a></li>
@@ -147,14 +152,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../topology_system.html">The topology system</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Trajectories</span></p>
+<p class="caption" role="heading"><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../units.html">Units and constants</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Input/output</span></p>
+<p class="caption" role="heading"><span class="caption-text">Input/output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/index.html">Format overview</a></li>
@@ -163,7 +168,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/format_reference.html">Format reference</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Analysis</span></p>
+<p class="caption" role="heading"><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -177,13 +182,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced</span></p>
+<p class="caption" role="heading"><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../datasets.html">Example data</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing_code.html">Contributing to the main codebase</a></li>
@@ -474,11 +479,12 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
 /* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
 div.rendered_html table {
   border: none;
   border-collapse: collapse;
@@ -487,10 +493,14 @@ div.rendered_html table {
   font-size: 12px;
   table-layout: fixed;
 }
+.jp-RenderedHTMLCommon thead,
 div.rendered_html thead {
   border-bottom: 1px solid black;
   vertical-align: bottom;
 }
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
 div.rendered_html tr,
 div.rendered_html th,
 div.rendered_html td {
@@ -502,26 +512,29 @@ div.rendered_html td {
   max-width: none;
   border: none;
 }
+.jp-RenderedHTMLCommon th,
 div.rendered_html th {
   font-weight: bold;
 }
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
 div.rendered_html tbody tr:nth-child(odd) {
   background: #f5f5f5;
 }
+.jp-RenderedHTMLCommon tbody tr:hover,
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
-<script>require=requirejs;</script><div class="section" id="Calculating-the-Clustering-Ensemble-Similarity-between-ensembles">
-<h1>Calculating the Clustering Ensemble Similarity between ensembles<a class="headerlink" href="#Calculating-the-Clustering-Ensemble-Similarity-between-ensembles" title="Permalink to this headline">¶</a></h1>
+<script>require=requirejs;</script><section id="Calculating-the-Clustering-Ensemble-Similarity-between-ensembles">
+<h1>Calculating the Clustering Ensemble Similarity between ensembles<a class="headerlink" href="#Calculating-the-Clustering-Ensemble-Similarity-between-ensembles" title="Permalink to this heading">¶</a></h1>
 <p>Here we compare the conformational ensembles of proteins in three trajectories, using the clustering ensemble similarity method.</p>
 <p><strong>Last executed:</strong> May 18, 2021 with MDAnalysis 1.1.1</p>
 <p><strong>Last updated:</strong> September 2020</p>
 <p><strong>Minimum version of MDAnalysis:</strong> 1.0.0</p>
 <p><strong>Packages required:</strong></p>
 <ul class="simple">
-<li><p>MDAnalysis (<a class="bibtex reference internal" href="../../../references.html#michaud-agrawal-mdanalysis-2011" id="id1">[MADWB11]</a>, <a class="bibtex reference internal" href="../../../references.html#gowers-mdanalysis-2016" id="id2">[GLB+16]</a>)</p></li>
+<li><p>MDAnalysis (<span id="id1">[<a class="reference internal" href="../../../references.html#id11" title="Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: http://doi.wiley.com/10.1002/jcc.21787 (visited on 2020-02-05), doi:10.1002/jcc.21787.">MADWB11</a>]</span>, <span id="id2">[<a class="reference internal" href="../../../references.html#id3" title="Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html (visited on 2020-02-05), doi:10.25080/Majora-629e541a-00e.">GLB+16</a>]</span>)</p></li>
 <li><p>MDAnalysisTests</p></li>
 <li><p><a class="reference external" href="https://scikit-learn.org/stable/">scikit-learn</a></p></li>
 </ul>
@@ -531,14 +544,13 @@ div.rendered_html tbody tr:hover {
 </ul>
 <div class="admonition note">
 <p class="admonition-title"><strong>Note</strong></p>
-<p>The metrics and methods in the <code class="docutils literal notranslate"><span class="pre">encore</span></code> module are from (<a class="bibtex reference internal" href="../../../references.html#tiberti-encore-2015" id="id3">[TPB+15]</a>). Please cite them when using the <code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.encore</span></code> module in published work.</p>
+<p>The metrics and methods in the <code class="docutils literal notranslate"><span class="pre">encore</span></code> module are from (<span id="id3">[<a class="reference internal" href="../../../references.html#id6" title="Matteo Tiberti, Elena Papaleo, Tone Bengtsen, Wouter Boomsma, and Kresten Lindorff-Larsen. ENCORE: Software for Quantitative Ensemble Comparison. PLOS Computational Biology, 11(10):e1004415, October 2015. 00031. URL: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004415 (visited on 2020-02-05), doi:10.1371/journal.pcbi.1004415.">TPB+15</a>]</span>). Please cite them when using the <code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.encore</span></code> module in published work.</p>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">,</span> <span class="n">DCD2</span><span class="p">,</span> <span class="n">GRO</span><span class="p">,</span> <span class="n">XTC</span><span class="p">,</span>
                                         <span class="n">PSF_NAMD_GBIS</span><span class="p">,</span> <span class="n">DCD_NAMD_GBIS</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.analysis</span> <span class="kn">import</span> <span class="n">encore</span>
@@ -550,15 +562,14 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="section" id="Loading-files">
-<h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this headline">¶</a></h2>
-<p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<a class="bibtex reference internal" href="../../../references.html#beckstein-zipping-2009" id="id4">[BDPW09]</a>)</p>
+<section id="Loading-files">
+<h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this heading">¶</a></h2>
+<p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<span id="id4">[<a class="reference internal" href="../../../references.html#id14" title="Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164 (visited on 2020-02-05), doi:10.1016/j.jmb.2009.09.009.">BDPW09</a>]</span>)</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">u1</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u1</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
 <span class="n">u2</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD2</span><span class="p">)</span>
 <span class="n">u3</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF_NAMD_GBIS</span><span class="p">,</span> <span class="n">DCD_NAMD_GBIS</span><span class="p">)</span>
 
@@ -571,8 +582,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u1</span><span class="o">.</span><span class="n">trajectory</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">u2</span><span class="o">.</span><span class="n">trajectory</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">u3</span><span class="o">.</span><span class="n">trajectory</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u1</span><span class="o">.</span><span class="n">trajectory</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">u2</span><span class="o">.</span><span class="n">trajectory</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">u3</span><span class="o">.</span><span class="n">trajectory</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -584,9 +594,9 @@ div.rendered_html tbody tr:hover {
 98 102 100
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Calculating-clustering-similarity-with-default-settings">
-<h2>Calculating clustering similarity with default settings<a class="headerlink" href="#Calculating-clustering-similarity-with-default-settings" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Calculating-clustering-similarity-with-default-settings">
+<h2>Calculating clustering similarity with default settings<a class="headerlink" href="#Calculating-clustering-similarity-with-default-settings" title="Permalink to this heading">¶</a></h2>
 <p>The clustering ensemble similarity method (<code class="docutils literal notranslate"><span class="pre">ces</span></code>, <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/encore/similarity.html#MDAnalysis.analysis.encore.similarity.ces">API docs here</a>) combines every trajectory into a whole space of conformations, and then uses a user-specified <code class="docutils literal notranslate"><span class="pre">clustering_method</span></code> to partition this into clusters. The population of each trajectory ensemble within each cluster is taken as a probability density function.</p>
 <p>The similarity of each probability density function is compared using the Jensen-Shannon divergence. This divergence has an upper bound of <span class="math notranslate nohighlight">\(\ln{(2)}\)</span>, representing no similarity between the ensembles, and a lower bound of 0.0, representing identical conformational ensembles.</p>
 <p>You do not need to align your trajectories, as the function will align it for you (along your <code class="docutils literal notranslate"><span class="pre">select</span></code>ion atoms, which are <code class="docutils literal notranslate"><span class="pre">select='name</span> <span class="pre">CA'</span></code> by default).</p>
@@ -594,8 +604,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ces0</span><span class="p">,</span> <span class="n">details0</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">ces</span><span class="p">([</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">])</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ces0</span><span class="p">,</span> <span class="n">details0</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">ces</span><span class="p">([</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -604,8 +613,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ces0</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ces0</span>
 </pre></div>
 </div>
 </div>
@@ -625,8 +633,7 @@ array([[0.        , 0.68070702, 0.69314718],
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">cluster_collection</span> <span class="o">=</span> <span class="n">details0</span><span class="p">[</span><span class="s1">&#39;clustering&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cluster_collection</span> <span class="o">=</span> <span class="n">details0</span><span class="p">[</span><span class="s1">&#39;clustering&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">cluster_collection</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;We have found </span><span class="si">{}</span><span class="s1"> clusters&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cluster_collection</span><span class="p">)))</span>
 </pre></div>
@@ -646,8 +653,7 @@ We have found 49 clusters
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">first_cluster</span> <span class="o">=</span> <span class="n">cluster_collection</span><span class="o">.</span><span class="n">clusters</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_cluster</span> <span class="o">=</span> <span class="n">cluster_collection</span><span class="o">.</span><span class="n">clusters</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">first_cluster</span>
 </pre></div>
 </div>
@@ -665,8 +671,7 @@ We have found 49 clusters
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">first_cluster</span><span class="o">.</span><span class="n">elements</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_cluster</span><span class="o">.</span><span class="n">elements</span>
 </pre></div>
 </div>
 </div>
@@ -684,8 +689,7 @@ array([ 0,  1,  2,  3, 98])
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The ID of this cluster is:&#39;</span><span class="p">,</span> <span class="n">first_cluster</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The ID of this cluster is:&#39;</span><span class="p">,</span> <span class="n">first_cluster</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The centroid is&#39;</span><span class="p">,</span> <span class="n">first_cluster</span><span class="o">.</span><span class="n">centroid</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -699,14 +703,13 @@ The ID of this cluster is: 0
 The centroid is 1
 </pre></div></div>
 </div>
-<div class="section" id="Plotting">
-<h3>Plotting<a class="headerlink" href="#Plotting" title="Permalink to this headline">¶</a></h3>
+<section id="Plotting">
+<h3>Plotting<a class="headerlink" href="#Plotting" title="Permalink to this heading">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">fig0</span><span class="p">,</span> <span class="n">ax0</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig0</span><span class="p">,</span> <span class="n">ax0</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">im0</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ces0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">labels</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">labels</span><span class="p">)</span>
@@ -723,10 +726,10 @@ The centroid is 1
 <img alt="../../../_images/examples_analysis_trajectory_similarity_clustering_ensemble_similarity_20_0.png" src="../../../_images/examples_analysis_trajectory_similarity_clustering_ensemble_similarity_20_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="Calculating-clustering-similarity-with-one-method">
-<h2>Calculating clustering similarity with one method<a class="headerlink" href="#Calculating-clustering-similarity-with-one-method" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="Calculating-clustering-similarity-with-one-method">
+<h2>Calculating clustering similarity with one method<a class="headerlink" href="#Calculating-clustering-similarity-with-one-method" title="Permalink to this heading">¶</a></h2>
 <p>Clustering methods should be subclasses of <code class="docutils literal notranslate"><span class="pre">analysis.encore.clustering.ClusteringMethod</span></code>, initialised with your chosen parameters. Below, we set up an affinity progragation scheme, which uses message-passing to choose a number of ‘exemplar’ points to represent the data and updates these points until they converge. The <code class="docutils literal notranslate"><span class="pre">preference</span></code> parameter controls how many exemplars are used – a higher value results in more clusters, while a lower value results in fewer clusters. The <code class="docutils literal notranslate"><span class="pre">damping</span></code> factor
 damps the message passing to avoid numerical oscillations. <a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html#affinity-propagation">(See the scikit-learn user guide for more information.)</a></p>
 <p>The other keyword arguments control when to stop clustering. Adding noise to the data can also avoid numerical oscillations.</p>
@@ -734,8 +737,7 @@ damps the message passing to avoid numerical oscillations. <a class="reference e
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">clustering_method</span> <span class="o">=</span> <span class="n">clm</span><span class="o">.</span><span class="n">AffinityPropagationNative</span><span class="p">(</span><span class="n">preference</span><span class="o">=-</span><span class="mf">1.0</span><span class="p">,</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clustering_method</span> <span class="o">=</span> <span class="n">clm</span><span class="o">.</span><span class="n">AffinityPropagationNative</span><span class="p">(</span><span class="n">preference</span><span class="o">=-</span><span class="mf">1.0</span><span class="p">,</span>
                                                   <span class="n">damping</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
                                                   <span class="n">max_iter</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
                                                   <span class="n">convergence_iter</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
@@ -748,22 +750,20 @@ damps the message passing to avoid numerical oscillations. <a class="reference e
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ces1</span><span class="p">,</span> <span class="n">details1</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">ces</span><span class="p">([</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">],</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ces1</span><span class="p">,</span> <span class="n">details1</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">ces</span><span class="p">([</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">],</span>
                          <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
                          <span class="n">clustering_method</span><span class="o">=</span><span class="n">clustering_method</span><span class="p">,</span>
                          <span class="n">ncores</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="id5">
-<h3>Plotting<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<section id="id5">
+<h3>Plotting<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">fig1</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig1</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">im1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ces1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">labels</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">labels</span><span class="p">)</span>
@@ -780,24 +780,23 @@ damps the message passing to avoid numerical oscillations. <a class="reference e
 <img alt="../../../_images/examples_analysis_trajectory_similarity_clustering_ensemble_similarity_27_0.png" src="../../../_images/examples_analysis_trajectory_similarity_clustering_ensemble_similarity_27_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="Calculating-clustering-similarity-with-multiple-methods">
-<h2>Calculating clustering similarity with multiple methods<a class="headerlink" href="#Calculating-clustering-similarity-with-multiple-methods" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="Calculating-clustering-similarity-with-multiple-methods">
+<h2>Calculating clustering similarity with multiple methods<a class="headerlink" href="#Calculating-clustering-similarity-with-multiple-methods" title="Permalink to this heading">¶</a></h2>
 <p>You may want to try different clustering methods, or use different parameters within the methods. <code class="docutils literal notranslate"><span class="pre">encore.ces</span></code> allows you to pass a list of <code class="docutils literal notranslate"><span class="pre">clustering_method</span></code>s to be applied.</p>
 <div class="admonition note">
 <p class="admonition-title"><strong>Note</strong></p>
 <p>To use the other ENCORE methods available, you need to install <a class="reference external" href="https://scikit-learn.org/stable/">scikit-learn</a>.</p>
 </div>
-<div class="section" id="Trying-out-different-clustering-parameters">
-<h3>Trying out different clustering parameters<a class="headerlink" href="#Trying-out-different-clustering-parameters" title="Permalink to this headline">¶</a></h3>
+<section id="Trying-out-different-clustering-parameters">
+<h3>Trying out different clustering parameters<a class="headerlink" href="#Trying-out-different-clustering-parameters" title="Permalink to this heading">¶</a></h3>
 <p>The KMeans clustering algorithm separates samples into <span class="math notranslate nohighlight">\(n\)</span> groups of equal variance, with centroids that minimise the inertia. You must choose how many clusters to partition. <a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html#k-means">(See the scikit-learn user guide for more information.)</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">km1</span> <span class="o">=</span> <span class="n">clm</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span>  <span class="c1"># no. clusters</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">km1</span> <span class="o">=</span> <span class="n">clm</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span>  <span class="c1"># no. clusters</span>
                  <span class="n">init</span> <span class="o">=</span> <span class="s1">&#39;k-means++&#39;</span><span class="p">,</span>  <span class="c1"># default</span>
                  <span class="n">algorithm</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span>    <span class="c1"># default</span>
 
@@ -818,8 +817,7 @@ information.)</a></p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">db1</span> <span class="o">=</span> <span class="n">clm</span><span class="o">.</span><span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db1</span> <span class="o">=</span> <span class="n">clm</span><span class="o">.</span><span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
                  <span class="n">min_samples</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
                  <span class="n">algorithm</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
                  <span class="n">leaf_size</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
@@ -836,8 +834,7 @@ information.)</a></p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ces2</span><span class="p">,</span> <span class="n">details2</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">ces</span><span class="p">([</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">],</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ces2</span><span class="p">,</span> <span class="n">details2</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">ces</span><span class="p">([</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">],</span>
                          <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
                          <span class="n">clustering_method</span><span class="o">=</span><span class="p">[</span><span class="n">km1</span><span class="p">,</span> <span class="n">km2</span><span class="p">,</span> <span class="n">db1</span><span class="p">,</span> <span class="n">db2</span><span class="p">],</span>
                          <span class="n">ncores</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -853,15 +850,14 @@ information.)</a></p>
 4 4
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="id6">
-<h3>Plotting<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id6">
+<h3>Plotting<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Kmeans 12 clusters&#39;</span><span class="p">,</span> <span class="s1">&#39;Kmeans 6 clusters&#39;</span><span class="p">,</span> <span class="s1">&#39;DBSCAN eps=0.5&#39;</span><span class="p">,</span> <span class="s1">&#39;DBSCAN eps=1&#39;</span><span class="p">]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Kmeans 12 clusters&#39;</span><span class="p">,</span> <span class="s1">&#39;Kmeans 6 clusters&#39;</span><span class="p">,</span> <span class="s1">&#39;DBSCAN eps=0.5&#39;</span><span class="p">,</span> <span class="s1">&#39;DBSCAN eps=1&#39;</span><span class="p">]</span>
 <span class="n">fig2</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">title</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">ces2</span><span class="p">,</span> <span class="n">titles</span><span class="p">)):</span>
     <span class="n">imi</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -886,8 +882,7 @@ information.)</a></p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">n_db</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">details2</span><span class="p">[</span><span class="s1">&#39;clustering&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_db</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">details2</span><span class="p">[</span><span class="s1">&#39;clustering&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of clusters in DBSCAN eps=1: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_db</span><span class="p">))</span>
 </pre></div>
@@ -901,17 +896,16 @@ information.)</a></p>
 Number of clusters in DBSCAN eps=1: 1
 </pre></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="Estimating-the-error-in-a-clustering-ensemble-similarity-analysis">
-<h2>Estimating the error in a clustering ensemble similarity analysis<a class="headerlink" href="#Estimating-the-error-in-a-clustering-ensemble-similarity-analysis" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="Estimating-the-error-in-a-clustering-ensemble-similarity-analysis">
+<h2>Estimating the error in a clustering ensemble similarity analysis<a class="headerlink" href="#Estimating-the-error-in-a-clustering-ensemble-similarity-analysis" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">encore.ces</span></code> also allows for error estimation using a bootstrapping method. This returns the average Jensen-Shannon divergence, and standard deviation over the samples.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">avgs</span><span class="p">,</span> <span class="n">stds</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">ces</span><span class="p">([</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">],</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">avgs</span><span class="p">,</span> <span class="n">stds</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">ces</span><span class="p">([</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">],</span>
                          <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
                          <span class="n">clustering_method</span><span class="o">=</span><span class="n">clustering_method</span><span class="p">,</span>
                          <span class="n">estimate_error</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -923,8 +917,7 @@ Number of clusters in DBSCAN eps=1: 1
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">avgs</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">avgs</span>
 </pre></div>
 </div>
 </div>
@@ -943,8 +936,7 @@ array([[0.        , 0.68192594, 0.68984955],
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">stds</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stds</span>
 </pre></div>
 </div>
 </div>
@@ -959,15 +951,15 @@ array([[0.00000000e+00, 6.15542798e-03, 6.59527047e-03],
        [6.59527047e-03, 4.96506831e-17, 0.00000000e+00]])
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="References">
-<h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="References">
+<h2>References<a class="headerlink" href="#References" title="Permalink to this heading">¶</a></h2>
 <p>[1] Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164">https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164</a>, doi:10.1016/j.jmb.2009.09.009.</p>
 <p>[2] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
 <p>[3] Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>, doi:10.1002/jcc.21787.</p>
 <p>[4] Matteo Tiberti, Elena Papaleo, Tone Bengtsen, Wouter Boomsma, and Kresten Lindorff-Larsen. ENCORE: Software for Quantitative Ensemble Comparison. PLOS Computational Biology, 11(10):e1004415, October 2015. 00031. URL: <a class="reference external" href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004415">https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004415</a>, doi:10.1371/journal.pcbi.1004415.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

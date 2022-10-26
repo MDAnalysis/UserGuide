@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Calculating hydrogen bond lifetimes &mdash; MDAnalysis User Guide  documentation</title>
@@ -13,6 +14,8 @@
   
   <link rel="stylesheet" href="../../../_static/css/msmb.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/msmb.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
 
   
@@ -33,13 +36,15 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script src="../../../_static/js/versions.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
@@ -103,7 +108,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick start guide</a></li>
@@ -111,7 +116,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../README.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Data structures</span></p>
+<p class="caption" role="heading"><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../atomgroup.html">AtomGroup</a></li>
@@ -119,14 +124,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../topology_system.html">The topology system</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Trajectories</span></p>
+<p class="caption" role="heading"><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../units.html">Units and constants</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Input/output</span></p>
+<p class="caption" role="heading"><span class="caption-text">Input/output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/index.html">Format overview</a></li>
@@ -135,7 +140,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/format_reference.html">Format reference</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Analysis</span></p>
+<p class="caption" role="heading"><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -149,13 +154,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced</span></p>
+<p class="caption" role="heading"><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../datasets.html">Example data</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing_code.html">Contributing to the main codebase</a></li>
@@ -444,11 +449,12 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
 /* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
 div.rendered_html table {
   border: none;
   border-collapse: collapse;
@@ -457,10 +463,14 @@ div.rendered_html table {
   font-size: 12px;
   table-layout: fixed;
 }
+.jp-RenderedHTMLCommon thead,
 div.rendered_html thead {
   border-bottom: 1px solid black;
   vertical-align: bottom;
 }
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
 div.rendered_html tr,
 div.rendered_html th,
 div.rendered_html td {
@@ -472,25 +482,28 @@ div.rendered_html td {
   max-width: none;
   border: none;
 }
+.jp-RenderedHTMLCommon th,
 div.rendered_html th {
   font-weight: bold;
 }
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
 div.rendered_html tbody tr:nth-child(odd) {
   background: #f5f5f5;
 }
+.jp-RenderedHTMLCommon tbody tr:hover,
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
-<script>require=requirejs;</script><div class="section" id="Calculating-hydrogen-bond-lifetimes">
-<h1>Calculating hydrogen bond lifetimes<a class="headerlink" href="#Calculating-hydrogen-bond-lifetimes" title="Permalink to this headline">¶</a></h1>
+<script>require=requirejs;</script><section id="Calculating-hydrogen-bond-lifetimes">
+<h1>Calculating hydrogen bond lifetimes<a class="headerlink" href="#Calculating-hydrogen-bond-lifetimes" title="Permalink to this heading">¶</a></h1>
 <p>We will calculate the lifetime of intramolecular hydrogen bonds in a protein.</p>
 <p><strong>Last updated:</strong> June 23, 2021 with MDAnalysis 2.0.0-dev</p>
 <p><strong>Minimum version of MDAnalysis:</strong> 2.0.0-dev0</p>
 <p><strong>Packages required:</strong></p>
 <ul class="simple">
-<li><p>MDAnalysis (<a class="bibtex reference internal" href="../../../references.html#michaud-agrawal-mdanalysis-2011" id="id1">[MADWB11]</a>, <a class="bibtex reference internal" href="../../../references.html#gowers-mdanalysis-2016" id="id2">[GLB+16]</a>)</p></li>
+<li><p>MDAnalysis (<span id="id1">[<a class="reference internal" href="../../../references.html#id11" title="Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: http://doi.wiley.com/10.1002/jcc.21787 (visited on 2020-02-05), doi:10.1002/jcc.21787.">MADWB11</a>]</span>, <span id="id2">[<a class="reference internal" href="../../../references.html#id3" title="Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html (visited on 2020-02-05), doi:10.25080/Majora-629e541a-00e.">GLB+16</a>]</span>)</p></li>
 <li><p>MDAnalysisTests</p></li>
 <li><p><a class="reference external" href="https://numpy.org">numpy</a></p></li>
 <li><p><a class="reference external" href="https://matplotlib.org">matplotlib</a></p></li>
@@ -508,40 +521,36 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">tqdm</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.analysis.hydrogenbonds</span> <span class="kn">import</span> <span class="n">HydrogenBondAnalysis</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
-<div class="section" id="Loading-files">
-<h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this headline">¶</a></h2>
+<section id="Loading-files">
+<h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<a class="bibtex reference internal" href="../../../references.html#beckstein-zipping-2009" id="id3">[BDPW09]</a>)</p>
-</div>
-<div class="section" id="Find-all-hydrogen-bonds">
-<h2>Find all hydrogen bonds<a class="headerlink" href="#Find-all-hydrogen-bonds" title="Permalink to this headline">¶</a></h2>
+<p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<span id="id3">[<a class="reference internal" href="../../../references.html#id14" title="Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164 (visited on 2020-02-05), doi:10.1016/j.jmb.2009.09.009.">BDPW09</a>]</span>)</p>
+</section>
+<section id="Find-all-hydrogen-bonds">
+<h2>Find all hydrogen bonds<a class="headerlink" href="#Find-all-hydrogen-bonds" title="Permalink to this heading">¶</a></h2>
 <p>First, find the hydrogen bonds.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">hbonds</span> <span class="o">=</span> <span class="n">HydrogenBondAnalysis</span><span class="p">(</span><span class="n">universe</span><span class="o">=</span><span class="n">u</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hbonds</span> <span class="o">=</span> <span class="n">HydrogenBondAnalysis</span><span class="p">(</span><span class="n">universe</span><span class="o">=</span><span class="n">u</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -549,8 +558,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">hbonds</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hbonds</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -560,9 +568,9 @@ div.rendered_html tbody tr:hover {
 <div class="output_area docutils container">
 <script type="application/vnd.jupyter.widget-view+json">{"model_id": "4f1c80f3c4e648cc85947ba076286828", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-</div>
-<div class="section" id="Calculate-hydrogen-bond-lifetimes">
-<h2>Calculate hydrogen bond lifetimes<a class="headerlink" href="#Calculate-hydrogen-bond-lifetimes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Calculate-hydrogen-bond-lifetimes">
+<h2>Calculate hydrogen bond lifetimes<a class="headerlink" href="#Calculate-hydrogen-bond-lifetimes" title="Permalink to this heading">¶</a></h2>
 <p>The hydrogen bond lifetime is calculated via the time autocorrelation function of the presence of a hydrogen bond:</p>
 <center><div class="math notranslate nohighlight">
 \[C(\tau) = \bigg\langle \frac{h_{ij}(t_0) h_{ij}(t_0 + \tau)}{h_{ij}(t_0)^2} \bigg\rangle\]</div>
@@ -582,8 +590,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">tau_max</span> <span class="o">=</span> <span class="mi">25</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tau_max</span> <span class="o">=</span> <span class="mi">25</span>
 <span class="n">window_step</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 </div>
@@ -592,21 +599,18 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">tau_frames</span><span class="p">,</span> <span class="n">hbond_lifetime</span> <span class="o">=</span> <span class="n">hbonds</span><span class="o">.</span><span class="n">lifetime</span><span class="p">(</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tau_frames</span><span class="p">,</span> <span class="n">hbond_lifetime</span> <span class="o">=</span> <span class="n">hbonds</span><span class="o">.</span><span class="n">lifetime</span><span class="p">(</span>
     <span class="n">tau_max</span><span class="o">=</span><span class="n">tau_max</span><span class="p">,</span>
     <span class="n">window_step</span><span class="o">=</span><span class="n">window_step</span>
 <span class="p">)</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">tau_times</span> <span class="o">=</span> <span class="n">tau_frames</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">dt</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tau_times</span> <span class="o">=</span> <span class="n">tau_frames</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">dt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tau_times</span><span class="p">,</span> <span class="n">hbond_lifetime</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Hydrogen bond lifetime&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">)</span>
@@ -614,8 +618,7 @@ div.rendered_html tbody tr:hover {
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$C(\tau)$&quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -625,9 +628,9 @@ div.rendered_html tbody tr:hover {
 <img alt="../../../_images/examples_analysis_hydrogen_bonds_hbonds-lifetimes_13_0.png" src="../../../_images/examples_analysis_hydrogen_bonds_hbonds-lifetimes_13_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="Calculating-the-time-constant">
-<h2>Calculating the time constant<a class="headerlink" href="#Calculating-the-time-constant" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Calculating-the-time-constant">
+<h2>Calculating the time constant<a class="headerlink" href="#Calculating-the-time-constant" title="Permalink to this heading">¶</a></h2>
 <p>To obtain the hydrogen bond lifetime, you can fit a biexponential to the time autocorrelation curve. We will fit the following biexponential:</p>
 <center><div class="math notranslate nohighlight">
 \[A\exp(-t / \tau_1) + B\exp(-t / \tau_2)\]</div>
@@ -636,8 +639,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">fit_biexponential</span><span class="p">(</span><span class="n">tau_timeseries</span><span class="p">,</span> <span class="n">ac_timeseries</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fit_biexponential</span><span class="p">(</span><span class="n">tau_timeseries</span><span class="p">,</span> <span class="n">ac_timeseries</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Fit a biexponential function to a hydrogen bond time autocorrelation function</span>
 
 <span class="sd">    Return the two time constants</span>
@@ -655,16 +657,14 @@ div.rendered_html tbody tr:hover {
     <span class="n">fit_ac</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">fit_t</span><span class="p">,</span> <span class="o">*</span><span class="n">params</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">params</span><span class="p">,</span> <span class="n">fit_t</span><span class="p">,</span> <span class="n">fit_ac</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">params</span><span class="p">,</span> <span class="n">fit_t</span><span class="p">,</span> <span class="n">fit_ac</span> <span class="o">=</span> <span class="n">fit_biexponential</span><span class="p">(</span><span class="n">tau_frames</span><span class="p">,</span> <span class="n">hbond_lifetime</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">params</span><span class="p">,</span> <span class="n">fit_t</span><span class="p">,</span> <span class="n">fit_ac</span> <span class="o">=</span> <span class="n">fit_biexponential</span><span class="p">(</span><span class="n">tau_frames</span><span class="p">,</span> <span class="n">hbond_lifetime</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -672,8 +672,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Plot the fit</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the fit</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tau_times</span><span class="p">,</span> <span class="n">hbond_lifetime</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fit_t</span><span class="p">,</span> <span class="n">fit_ac</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;fit&quot;</span><span class="p">)</span>
 
@@ -683,8 +682,7 @@ div.rendered_html tbody tr:hover {
 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -698,13 +696,11 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Check the decay time constant</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the decay time constant</span>
 <span class="n">A</span><span class="p">,</span> <span class="n">tau1</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">tau2</span> <span class="o">=</span> <span class="n">params</span>
 <span class="n">time_constant</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">tau1</span> <span class="o">+</span> <span class="n">B</span> <span class="o">*</span> <span class="n">tau2</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;time_constant = </span><span class="si">{</span><span class="n">time_constant</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> ps&quot;</span><span class="p">)</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -715,9 +711,9 @@ div.rendered_html tbody tr:hover {
 time_constant = 6.14 ps
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Intermittent-lifetime">
-<h2>Intermittent lifetime<a class="headerlink" href="#Intermittent-lifetime" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Intermittent-lifetime">
+<h2>Intermittent lifetime<a class="headerlink" href="#Intermittent-lifetime" title="Permalink to this heading">¶</a></h2>
 <p>The above example shows you how to calculate the continuous hydrogen bond lifetime. This means that the hydrogen bond must be present at every frame from <span class="math notranslate nohighlight">\(t_0\)</span> to <span class="math notranslate nohighlight">\(t_0 + \tau\)</span>. To allow for small fluctuations in the DA distance or DHA angle, the intermittent hydrogen bond lifetime may be calculated. This allows a hydrogen bond to break for up to a specified number of frames and still be considered present.</p>
 <p>In the <code class="docutils literal notranslate"><span class="pre">lifetime</span></code> method, the <code class="docutils literal notranslate"><span class="pre">intermittency</span></code> argument is used to set the maxium number of frames for which a hydrogen bond is allowed to break. The default is <code class="docutils literal notranslate"><span class="pre">intermittency=0</span></code>, which means that if a hydrogen bond is missing at any frame between <span class="math notranslate nohighlight">\(t_0\)</span> and <span class="math notranslate nohighlight">\(t_0 + \tau\)</span>, it will not be considered present at <span class="math notranslate nohighlight">\(t_0+\tau\)</span>. This is equivalent to the continuous lifetime. However, with a value of <code class="docutils literal notranslate"><span class="pre">intermittency=2</span></code>, all hydrogen bonds are allowed to break for up to a maximum of
 consecutive two frames.</p>
@@ -726,20 +722,17 @@ consecutive two frames.</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">tau_max</span> <span class="o">=</span> <span class="mi">25</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tau_max</span> <span class="o">=</span> <span class="mi">25</span>
 <span class="n">window_step</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">intermittencies</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">for</span> <span class="n">intermittency</span> <span class="ow">in</span> <span class="n">intermittencies</span><span class="p">:</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">intermittency</span> <span class="ow">in</span> <span class="n">intermittencies</span><span class="p">:</span>
 
     <span class="n">tau_frames</span><span class="p">,</span> <span class="n">hbond_lifetime</span> <span class="o">=</span> <span class="n">hbonds</span><span class="o">.</span><span class="n">lifetime</span><span class="p">(</span>
         <span class="n">tau_max</span><span class="o">=</span><span class="n">tau_max</span><span class="p">,</span>
@@ -756,8 +749,7 @@ consecutive two frames.</p>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Intermittency=&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">1.02</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -767,16 +759,15 @@ consecutive two frames.</p>
 <img alt="../../../_images/examples_analysis_hydrogen_bonds_hbonds-lifetimes_21_0.png" src="../../../_images/examples_analysis_hydrogen_bonds_hbonds-lifetimes_21_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="Hydrogen-bond-lifetime-of-individual-hydrogen-bonds">
-<h2>Hydrogen bond lifetime of individual hydrogen bonds<a class="headerlink" href="#Hydrogen-bond-lifetime-of-individual-hydrogen-bonds" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Hydrogen-bond-lifetime-of-individual-hydrogen-bonds">
+<h2>Hydrogen bond lifetime of individual hydrogen bonds<a class="headerlink" href="#Hydrogen-bond-lifetime-of-individual-hydrogen-bonds" title="Permalink to this heading">¶</a></h2>
 <p>Let’s first find the 10 most prevalent hydrogen bonds.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">hbonds</span> <span class="o">=</span> <span class="n">HydrogenBondAnalysis</span><span class="p">(</span><span class="n">universe</span><span class="o">=</span><span class="n">u</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hbonds</span> <span class="o">=</span> <span class="n">HydrogenBondAnalysis</span><span class="p">(</span><span class="n">universe</span><span class="o">=</span><span class="n">u</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -784,8 +775,7 @@ consecutive two frames.</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">hbonds</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hbonds</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -799,14 +789,12 @@ consecutive two frames.</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Print donor, hydrogen, acceptor and count info for these hbonds</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print donor, hydrogen, acceptor and count info for these hbonds</span>
 <span class="n">counts</span> <span class="o">=</span> <span class="n">hbonds</span><span class="o">.</span><span class="n">count_by_ids</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">donor</span><span class="p">,</span> <span class="n">hydrogen</span><span class="p">,</span> <span class="n">acceptor</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">[:</span><span class="mi">10</span><span class="p">]:</span>
     <span class="n">d</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">donor</span><span class="p">],</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">hydrogen</span><span class="p">],</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">acceptor</span><span class="p">]</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">resname</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">resid</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">h</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">resname</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">resid</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="se">\t</span><span class="s2">count=</span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -831,20 +819,17 @@ LYS-211-NZ      HZ3     GLU-204-OE1     count=92
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">tau_max</span> <span class="o">=</span> <span class="mi">25</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tau_max</span> <span class="o">=</span> <span class="mi">25</span>
 <span class="n">window_step</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">intermittency</span> <span class="o">=</span> <span class="mi">0</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">hbond_lifetimes</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hbond_lifetimes</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># for plotting</span>
 
 <span class="k">for</span> <span class="n">hbond</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">[:</span><span class="mi">10</span><span class="p">]:</span>
@@ -873,16 +858,14 @@ LYS-211-NZ      HZ3     GLU-204-OE1     count=92
 
 <span class="n">hbond_lifetimes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">hbond_lifetimes</span><span class="p">)</span>
 <span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Plot the lifetimes</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the lifetimes</span>
 <span class="n">times</span> <span class="o">=</span> <span class="n">taus</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">dt</span>
 <span class="k">for</span> <span class="n">hbl</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">hbond_lifetimes</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">hbl</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -893,8 +876,7 @@ LYS-211-NZ      HZ3     GLU-204-OE1     count=92
 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">ncol</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">1.02</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -910,9 +892,9 @@ LYS-211-NZ      HZ3     GLU-204-OE1     count=92
 <p>The curve should decay smoothly toward 0, as seen in the first hydrogen bond lifetime plot we produced in this notebook. If the curve does not decay smoothly, more statistics are required either by increasing the value of <code class="docutils literal notranslate"><span class="pre">tau_max</span></code>, using a greater number of time origins, or increasing the length of your simulation.</p>
 <p>See <a class="reference external" href="https://doi.org/10.1063/1.4922445">Gowers and Carbonne (2015)</a> for further discussion on hydrogen bonds lifetimes.</p>
 </div>
-</div>
-<div class="section" id="References">
-<h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="References">
+<h2>References<a class="headerlink" href="#References" title="Permalink to this heading">¶</a></h2>
 <p>[1] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
 <p>[2] Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>, doi:10.1002/jcc.21787.</p>
 <p>[3] Paul Smith, Robert M. Ziolek, Elena Gazzarrini, Dylan M. Owen, and Christian D. Lorenz. On the interaction of hyaluronic acid with synovial fluid lipid membranes. Phys. Chem. Chem. Phys., 21(19):9845-9857, 2018. URL: <a class="reference external" href="http://dx.doi.org/10.1039/C9CP01532A">http://dx.doi.org/10.1039/C9CP01532A</a></p>
@@ -920,8 +902,8 @@ LYS-211-NZ      HZ3     GLU-204-OE1     count=92
 <p>[5] Richard J. Gowers and Paola Carbonne. A multiscale approach to model hydrogen bonding: The case of polyamide. J. Chem. Phys., 142:224907, June 2015. URL: <a class="reference external" href="https://doi.org/10.1063/1.4922445">https://doi.org/10.1063/1.4922445</a></p>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {"046bce8d09354bdf9628178fb9adefbe": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_858634797dcb4855b1bd0bfde2d1d0a0", "max": 98, "style": "IPY_MODEL_61f64941ac1a481e91e2f04ce6f9e4f0", "value": 98}}, "066aed08b43549b4bd5d50959ed23dbd": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "105de2bdac074bffaa10c6c0e4140759": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "1773a876dcce4f10aac477df9ad0a3cf": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "25f481488e4943d2803c60ccf127b9e2": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "4f1c80f3c4e648cc85947ba076286828": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_70964d54958f4477921081b823f4a9ab", "IPY_MODEL_046bce8d09354bdf9628178fb9adefbe", "IPY_MODEL_5fcaace7b1be400e8b68164b10f23394"], "layout": "IPY_MODEL_25f481488e4943d2803c60ccf127b9e2"}}, "5344b853dc904b549861f616cd3dcee7": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "5fcaace7b1be400e8b68164b10f23394": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_1773a876dcce4f10aac477df9ad0a3cf", "style": "IPY_MODEL_066aed08b43549b4bd5d50959ed23dbd", "value": " 98/98 [00:09&lt;00:00, 10.64it/s]"}}, "61f64941ac1a481e91e2f04ce6f9e4f0": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "70964d54958f4477921081b823f4a9ab": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_ae418b4fbf674ef7876e5b61dce33b8d", "style": "IPY_MODEL_ed886ef192184d63b0b958cdf0d096ef", "value": "100%"}}, "858634797dcb4855b1bd0bfde2d1d0a0": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "86962b10ba5043ba8bce06c5ee81a9f8": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_105de2bdac074bffaa10c6c0e4140759", "style": "IPY_MODEL_91a4decfffb94aa8a30c29159935ae4d", "value": "100%"}}, "8c78ff85e8614acdb5b4ba2fa369a5c3": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_c7e3f6f60fa1445f998d5211c6e6a3a2", "max": 98, "style": "IPY_MODEL_ebfadc6a9bca4c3494c58cf2e9230993", "value": 98}}, "91a4decfffb94aa8a30c29159935ae4d": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "ac7cfd7427364f0b95f6106bb94aadef": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "ae05ea7136274d20966331fa9d70950b": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "ae418b4fbf674ef7876e5b61dce33b8d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "c51cb691e6ee4b26bafe2e5af45f673a": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_ac7cfd7427364f0b95f6106bb94aadef", "style": "IPY_MODEL_5344b853dc904b549861f616cd3dcee7", "value": " 98/98 [00:10&lt;00:00,  9.56it/s]"}}, "c7e3f6f60fa1445f998d5211c6e6a3a2": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "de30837230194797baead4244790a675": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_86962b10ba5043ba8bce06c5ee81a9f8", "IPY_MODEL_8c78ff85e8614acdb5b4ba2fa369a5c3", "IPY_MODEL_c51cb691e6ee4b26bafe2e5af45f673a"], "layout": "IPY_MODEL_ae05ea7136274d20966331fa9d70950b"}}, "ebfadc6a9bca4c3494c58cf2e9230993": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "ed886ef192184d63b0b958cdf0d096ef": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}}, "version_major": 2, "version_minor": 0}
-</script></div>
-</div>
+</script></section>
+</section>
 
 
            </div>

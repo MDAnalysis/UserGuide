@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Writing your own trajectory analysis &mdash; MDAnalysis User Guide  documentation</title>
@@ -13,6 +14,8 @@
   
   <link rel="stylesheet" href="../../_static/css/msmb.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/msmb.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -33,13 +36,15 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script src="../../_static/js/versions.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -103,7 +108,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick start guide</a></li>
@@ -111,7 +116,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../README.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Data structures</span></p>
+<p class="caption" role="heading"><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../atomgroup.html">AtomGroup</a></li>
@@ -119,14 +124,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../topology_system.html">The topology system</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Trajectories</span></p>
+<p class="caption" role="heading"><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../units.html">Units and constants</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Input/output</span></p>
+<p class="caption" role="heading"><span class="caption-text">Input/output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../formats/index.html">Format overview</a></li>
@@ -135,7 +140,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../formats/format_reference.html">Format reference</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Analysis</span></p>
+<p class="caption" role="heading"><span class="caption-text">Analysis</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -162,13 +167,13 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced</span></p>
+<p class="caption" role="heading"><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../datasets.html">Example data</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing_code.html">Contributing to the main codebase</a></li>
@@ -455,11 +460,12 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
 /* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
 div.rendered_html table {
   border: none;
   border-collapse: collapse;
@@ -468,10 +474,14 @@ div.rendered_html table {
   font-size: 12px;
   table-layout: fixed;
 }
+.jp-RenderedHTMLCommon thead,
 div.rendered_html thead {
   border-bottom: 1px solid black;
   vertical-align: bottom;
 }
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
 div.rendered_html tr,
 div.rendered_html th,
 div.rendered_html td {
@@ -483,19 +493,22 @@ div.rendered_html td {
   max-width: none;
   border: none;
 }
+.jp-RenderedHTMLCommon th,
 div.rendered_html th {
   font-weight: bold;
 }
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
 div.rendered_html tbody tr:nth-child(odd) {
   background: #f5f5f5;
 }
+.jp-RenderedHTMLCommon tbody tr:hover,
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
-<script>require=requirejs;</script><div class="section" id="Writing-your-own-trajectory-analysis">
-<h1>Writing your own trajectory analysis<a class="headerlink" href="#Writing-your-own-trajectory-analysis" title="Permalink to this headline">¶</a></h1>
+<script>require=requirejs;</script><section id="Writing-your-own-trajectory-analysis">
+<h1>Writing your own trajectory analysis<a class="headerlink" href="#Writing-your-own-trajectory-analysis" title="Permalink to this heading">¶</a></h1>
 <p>We create our own analysis methods for calculating the radius of gyration of a selection of atoms.</p>
 <p>This can be done three ways, from least to most flexible:</p>
 <ol class="arabic simple">
@@ -510,15 +523,14 @@ div.rendered_html tbody tr:hover {
 <p><strong>Minimum version of MDAnalysis:</strong> 2.0.0</p>
 <p><strong>Packages required:</strong></p>
 <ul class="simple">
-<li><p>MDAnalysis (<a class="bibtex reference internal" href="../../references.html#michaud-agrawal-mdanalysis-2011" id="id1">[MADWB11]</a>, <a class="bibtex reference internal" href="../../references.html#gowers-mdanalysis-2016" id="id2">[GLB+16]</a>)</p></li>
+<li><p>MDAnalysis (<span id="id1">[<a class="reference internal" href="../../references.html#id11" title="Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: http://doi.wiley.com/10.1002/jcc.21787 (visited on 2020-02-05), doi:10.1002/jcc.21787.">MADWB11</a>]</span>, <span id="id2">[<a class="reference internal" href="../../references.html#id3" title="Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html (visited on 2020-02-05), doi:10.25080/Majora-629e541a-00e.">GLB+16</a>]</span>)</p></li>
 <li><p>MDAnalysisTests</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">,</span> <span class="n">DCD2</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.analysis.base</span> <span class="kn">import</span> <span class="p">(</span><span class="n">AnalysisBase</span><span class="p">,</span>
                                       <span class="n">AnalysisFromFunction</span><span class="p">,</span>
@@ -530,8 +542,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="section" id="Radius-of-gyration">
-<h2>Radius of gyration<a class="headerlink" href="#Radius-of-gyration" title="Permalink to this headline">¶</a></h2>
+<section id="Radius-of-gyration">
+<h2>Radius of gyration<a class="headerlink" href="#Radius-of-gyration" title="Permalink to this heading">¶</a></h2>
 <p>Let’s start off by defining a standalone analysis function.</p>
 <p>The radius of gyration of a structure measures how compact it is. In <a class="reference external" href="http://manual.gromacs.org/documentation/2019-rc1/reference-manual/analysis/radius-of-gyration.html">GROMACS</a>, it is calculated as follows:</p>
 <div class="math notranslate nohighlight">
@@ -545,8 +557,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">radgyr</span><span class="p">(</span><span class="n">atomgroup</span><span class="p">,</span> <span class="n">masses</span><span class="p">,</span> <span class="n">total_mass</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">radgyr</span><span class="p">(</span><span class="n">atomgroup</span><span class="p">,</span> <span class="n">masses</span><span class="p">,</span> <span class="n">total_mass</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="c1"># coordinates change for each frame</span>
     <span class="n">coordinates</span> <span class="o">=</span> <span class="n">atomgroup</span><span class="o">.</span><span class="n">positions</span>
     <span class="n">center_of_mass</span> <span class="o">=</span> <span class="n">atomgroup</span><span class="o">.</span><span class="n">center_of_mass</span><span class="p">()</span>
@@ -569,32 +580,30 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="Loading-files">
-<h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this headline">¶</a></h2>
-<p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<a class="bibtex reference internal" href="../../references.html#beckstein-zipping-2009" id="id3">[BDPW09]</a>)</p>
+</section>
+<section id="Loading-files">
+<h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this heading">¶</a></h2>
+<p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<span id="id3">[<a class="reference internal" href="../../references.html#id14" title="Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164 (visited on 2020-02-05), doi:10.1016/j.jmb.2009.09.009.">BDPW09</a>]</span>)</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
 <span class="n">protein</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;protein&#39;</span><span class="p">)</span>
 
 <span class="n">u2</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="Creating-an-analysis-from-a-function">
-<h2>Creating an analysis from a function<a class="headerlink" href="#Creating-an-analysis-from-a-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Creating-an-analysis-from-a-function">
+<h2>Creating an analysis from a function<a class="headerlink" href="#Creating-an-analysis-from-a-function" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.base.AnalysisFromFunction</span></code> can create an analysis from a function that works on AtomGroups. It requires the function itself, the trajectory to operate on, and then the arguments / keyword arguments necessary for the function.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">rog</span> <span class="o">=</span> <span class="n">AnalysisFromFunction</span><span class="p">(</span><span class="n">radgyr</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">,</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rog</span> <span class="o">=</span> <span class="n">AnalysisFromFunction</span><span class="p">(</span><span class="n">radgyr</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">,</span>
                            <span class="n">protein</span><span class="p">,</span> <span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">,</span>
                            <span class="n">total_mass</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">))</span>
 <span class="n">rog</span><span class="o">.</span><span class="n">run</span><span class="p">();</span>
@@ -606,8 +615,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">rog</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;timeseries&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rog</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;timeseries&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -625,8 +633,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">rog</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">timeseries</span><span class="o">.</span><span class="n">shape</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rog</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">timeseries</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -643,8 +650,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;x-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;y-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;z-axis&#39;</span><span class="p">]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;x-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;y-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;z-axis&#39;</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">rog</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;timeseries&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
@@ -666,8 +672,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">rog_10</span> <span class="o">=</span> <span class="n">AnalysisFromFunction</span><span class="p">(</span><span class="n">radgyr</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">,</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rog_10</span> <span class="o">=</span> <span class="n">AnalysisFromFunction</span><span class="p">(</span><span class="n">radgyr</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">,</span>
                               <span class="n">protein</span><span class="p">,</span> <span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">,</span>
                               <span class="n">total_mass</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">))</span>
 
@@ -689,8 +694,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">rog_10</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;timeseries&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">rog_10</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;timeseries&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radius of gyration (Å)&#39;</span><span class="p">)</span>
@@ -705,17 +709,16 @@ div.rendered_html tbody tr:hover {
 <img alt="../../_images/examples_analysis_custom_trajectory_analysis_15_0.png" src="../../_images/examples_analysis_custom_trajectory_analysis_15_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="Transforming-a-function-into-a-class">
-<h2>Transforming a function into a class<a class="headerlink" href="#Transforming-a-function-into-a-class" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Transforming-a-function-into-a-class">
+<h2>Transforming a function into a class<a class="headerlink" href="#Transforming-a-function-into-a-class" title="Permalink to this heading">¶</a></h2>
 <p>While the <code class="docutils literal notranslate"><span class="pre">AnalysisFromFunction</span></code> is convenient for quick analyses, you may want to turn your function into a class that can be applied to many different trajectories, much like other MDAnalysis analyses.</p>
 <p>You can apply <code class="docutils literal notranslate"><span class="pre">analysis_class</span></code> to any function that you can run with <code class="docutils literal notranslate"><span class="pre">AnalysisFromFunction</span></code> to get a class.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">RadiusOfGyration</span> <span class="o">=</span> <span class="n">analysis_class</span><span class="p">(</span><span class="n">radgyr</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">RadiusOfGyration</span> <span class="o">=</span> <span class="n">analysis_class</span><span class="p">(</span><span class="n">radgyr</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -724,8 +727,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">rog_u1</span> <span class="o">=</span> <span class="n">RadiusOfGyration</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">,</span> <span class="n">protein</span><span class="p">,</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rog_u1</span> <span class="o">=</span> <span class="n">RadiusOfGyration</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">,</span> <span class="n">protein</span><span class="p">,</span>
                           <span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">,</span>
                           <span class="n">total_mass</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">))</span>
 <span class="n">rog_u1</span><span class="o">.</span><span class="n">run</span><span class="p">();</span>
@@ -737,8 +739,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">rog_u1</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;timeseries&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">rog_u1</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;timeseries&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radius of gyration (Å)&#39;</span><span class="p">)</span>
@@ -758,8 +759,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ca</span> <span class="o">=</span> <span class="n">u2</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ca</span> <span class="o">=</span> <span class="n">u2</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>
 
 <span class="n">rog_u2</span> <span class="o">=</span> <span class="n">RadiusOfGyration</span><span class="p">(</span><span class="n">u2</span><span class="o">.</span><span class="n">trajectory</span><span class="p">,</span> <span class="n">ca</span><span class="p">,</span>
                           <span class="n">ca</span><span class="o">.</span><span class="n">masses</span><span class="p">,</span>
@@ -772,8 +772,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">rog_u2</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;timeseries&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">rog_u2</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;timeseries&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radius of gyration (Å)&#39;</span><span class="p">)</span>
@@ -788,18 +787,18 @@ div.rendered_html tbody tr:hover {
 <img alt="../../_images/examples_analysis_custom_trajectory_analysis_24_0.png" src="../../_images/examples_analysis_custom_trajectory_analysis_24_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="Creating-your-own-class">
-<h2>Creating your own class<a class="headerlink" href="#Creating-your-own-class" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Creating-your-own-class">
+<h2>Creating your own class<a class="headerlink" href="#Creating-your-own-class" title="Permalink to this heading">¶</a></h2>
 <p>Although <code class="docutils literal notranslate"><span class="pre">AnalysisFromFunction</span></code> and <code class="docutils literal notranslate"><span class="pre">analysis_class</span></code> are convenient, they can be too limited for complex algorithms. You may need to write your own class.</p>
 <p>MDAnalysis provides the <code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.base.AnalysisBase</span></code> class as a template for creating multiframe analyses. This class automatically sets up your trajectory reader for iterating, and includes an optional progress meter.</p>
 <p>The analysis is always run by calling <code class="docutils literal notranslate"><span class="pre">run()</span></code>. <code class="docutils literal notranslate"><span class="pre">AnalysisFromFunction</span></code> actually subclasses <code class="docutils literal notranslate"><span class="pre">AnalysisBase</span></code>, and <code class="docutils literal notranslate"><span class="pre">analysis_class</span></code> returns a subclass of <code class="docutils literal notranslate"><span class="pre">AnalysisFromFunction</span></code>, so the behaviour of <code class="docutils literal notranslate"><span class="pre">run()</span></code> remains identical.</p>
-<div class="section" id="1.-Define-__init__">
-<h3>1. Define <code class="docutils literal notranslate"><span class="pre">__init__</span></code><a class="headerlink" href="#1.-Define-__init__" title="Permalink to this headline">¶</a></h3>
+<section id="1.-Define-__init__">
+<h3>1. Define <code class="docutils literal notranslate"><span class="pre">__init__</span></code><a class="headerlink" href="#1.-Define-__init__" title="Permalink to this heading">¶</a></h3>
 <p>You can define a new analysis by subclassing AnalysisBase. Initialise the analysis with the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method, where you <em>must</em> pass the trajectory that you are working with to <code class="docutils literal notranslate"><span class="pre">AnalysisBase.__init__()</span></code>. You can also pass in the <code class="docutils literal notranslate"><span class="pre">verbose</span></code> keyword. If <code class="docutils literal notranslate"><span class="pre">verbose=True</span></code>, the class will set up a progress meter for you.</p>
-</div>
-<div class="section" id="2.-Define-your-analysis-in-_single_frame()-and-other-methods">
-<h3>2. Define your analysis in <code class="docutils literal notranslate"><span class="pre">_single_frame()</span></code> and other methods<a class="headerlink" href="#2.-Define-your-analysis-in-_single_frame()-and-other-methods" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="2.-Define-your-analysis-in-_single_frame()-and-other-methods">
+<h3>2. Define your analysis in <code class="docutils literal notranslate"><span class="pre">_single_frame()</span></code> and other methods<a class="headerlink" href="#2.-Define-your-analysis-in-_single_frame()-and-other-methods" title="Permalink to this heading">¶</a></h3>
 <p>Implement your functionality as a function over each frame of the trajectory by defining <code class="docutils literal notranslate"><span class="pre">_single_frame()</span></code>. This function gets called for each frame of your trajectory.</p>
 <p>You can also define <code class="docutils literal notranslate"><span class="pre">_prepare()</span></code> and <code class="docutils literal notranslate"><span class="pre">_conclude()</span></code> to set your analysis up before looping over the trajectory, and to finalise the results that you have prepared. In order, <code class="docutils literal notranslate"><span class="pre">run()</span></code> calls:</p>
 <ul class="simple">
@@ -823,8 +822,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">class</span> <span class="nc">RadiusOfGyration2</span><span class="p">(</span><span class="n">AnalysisBase</span><span class="p">):</span>  <span class="c1"># subclass AnalysisBase</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RadiusOfGyration2</span><span class="p">(</span><span class="n">AnalysisBase</span><span class="p">):</span>  <span class="c1"># subclass AnalysisBase</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">atomgroup</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -887,8 +885,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">rog_base</span> <span class="o">=</span> <span class="n">RadiusOfGyration2</span><span class="p">(</span><span class="n">protein</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rog_base</span> <span class="o">=</span> <span class="n">RadiusOfGyration2</span><span class="p">(</span><span class="n">protein</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -903,8 +900,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">rog_base</span><span class="o">.</span><span class="n">average</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rog_base</span><span class="o">.</span><span class="n">average</span>
 </pre></div>
 </div>
 </div>
@@ -922,8 +918,7 @@ array([18.26549552, 12.85342131, 15.37359575, 16.29185734])
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">rog_base</span><span class="o">.</span><span class="n">df</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rog_base</span><span class="o">.</span><span class="n">df</span>
 </pre></div>
 </div>
 </div>
@@ -1068,8 +1063,7 @@ array([18.26549552, 12.85342131, 15.37359575, 16.29185734])
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">rog_base</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Time (ps)&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">rog_base</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">rog_base</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Time (ps)&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">rog_base</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Radius of gyration (A)&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -1086,8 +1080,7 @@ array([18.26549552, 12.85342131, 15.37359575, 16.29185734])
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">rog_base_10</span> <span class="o">=</span> <span class="n">RadiusOfGyration2</span><span class="p">(</span><span class="n">protein</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rog_base_10</span> <span class="o">=</span> <span class="n">RadiusOfGyration2</span><span class="p">(</span><span class="n">protein</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">rog_base_10</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">7</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -1102,8 +1095,7 @@ array([18.26549552, 12.85342131, 15.37359575, 16.29185734])
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">rog_base_10</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">shape</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rog_base_10</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -1120,8 +1112,7 @@ array([18.26549552, 12.85342131, 15.37359575, 16.29185734])
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">rog_base_10</span><span class="o">.</span><span class="n">df</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rog_base_10</span><span class="o">.</span><span class="n">df</span>
 </pre></div>
 </div>
 </div>
@@ -1255,8 +1246,7 @@ array([18.26549552, 12.85342131, 15.37359575, 16.29185734])
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ax_10</span> <span class="o">=</span> <span class="n">rog_base_10</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Time (ps)&#39;</span><span class="p">,</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax_10</span> <span class="o">=</span> <span class="n">rog_base_10</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Time (ps)&#39;</span><span class="p">,</span>
                             <span class="n">y</span><span class="o">=</span><span class="n">rog_base_10</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
 <span class="n">ax_10</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Radius of gyration (A)&#39;</span><span class="p">);</span>
 </pre></div>
@@ -1269,19 +1259,19 @@ array([18.26549552, 12.85342131, 15.37359575, 16.29185734])
 <img alt="../../_images/examples_analysis_custom_trajectory_analysis_39_0.png" src="../../_images/examples_analysis_custom_trajectory_analysis_39_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="Contributing-to-MDAnalysis">
-<h2>Contributing to MDAnalysis<a class="headerlink" href="#Contributing-to-MDAnalysis" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="Contributing-to-MDAnalysis">
+<h2>Contributing to MDAnalysis<a class="headerlink" href="#Contributing-to-MDAnalysis" title="Permalink to this heading">¶</a></h2>
 <p>If you think that you will want to reuse your new analysis, or that others might find it helpful, please consider <a class="reference external" href="https://www.mdanalysis.org/UserGuide/contributing.html">contributing it to the MDAnalysis codebase.</a> Making your code open-source can have many benefits; others may notice an unexpected bug or suggest ways to optimise your code. If you write your analysis for a specific publication, please let us know; we will ask those who use your code to cite your reference in published work.</p>
-</div>
-<div class="section" id="References">
-<h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="References">
+<h2>References<a class="headerlink" href="#References" title="Permalink to this heading">¶</a></h2>
 <p>[1] Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164">https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164</a>, doi:10.1016/j.jmb.2009.09.009.</p>
 <p>[2] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
 <p>[3] Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>, doi:10.1002/jcc.21787.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

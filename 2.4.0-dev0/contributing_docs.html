@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Contributing to the user guide &mdash; MDAnalysis User Guide  documentation</title>
@@ -13,6 +14,8 @@
   
   <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
 
   
@@ -33,11 +36,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script src="_static/js/versions.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
@@ -101,7 +106,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/quickstart.html">Quick start guide</a></li>
@@ -109,7 +114,7 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/README.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Data structures</span></p>
+<p class="caption" role="heading"><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="atomgroup.html">AtomGroup</a></li>
@@ -117,14 +122,14 @@
 <li class="toctree-l1"><a class="reference internal" href="selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="topology_system.html">The topology system</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Trajectories</span></p>
+<p class="caption" role="heading"><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="units.html">Units and constants</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Input/output</span></p>
+<p class="caption" role="heading"><span class="caption-text">Input/output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formats/index.html">Format overview</a></li>
@@ -133,7 +138,7 @@
 <li class="toctree-l1"><a class="reference internal" href="formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formats/format_reference.html">Format reference</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Analysis</span></p>
+<p class="caption" role="heading"><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -147,13 +152,13 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced</span></p>
+<p class="caption" role="heading"><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="datasets.html">Example data</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing_code.html">Contributing to the main codebase</a></li>
@@ -238,8 +243,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="contributing-to-the-user-guide">
-<span id="working-with-user-guide"></span><h1>Contributing to the user guide<a class="headerlink" href="#contributing-to-the-user-guide" title="Permalink to this headline">¶</a></h1>
+  <section id="contributing-to-the-user-guide">
+<span id="working-with-user-guide"></span><h1>Contributing to the user guide<a class="headerlink" href="#contributing-to-the-user-guide" title="Permalink to this heading">¶</a></h1>
 <p>MDAnalysis maintains two kinds of documentation:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -282,8 +287,8 @@ but it does make the doc building a bit more complex.</p>
 <li><p><a class="reference internal" href="#add-changes-user-guide"><span class="std std-ref">Commit and push your changes, and open a pull request</span></a>.</p></li>
 </ol>
 </div></blockquote>
-<div class="section" id="forking-and-cloning-the-user-guide">
-<span id="forking-user-guide"></span><h2>Forking and cloning the User Guide<a class="headerlink" href="#forking-and-cloning-the-user-guide" title="Permalink to this headline">¶</a></h2>
+<section id="forking-and-cloning-the-user-guide">
+<span id="forking-user-guide"></span><h2>Forking and cloning the User Guide<a class="headerlink" href="#forking-and-cloning-the-user-guide" title="Permalink to this heading">¶</a></h2>
 <p>Go to the <a class="reference external" href="https://github.com/MDAnalysis/UserGuide">MDAnalysis project page</a> and hit the <span class="guilabel">Fork</span> button. You will
 want to clone your fork to your machine:</p>
 <blockquote>
@@ -295,9 +300,9 @@ git remote add upstream https://github.com/MDAnalysis/UserGuide
 </div></blockquote>
 <p>This creates the directory <cite>UserGuide</cite> and connects your repository to
 the upstream (main project) MDAnalysis repository.</p>
-</div>
-<div class="section" id="creating-a-development-environment">
-<span id="create-virtual-environment-user-guide"></span><h2>Creating a development environment<a class="headerlink" href="#creating-a-development-environment" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="creating-a-development-environment">
+<span id="create-virtual-environment-user-guide"></span><h2>Creating a development environment<a class="headerlink" href="#creating-a-development-environment" title="Permalink to this heading">¶</a></h2>
 <p><a class="reference internal" href="contributing_code.html#create-virtual-environment"><span class="std std-ref">Create a new virtual environment</span></a> for the user guide. Install the required dependencies, and activate the <code class="docutils literal notranslate"><span class="pre">nglview</span></code> extension. We use <code class="docutils literal notranslate"><span class="pre">nglview</span></code> for visualizing molecules in Jupyter notebook tutorials.</p>
 <p>If using conda:</p>
 <blockquote>
@@ -316,9 +321,9 @@ jupyter-nbextension <span class="nb">enable</span> nglview --py --sys-prefix
 </pre></div>
 </div>
 </div></blockquote>
-</div>
-<div class="section" id="building-the-user-guide">
-<span id="build-user-guide"></span><h2>Building the user guide<a class="headerlink" href="#building-the-user-guide" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="building-the-user-guide">
+<span id="build-user-guide"></span><h2>Building the user guide<a class="headerlink" href="#building-the-user-guide" title="Permalink to this heading">¶</a></h2>
 <p>Navigate to the <code class="docutils literal notranslate"><span class="pre">doc/</span></code> directory and run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code>:</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> doc/
@@ -328,13 +333,13 @@ make html
 </div></blockquote>
 <p>The HTML output will be in <code class="docutils literal notranslate"><span class="pre">doc/build/</span></code>, which you can open in your browser of choice. The homepage is <code class="docutils literal notranslate"><span class="pre">doc/build/index.html</span></code>.</p>
 <p>If rebuilding the documentation becomes tedious after a while, install the <a class="reference internal" href="#autobuild-sphinx"><span class="std std-ref">sphinx-autobuild</span></a> extension.</p>
-</div>
-<div class="section" id="saving-state-in-jupyter-notebooks">
-<h2>Saving state in Jupyter notebooks<a class="headerlink" href="#saving-state-in-jupyter-notebooks" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="saving-state-in-jupyter-notebooks">
+<h2>Saving state in Jupyter notebooks<a class="headerlink" href="#saving-state-in-jupyter-notebooks" title="Permalink to this heading">¶</a></h2>
 <p>One of the neat things about <code class="docutils literal notranslate"><span class="pre">nglview</span></code> is the ability to interact with molecules via the viewer. This ability can be preserved for the HTML pages generated from Jupyer notebooks by <code class="docutils literal notranslate"><span class="pre">nbsphinx</span></code>, if you save the notebook widget state after execution.</p>
-</div>
-<div class="section" id="adding-changes-to-the-userguide">
-<span id="add-changes-user-guide"></span><h2>Adding changes to the UserGuide<a class="headerlink" href="#adding-changes-to-the-userguide" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="adding-changes-to-the-userguide">
+<span id="add-changes-user-guide"></span><h2>Adding changes to the UserGuide<a class="headerlink" href="#adding-changes-to-the-userguide" title="Permalink to this heading">¶</a></h2>
 <p>As with the code, <a class="reference internal" href="contributing_code.html#adding-code-to-mda"><span class="std std-ref">commit and push</span></a> your code to GitHub. Then <a class="reference internal" href="contributing_code.html#id6"><span class="std std-ref">create a pull request</span></a>. The only test run for the User Guide is: that your file compile into HTML documents without errors. As usual, a developer will review your PR and merge the code into the User Guide when it looks good.</p>
 <p>It is often difficult to review Jupyter notebooks on GitHub, especially if you embed widgets and images. One way to make it easier on the developers who review your changes is to build the changes on your forked repository and link the relevant sections in your pull request. To do this, create a <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch and merge your new branch into it.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># the first time</span>
@@ -365,9 +370,9 @@ git merge origin/my_branch
 make github
 </pre></div>
 </div>
-</div>
-<div class="section" id="automatically-building-documentation">
-<span id="autobuild-sphinx"></span><h2>Automatically building documentation<a class="headerlink" href="#automatically-building-documentation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="automatically-building-documentation">
+<span id="autobuild-sphinx"></span><h2>Automatically building documentation<a class="headerlink" href="#automatically-building-documentation" title="Permalink to this heading">¶</a></h2>
 <p>Constantly rebuilding documentation can become tedious when you have many changes to make. Use <a class="reference external" href="https://pypi.org/project/sphinx-autobuild">sphinx-autobuild</a> to rebuild documentation every time you make changes to any document, including Jupyter notebooks. Install <code class="docutils literal notranslate"><span class="pre">sphinx-autobuild</span></code>:</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install sphinx-autobuild
@@ -381,8 +386,8 @@ make github
 </div>
 </div></blockquote>
 <p>This will start a local webserver at <a class="reference external" href="http://localhost:8000/">http://localhost:8000/</a>, which will refresh every time you save changes to a file in the documentation. This is helpful for both the user guide (first navigate to <code class="docutils literal notranslate"><span class="pre">UserGuide/doc</span></code>) and the main repository documentation (navigate to <code class="docutils literal notranslate"><span class="pre">package/doc/sphinx</span></code>).</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>&lt;no title&gt; &mdash; MDAnalysis User Guide  documentation</title>
@@ -13,6 +14,8 @@
   
   <link rel="stylesheet" href="../../../_static/css/msmb.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/msmb.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
 
   
@@ -33,11 +36,15 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script src="../../../_static/js/versions.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
@@ -101,7 +108,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick start guide</a></li>
@@ -109,7 +116,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../README.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Data structures</span></p>
+<p class="caption" role="heading"><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../atomgroup.html">AtomGroup</a></li>
@@ -117,14 +124,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../topology_system.html">The topology system</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Trajectories</span></p>
+<p class="caption" role="heading"><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../units.html">Units and constants</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Input/output</span></p>
+<p class="caption" role="heading"><span class="caption-text">Input/output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/index.html">Format overview</a></li>
@@ -133,7 +140,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/format_reference.html">Format reference</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Analysis</span></p>
+<p class="caption" role="heading"><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -147,13 +154,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced</span></p>
+<p class="caption" role="heading"><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../datasets.html">Example data</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing_code.html">Contributing to the main codebase</a></li>
@@ -252,18 +259,18 @@
 “<strong>Minimum version of MDAnalysis:</strong> 1.0n”,
 “n”,
 “<strong>Packages required:</strong>n”,
-”    n”,
-“* MDAnalysis (&lt;a data-cite=”michaud-agrawal_mdanalysis_2011” href=”<a class="reference external" href="https://doi.org/10.1002/jcc.21787">https://doi.org/10.1002/jcc.21787</a>”&gt;Michaud-Agrawal <em>et al.</em>, 2011&lt;/a&gt;, &lt;a data-cite=”gowers_mdanalysis_2016” href=”<a class="reference external" href="https://doi.org/10.25080/Majora-629e541a-00e">https://doi.org/10.25080/Majora-629e541a-00e</a>”&gt;Gowers <em>et al.</em>, 2016&lt;/a&gt;)n”,
+“    n”,
+“* MDAnalysis (&lt;a data-cite=&quot;michaud-agrawal_mdanalysis_2011&quot; href=&quot;<a class="reference external" href="https://doi.org/10.1002/jcc.21787">https://doi.org/10.1002/jcc.21787</a>&quot;&gt;Michaud-Agrawal <em>et al.</em>, 2011&lt;/a&gt;, &lt;a data-cite=&quot;gowers_mdanalysis_2016&quot; href=&quot;<a class="reference external" href="https://doi.org/10.25080/Majora-629e541a-00e">https://doi.org/10.25080/Majora-629e541a-00e</a>&quot;&gt;Gowers <em>et al.</em>, 2016&lt;/a&gt;)n”,
 “* MDAnalysisTestsn”,
 “* [HOLE](<a class="reference external" href="http://www.holeprogram.org)n">http://www.holeprogram.org)n</a>”,
 “* matplotlibn”,
 “* numpyn”,
 “n”,
-“&lt;div class=”alert alert-info”&gt;n”,
-”    n”,
+“&lt;div class=&quot;alert alert-info&quot;&gt;n”,
+“    n”,
 “<strong>Note</strong>n”,
 “n”,
-“The classes in <cite>MDAnalysis.analysis.hole2</cite> are wrappers around the HOLE program. Please cite (&lt;a data-cite=”smart_pore_1993” href=”<a class="reference external" href="https://doi.org/10.1016/S0006-3495(93)81293-1">https://doi.org/10.1016/S0006-3495(93)81293-1</a>”&gt;Smart <em>et al.</em>, 1993&lt;/a&gt;, &lt;a data-cite=”smart_hole_1996” href=”<a class="reference external" href="https://doi.org/10.1016/s0263-7855(97)00009-x">https://doi.org/10.1016/s0263-7855(97)00009-x</a>”&gt;Smart <em>et al.</em>, 1996&lt;/a&gt;) when using this module in published work.n”,
+“The classes in <cite>MDAnalysis.analysis.hole2</cite> are wrappers around the HOLE program. Please cite (&lt;a data-cite=&quot;smart_pore_1993&quot; href=&quot;<a class="reference external" href="https://doi.org/10.1016/S0006-3495(93)81293-1">https://doi.org/10.1016/S0006-3495(93)81293-1</a>&quot;&gt;Smart <em>et al.</em>, 1993&lt;/a&gt;, &lt;a data-cite=&quot;smart_hole_1996&quot; href=&quot;<a class="reference external" href="https://doi.org/10.1016/s0263-7855(97)00009-x">https://doi.org/10.1016/s0263-7855(97)00009-x</a>&quot;&gt;Smart <em>et al.</em>, 1996&lt;/a&gt;) when using this module in published work.n”,
 “n”,
 “&lt;/div&gt;”</p>
 </div></blockquote>
@@ -319,7 +326,7 @@
 <blockquote>
 <div><p>“<cite>MDAnalysis.analysis.hole2.hole</cite> is a wrapper function that calls the [HOLE](<a class="reference external" href="http://www.holeprogram.org">http://www.holeprogram.org</a>) program. This means you must have installed the program yourself before you can use the <code class="docutils literal notranslate"><span class="pre">hole2</span></code> module. You then need to pass the path to your <code class="docutils literal notranslate"><span class="pre">hole</span></code> executable to the functions and classes in the modules; in this example, <code class="docutils literal notranslate"><span class="pre">hole</span></code> is installed at <code class="docutils literal notranslate"><span class="pre">~/hole2/exe/hole</span></code>.n”,
 “n”,
-“HOLE defines a series of points throughout the pore from which a sphere can be generated that does not overlap any atom (as defined by its van der Waals radius). (Please see (&lt;a data-cite=”smart_pore_1993” href=”<a class="reference external" href="https://doi.org/10.1016/S0006-3495(93)81293-1">https://doi.org/10.1016/S0006-3495(93)81293-1</a>”&gt;Smart <em>et al.</em>, 1993&lt;/a&gt;, &lt;a data-cite=”smart_hole_1996” href=”<a class="reference external" href="https://doi.org/10.1016/s0263-7855(97)00009-x">https://doi.org/10.1016/s0263-7855(97)00009-x</a>”&gt;Smart <em>et al.</em>, 1996&lt;/a&gt;) for a complete explanation). By default, it ignores residues with the following names: “SOL”, “WAT”, “TIP”, “HOH”, “K  “, “NA “, “CL “. You can change these with the <code class="docutils literal notranslate"><span class="pre">ignore_residues</span></code> keyword. Note that the residue names must have 3 characters. Wildcards <em>do not</em> work.n”,
+“HOLE defines a series of points throughout the pore from which a sphere can be generated that does not overlap any atom (as defined by its van der Waals radius). (Please see (&lt;a data-cite=&quot;smart_pore_1993&quot; href=&quot;<a class="reference external" href="https://doi.org/10.1016/S0006-3495(93)81293-1">https://doi.org/10.1016/S0006-3495(93)81293-1</a>&quot;&gt;Smart <em>et al.</em>, 1993&lt;/a&gt;, &lt;a data-cite=&quot;smart_hole_1996&quot; href=&quot;<a class="reference external" href="https://doi.org/10.1016/s0263-7855(97)00009-x">https://doi.org/10.1016/s0263-7855(97)00009-x</a>&quot;&gt;Smart <em>et al.</em>, 1996&lt;/a&gt;) for a complete explanation). By default, it ignores residues with the following names: &quot;SOL&quot;, &quot;WAT&quot;, &quot;TIP&quot;, &quot;HOH&quot;, &quot;K  &quot;, &quot;NA &quot;, &quot;CL &quot;. You can change these with the <code class="docutils literal notranslate"><span class="pre">ignore_residues</span></code> keyword. Note that the residue names must have 3 characters. Wildcards <em>do not</em> work.n”,
 “n”,
 “The <cite>hole</cite> function allows you to specify points to begin searching at (<cite>cpoint</cite>) and a search direction (<cite>cvect</cite>), the sampling resolution (<cite>sample</cite>), and more. Please see the documentation for full details.n”,
 “n”,
@@ -350,11 +357,11 @@
 “source”: [</p>
 <blockquote>
 <div><p>“profiles = hole2.hole(PDB_HOLE, n”,
-”                      executable=’~/hole2/exe/hole’,n”,
-”                      outfile=’hole1.out’,n”,
-”                      sphpdb_file=’hole1.sph’,n”,
-”                      vdwradii_file=None,n”,
-”                      random_seed=31415)”</p>
+“                      executable=’~/hole2/exe/hole’,n”,
+“                      outfile=’hole1.out’,n”,
+“                      sphpdb_file=’hole1.sph’,n”,
+“                      vdwradii_file=None,n”,
+“                      random_seed=31415)”</p>
 </div></blockquote>
 <p>]</p>
 </div></blockquote>
@@ -369,13 +376,13 @@
 “n”,
 “This will create several outputs in your directory:n”,
 “n”,
-” - <strong>hole1.out</strong>: the log file for HOLE. n”,
-” - <strong>hole1.sph</strong>: a PDB-like file containing the coordinates of the pore centers.n”,
-” - <strong>simple2.rad</strong>: file of Van der Waals’ radiin”,
-” - <strong>tmp*/pdb_name.pdb</strong>: the short name of a PDB file with your structure. As <cite>hole</cite> is a FORTRAN77 program, it is limited in how long of a filename that it can read. Symlinking the file to the current directory can shorten the path.n”,
-” n”,
+“ - <strong>hole1.out</strong>: the log file for HOLE. n”,
+“ - <strong>hole1.sph</strong>: a PDB-like file containing the coordinates of the pore centers.n”,
+“ - <strong>simple2.rad</strong>: file of Van der Waals’ radiin”,
+“ - <strong>tmp*/pdb_name.pdb</strong>: the short name of a PDB file with your structure. As <cite>hole</cite> is a FORTRAN77 program, it is limited in how long of a filename that it can read. Symlinking the file to the current directory can shorten the path.n”,
+“ n”,
 “If you do not want to keep the files, set <cite>keep_files=False</cite>. Keep in mind that you will not be able to create a VMD surface without the sphpdb file.n”,
-” n”,
+“ n”,
 “The pore profile itself is in the <cite>profiles1</cite> dictionary, indexed by frame. There is only one frame in this PDB file, so it is at <cite>profiles1[0]</cite>.”</p>
 </div></blockquote>
 <p>]</p>
@@ -433,9 +440,9 @@
 <blockquote>
 <div><p>“Each profile is a <code class="docutils literal notranslate"><span class="pre">numpy.recarray</span></code> with the fields below as an entry for each <cite>rxncoord</cite>: n”,
 “n”,
-”  - <strong>rxn_coord</strong>: the distance along the pore axis in angstromn”,
-”  - <strong>radius</strong>: the pore radius in angstromn”,
-”  - <strong>cen_line_D</strong>: distance measured along the pore centre line - the first point found is set to zero.”</p>
+“  - <strong>rxn_coord</strong>: the distance along the pore axis in angstromn”,
+“  - <strong>radius</strong>: the pore radius in angstromn”,
+“  - <strong>cen_line_D</strong>: distance measured along the pore centre line - the first point found is set to zero.”</p>
 </div></blockquote>
 <p>]</p>
 </div></blockquote>
@@ -584,8 +591,8 @@
 “source”: [</p>
 <blockquote>
 <div><p>“hole2.create_vmd_surface(filename=’hole1.vmd’,n”,
-”                         sphpdb=’hole1.sph’,n”,
-”                         sph_process=’~/hole2/exe/sph_process’)”</p>
+“                         sphpdb=’hole1.sph’,n”,
+“                         sph_process=’~/hole2/exe/sph_process’)”</p>
 </div></blockquote>
 <p>]</p>
 </div></blockquote>
@@ -607,10 +614,10 @@
 “Your pore surface will be drawn as below.n”,
 “n”,
 “&lt;center&gt;n”,
-“&lt;div style=”width:200px; text-align:center;”&gt;n”,
+“&lt;div style=&quot;width:200px; text-align:center;&quot;&gt;n”,
 “n”,
 “![sphpdb.png](sphpdb.png)n”,
-”    n”,
+“    n”,
 “&lt;/div&gt;n”,
 “&lt;/center&gt;”</p>
 </div></blockquote>
@@ -703,8 +710,8 @@
 <blockquote>
 <div><p>“midpoints = 0.5*(edges[1:]+edges[:-1])n”,
 “plt.plot(midpoints, means)n”,
-“plt.ylabel(r”Mean HOLE radius $R$ ($\AA$)”)n”,
-“plt.xlabel(r”Pore coordinate $\zeta$ ($\AA$)”);”</p>
+“plt.ylabel(r&quot;Mean HOLE radius $R$ ($\AA$)&quot;)n”,
+“plt.xlabel(r&quot;Pore coordinate $\zeta$ ($\AA$)&quot;);”</p>
 </div></blockquote>
 <p>]</p>
 </div></blockquote>
@@ -742,16 +749,16 @@
 <dt>{</dt><dd><dl>
 <dt>“data”: {</dt><dd><dl class="simple">
 <dt>“text/plain”: [</dt><dd><p>“array([[ 0.     , -0.23655],n”,
-”       [ 1.     ,  1.56731],n”,
-”       [ 2.     ,  1.53329],n”,
-”       [ 3.     ,  1.42503],n”,
-”       [ 4.     ,  1.2426 ],n”,
-”       [ 5.     ,  1.19813],n”,
-”       [ 6.     ,  1.29624],n”,
-”       [ 7.     ,  1.43776],n”,
-”       [ 8.     ,  1.51123],n”,
-”       [ 9.     ,  0.87855],n”,
-”       [10.     ,  0.99659]])”</p>
+“       [ 1.     ,  1.56731],n”,
+“       [ 2.     ,  1.53329],n”,
+“       [ 3.     ,  1.42503],n”,
+“       [ 4.     ,  1.2426 ],n”,
+“       [ 5.     ,  1.19813],n”,
+“       [ 6.     ,  1.29624],n”,
+“       [ 7.     ,  1.43776],n”,
+“       [ 8.     ,  1.51123],n”,
+“       [ 9.     ,  0.87855],n”,
+“       [10.     ,  0.99659]])”</p>
 </dd>
 </dl>
 <p>]</p>
@@ -881,9 +888,9 @@
 <div><p>“n”,
 “&lt;center&gt;n”,
 “&lt;div style=’width: 300px’&gt;n”,
-”    n”,
+“    n”,
 “![hole.gif](pore.gif)n”,
-”    n”,
+“    n”,
 “&lt;/div&gt;n”,
 “&lt;/center&gt;”</p>
 </div></blockquote>
@@ -936,7 +943,7 @@
 “text”: [</p>
 <blockquote>
 <div><p>“/Users/lily/anaconda3/envs/mda-user-guide/lib/python3.7/site-packages/MDAnalysis/coordinates/PDB.py:864: DeprecationWarning: Using the last letter of the segid for the chainID is now deprecated and will be changed in 2.0. In 2.0, the chainID attribute will be used if it exists, or a placeholder value.n”,
-”  “exists, or a placeholder value.”, DeprecationWarning)n”</p>
+“  &quot;exists, or a placeholder value.&quot;, DeprecationWarning)n”</p>
 </div></blockquote>
 <p>]</p>
 </dd>
@@ -986,11 +993,11 @@
 “text/plain”: [</p>
 <blockquote>
 <div><p>“rec.array([(0, -18.6126, 16.58975), (0, -18.5126, 13.39834),n”,
-”           (0, -18.4126, 10.82539), (0, -18.3126,  8.86034),n”,
-”           (0, -18.2126,  7.28037), (0, -18.1126,  6.4542 ),n”,
-”           (0, -18.0126,  6.48675), (0, -17.9126,  6.39647),n”,
-”           (0, -17.8126,  6.30656), (0, -17.7126,  6.21605)],n”,
-”          dtype=[(‘frame’, ‘&lt;i4’), (‘rxncoord’, ‘&lt;f8’), (‘radius’, ‘&lt;f8’)])”</p>
+“           (0, -18.4126, 10.82539), (0, -18.3126,  8.86034),n”,
+“           (0, -18.2126,  7.28037), (0, -18.1126,  6.4542 ),n”,
+“           (0, -18.0126,  6.48675), (0, -17.9126,  6.39647),n”,
+“           (0, -17.8126,  6.30656), (0, -17.7126,  6.21605)],n”,
+“          dtype=[(‘frame’, ‘&lt;i4’), (‘rxncoord’, ‘&lt;f8’), (‘radius’, ‘&lt;f8’)])”</p>
 </div></blockquote>
 <p>]</p>
 </dd>
@@ -1155,10 +1162,10 @@
 “source”: [</p>
 <blockquote>
 <div><p>“ha.plot_mean_profile(bins=100,  # how much to chunk rxn_coordn”,
-”                     n_std=1,  # how many standard deviations from meann”,
-”                     color=’blue’,  # color of plotn”,
-”                     fill_alpha=0.2,  # opacity of standard deviationn”,
-”                     legend=True);”</p>
+“                     n_std=1,  # how many standard deviations from meann”,
+“                     color=’blue’,  # color of plotn”,
+“                     fill_alpha=0.2,  # opacity of standard deviationn”,
+“                     legend=True);”</p>
 </div></blockquote>
 <p>]</p>
 </div></blockquote>
@@ -1173,11 +1180,11 @@
 “n”,
 “If you are interested in the HOLE profiles over an order parameter, you can directly pass that into the analysis after it is run. Below, we use an order parameter of RMSD from a reference structure.n”,
 “n”,
-“&lt;div class=”alert alert-info”&gt;n”,
-”    n”,
+“&lt;div class=&quot;alert alert-info&quot;&gt;n”,
+“    n”,
 “<strong>Note</strong>n”,
 “n”,
-“Please cite (&lt;a data-cite=”stelzl_flexible_2014” href=”<a class="reference external" href="https://doi.org/10.1016/j.jmb.2013.10.024">https://doi.org/10.1016/j.jmb.2013.10.024</a>”&gt;Stelzl <em>et al.</em>, 2014&lt;/a&gt;) when using the <code class="docutils literal notranslate"><span class="pre">over_order_parameters</span></code> functionality.n”,
+“Please cite (&lt;a data-cite=&quot;stelzl_flexible_2014&quot; href=&quot;<a class="reference external" href="https://doi.org/10.1016/j.jmb.2013.10.024">https://doi.org/10.1016/j.jmb.2013.10.024</a>&quot;&gt;Stelzl <em>et al.</em>, 2014&lt;/a&gt;) when using the <code class="docutils literal notranslate"><span class="pre">over_order_parameters</span></code> functionality.n”,
 “n”,
 “&lt;/div&gt;”</p>
 </div></blockquote>
@@ -1206,8 +1213,8 @@
 <dt>{</dt><dd><dl>
 <dt>“data”: {</dt><dd><dl class="simple">
 <dt>“text/plain”: [</dt><dd><p>“array([6.10501252e+00, 4.88398472e+00, 3.66303524e+00, 2.44202454e+00,n”,
-”       1.22100521e+00, 2.36577481e-07, 1.22100162e+00, 2.44202456e+00,n”,
-”       3.66303410e+00, 4.88398478e+00, 6.10502262e+00])”</p>
+“       1.22100521e+00, 2.36577481e-07, 1.22100162e+00, 2.44202456e+00,n”,
+“       3.66303410e+00, 4.88398478e+00, 6.10502262e+00])”</p>
 </dd>
 </dl>
 <p>]</p>
@@ -1298,7 +1305,7 @@
 “text”: [</p>
 <blockquote>
 <div><p>“/Users/lily/anaconda3/envs/mda-user-guide/lib/python3.7/site-packages/MDAnalysis/coordinates/PDB.py:864: DeprecationWarning: Using the last letter of the segid for the chainID is now deprecated and will be changed in 2.0. In 2.0, the chainID attribute will be used if it exists, or a placeholder value.n”,
-”  “exists, or a placeholder value.”, DeprecationWarning)n”</p>
+“  &quot;exists, or a placeholder value.&quot;, DeprecationWarning)n”</p>
 </div></blockquote>
 <p>]</p>
 </dd>
@@ -1396,9 +1403,9 @@
 “source”: [</p>
 <blockquote>
 <div><p>“ha.plot_order_parameters(rmsd_values,n”,
-”                         aggregator=min,n”,
-”                         xlabel=’RMSD to reference ($\AA$)’,n”,
-”                         ylabel=’Minimum HOLE pore radius $r$ ($\AA$)’);”</p>
+“                         aggregator=min,n”,
+“                         xlabel=’RMSD to reference ($\AA$)’,n”,
+“                         ylabel=’Minimum HOLE pore radius $r$ ($\AA$)’);”</p>
 </div></blockquote>
 <p>]</p>
 </div></blockquote>
@@ -1435,7 +1442,7 @@
 <div><dl>
 <dt>{</dt><dd><dl>
 <dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/plain”: [</dt><dd><p>“Text(0, 0.5, ‘minimum HOLE pore radius $r$ ($\AA$)’)”</p>
+<dt>“text/plain”: [</dt><dd><p>“Text(0, 0.5, ‘minimum HOLE pore radius $r$ ($\\AA$)’)”</p>
 </dd>
 </dl>
 <p>]</p>
@@ -1473,7 +1480,7 @@
 “source”: [</p>
 <blockquote>
 <div><p>“ha.plot3D_order_parameters(rmsd_values,n”,
-”                           ylabel=’RMSD to reference ($\AA$)’);”</p>
+“                           ylabel=’RMSD to reference ($\AA$)’);”</p>
 </div></blockquote>
 <p>]</p>
 </div></blockquote>
@@ -1506,28 +1513,28 @@
 <dt>{</dt><dd><dl>
 <dt>“data”: {</dt><dd><dl class="simple">
 <dt>“text/plain”: [</dt><dd><p>“[‘simple2.rad’,n”,
-” ‘hole000.out’,n”,
-” ‘hole000.sph’,n”,
-” ‘hole001.out’,n”,
-” ‘hole001.sph’,n”,
-” ‘hole002.out’,n”,
-” ‘hole002.sph’,n”,
-” ‘hole003.out’,n”,
-” ‘hole003.sph’,n”,
-” ‘hole004.out’,n”,
-” ‘hole004.sph’,n”,
-” ‘hole005.out’,n”,
-” ‘hole005.sph’,n”,
-” ‘hole006.out’,n”,
-” ‘hole006.sph’,n”,
-” ‘hole007.out’,n”,
-” ‘hole007.sph’,n”,
-” ‘hole008.out’,n”,
-” ‘hole008.sph’,n”,
-” ‘hole009.out’,n”,
-” ‘hole009.sph’,n”,
-” ‘hole010.out’,n”,
-” ‘hole010.sph’]”</p>
+“ ‘hole000.out’,n”,
+“ ‘hole000.sph’,n”,
+“ ‘hole001.out’,n”,
+“ ‘hole001.sph’,n”,
+“ ‘hole002.out’,n”,
+“ ‘hole002.sph’,n”,
+“ ‘hole003.out’,n”,
+“ ‘hole003.sph’,n”,
+“ ‘hole004.out’,n”,
+“ ‘hole004.sph’,n”,
+“ ‘hole005.out’,n”,
+“ ‘hole005.sph’,n”,
+“ ‘hole006.out’,n”,
+“ ‘hole006.sph’,n”,
+“ ‘hole007.out’,n”,
+“ ‘hole007.sph’,n”,
+“ ‘hole008.out’,n”,
+“ ‘hole008.sph’,n”,
+“ ‘hole009.out’,n”,
+“ ‘hole009.sph’,n”,
+“ ‘hole010.out’,n”,
+“ ‘hole010.sph’]”</p>
 </dd>
 </dl>
 <p>]</p>
@@ -1636,9 +1643,9 @@
 “source”: [</p>
 <blockquote>
 <div><p>“with hole2.HoleAnalysis(u, executable=’~/hole2/exe/hole’) as ha2:n”,
-”    ha2.run()n”,
-”    ha2.create_vmd_surface(filename=’holeanalysis.vmd’)n”,
-”    ha2.plot()”</p>
+“    ha2.run()n”,
+“    ha2.create_vmd_surface(filename=’holeanalysis.vmd’)n”,
+“    ha2.plot()”</p>
 </div></blockquote>
 <p>]</p>
 </div></blockquote>
@@ -1684,34 +1691,34 @@
 <div><p>“## Referencesn”,
 “n”,
 “[1] Richard&amp;nbsp;J. Gowers, Max Linke, Jonathan Barnoud, Tyler J.&amp;nbsp;E. Reddy, Manuel&amp;nbsp;N. Melo, Sean&amp;nbsp;L. Seyler, Jan Domański, David&amp;nbsp;L. Dotson, Sébastien Buchoux, Ian&amp;nbsp;M. Kenney, and Oliver Beckstein.n”,
-“&lt;span class=”bibtex-protected”&gt;MDAnalysis&lt;/span&gt;: &lt;span class=”bibtex-protected”&gt;A&lt;/span&gt; &lt;span class=”bibtex-protected”&gt;Python&lt;/span&gt; &lt;span class=”bibtex-protected”&gt;Package&lt;/span&gt; for the &lt;span class=”bibtex-protected”&gt;Rapid&lt;/span&gt; &lt;span class=”bibtex-protected”&gt;Analysis&lt;/span&gt; of &lt;span class=”bibtex-protected”&gt;Molecular&lt;/span&gt; &lt;span class=”bibtex-protected”&gt;Dynamics&lt;/span&gt; &lt;span class=”bibtex-protected”&gt;Simulations&lt;/span&gt;.n”,
+“&lt;span class=&quot;bibtex-protected&quot;&gt;MDAnalysis&lt;/span&gt;: &lt;span class=&quot;bibtex-protected&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;bibtex-protected&quot;&gt;Python&lt;/span&gt; &lt;span class=&quot;bibtex-protected&quot;&gt;Package&lt;/span&gt; for the &lt;span class=&quot;bibtex-protected&quot;&gt;Rapid&lt;/span&gt; &lt;span class=&quot;bibtex-protected&quot;&gt;Analysis&lt;/span&gt; of &lt;span class=&quot;bibtex-protected&quot;&gt;Molecular&lt;/span&gt; &lt;span class=&quot;bibtex-protected&quot;&gt;Dynamics&lt;/span&gt; &lt;span class=&quot;bibtex-protected&quot;&gt;Simulations&lt;/span&gt;.n”,
 “&lt;em&gt;Proceedings of the 15th Python in Science Conference&lt;/em&gt;, pages 98–105, 2016.n”,
 “00152.n”,
-“URL: &lt;a href=”<a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>”&gt;https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html&lt;/a&gt;, &lt;a href=”<a class="reference external" href="https://doi.org/10.25080/Majora-629e541a-00e">https://doi.org/10.25080/Majora-629e541a-00e</a>”&gt;doi:10.25080/Majora-629e541a-00e&lt;/a&gt;.n”,
+“URL: &lt;a href=&quot;<a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>&quot;&gt;https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html&lt;/a&gt;, &lt;a href=&quot;<a class="reference external" href="https://doi.org/10.25080/Majora-629e541a-00e">https://doi.org/10.25080/Majora-629e541a-00e</a>&quot;&gt;doi:10.25080/Majora-629e541a-00e&lt;/a&gt;.n”,
 “n”,
 “[2] Naveen Michaud-Agrawal, Elizabeth&amp;nbsp;J. Denning, Thomas&amp;nbsp;B. Woolf, and Oliver Beckstein.n”,
-“&lt;span class=”bibtex-protected”&gt;MDAnalysis&lt;/span&gt;: &lt;span class=”bibtex-protected”&gt;A&lt;/span&gt; toolkit for the analysis of molecular dynamics simulations.n”,
+“&lt;span class=&quot;bibtex-protected&quot;&gt;MDAnalysis&lt;/span&gt;: &lt;span class=&quot;bibtex-protected&quot;&gt;A&lt;/span&gt; toolkit for the analysis of molecular dynamics simulations.n”,
 “&lt;em&gt;Journal of Computational Chemistry&lt;/em&gt;, 32(10):2319–2327, July 2011.n”,
 “00778.n”,
-“URL: &lt;a href=”<a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>”&gt;http://doi.wiley.com/10.1002/jcc.21787&lt;/a&gt;, &lt;a href=”<a class="reference external" href="https://doi.org/10.1002/jcc.21787">https://doi.org/10.1002/jcc.21787</a>”&gt;doi:10.1002/jcc.21787&lt;/a&gt;.n”,
+“URL: &lt;a href=&quot;<a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>&quot;&gt;http://doi.wiley.com/10.1002/jcc.21787&lt;/a&gt;, &lt;a href=&quot;<a class="reference external" href="https://doi.org/10.1002/jcc.21787">https://doi.org/10.1002/jcc.21787</a>&quot;&gt;doi:10.1002/jcc.21787&lt;/a&gt;.n”,
 “n”,
 “[3] O&amp;nbsp;S Smart, J&amp;nbsp;M Goodfellow, and B&amp;nbsp;A Wallace.n”,
-“The pore dimensions of gramicidin &lt;span class=”bibtex-protected”&gt;A&lt;/span&gt;.n”,
+“The pore dimensions of gramicidin &lt;span class=&quot;bibtex-protected&quot;&gt;A&lt;/span&gt;.n”,
 “&lt;em&gt;Biophysical Journal&lt;/em&gt;, 65(6):2455–2460, December 1993.n”,
 “00522.n”,
-“URL: &lt;a href=”<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1225986/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1225986/</a>”&gt;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1225986/&lt;/a&gt;, &lt;a href=”<a class="reference external" href="https://doi.org/10.1016/S0006-3495(93)81293-1">https://doi.org/10.1016/S0006-3495(93)81293-1</a>”&gt;doi:10.1016/S0006-3495(93)81293-1&lt;/a&gt;.n”,
+“URL: &lt;a href=&quot;<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1225986/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1225986/</a>&quot;&gt;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1225986/&lt;/a&gt;, &lt;a href=&quot;<a class="reference external" href="https://doi.org/10.1016/S0006-3495(93)81293-1">https://doi.org/10.1016/S0006-3495(93)81293-1</a>&quot;&gt;doi:10.1016/S0006-3495(93)81293-1&lt;/a&gt;.n”,
 “n”,
 “[4] O.&amp;nbsp;S. Smart, J.&amp;nbsp;G. Neduvelil, X.&amp;nbsp;Wang, B.&amp;nbsp;A. Wallace, and M.&amp;nbsp;S. Sansom.n”,
-“&lt;span class=”bibtex-protected”&gt;HOLE&lt;/span&gt;: a program for the analysis of the pore dimensions of ion channel structural models.n”,
+“&lt;span class=&quot;bibtex-protected&quot;&gt;HOLE&lt;/span&gt;: a program for the analysis of the pore dimensions of ion channel structural models.n”,
 “&lt;em&gt;Journal of Molecular Graphics&lt;/em&gt;, 14(6):354–360, 376, December 1996.n”,
 “00935.n”,
-“&lt;a href=”<a class="reference external" href="https://doi.org/10.1016/s0263-7855(97)00009-x">https://doi.org/10.1016/s0263-7855(97)00009-x</a>”&gt;doi:10.1016/s0263-7855(97)00009-x&lt;/a&gt;.n”,
+“&lt;a href=&quot;<a class="reference external" href="https://doi.org/10.1016/s0263-7855(97)00009-x">https://doi.org/10.1016/s0263-7855(97)00009-x</a>&quot;&gt;doi:10.1016/s0263-7855(97)00009-x&lt;/a&gt;.n”,
 “n”,
 “[5] Lukas&amp;nbsp;S. Stelzl, Philip&amp;nbsp;W. Fowler, Mark S.&amp;nbsp;P. Sansom, and Oliver Beckstein.n”,
-“Flexible gates generate occluded intermediates in the transport cycle of &lt;span class=”bibtex-protected”&gt;LacY&lt;/span&gt;.n”,
+“Flexible gates generate occluded intermediates in the transport cycle of &lt;span class=&quot;bibtex-protected&quot;&gt;LacY&lt;/span&gt;.n”,
 “&lt;em&gt;Journal of Molecular Biology&lt;/em&gt;, 426(3):735–751, February 2014.n”,
 “00000.n”,
-“URL: &lt;a href=”<a class="reference external" href="https://asu.pure.elsevier.com/en/publications/flexible-gates-generate-occluded-intermediates-in-the-transport-c">https://asu.pure.elsevier.com/en/publications/flexible-gates-generate-occluded-intermediates-in-the-transport-c</a>”&gt;https://asu.pure.elsevier.com/en/publications/flexible-gates-generate-occluded-intermediates-in-the-transport-c&lt;/a&gt;, &lt;a href=”<a class="reference external" href="https://doi.org/10.1016/j.jmb.2013.10.024">https://doi.org/10.1016/j.jmb.2013.10.024</a>”&gt;doi:10.1016/j.jmb.2013.10.024&lt;/a&gt;.”</p>
+“URL: &lt;a href=&quot;<a class="reference external" href="https://asu.pure.elsevier.com/en/publications/flexible-gates-generate-occluded-intermediates-in-the-transport-c">https://asu.pure.elsevier.com/en/publications/flexible-gates-generate-occluded-intermediates-in-the-transport-c</a>&quot;&gt;https://asu.pure.elsevier.com/en/publications/flexible-gates-generate-occluded-intermediates-in-the-transport-c&lt;/a&gt;, &lt;a href=&quot;<a class="reference external" href="https://doi.org/10.1016/j.jmb.2013.10.024">https://doi.org/10.1016/j.jmb.2013.10.024</a>&quot;&gt;doi:10.1016/j.jmb.2013.10.024&lt;/a&gt;.”</p>
 </div></blockquote>
 <p>]</p>
 </div></blockquote>

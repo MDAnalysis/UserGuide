@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Using ParmEd with MDAnalysis and OpenMM to simulate a selection of atoms &mdash; MDAnalysis User Guide  documentation</title>
@@ -13,6 +14,8 @@
   
   <link rel="stylesheet" href="../../_static/css/msmb.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/msmb.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -33,11 +36,15 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script src="../../_static/js/versions.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -101,7 +108,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick start guide</a></li>
@@ -130,7 +137,7 @@
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Data structures</span></p>
+<p class="caption" role="heading"><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../atomgroup.html">AtomGroup</a></li>
@@ -138,14 +145,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../topology_system.html">The topology system</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Trajectories</span></p>
+<p class="caption" role="heading"><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../units.html">Units and constants</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Input/output</span></p>
+<p class="caption" role="heading"><span class="caption-text">Input/output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../formats/index.html">Format overview</a></li>
@@ -154,7 +161,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../formats/format_reference.html">Format reference</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Analysis</span></p>
+<p class="caption" role="heading"><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../analysis/README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../analysis/README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -168,13 +175,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../analysis/custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced</span></p>
+<p class="caption" role="heading"><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../datasets.html">Example data</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing_code.html">Contributing to the main codebase</a></li>
@@ -465,11 +472,12 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
 /* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
 div.rendered_html table {
   border: none;
   border-collapse: collapse;
@@ -478,10 +486,14 @@ div.rendered_html table {
   font-size: 12px;
   table-layout: fixed;
 }
+.jp-RenderedHTMLCommon thead,
 div.rendered_html thead {
   border-bottom: 1px solid black;
   vertical-align: bottom;
 }
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
 div.rendered_html tr,
 div.rendered_html th,
 div.rendered_html td {
@@ -493,19 +505,22 @@ div.rendered_html td {
   max-width: none;
   border: none;
 }
+.jp-RenderedHTMLCommon th,
 div.rendered_html th {
   font-weight: bold;
 }
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
 div.rendered_html tbody tr:nth-child(odd) {
   background: #f5f5f5;
 }
+.jp-RenderedHTMLCommon tbody tr:hover,
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
-<script>require=requirejs;</script><div class="section" id="Using-ParmEd-with-MDAnalysis-and-OpenMM-to-simulate-a-selection-of-atoms">
-<h1>Using ParmEd with MDAnalysis and OpenMM to simulate a selection of atoms<a class="headerlink" href="#Using-ParmEd-with-MDAnalysis-and-OpenMM-to-simulate-a-selection-of-atoms" title="Permalink to this headline">¶</a></h1>
+<script>require=requirejs;</script><section id="Using-ParmEd-with-MDAnalysis-and-OpenMM-to-simulate-a-selection-of-atoms">
+<h1>Using ParmEd with MDAnalysis and OpenMM to simulate a selection of atoms<a class="headerlink" href="#Using-ParmEd-with-MDAnalysis-and-OpenMM-to-simulate-a-selection-of-atoms" title="Permalink to this heading">¶</a></h1>
 <p>Here we use MDAnalysis to convert a ParmEd structure to an MDAnalysis Universe, select a subset of atoms, and convert it back to ParmEd to simulate with OpenMM.</p>
 <p><strong>Last executed:</strong> Dec 27, 2020 with MDAnalysis 1.0.0</p>
 <p><strong>Last updated:</strong> January 2020</p>
@@ -521,22 +536,20 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">parmed</span> <span class="k">as</span> <span class="nn">pmd</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">parmed</span> <span class="k">as</span> <span class="nn">pmd</span>
 <span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PRM7_ala2</span><span class="p">,</span> <span class="n">RST7_ala2</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="Loading-files:-the-difference-between-ParmEd-and-MDAnalysis">
-<h2>Loading files: the difference between ParmEd and MDAnalysis<a class="headerlink" href="#Loading-files:-the-difference-between-ParmEd-and-MDAnalysis" title="Permalink to this headline">¶</a></h2>
+<section id="Loading-files:-the-difference-between-ParmEd-and-MDAnalysis">
+<h2>Loading files: the difference between ParmEd and MDAnalysis<a class="headerlink" href="#Loading-files:-the-difference-between-ParmEd-and-MDAnalysis" title="Permalink to this heading">¶</a></h2>
 <p>Both ParmEd and MDAnalysis read a number of file formats. However, while MDAnalysis is typically used to analyse simulations, ParmEd is often used to set them up. This requires ParmEd to read topology parameter information that MDAnalysis typically ignores, such as the equilibrium length and force constants of bonds in the system. For example, the ParmEd structure below.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">pprm</span> <span class="o">=</span> <span class="n">pmd</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="n">PRM7_ala2</span><span class="p">,</span> <span class="n">RST7_ala2</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pprm</span> <span class="o">=</span> <span class="n">pmd</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="n">PRM7_ala2</span><span class="p">,</span> <span class="n">RST7_ala2</span><span class="p">)</span>
 <span class="n">pprm</span>
 </pre></div>
 </div>
@@ -554,8 +567,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">pprm</span><span class="o">.</span><span class="n">bonds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pprm</span><span class="o">.</span><span class="n">bonds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -573,8 +585,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">mprm</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PRM7_ala2</span><span class="p">,</span> <span class="n">RST7_ala2</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;RESTRT&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mprm</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PRM7_ala2</span><span class="p">,</span> <span class="n">RST7_ala2</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;RESTRT&#39;</span><span class="p">)</span>
 <span class="n">mprm</span>
 </pre></div>
 </div>
@@ -593,8 +604,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">mprm</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">bonds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">type</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mprm</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">bonds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">type</span>
 </pre></div>
 </div>
 </div>
@@ -612,8 +622,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">mprm_converted</span> <span class="o">=</span> <span class="n">mprm</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">convert_to</span><span class="p">(</span><span class="s1">&#39;PARMED&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mprm_converted</span> <span class="o">=</span> <span class="n">mprm</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">convert_to</span><span class="p">(</span><span class="s1">&#39;PARMED&#39;</span><span class="p">)</span>
 <span class="n">mprm_converted</span>
 </pre></div>
 </div>
@@ -632,8 +641,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">mprm_converted</span><span class="o">.</span><span class="n">bonds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mprm_converted</span><span class="o">.</span><span class="n">bonds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -651,8 +659,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">mprm_from_parmed</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">pprm</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mprm_from_parmed</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">pprm</span><span class="p">)</span>
 <span class="n">mprm_from_parmed</span>
 </pre></div>
 </div>
@@ -671,8 +678,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">mprm_from_parmed</span><span class="o">.</span><span class="n">bonds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">type</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mprm_from_parmed</span><span class="o">.</span><span class="n">bonds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">type</span>
 </pre></div>
 </div>
 </div>
@@ -685,16 +691,15 @@ div.rendered_html tbody tr:hover {
 &lt;Bond &lt;Atom N [0]; In ALA 0&gt;--&lt;Atom H1 [1]; In ALA 0&gt;; type=&lt;BondType; k=434.000, req=1.010&gt;&gt;
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Using-MDAnalysis-to-select-atoms">
-<h2>Using MDAnalysis to select atoms<a class="headerlink" href="#Using-MDAnalysis-to-select-atoms" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Using-MDAnalysis-to-select-atoms">
+<h2>Using MDAnalysis to select atoms<a class="headerlink" href="#Using-MDAnalysis-to-select-atoms" title="Permalink to this heading">¶</a></h2>
 <p>One reason we might want to convert a ParmEd structure into MDAnalysis is to use its sophisticated <a class="reference external" href="https://www.mdanalysis.org/UserGuide/selections.html">atom selection syntax</a>. While ParmEd has its <a class="reference external" href="https://parmed.github.io/ParmEd/html/structure.html#structure-manipulation-slicing-combining-replicating-and-splitting">own ways to select atoms</a>, MDAnalysis allows you to select atoms based on geometric distance.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">water</span> <span class="o">=</span> <span class="n">mprm_from_parmed</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;around 5 protein&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">residues</span><span class="o">.</span><span class="n">atoms</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">water</span> <span class="o">=</span> <span class="n">mprm_from_parmed</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;around 5 protein&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">residues</span><span class="o">.</span><span class="n">atoms</span>
 <span class="n">protein_shell</span> <span class="o">=</span> <span class="n">mprm_from_parmed</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;protein&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">water</span>
 <span class="n">prm_protein_shell</span> <span class="o">=</span> <span class="n">protein_shell</span><span class="o">.</span><span class="n">convert_to</span><span class="p">(</span><span class="s1">&#39;PARMED&#39;</span><span class="p">)</span>
 </pre></div>
@@ -704,8 +709,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">prm_protein_shell</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prm_protein_shell</span>
 </pre></div>
 </div>
 </div>
@@ -718,15 +722,14 @@ div.rendered_html tbody tr:hover {
 &lt;Structure 155 atoms; 46 residues; 154 bonds; PBC (orthogonal); parametrized&gt;
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Using-ParmEd-and-OpenMM-to-create-a-simulation-system">
-<h2>Using ParmEd and OpenMM to create a simulation system<a class="headerlink" href="#Using-ParmEd-and-OpenMM-to-create-a-simulation-system" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Using-ParmEd-and-OpenMM-to-create-a-simulation-system">
+<h2>Using ParmEd and OpenMM to create a simulation system<a class="headerlink" href="#Using-ParmEd-and-OpenMM-to-create-a-simulation-system" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">simtk.openmm</span> <span class="k">as</span> <span class="nn">mm</span>
 <span class="kn">import</span> <span class="nn">simtk.openmm.app</span> <span class="k">as</span> <span class="nn">app</span>
 <span class="kn">from</span> <span class="nn">parmed</span> <span class="kn">import</span> <span class="n">unit</span> <span class="k">as</span> <span class="n">u</span>
@@ -739,8 +742,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">system</span> <span class="o">=</span> <span class="n">prm_protein_shell</span><span class="o">.</span><span class="n">createSystem</span><span class="p">(</span><span class="n">nonbondedMethod</span><span class="o">=</span><span class="n">app</span><span class="o">.</span><span class="n">NoCutoff</span><span class="p">,</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">system</span> <span class="o">=</span> <span class="n">prm_protein_shell</span><span class="o">.</span><span class="n">createSystem</span><span class="p">(</span><span class="n">nonbondedMethod</span><span class="o">=</span><span class="n">app</span><span class="o">.</span><span class="n">NoCutoff</span><span class="p">,</span>
                                         <span class="n">constraints</span><span class="o">=</span><span class="n">app</span><span class="o">.</span><span class="n">HBonds</span><span class="p">,</span>
                                         <span class="n">implicitSolvent</span><span class="o">=</span><span class="n">app</span><span class="o">.</span><span class="n">GBn2</span><span class="p">)</span>
 </pre></div>
@@ -751,8 +753,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">integrator</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">LangevinIntegrator</span><span class="p">(</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integrator</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">LangevinIntegrator</span><span class="p">(</span>
                         <span class="mi">300</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">kelvin</span><span class="p">,</span>       <span class="c1"># Temperature of heat bath</span>
                         <span class="mf">1.0</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">picoseconds</span><span class="p">,</span>  <span class="c1"># Friction coefficient</span>
                         <span class="mf">2.0</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">femtoseconds</span><span class="p">,</span> <span class="c1"># Time step</span>
@@ -765,8 +766,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">sim</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">prm_protein_shell</span><span class="o">.</span><span class="n">topology</span><span class="p">,</span> <span class="n">system</span><span class="p">,</span> <span class="n">integrator</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sim</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">prm_protein_shell</span><span class="o">.</span><span class="n">topology</span><span class="p">,</span> <span class="n">system</span><span class="p">,</span> <span class="n">integrator</span><span class="p">)</span>
 <span class="n">sim</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">setPositions</span><span class="p">(</span><span class="n">prm_protein_shell</span><span class="o">.</span><span class="n">positions</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -776,8 +776,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">sim</span><span class="o">.</span><span class="n">minimizeEnergy</span><span class="p">(</span><span class="n">maxIterations</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sim</span><span class="o">.</span><span class="n">minimizeEnergy</span><span class="p">(</span><span class="n">maxIterations</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -786,8 +785,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">sim</span><span class="o">.</span><span class="n">reporters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sim</span><span class="o">.</span><span class="n">reporters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
         <span class="n">StateDataReporter</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">potentialEnergy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                           <span class="n">kineticEnergy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">volume</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                           <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -801,8 +799,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">sim</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sim</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -824,8 +821,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">protein_shell</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;ala2_shell.pdb&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">protein_shell</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;ala2_shell.pdb&#39;</span><span class="p">)</span>
 <span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="s1">&#39;ala2_shell.pdb&#39;</span><span class="p">,</span> <span class="s1">&#39;ala2_shell.trj&#39;</span><span class="p">)</span>
 <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span>
 </pre></div>
@@ -845,8 +841,8 @@ div.rendered_html tbody tr:hover {
 <p>[2] N. Michaud-Agrawal, E. J. Denning, T. B. Woolf, and O. Beckstein. MDAnalysis: A Toolkit for the Analysis of Molecular Dynamics Simulations. <em>J. Comput. Chem</em>. 32 (2011), 2319-2327, <a class="reference external" href="https://dx.doi.org/10.1002/jcc.21787">doi:10.1002/jcc.21787</a>. PMCID:<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3144279/">PMC3144279</a></p>
 <p>[3] Peter Eastman, Jason Swails, John D. Chodera, Robert T. McGibbon, Yutong Zhao, Kyle A. Beauchamp, Lee-Ping Wang, Andrew C. Simmonett, Matthew P. Harrigan, Chaya D. Stern, Rafal P. Wiewiora, Bernard R. Brooks, Vijay S. Pande. OpenMM 7: Rapid Development of High Performance Algorithms for Molecular Dynamics. <em>PLoS Comput. Biol.</em> 13:e1005659, 2017.</p>
 <p>[4] Hai Nguyen, David A Case, Alexander S Rose. NGLview - Interactive molecular graphics for Jupyter notebooks. <em>Bioinformatics</em>. 34 (2018), 1241–1242, <a class="reference external" href="https://doi.org/10.1093/bioinformatics/btx789">doi:10.1093/bioinformatics/btx789</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

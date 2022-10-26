@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Quick start guide &mdash; MDAnalysis User Guide  documentation</title>
@@ -13,6 +14,8 @@
   
   <link rel="stylesheet" href="../_static/css/msmb.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/msmb.css" type="text/css" />
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
 
   
@@ -33,13 +36,15 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script src="../_static/js/versions.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -103,7 +108,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Quick start guide</a><ul>
@@ -138,7 +143,7 @@
 <li class="toctree-l1"><a class="reference internal" href="README.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Data structures</span></p>
+<p class="caption" role="heading"><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../atomgroup.html">AtomGroup</a></li>
@@ -146,14 +151,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../topology_system.html">The topology system</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Trajectories</span></p>
+<p class="caption" role="heading"><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../units.html">Units and constants</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Input/output</span></p>
+<p class="caption" role="heading"><span class="caption-text">Input/output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../formats/index.html">Format overview</a></li>
@@ -162,7 +167,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../formats/format_reference.html">Format reference</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Analysis</span></p>
+<p class="caption" role="heading"><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="analysis/README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analysis/README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -176,13 +181,13 @@
 <li class="toctree-l1"><a class="reference internal" href="analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analysis/custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced</span></p>
+<p class="caption" role="heading"><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../datasets.html">Example data</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing_code.html">Contributing to the main codebase</a></li>
@@ -469,11 +474,12 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
 /* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
 div.rendered_html table {
   border: none;
   border-collapse: collapse;
@@ -482,10 +488,14 @@ div.rendered_html table {
   font-size: 12px;
   table-layout: fixed;
 }
+.jp-RenderedHTMLCommon thead,
 div.rendered_html thead {
   border-bottom: 1px solid black;
   vertical-align: bottom;
 }
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
 div.rendered_html tr,
 div.rendered_html th,
 div.rendered_html td {
@@ -497,19 +507,22 @@ div.rendered_html td {
   max-width: none;
   border: none;
 }
+.jp-RenderedHTMLCommon th,
 div.rendered_html th {
   font-weight: bold;
 }
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
 div.rendered_html tbody tr:nth-child(odd) {
   background: #f5f5f5;
 }
+.jp-RenderedHTMLCommon tbody tr:hover,
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
-<script>require=requirejs;</script><div class="section" id="Quick-start-guide">
-<h1>Quick start guide<a class="headerlink" href="#Quick-start-guide" title="Permalink to this headline">¶</a></h1>
+<script>require=requirejs;</script><section id="Quick-start-guide">
+<h1>Quick start guide<a class="headerlink" href="#Quick-start-guide" title="Permalink to this heading">¶</a></h1>
 <p><strong>Last executed:</strong> May 18, 2021 with MDAnalysis 1.1.1</p>
 <p>MDAnalysis version: ≥ 0.18.0</p>
 <p>Last updated: Dec 2020</p>
@@ -526,8 +539,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">,</span> <span class="n">GRO</span><span class="p">,</span> <span class="n">XTC</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">))</span>
@@ -550,8 +562,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <p>If you get an error message, you need to install MDAnalysis. If your version is under <code class="docutils literal notranslate"><span class="pre">0.18.0</span></code>, you need to upgrade MDAnalysis. <a class="reference external" href="https://www.mdanalysis.org/UserGuide/installation">Instructions for both are here.</a> After installing, restart this notebook.</p>
-<div class="section" id="Overview">
-<h2>Overview<a class="headerlink" href="#Overview" title="Permalink to this headline">¶</a></h2>
+<section id="Overview">
+<h2>Overview<a class="headerlink" href="#Overview" title="Permalink to this heading">¶</a></h2>
 <p>MDAnalysis is a Python package that provides tools to access and analyse data in molecular dynamics trajectories. Several key data structures form the backbone of MDAnalysis.</p>
 <ul class="simple">
 <li><p>A molecular system consists of particles. A particle is represented as an <code class="docutils literal notranslate"><span class="pre">Atom</span></code> object, even if it is a coarse-grained bead.</p></li>
@@ -559,9 +571,9 @@ div.rendered_html tbody tr:hover {
 <li><p>A <code class="docutils literal notranslate"><span class="pre">Universe</span></code> contains all the particles in a molecular system in an <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code> accessible at the <code class="docutils literal notranslate"><span class="pre">.atoms</span></code> attribute, and combines it with a trajectory at <code class="docutils literal notranslate"><span class="pre">.trajectory</span></code>.</p></li>
 </ul>
 <p>A fundamental concept in MDAnalysis is that at any one time, only one time frame of the trajectory is being accessed. The <code class="docutils literal notranslate"><span class="pre">trajectory</span></code> attribute of a <code class="docutils literal notranslate"><span class="pre">Universe</span></code> is usually a file reader. Think of the trajectory as a function <span class="math notranslate nohighlight">\(X(t)\)</span> of the frame index <span class="math notranslate nohighlight">\(t\)</span> that only makes the data from this specific frame available. This structure is important because it allows MDAnalysis to work with trajectory files too large to fit into the computer’s memory.</p>
-</div>
-<div class="section" id="Loading-a-structure-or-trajectory">
-<h2>Loading a structure or trajectory<a class="headerlink" href="#Loading-a-structure-or-trajectory" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Loading-a-structure-or-trajectory">
+<h2>Loading a structure or trajectory<a class="headerlink" href="#Loading-a-structure-or-trajectory" title="Permalink to this heading">¶</a></h2>
 <p>Working with MDAnalysis typically starts with loading data into a <code class="docutils literal notranslate"><span class="pre">Universe</span></code>, the central data structure in MDAnalysis. The <a class="reference external" href="https://www.mdanalysis.org/UserGuide/universe">user guide</a> has a complete explanation of ways to create and manipulate a <code class="docutils literal notranslate"><span class="pre">Universe</span></code>.</p>
 <p>The first arguments for creating a <code class="docutils literal notranslate"><span class="pre">Universe</span></code> are topology and trajectory files.</p>
 <ul class="simple">
@@ -572,8 +584,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">psf</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">psf</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">psf</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">psf</span><span class="p">,</span> <span class="s1">&#39;trajectory&#39;</span><span class="p">))</span>
 </pre></div>
@@ -593,8 +604,7 @@ False
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">gro</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">GRO</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gro</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">GRO</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">gro</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gro</span><span class="o">.</span><span class="n">trajectory</span><span class="p">))</span>
 </pre></div>
@@ -614,8 +624,7 @@ False
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">))</span>
 </pre></div>
@@ -637,16 +646,15 @@ False
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="Working-with-groups-of-atoms">
-<h2>Working with groups of atoms<a class="headerlink" href="#Working-with-groups-of-atoms" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Working-with-groups-of-atoms">
+<h2>Working with groups of atoms<a class="headerlink" href="#Working-with-groups-of-atoms" title="Permalink to this heading">¶</a></h2>
 <p>Most analysis requires creating and working with an <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>, a collection of <code class="docutils literal notranslate"><span class="pre">Atom</span></code>s. For convenience, you can also work with chemically meaningful groups of <code class="docutils literal notranslate"><span class="pre">Atoms</span></code> such as a <code class="docutils literal notranslate"><span class="pre">Residue</span></code> or a <code class="docutils literal notranslate"><span class="pre">Segment</span></code>. These come with analogous containers to <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>: <code class="docutils literal notranslate"><span class="pre">ResidueGroup</span></code> and <code class="docutils literal notranslate"><span class="pre">SegmentGroup</span></code>. For instance, the <code class="docutils literal notranslate"><span class="pre">.residues</span></code> attribute of a <code class="docutils literal notranslate"><span class="pre">Universe</span></code> returns a <code class="docutils literal notranslate"><span class="pre">ResidueGroup</span></code>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">residues</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">residues</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -658,15 +666,14 @@ False
 &lt;ResidueGroup [&lt;Residue MET, 1&gt;, &lt;Residue ARG, 2&gt;, &lt;Residue ILE, 3&gt;, ..., &lt;Residue ILE, 212&gt;, &lt;Residue LEU, 213&gt;, &lt;Residue GLY, 214&gt;]&gt;
 </pre></div></div>
 </div>
-<div class="section" id="Selecting-atoms">
-<h3>Selecting atoms<a class="headerlink" href="#Selecting-atoms" title="Permalink to this headline">¶</a></h3>
+<section id="Selecting-atoms">
+<h3>Selecting atoms<a class="headerlink" href="#Selecting-atoms" title="Permalink to this heading">¶</a></h3>
 <p>The easiest way to access the particles of your <code class="docutils literal notranslate"><span class="pre">Universe</span></code> is with the <code class="docutils literal notranslate"><span class="pre">atoms</span></code> attribute:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span>
 </pre></div>
 </div>
 </div>
@@ -684,8 +691,7 @@ False
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">last_five</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">last_five</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">last_five</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -703,8 +709,7 @@ False
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">last_five</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">last_five</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
 </pre></div>
 </div>
 </div>
@@ -721,8 +726,7 @@ False
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;resname ASP or resname GLU&#39;</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;resname ASP or resname GLU&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -739,8 +743,7 @@ False
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;resid 50-100&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">n_residues</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;resid 50-100&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">n_residues</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">residues</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">100</span><span class="p">]</span><span class="o">.</span><span class="n">n_residues</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -760,8 +763,7 @@ False
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;(resname GLU or resname HS*) and name CA and (resid 1:100)&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;(resname GLU or resname HS*) and name CA and (resid 1:100)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -779,16 +781,15 @@ False
 <p>An <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code> created from a selection is sorted and duplicate elements are removed. This is not true for an <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code> produced by slicing. Thus, slicing can be used when the order of atoms is crucial.</p>
 </div>
 <p>The <a class="reference external" href="https://userguide.mdanalysis.org/stable/atomgroup.html">user guide</a> has a complete rundown of creating <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>s through indexing, selection language, and set methods.</p>
-</div>
-<div class="section" id="Getting-atom-information-from-AtomGroups">
-<h3>Getting atom information from AtomGroups<a class="headerlink" href="#Getting-atom-information-from-AtomGroups" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Getting-atom-information-from-AtomGroups">
+<h3>Getting atom information from AtomGroups<a class="headerlink" href="#Getting-atom-information-from-AtomGroups" title="Permalink to this heading">¶</a></h3>
 <p>An <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code> can tell you information about the atoms inside it with a number of convenient attributes.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -805,8 +806,7 @@ False
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">70</span><span class="p">]</span><span class="o">.</span><span class="n">masses</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">70</span><span class="p">]</span><span class="o">.</span><span class="n">masses</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -824,8 +824,7 @@ False
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span><span class="o">.</span><span class="n">residues</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span><span class="o">.</span><span class="n">residues</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">:]</span><span class="o">.</span><span class="n">segments</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -844,8 +843,7 @@ False
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span><span class="o">.</span><span class="n">resnames</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span><span class="o">.</span><span class="n">resnames</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -864,8 +862,7 @@ False
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">near_met</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;not resname MET and (around 2 resname MET)&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">near_met</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;not resname MET and (around 2 resname MET)&#39;</span><span class="p">)</span>
 <span class="n">near_met</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;resnames&#39;</span><span class="p">,</span> <span class="s1">&#39;names&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -891,16 +888,15 @@ False
 </pre></div></div>
 </div>
 <p>A complete list of topology attributes can be found <a class="reference external" href="https://userguide.mdanalysis.org/stable/topology_system.html">in the user guide.</a></p>
-</div>
-<div class="section" id="AtomGroup-positions-and-methods">
-<h3>AtomGroup positions and methods<a class="headerlink" href="#AtomGroup-positions-and-methods" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="AtomGroup-positions-and-methods">
+<h3>AtomGroup positions and methods<a class="headerlink" href="#AtomGroup-positions-and-methods" title="Permalink to this heading">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">.positions</span></code> attribute is probably the most important information you can get from an <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>: a <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> of coordinates, with the shape <code class="docutils literal notranslate"><span class="pre">(n_atoms,</span> <span class="pre">3)</span></code>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ca</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;resid 1-5 and name CA&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ca</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;resid 1-5 and name CA&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ca</span><span class="o">.</span><span class="n">positions</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ca</span><span class="o">.</span><span class="n">positions</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
@@ -933,8 +929,7 @@ False
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">ca</span><span class="o">.</span><span class="n">center_of_mass</span><span class="p">())</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ca</span><span class="o">.</span><span class="n">center_of_mass</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -957,8 +952,7 @@ False
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">nhh</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nhh</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">nhh</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -976,8 +970,7 @@ False
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">angle_nhh</span> <span class="o">=</span> <span class="n">nhh</span><span class="o">.</span><span class="n">angle</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">angle_nhh</span> <span class="o">=</span> <span class="n">nhh</span><span class="o">.</span><span class="n">angle</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">angle_nhh</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -991,18 +984,17 @@ False
 </pre></div></div>
 </div>
 <p>Note that the order of the atoms matters for angles, dihedrals, and impropers. The value returned for an angle is the angle between first and third atom, with the apex at the second. Fancy indexing is one way to get an ordered AtomGroup.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="mi">3</span>
-  <span class="o">/</span>
- <span class="o">/</span>
-<span class="mi">2</span><span class="o">------</span><span class="mi">1</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   3
+  /
+ /
+2------1
 </pre></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">hnh</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hnh</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">hnh</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1019,8 +1011,7 @@ False
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">angle_hnh</span> <span class="o">=</span> <span class="n">hnh</span><span class="o">.</span><span class="n">angle</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">angle_hnh</span> <span class="o">=</span> <span class="n">hnh</span><span class="o">.</span><span class="n">angle</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">angle_hnh</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -1033,17 +1024,16 @@ False
 106.2036465194493
 </pre></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="Working-with-trajectories">
-<h2>Working with trajectories<a class="headerlink" href="#Working-with-trajectories" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="Working-with-trajectories">
+<h2>Working with trajectories<a class="headerlink" href="#Working-with-trajectories" title="Permalink to this heading">¶</a></h2>
 <p>The <a class="reference external" href="https://userguide.mdanalysis.org/stable/trajectories/trajectories.html">trajectory of a Universe contains the changing coordinate information</a>. The number of frames in a trajectory is its length:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1060,8 +1050,7 @@ False
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[:</span><span class="mi">20</span><span class="p">]:</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[:</span><span class="mi">20</span><span class="p">]:</span>
     <span class="n">time</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">time</span>
     <span class="n">rgyr</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">radius_of_gyration</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Frame: </span><span class="si">{:3d}</span><span class="s2">, Time: </span><span class="si">{:4.0f}</span><span class="s2"> ps, Rgyr: </span><span class="si">{:.4f}</span><span class="s2"> A&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">frame</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">rgyr</span><span class="p">))</span>
@@ -1100,8 +1089,7 @@ Frame:  19, Time:   20 ps, Rgyr: 17.1265 A
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">frame</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">frame</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1118,8 +1106,7 @@ Frame:  19, Time:   20 ps, Rgyr: 17.1265 A
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">frame</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">frame</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1136,8 +1123,7 @@ Frame:  19, Time:   20 ps, Rgyr: 17.1265 A
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">frame</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">frame</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">frame</span>
 <span class="n">time</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">time</span>
 <span class="n">rgyr</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">radius_of_gyration</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Frame: </span><span class="si">{:3d}</span><span class="s2">, Time: </span><span class="si">{:4.0f}</span><span class="s2"> ps, Rgyr: </span><span class="si">{:.4f}</span><span class="s2"> A&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">rgyr</span><span class="p">))</span>
@@ -1157,8 +1143,7 @@ Frame:  10, Time:   11 ps, Rgyr: 16.8521 A
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">rgyr</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rgyr</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">time</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">protein</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;protein&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">:</span>
@@ -1173,8 +1158,7 @@ Frame:  10, Time:   11 ps, Rgyr: 16.8521 A
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">rgyr_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rgyr</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Radius of gyration (A)&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">time</span><span class="p">)</span>
 <span class="n">rgyr_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Time (ps)&#39;</span>
 
@@ -1241,8 +1225,7 @@ Frame:  10, Time:   11 ps, Rgyr: 16.8521 A
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="n">rgyr_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Radius of gyration&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1264,8 +1247,8 @@ Frame:  10, Time:   11 ps, Rgyr: 16.8521 A
 <img alt="../_images/examples_quickstart_70_1.png" src="../_images/examples_quickstart_70_1.png" />
 </div>
 </div>
-<div class="section" id="Dynamic-selection">
-<h3>Dynamic selection<a class="headerlink" href="#Dynamic-selection" title="Permalink to this headline">¶</a></h3>
+<section id="Dynamic-selection">
+<h3>Dynamic selection<a class="headerlink" href="#Dynamic-selection" title="Permalink to this heading">¶</a></h3>
 <p>As seen above, coordinates change while iterating over the trajectory. Therefore, properties calculated from the coordinates, such as the radius of gyration, also change.</p>
 <p>Selections are often defined on static properties that do not change when moving through a trajectory. Above, the static selection is all the atoms that are in a protein. You can define the selection once and then recalculate the property of interest for each frame of the trajectory.</p>
 <p>However, some selections contain distance-dependent queries (such as <code class="docutils literal notranslate"><span class="pre">around</span></code> or <code class="docutils literal notranslate"><span class="pre">point</span></code>, <a class="reference external" href="https://userguide.mdanalysis.org/stable/selections.html">see selection keywords for more details</a>). In this case, the selection should be updated for each time step using a dynamic selection by setting the keyword <code class="docutils literal notranslate"><span class="pre">updating=True</span></code>. This command gives an <code class="docutils literal notranslate"><span class="pre">UpdatingAtomGroup</span></code> rather than a static <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>.</p>
@@ -1273,8 +1256,7 @@ Frame:  10, Time:   11 ps, Rgyr: 16.8521 A
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">dynamic</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;around 2 resname ALA&#39;</span><span class="p">,</span> <span class="n">updating</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dynamic</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;around 2 resname ALA&#39;</span><span class="p">,</span> <span class="n">updating</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">dynamic</span><span class="p">))</span>
 <span class="n">dynamic</span>
 </pre></div>
@@ -1301,8 +1283,7 @@ Frame:  10, Time:   11 ps, Rgyr: 16.8521 A
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">static</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;around 2 resname ALA&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;around 2 resname ALA&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">static</span><span class="p">))</span>
 <span class="n">static</span>
 </pre></div>
@@ -1330,8 +1311,7 @@ Frame:  10, Time:   11 ps, Rgyr: 16.8521 A
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
 <span class="n">dynamic</span>
 </pre></div>
 </div>
@@ -1349,8 +1329,7 @@ Frame:  10, Time:   11 ps, Rgyr: 16.8521 A
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">static</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">static</span>
 </pre></div>
 </div>
 </div>
@@ -1363,22 +1342,22 @@ Frame:  10, Time:   11 ps, Rgyr: 16.8521 A
 &lt;AtomGroup with 54 atoms&gt;
 </pre></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="Writing-out-coordinates">
-<h2>Writing out coordinates<a class="headerlink" href="#Writing-out-coordinates" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="Writing-out-coordinates">
+<h2>Writing out coordinates<a class="headerlink" href="#Writing-out-coordinates" title="Permalink to this heading">¶</a></h2>
 <p>MDAnalysis supports <a class="reference external" href="https://userguide.mdanalysis.org/stable/selections.html">writing data out</a> into a range of file formats, including both single frame formats (e.g. PDB, GRO) and trajectory writers (e.g. XTC, DCD, and multi-frame PDB files). (You can <a class="reference external" href="https://userguide.mdanalysis.org/stable/formats/selection_exporters.html">also write selections out to other programs, such as VMD macros.</a>)The user guide has a <a class="reference external" href="https://userguide.mdanalysis.org/stable/formats/index.html">complete list of
 formats</a>, each with their own <a class="reference external" href="https://userguide.mdanalysis.org/stable/formats/format_reference.html">reference pages</a>.</p>
-<div class="section" id="Single-frame">
-<h3>Single frame<a class="headerlink" href="#Single-frame" title="Permalink to this headline">¶</a></h3>
+<section id="Single-frame">
+<h3>Single frame<a class="headerlink" href="#Single-frame" title="Permalink to this heading">¶</a></h3>
 <p>The most straightforward way to write to a file that can only hold a single frame is to use the <code class="docutils literal notranslate"><span class="pre">write()</span></code> method of any <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>. MDAnalysis uses the file extension to determine the output file format. For instance, to only write out the <span class="math notranslate nohighlight">\(C_{\alpha}\)</span> atoms to a file in GRO format:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ca</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>
 <span class="n">ca</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;calphas.gro&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="Trajectories">
-<h3>Trajectories<a class="headerlink" href="#Trajectories" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Trajectories">
+<h3>Trajectories<a class="headerlink" href="#Trajectories" title="Permalink to this heading">¶</a></h3>
 <p>The <a class="reference external" href="https://userguide.mdanalysis.org/stable/reading_and_writing.html#output">standard way to write out trajectories</a> is to:</p>
 <ol class="arabic simple">
 <li><p>Open a trajectory <code class="docutils literal notranslate"><span class="pre">Writer</span></code> and specify how many atoms a frame will contain</p></li>
@@ -1392,10 +1371,10 @@ formats</a>, each with their own <a class="reference external" href="https://use
         <span class="n">w</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ca</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="Analysis">
-<h2>Analysis<a class="headerlink" href="#Analysis" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="Analysis">
+<h2>Analysis<a class="headerlink" href="#Analysis" title="Permalink to this heading">¶</a></h2>
 <p>MDAnalysis comes with a <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis_modules.html">diverse set of analysis modules</a>, and the building blocks to <a class="reference external" href="https://userguide.mdanalysis.org/stable/examples/analysis/custom_trajectory_analysis.html">implement your own</a>. (Please see a list of analysis tutorials in the <a class="reference external" href="https://userguide.mdanalysis.org/stable/examples/analysis/README.html">user guide</a>.)</p>
 <p>The majority of these follow a common interface:</p>
 <ol class="arabic simple">
@@ -1406,15 +1385,14 @@ formats</a>, each with their own <a class="reference external" href="https://use
 </ol>
 <p><strong>However, not all analysis uses this model. It is important to check the documentation for each analysis.</strong> You can also see examples in the <a class="reference external" href="https://userguide.mdanalysis.org/stable/examples/README.html">Example gallery</a>.</p>
 <p>Below, simple RMSD analysis is shown. The <code class="docutils literal notranslate"><span class="pre">rms</span></code> module follows the interface above.</p>
-<div class="section" id="RMSD">
-<h3>RMSD<a class="headerlink" href="#RMSD" title="Permalink to this headline">¶</a></h3>
+<section id="RMSD">
+<h3>RMSD<a class="headerlink" href="#RMSD" title="Permalink to this heading">¶</a></h3>
 <p>Not all sub-modules of MDAnalysis are imported with <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">MDAnalysis</span></code>. Most analysis modules have to be imported explicitly.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">MDAnalysis.analysis</span> <span class="kn">import</span> <span class="n">rms</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">MDAnalysis.analysis</span> <span class="kn">import</span> <span class="n">rms</span>
 </pre></div>
 </div>
 </div>
@@ -1423,8 +1401,7 @@ formats</a>, each with their own <a class="reference external" href="https://use
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">bb</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;backbone&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bb</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;backbone&#39;</span><span class="p">)</span>
 
 <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># first frame</span>
 <span class="n">first</span> <span class="o">=</span> <span class="n">bb</span><span class="o">.</span><span class="n">positions</span>
@@ -1458,8 +1435,7 @@ formats</a>, each with their own <a class="reference external" href="https://use
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># set to first frame</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># set to first frame</span>
 <span class="n">rmsd_analysis</span> <span class="o">=</span> <span class="n">rms</span><span class="o">.</span><span class="n">RMSD</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="s1">&#39;backbone&#39;</span><span class="p">,</span> <span class="n">groupselections</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span> <span class="s1">&#39;protein&#39;</span><span class="p">])</span>
 <span class="n">rmsd_analysis</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
@@ -1479,8 +1455,7 @@ formats</a>, each with their own <a class="reference external" href="https://use
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">rmsd_analysis</span><span class="o">.</span><span class="n">rmsd</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">rmsd_analysis</span><span class="o">.</span><span class="n">rmsd</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1505,8 +1480,7 @@ formats</a>, each with their own <a class="reference external" href="https://use
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="n">rmsd_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rmsd_analysis</span><span class="o">.</span><span class="n">rmsd</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:],</span>
                        <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Backbone&#39;</span><span class="p">,</span> <span class="s1">&#39;C-alphas&#39;</span><span class="p">,</span> <span class="s1">&#39;Protein&#39;</span><span class="p">],</span>
@@ -1589,8 +1563,7 @@ formats</a>, each with their own <a class="reference external" href="https://use
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">rmsd_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;RMSD&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rmsd_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;RMSD&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1611,10 +1584,10 @@ formats</a>, each with their own <a class="reference external" href="https://use
 </div>
 </div>
 <p>See the <a class="reference external" href="https://userguide.mdanalysis.org/stable/examples/analysis/README.html#alignments-and-rms-fitting">the RMSD and alignment notebooks</a> for more information.</p>
-</div>
-</div>
-<div class="section" id="References">
-<h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="References">
+<h2>References<a class="headerlink" href="#References" title="Permalink to this heading">¶</a></h2>
 <p>When using MDAnalysis in published work, please cite both these papers:</p>
 <ul class="simple">
 <li><ol class="upperalpha simple" start="14">
@@ -1630,8 +1603,8 @@ doi:<a class="reference external" href="https://doi.org/10.25080/Majora-629e541a
 <li><p>Pu Liu, Dmitris K. Agrafiotis, and Douglas L. Theobald. Fast determination of the optimal rotational matrix for macromolecular superpositions. <em>J. Comput. Chem.</em> <strong>31</strong> (2010), 1561–1563.</p></li>
 </ul>
 <p>The primary sources of each module will be in their documentation.</p>
-<div class="section" id="Automatic-citations-with-duecredit">
-<h3>Automatic citations with duecredit<a class="headerlink" href="#Automatic-citations-with-duecredit" title="Permalink to this headline">¶</a></h3>
+<section id="Automatic-citations-with-duecredit">
+<h3>Automatic citations with duecredit<a class="headerlink" href="#Automatic-citations-with-duecredit" title="Permalink to this heading">¶</a></h3>
 <p>Citations can be also be automatically generated using <code class="docutils literal notranslate"><span class="pre">duecredit</span></code>. <a class="reference external" href="https://mdanalysis.org/UserGuide/references.html">Complete installation and usage instructions can be found in the user guide</a>, but it is simple to generate a list of citations for your python script <code class="docutils literal notranslate"><span class="pre">my_script.py</span></code>.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python -m duecredit my_script.py
 </pre></div>
@@ -1640,9 +1613,9 @@ doi:<a class="reference external" href="https://doi.org/10.25080/Majora-629e541a
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>duecredit summary --format<span class="o">=</span>bibtex
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

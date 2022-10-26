@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>TPR (GROMACS run topology files) &mdash; MDAnalysis User Guide  documentation</title>
@@ -13,6 +14,8 @@
   
   <link rel="stylesheet" href="../../_static/css/msmb.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/msmb.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -33,11 +36,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script src="../../_static/js/versions.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -101,7 +106,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/quickstart.html">Quick start guide</a></li>
@@ -109,7 +114,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../examples/README.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Data structures</span></p>
+<p class="caption" role="heading"><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../atomgroup.html">AtomGroup</a></li>
@@ -117,14 +122,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../topology_system.html">The topology system</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Trajectories</span></p>
+<p class="caption" role="heading"><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../units.html">Units and constants</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Input/output</span></p>
+<p class="caption" role="heading"><span class="caption-text">Input/output</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Format overview</a></li>
@@ -174,7 +179,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Analysis</span></p>
+<p class="caption" role="heading"><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -188,13 +193,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/analysis/custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced</span></p>
+<p class="caption" role="heading"><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../datasets.html">Example data</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing_code.html">Contributing to the main codebase</a></li>
@@ -273,13 +278,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="tpr-gromacs-run-topology-files">
-<span id="tpr-format"></span><h1>TPR (GROMACS run topology files)<a class="headerlink" href="#tpr-gromacs-run-topology-files" title="Permalink to this headline">¶</a></h1>
+  <section id="tpr-gromacs-run-topology-files">
+<span id="tpr-format"></span><h1>TPR (GROMACS run topology files)<a class="headerlink" href="#tpr-gromacs-run-topology-files" title="Permalink to this heading">¶</a></h1>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 28%" />
-<col style="width: 72%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><strong>Topology parser</strong></p></td>
 <td><p><a class="reference external" href="https://docs.mdanalysis.org/2.4.0-dev0/documentation_pages/topology/TPRParser.html#MDAnalysis.topology.TPRParser.TPRParser" title="(in MDAnalysis v2.4.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.topology.TPRParser.TPRParser</span></code></a></p></td>
@@ -298,16 +299,10 @@ Finally, molecules are also numbered from 0, in the attribute <code class="code 
 <p><strong>This will change in version 2.0.0. The TPRParser will number resids, ids, etc. from 1 to be consistent with other formats.</strong></p>
 <p>Atom <code class="code docutils literal notranslate"><span class="pre">indices</span></code> and residue <code class="code docutils literal notranslate"><span class="pre">resindices</span></code> are MDAnalysis derived and always index from 0, no matter the file type.</p>
 </div>
-<div class="section" id="supported-versions">
-<h2>Supported versions<a class="headerlink" href="#supported-versions" title="Permalink to this headline">¶</a></h2>
+<section id="supported-versions">
+<h2>Supported versions<a class="headerlink" href="#supported-versions" title="Permalink to this heading">¶</a></h2>
 <table class="docutils align-default" id="id1">
 <caption><span class="caption-text">TPR format versions and generations read by <code class="xref py py-func docutils literal notranslate"><span class="pre">MDAnalysis.topology.TPRParser.parse()</span></code>.</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 29%" />
-<col style="width: 41%" />
-<col style="width: 10%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>TPX format</p></th>
 <th class="head"><p>TPX generation</p></th>
@@ -370,9 +365,9 @@ Finally, molecules are also numbered from 0, in the attribute <code class="code 
 <p>For further discussion and notes see <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/issues/2">Issue 2</a>. Please <em>open a new issue</em> in
 the <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/issues">Issue Tracker</a> when a new or different TPR file format version should be
 supported.</p>
-</div>
-<div class="section" id="tpr-specification">
-<h2>TPR specification<a class="headerlink" href="#tpr-specification" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="tpr-specification">
+<h2>TPR specification<a class="headerlink" href="#tpr-specification" title="Permalink to this heading">¶</a></h2>
 <p>The TPR reader is a pure-python implementation of a basic TPR
 parser. Currently the following sections of the topology are parsed:</p>
 <ul class="simple">
@@ -388,11 +383,6 @@ parser. Currently the following sections of the topology are parsed:</p>
 <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/pull/463">Issue 463</a>):</p>
 <table class="docutils align-default" id="id2">
 <caption><span class="caption-text">GROMACS entries used to create bonds.</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 18%" />
-<col style="width: 8%" />
-<col style="width: 74%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Directive</p></th>
 <th class="head"><p>Type</p></th>
@@ -456,11 +446,6 @@ parser. Currently the following sections of the topology are parsed:</p>
 </table>
 <table class="docutils align-default" id="id3">
 <caption><span class="caption-text">GROMACS entries used to create angles.</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 22%" />
-<col style="width: 12%" />
-<col style="width: 66%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Directive</p></th>
 <th class="head"><p>Type</p></th>
@@ -504,11 +489,6 @@ parser. Currently the following sections of the topology are parsed:</p>
 </table>
 <table class="docutils align-default" id="id4">
 <caption><span class="caption-text">GROMACS entries used to create dihedrals.</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 11%" />
-<col style="width: 70%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Directive</p></th>
 <th class="head"><p>Type</p></th>
@@ -548,11 +528,6 @@ parser. Currently the following sections of the topology are parsed:</p>
 </table>
 <table class="docutils align-default" id="id5">
 <caption><span class="caption-text">GROMACS entries used to create improper dihedrals.</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 13%" />
-<col style="width: 65%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Directive</p></th>
 <th class="head"><p>Type</p></th>
@@ -570,9 +545,9 @@ parser. Currently the following sections of the topology are parsed:</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="developer-notes">
-<h2>Developer notes<a class="headerlink" href="#developer-notes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="developer-notes">
+<h2>Developer notes<a class="headerlink" href="#developer-notes" title="Permalink to this heading">¶</a></h2>
 <p>This tpr parser is written according to the following files</p>
 <ul class="simple">
 <li><p><code class="file docutils literal notranslate"><em><span class="pre">gromacs_dir</span></em><span class="pre">/src/kernel/gmxdump.c</span></code></p></li>
@@ -588,8 +563,8 @@ parser. Currently the following sections of the topology are parsed:</p>
 <code class="file docutils literal notranslate"><span class="pre">gmxdump.c</span></code> or <code class="file docutils literal notranslate"><span class="pre">tpxio.c</span></code>, those with <code class="docutils literal notranslate"><span class="pre">extract_</span></code> are new.</p>
 <p>Wherever <code class="docutils literal notranslate"><span class="pre">fver_err(fver)</span></code> is used, it means the tpx version problem
 has not been solved. Versions prior to Gromacs 4.0.x are not supported.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

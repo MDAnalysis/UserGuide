@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Installation &mdash; MDAnalysis User Guide  documentation</title>
@@ -13,6 +14,8 @@
   
   <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
 
   
@@ -33,11 +36,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script src="_static/js/versions.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
@@ -101,7 +106,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#conda">conda</a></li>
@@ -119,7 +124,7 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/README.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Data structures</span></p>
+<p class="caption" role="heading"><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="atomgroup.html">AtomGroup</a></li>
@@ -127,14 +132,14 @@
 <li class="toctree-l1"><a class="reference internal" href="selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="topology_system.html">The topology system</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Trajectories</span></p>
+<p class="caption" role="heading"><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="units.html">Units and constants</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Input/output</span></p>
+<p class="caption" role="heading"><span class="caption-text">Input/output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formats/index.html">Format overview</a></li>
@@ -143,7 +148,7 @@
 <li class="toctree-l1"><a class="reference internal" href="formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formats/format_reference.html">Format reference</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Analysis</span></p>
+<p class="caption" role="heading"><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -157,13 +162,13 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/analysis/custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced</span></p>
+<p class="caption" role="heading"><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="datasets.html">Example data</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing_code.html">Contributing to the main codebase</a></li>
@@ -240,8 +245,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+  <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">¶</a></h1>
 <p>The latest versions of <strong>MDAnalysis</strong> can be installed using <cite>conda</cite> or <cite>pip</cite>.
 Currently, the conda releases only support serial calculations.
 If you plan to use the parallel OpenMP algorithms, you need to
@@ -267,8 +272,8 @@ down to the Tools for Visual Studio section).</p>
 </div>
 <p>If you encounter any issues following these instructions, please
 ask for help on the <a class="reference external" href="https://groups.google.com/forum/#!forum/mdnalysis-discussion">user mailing list</a>.</p>
-<div class="section" id="conda">
-<h2>conda<a class="headerlink" href="#conda" title="Permalink to this headline">¶</a></h2>
+<section id="conda">
+<h2>conda<a class="headerlink" href="#conda" title="Permalink to this heading">¶</a></h2>
 <p>To install the latest stable version of MDAnalysis via <code class="docutils literal notranslate"><span class="pre">conda</span></code>, use the following command. This installs all dependencies needed for full analysis functionality (excluding external programs such as <a class="reference external" href="http://www.holeprogram.org">HOLE</a>):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge mdanalysis
 </pre></div>
@@ -287,9 +292,9 @@ an extra package for the progress bar in analysis classes:</p>
 jupyter labextension install @jupyter-widgets/jupyterlab-manager
 </pre></div>
 </div>
-</div>
-<div class="section" id="pip">
-<h2>pip<a class="headerlink" href="#pip" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="pip">
+<h2>pip<a class="headerlink" href="#pip" title="Permalink to this heading">¶</a></h2>
 <p>The following command will install or upgrade the latest stable version of MDAnalysis via <code class="docutils literal notranslate"><span class="pre">pip</span></code>, with core dependencies. This means that some packages required by specific analysis modules will not be installed.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install --upgrade MDAnalysis
 </pre></div>
@@ -308,9 +313,9 @@ an extra package for the progress bar in analysis classes:</p>
 jupyter labextension install @jupyter-widgets/jupyterlab-manager
 </pre></div>
 </div>
-</div>
-<div class="section" id="development-versions">
-<h2>Development versions<a class="headerlink" href="#development-versions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="development-versions">
+<h2>Development versions<a class="headerlink" href="#development-versions" title="Permalink to this heading">¶</a></h2>
 <p>To install development versions of MDAnalysis, you can compile it from source. In order to install from source, you will need <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">cython</span></code>. See <a class="reference internal" href="contributing_code.html#create-virtual-environment"><span class="std std-ref">Creating a development environment</span></a> for instructions on how to create a full development environment.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/MDAnalysis/mdanalysis
 <span class="nb">cd</span> mdanalysis
@@ -322,8 +327,8 @@ pip install -e package/
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -e testsuite/
 </pre></div>
 </div>
-<div class="section" id="testing">
-<h3>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h3>
+<section id="testing">
+<h3>Testing<a class="headerlink" href="#testing" title="Permalink to this heading">¶</a></h3>
 <p>The tests rely on the <cite>pytest</cite> and <cite>numpy</cite> packages, which must also be installed. Run tests with:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest --disable-pytest-warnings --pyargs MDAnalysisTests
 </pre></div>
@@ -336,9 +341,9 @@ The plugin <a class="reference external" href="https://github.com/pytest-dev/pyt
 pytest --disable-pytest-warnings --pyargs MDAnalysisTests --numprocesses <span class="m">4</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="custom-compiler-flags-and-optimised-installations">
-<h3>Custom compiler flags and optimised installations<a class="headerlink" href="#custom-compiler-flags-and-optimised-installations" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="custom-compiler-flags-and-optimised-installations">
+<h3>Custom compiler flags and optimised installations<a class="headerlink" href="#custom-compiler-flags-and-optimised-installations" title="Permalink to this heading">¶</a></h3>
 <p>You can pass any additional compiler flags for the C/C++ compiler using the <code class="docutils literal notranslate"><span class="pre">extra_cflags</span></code> variable in <code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code>.
 This allows you to add any additional compiler options required for your architecture.</p>
 <p>For example, <code class="docutils literal notranslate"><span class="pre">extra_cflags</span></code> can be used to tune your MDAnalysis installation for your current architecture using the <cite>-march</cite>, <cite>-mtune</cite>, <cite>-mcpu</cite> and related compiler flags.
@@ -358,10 +363,10 @@ making it usable only on a matching CPU architecture to the one it is compiled o
 before proceeding with analysis.</p>
 </div>
 <p>In cases where you might encounter multiple CPU architectures (e.g. on a supercomputer where the login node and compute node have different architectures), you should avoid changing these options unless you are experienced with compiling software in these situations.</p>
-</div>
-</div>
-<div class="section" id="additional-datasets">
-<h2>Additional datasets<a class="headerlink" href="#additional-datasets" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="additional-datasets">
+<h2>Additional datasets<a class="headerlink" href="#additional-datasets" title="Permalink to this heading">¶</a></h2>
 <p><a class="reference external" href="https://www.mdanalysis.org/MDAnalysisData/">MDAnalysisData</a> is an additional package with datasets that can be used in example tutorials. You can install it with <code class="docutils literal notranslate"><span class="pre">conda</span></code> or <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># conda</span>
 conda install -c conda-forge mdanalysisdata
@@ -370,8 +375,8 @@ pip install --upgrade MDAnalysisData
 </pre></div>
 </div>
 <p>This installation does not download all the datasets; instead, the datasets are cached when they are first downloaded using a Python command.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

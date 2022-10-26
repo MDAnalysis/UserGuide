@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Calculating hydrogen bonds: advanced selections &mdash; MDAnalysis User Guide  documentation</title>
@@ -13,6 +14,8 @@
   
   <link rel="stylesheet" href="../../../_static/css/msmb.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/msmb.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
 
   
@@ -33,11 +36,15 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script src="../../../_static/js/versions.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
@@ -101,7 +108,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick start guide</a></li>
@@ -109,7 +116,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../README.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Data structures</span></p>
+<p class="caption" role="heading"><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../atomgroup.html">AtomGroup</a></li>
@@ -117,14 +124,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../topology_system.html">The topology system</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Trajectories</span></p>
+<p class="caption" role="heading"><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../units.html">Units and constants</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Input/output</span></p>
+<p class="caption" role="heading"><span class="caption-text">Input/output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/index.html">Format overview</a></li>
@@ -133,7 +140,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../formats/format_reference.html">Format reference</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Analysis</span></p>
+<p class="caption" role="heading"><span class="caption-text">Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -147,13 +154,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom_parallel_analysis.html">Parallelizing analysis</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced</span></p>
+<p class="caption" role="heading"><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../datasets.html">Example data</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing_code.html">Contributing to the main codebase</a></li>
@@ -442,11 +449,12 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
 /* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
 div.rendered_html table {
   border: none;
   border-collapse: collapse;
@@ -455,10 +463,14 @@ div.rendered_html table {
   font-size: 12px;
   table-layout: fixed;
 }
+.jp-RenderedHTMLCommon thead,
 div.rendered_html thead {
   border-bottom: 1px solid black;
   vertical-align: bottom;
 }
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
 div.rendered_html tr,
 div.rendered_html th,
 div.rendered_html td {
@@ -470,25 +482,28 @@ div.rendered_html td {
   max-width: none;
   border: none;
 }
+.jp-RenderedHTMLCommon th,
 div.rendered_html th {
   font-weight: bold;
 }
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
 div.rendered_html tbody tr:nth-child(odd) {
   background: #f5f5f5;
 }
+.jp-RenderedHTMLCommon tbody tr:hover,
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
-<script>require=requirejs;</script><div class="section" id="Calculating-hydrogen-bonds:-advanced-selections">
-<h1>Calculating hydrogen bonds: advanced selections<a class="headerlink" href="#Calculating-hydrogen-bonds:-advanced-selections" title="Permalink to this headline">¶</a></h1>
+<script>require=requirejs;</script><section id="Calculating-hydrogen-bonds:-advanced-selections">
+<h1>Calculating hydrogen bonds: advanced selections<a class="headerlink" href="#Calculating-hydrogen-bonds:-advanced-selections" title="Permalink to this heading">¶</a></h1>
 <p>We will find all intramolcular hydrogen bonds of a protein without passing any atom selections. We will also look at how to use more advanced atom selections than we saw in <a class="reference internal" href="hbonds.html"><span class="doc">Calculating hydrogen bonds: the basiscs</span></a>.</p>
 <p><strong>Last updated:</strong> June 23, 2021 with MDAnalysis 2.0.0-dev</p>
 <p><strong>Minimum version of MDAnalysis:</strong> 2.0.0-dev0</p>
 <p><strong>Packages required:</strong></p>
 <ul class="simple">
-<li><p>MDAnalysis (<a class="bibtex reference internal" href="../../../references.html#michaud-agrawal-mdanalysis-2011" id="id1">[MADWB11]</a>, <a class="bibtex reference internal" href="../../../references.html#gowers-mdanalysis-2016" id="id2">[GLB+16]</a>)</p></li>
+<li><p>MDAnalysis (<span id="id1">[<a class="reference internal" href="../../../references.html#id11" title="Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: http://doi.wiley.com/10.1002/jcc.21787 (visited on 2020-02-05), doi:10.1002/jcc.21787.">MADWB11</a>]</span>, <span id="id2">[<a class="reference internal" href="../../../references.html#id3" title="Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html (visited on 2020-02-05), doi:10.25080/Majora-629e541a-00e.">GLB+16</a>]</span>)</p></li>
 <li><p>MDAnalysisTests</p></li>
 <li><p><a class="reference external" href="https://numpy.org">numpy</a></p></li>
 </ul>
@@ -505,39 +520,35 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.analysis.hydrogenbonds</span> <span class="kn">import</span> <span class="n">HydrogenBondAnalysis</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
-<div class="section" id="Loading-files">
-<h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this headline">¶</a></h2>
+<section id="Loading-files">
+<h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<a class="bibtex reference internal" href="../../../references.html#beckstein-zipping-2009" id="id3">[BDPW09]</a>)</p>
-</div>
-<div class="section" id="Find-all-hydrogen-bonds">
-<h2>Find all hydrogen bonds<a class="headerlink" href="#Find-all-hydrogen-bonds" title="Permalink to this headline">¶</a></h2>
+<p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<span id="id3">[<a class="reference internal" href="../../../references.html#id14" title="Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164 (visited on 2020-02-05), doi:10.1016/j.jmb.2009.09.009.">BDPW09</a>]</span>)</p>
+</section>
+<section id="Find-all-hydrogen-bonds">
+<h2>Find all hydrogen bonds<a class="headerlink" href="#Find-all-hydrogen-bonds" title="Permalink to this heading">¶</a></h2>
 <p>The simplest use case is to allow <code class="docutils literal notranslate"><span class="pre">HydrogenBondAnalysis</span></code> to guess the acceptor and hydrogen atoms, then to identify donor-hydrogen pairs via the bond information in the topology.</p>
 <p>Accetptor and hydrogen atoms are guessed based on the mass and partial charge of the atoms.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">hbonds</span> <span class="o">=</span> <span class="n">HydrogenBondAnalysis</span><span class="p">(</span><span class="n">universe</span><span class="o">=</span><span class="n">u</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hbonds</span> <span class="o">=</span> <span class="n">HydrogenBondAnalysis</span><span class="p">(</span><span class="n">universe</span><span class="o">=</span><span class="n">u</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -545,8 +556,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">hbonds</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hbonds</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -556,29 +566,26 @@ div.rendered_html tbody tr:hover {
 <div class="output_area docutils container">
 <script type="application/vnd.jupyter.widget-view+json">{"model_id": "b250ac8556114eda9bba2f2675130383", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-</div>
-<div class="section" id="Use-guess_acceptors-and-guess_hydrogens-to-create-atom-selections">
-<h2>Use <code class="docutils literal notranslate"><span class="pre">guess_acceptors</span></code> and <code class="docutils literal notranslate"><span class="pre">guess_hydrogens</span></code> to create atom selections<a class="headerlink" href="#Use-guess_acceptors-and-guess_hydrogens-to-create-atom-selections" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Use-guess_acceptors-and-guess_hydrogens-to-create-atom-selections">
+<h2>Use <code class="docutils literal notranslate"><span class="pre">guess_acceptors</span></code> and <code class="docutils literal notranslate"><span class="pre">guess_hydrogens</span></code> to create atom selections<a class="headerlink" href="#Use-guess_acceptors-and-guess_hydrogens-to-create-atom-selections" title="Permalink to this heading">¶</a></h2>
 <p>It is also possible to use generated <code class="docutils literal notranslate"><span class="pre">hydrogens_sel</span></code> and <code class="docutils literal notranslate"><span class="pre">acceptors_sel</span></code> via the <code class="docutils literal notranslate"><span class="pre">guess_hydrogens</span></code> and <code class="docutils literal notranslate"><span class="pre">guess_acceptors</span></code> class methods.</p>
 <p>This selection strings may then be modified prior to calling <code class="docutils literal notranslate"><span class="pre">run</span></code>, or a subset of the universe may be used to guess the atoms. For example, below we will find hydrogens and acceptors belonging to specific residues.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">hbonds</span> <span class="o">=</span> <span class="n">HydrogenBondAnalysis</span><span class="p">(</span><span class="n">universe</span><span class="o">=</span><span class="n">u</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hbonds</span> <span class="o">=</span> <span class="n">HydrogenBondAnalysis</span><span class="p">(</span><span class="n">universe</span><span class="o">=</span><span class="n">u</span><span class="p">)</span>
 <span class="n">hbonds</span><span class="o">.</span><span class="n">hydrogens_sel</span> <span class="o">=</span> <span class="n">hbonds</span><span class="o">.</span><span class="n">guess_hydrogens</span><span class="p">(</span><span class="s2">&quot;resname ARG HIS LYS&quot;</span><span class="p">)</span>
 <span class="n">hbonds</span><span class="o">.</span><span class="n">acceptors_sel</span> <span class="o">=</span> <span class="n">hbonds</span><span class="o">.</span><span class="n">guess_acceptors</span><span class="p">(</span><span class="s2">&quot;resname ARG HIS LYS&quot;</span><span class="p">)</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">hbonds</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hbonds</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -593,8 +600,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;hydrogen_sel = </span><span class="si">{</span><span class="n">hbonds</span><span class="o">.</span><span class="n">hydrogens_sel</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;hydrogen_sel = </span><span class="si">{</span><span class="n">hbonds</span><span class="o">.</span><span class="n">hydrogens_sel</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;acceptors_sel = </span><span class="si">{</span><span class="n">hbonds</span><span class="o">.</span><span class="n">acceptors_sel</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -608,16 +614,15 @@ hydrogen_sel = (resname ARG and name HE) or (resname ARG and name HH11) or (resn
 acceptors_sel = (resname ARG and name NE) or (resname ARG and name NH1) or (resname ARG and name NH2) or (resname ARG and name O) or (resname LYS and name O)
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="More-advanced-selections">
-<h2>More advanced selections<a class="headerlink" href="#More-advanced-selections" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="More-advanced-selections">
+<h2>More advanced selections<a class="headerlink" href="#More-advanced-selections" title="Permalink to this heading">¶</a></h2>
 <p>Slightly more complex selection strings are also possible. For example, to find hydrogen bonds involving the protein and water within 10 Å of the protein:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">hbonds</span> <span class="o">=</span> <span class="n">HydrogenBondAnalysis</span><span class="p">(</span><span class="n">universe</span><span class="o">=</span><span class="n">u</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hbonds</span> <span class="o">=</span> <span class="n">HydrogenBondAnalysis</span><span class="p">(</span><span class="n">universe</span><span class="o">=</span><span class="n">u</span><span class="p">)</span>
 
 <span class="n">protein_hydrogens_sel</span> <span class="o">=</span> <span class="n">hbonds</span><span class="o">.</span><span class="n">guess_hydrogens</span><span class="p">(</span><span class="s2">&quot;protein&quot;</span><span class="p">)</span>
 <span class="n">protein_acceptors_sel</span> <span class="o">=</span> <span class="n">hbonds</span><span class="o">.</span><span class="n">guess_acceptors</span><span class="p">(</span><span class="s2">&quot;protein&quot;</span><span class="p">)</span>
@@ -627,16 +632,14 @@ acceptors_sel = (resname ARG and name NE) or (resname ARG and name NH1) or (resn
 
 <span class="n">hbonds</span><span class="o">.</span><span class="n">hydrogens_sel</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="n">protein_hydrogens_sel</span><span class="si">}</span><span class="s2">) or (</span><span class="si">{</span><span class="n">water_hydrogens_sel</span><span class="si">}</span><span class="s2"> and around 10 not resname TIP3)&quot;</span>
 <span class="n">hbonds</span><span class="o">.</span><span class="n">acceptors_sel</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="n">protein_acceptors_sel</span><span class="si">}</span><span class="s2">) or (</span><span class="si">{</span><span class="n">water_acceptors_sel</span><span class="si">}</span><span class="s2"> and around 10 not resname TIP3)&quot;</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">hbonds</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hbonds</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -650,32 +653,29 @@ acceptors_sel = (resname ARG and name NE) or (resname ARG and name NH1) or (resn
 <p class="admonition-title"><strong>Note</strong></p>
 <p>The Universe we are analysing has the water removed. The above example is for illustrative purposes only.</p>
 </div>
-</div>
-<div class="section" id="Hydrogen-bonds-between-specific-groups">
-<h2>Hydrogen bonds between specific groups<a class="headerlink" href="#Hydrogen-bonds-between-specific-groups" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Hydrogen-bonds-between-specific-groups">
+<h2>Hydrogen bonds between specific groups<a class="headerlink" href="#Hydrogen-bonds-between-specific-groups" title="Permalink to this heading">¶</a></h2>
 <p>To calculate the hydrogen bonds between different groups, for example protein and water, one can use the <code class="docutils literal notranslate"><span class="pre">between</span></code> keyword. Below we will find protein-water and protein-protein hydrogen bonds, but not water-water hydrogen bonds. We do this by passing atom selection for the groups we wish to find hydrogen bonds between.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">hbonds</span> <span class="o">=</span> <span class="n">HydrogenBondAnalysis</span><span class="p">(</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hbonds</span> <span class="o">=</span> <span class="n">HydrogenBondAnalysis</span><span class="p">(</span>
     <span class="n">universe</span><span class="o">=</span><span class="n">u</span><span class="p">,</span>
     <span class="n">between</span><span class="o">=</span><span class="p">[</span>
         <span class="p">[</span><span class="s2">&quot;protein&quot;</span><span class="p">,</span> <span class="s2">&quot;resname TIP3&quot;</span><span class="p">],</span> <span class="c1"># for protein-water hbonds</span>
         <span class="p">[</span><span class="s2">&quot;protein&quot;</span><span class="p">,</span> <span class="s2">&quot;protein&quot;</span><span class="p">]</span>       <span class="c1"># for protein-protein hbonds</span>
     <span class="p">]</span>
 <span class="p">)</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">hbonds</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hbonds</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -689,17 +689,17 @@ acceptors_sel = (resname ARG and name NE) or (resname ARG and name NH1) or (resn
 <p class="admonition-title"><strong>Note</strong></p>
 <p>The Universe we are analysing has the water removed. The above example is for illustrative purposes only.</p>
 </div>
-</div>
-<div class="section" id="References">
-<h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="References">
+<h2>References<a class="headerlink" href="#References" title="Permalink to this heading">¶</a></h2>
 <p>[1] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
 <p>[2] Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>, doi:10.1002/jcc.21787.</p>
 <p>[3] Paul Smith, Robert M. Ziolek, Elena Gazzarrini, Dylan M. Owen, and Christian D. Lorenz. On the interaction of hyaluronic acid with synovial fluid lipid membranes. Phys. Chem. Chem. Phys., 21(19):9845-9857, 2018. URL: <a class="reference external" href="http://dx.doi.org/10.1039/C9CP01532A">http://dx.doi.org/10.1039/C9CP01532A</a></p>
 <p>[4] Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164">https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164</a>, doi:10.1016/j.jmb.2009.09.009.</p>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {"0234c4febb954879a30d246dea830afa": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "02c2a05dba9d4ea0bf1840387af43607": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_5533b16b291a40789f736f3d53916ea2", "style": "IPY_MODEL_6ab80580d1314dccb4fad4c8f4964d2f", "value": " 98/98 [00:09&lt;00:00,  9.31it/s]"}}, "050ae1e0b9db4d41ab07d70f7340e4ba": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_ba52338f1cb540c5b2e3bea90a82135d", "style": "IPY_MODEL_be3afb50421e4d99aabea002929a8215", "value": "100%"}}, "05a42445d9a544dca7c7b9d5613ff433": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "1894730a30084ab6b591f7d7fa0e76d0": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "18f91f27ac184092a093f5f0226b7ce9": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "2fb5cee414374def9e06e658182fec15": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "3e6ee95e18b4465582fd42a7f995901d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "49331ea4ddde4282a74f1cb6c1ebe776": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "5533b16b291a40789f736f3d53916ea2": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "59b9ba3247a74156a18e50e38b317f42": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_aa7b0762cb3643c29b40dd0b3abf7650", "style": "IPY_MODEL_1894730a30084ab6b591f7d7fa0e76d0", "value": "100%"}}, "5a55198aba0a45728d4188874af326e7": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_b8e364e4ea6944cf821f8bf3045ef4c1", "style": "IPY_MODEL_bb54c783014b491fa46c88100189b4a7", "value": " 98/98 [00:03&lt;00:00, 31.66it/s]"}}, "5ff94c37bd9c4f6a85940ba2ca2b8cc8": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "6132218a274d4a39b8f0eb456894c5e1": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_89db791279874d749dd4ca3340a3b5e2", "IPY_MODEL_e37df7b9be4a46a9b4e0996eee7231d7", "IPY_MODEL_6ddd96ffd6ee432aad8ae92986dfa40b"], "layout": "IPY_MODEL_dfe10a9d20f744719cc9bc5dc47a03cf"}}, "682c51aa834e47c6b314a5a57019b83b": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "6ab80580d1314dccb4fad4c8f4964d2f": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "6ddd96ffd6ee432aad8ae92986dfa40b": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_5ff94c37bd9c4f6a85940ba2ca2b8cc8", "style": "IPY_MODEL_49331ea4ddde4282a74f1cb6c1ebe776", "value": " 98/98 [00:09&lt;00:00, 10.24it/s]"}}, "6fb8a5a9a0a84c3eb71cb03afb3c65f0": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "78722f3bfe9742b29450019f4031a8f6": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_6fb8a5a9a0a84c3eb71cb03afb3c65f0", "max": 98, "style": "IPY_MODEL_cc2b120548e3467fb923f411cb52b24e", "value": 98}}, "80d76bac7f894582bf10091d3cee3bda": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "89db791279874d749dd4ca3340a3b5e2": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_ff76f3ec14104842abae9d4b63379007", "style": "IPY_MODEL_0234c4febb954879a30d246dea830afa", "value": "100%"}}, "a62ebbb093504dbc90318cde0396d094": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "aa7b0762cb3643c29b40dd0b3abf7650": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "b250ac8556114eda9bba2f2675130383": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_59b9ba3247a74156a18e50e38b317f42", "IPY_MODEL_78722f3bfe9742b29450019f4031a8f6", "IPY_MODEL_daa341a4dd454d31a9f20b94654836d4"], "layout": "IPY_MODEL_d1f2b3d6c1f943f983d95dc076c10486"}}, "b8e364e4ea6944cf821f8bf3045ef4c1": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "ba52338f1cb540c5b2e3bea90a82135d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "bb54c783014b491fa46c88100189b4a7": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "be3afb50421e4d99aabea002929a8215": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "c5d77db92ba44e0ab4beb82dd9c39493": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_682c51aa834e47c6b314a5a57019b83b", "max": 98, "style": "IPY_MODEL_80d76bac7f894582bf10091d3cee3bda", "value": 98}}, "ca060a426ae7417e9af161559ffd6ecc": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_cc2c0bdcf8f54624be570a8ed6355795", "IPY_MODEL_e13fdfbb8d1444b3842f444e47fcf35f", "IPY_MODEL_5a55198aba0a45728d4188874af326e7"], "layout": "IPY_MODEL_f0d2ed5157c642bd983bd287bac048fd"}}, "cc2b120548e3467fb923f411cb52b24e": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "cc2c0bdcf8f54624be570a8ed6355795": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_18f91f27ac184092a093f5f0226b7ce9", "style": "IPY_MODEL_a62ebbb093504dbc90318cde0396d094", "value": "100%"}}, "ceb88130dc8940afbaa53ad0c57f9645": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "d1f2b3d6c1f943f983d95dc076c10486": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "daa341a4dd454d31a9f20b94654836d4": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_ceb88130dc8940afbaa53ad0c57f9645", "style": "IPY_MODEL_e15db1b4181c4b009979903348388ca1", "value": " 98/98 [00:09&lt;00:00, 10.47it/s]"}}, "dc286e109cf14ea388e324ba70946368": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_050ae1e0b9db4d41ab07d70f7340e4ba", "IPY_MODEL_c5d77db92ba44e0ab4beb82dd9c39493", "IPY_MODEL_02c2a05dba9d4ea0bf1840387af43607"], "layout": "IPY_MODEL_ddc08bfd042f451e9a86c69f19937920"}}, "ddc08bfd042f451e9a86c69f19937920": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "dfe10a9d20f744719cc9bc5dc47a03cf": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "e13fdfbb8d1444b3842f444e47fcf35f": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_05a42445d9a544dca7c7b9d5613ff433", "max": 98, "style": "IPY_MODEL_fb3c902982a241be823bc7c7fc10ad70", "value": 98}}, "e15db1b4181c4b009979903348388ca1": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "e37df7b9be4a46a9b4e0996eee7231d7": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_3e6ee95e18b4465582fd42a7f995901d", "max": 98, "style": "IPY_MODEL_2fb5cee414374def9e06e658182fec15", "value": 98}}, "f0d2ed5157c642bd983bd287bac048fd": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "fb3c902982a241be823bc7c7fc10ad70": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "ff76f3ec14104842abae9d4b63379007": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}}, "version_major": 2, "version_minor": 0}
-</script></div>
-</div>
+</script></section>
+</section>
 
 
            </div>

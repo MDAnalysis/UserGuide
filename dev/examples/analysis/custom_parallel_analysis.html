@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Parallelizing analysis &mdash; MDAnalysis User Guide  documentation</title>
@@ -13,6 +14,8 @@
   
   <link rel="stylesheet" href="../../_static/css/msmb.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/msmb.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -33,11 +36,15 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script src="../../_static/js/versions.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -101,7 +108,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick start guide</a></li>
@@ -109,7 +116,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../README.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Data structures</span></p>
+<p class="caption" role="heading"><span class="caption-text">Data structures</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../universe.html">Universe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../atomgroup.html">AtomGroup</a></li>
@@ -117,14 +124,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../topology_system.html">The topology system</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Trajectories</span></p>
+<p class="caption" role="heading"><span class="caption-text">Trajectories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/trajectories.html">Trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../trajectories/transformations.html">On-the-fly transformations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../units.html">Units and constants</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Input/output</span></p>
+<p class="caption" role="heading"><span class="caption-text">Input/output</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../formats/index.html">Format overview</a></li>
@@ -133,7 +140,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../formats/format_reference.html">Format reference</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Analysis</span></p>
+<p class="caption" role="heading"><span class="caption-text">Analysis</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="README.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
@@ -171,13 +178,13 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced</span></p>
+<p class="caption" role="heading"><span class="caption-text">Advanced</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../standard_selections.html">Standard residues in MDAnalysis selections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced_topology.html">Advanced topology concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../datasets.html">Example data</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing_code.html">Contributing to the main codebase</a></li>
@@ -464,11 +471,12 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
 /* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
 div.rendered_html table {
   border: none;
   border-collapse: collapse;
@@ -477,10 +485,14 @@ div.rendered_html table {
   font-size: 12px;
   table-layout: fixed;
 }
+.jp-RenderedHTMLCommon thead,
 div.rendered_html thead {
   border-bottom: 1px solid black;
   vertical-align: bottom;
 }
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
 div.rendered_html tr,
 div.rendered_html th,
 div.rendered_html td {
@@ -492,19 +504,22 @@ div.rendered_html td {
   max-width: none;
   border: none;
 }
+.jp-RenderedHTMLCommon th,
 div.rendered_html th {
   font-weight: bold;
 }
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
 div.rendered_html tbody tr:nth-child(odd) {
   background: #f5f5f5;
 }
+.jp-RenderedHTMLCommon tbody tr:hover,
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
-<script>require=requirejs;</script><div class="section" id="Parallelizing-analysis">
-<h1>Parallelizing analysis<a class="headerlink" href="#Parallelizing-analysis" title="Permalink to this headline">¶</a></h1>
+<script>require=requirejs;</script><section id="Parallelizing-analysis">
+<h1>Parallelizing analysis<a class="headerlink" href="#Parallelizing-analysis" title="Permalink to this heading">¶</a></h1>
 <p>As we approach the exascale barrier, researchers are handling increasingly large volumes of molecular dynamics (MD) data. Whilst MDAnalysis is a flexible and relatively fast framework for complex analysis tasks in MD simulations, implementing a parallel computing framework would play a pivotal role in accelerating the time to solution for such large datasets.</p>
 <p>This document illustrates how you can run your own analysis scripts in parallel with MDAnalysis.</p>
 <p><strong>Last executed:</strong> Mar 1st, 2022 with MDAnalysis 2.0.0</p>
@@ -512,7 +527,7 @@ div.rendered_html tbody tr:hover {
 <p><strong>Minimum version of MDAnalysis:</strong> 2.0.0</p>
 <p><strong>Packages required:</strong></p>
 <ul class="simple">
-<li><p>MDAnalysis (<a class="bibtex reference internal" href="../../references.html#michaud-agrawal-mdanalysis-2011" id="id1">[MADWB11]</a>, <a class="bibtex reference internal" href="../../references.html#gowers-mdanalysis-2016" id="id2">[GLB+16]</a>)</p></li>
+<li><p>MDAnalysis (<span id="id1">[<a class="reference internal" href="../../references.html#id11" title="Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: http://doi.wiley.com/10.1002/jcc.21787 (visited on 2020-02-05), doi:10.1002/jcc.21787.">MADWB11</a>]</span>, <span id="id2">[<a class="reference internal" href="../../references.html#id3" title="Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html (visited on 2020-02-05), doi:10.25080/Majora-629e541a-00e.">GLB+16</a>]</span>)</p></li>
 <li><p>MDAnalysisData</p></li>
 <li><p>dask (<a class="reference external" href="https://dask.org/">https://dask.org/</a>)</p></li>
 <li><p>dask.distributed (<a class="reference external" href="https://distributed.dask.org/en/latest/">https://distributed.dask.org/en/latest/</a>)</p></li>
@@ -522,8 +537,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 <span class="kn">from</span> <span class="nn">MDAnalysisData.adk_equilibrium</span> <span class="kn">import</span> <span class="n">fetch_adk_equilibrium</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -536,20 +550,19 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="section" id="Background">
-<h2>Background<a class="headerlink" href="#Background" title="Permalink to this headline">¶</a></h2>
+<section id="Background">
+<h2>Background<a class="headerlink" href="#Background" title="Permalink to this heading">¶</a></h2>
 <p>In MDAnalysis, most implemented analysis methods are based on <code class="docutils literal notranslate"><span class="pre">AnalysisBase</span></code>, which provides a generic API for users to write their own trajectory analysis. However, this framework only takes single-core power of the PC by iterating through the trajectory and running a frame-wise analysis. Below we aim to first explore some possible simple implementations of parallelism, including using multiprocessing and dask. We will also discuss the acceleration approaches that should be considered,
-ranging from your own multiple-core laptops/desktops to distributed clusters. “</p>
-<div class="section" id="Loading-files">
-<h3>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this headline">¶</a></h3>
-<p>The test files we will be working with here feature adenylate kinase (AdK), a phosopho-transferase enzyme. (<a class="bibtex reference internal" href="../../references.html#beckstein-zipping-2009" id="id3">[BDPW09]</a>). The trajectory has 4187 frames, which will take quite some time to run the analysis on with the conventional serial (single-core) approach.</p>
+ranging from your own multiple-core laptops/desktops to distributed clusters. ”</p>
+<section id="Loading-files">
+<h3>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this heading">¶</a></h3>
+<p>The test files we will be working with here feature adenylate kinase (AdK), a phosopho-transferase enzyme. (<span id="id3">[<a class="reference internal" href="../../references.html#id14" title="Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164 (visited on 2020-02-05), doi:10.1016/j.jmb.2009.09.009.">BDPW09</a>]</span>). The trajectory has 4187 frames, which will take quite some time to run the analysis on with the conventional serial (single-core) approach.</p>
 <p>Note: downloading these datasets from MDAnalysisData may take some time.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">adk</span> <span class="o">=</span> <span class="n">fetch_adk_equilibrium</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adk</span> <span class="o">=</span> <span class="n">fetch_adk_equilibrium</span><span class="p">()</span>
 <span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">adk</span><span class="o">.</span><span class="n">topology</span><span class="p">,</span> <span class="n">adk</span><span class="o">.</span><span class="n">trajectory</span><span class="p">)</span>
 <span class="n">protein</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;protein&#39;</span><span class="p">)</span>
 </pre></div>
@@ -559,8 +572,7 @@ ranging from your own multiple-core laptops/desktops to distributed clusters. �
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span>
 </pre></div>
 </div>
 </div>
@@ -573,17 +585,16 @@ ranging from your own multiple-core laptops/desktops to distributed clusters. �
 &lt;DCDReader /home/scottzhuang/MDAnalysis_data/adk_equilibrium/1ake_007-nowater-core-dt240ps.dcd with 4187 frames of 3341 atoms&gt;
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Radius-of-gyration">
-<h3>Radius of gyration<a class="headerlink" href="#Radius-of-gyration" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Radius-of-gyration">
+<h3>Radius of gyration<a class="headerlink" href="#Radius-of-gyration" title="Permalink to this heading">¶</a></h3>
 <p>For a detail description of this analysis, read <a class="reference external" href="https://mdanalysis.org/UserGuide/examples/analysis/custom_trajectory_analysis.html">Writing your own trajectory</a>.</p>
 <p>Here is a common form of single-frame method that we can normally see inside <code class="docutils literal notranslate"><span class="pre">AnalysisBase</span></code>. It may contain both some dynamic parts that changes along time either implicitly or explicitly (e.g. <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>) and some static parts (e.g. a reference frame).</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">radgyr</span><span class="p">(</span><span class="n">atomgroup</span><span class="p">,</span> <span class="n">masses</span><span class="p">,</span> <span class="n">total_mass</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">radgyr</span><span class="p">(</span><span class="n">atomgroup</span><span class="p">,</span> <span class="n">masses</span><span class="p">,</span> <span class="n">total_mass</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="c1"># coordinates change for each frame</span>
     <span class="n">coordinates</span> <span class="o">=</span> <span class="n">atomgroup</span><span class="o">.</span><span class="n">positions</span>
     <span class="n">center_of_mass</span> <span class="o">=</span> <span class="n">atomgroup</span><span class="o">.</span><span class="n">center_of_mass</span><span class="p">()</span>
@@ -606,16 +617,15 @@ ranging from your own multiple-core laptops/desktops to distributed clusters. �
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="Serial-Analysis">
-<h3>Serial Analysis<a class="headerlink" href="#Serial-Analysis" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Serial-Analysis">
+<h3>Serial Analysis<a class="headerlink" href="#Serial-Analysis" title="Permalink to this heading">¶</a></h3>
 <p>Below is the serial version of the analysis that we normally use.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">:</span>
     <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">radgyr</span><span class="p">(</span><span class="n">atomgroup</span><span class="o">=</span><span class="n">protein</span><span class="p">,</span>
                          <span class="n">masses</span><span class="o">=</span><span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">,</span>
@@ -627,8 +637,7 @@ ranging from your own multiple-core laptops/desktops to distributed clusters. �
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
 
 <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;x-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;y-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;z-axis&#39;</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
@@ -646,19 +655,18 @@ ranging from your own multiple-core laptops/desktops to distributed clusters. �
 <img alt="../../_images/examples_analysis_custom_parallel_analysis_11_0.png" src="../../_images/examples_analysis_custom_parallel_analysis_11_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="Parallelization-in-a-simple-per-frame-fashion">
-<h2>Parallelization in a simple per-frame fashion<a class="headerlink" href="#Parallelization-in-a-simple-per-frame-fashion" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="Frame-wise-form-of-the-function">
-<h3>Frame-wise form of the function<a class="headerlink" href="#Frame-wise-form-of-the-function" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="Parallelization-in-a-simple-per-frame-fashion">
+<h2>Parallelization in a simple per-frame fashion<a class="headerlink" href="#Parallelization-in-a-simple-per-frame-fashion" title="Permalink to this heading">¶</a></h2>
+<section id="Frame-wise-form-of-the-function">
+<h3>Frame-wise form of the function<a class="headerlink" href="#Frame-wise-form-of-the-function" title="Permalink to this heading">¶</a></h3>
 <p>The coordinates of the <code class="docutils literal notranslate"><span class="pre">atomgroup</span></code> analysed change with each frame of the trajectory. We need to explicitly point the analysis function to the frame that needs to be analysed with a <code class="docutils literal notranslate"><span class="pre">frame_index</span></code>: <code class="docutils literal notranslate"><span class="pre">atomgroup.universe.trajectory[frame_index]</span></code> in order to update the positions (and any other dynamic per-frame information) appropriately. Therefore, the first step to making the <code class="docutils literal notranslate"><span class="pre">radgyr</span></code> function parallelisable is to add a <code class="docutils literal notranslate"><span class="pre">frame_index</span></code> argument.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">radgyr_per_frame</span><span class="p">(</span><span class="n">frame_index</span><span class="p">,</span> <span class="n">atomgroup</span><span class="p">,</span> <span class="n">masses</span><span class="p">,</span> <span class="n">total_mass</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">radgyr_per_frame</span><span class="p">(</span><span class="n">frame_index</span><span class="p">,</span> <span class="n">atomgroup</span><span class="p">,</span> <span class="n">masses</span><span class="p">,</span> <span class="n">total_mass</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
     <span class="c1"># index the trajectory to set it to the frame_index frame</span>
     <span class="n">atomgroup</span><span class="o">.</span><span class="n">universe</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[</span><span class="n">frame_index</span><span class="p">]</span>
@@ -685,17 +693,16 @@ ranging from your own multiple-core laptops/desktops to distributed clusters. �
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="Parallelization-with-multiprocessing">
-<h3>Parallelization with multiprocessing<a class="headerlink" href="#Parallelization-with-multiprocessing" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Parallelization-with-multiprocessing">
+<h3>Parallelization with multiprocessing<a class="headerlink" href="#Parallelization-with-multiprocessing" title="Permalink to this heading">¶</a></h3>
 <p>The native parallelisation module in Python is called <a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html#module-multiprocessing">multiprocessing</a>. It contains useful tools to build a pool of working cores, map the function into different workers, and gather and order the results from all the workers.</p>
 <p>Below we use <code class="docutils literal notranslate"><span class="pre">Pool</span></code> from <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code> as a context manager. We can define how many cores (or workers) we want to use with <code class="docutils literal notranslate"><span class="pre">Pool(n_jobs)</span></code>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">multiprocessing</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">multiprocessing</span>
 <span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
 <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
 </pre></div>
@@ -706,8 +713,7 @@ ranging from your own multiple-core laptops/desktops to distributed clusters. �
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">run_per_frame</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">radgyr_per_frame</span><span class="p">,</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">run_per_frame</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">radgyr_per_frame</span><span class="p">,</span>
                         <span class="n">atomgroup</span><span class="o">=</span><span class="n">protein</span><span class="p">,</span>
                         <span class="n">masses</span><span class="o">=</span><span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">,</span>
                         <span class="n">total_mass</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">))</span>
@@ -720,8 +726,7 @@ ranging from your own multiple-core laptops/desktops to distributed clusters. �
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">with</span> <span class="n">Pool</span><span class="p">(</span><span class="n">n_jobs</span><span class="p">)</span> <span class="k">as</span> <span class="n">worker_pool</span><span class="p">:</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">Pool</span><span class="p">(</span><span class="n">n_jobs</span><span class="p">)</span> <span class="k">as</span> <span class="n">worker_pool</span><span class="p">:</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">worker_pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">run_per_frame</span><span class="p">,</span> <span class="n">frame_values</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -731,8 +736,7 @@ ranging from your own multiple-core laptops/desktops to distributed clusters. �
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
 
 <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;x-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;y-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;z-axis&#39;</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
@@ -750,9 +754,9 @@ ranging from your own multiple-core laptops/desktops to distributed clusters. �
 <img alt="../../_images/examples_analysis_custom_parallel_analysis_21_0.png" src="../../_images/examples_analysis_custom_parallel_analysis_21_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="Parallelization-with-dask">
-<h3>Parallelization with dask<a class="headerlink" href="#Parallelization-with-dask" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Parallelization-with-dask">
+<h3>Parallelization with dask<a class="headerlink" href="#Parallelization-with-dask" title="Permalink to this heading">¶</a></h3>
 <p><a class="reference external" href="https://docs.dask.org/en/latest/">Dask</a> is a flexible library for parallel computing in Python. It provides advanced parallelism for analytics and has been integrated or utilized in many scientific softwares. It can be scaled from one single computer to a cluster of computers inside a HPC center.</p>
 <p>Dask has a dynamic task scheduling system with synchronous (single-threaded), threaded, multiprocessing and distributed schedulers. The wrapping function in dask, <code class="docutils literal notranslate"><span class="pre">dask.delayed</span></code>, mimics for loops and wraps Python code into a Dask graph. This code can then be easily run in parallel, and visualized with <code class="docutils literal notranslate"><span class="pre">dask.visualize()</span></code> to examine if the task is well distributed. The code inside <code class="docutils literal notranslate"><span class="pre">dask.delayed</span></code> is not run immediately on execution, but pushed into a job queue waiting for submission. You can
 read more on <a class="reference external" href="https://docs.dask.org/en/latest/delayed.html">dask website</a>.</p>
@@ -763,8 +767,7 @@ read more on <a class="reference external" href="https://docs.dask.org/en/latest
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">dask</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dask</span>
 <span class="kn">import</span> <span class="nn">dask.multiprocessing</span>
 <span class="n">dask</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">scheduler</span><span class="o">=</span><span class="s1">&#39;processes&#39;</span><span class="p">)</span>
 </pre></div>
@@ -786,8 +789,7 @@ read more on <a class="reference external" href="https://docs.dask.org/en/latest
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">dask.distributed</span> <span class="kn">import</span> <span class="n">Client</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dask.distributed</span> <span class="kn">import</span> <span class="n">Client</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">n_workers</span><span class="o">=</span><span class="n">n_jobs</span><span class="p">)</span>
 <span class="n">client</span>
@@ -824,8 +826,7 @@ read more on <a class="reference external" href="https://docs.dask.org/en/latest
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">job_list</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">job_list</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">frame_index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">n_frames</span><span class="p">):</span>
     <span class="n">job_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dask</span><span class="o">.</span><span class="n">delayed</span><span class="p">(</span><span class="n">radgyr_per_frame</span><span class="p">(</span><span class="n">frame_index</span><span class="p">,</span>
                                         <span class="n">atomgroup</span><span class="o">=</span><span class="n">protein</span><span class="p">,</span>
@@ -839,8 +840,7 @@ read more on <a class="reference external" href="https://docs.dask.org/en/latest
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">result</span> <span class="o">=</span> <span class="n">dask</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">job_list</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">dask</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">job_list</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -848,8 +848,7 @@ read more on <a class="reference external" href="https://docs.dask.org/en/latest
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
 
 <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;x-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;y-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;z-axis&#39;</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
@@ -873,8 +872,7 @@ read more on <a class="reference external" href="https://docs.dask.org/en/latest
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">job_list</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">job_list</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">:</span>
     <span class="n">job_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dask</span><span class="o">.</span><span class="n">delayed</span><span class="p">(</span><span class="n">radgyr</span><span class="p">(</span><span class="n">atomgroup</span><span class="o">=</span><span class="n">protein</span><span class="p">,</span>
                                         <span class="n">masses</span><span class="o">=</span><span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">,</span>
@@ -887,8 +885,7 @@ read more on <a class="reference external" href="https://docs.dask.org/en/latest
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">result</span> <span class="o">=</span> <span class="n">dask</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">job_list</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">dask</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">job_list</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -896,8 +893,7 @@ read more on <a class="reference external" href="https://docs.dask.org/en/latest
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
 
 <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;x-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;y-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;z-axis&#39;</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
@@ -917,24 +913,23 @@ read more on <a class="reference external" href="https://docs.dask.org/en/latest
 </div>
 <p>We can also use Dask dashboard (with dask.distributed.Client) to examine how jobs are distributed along all the workers. Each green bar below represents one job, i.e. running <code class="docutils literal notranslate"><span class="pre">radgyr</span></code> on one frame of the trajectory</p>
 <center><div style="width: 650px; text-align: center;"><img alt="Dask task stream" src="../../_images/per_frame_dask.png" />
-</div></center></div>
-</div>
-<div class="section" id="Parallelization-in-a-split-apply-combine-fashion">
-<h2>Parallelization in a split-apply-combine fashion<a class="headerlink" href="#Parallelization-in-a-split-apply-combine-fashion" title="Permalink to this headline">¶</a></h2>
+</div></center></section>
+</section>
+<section id="Parallelization-in-a-split-apply-combine-fashion">
+<h2>Parallelization in a split-apply-combine fashion<a class="headerlink" href="#Parallelization-in-a-split-apply-combine-fashion" title="Permalink to this heading">¶</a></h2>
 <p>The aforementioned per-frame approach should normally be <strong>avoided</strong> because in <strong>each</strong> task, all the attributes (<code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>, <code class="docutils literal notranslate"><span class="pre">Universe</span></code>, and etc) need to be pickled. This pickling may take even more time than your lightweight analysis! Besides, in Dask, a significant amount of overhead time is needed to build a comprehensive Dask graph with thousands of tasks.</p>
 <p>Therefore, we should normally use a split-apply-combine scheme for parallel trajectory analysis. Here, the trajectory is <strong>split</strong> into blocks, analysis is performed separately and in parallel on each block (“apply”), and then results from each block are gathered and <strong>combined</strong>.</p>
 <center><div style="width: 650px; text-align: center;"><p><img alt="Split-apply-combine approach" src="../../_images/dask_sac.png" /></p>
-</div></center><p>Image from (<a class="bibtex reference internal" href="../../references.html#fan-pmda-2019" id="id4">[SFPG+19]</a>) used under CC-BY license.</p>
+</div></center><p>Image from (<span id="id4">[<a class="reference internal" href="../../references.html#id29" title="Max Linke Shujie Fan, Ioannis Paraskevakos, Richard J. Gowers, Michael Gecht, and Oliver Beckstein. PMDA - Parallel Molecular Dynamics Analysis. In Chris Calloway, David Lippa, Dillon Niederhut, and David Shupe, editors, Proceedings of the 18th Python in Science Conference, 134 - 142. 2019. doi:10.25080/Majora-7ddc1dd1-013.">SFPG+19</a>]</span>) used under CC-BY license.</p>
 <p>We will show a simple illustration of split-apply-combine approach with dask below:</p>
-<div class="section" id="Block-analysis-function">
-<h3>Block analysis function<a class="headerlink" href="#Block-analysis-function" title="Permalink to this headline">¶</a></h3>
+<section id="Block-analysis-function">
+<h3>Block analysis function<a class="headerlink" href="#Block-analysis-function" title="Permalink to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">&#64;dask.delayed</span></code> is a common syntax to decorate a function into delayed-enabled. It is the same as delaying the function by <code class="docutils literal notranslate"><span class="pre">dask.delayed(analyze_block)(bs,</span> <span class="pre">radgyr,</span> <span class="pre">...)</span></code> later on.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nd">@dask</span><span class="o">.</span><span class="n">delayed</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@dask</span><span class="o">.</span><span class="n">delayed</span>
 <span class="k">def</span> <span class="nf">analyze_block</span><span class="p">(</span><span class="n">blockslice</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[</span><span class="n">blockslice</span><span class="o">.</span><span class="n">start</span><span class="p">:</span><span class="n">blockslice</span><span class="o">.</span><span class="n">stop</span><span class="p">]:</span>
@@ -944,17 +939,16 @@ read more on <a class="reference external" href="https://docs.dask.org/en/latest
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="Split-the-trajectory">
-<h3>Split the trajectory<a class="headerlink" href="#Split-the-trajectory" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Split-the-trajectory">
+<h3>Split the trajectory<a class="headerlink" href="#Split-the-trajectory" title="Permalink to this heading">¶</a></h3>
 <p>This is a very simple way to split the trajectory. It splits the trajectory into defined <code class="docutils literal notranslate"><span class="pre">n_blocks</span></code> which is normally the same as the number of cores you want to use.</p>
 <p>Since it is achieved by evenly dividing the <code class="docutils literal notranslate"><span class="pre">n_frames</span></code> by <code class="docutils literal notranslate"><span class="pre">n_blocks</span></code>, and setting the last block to end at the last frame, sometime it is not really balanced (e.g. the last block).</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">n_frames</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">n_frames</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_frames</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">n_frames</span>
 <span class="n">n_blocks</span> <span class="o">=</span> <span class="n">n_jobs</span>   <span class="c1">#  it can be any realistic value (0 &lt; n_blocks &lt;= n_jobs)</span>
 
 <span class="n">n_frames_per_block</span> <span class="o">=</span> <span class="n">n_frames</span> <span class="o">//</span> <span class="n">n_blocks</span>
@@ -967,8 +961,7 @@ read more on <a class="reference external" href="https://docs.dask.org/en/latest
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">blocks</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">blocks</span>
 </pre></div>
 </div>
 </div>
@@ -992,15 +985,14 @@ read more on <a class="reference external" href="https://docs.dask.org/en/latest
  range(3828, 4187)]
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Apply-the-analysis-per-block">
-<h3>Apply the analysis per block<a class="headerlink" href="#Apply-the-analysis-per-block" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Apply-the-analysis-per-block">
+<h3>Apply the analysis per block<a class="headerlink" href="#Apply-the-analysis-per-block" title="Permalink to this heading">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">jobs</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jobs</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">bs</span> <span class="ow">in</span> <span class="n">blocks</span><span class="p">:</span>
     <span class="n">jobs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">analyze_block</span><span class="p">(</span><span class="n">bs</span><span class="p">,</span>
                               <span class="n">radgyr</span><span class="p">,</span>
@@ -1016,8 +1008,7 @@ read more on <a class="reference external" href="https://docs.dask.org/en/latest
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">jobs</span><span class="o">.</span><span class="n">visualize</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jobs</span><span class="o">.</span><span class="n">visualize</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1033,20 +1024,18 @@ read more on <a class="reference external" href="https://docs.dask.org/en/latest
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">jobs</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">jobs</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="Combine-the-results">
-<h3>Combine the results<a class="headerlink" href="#Combine-the-results" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Combine-the-results">
+<h3>Combine the results<a class="headerlink" href="#Combine-the-results" title="Permalink to this heading">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1054,8 +1043,7 @@ read more on <a class="reference external" href="https://docs.dask.org/en/latest
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
 
 <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;x-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;y-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;z-axis&#39;</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
@@ -1075,18 +1063,17 @@ read more on <a class="reference external" href="https://docs.dask.org/en/latest
 </div>
 <p>If you look at the Dask dashboard (with dask.distributed.Client) this time, you will see each green bar below represents a per-block analysis for <code class="docutils literal notranslate"><span class="pre">radgyr</span></code>.</p>
 <center><div style="width: 650px; text-align: center;"><img alt="Dask task stream with blocks" src="../../_images/block_dask.png" />
-</div></center></div>
-</div>
-<div class="section" id="Other-possible-parallelism-approaches-for-multiple-analyses">
-<h2>Other possible parallelism approaches for multiple analyses<a class="headerlink" href="#Other-possible-parallelism-approaches-for-multiple-analyses" title="Permalink to this headline">¶</a></h2>
+</div></center></section>
+</section>
+<section id="Other-possible-parallelism-approaches-for-multiple-analyses">
+<h2>Other possible parallelism approaches for multiple analyses<a class="headerlink" href="#Other-possible-parallelism-approaches-for-multiple-analyses" title="Permalink to this heading">¶</a></h2>
 <p>You may want to perform multiple analyses (or analyze multiple trajectories). In this case, you can use some high-level parallelism, i.e. running all the serial analyses in parallel.</p>
 <p>Here we use <a class="reference external" href="https://joblib.readthedocs.io/en/latest/">joblib</a>. It is implemented on <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code> and provides lightweight pipelining in Python. Compared to <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code>, it has a simple API and convenient persistence of cached results.”</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
 <span class="kn">import</span> <span class="nn">multiprocessing</span>
 <span class="n">num_cores</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span>
 </pre></div>
@@ -1098,8 +1085,7 @@ read more on <a class="reference external" href="https://docs.dask.org/en/latest
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">MDAnalysis.analysis.base</span> <span class="kn">import</span> <span class="n">AnalysisFromFunction</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">MDAnalysis.analysis.base</span> <span class="kn">import</span> <span class="n">AnalysisFromFunction</span>
 </pre></div>
 </div>
 </div>
@@ -1107,8 +1093,7 @@ read more on <a class="reference external" href="https://docs.dask.org/en/latest
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">rog_1</span> <span class="o">=</span> <span class="n">AnalysisFromFunction</span><span class="p">(</span><span class="n">radgyr</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">,</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rog_1</span> <span class="o">=</span> <span class="n">AnalysisFromFunction</span><span class="p">(</span><span class="n">radgyr</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">,</span>
                            <span class="n">protein</span><span class="p">,</span> <span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">,</span>
                            <span class="n">total_mass</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">))</span>
 
@@ -1133,8 +1118,7 @@ read more on <a class="reference external" href="https://docs.dask.org/en/latest
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">run_analysis</span><span class="p">(</span><span class="n">analysis</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">run_analysis</span><span class="p">(</span><span class="n">analysis</span><span class="p">):</span>
     <span class="n">analysis</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">analysis</span><span class="o">.</span><span class="n">results</span>
 </pre></div>
@@ -1146,8 +1130,7 @@ read more on <a class="reference external" href="https://docs.dask.org/en/latest
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">results_ensemble</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="n">num_cores</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">run_analysis</span><span class="p">)(</span><span class="n">analysis</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results_ensemble</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="n">num_cores</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">run_analysis</span><span class="p">)(</span><span class="n">analysis</span><span class="p">)</span>
                                                 <span class="k">for</span> <span class="n">analysis</span> <span class="ow">in</span> <span class="n">analysis_ensemble</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1157,8 +1140,7 @@ read more on <a class="reference external" href="https://docs.dask.org/en/latest
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">result_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">results_ensemble</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;timeseries&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">results_ensemble</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;timeseries&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
 
 <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;x-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;y-axis&#39;</span><span class="p">,</span> <span class="s1">&#39;z-axis&#39;</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">result_1</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
@@ -1176,19 +1158,19 @@ read more on <a class="reference external" href="https://docs.dask.org/en/latest
 <img alt="../../_images/examples_analysis_custom_parallel_analysis_68_0.png" src="../../_images/examples_analysis_custom_parallel_analysis_68_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="See-Also">
-<h2>See Also<a class="headerlink" href="#See-Also" title="Permalink to this headline">¶</a></h2>
-<p>The parallel version of MDAnalysis is still under development. For existing solutions and some implementations of parallel analysis, go to <a class="reference external" href="https://www.mdanalysis.org/pmda/">PMDA</a>. PMDA (<a class="bibtex reference internal" href="../../references.html#fan-pmda-2019" id="id5">[SFPG+19]</a>) applies the aforementioned split-apply-combine scheme with Dask. In the future, it may provide a framework that consolidates all the parallelisation schemes described in this tutorial.”</p>
-</div>
-<div class="section" id="References">
-<h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="See-Also">
+<h2>See Also<a class="headerlink" href="#See-Also" title="Permalink to this heading">¶</a></h2>
+<p>The parallel version of MDAnalysis is still under development. For existing solutions and some implementations of parallel analysis, go to <a class="reference external" href="https://www.mdanalysis.org/pmda/">PMDA</a>. PMDA (<span id="id5">[<a class="reference internal" href="../../references.html#id29" title="Max Linke Shujie Fan, Ioannis Paraskevakos, Richard J. Gowers, Michael Gecht, and Oliver Beckstein. PMDA - Parallel Molecular Dynamics Analysis. In Chris Calloway, David Lippa, Dillon Niederhut, and David Shupe, editors, Proceedings of the 18th Python in Science Conference, 134 - 142. 2019. doi:10.25080/Majora-7ddc1dd1-013.">SFPG+19</a>]</span>) applies the aforementioned split-apply-combine scheme with Dask. In the future, it may provide a framework that consolidates all the parallelisation schemes described in this tutorial.”</p>
+</section>
+<section id="References">
+<h2>References<a class="headerlink" href="#References" title="Permalink to this heading">¶</a></h2>
 <p>[1] Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164">https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164</a>, doi:10.1016/j.jmb.2009.09.009.</p>
 <p>[2] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
 <p>[3] Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>, doi:10.1002/jcc.21787.</p>
 <p>[4] Max Linke Shujie Fan, Ioannis Paraskevakos, Richard J. Gowers, Michael Gecht, and Oliver Beckstein. PMDA - Parallel Molecular Dynamics Analysis. In Chris Calloway, David Lippa, Dillon Niederhut, and David Shupe, editors, Proceedings of the 18th Python in Science Conference, 134 – 142. 2019. doi:10.25080/Majora-7ddc1dd1-013.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
