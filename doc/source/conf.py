@@ -87,6 +87,8 @@ extensions = [
     'sphinxcontrib.bibtex',
 ]
 
+bibtex_bibfiles = ['references.bib']
+
 pygments_style = 'default'
 
 todo_include_todos = True
