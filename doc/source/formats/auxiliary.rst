@@ -240,6 +240,18 @@ the EDRReader, this section will highlight functionality unique to the EDRReader
 
 Standalone Usage
 ----------------
+This a test, please remove me, thank you!
+
+.. ipython:: python
+
+    import MDAnalysis as mda
+    import MDAnalysisTests as mdat
+    from MDAnalysisTests.datafiles import AUX_EDR
+    print(mda.__version__)
+    print(mdat.__version__)
+    !ls /home/docs/checkouts/readthedocs.org/user_builds/mdanalysisuserguide/conda/230/lib/python3.10/site-packages/MDAnalysisTests/data/
+    print(AUX_EDR)
+
 The EDRReader is initialised by passing the path to an EDR file to it.
 
 .. ipython:: python
