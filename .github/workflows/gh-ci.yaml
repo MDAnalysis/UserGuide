@@ -47,7 +47,7 @@ jobs:
 
     - name: build_docs
       run: |
-        make -C ${SPHINX_DIR} html
+        make -j 2 -C ${SPHINX_DIR} html
 
     - name: deploy_docs
       if: github.event_name != 'pull_request'
