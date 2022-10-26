@@ -44,6 +44,6 @@ dependencies:
   - pip:
       - msmb_theme
       - sphinx-sitemap
-      - git+https://github.com/MDAnalysis/mdanalysis@try-edr-packaging#egg=mdanalysis&subdirectory=package
-      - git+https://github.com/MDAnalysis/mdanalysis@try-edr-packaging#egg=MDAnalysisTests&subdirectory=testsuite
+      - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=mdanalysis&subdirectory=package
+      - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=MDAnalysisTests&subdirectory=testsuite
       - pyedr>=0.7
