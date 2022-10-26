@@ -1,48 +1,47 @@
 name: mda-user-guide
 channels:
-  - conda-forge
   - defaults
+  - conda-forge
 dependencies:
-  - mdanalysis
-  - mdanalysistests
   - cython
   - dask
-  - decorator
-  - docutils
+  - decorator==4.4.2
+  - docutils==0.15.2
   - graphviz
-  - ipywidgets<8.0.0
-  - ipython
+  - ipywidgets==7.6.3
+  - ipython==7.22.0
   - ipygany
-  - jedi
+  - jedi==0.18.0
   - jinja2<3.0
-  - jupyter_contrib_nbextensions
-  - matplotlib
-  - nbclient
-  - nbconvert
-  - nbformat
-  - nbsphinx
-  - networkx
-  - nglview
-  - notebook
-  - numpy
+  - jupyter_contrib_nbextensions==0.5.1
+  - matplotlib==3.2.2
+  - nbclient==0.5.3
+  - nbconvert==6.0.7
+  - nbformat==5.0.8
+  - nbsphinx==0.8.1
+  - networkx==2.5.1
+  - nglview==2.7.7
+  - notebook==6.1.6
+  - numpy==1.20.2
   - packaging
   - parmed
-  - parso
-  - pip
-  - plotly
-  - pybtex
+  - parso==0.8.2
+  - pip==20.3.3
+  - plotly==4.14.1
+  - pybtex==0.23.0
   - python
   - pyvista
   - scikit-image
-  - sphinx
-  - sphinxcontrib-bibtex
-  - sphinx_rtd_theme
+  - sphinx==3.5.3
+  - sphinxcontrib-bibtex==1.0.0
+  - sphinx_rtd_theme==0.5.2
   - threadpoolctl
-  - tabulate
-  - widgetsnbextension
-  - Jinja2
+  - tabulate==0.8.7
+  - widgetsnbextension==3.5.1
+  - Jinja2==2.11
   - pip:
-      - msmb_theme
-      - sphinx-sitemap
+      - msmb_theme==1.2.0
+      - sphinx-sitemap==1.0.2
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=mdanalysis&subdirectory=package
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=MDAnalysisTests&subdirectory=testsuite
+      - pyedr>=0.7.0
