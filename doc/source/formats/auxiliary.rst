@@ -295,8 +295,8 @@ Unit Handling
 
 On object creation, the EDRReader creates a ``unit_dict`` attribute which contains
 information on the units of the data stored within. These units are read from the
-EDR file automatically and by default converted to MDAnalysis base units where such unit
-is defined. The automatic unit conversion can be disabled by setting the ``convert_units`` kwarg to False.
+EDR file automatically and by default converted to MDAnalysis base units where such units
+are defined. The automatic unit conversion can be disabled by setting the ``convert_units`` kwarg to False.
 
 .. ipython:: python
 
