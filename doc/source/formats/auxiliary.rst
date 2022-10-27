@@ -232,7 +232,7 @@ To reload, pass the dictionary into :meth:`~MDAnalysis.coordinates.base.ProtoRea
 
 EDR Files
 ---------
-EDR files are created by GROMACS during simulations and contain additional time-series non-trajectory data on the
+EDR files are created by GROMACS during simulations and contain additional non-trajectory time-series data of the
 system, such as energies, temperature, or pressure. The EDRReader allows direct reading of these binary files
 and associating of the data with trajectory time steps just like the XVGReader does. As all functionality of the base AuxReaders (see XVGReader above) also works with
 the EDRReader, this section will highlight functionality unique to the EDRReader.
@@ -240,7 +240,7 @@ the EDRReader, this section will highlight functionality unique to the EDRReader
 
 Standalone Usage
 ----------------
-The EDRReader is initialised by passing the path to an EDR file to it.
+The EDRReader is initialised by passing the path to an EDR file as an argument.
 
 .. ipython:: python
 
