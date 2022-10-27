@@ -48,7 +48,7 @@ You can also create a sliced trajectory with boolean indexing and fancy indexing
 
     protein = u.select_atoms('protein')
     rmsd = rms.RMSD(protein, protein).run()
-    bools = rmsd.rmsd.T[-1] < 2
+    bools = rmsd.results.rmsd.T[-1] < 2
     print(bools)
 
 .. ipython:: python
