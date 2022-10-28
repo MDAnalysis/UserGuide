@@ -247,6 +247,8 @@ The EDRReader is initialised by passing the path to an EDR file as an argument.
     import MDAnalysis as mda
     from MDAnalysisTests.datafiles import AUX_EDR
     aux = mda.auxiliary.EDR.EDRReader(AUX_EDR)
+    # Or, for example
+    # aux = mda.auxiliary.EDR.EDRReader("path/to/file/ener.edr")
 
 Dozens of terms can be defined in EDR files. A list of available data is conveniently available unter the `terms` attribute.
 
