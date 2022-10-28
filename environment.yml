@@ -46,3 +46,4 @@ dependencies:
       - sphinx-sitemap
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=mdanalysis&subdirectory=package
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=MDAnalysisTests&subdirectory=testsuite
+      - pyedr>=0.7
