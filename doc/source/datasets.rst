@@ -29,7 +29,7 @@ A complete list of files and descriptions is in the ``mdanalysis/testsuite/MDAna
 MDAnalysisData
 ==============
 
-The `MDAnalysisData <https://www.mdanalysis.org/MDAnalysisData/>`_ package is an interface to download, cache, and access certain datasets hosted on external repositories (e.g. figshare_, zenodo_, DataDryad_). Data is not downloaded upon installation, so the package itself is small; but the directory where the datasets are cached can grow significantly.
+The `MDAnalysisData <https://www.mdanalysis.org/MDAnalysisData/>`__ package is an interface to download, cache, and access certain datasets hosted on external repositories (e.g. figshare_, zenodo_, DataDryad_). Data is not downloaded upon installation, so the package itself is small; but the directory where the datasets are cached can grow significantly.
 
 You can access datasets like so::
 
