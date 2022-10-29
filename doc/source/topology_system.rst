@@ -102,7 +102,7 @@ One way to modify topology attributes is to simply replace them with :meth:`~MDA
 .. ipython:: python
 
     psf.add_TopologyAttr('tempfactors', range(len(psf.atoms)))
-    psf.atoms.tempfactor
+    psf.atoms.tempfactors
 
 The number of values provided should correspond with the "level" of the attribute. For example, B-factors are atomic-level information. However, residue names and residue ids apply to residues. See a :ref:`table of attribute levels and default values <topologyattr-defaults>` for more information.
 
