@@ -280,6 +280,7 @@ The times of each data point are always part of the returned dictionary to facil
 
 
 .. plot::
+   :okwarning:
 
     import matplotlib.pyplot as plt
     import MDAnalysis as mda
@@ -302,6 +303,7 @@ EDR file automatically and by default converted to MDAnalysis base units where s
 are defined. The automatic unit conversion can be disabled by setting the ``convert_units`` kwarg to False.
 
 .. ipython:: python
+   :okwarning:
 
     aux.unit_dict["Box-X"]
     aux_native = mda.auxiliary.EDR.EDRReader(AUX_EDR, convert_units=False)
@@ -315,6 +317,7 @@ An arbitrary number of terms to be associated with a trajectory can be specified
 The dictionary is chosen so that the name to be used in MDAnalysis to access the data is mapped to the name in `aux.terms`.
 
 .. ipython:: python
+   :okwarning:
 
     from MDAnalysisTests.datafiles import AUX_EDR_TPR, AUX_EDR_XTC
     u = mda.Universe(AUX_EDR_TPR, AUX_EDR_XTC)
@@ -326,6 +329,7 @@ Adding all data is possible by omitting the dictionary as follows. It is then ne
 specify that the EDRReader should be passed as the `auxdata` argument as such:
 
 .. ipython:: python
+   :okwarning:
 
     u = mda.Universe(AUX_EDR_TPR, AUX_EDR_XTC)
     u.trajectory.add_auxiliary(auxdata=aux)
@@ -367,6 +371,7 @@ by defining the `memory_limit` (in bytes) when adding data to a trajectory. Belo
 the memory limit is set to 200 MB.
 
 .. ipython:: python
+   :okwarning:
 
     u = mda.Universe(AUX_EDR_TPR, AUX_EDR_XTC)
     term_dict = {"temp": "Temperature", "epot": "Potential"}
