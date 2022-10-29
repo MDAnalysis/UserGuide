@@ -281,7 +281,6 @@ The times of each data point are always part of the returned dictionary to facil
 
 
 .. plot::
-   :okwarning:
 
     import matplotlib.pyplot as plt
     import MDAnalysis as mda
