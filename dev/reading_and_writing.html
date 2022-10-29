@@ -42,6 +42,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script src="_static/js/versions.js"></script>
@@ -368,13 +369,13 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/2.4.0-dev0/
 
 <span class="gp">In [16]: </span><span class="n">universe</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[16]: </span><span class="go"></span>
-<span class="go">array([[0.00937715, 0.37899712, 0.71499914],</span>
-<span class="go">       [0.24732889, 0.11570604, 0.30504256],</span>
-<span class="go">       [0.54442984, 0.23237948, 0.1417044 ],</span>
+<span class="go">array([[0.6042081 , 0.7081716 , 0.26433605],</span>
+<span class="go">       [0.02870161, 0.9118442 , 0.63661087],</span>
+<span class="go">       [0.06804466, 0.5273976 , 0.52462244],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.2194113 , 0.723299  , 0.45552927],</span>
-<span class="go">       [0.48897976, 0.28345656, 0.51015115],</span>
-<span class="go">       [0.17354831, 0.31678414, 0.30874455]], dtype=float32)</span>
+<span class="go">       [0.05775432, 0.6751685 , 0.17545058],</span>
+<span class="go">       [0.19185774, 0.51076865, 0.71119696],</span>
+<span class="go">       [0.33706343, 0.41752183, 0.1328249 ]], dtype=float32)</span>
 </pre></div>
 </div>
 <p>or they can be directly passed in when creating a Universe.</p>
@@ -382,13 +383,13 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/2.4.0-dev0/
 
 <span class="gp">In [18]: </span><span class="n">universe2</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[18]: </span><span class="go"></span>
-<span class="go">array([[0.00937715, 0.37899712, 0.71499914],</span>
-<span class="go">       [0.24732889, 0.11570604, 0.30504256],</span>
-<span class="go">       [0.54442984, 0.23237948, 0.1417044 ],</span>
+<span class="go">array([[0.6042081 , 0.7081716 , 0.26433605],</span>
+<span class="go">       [0.02870161, 0.9118442 , 0.63661087],</span>
+<span class="go">       [0.06804466, 0.5273976 , 0.52462244],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.2194113 , 0.723299  , 0.45552927],</span>
-<span class="go">       [0.48897976, 0.28345656, 0.51015115],</span>
-<span class="go">       [0.17354831, 0.31678414, 0.30874455]], dtype=float32)</span>
+<span class="go">       [0.05775432, 0.6751685 , 0.17545058],</span>
+<span class="go">       [0.19185774, 0.51076865, 0.71119696],</span>
+<span class="go">       [0.33706343, 0.41752183, 0.1328249 ]], dtype=float32)</span>
 </pre></div>
 </div>
 </section>
