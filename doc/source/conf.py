@@ -189,12 +189,12 @@ html_sidebars = {
 # Configuration for intersphinx: refer to the Python standard library
 # and other packages used by MDAnalysis
 mda_version = mda.__version__
-intersphinx_mapping = {'https://docs.python.org/': None,
-                       'https://docs.scipy.org/doc/numpy/': None,
+intersphinx_mapping = {'https://docs.python.org/3/': None,
+                       'https://numpy.org/doc/stable/': None,
                        f'https://docs.mdanalysis.org/{mda_version}/': None,
                        'https://docs.pytest.org/en/latest/': None,
                        'https://chemfiles.org/chemfiles.py/latest/': None,
-                       'http://parmed.github.io/ParmEd/html/': None,
+                       'https://parmed.github.io/ParmEd/html/': None,
                        }
 
 # nbsphinx
