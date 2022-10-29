@@ -40,3 +40,4 @@ Units are assumed to be the following default AMBER units:
   * If the trajectory contains exactly *one* atom then it is always
   assumed to be non-periodic (for technical reasons).
   * Velocities are currently *not supported* as ASCII trajectories.
+
