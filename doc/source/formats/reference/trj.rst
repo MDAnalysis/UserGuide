@@ -29,7 +29,7 @@ Units are assumed to be the following default AMBER units:
     * length: Angstrom
     * time: ps
 
-**Limitations: **
+**Limitations:**
 
   * Periodic boxes are only stored as box lengths A, B, C in an AMBER
   trajectory; the reader always assumes that these are orthorhombic
