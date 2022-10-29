@@ -222,6 +222,7 @@ obtained using :meth:`~MDAnalysis.coordinates.base.ProtoReader.get_aux_descripti
 To reload, pass the dictionary into :meth:`~MDAnalysis.coordinates.base.ProtoReader.add_auxiliary`.
 
 .. ipython:: python
+   :okwarning:
 
     u2 = mda.Universe(PDB, TRR)
     for desc in descriptions:
