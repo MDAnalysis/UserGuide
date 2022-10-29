@@ -243,6 +243,7 @@ Standalone Usage
 The EDRReader is initialised by passing the path to an EDR file as an argument.
 
 .. ipython:: python
+   :okwarning:
 
     import MDAnalysis as mda
     from MDAnalysisTests.datafiles import AUX_EDR
@@ -339,6 +340,7 @@ To select only those frames with a potential energy below a certain threshold, t
 following can be used:
 
 .. ipython:: python
+   :okwarning:
 
     u = mda.Universe(AUX_EDR_TPR, AUX_EDR_XTC)
     term_dict = {"epot": "Potential"}
