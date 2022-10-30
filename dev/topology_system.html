@@ -571,27 +571,10 @@
 <p>One way to modify topology attributes is to simply replace them with <a class="reference external" href="https://docs.mdanalysis.org/2.4.0-dev0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.add_TopologyAttr" title="(in MDAnalysis v2.4.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_TopologyAttr()</span></code></a>:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">psf</span><span class="o">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s1">&#39;tempfactors&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">psf</span><span class="o">.</span><span class="n">atoms</span><span class="p">)))</span>
 
-<span class="gp">In [8]: </span><span class="n">psf</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">tempfactor</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">psf</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">tempfactor</span>
-
-<span class="nn">File /usr/share/miniconda/envs/mda-user-guide/lib/python3.8/site-packages/MDAnalysis/core/groups.py:2537,</span> in <span class="ni">AtomGroup.__getattr__</span><span class="nt">(self, attr)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2535</span> <span class="k">elif</span> <span class="n">attr</span> <span class="o">==</span> <span class="s1">&#39;positions&#39;</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2536</span>     <span class="k">raise</span> <span class="n">NoDataError</span><span class="p">(</span><span class="s1">&#39;This Universe has no coordinates&#39;</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2537</span> <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">AtomGroup</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__getattr__</span><span class="p">(</span><span class="n">attr</span><span class="p">)</span>
-
-<span class="nn">File /usr/share/miniconda/envs/mda-user-guide/lib/python3.8/site-packages/MDAnalysis/core/groups.py:605,</span> in <span class="ni">GroupBase.__getattr__</span><span class="nt">(self, attr)</span>
-<span class="g g-Whitespace">    </span><span class="mi">602</span> <span class="k">if</span> <span class="n">attr</span> <span class="o">==</span> <span class="bp">cls</span><span class="o">.</span><span class="n">singular</span> <span class="ow">and</span> <span class="n">attr</span> <span class="o">!=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">attrname</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">603</span>     <span class="n">err</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="si">{selfcls}</span><span class="s1"> has no attribute </span><span class="si">{attr}</span><span class="s1">. &#39;</span>
-<span class="g g-Whitespace">    </span><span class="mi">604</span>            <span class="s1">&#39;Do you mean </span><span class="si">{plural}</span><span class="s1">?&#39;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">605</span>     <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">selfcls</span><span class="o">=</span><span class="n">selfcls</span><span class="p">,</span> <span class="n">attr</span><span class="o">=</span><span class="n">attr</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">606</span>                                     <span class="n">plural</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="n">attrname</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">607</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">608</span>     <span class="n">err</span> <span class="o">=</span> <span class="s1">&#39;This Universe does not contain </span><span class="si">{singular}</span><span class="s1"> information&#39;</span>
-
-<span class="ne">AttributeError</span>: AtomGroup has no attribute tempfactor. Do you mean tempfactors?
+<span class="gp">In [8]: </span><span class="n">psf</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">tempfactors</span>
+<span class="gh">Out[8]: </span><span class="go"></span>
+<span class="go">array([0.000e+00, 1.000e+00, 2.000e+00, ..., 3.338e+03, 3.339e+03,</span>
+<span class="go">       3.340e+03])</span>
 </pre></div>
 </div>
 <p>The number of values provided should correspond with the “level” of the attribute. For example, B-factors are atomic-level information. However, residue names and residue ids apply to residues. See a <a class="reference internal" href="#topologyattr-defaults"><span class="std std-ref">table of attribute levels and default values</span></a> for more information.</p>

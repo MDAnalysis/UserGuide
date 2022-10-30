@@ -22,7 +22,7 @@
     "**See also**\n",
     "\n",
     "* [Calculating hydrogen bonds: advanced selections](hbonds-selections.ipynb)\n",
-    "* [Calculating hydrogen bond lifetimes](hbonds-lifetime.ipynb)\n",
+    "* [Calculating hydrogen bond lifetimes](hbonds-lifetimes.ipynb)\n",
     "\n",
     "<div class=\"alert alert-info\">\n",
     "    \n",

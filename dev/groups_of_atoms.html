@@ -423,74 +423,26 @@ residue as no atoms from this residue were in the <a class="reference external" 
 <h2>Fragments<a class="headerlink" href="#fragments" title="Permalink to this heading">¶</a></h2>
 <p>Certain analysis methods in MDAnalysis also make use of additional ways to group atoms. A key concept is a fragment. A fragment is what is typically considered a molecule: an AtomGroup where any atom is reachable from any other atom in the AtomGroup by traversing bonds, and none of its atoms is bonded to any atoms outside the AtomGroup. (A ‘molecule’ in MDAnalysis methods <a class="reference internal" href="advanced_topology.html#molecule"><span class="std std-ref">refers to a GROMACS-specific concept</span></a>). The fragments of a Universe are determined by MDAnalysis as a derived quantity. They can only be determined if bond information is available.</p>
 <p>The fragments of an <a class="reference external" href="https://docs.mdanalysis.org/2.4.0-dev0/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v2.4.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> are accessible via the <code class="xref py py-attr docutils literal notranslate"><span class="pre">fragments</span></code> property. Below is a Universe from a GROMACS TPR file of lysozyme (<a class="reference external" href="http://www.rcsb.org/structure/2LYZ">PDB ID: 2LYZ</a>) with 101 water molecules. While it has 230 residues, there are only 102 fragments: 1 protein and 101 water fragments.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [12]: </span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">residues</span><span class="p">)</span>
-<span class="gh">Out[12]: </span><span class="go">230</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [27]: </span><span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">TPR2021</span>
 
-<span class="gp">In [13]: </span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">fragments</span><span class="p">)</span>
-<span class="gh">Out[13]: </span><span class="go">102</span>
+<span class="gp">In [28]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">TPR2021</span><span class="p">)</span>
+
+<span class="gp">In [29]: </span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">residues</span><span class="p">)</span>
+<span class="gh">Out[29]: </span><span class="go">230</span>
+
+<span class="gp">In [30]: </span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">fragments</span><span class="p">)</span>
+<span class="gh">Out[30]: </span><span class="go">102</span>
 </pre></div>
 </div>
 <p>See <a class="reference internal" href="topology_system.html#topology-objects"><span class="std std-ref">Topology objects</span></a> for more on bonds and which file formats give MDAnalysis bond information.</p>
 <p>You can also look at which fragment a particular <a class="reference external" href="https://docs.mdanalysis.org/2.4.0-dev0/documentation_pages/core/groups.html#MDAnalysis.core.groups.Atom" title="(in MDAnalysis v2.4.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a> belongs to:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [27]: </span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">fragment</span>  <span class="c1"># first atom of lysozyme</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NoDataError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">27</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">fragment</span>  <span class="c1"># first atom of lysozyme</span>
-
-<span class="nn">File /usr/share/miniconda/envs/mda-user-guide/lib/python3.8/site-packages/MDAnalysis/core/groups.py:4150,</span> in <span class="ni">Atom.__getattr__</span><span class="nt">(self, attr)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4148</span> <span class="k">elif</span> <span class="n">attr</span> <span class="o">==</span> <span class="s1">&#39;position&#39;</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">4149</span>     <span class="k">raise</span> <span class="n">NoDataError</span><span class="p">(</span><span class="s1">&#39;This Universe has no coordinates&#39;</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">4150</span> <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">Atom</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__getattr__</span><span class="p">(</span><span class="n">attr</span><span class="p">)</span>
-
-<span class="nn">File /usr/share/miniconda/envs/mda-user-guide/lib/python3.8/site-packages/MDAnalysis/core/groups.py:4030,</span> in <span class="ni">ComponentBase.__getattr__</span><span class="nt">(self, attr)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4028</span>         <span class="k">raise</span> <span class="n">NoDataError</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">singular</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="n">singular</span><span class="p">))</span>
-<span class="g g-Whitespace">   </span><span class="mi">4029</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">4030</span>     <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">ComponentBase</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__getattr__</span><span class="p">(</span><span class="n">attr</span><span class="p">)</span>
-
-<span class="nn">File /usr/share/miniconda/envs/mda-user-guide/lib/python3.8/site-packages/MDAnalysis/core/groups.py:376,</span> in <span class="ni">_MutableBase.__getattr__</span><span class="nt">(self, attr)</span>
-<span class="g g-Whitespace">    </span><span class="mi">372</span>     <span class="c1"># missing required topologyattr</span>
-<span class="g g-Whitespace">    </span><span class="mi">373</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">374</span>         <span class="n">err</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="si">{selfcls}</span><span class="s1">.</span><span class="si">{attrname}</span><span class="s1"> not available; &#39;</span>
-<span class="g g-Whitespace">    </span><span class="mi">375</span>                <span class="s1">&#39;this requires </span><span class="si">{topattr}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">376</span>         <span class="k">raise</span> <span class="n">NoDataError</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">selfcls</span><span class="o">=</span><span class="n">selfcls</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">377</span>                                      <span class="n">attrname</span><span class="o">=</span><span class="n">attrname</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">378</span>                                      <span class="n">topattr</span><span class="o">=</span><span class="n">topattr</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">380</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">381</span>     <span class="n">clean</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-
-<span class="ne">NoDataError</span>: Atom.fragment not available; this requires bonds
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [31]: </span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">fragment</span>  <span class="c1"># first atom of lysozyme</span>
+<span class="gh">Out[31]: </span><span class="go">&lt;AtomGroup with 1960 atoms&gt;</span>
 </pre></div>
 </div>
 <p>and see which fragments are associated with atoms in a smaller <a class="reference external" href="https://docs.mdanalysis.org/2.4.0-dev0/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v2.4.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a>:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [28]: </span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="mi">1959</span><span class="p">:</span><span class="mi">1961</span><span class="p">]</span><span class="o">.</span><span class="n">fragments</span>
-<span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NoDataError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="mi">1959</span><span class="p">:</span><span class="mi">1961</span><span class="p">]</span><span class="o">.</span><span class="n">fragments</span>
-
-<span class="nn">File /usr/share/miniconda/envs/mda-user-guide/lib/python3.8/site-packages/MDAnalysis/core/groups.py:2537,</span> in <span class="ni">AtomGroup.__getattr__</span><span class="nt">(self, attr)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2535</span> <span class="k">elif</span> <span class="n">attr</span> <span class="o">==</span> <span class="s1">&#39;positions&#39;</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2536</span>     <span class="k">raise</span> <span class="n">NoDataError</span><span class="p">(</span><span class="s1">&#39;This Universe has no coordinates&#39;</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2537</span> <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">AtomGroup</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__getattr__</span><span class="p">(</span><span class="n">attr</span><span class="p">)</span>
-
-<span class="nn">File /usr/share/miniconda/envs/mda-user-guide/lib/python3.8/site-packages/MDAnalysis/core/groups.py:611,</span> in <span class="ni">GroupBase.__getattr__</span><span class="nt">(self, attr)</span>
-<span class="g g-Whitespace">    </span><span class="mi">609</span>         <span class="k">raise</span> <span class="n">NoDataError</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">singular</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="n">singular</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">610</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">611</span>     <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">GroupBase</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__getattr__</span><span class="p">(</span><span class="n">attr</span><span class="p">)</span>
-
-<span class="nn">File /usr/share/miniconda/envs/mda-user-guide/lib/python3.8/site-packages/MDAnalysis/core/groups.py:376,</span> in <span class="ni">_MutableBase.__getattr__</span><span class="nt">(self, attr)</span>
-<span class="g g-Whitespace">    </span><span class="mi">372</span>     <span class="c1"># missing required topologyattr</span>
-<span class="g g-Whitespace">    </span><span class="mi">373</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">374</span>         <span class="n">err</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="si">{selfcls}</span><span class="s1">.</span><span class="si">{attrname}</span><span class="s1"> not available; &#39;</span>
-<span class="g g-Whitespace">    </span><span class="mi">375</span>                <span class="s1">&#39;this requires </span><span class="si">{topattr}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">376</span>         <span class="k">raise</span> <span class="n">NoDataError</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">selfcls</span><span class="o">=</span><span class="n">selfcls</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">377</span>                                      <span class="n">attrname</span><span class="o">=</span><span class="n">attrname</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">378</span>                                      <span class="n">topattr</span><span class="o">=</span><span class="n">topattr</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">380</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">381</span>     <span class="n">clean</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-
-<span class="ne">NoDataError</span>: AtomGroup.fragments not available; this requires bonds
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [32]: </span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="mi">1959</span><span class="p">:</span><span class="mi">1961</span><span class="p">]</span><span class="o">.</span><span class="n">fragments</span>
+<span class="gh">Out[32]: </span><span class="go">(&lt;AtomGroup with 1960 atoms&gt;, &lt;AtomGroup with 3 atoms&gt;)</span>
 </pre></div>
 </div>
 <div class="admonition note">

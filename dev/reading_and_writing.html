@@ -369,13 +369,13 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/2.4.0-dev0/
 
 <span class="gp">In [16]: </span><span class="n">universe</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[16]: </span><span class="go"></span>
-<span class="go">array([[0.51918536, 0.46877557, 0.12301767],</span>
-<span class="go">       [0.5505355 , 0.92229617, 0.41448635],</span>
-<span class="go">       [0.09224217, 0.9775433 , 0.27274922],</span>
+<span class="go">array([[0.4655984 , 0.5965315 , 0.34499526],</span>
+<span class="go">       [0.8929328 , 0.72026235, 0.6209679 ],</span>
+<span class="go">       [0.94022024, 0.6338948 , 0.96526027],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.60866696, 0.3849366 , 0.671154  ],</span>
-<span class="go">       [0.9481124 , 0.06522273, 0.86883265],</span>
-<span class="go">       [0.7331001 , 0.16306391, 0.8385377 ]], dtype=float32)</span>
+<span class="go">       [0.74229497, 0.9646657 , 0.46523258],</span>
+<span class="go">       [0.51093936, 0.63940525, 0.30051976],</span>
+<span class="go">       [0.80103344, 0.4366142 , 0.35955468]], dtype=float32)</span>
 </pre></div>
 </div>
 <p>or they can be directly passed in when creating a Universe.</p>
@@ -383,13 +383,13 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/2.4.0-dev0/
 
 <span class="gp">In [18]: </span><span class="n">universe2</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[18]: </span><span class="go"></span>
-<span class="go">array([[0.51918536, 0.46877557, 0.12301767],</span>
-<span class="go">       [0.5505355 , 0.92229617, 0.41448635],</span>
-<span class="go">       [0.09224217, 0.9775433 , 0.27274922],</span>
+<span class="go">array([[0.4655984 , 0.5965315 , 0.34499526],</span>
+<span class="go">       [0.8929328 , 0.72026235, 0.6209679 ],</span>
+<span class="go">       [0.94022024, 0.6338948 , 0.96526027],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.60866696, 0.3849366 , 0.671154  ],</span>
-<span class="go">       [0.9481124 , 0.06522273, 0.86883265],</span>
-<span class="go">       [0.7331001 , 0.16306391, 0.8385377 ]], dtype=float32)</span>
+<span class="go">       [0.74229497, 0.9646657 , 0.46523258],</span>
+<span class="go">       [0.51093936, 0.63940525, 0.30051976],</span>
+<span class="go">       [0.80103344, 0.4366142 , 0.35955468]], dtype=float32)</span>
 </pre></div>
 </div>
 </section>
@@ -470,26 +470,26 @@ with its <a class="reference external" href="https://docs.mdanalysis.org/2.4.0-d
 <p>If multiple <a class="reference external" href="https://docs.mdanalysis.org/2.4.0-dev0/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v2.4.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.core.groups.AtomGroup</span></code></a>s are bound to the same
 <a class="reference external" href="https://docs.mdanalysis.org/2.4.0-dev0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v2.4.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.core.universe.Universe</span></code></a>, they will also be bound to the same one
 after serialization:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [31]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
 
-<span class="gp">In [32]: </span><span class="n">g</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+<span class="gp">In [2]: </span><span class="n">g</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
 
-<span class="gp">In [33]: </span><span class="n">h</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+<span class="gp">In [3]: </span><span class="n">h</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
 
-<span class="gp">In [34]: </span><span class="n">g_pickled</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">g</span><span class="p">))</span>
+<span class="gp">In [4]: </span><span class="n">g_pickled</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">g</span><span class="p">))</span>
 
-<span class="gp">In [35]: </span><span class="n">h_pickled</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+<span class="gp">In [5]: </span><span class="n">h_pickled</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
 
-<span class="gp">In [36]: </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;g_pickled.universe is h_pickled.universe : &quot;</span><span class="p">,</span>
-<span class="gp">   ....: </span>       <span class="n">g_pickled</span><span class="o">.</span><span class="n">universe</span> <span class="ow">is</span> <span class="n">h_pickled</span><span class="o">.</span><span class="n">universe</span><span class="p">)</span>
-<span class="gp">   ....: </span>
+<span class="gp">In [6]: </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;g_pickled.universe is h_pickled.universe : &quot;</span><span class="p">,</span>
+<span class="gp">   ...: </span>       <span class="n">g_pickled</span><span class="o">.</span><span class="n">universe</span> <span class="ow">is</span> <span class="n">h_pickled</span><span class="o">.</span><span class="n">universe</span><span class="p">)</span>
+<span class="gp">   ...: </span>
 <span class="go">g_pickled.universe is h_pickled.universe :  False</span>
 
-<span class="gp">In [37]: </span><span class="n">g_pickled</span><span class="p">,</span> <span class="n">h_pickled</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">((</span><span class="n">g</span><span class="p">,</span> <span class="n">h</span><span class="p">)))</span>
+<span class="gp">In [7]: </span><span class="n">g_pickled</span><span class="p">,</span> <span class="n">h_pickled</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">((</span><span class="n">g</span><span class="p">,</span> <span class="n">h</span><span class="p">)))</span>
 
-<span class="gp">In [38]: </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;g_pickled.universe is h_pickled.universe: &quot;</span><span class="p">,</span>
-<span class="gp">   ....: </span>       <span class="n">g_pickled</span><span class="o">.</span><span class="n">universe</span> <span class="ow">is</span> <span class="n">h_pickled</span><span class="o">.</span><span class="n">universe</span><span class="p">)</span>
-<span class="gp">   ....: </span>
+<span class="gp">In [8]: </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;g_pickled.universe is h_pickled.universe: &quot;</span><span class="p">,</span>
+<span class="gp">   ...: </span>       <span class="n">g_pickled</span><span class="o">.</span><span class="n">universe</span> <span class="ow">is</span> <span class="n">h_pickled</span><span class="o">.</span><span class="n">universe</span><span class="p">)</span>
+<span class="gp">   ...: </span>
 <span class="go">g_pickled.universe is h_pickled.universe:  True</span>
 </pre></div>
 </div>

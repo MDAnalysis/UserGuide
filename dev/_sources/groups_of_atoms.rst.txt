@@ -182,21 +182,21 @@ Certain analysis methods in MDAnalysis also make use of additional ways to group
 
 The fragments of an :class:`~MDAnalysis.core.groups.AtomGroup` are accessible via the :attr:`fragments` property. Below is a Universe from a GROMACS TPR file of lysozyme (`PDB ID: 2LYZ <http://www.rcsb.org/structure/2LYZ>`_) with 101 water molecules. While it has 230 residues, there are only 102 fragments: 1 protein and 101 water fragments.
 
-.. code-block:: ipython
+.. ipython:: python
+   :okwarning:
 
-    In [12]: len(u.residues)
-    Out[12]: 230
+    from MDAnalysis.tests.datafiles import TPR2021
+    u = mda.Universe(TPR2021)
 
-    In [13]: len(u.atoms.fragments)
-    Out[13]: 102
+    len(u.residues)
 
+    len(u.atoms.fragments)
 
 See :ref:`topology-objects` for more on bonds and which file formats give MDAnalysis bond information.
 
 You can also look at which fragment a particular :class:`~MDAnalysis.core.groups.Atom` belongs to:
 
 .. ipython:: python
-    :okwarning:
 
     u.atoms[0].fragment  # first atom of lysozyme
 
