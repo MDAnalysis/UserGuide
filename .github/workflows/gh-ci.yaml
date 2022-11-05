@@ -4,6 +4,8 @@ on:
     branches:
       - develop
       - master
+    tags:
+      - "release-*"
   pull_request:
     branches:
       - develop
@@ -11,8 +13,6 @@ on:
   schedule:
     # 3 am Tuesdays and Fridays
     - cron: "0 3 * * 2,5"
-  tags:
-    - "release-*"
 
 concurrency:
   # Probably overly cautious group naming.
