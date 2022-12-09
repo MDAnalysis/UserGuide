@@ -48,3 +48,5 @@ doc/source/examples/**/*.*
 # backup files
 doc/source/examples/**/.*.ipynb
 
+# ignore HOLE2 local install folder
+hole2
