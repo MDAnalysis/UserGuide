@@ -4,7 +4,10 @@ channels:
   - defaults
 dependencies:
   - cython
-  - dask
+  - distributed==2021.1.0
+  - dask==2021.1.0
+  - python-graphviz
+  - pytest
   - decorator
   - docutils
   - graphviz
@@ -24,7 +27,6 @@ dependencies:
   - notebook
   - numpy
   - packaging
-  - parmed
   - parso
   - pip
   - plotly
@@ -32,15 +34,25 @@ dependencies:
   - python
   - pyvista
   - scikit-image
+  - scikit-learn>=1.1.2
   - sphinx
   - sphinxcontrib-bibtex
   - sphinx_rtd_theme
   - threadpoolctl
   - tabulate
   - widgetsnbextension
+  - ipycytoscape>=1.3.0
+  - seaborn>=0.12.1
+  - openmm>=7.0.0
+  - pandoc
+  - moviepy
+  - ipyvtklink
   - pip:
       - msmb_theme
       - sphinx-sitemap
+      - nbval>=0.9.6
+      - pyedr>=0.7
+      - git+https://github.com/ParmEd/ParmEd.git@7f837a0c0010299f24edce8240514c546944c458
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=mdanalysis&subdirectory=package
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=MDAnalysisTests&subdirectory=testsuite
-      - pyedr>=0.7
+      - git+https://github.com/MDAnalysis/MDAnalysisData@master#egg=MDAnalysisData
