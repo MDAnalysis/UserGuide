@@ -8,7 +8,7 @@
     "\n",
     "We will find all intramolcular hydrogen bonds of a protein without passing any atom selections. We will also look at how to use more advanced atom selections than we saw in [Calculating hydrogen bonds: the basiscs](hbonds.ipynb).\n",
     "\n",
-    "**Last updated:** June 23, 2021 with MDAnalysis 2.0.0-dev\n",
+    "**Last updated:** December 2022\n",
     "\n",
     "**Minimum version of MDAnalysis:** 2.0.0-dev0\n",
     "\n",
@@ -56,7 +56,16 @@
    "cell_type": "code",
    "execution_count": 2,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/home/pbarletta/mambaforge/envs/mda-user-guide/lib/python3.9/site-packages/MDAnalysis/coordinates/DCD.py:165: DeprecationWarning: DCDReader currently makes independent timesteps by copying self.ts while other readers update self.ts inplace. This behaviour will be changed in 3.0 to be the same as other readers\n",
+      "  warnings.warn(\"DCDReader currently makes independent timesteps\"\n"
+     ]
+    }
+   ],
    "source": [
     "u = mda.Universe(PSF, DCD)"
    ]
@@ -95,7 +104,7 @@
     {
      "data": {
       "application/vnd.jupyter.widget-view+json": {
-       "model_id": "b250ac8556114eda9bba2f2675130383",
+       "model_id": "8c64f05e03d34d7d9f20aca0deb4e3d8",
        "version_major": 2,
        "version_minor": 0
       },
@@ -105,6 +114,16 @@
      },
      "metadata": {},
      "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/plain": [
+       "<MDAnalysis.analysis.hydrogenbonds.hbond_analysis.HydrogenBondAnalysis at 0x7fce51309190>"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
     }
    ],
    "source": [
@@ -141,7 +160,7 @@
     {
      "data": {
       "application/vnd.jupyter.widget-view+json": {
-       "model_id": "ca060a426ae7417e9af161559ffd6ecc",
+       "model_id": "7584a0c1a6c4410cae65b29eaba86553",
        "version_major": 2,
        "version_minor": 0
       },
@@ -151,6 +170,24 @@
      },
      "metadata": {},
      "output_type": "display_data"
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/home/pbarletta/mambaforge/envs/mda-user-guide/lib/python3.9/site-packages/MDAnalysis/analysis/hydrogenbonds/hbond_analysis.py:751: UserWarning: No hydrogen bonds were found given angle of 150 between Donor, None, and Acceptor, (resname ARG and name NE) or (resname ARG and name NH1) or (resname ARG and name NH2) or (resname ARG and name O) or (resname LYS and name O).\n",
+      "  warnings.warn(\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "<MDAnalysis.analysis.hydrogenbonds.hbond_analysis.HydrogenBondAnalysis at 0x7fce50983790>"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
     }
    ],
    "source": [
@@ -218,7 +255,7 @@
     {
      "data": {
       "application/vnd.jupyter.widget-view+json": {
-       "model_id": "6132218a274d4a39b8f0eb456894c5e1",
+       "model_id": "84362a6b5026457ca6811f69b26ef9e5",
        "version_major": 2,
        "version_minor": 0
       },
@@ -228,6 +265,16 @@
      },
      "metadata": {},
      "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/plain": [
+       "<MDAnalysis.analysis.hydrogenbonds.hbond_analysis.HydrogenBondAnalysis at 0x7fce5098a250>"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
     }
    ],
    "source": [
@@ -279,7 +326,7 @@
     {
      "data": {
       "application/vnd.jupyter.widget-view+json": {
-       "model_id": "dc286e109cf14ea388e324ba70946368",
+       "model_id": "d910e79f17bc49959f49e2d031ed6b85",
        "version_major": 2,
        "version_minor": 0
       },
@@ -289,6 +336,16 @@
      },
      "metadata": {},
      "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/plain": [
+       "<MDAnalysis.analysis.hydrogenbonds.hbond_analysis.HydrogenBondAnalysis at 0x7fce5096fd60>"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
     }
    ],
    "source": [
@@ -343,9 +400,9 @@
  "metadata": {
   "celltoolbar": "Raw Cell Format",
   "kernelspec": {
-   "display_name": "Python [conda env:mda-user-guide]",
+   "display_name": "Python 3.9.15 ('mda-user-guide')",
    "language": "python",
-   "name": "conda-env-mda-user-guide-py"
+   "name": "python3"
   },
   "language_info": {
    "codemirror_mode": {
@@ -357,7 +414,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.8.5"
+   "version": "3.9.15"
   },
   "toc": {
    "base_numbering": 1,
@@ -371,6 +428,11 @@
    "toc_position": {},
    "toc_section_display": true,
    "toc_window_display": true
+  },
+  "vscode": {
+   "interpreter": {
+    "hash": "7b52aa17ef4e9358c0e91ff3f0bf50d10667bb8b55636d4b9fb967a2ff94bd8c"
+   }
   },
   "widgets": {
    "application/vnd.jupyter.widget-state+json": {
