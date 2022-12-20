@@ -8,9 +8,9 @@
     "\n",
     "Here we use MDAnalysis to convert a ParmEd structure to an MDAnalysis Universe, select a subset of atoms, and convert it back to ParmEd to simulate with OpenMM.\n",
     "\n",
-    "**Last executed:** Dec 27, 2020 with MDAnalysis 1.0.0\n",
+    "**Last updated:** December 2022 with MDAnalysis 2.4.0-dev0\n",
     "\n",
-    "**Last updated:** January 2020\n",
+    "**Last updated:** December 2022\n",
     "\n",
     "**Minimum version of MDAnalysis:** 1.0.0\n",
     "\n",
@@ -35,7 +35,11 @@
    "source": [
     "import parmed as pmd\n",
     "import MDAnalysis as mda\n",
-    "from MDAnalysis.tests.datafiles import PRM7_ala2, RST7_ala2"
+    "from MDAnalysis.tests.datafiles import PRM7_ala2, RST7_ala2\n",
+    "\n",
+    "import warnings\n",
+    "# suppress some MDAnalysis warnings when writing PDB files\n",
+    "warnings.filterwarnings('ignore')"
    ]
   },
   {
@@ -65,7 +69,7 @@
     {
      "data": {
       "text/plain": [
-       "<AmberParm 3026 atoms; 1003 residues; 3025 bonds; PBC (orthogonal); parametrized>"
+       "<AmberParm 3026 atoms; 1003 residues; 3025 bonds; PBC (orthogonal); parameterized>"
       ]
      },
      "execution_count": 2,
@@ -188,7 +192,7 @@
     {
      "data": {
       "text/plain": [
-       "<Structure 3026 atoms; 1003 residues; 3025 bonds; PBC (triclinic); NOT parametrized>"
+       "<Structure 3026 atoms; 1003 residues; 3025 bonds; parameterized>"
       ]
      },
      "execution_count": 6,
@@ -338,7 +342,7 @@
     {
      "data": {
       "text/plain": [
-       "<Structure 155 atoms; 46 residues; 154 bonds; PBC (orthogonal); parametrized>"
+       "<Structure 155 atoms; 46 residues; 154 bonds; PBC (orthogonal); parameterized>"
       ]
      },
      "execution_count": 11,
@@ -364,8 +368,8 @@
    "outputs": [],
    "source": [
     "import sys\n",
-    "import simtk.openmm as mm\n",
-    "import simtk.openmm.app as app\n",
+    "import openmm as mm\n",
+    "import openmm.app as app\n",
     "from parmed import unit as u\n",
     "from parmed.openmm import StateDataReporter, MdcrdReporter"
    ]
@@ -472,18 +476,22 @@
   {
    "cell_type": "code",
    "execution_count": 18,
-   "metadata": {},
+   "metadata": {
+    "tags": [
+     "nbval-ignore-output"
+    ]
+   },
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
       "#\"Step\",\"Time (ps)\",\"Potential Energy (kilocalorie/mole)\",\"Kinetic Energy (kilocalorie/mole)\",\"Total Energy (kilocalorie/mole)\",\"Temperature (K)\",\"Box Volume (angstrom**3)\",\"Density (gram/(item*milliliter))\"\n",
-      "100,0.20000000000000015,-623.3492499327796,19.803327793076484,-603.5459221397031,62.675606124245874,45325.80641910621,0.03490935070036196\n",
-      "200,0.4000000000000003,-611.0055606178298,33.20984569525998,-577.7957149225698,105.10593118449512,45325.80641910621,0.03490935070036196\n",
-      "300,0.6000000000000004,-606.1388529965344,51.26908103744882,-554.8697719590856,162.26165435582024,45325.80641910621,0.03490935070036196\n",
-      "400,0.8000000000000006,-601.3819619756812,56.01401743345518,-545.3679445422259,177.27891649217017,45325.80641910621,0.03490935070036196\n",
-      "500,1.0000000000000007,-606.1466720318475,76.01105805061736,-530.1356139812301,240.56760486150492,45325.80641910621,0.03490935070036196\n"
+      "100,0.20000000000000015,-623.6779995219885,20.140631869613383,-603.5373676523751,63.74314071570579,45325.8064191062,0.034909350700361955\n",
+      "200,0.4000000000000003,-614.1849904397706,38.40737137186695,-575.7776190679035,121.55559436896063,45325.8064191062,0.034909350700361955\n",
+      "300,0.6000000000000004,-606.5526783580306,48.61919832973248,-557.933480028298,153.87503334950912,45325.8064191062,0.034909350700361955\n",
+      "400,0.8000000000000006,-600.0374380078872,57.988937528818184,-542.0485004790689,183.52934648642113,45325.8064191062,0.034909350700361955\n",
+      "500,1.0000000000000007,-603.2854886173518,79.46589388029852,-523.8195947370533,251.50182419815255,45325.8064191062,0.034909350700361955\n"
      ]
     }
    ],
@@ -504,6 +512,24 @@
    "metadata": {
     "scrolled": true
    },
+   "outputs": [],
+   "source": [
+    "protein_shell.write('ala2_shell.pdb')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "u = mda.Universe('ala2_shell.pdb', 'ala2_shell.trj')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
    "outputs": [
     {
      "data": {
@@ -511,14 +537,12 @@
        "<TRJReader ala2_shell.trj with 50 frames of 155 atoms>"
       ]
      },
-     "execution_count": 19,
+     "execution_count": 21,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    "protein_shell.write('ala2_shell.pdb')\n",
-    "u = mda.Universe('ala2_shell.pdb', 'ala2_shell.trj')\n",
     "u.trajectory"
    ]
   },
@@ -538,9 +562,9 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "Python (mda-user-guide)",
+   "display_name": "Python 3.8.13 ('mda-user-guide')",
    "language": "python",
-   "name": "mda-user-guide"
+   "name": "python3"
   },
   "language_info": {
    "codemirror_mode": {
@@ -552,7 +576,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.8.3"
+   "version": "3.10.6"
   },
   "toc": {
    "base_numbering": 1,
@@ -566,6 +590,11 @@
    "toc_position": {},
    "toc_section_display": true,
    "toc_window_display": false
+  },
+  "vscode": {
+   "interpreter": {
+    "hash": "4674db5753660d730fe8f86bd51b34e795360b5e8cfad0948ce63ba2d64a0720"
+   }
   }
  },
  "nbformat": 4,
