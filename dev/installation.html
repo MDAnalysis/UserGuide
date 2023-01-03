@@ -269,70 +269,70 @@ ask for help on the <a class="reference external" href="https://groups.google.co
 <section id="conda">
 <h2>conda<a class="headerlink" href="#conda" title="Permalink to this heading">¶</a></h2>
 <p>To install the latest stable version of MDAnalysis via <code class="docutils literal notranslate"><span class="pre">conda</span></code>, use the following command. This installs all dependencies needed for full analysis functionality (excluding external programs such as <a class="reference external" href="http://www.holeprogram.org">HOLE</a>):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge mdanalysis
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>mdanalysis
 </pre></div>
 </div>
 <p>To upgrade:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda update mdanalysis
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>update<span class="w"> </span>mdanalysis
 </pre></div>
 </div>
 <p>To install the tests:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge MDAnalysisTests
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>MDAnalysisTests
 </pre></div>
 </div>
 <p>If you intend to use MDAnalysis in JupyterLab, you will have to install
 an extra package for the progress bar in analysis classes:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge nodejs
-jupyter labextension install @jupyter-widgets/jupyterlab-manager
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>nodejs
+jupyter<span class="w"> </span>labextension<span class="w"> </span>install<span class="w"> </span>@jupyter-widgets/jupyterlab-manager
 </pre></div>
 </div>
 </section>
 <section id="pip">
 <h2>pip<a class="headerlink" href="#pip" title="Permalink to this heading">¶</a></h2>
 <p>The following command will install or upgrade the latest stable version of MDAnalysis via <code class="docutils literal notranslate"><span class="pre">pip</span></code>, with core dependencies. This means that some packages required by specific analysis modules will not be installed.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install --upgrade MDAnalysis
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>MDAnalysis
 </pre></div>
 </div>
 <p>If you need to install a fully-featured MDAnalysis, add the <code class="docutils literal notranslate"><span class="pre">analysis</span></code> tag. As with <code class="docutils literal notranslate"><span class="pre">conda</span></code>, this will not install external programs such as <a class="reference external" href="http://www.holeprogram.org">HOLE</a>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install --upgrade MDAnalysis<span class="o">[</span>analysis<span class="o">]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>MDAnalysis<span class="o">[</span>analysis<span class="o">]</span>
 </pre></div>
 </div>
 <p>To install/upgrade tests:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install --upgrade MDAnalysisTests
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>MDAnalysisTests
 </pre></div>
 </div>
 <p>If you intend to use MDAnalysis in JupyterLab, you will have to install
 an extra package for the progress bar in analysis classes:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install nodejs
-jupyter labextension install @jupyter-widgets/jupyterlab-manager
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>nodejs
+jupyter<span class="w"> </span>labextension<span class="w"> </span>install<span class="w"> </span>@jupyter-widgets/jupyterlab-manager
 </pre></div>
 </div>
 </section>
 <section id="development-versions">
 <h2>Development versions<a class="headerlink" href="#development-versions" title="Permalink to this heading">¶</a></h2>
 <p>To install development versions of MDAnalysis, you can compile it from source. In order to install from source, you will need <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">cython</span></code>. See <a class="reference internal" href="contributing_code.html#create-virtual-environment"><span class="std std-ref">Creating a development environment</span></a> for instructions on how to create a full development environment.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/MDAnalysis/mdanalysis
-<span class="nb">cd</span> mdanalysis
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/MDAnalysis/mdanalysis
+<span class="nb">cd</span><span class="w"> </span>mdanalysis
 <span class="c1"># assuming you have already installed required dependencies</span>
-pip install -e package/
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>package/
 </pre></div>
 </div>
 <p>And to install the test suite:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -e testsuite/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>testsuite/
 </pre></div>
 </div>
 <section id="testing">
 <h3>Testing<a class="headerlink" href="#testing" title="Permalink to this heading">¶</a></h3>
 <p>The tests rely on the <cite>pytest</cite> and <cite>numpy</cite> packages, which must also be installed. Run tests with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest --disable-pytest-warnings --pyargs MDAnalysisTests
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>--disable-pytest-warnings<span class="w"> </span>--pyargs<span class="w"> </span>MDAnalysisTests
 </pre></div>
 </div>
 <p>All tests should pass (i.e. no FAIL, ERROR); SKIPPED or XFAIL are ok. If anything fails or gives an error,
 <a class="reference external" href="http://users.mdanalysis.org/">ask on the user mailing list</a> or <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/issues">raise an issue</a>.</p>
 <p>Testing MDAnalysis can take a while, as there are quite a few tests.
 The plugin <a class="reference external" href="https://github.com/pytest-dev/pytest-xdist">pytest-xdist</a> can be used to run tests in parallel.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install pytest-xdist
-pytest --disable-pytest-warnings --pyargs MDAnalysisTests --numprocesses <span class="m">4</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pytest-xdist
+pytest<span class="w"> </span>--disable-pytest-warnings<span class="w"> </span>--pyargs<span class="w"> </span>MDAnalysisTests<span class="w"> </span>--numprocesses<span class="w"> </span><span class="m">4</span>
 </pre></div>
 </div>
 </section>
@@ -342,8 +342,8 @@ pytest --disable-pytest-warnings --pyargs MDAnalysisTests --numprocesses <span c
 This allows you to add any additional compiler options required for your architecture.</p>
 <p>For example, <code class="docutils literal notranslate"><span class="pre">extra_cflags</span></code> can be used to tune your MDAnalysis installation for your current architecture using the <cite>-march</cite>, <cite>-mtune</cite>, <cite>-mcpu</cite> and related compiler flags.
 <em>Which</em> particular compiler flags to use depends on your CPU architecture. An example for an x86_64 machine would be to change the line in <cite>setup.cfg</cite> as follows:</p>
-<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="gd">- #extra_cflags =</span><span class="w"></span>
-<span class="gi">+ extra_cflags = -march=native -mtune=native</span><span class="w"></span>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="gd">- #extra_cflags =</span>
+<span class="gi">+ extra_cflags = -march=native -mtune=native</span>
 </pre></div>
 </div>
 <p>Use of these flags can give a significant performance boost where the compiler can effectively autovectorise.</p>
@@ -363,9 +363,9 @@ before proceeding with analysis.</p>
 <h2>Additional datasets<a class="headerlink" href="#additional-datasets" title="Permalink to this heading">¶</a></h2>
 <p><a class="reference external" href="https://www.mdanalysis.org/MDAnalysisData/">MDAnalysisData</a> is an additional package with datasets that can be used in example tutorials. You can install it with <code class="docutils literal notranslate"><span class="pre">conda</span></code> or <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># conda</span>
-conda install -c conda-forge mdanalysisdata
+conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>mdanalysisdata
 <span class="c1"># pip</span>
-pip install --upgrade MDAnalysisData
+pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>MDAnalysisData
 </pre></div>
 </div>
 <p>This installation does not download all the datasets; instead, the datasets are cached when they are first downloaded using a Python command.</p>
@@ -386,7 +386,7 @@ pip install --upgrade MDAnalysisData
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2022, Lily Wang, Irfan Alibay, Bjarne Feddersen, Florent Langenfeld, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2023, Lily Wang, Irfan Alibay, Bjarne Feddersen, Florent Langenfeld, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>

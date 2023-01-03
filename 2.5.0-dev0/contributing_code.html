@@ -306,9 +306,9 @@
 <span id="forking-code-repo"></span><h3>Forking<a class="headerlink" href="#forking" title="Permalink to this heading">¶</a></h3>
 <p>You will need your <a class="reference external" href="https://help.github.com/en/github/getting-started-with-github/fork-a-repo">own fork</a> to work on the code. Go to the <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis">MDAnalysis project page</a> and hit the <span class="guilabel">Fork</span> button. You will
 want to <a class="reference external" href="https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository">clone your fork</a> to your machine:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/your-user-name/mdanalysis.git
-<span class="nb">cd</span> mdanalysis
-git remote add upstream https://github.com/MDAnalysis/mdanalysis
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/your-user-name/mdanalysis.git
+<span class="nb">cd</span><span class="w"> </span>mdanalysis
+git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/MDAnalysis/mdanalysis
 </pre></div>
 </div>
 <p>This creates the directory <cite>mdanalysis</cite> and connects your repository to
@@ -336,7 +336,7 @@ choose.</p>
 or <a class="reference external" href="https://conda.io/miniconda.html">miniconda</a>.
 Make sure your conda is up to date:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda update conda
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>update<span class="w"> </span>conda
 </pre></div>
 </div>
 </div></blockquote>
@@ -344,13 +344,13 @@ Make sure your conda is up to date:</p>
 an isolated environment without touching your base Python installation, and without
 touching existing environments that may have stable versions of MDAnalysis. :</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create --name mdanalysis-dev
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>mdanalysis-dev
 </pre></div>
 </div>
 </div></blockquote>
 <p>Activate the environment to build MDAnalysis into it:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda activate mdanalysis-dev
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>mdanalysis-dev
 </pre></div>
 </div>
 </div></blockquote>
@@ -360,13 +360,13 @@ touching existing environments that may have stable versions of MDAnalysis. :</p
 </div>
 <p>To view your environments:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda info -e
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>info<span class="w"> </span>-e
 </pre></div>
 </div>
 </div></blockquote>
 <p>To list the packages installed in your current environment:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda list
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>list
 </pre></div>
 </div>
 </div></blockquote>
@@ -382,20 +382,20 @@ touching existing environments that may have stable versions of MDAnalysis. :</p
 <p>Like conda, virtual environments managed with <a class="reference external" href="https://virtualenv.pypa.io/en/latest/">virtualenv</a> allow you to use different versions of Python and Python packages for your different project. Unlike conda, virtualenv is not a general-purpose package manager. Instead, it leverages what is available on your system, and lets you install Python packages using pip.</p>
 <p>To use virtual environments you have to install the virtualenv package first. This can be done with pip:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m pip install virtualenv
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>virtualenv
 </pre></div>
 </div>
 </div></blockquote>
 <p>Virtual environments can be created for each project directory.</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> my-project/
-virtualenv my-project-env
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>my-project/
+virtualenv<span class="w"> </span>my-project-env
 </pre></div>
 </div>
 </div></blockquote>
 <p>This will create a new folder <code class="docutils literal notranslate"><span class="pre">my-project-env</span></code>. This folder contains the virtual environment and all packages you have installed in it. To activate it in the current terminal run:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> myproject-env/bin/activate
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>myproject-env/bin/activate
 </pre></div>
 </div>
 </div></blockquote>
@@ -416,24 +416,24 @@ virtualenv my-project-env
 </div></blockquote>
 <p>You first need to install <code class="docutils literal notranslate"><span class="pre">virtualenvwrapper</span></code> <em>outside</em> of a virtual environment:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m pip install virtualenvwrapper
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>virtualenvwrapper
 </pre></div>
 </div>
 </div></blockquote>
 <p>Then, you need to load it into your terminal session. Add the following lines in <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>. They will be executed every time you open a new terminal session:</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Decide where to store the virtual environments</span>
-<span class="nb">export</span> <span class="nv">WORKON_HOME</span><span class="o">=</span>~/Envs
+<span class="nb">export</span><span class="w"> </span><span class="nv">WORKON_HOME</span><span class="o">=</span>~/Envs
 <span class="c1"># Make sure the directory exists</span>
-mkdir -p <span class="si">${</span><span class="nv">WORKON_HOME</span><span class="si">}</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span><span class="si">${</span><span class="nv">WORKON_HOME</span><span class="si">}</span>
 <span class="c1"># Load virtualenvwrapper</span>
-<span class="nb">source</span> /usr/local/bin/virtualenvwrapper.sh
+<span class="nb">source</span><span class="w"> </span>/usr/local/bin/virtualenvwrapper.sh
 </pre></div>
 </div>
 </div></blockquote>
 <p>Open a new terminal or run <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">~/.bashrc</span></code> to update your session. You can now create a virtual environment with:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkvirtualenv my-project
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkvirtualenv<span class="w"> </span>my-project
 </pre></div>
 </div>
 </div></blockquote>
@@ -445,7 +445,7 @@ mkdir -p <span class="si">${</span><span class="nv">WORKON_HOME</span><span clas
 <h4>On a Mac<a class="headerlink" href="#on-a-mac" title="Permalink to this heading">¶</a></h4>
 <p>One more step is often required on macOS, because of the default number of files that a process can open simultaneously is quite low (256). To increase the number of files that can be accessed, run the following command:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">ulimit</span> -n <span class="m">4096</span>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">ulimit</span><span class="w"> </span>-n<span class="w"> </span><span class="m">4096</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -463,39 +463,39 @@ and activated your virtual environment with <code class="code docutils literal n
 </div>
 <p>First we need to install dependencies. You’ll need a mix of conda and pip installations:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c bioconda -c conda-forge <span class="se">\</span>
-    biopython chemfiles <span class="nv">clustalw</span><span class="o">==</span><span class="m">2</span>.1 codecov cython <span class="se">\</span>
-    griddataformats gsd hypothesis <span class="s2">&quot;joblib&gt;=0.12&quot;</span> <span class="se">\</span>
-    matplotlib mmtf-python mock netcdf4 networkx <span class="se">\</span>
-    <span class="s2">&quot;numpy&gt;=1.18.0&quot;</span> psutil pytest scikit-learn scipy <span class="se">\</span>
-    <span class="s2">&quot;seaborn&gt;=0.7.0&quot;</span> sphinx <span class="s2">&quot;tidynamics&gt;=1.0.0&quot;</span> <span class="se">\</span>
-    <span class="s2">&quot;tqdm&gt;=4.43.0&quot;</span>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>bioconda<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>biopython<span class="w"> </span>chemfiles<span class="w"> </span><span class="nv">clustalw</span><span class="o">==</span><span class="m">2</span>.1<span class="w"> </span>codecov<span class="w"> </span>cython<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>griddataformats<span class="w"> </span>gsd<span class="w"> </span>hypothesis<span class="w"> </span><span class="s2">&quot;joblib&gt;=0.12&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>matplotlib<span class="w"> </span>mmtf-python<span class="w"> </span>mock<span class="w"> </span>netcdf4<span class="w"> </span>networkx<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="s2">&quot;numpy&gt;=1.18.0&quot;</span><span class="w"> </span>psutil<span class="w"> </span>pytest<span class="w"> </span>scikit-learn<span class="w"> </span>scipy<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="s2">&quot;seaborn&gt;=0.7.0&quot;</span><span class="w"> </span>sphinx<span class="w"> </span><span class="s2">&quot;tidynamics&gt;=1.0.0&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="s2">&quot;tqdm&gt;=4.43.0&quot;</span>
 
 <span class="c1"># documentation dependencies</span>
-python -m pip install sphinx-sitemap sphinx_rtd_theme <span class="nv">msmb_theme</span><span class="o">==</span><span class="m">1</span>.2.0
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>sphinx-sitemap<span class="w"> </span>sphinx_rtd_theme<span class="w"> </span><span class="nv">msmb_theme</span><span class="o">==</span><span class="m">1</span>.2.0
 </pre></div>
 </div>
 </div></blockquote>
 <p>Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.7. We will now install MDAnalysis.</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># go to the mdanalysis source directory</span>
-<span class="nb">cd</span> mdanalysis/
+<span class="nb">cd</span><span class="w"> </span>mdanalysis/
 
 <span class="c1"># Build and install the MDAnalysis package</span>
-<span class="nb">cd</span> package/
-python -m pip install -e .
+<span class="nb">cd</span><span class="w"> </span>package/
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
 
 <span class="c1"># Build and install the test suite</span>
-<span class="nb">cd</span> ../testsuite/
-python -m pip install -e .
+<span class="nb">cd</span><span class="w"> </span>../testsuite/
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
 </pre></div>
 </div>
 </div></blockquote>
 <p>At this point you should be able to import MDAnalysis from your locally built version. If you are running the development version, this is visible from the version number ending in <code class="code docutils literal notranslate"><span class="pre">-dev0</span></code>. For example:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python  <span class="c1"># start an interpreter</span>
-&gt;&gt;&gt; import MDAnalysis as mda
-&gt;&gt;&gt; mda.__version__
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python<span class="w">  </span><span class="c1"># start an interpreter</span>
+&gt;&gt;&gt;<span class="w"> </span>import<span class="w"> </span>MDAnalysis<span class="w"> </span>as<span class="w"> </span>mda
+&gt;&gt;&gt;<span class="w"> </span>mda.__version__
 <span class="s1">&#39;2.1.0-dev0&#39;</span>
 </pre></div>
 </div>
@@ -516,13 +516,13 @@ and activated your virtual environment with <code class="code docutils literal n
 </div>
 <p>Install the dependencies:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m pip install <span class="se">\</span>
-  biopython chemfiles codecov cython <span class="se">\</span>
-  griddataformats gsd hypothesis <span class="s2">&quot;joblib&gt;=0.12&quot;</span> matplotlib <span class="se">\</span>
-  <span class="nv">msmb_theme</span><span class="o">==</span><span class="m">1</span>.2.0 netcdf4 networkx <span class="s2">&quot;numpy&gt;=1.18.0&quot;</span> <span class="se">\</span>
-  psutil pytest scikit-learn scipy <span class="s2">&quot;seaborn&gt;=0.7.0&quot;</span> <span class="se">\</span>
-  sphinx sphinx_rtd_theme <span class="s2">&quot;tidynamics&gt;=1.0.0&quot;</span> <span class="se">\</span>
-  <span class="s2">&quot;tqdm&gt;=4.43.0&quot;</span>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>biopython<span class="w"> </span>chemfiles<span class="w"> </span>codecov<span class="w"> </span>cython<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>griddataformats<span class="w"> </span>gsd<span class="w"> </span>hypothesis<span class="w"> </span><span class="s2">&quot;joblib&gt;=0.12&quot;</span><span class="w"> </span>matplotlib<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="nv">msmb_theme</span><span class="o">==</span><span class="m">1</span>.2.0<span class="w"> </span>netcdf4<span class="w"> </span>networkx<span class="w"> </span><span class="s2">&quot;numpy&gt;=1.18.0&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>psutil<span class="w"> </span>pytest<span class="w"> </span>scikit-learn<span class="w"> </span>scipy<span class="w"> </span><span class="s2">&quot;seaborn&gt;=0.7.0&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>sphinx<span class="w"> </span>sphinx_rtd_theme<span class="w"> </span><span class="s2">&quot;tidynamics&gt;=1.0.0&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;tqdm&gt;=4.43.0&quot;</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -530,23 +530,23 @@ and activated your virtual environment with <code class="code docutils literal n
 <p>Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.4. We will now install MDAnalysis.</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># go to the mdanalysis source directory</span>
-<span class="nb">cd</span> mdanalysis/
+<span class="nb">cd</span><span class="w"> </span>mdanalysis/
 
 <span class="c1"># Build and install the MDAnalysis package</span>
-<span class="nb">cd</span> package/
-python -m pip install -e .
+<span class="nb">cd</span><span class="w"> </span>package/
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
 
 <span class="c1"># Build and install the test suite</span>
-<span class="nb">cd</span> ../testsuite/
-python -m pip install -e .
+<span class="nb">cd</span><span class="w"> </span>../testsuite/
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
 </pre></div>
 </div>
 </div></blockquote>
 <p>At this point you should be able to import MDAnalysis from your locally built version. If you are running the development version, this is visible from the version number ending in “-dev0”. For example:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python  <span class="c1"># start an interpreter</span>
-&gt;&gt;&gt; import MDAnalysis as mda
-&gt;&gt;&gt; mda.__version__
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python<span class="w">  </span><span class="c1"># start an interpreter</span>
+&gt;&gt;&gt;<span class="w"> </span>import<span class="w"> </span>MDAnalysis<span class="w"> </span>as<span class="w"> </span>mda
+&gt;&gt;&gt;<span class="w"> </span>mda.__version__
 <span class="s1">&#39;2.1.0-dev0&#39;</span>
 </pre></div>
 </div>
@@ -575,7 +575,7 @@ python -m pip install -e .
 feature branch for making your changes. For example, to create a branch called
 <code class="docutils literal notranslate"><span class="pre">shiny-new-feature</span></code> from <code class="docutils literal notranslate"><span class="pre">develop</span></code>:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout -b shiny-new-feature develop
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>shiny-new-feature<span class="w"> </span>develop
 </pre></div>
 </div>
 </div></blockquote>
@@ -663,7 +663,7 @@ and switch in between them using the <code class="docutils literal notranslate">
 <p>When you are happy with a set of changes and <a class="reference internal" href="#test-code"><span class="std std-ref">all the tests pass</span></a>, it is time to commit. All changes in one revision should have a common theme. If you implemented two rather different things (say, one bug fix and one new feature), then split them into two commits with different messages.</p>
 <p>Once you’ve made changes to files in your local repository, you can see them by typing:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git status
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>status
 </pre></div>
 </div>
 </div></blockquote>
@@ -684,7 +684,7 @@ and switch in between them using the <code class="docutils literal notranslate">
 </div></blockquote>
 <p>Then commit with:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git commit -m
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m
 </pre></div>
 </div>
 </div></blockquote>
@@ -708,22 +708,22 @@ and switch in between them using the <code class="docutils literal notranslate">
 <h4>Pushing your code to GitHub<a class="headerlink" href="#pushing-your-code-to-github" title="Permalink to this heading">¶</a></h4>
 <p>When you want your changes to appear publicly on your GitHub page, push your forked feature branch’s commits:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git push origin shiny-new-feature
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>shiny-new-feature
 </pre></div>
 </div>
 </div></blockquote>
 <p>Here <cite>origin</cite> is the default name given to your remote repository on GitHub. You can see the remote repositories:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git remote -v
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>remote<span class="w"> </span>-v
 </pre></div>
 </div>
 </div></blockquote>
 <p>If you added the upstream repository as described above you will see something like:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>origin  git@github.com:your-username/mdanalysis.git <span class="o">(</span>fetch<span class="o">)</span>
-origin  git@github.com:your-username/mdanalysis.git <span class="o">(</span>push<span class="o">)</span>
-upstream        git@github.com:MDAnalysis/mdanalysis.git <span class="o">(</span>fetch<span class="o">)</span>
-upstream        git@github.com:MDAnalysis/mdanalysis.git <span class="o">(</span>push<span class="o">)</span>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>origin<span class="w">  </span>git@github.com:your-username/mdanalysis.git<span class="w"> </span><span class="o">(</span>fetch<span class="o">)</span>
+origin<span class="w">  </span>git@github.com:your-username/mdanalysis.git<span class="w"> </span><span class="o">(</span>push<span class="o">)</span>
+upstream<span class="w">        </span>git@github.com:MDAnalysis/mdanalysis.git<span class="w"> </span><span class="o">(</span>fetch<span class="o">)</span>
+upstream<span class="w">        </span>git@github.com:MDAnalysis/mdanalysis.git<span class="w"> </span><span class="o">(</span>push<span class="o">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -736,8 +736,8 @@ You will then need to update your own branch with the new code to avoid merge co
 You need to first retrieve it and then <a class="reference external" href="https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase">rebase</a>
 your branch so that your changes apply to the new code:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git fetch upstream
-git rebase upstream/develop
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>fetch<span class="w"> </span>upstream
+git<span class="w"> </span>rebase<span class="w"> </span>upstream/develop
 </pre></div>
 </div>
 </div></blockquote>
@@ -748,7 +748,7 @@ prior to updating.  This will effectively store your changes and they can be
 reapplied after updating with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span> <span class="pre">apply</span></code>.</p>
 <p>Once rebased, push your changes:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git push -f origin shiny-new-feature
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>-f<span class="w"> </span>origin<span class="w"> </span>shiny-new-feature
 </pre></div>
 </div>
 </div></blockquote>
@@ -810,13 +810,13 @@ extend it in a similar manner.</p>
 <p>In order to build the documentation, you must first <a class="reference internal" href="#forking-code-repo"><span class="std std-ref">clone the main MDAnalysis repo</span></a>. <a class="reference internal" href="#create-virtual-environment"><span class="std std-ref">Set up a virtual environment</span></a> in the same way as you would for the code (you should typically use the same environment as you do for the code). Build the development version of MDAnalysis.</p>
 <p>Then, generate the docs with:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python setup.py build_sphinx -E
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>setup.py<span class="w"> </span>build_sphinx<span class="w"> </span>-E
 </pre></div>
 </div>
 </div></blockquote>
 <p>This generates and updates the files in <code class="docutils literal notranslate"><span class="pre">doc/html</span></code>. If the above command fails with an <code class="docutils literal notranslate"><span class="pre">ImportError</span></code>, run</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python setup.py build_ext --inplace
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>setup.py<span class="w"> </span>build_ext<span class="w"> </span>--inplace
 </pre></div>
 </div>
 </div></blockquote>
@@ -842,7 +842,7 @@ extend it in a similar manner.</p>
 <p>A typical function docstring looks like the following:</p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Summary line.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Summary line.</span>
 
 <span class="sd">    Extended description of function.</span>
 
@@ -918,7 +918,7 @@ n_atoms, n_residues : int
 <p>Note that you should <em>always</em> make doc strings with math code <strong>raw</strong> python strings <strong>by prefixing them with the letter “r”</strong>, or else you will get problems with backslashes in unexpected places.</p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rotate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Apply a rotation matrix *R* to the selection&#39;s coordinates.</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Apply a rotation matrix *R* to the selection&#39;s coordinates.</span>
 
 <span class="sd">    :math:`\mathsf{R}` is a 3x3 orthogonal matrix that transforms a vector</span>
 <span class="sd">    :math:`\mathbf{x} \rightarrow \mathbf{x}&#39;`:</span>
@@ -1012,7 +1012,7 @@ n_atoms, n_residues : int
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2022, Lily Wang, Irfan Alibay, Bjarne Feddersen, Florent Langenfeld, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2023, Lily Wang, Irfan Alibay, Bjarne Feddersen, Florent Langenfeld, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>

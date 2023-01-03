@@ -294,30 +294,30 @@ use cases and writing corresponding tests.</p>
 <section id="running-the-test-suite">
 <span id="run-test-suite"></span><h2>Running the test suite<a class="headerlink" href="#running-the-test-suite" title="Permalink to this heading">¶</a></h2>
 <p>It is recommended that you run the tests from the <code class="docutils literal notranslate"><span class="pre">mdanalysis/testsuite/MDAnalysisTests/</span></code> directory.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> testsuite/MDAnalysisTests
-pytest  --disable-pytest-warnings
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>testsuite/MDAnalysisTests
+pytest<span class="w">  </span>--disable-pytest-warnings
 </pre></div>
 </div>
 <p>All tests should pass: no <strong>FAIL</strong> or <strong>ERROR</strong> cases should be triggered; <em>SKIPPED</em> or <em>XFAIL</em> are ok. For anything that fails or gives an error, ask on the <a class="reference external" href="http://groups.google.com/group/mdnalysis-discussion">mdnalysis-discussion</a> mailing list or raise an issue on the <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/issues">Issue Tracker</a>.</p>
 <p>We use the <code class="docutils literal notranslate"><span class="pre">--disable-pytest-warnings</span></code> when the whole testsuite is running, as pytest raises a lot of false positives when we warn users about missing topology attributes. When running single tests or only single modules, consider running the tests <em>with</em> warnings enabled (i.e. without <code class="docutils literal notranslate"><span class="pre">--disable-pytest-warnings</span></code>). This allows you to see if you trigger any un-caught deprecation warnings or other warnings in libraries we use.</p>
 <p>To run specific tests just specify the path to the test file:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest testsuite/MDAnalysisTests/analysis/test_align.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>testsuite/MDAnalysisTests/analysis/test_align.py
 </pre></div>
 </div>
 <p>Specific test classes inside test files, and even specific test methods, can also be specified:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test the entire TestContactMatrix class</span>
-pytest testsuite/MDAnalysisTests/analysis/test_analysis.py::TestContactMatrix
+pytest<span class="w"> </span>testsuite/MDAnalysisTests/analysis/test_analysis.py::TestContactMatrix
 
 <span class="c1"># Test only test_sparse in the TestContactMatrix class</span>
-pytest testsuite/MDAnalysisTests/analysis/test_analysis.py::TestContactMatrix::test_sparse
+pytest<span class="w"> </span>testsuite/MDAnalysisTests/analysis/test_analysis.py::TestContactMatrix::test_sparse
 </pre></div>
 </div>
 <p>This is very useful when you add a new test and want to check if it passes. However, before you push your code to GitHub, make sure that your test case runs and that <em>all other test cases are still passing</em>.</p>
 <section id="testing-in-parallel">
 <h3>Testing in parallel<a class="headerlink" href="#testing-in-parallel" title="Permalink to this heading">¶</a></h3>
 <p>Running the tests serially can take some time, depending on the performance of your computer. You can speed this up by using the plugin <a class="reference external" href="https://github.com/pytest-dev/pytest-xdist">pytest-xdist</a> to run tests in parallel by specifying the <code class="docutils literal notranslate"><span class="pre">--numprocesses</span></code> option:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install pytest-xdist
-pytest --disable-pytest-warnings --numprocesses <span class="m">4</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pytest-xdist
+pytest<span class="w"> </span>--disable-pytest-warnings<span class="w"> </span>--numprocesses<span class="w"> </span><span class="m">4</span>
 </pre></div>
 </div>
 <p>You can try increasing the number of processes to speed up the test run. The number of processes you can use depends on your machine.</p>
@@ -325,8 +325,8 @@ pytest --disable-pytest-warnings --numprocesses <span class="m">4</span>
 <section id="test-coverage">
 <h3>Test coverage<a class="headerlink" href="#test-coverage" title="Permalink to this heading">¶</a></h3>
 <p>The tool <a class="reference external" href="https://github.com/pytest-dev/pytest-cov">pytest-cov</a>  can be used to generate the coverage report locally:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install pytest-cov
-pytest --cov<span class="o">=</span>MDAnalysis
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pytest-cov
+pytest<span class="w"> </span>--cov<span class="o">=</span>MDAnalysis
 </pre></div>
 </div>
 <p>Note: You can use the <code class="docutils literal notranslate"><span class="pre">--numprocesses</span></code> flag to run tests in parallel with the above command too. This will print the coverage statistic for every module in MDAnalysis at the end of a run. To get detailed line by
@@ -608,7 +608,7 @@ line statistics you can add the <code class="docutils literal notranslate"><span
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2022, Lily Wang, Irfan Alibay, Bjarne Feddersen, Florent Langenfeld, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2023, Lily Wang, Irfan Alibay, Bjarne Feddersen, Florent Langenfeld, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>

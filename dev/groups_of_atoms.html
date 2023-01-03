@@ -374,7 +374,7 @@ The meaning of this is: “give me all residue names from segments in which ther
 <p>Atom names can be extracted using Python’s list comprehensions. As required, HETATM record type lines and hydrogen
 atoms are not considered:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [21]: </span><span class="p">[</span><span class="n">ag</span><span class="o">.</span><span class="n">names</span> <span class="k">for</span> <span class="n">ag</span> <span class="ow">in</span> <span class="n">atoms_in_residues</span><span class="p">]</span>
-<span class="gh">Out[21]: </span><span class="go"></span>
+<span class="gh">Out[21]: </span>
 <span class="go">[array([&#39;N&#39;, &#39;CA&#39;, &#39;C&#39;, &#39;O&#39;], dtype=object),</span>
 <span class="go"> array([&#39;N&#39;, &#39;CA&#39;, &#39;C&#39;, &#39;O&#39;, &#39;CB&#39;], dtype=object),</span>
 <span class="go"> array([&#39;N&#39;, &#39;CA&#39;, &#39;C&#39;, &#39;O&#39;], dtype=object)]</span>
@@ -384,7 +384,7 @@ atoms are not considered:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [22]: </span><span class="n">rds</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;record_type ATOM and not name H*&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;residue&quot;</span><span class="p">)</span>
 
 <span class="gp">In [23]: </span><span class="p">[</span><span class="n">ag</span><span class="o">.</span><span class="n">names</span> <span class="k">for</span> <span class="n">ag</span> <span class="ow">in</span> <span class="n">rds</span><span class="p">]</span>
-<span class="gh">Out[23]: </span><span class="go"></span>
+<span class="gh">Out[23]: </span>
 <span class="go">[array([&#39;N&#39;, &#39;CA&#39;, &#39;C&#39;, &#39;O&#39;], dtype=object),</span>
 <span class="go"> array([&#39;N&#39;, &#39;CA&#39;, &#39;C&#39;, &#39;O&#39;, &#39;CB&#39;], dtype=object),</span>
 <span class="go"> array([&#39;N&#39;, &#39;CA&#39;, &#39;C&#39;, &#39;O&#39;], dtype=object)]</span>
@@ -402,7 +402,7 @@ residue as no atoms from this residue were in the <a class="reference external" 
 <span class="gp">   ....: </span>
 
 <span class="gp">In [26]: </span><span class="p">[</span><span class="n">atom</span><span class="o">.</span><span class="n">names</span> <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">all_atoms_in_residues</span><span class="p">]</span>
-<span class="gh">Out[26]: </span><span class="go"></span>
+<span class="gh">Out[26]: </span>
 <span class="go">[[array([&#39;N&#39;, &#39;CA&#39;, &#39;C&#39;, &#39;O&#39;, &#39;H&#39;, &#39;HA3&#39;, &#39;HA2&#39;], dtype=object)],</span>
 <span class="go"> [array([&#39;N&#39;, &#39;CA&#39;, &#39;C&#39;, &#39;O&#39;, &#39;CB&#39;, &#39;H&#39;, &#39;HA&#39;, &#39;HB1&#39;, &#39;HB2&#39;, &#39;HB3&#39;],</span>
 <span class="go">        dtype=object),</span>
@@ -458,7 +458,7 @@ residue as no atoms from this residue were in the <a class="reference external" 
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2022, Lily Wang, Irfan Alibay, Bjarne Feddersen, Florent Langenfeld, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2023, Lily Wang, Irfan Alibay, Bjarne Feddersen, Florent Langenfeld, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>

@@ -244,26 +244,26 @@ that were used in the program.</p>
 <h2>Citations using Duecredit<a class="headerlink" href="#citations-using-duecredit" title="Permalink to this heading">¶</a></h2>
 <p>Citations can be automatically generated using <a class="reference external" href="https://github.com/duecredit/duecredit">duecredit</a>, depending on the
 packages used. Duecredit is easy to install via <code class="docutils literal notranslate"><span class="pre">pip</span></code>. Simply type:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install duecredit
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>duecredit
 </pre></div>
 </div>
 <p><a class="reference external" href="https://github.com/duecredit/duecredit">duecredit</a> will remain an optional dependency, i.e. any code using
 MDAnalysis will work correctly even without duecredit installed.</p>
 <p>A list of citations for <code class="docutils literal notranslate"><span class="pre">yourscript.py</span></code> can be obtained using simple
 commands.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /path/to/yourmodule
-python -m duecredit yourscript.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/yourmodule
+python<span class="w"> </span>-m<span class="w"> </span>duecredit<span class="w"> </span>yourscript.py
 </pre></div>
 </div>
 <p>or set the environment variable <span class="target" id="index-0"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">DUECREDIT_ENABLE</span></code></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>DUECREDIT-ENABLE<span class="o">=</span>yes python yourscript.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>DUECREDIT-ENABLE<span class="o">=</span>yes<span class="w"> </span>python<span class="w"> </span>yourscript.py
 </pre></div>
 </div>
 <p>Once the citations have been extracted (to a hidden file in the
 current directory), you can use the <strong class="program">duecredit</strong> program to
 export them to different formats. For example, one can display them in
 BibTeX format, using:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>duecredit summary --format<span class="o">=</span>bibtex
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>duecredit<span class="w"> </span>summary<span class="w"> </span>--format<span class="o">=</span>bibtex
 </pre></div>
 </div>
 <p><strong>Please cite your use of MDAnalysis and the packages and algorithms
@@ -411,7 +411,7 @@ that it uses. Thanks!</strong></p>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2022, Lily Wang, Irfan Alibay, Bjarne Feddersen, Florent Langenfeld, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2023, Lily Wang, Irfan Alibay, Bjarne Feddersen, Florent Langenfeld, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>

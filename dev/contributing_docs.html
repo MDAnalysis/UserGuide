@@ -286,9 +286,9 @@ but it does make the doc building a bit more complex.</p>
 <p>Go to the <a class="reference external" href="https://github.com/MDAnalysis/UserGuide">MDAnalysis project page</a> and hit the <span class="guilabel">Fork</span> button. You will
 want to clone your fork to your machine:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/your-user-name/UserGuide.git
-<span class="nb">cd</span> UserGuide
-git remote add upstream https://github.com/MDAnalysis/UserGuide
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/your-user-name/UserGuide.git
+<span class="nb">cd</span><span class="w"> </span>UserGuide
+git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/MDAnalysis/UserGuide
 </pre></div>
 </div>
 </div></blockquote>
@@ -300,18 +300,18 @@ the upstream (main project) MDAnalysis repository.</p>
 <p><a class="reference internal" href="contributing_code.html#create-virtual-environment"><span class="std std-ref">Create a new virtual environment</span></a> for the user guide. Install the required dependencies, and activate the <code class="docutils literal notranslate"><span class="pre">nglview</span></code> extension. We use <code class="docutils literal notranslate"><span class="pre">nglview</span></code> for visualizing molecules in Jupyter notebook tutorials.</p>
 <p>If using <code class="docutils literal notranslate"><span class="pre">conda</span></code>:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> UserGuide/
-conda env create <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6 -f environment.yml --quiet
-conda activate mda-user-guide
-jupyter-nbextension <span class="nb">enable</span> nglview --py --sys-prefix
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>UserGuide/
+conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6<span class="w"> </span>-f<span class="w"> </span>environment.yml<span class="w"> </span>--quiet
+conda<span class="w"> </span>activate<span class="w"> </span>mda-user-guide
+jupyter-nbextension<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>nglview<span class="w"> </span>--py<span class="w"> </span>--sys-prefix
 </pre></div>
 </div>
 </div></blockquote>
 <p>If using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> UserGuide/
-pip install -r requirements.txt
-jupyter-nbextension <span class="nb">enable</span> nglview --py --sys-prefix
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>UserGuide/
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+jupyter-nbextension<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>nglview<span class="w"> </span>--py<span class="w"> </span>--sys-prefix
 </pre></div>
 </div>
 </div></blockquote>
@@ -323,8 +323,8 @@ We generally recommend installing via <code class="docutils literal notranslate"
 <span id="build-user-guide"></span><h2>Building the user guide<a class="headerlink" href="#building-the-user-guide" title="Permalink to this heading">¶</a></h2>
 <p>Navigate to the <code class="docutils literal notranslate"><span class="pre">doc/</span></code> directory and run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code>:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> doc/
-make html
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>doc/
+make<span class="w"> </span>html
 </pre></div>
 </div>
 </div></blockquote>
@@ -340,8 +340,8 @@ make html
 <p>As with the code, <a class="reference internal" href="contributing_code.html#adding-code-to-mda"><span class="std std-ref">commit and push</span></a> your code to GitHub. Then <a class="reference internal" href="contributing_code.html#id6"><span class="std std-ref">create a pull request</span></a>. The only test run for the User Guide is: that your file compile into HTML documents without errors. As usual, a developer will review your PR and merge the code into the User Guide when it looks good.</p>
 <p>It is often difficult to review Jupyter notebooks on GitHub, especially if you embed widgets and images. One way to make it easier on the developers who review your changes is to build the changes on your forked repository and link the relevant sections in your pull request. To do this, create a <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch and merge your new branch into it.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># the first time</span>
-git checkout -b gh-pages
-git merge origin/my-new-branch
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>gh-pages
+git<span class="w"> </span>merge<span class="w"> </span>origin/my-new-branch
 </pre></div>
 </div>
 <p>Fix any merge conflicts that arise. Then edit <code class="docutils literal notranslate"><span class="pre">UserGuide/doc/source/conf.py</span></code> and change the URL of the site, which is set to <code class="docutils literal notranslate"><span class="pre">site_url</span> <span class="pre">=</span> <span class="pre">&quot;https://www.mdanalysis.org/UserGuide&quot;</span></code>. Change it to your personal site, e.g.</p>
@@ -349,22 +349,22 @@ git merge origin/my-new-branch
 </pre></div>
 </div>
 <p>Now you can build your pages with the <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">github</span></code> macro in the <code class="docutils literal notranslate"><span class="pre">UserGuide/doc/</span></code> directory, which builds the files and copies them to the top level of your directory.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make github
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>github
 </pre></div>
 </div>
 <p>You should be able to open one of these new HTML files (e.g. <code class="docutils literal notranslate"><span class="pre">UserGuide/index.html</span></code>) in a browser and navigate your new documentation. Check that your changes look right. If they are, push to your <cite>gh-pages</cite> branch from the <code class="docutils literal notranslate"><span class="pre">UserGuide/</span></code> directory.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git add .
-git commit -m <span class="s1">&#39;built my-new-branch&#39;</span>
-git push -f origin gh-pages
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;built my-new-branch&#39;</span>
+git<span class="w"> </span>push<span class="w"> </span>-f<span class="w"> </span>origin<span class="w"> </span>gh-pages
 </pre></div>
 </div>
 <p>On GitHub, navigate to your fork of the repository and go to <strong>Settings</strong>. In the <strong>GitHub Pages</strong> section, select the “gh-pages branch” from the <strong>Source</strong> dropdown. Check that your website is published at the given URL.</p>
 <img alt="_images/gh-pages-settings.png" src="_images/gh-pages-settings.png" />
 <p>For each time you add changes to another branch later, just merge into gh-pages and rebuild.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout gh-pages
-git merge origin/my_branch
-<span class="nb">cd</span> doc/
-make github
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>gh-pages
+git<span class="w"> </span>merge<span class="w"> </span>origin/my_branch
+<span class="nb">cd</span><span class="w"> </span>doc/
+make<span class="w"> </span>github
 </pre></div>
 </div>
 </section>
@@ -372,13 +372,13 @@ make github
 <span id="autobuild-sphinx"></span><h2>Automatically building documentation<a class="headerlink" href="#automatically-building-documentation" title="Permalink to this heading">¶</a></h2>
 <p>Constantly rebuilding documentation can become tedious when you have many changes to make. Use <a class="reference external" href="https://pypi.org/project/sphinx-autobuild">sphinx-autobuild</a> to rebuild documentation every time you make changes to any document, including Jupyter notebooks. Install <code class="docutils literal notranslate"><span class="pre">sphinx-autobuild</span></code>:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install sphinx-autobuild
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>sphinx-autobuild
 </pre></div>
 </div>
 </div></blockquote>
 <p>Then, run the following command in the <code class="docutils literal notranslate"><span class="pre">doc/</span></code> directory:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m sphinx_autobuild <span class="nb">source</span> build
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>sphinx_autobuild<span class="w"> </span><span class="nb">source</span><span class="w"> </span>build
 </pre></div>
 </div>
 </div></blockquote>
@@ -400,7 +400,7 @@ make github
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2022, Lily Wang, Irfan Alibay, Bjarne Feddersen, Florent Langenfeld, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2023, Lily Wang, Irfan Alibay, Bjarne Feddersen, Florent Langenfeld, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>

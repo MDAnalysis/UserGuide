@@ -648,14 +648,14 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fit_biexponential</span><span class="p">(</span><span class="n">tau_timeseries</span><span class="p">,</span> <span class="n">ac_timeseries</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Fit a biexponential function to a hydrogen bond time autocorrelation function</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Fit a biexponential function to a hydrogen bond time autocorrelation function</span>
 
 <span class="sd">    Return the two time constants</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
 
     <span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">tau1</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">tau2</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Fit data to a biexponential function.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Fit data to a biexponential function.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t</span> <span class="o">/</span> <span class="n">tau1</span><span class="p">)</span> <span class="o">+</span> <span class="n">B</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t</span> <span class="o">/</span> <span class="n">tau2</span><span class="p">)</span>
 
@@ -936,7 +936,7 @@ LYS-211-NZ      HZ3     GLU-204-OE1     count=92
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2022, Lily Wang, Irfan Alibay, Bjarne Feddersen, Florent Langenfeld, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2023, Lily Wang, Irfan Alibay, Bjarne Feddersen, Florent Langenfeld, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>

@@ -586,7 +586,7 @@ them.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="n">ordered</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;resid 3 and name CA&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;resid 2 and name CA&quot;</span><span class="p">)</span>
 
 <span class="gp">In [15]: </span><span class="nb">list</span><span class="p">(</span><span class="n">ordered</span><span class="p">)</span>
-<span class="gh">Out[15]: </span><span class="go"></span>
+<span class="gh">Out[15]: </span>
 <span class="go">[&lt;Atom 46: CA of type 22 of resname ILE, resid 3 and segid 4AKE&gt;,</span>
 <span class="go"> &lt;Atom 22: CA of type 22 of resname ARG, resid 2 and segid 4AKE&gt;]</span>
 </pre></div>
@@ -595,7 +595,7 @@ them.</p>
 <a class="reference external" href="https://docs.mdanalysis.org/2.5.0-dev0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.select_atoms" title="(in MDAnalysis v2.5.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">select_atoms()</span></code></a>, which then
 does the concatenation automatically:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="nb">list</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;resid 3 and name CA&quot;</span><span class="p">,</span> <span class="s2">&quot;resid 2 and name CA&quot;</span><span class="p">))</span>
-<span class="gh">Out[16]: </span><span class="go"></span>
+<span class="gh">Out[16]: </span>
 <span class="go">[&lt;Atom 46: CA of type 22 of resname ILE, resid 3 and segid 4AKE&gt;,</span>
 <span class="go"> &lt;Atom 22: CA of type 22 of resname ARG, resid 2 and segid 4AKE&gt;]</span>
 </pre></div>
@@ -603,7 +603,7 @@ does the concatenation automatically:</p>
 <p>Just for comparison to show that a single selection string does not
 work as one might expect:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [17]: </span><span class="nb">list</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;(resid 3 or resid 2) and name CA&quot;</span><span class="p">))</span>
-<span class="gh">Out[17]: </span><span class="go"></span>
+<span class="gh">Out[17]: </span>
 <span class="go">[&lt;Atom 22: CA of type 22 of resname ARG, resid 2 and segid 4AKE&gt;,</span>
 <span class="go"> &lt;Atom 46: CA of type 22 of resname ILE, resid 3 and segid 4AKE&gt;]</span>
 </pre></div>
@@ -625,7 +625,7 @@ work as one might expect:</p>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2022, Lily Wang, Irfan Alibay, Bjarne Feddersen, Florent Langenfeld, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2023, Lily Wang, Irfan Alibay, Bjarne Feddersen, Florent Langenfeld, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>

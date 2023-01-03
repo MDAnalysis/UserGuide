@@ -291,7 +291,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="gp">In [15]: </span><span class="k">def</span> <span class="nf">up_by_2</span><span class="p">(</span><span class="n">ts</span><span class="p">):</span>
-<span class="gp">   ....: </span>    <span class="sd">&quot;&quot;&quot;Translates atoms up by 2 angstrom&quot;&quot;&quot;</span>
+<span class="gp">   ....: </span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Translates atoms up by 2 angstrom&quot;&quot;&quot;</span>
 <span class="gp">   ....: </span>    <span class="n">ts</span><span class="o">.</span><span class="n">positions</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
 <span class="gp">   ....: </span>    <span class="k">return</span> <span class="n">ts</span>
 <span class="gp">   ....: </span>
@@ -301,9 +301,9 @@
 </div>
 <p>If your transformation needs other arguments, you will need to wrap your core transformation with a wrapper function that can accept the other arguments.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [17]: </span><span class="k">def</span> <span class="nf">up_by_x</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<span class="gp">   ....: </span>    <span class="sd">&quot;&quot;&quot;Translates atoms up by x angstrom&quot;&quot;&quot;</span>
+<span class="gp">   ....: </span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Translates atoms up by x angstrom&quot;&quot;&quot;</span>
 <span class="gp">   ....: </span>    <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="n">ts</span><span class="p">):</span>
-<span class="gp">   ....: </span>        <span class="sd">&quot;&quot;&quot;Handles the actual Timestep&quot;&quot;&quot;</span>
+<span class="gp">   ....: </span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Handles the actual Timestep&quot;&quot;&quot;</span>
 <span class="gp">   ....: </span>        <span class="n">ts</span><span class="o">.</span><span class="n">positions</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)])</span>
 <span class="gp">   ....: </span>        <span class="k">return</span> <span class="n">ts</span>
 <span class="gp">   ....: </span>    <span class="k">return</span> <span class="n">wrapped</span>
@@ -352,7 +352,7 @@
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2022, Lily Wang, Irfan Alibay, Bjarne Feddersen, Florent Langenfeld, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
+        &#169; Copyright 2019-2023, Lily Wang, Irfan Alibay, Bjarne Feddersen, Florent Langenfeld, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
 
     </p>
   </div>
