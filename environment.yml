@@ -17,7 +17,7 @@ dependencies:
   - jedi
   - jinja2
   - jupyter_contrib_nbextensions
-  - matplotlib<3.6.3
+  - matplotlib
   - nbclient
   - nbconvert
   - nbformat
