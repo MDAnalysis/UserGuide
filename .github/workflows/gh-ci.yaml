@@ -44,11 +44,12 @@ jobs:
       with:
         python-version: 3.8
         auto-update-conda: true
+        miniforge-variant: Mambaforge
+        use-mamba: true
         channel-priority: flexible
         channels: plotly, conda-forge
         add-pip-as-python-dependency: true
         architecture: x64
-        mamba-version: "*"
         environment-file: environment.yml
         activate-environment: mda-user-guide
 
