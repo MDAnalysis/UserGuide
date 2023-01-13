@@ -50,7 +50,7 @@ dependencies:
   - pip:
       - msmb_theme
       - sphinx-sitemap
-      - nbval>=0.9.6
+      - nbval==0.9.6
       - pyedr>=0.7
       - git+https://github.com/ParmEd/ParmEd.git@7f837a0c0010299f24edce8240514c546944c458
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=mdanalysis&subdirectory=package
