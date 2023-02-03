@@ -1,37 +1,24 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Reading and writing files &mdash; MDAnalysis User Guide  documentation</title>
   
 
   
-  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
-  <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-
+  
   
   
 
   
-  
-
-  
-    <link rel="canonical" href="https://userguide.mdanalysis.org/reading_and_writing.html" />
-
-  
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -48,6 +35,14 @@
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within MDAnalysis User Guide  documentation"
           href="_static/opensearch.xml"/>
+
+  
+  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Format overview" href="formats/index.html" />
@@ -92,7 +87,6 @@
           
         </div>
 
-        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -188,7 +182,6 @@
             
           
         </div>
-        
       </div>
     </nav>
 
@@ -223,20 +216,18 @@
 
 
 
-
-
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="index.html">Docs</a> &raquo;</li>
         
       <li>Reading and writing files</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="_sources/reading_and_writing.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -361,13 +352,13 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/2.5.0-dev0/
 
 <span class="gp">In [16]: </span><span class="n">universe</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[16]: </span>
-<span class="go">array([[0.5315932 , 0.2620835 , 0.27303442],</span>
-<span class="go">       [0.3649115 , 0.9220467 , 0.34988087],</span>
-<span class="go">       [0.7726494 , 0.42240745, 0.9853601 ],</span>
+<span class="go">array([[0.97218484, 0.11987253, 0.18924376],</span>
+<span class="go">       [0.7946485 , 0.73462945, 0.27118486],</span>
+<span class="go">       [0.23313938, 0.07740904, 0.85442096],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.45499313, 0.18761541, 0.69984215],</span>
-<span class="go">       [0.04055879, 0.6043585 , 0.63098454],</span>
-<span class="go">       [0.3257045 , 0.84357494, 0.00390695]], dtype=float32)</span>
+<span class="go">       [0.41834363, 0.08140402, 0.09782632],</span>
+<span class="go">       [0.5752958 , 0.20549282, 0.09857035],</span>
+<span class="go">       [0.8167702 , 0.8449378 , 0.40334722]], dtype=float32)</span>
 </pre></div>
 </div>
 <p>or they can be directly passed in when creating a Universe.</p>
@@ -375,13 +366,13 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/2.5.0-dev0/
 
 <span class="gp">In [18]: </span><span class="n">universe2</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[18]: </span>
-<span class="go">array([[0.5315932 , 0.2620835 , 0.27303442],</span>
-<span class="go">       [0.3649115 , 0.9220467 , 0.34988087],</span>
-<span class="go">       [0.7726494 , 0.42240745, 0.9853601 ],</span>
+<span class="go">array([[0.97218484, 0.11987253, 0.18924376],</span>
+<span class="go">       [0.7946485 , 0.73462945, 0.27118486],</span>
+<span class="go">       [0.23313938, 0.07740904, 0.85442096],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.45499313, 0.18761541, 0.69984215],</span>
-<span class="go">       [0.04055879, 0.6043585 , 0.63098454],</span>
-<span class="go">       [0.3257045 , 0.84357494, 0.00390695]], dtype=float32)</span>
+<span class="go">       [0.41834363, 0.08140402, 0.09782632],</span>
+<span class="go">       [0.5752958 , 0.20549282, 0.09857035],</span>
+<span class="go">       [0.8167702 , 0.8449378 , 0.40334722]], dtype=float32)</span>
 </pre></div>
 </div>
 </section>
@@ -493,16 +484,22 @@ after serialization:</p>
            
           </div>
           <footer>
+  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="formats/index.html" class="btn btn-neutral float-right" title="Format overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="units.html" class="btn btn-neutral float-left" title="Units and constants" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+        <a href="formats/index.html" class="btn btn-neutral float-right" title="Format overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="units.html" class="btn btn-neutral float-left" title="Units and constants" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2023, Lily Wang, Irfan Alibay, Bjarne Feddersen, Florent Langenfeld, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..
+        &copy; Copyright 2019-2023, Lily Wang, Irfan Alibay, Bjarne Feddersen, Florent Langenfeld, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein.
 
     </p>
   </div>
@@ -516,6 +513,7 @@ after serialization:</p>
 
 
 </footer>
+
         </div>
       </div>
 
