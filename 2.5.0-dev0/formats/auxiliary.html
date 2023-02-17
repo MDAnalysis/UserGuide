@@ -293,7 +293,7 @@ Reads full file on initialisation.</p></td>
 <span class="gp">In [3]: </span><span class="n">aux</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">auxreader</span><span class="p">(</span><span class="n">XVG_BZ2</span><span class="p">)</span>
 
 <span class="gp">In [4]: </span><span class="n">aux</span>
-<span class="gh">Out[4]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7f93161e51c0&gt;</span>
+<span class="gh">Out[4]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7f54d1c71910&gt;</span>
 </pre></div>
 </div>
 <p>In stand-alone use, an auxiliary reader allows you to iterate over each step in a set of auxiliary data.</p>
@@ -492,7 +492,7 @@ original auxiliary reader.</p>
 <span class="gp">In [30]: </span><span class="k">del</span> <span class="n">aux</span>
 
 <span class="gp">In [31]: </span><span class="n">mda</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">auxreader</span><span class="p">(</span><span class="o">**</span><span class="n">description</span><span class="p">)</span>
-<span class="gh">Out[31]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7f9316635ca0&gt;</span>
+<span class="gh">Out[31]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7f54d2654c40&gt;</span>
 </pre></div>
 </div>
 <p>The ‘description’ of any or all the auxiliaries added to a trajectory can be
@@ -607,7 +607,7 @@ the EDRReader, this section will highlight functionality unique to the EDRReader
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [45]: </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="gp">In [46]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">],</span> <span class="n">temp</span><span class="p">[</span><span class="s2">&quot;Temperature&quot;</span><span class="p">])</span>
-<span class="gh">Out[46]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x7f93164bbd90&gt;]</span>
+<span class="gh">Out[46]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x7f54d2690820&gt;]</span>
 
 <span class="gp">In [47]: </span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Temperature [K]&quot;</span><span class="p">)</span>
 <span class="gh">Out[47]: </span><span class="go">Text(0, 0.5, &#39;Temperature [K]&#39;)</span>
@@ -618,7 +618,7 @@ the EDRReader, this section will highlight functionality unique to the EDRReader
 <span class="gp">In [49]: </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href="../formats/auxiliary-1.py">Source code</a>, <a class="reference external" href="../formats/auxiliary-1.png">png</a>, <a class="reference external" href="../formats/auxiliary-1.hires.png">hires.png</a>, <a class="reference external" href="../formats/auxiliary-1.pdf">pdf</a>)</p>
+<p>(<a class="reference download internal" download="" href="../_downloads/79835177181377e2588d274aed9cad44/auxiliary-1.py"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">code</span></code></a>, <a class="reference download internal" download="" href="../_downloads/e26175fa4b43d8229a32471a3e7c7831/auxiliary-1.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="../_downloads/35d4323e5cc041e33705e58839d7a259/auxiliary-1.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="../_downloads/899668c9e2e17d4c2fc64131d19cdebc/auxiliary-1.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
 <figure class="align-default">
 <img alt="../_images/auxiliary-1.png" class="plot-directive" src="../_images/auxiliary-1.png" />
 </figure>
