@@ -33,7 +33,7 @@ jobs:
         with:
           auto-update-conda: True
           use-mamba: True
-          python-version: ${{ matrix.python-version }}
+          python-version: 3.9
           miniforge-variant: Mambaforge
           environment-file: environment.yml
           activate-environment: mda-user-guide
