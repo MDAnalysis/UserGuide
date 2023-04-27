@@ -57,6 +57,12 @@
     "version": "2.4.1",
     "display": "2.4.1",
     "url": "https://userguide.mdanalysis.org/2.4.1",
+    "latest": false
+  },
+  {
+    "version": "2.4.3",
+    "display": "2.4.3",
+    "url": "https://userguide.mdanalysis.org/2.4.3",
     "latest": true
   },
   {
