@@ -44,7 +44,7 @@ jobs:
       with:
         environment-file: environment.yml
         environmentt-name: mda-user-guide
-        extra-specs:
+        extra-specs: |
           python==3.9
           pip
         channels: conda-forge, plotly
