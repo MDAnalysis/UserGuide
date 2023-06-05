@@ -29,23 +29,21 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: conda-incubator/setup-miniconda@v2
+      - name: setup micromamba
+        uses: mamba-org/provision-with-micromamba@main
         with:
-          auto-update-conda: True
-          use-mamba: True
-          python-version: 3.9
-          miniforge-variant: Mambaforge
           environment-file: environment.yml
-          activate-environment: mda-user-guide
+          environmentt-name: mda-user-guide
+          extra-specs: |
+            python==3.9
+            hole2
+            pip
+          channels: conda-forge, plotly
 
       - name: "environment information"
         run: |
           mamba info -a
           mamba list
-
-      - name: install_hole
-        run: |
-          mamba install -c conda-forge hole2
 
       - name: "test notebooks"
         run: |
