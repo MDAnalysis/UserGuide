@@ -42,7 +42,7 @@ jobs:
 
       - name: "environment information"
         run: |
-          micromamba info -a
+          micromamba info
           micromamba list
 
       - name: "test notebooks"
