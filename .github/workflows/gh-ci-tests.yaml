@@ -42,8 +42,8 @@ jobs:
 
       - name: "environment information"
         run: |
-          mamba info -a
-          mamba list
+          micromamba info -a
+          micromamba list
 
       - name: "test notebooks"
         run: |
