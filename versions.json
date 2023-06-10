@@ -48,12 +48,6 @@
     "latest": false
   },
   {
-    "version": "2.4.0-dev0",
-    "display": "2.4.0-dev0",
-    "url": "https://userguide.mdanalysis.org/2.4.0-dev0",
-    "latest": false
-  },
-  {
     "version": "2.4.1",
     "display": "2.4.1",
     "url": "https://userguide.mdanalysis.org/2.4.1",
@@ -64,12 +58,6 @@
     "display": "2.5.0",
     "url": "https://userguide.mdanalysis.org/2.5.0",
     "latest": true
-  },
-  {
-    "version": "2.5.0-dev0",
-    "display": "2.5.0-dev0",
-    "url": "https://userguide.mdanalysis.org/2.5.0-dev0",
-    "latest": false
   },
   {
     "version": "2.6.0-dev0",
