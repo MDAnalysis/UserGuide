@@ -19,6 +19,7 @@ dihedrals      dihedrals      No default values                         atom
 elements       element        ''                                        atom     <class 'object'>
 epsilon14s     epsilon14      0.0                                       atom     <class 'float'>
 epsilons       epsilon        0.0                                       atom     <class 'float'>
+formalcharges  formalcharge   0.0                                       atom     <class 'int'>
 gbscreens      gbscreen       0.0                                       atom     <class 'float'>
 icodes         icode          ''                                        residue  <class 'object'>
 ids            id             continuous sequence from 1 to n_atoms     atom     <class 'int'>
