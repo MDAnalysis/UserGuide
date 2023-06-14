@@ -1,4 +1,4 @@
-name: mda-user-guide
+name: guide
 channels:
   - conda-forge
   - defaults
@@ -51,7 +51,7 @@ dependencies:
       - sphinx_rtd_theme
       - msmb_theme
       - sphinx-sitemap
-      - nbval==0.9.6
+      - nbval
       - pyedr>=0.7
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=mdanalysis&subdirectory=package
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=MDAnalysisTests&subdirectory=testsuite
