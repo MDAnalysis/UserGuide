@@ -22,7 +22,6 @@
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script src="../../../_static/js/versions.js"></script>
@@ -249,7 +248,7 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;MDAnalysis.analysis.rdf.InterRDF at 0x7f3208fe3310&gt;
+&lt;MDAnalysis.analysis.rdf.InterRDF at 0x7f0442f64370&gt;
 </pre></div></div>
 </div>
 <p>The distance bins are available at <code class="docutils literal notranslate"><span class="pre">irdf.bins</span></code> and the radial distribution function is at <code class="docutils literal notranslate"><span class="pre">irdf.rdf</span></code>.</p>
@@ -277,20 +276,29 @@ array([ 0.1,  0.3,  0.5,  0.7,  0.9,  1.1,  1.3,  1.5,  1.7,  1.9,  2.1,
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">irdf</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">bins</span><span class="p">,</span> <span class="n">irdf</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">rdf</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Radius (angstrom)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radial distribution&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radial distribution&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0, 0.5, &#39;Radial distribution&#39;)
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_structure_average_rdf_10_0.png" src="../../../_images/examples_analysis_structure_average_rdf_10_0.png" />
+<img alt="../../../_images/examples_analysis_structure_average_rdf_10_1.png" src="../../../_images/examples_analysis_structure_average_rdf_10_1.png" />
 </div>
 </div>
 <p>The total number of atom pairs in each distance bin over the trajectory, before it gets normalised over the density, number of frames, and volume of each radial shell, is at <code class="docutils literal notranslate"><span class="pre">irdf.count</span></code>.</p>
@@ -343,7 +351,7 @@ array([0.000e+00, 0.000e+00, 0.000e+00, 0.000e+00, 0.000e+00, 0.000e+00,
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;MDAnalysis.analysis.rdf.InterRDF at 0x7f31f6821060&gt;
+&lt;MDAnalysis.analysis.rdf.InterRDF at 0x7f044305ffa0&gt;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -352,15 +360,24 @@ array([0.000e+00, 0.000e+00, 0.000e+00, 0.000e+00, 0.000e+00, 0.000e+00,
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">irdf2</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">bins</span><span class="p">,</span> <span class="n">irdf2</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">rdf</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Radius (angstrom)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radial distribution&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radial distribution&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0, 0.5, &#39;Radial distribution&#39;)
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_structure_average_rdf_16_0.png" src="../../../_images/examples_analysis_structure_average_rdf_16_0.png" />
+<img alt="../../../_images/examples_analysis_structure_average_rdf_16_1.png" src="../../../_images/examples_analysis_structure_average_rdf_16_1.png" />
 </div>
 </div>
 <p>Similarly, you can apply this to residues.</p>
@@ -400,7 +417,7 @@ THR has 14 atoms
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;MDAnalysis.analysis.rdf.InterRDF at 0x7f31f5358670&gt;
+&lt;MDAnalysis.analysis.rdf.InterRDF at 0x7f0443041df0&gt;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -409,15 +426,24 @@ THR has 14 atoms
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">irdf3</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">bins</span><span class="p">,</span> <span class="n">irdf3</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">rdf</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Radius (angstrom)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radial distribution&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radial distribution&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0, 0.5, &#39;Radial distribution&#39;)
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_structure_average_rdf_21_0.png" src="../../../_images/examples_analysis_structure_average_rdf_21_0.png" />
+<img alt="../../../_images/examples_analysis_structure_average_rdf_21_1.png" src="../../../_images/examples_analysis_structure_average_rdf_21_1.png" />
 </div>
 </div>
 <p>If you are splitting a residue over your two selections, you can discount pairs from the same residue by choosing appropriately sized exclusion blocks.</p>
@@ -464,7 +490,7 @@ THR has 10 non carbons
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;MDAnalysis.analysis.rdf.InterRDF at 0x7f31f647dab0&gt;
+&lt;MDAnalysis.analysis.rdf.InterRDF at 0x7f0442bc0af0&gt;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -473,15 +499,24 @@ THR has 10 non carbons
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">irdf4</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">bins</span><span class="p">,</span> <span class="n">irdf4</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">rdf</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Radius (angstrom)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radial distribution&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radial distribution&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0, 0.5, &#39;Radial distribution&#39;)
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_structure_average_rdf_26_0.png" src="../../../_images/examples_analysis_structure_average_rdf_26_0.png" />
+<img alt="../../../_images/examples_analysis_structure_average_rdf_26_1.png" src="../../../_images/examples_analysis_structure_average_rdf_26_1.png" />
 </div>
 </div>
 </section>

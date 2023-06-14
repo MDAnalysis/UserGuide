@@ -22,7 +22,6 @@
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script src="../_static/js/versions.js"></script>
@@ -210,7 +209,7 @@
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 &lt;Universe with 3341 atoms&gt;
-Using MDAnalysis version 2.4.0-dev0
+Using MDAnalysis version 2.5.0-dev0
 </pre></div></div>
 </div>
 <p>This tutorial assumes that you already have MDAnalysis installed. Running the cell above should give something similar to:</p>
@@ -879,20 +878,27 @@ Frame:  10, Time:   11 ps, Rgyr: 16.8521 A
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-
-<span class="n">rgyr_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Radius of gyration&#39;</span><span class="p">);</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rgyr_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Radius of gyration&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;AxesSubplot: title={&#39;center&#39;: &#39;Radius of gyration&#39;}, xlabel=&#39;Time (ps)&#39;&gt;
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_quickstart_70_0.png" src="../_images/examples_quickstart_70_0.png" />
+<img alt="../_images/examples_quickstart_70_1.png" src="../_images/examples_quickstart_70_1.png" />
 </div>
 </div>
 <section id="Dynamic-selection">
@@ -1079,15 +1085,24 @@ formats</a>, each with their own <a class="reference external" href="https://use
 <li><p>Then, without re-aligning the trajectory, the RMSD is also computed (<code class="docutils literal notranslate"><span class="pre">groupselections</span></code>) for the <span class="math notranslate nohighlight">\(C_{\alpha}\)</span> atoms (<code class="docutils literal notranslate"><span class="pre">name</span> <span class="pre">CA</span></code>) and every protein atom (<code class="docutils literal notranslate"><span class="pre">protein</span></code>).</p></li>
 </ul>
 <p>The RMSD is computed when we call <code class="docutils literal notranslate"><span class="pre">.run()</span></code>.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># set to first frame</span>
 <span class="n">rmsd_analysis</span> <span class="o">=</span> <span class="n">rms</span><span class="o">.</span><span class="n">RMSD</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="s1">&#39;backbone&#39;</span><span class="p">,</span> <span class="n">groupselections</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span> <span class="s1">&#39;protein&#39;</span><span class="p">])</span>
-<span class="n">rmsd_analysis</span><span class="o">.</span><span class="n">run</span><span class="p">();</span>
+<span class="n">rmsd_analysis</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;MDAnalysis.analysis.rms.RMSD at 0x7ffa96668550&gt;
+</pre></div></div>
 </div>
 <p>The results are stored in the <code class="docutils literal notranslate"><span class="pre">results.rmsd</span></code> attribute. This is an array with the shape <code class="docutils literal notranslate"><span class="pre">(n_frames,</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">n_selections)</span></code>.</p>
 <div class="nbinput docutils container">

@@ -22,7 +22,6 @@
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script src="../../../_static/js/versions.js"></script>
@@ -212,7 +211,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d8483e7f3a8b404ca65c640dc0c71b68", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "fe13ef351b564a6fbf9026997cc82aec", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <section id="Loading-files">
 <h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this heading"></a></h2>
@@ -327,15 +326,24 @@ Cumulated variance: 0.964
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pc</span><span class="o">.</span><span class="n">cumulated_variance</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Principal component&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Cumulative variance&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Cumulative variance&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0, 0.5, &#39;Cumulative variance&#39;)
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_reduced_dimensions_pca_15_0.png" src="../../../_images/examples_analysis_reduced_dimensions_pca_15_0.png" />
+<img alt="../../../_images/examples_analysis_reduced_dimensions_pca_15_1.png" src="../../../_images/examples_analysis_reduced_dimensions_pca_15_1.png" />
 </div>
 </div>
 </section>
@@ -460,15 +468,24 @@ Cumulated variance: 0.964
 <span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">PairGrid</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Time (ps)&#39;</span><span class="p">,</span>
                  <span class="n">palette</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;Oranges_d&#39;</span><span class="p">,</span>
                                            <span class="n">n_colors</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)))</span>
-<span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">);</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;seaborn.axisgrid.PairGrid at 0x7f129017c220&gt;
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_reduced_dimensions_pca_21_0.png" src="../../../_images/examples_analysis_reduced_dimensions_pca_21_0.png" />
+<img alt="../../../_images/examples_analysis_reduced_dimensions_pca_21_1.png" src="../../../_images/examples_analysis_reduced_dimensions_pca_21_1.png" />
 </div>
 </div>
 <p>Another way to investigate the essential motions of the trajectory is to project the original trajectory onto each of the principal components, to visualise the motion of the principal component. The outer product <span class="math notranslate nohighlight">\(\otimes\)</span> of the weights <span class="math notranslate nohighlight">\(\mathbf{w}_i(t)\)</span> for principal component <span class="math notranslate nohighlight">\(i\)</span> with the eigenvector <span class="math notranslate nohighlight">\(\mathbf{u}_i\)</span> describes fluctuations around the mean on that axis, so the projected trajectory <span class="math notranslate nohighlight">\(\mathbf{r}_i(t)\)</span> is simply the fluctuations added onto the mean
@@ -519,7 +536,7 @@ positions <span class="math notranslate nohighlight">\(\mathbf{\overline{r}}\)</
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c2a016977a1642cab01c6c78103aa828", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f0a1d542681047b295bcbb23e7b79f8a", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>If you have <code class="docutils literal notranslate"><span class="pre">nglview</span></code> installed, you can view the trajectory in the notebook. Otherwise, you can write the trajectory out to a file and use another program such as VMD. Below, we create a movie of the component.</p>
 <div class="nbinput docutils container">
@@ -536,7 +553,7 @@ positions <span class="math notranslate nohighlight">\(\mathbf{\overline{r}}\)</
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "87aafe1acab24252b9822698b1abb921", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d94d75ac65024f6aac74dc43b75309a6", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <img alt="pc1 gif" src="../../../_images/pc1.gif" />
 </section>
@@ -583,15 +600,24 @@ Cosine content for PC 3 = 0.724
 <span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">,</span>
       <span class="s2">&quot;Time (ps)&quot;</span><span class="p">,</span> <span class="c1"># x-axis</span>
       <span class="s2">&quot;Value&quot;</span><span class="p">,</span> <span class="c1"># y-axis</span>
-      <span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">);</span> <span class="c1"># no confidence interval</span>
+      <span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1"># no confidence interval</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;seaborn.axisgrid.FacetGrid at 0x7f126d7a8700&gt;
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_reduced_dimensions_pca_33_0.png" src="../../../_images/examples_analysis_reduced_dimensions_pca_33_0.png" />
+<img alt="../../../_images/examples_analysis_reduced_dimensions_pca_33_1.png" src="../../../_images/examples_analysis_reduced_dimensions_pca_33_1.png" />
 </div>
 </div>
 </section>

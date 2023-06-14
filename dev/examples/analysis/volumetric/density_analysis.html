@@ -22,7 +22,6 @@
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script src="../../../_static/js/versions.js"></script>
@@ -211,7 +210,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "fd2de2b65df948609b8dcdabf2b66615", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "9f784e09d05a4506b61beab79f6751f0"}</script></div>
 </div>
 <section id="Loading-files">
 <h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this heading"></a></h2>
@@ -232,7 +231,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "76829ac5e29843dabc3d73c6a4424619", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "31725dc1d3d2484cb25fdcd5e2df7c1d"}</script></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -246,7 +245,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "fa6a62c67bd948f9a96754eaa04f0570", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "fc7678635853431b97e33ff27fd69c23"}</script></div>
 </div>
 </section>
 <section id="Centering,-aligning,-and-making-molecules-whole-with-on-the-fly-transformations">
@@ -325,7 +324,7 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d83d5e5472884f54a541611373dafd98", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "1e9fa43a86fc45a9b49a43bd12d7532d"}</script></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -339,7 +338,7 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "af648cf91e814be9b4b62264d618cc29", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "df9e019de6694f10ade45554fde0a0a5"}</script></div>
 </div>
 </section>
 <section id="Analysing-the-density-of-water-around-the-protein">
@@ -363,7 +362,7 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;MDAnalysis.analysis.density.DensityAnalysis at 0x7fe803a3eca0&gt;
+&lt;MDAnalysis.analysis.density.DensityAnalysis at 0x7f60ad4211c0&gt;
 </pre></div></div>
 </div>
 <p>The results are stored in <code class="docutils literal notranslate"><span class="pre">dens.density</span></code>, a <code class="docutils literal notranslate"><span class="pre">Density</span></code> object. <code class="docutils literal notranslate"><span class="pre">dens.density.grid</span></code> is a numpy array with the average density of the water oxygen atoms, histogrammed onto a grid with 1 <span class="math notranslate nohighlight">\(Å\)</span> spacing on each axis.</p>
@@ -473,15 +472,24 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 
 <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">mx</span><span class="p">,</span> <span class="n">my</span><span class="p">,</span> <span class="n">mz</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;mpl_toolkits.mplot3d.art3d.Path3DCollection at 0x7f60839bbfa0&gt;
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_volumetric_density_analysis_30_0.png" src="../../../_images/examples_analysis_volumetric_density_analysis_30_0.png" />
+<img alt="../../../_images/examples_analysis_volumetric_density_analysis_30_1.png" src="../../../_images/examples_analysis_volumetric_density_analysis_30_1.png" />
 </div>
 </div>
 </section>
@@ -516,7 +524,7 @@ has a different meanin - One can use multiple surfaces at different isolevels (a
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "fca358aa4e58424d9f6110c1f9873092", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "7ecf0eda32f146858ae0e2a7a780fdce"}</script></div>
 </div>
 </section>
 <section id="scikit-image-(triangulated-surface)">
@@ -537,22 +545,31 @@ has a different meanin - One can use multiple surfaces at different isolevels (a
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot_trisurf</span><span class="p">(</span><span class="n">verts</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">verts</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">faces</span><span class="p">,</span> <span class="n">verts</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span>
-                <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">);</span>
+                <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x7f60a2e98880&gt;
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_volumetric_density_analysis_37_0.png" src="../../../_images/examples_analysis_volumetric_density_analysis_37_0.png" />
+<img alt="../../../_images/examples_analysis_volumetric_density_analysis_37_1.png" src="../../../_images/examples_analysis_volumetric_density_analysis_37_1.png" />
 </div>
 </div>
 </section>
 <section id="pyvista-(3D-surface)">
 <h3>pyvista (3D surface)<a class="headerlink" href="#pyvista-(3D-surface)" title="Permalink to this heading"></a></h3>
 <p>Similarly, using <a class="reference external" href="https://docs.pyvista.org/">PyVista</a>, you can plot both static and interactive visualizations of the surface at different iso levels (following this <a class="reference external" href="https://stackoverflow.com/questions/6030098/how-to-display-a-3d-plot-of-a-3d-array-isosurface-in-matplotlib-mplot3d-or-simil/35472146#35472146">StackOverflow post</a>). Uncomment the last lines to show the plot in your local machine.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
@@ -566,12 +583,72 @@ has a different meanin - One can use multiple surfaces at different isolevels (a
 <span class="n">contours</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">contour</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">])</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">(</span><span class="n">notebook</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">p</span><span class="o">.</span><span class="n">background_color</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span>
-<span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">outline</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">);</span>  <span class="c1"># box lines</span>
-<span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">contours</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.2</span><span class="p">);</span>  <span class="c1"># surfaces</span>
+<span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">outline</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>  <span class="c1"># box lines</span>
+<span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">contours</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>  <span class="c1"># surfaces</span>
 <span class="c1"># p.show()</span>
 <span class="c1"># p.screenshot(&quot;./density_analysis_images/surface.png&quot;);</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Actor (0x7f60a29b1ca0)
+  Center:                     (59.734388541091576, 52.19496303240527, 28.17081691604193)
+  Pickable:                   True
+  Position:                   (0.0, 0.0, 0.0)
+  Scale:                      (1.0, 1.0, 1.0)
+  Visible:                    True
+  X Bounds                    5.810E+00, 1.137E+02
+  Y Bounds                    -2.367E+01, 1.281E+02
+  Z Bounds                    -8.245E+00, 6.459E+01
+  User matrix:                Unset
+  Has mapper:                 True
+
+Property (0x7f60a29b1e20)
+  Ambient:                     0.0
+  Ambient color:               Color(name=&#39;tan&#39;, hex=&#39;#d2b48cff&#39;)
+  Anisotropy:                  0.0
+  Color:                       Color(name=&#39;tan&#39;, hex=&#39;#d2b48cff&#39;)
+  Culling:                     &#34;none&#34;
+  Diffuse:                     1.0
+  Diffuse color:               Color(name=&#39;tan&#39;, hex=&#39;#d2b48cff&#39;)
+  Edge color:                  Color(name=&#39;black&#39;, hex=&#39;#000000ff&#39;)
+  Interpolation:               &#34;Flat&#34;
+  Lighting:                    True
+  Line width:                  1.0
+  Metallic:                    0.0
+  Opacity:                     0.2
+  Point size:                  5.0
+  Render lines as tubes:       False
+  Render points as spheres:    False
+  Roughness:                   0.5
+  Show edges:                  False
+  Specular:                    0.0
+  Specular color:              Color(name=&#39;tan&#39;, hex=&#39;#d2b48cff&#39;)
+  Specular power:              100.0
+  Style:                       &#34;Surface&#34;
+
+DataSetMapper (0x7f60a29b1ee0)
+  Scalar visibility:           True
+  Scalar range:                (0.5, 1.2000000476837158)
+  Interpolate before mapping:  True
+  Scalar map mode:             point
+  Color mode:                  map
+
+Attached dataset:
+PolyData (0x7f60a29b5ca0)
+  N Cells:      9508
+  N Points:     5208
+  N Strips:     0
+  X Bounds:     5.810e+00, 1.137e+02
+  Y Bounds:     -2.367e+01, 1.281e+02
+  Z Bounds:     -8.245e+00, 6.459e+01
+  N Arrays:     1
+</pre></div></div>
 </div>
 <img alt="surface" src="../../../_images/surface.png" />
 <p>Unfortunately plotting interactively appears to render everything with opaque surfaces. Note that this code snippet requires <a class="reference external" href="https://ipygany.readthedocs.io/en/latest/">ipygany</a> to be installed.</p>
@@ -592,7 +669,7 @@ has a different meanin - One can use multiple surfaces at different isolevels (a
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/home/pbarletta/mambaforge/envs/mda-user-guide/lib/python3.9/site-packages/traittypes/traittypes.py:97: UserWarning: Given trait value dtype &#34;float32&#34; does not match required type &#34;float64&#34;. A coerced copy has been created.
+/home/pbarletta/mambaforge/envs/guide/lib/python3.9/site-packages/traittypes/traittypes.py:97: UserWarning: Given trait value dtype &#34;float32&#34; does not match required type &#34;float64&#34;. A coerced copy has been created.
   warnings.warn(
 </pre></div></div>
 </div>
@@ -600,7 +677,7 @@ has a different meanin - One can use multiple surfaces at different isolevels (a
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2b13bc84d3b140c9a04ca6c09bc1bea4", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "8df94cc795c4478b9ac8dce795693107"}</script></div>
 </div>
 </section>
 <section id="2D-averaging">
@@ -635,15 +712,24 @@ has a different meanin - One can use multiple surfaces at different isolevels (a
 <span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
 <span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Mean density of water over TIP4P literature value&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X-axis ($\AA$)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y-axis ($\AA$)&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y-axis ($\AA$)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0, 0.5, &#39;Y-axis ($\\AA$)&#39;)
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_volumetric_density_analysis_47_0.png" src="../../../_images/examples_analysis_volumetric_density_analysis_47_0.png" />
+<img alt="../../../_images/examples_analysis_volumetric_density_analysis_47_1.png" src="../../../_images/examples_analysis_volumetric_density_analysis_47_1.png" />
 </div>
 </div>
 <p>You can interpolate values for a smoother average:</p>
@@ -657,15 +743,24 @@ has a different meanin - One can use multiple surfaces at different isolevels (a
 <span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
 <span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Mean density of water over TIP4P literature value&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X-axis ($\AA$)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y-axis ($\AA$)&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y-axis ($\AA$)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0, 0.5, &#39;Y-axis ($\\AA$)&#39;)
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_volumetric_density_analysis_49_0.png" src="../../../_images/examples_analysis_volumetric_density_analysis_49_0.png" />
+<img alt="../../../_images/examples_analysis_volumetric_density_analysis_49_1.png" src="../../../_images/examples_analysis_volumetric_density_analysis_49_1.png" />
 </div>
 </div>
 </section>

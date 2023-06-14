@@ -22,7 +22,6 @@
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script src="../../../_static/js/versions.js"></script>
@@ -236,7 +235,7 @@
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/home/pbarletta/mambaforge/envs/mda-user-guide/lib/python3.9/site-packages/MDAnalysis/coordinates/DCD.py:165: DeprecationWarning: DCDReader currently makes independent timesteps by copying self.ts while other readers update self.ts inplace. This behaviour will be changed in 3.0 to be the same as other readers
+/home/pbarletta/mambaforge/envs/guide/lib/python3.9/site-packages/MDAnalysis/coordinates/DCD.py:165: DeprecationWarning: DCDReader currently makes independent timesteps by copying self.ts while other readers update self.ts inplace. This behavior will be changed in 3.0 to be the same as other readers. Read more at https://github.com/MDAnalysis/mdanalysis/issues/3889 to learn if this change in behavior might affect you.
   warnings.warn(&#34;DCDReader currently makes independent timesteps&#34;
 </pre></div></div>
 </div>
@@ -287,9 +286,9 @@ with <code class="docutils literal notranslate"><span class="pre">dres()</span><
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[0.        , 0.68915346, 0.69304598],
-       [0.68915346, 0.        , 0.65890917],
-       [0.69304598, 0.65890917, 0.        ]])
+array([[0.        , 0.68134177, 0.68452079],
+       [0.68134177, 0.        , 0.66369356],
+       [0.68452079, 0.66369356, 0.        ]])
 </pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">details0</span></code> contains information on the dimensionality reduction, as well as the associated reduced coordinates. Each frame is in the conformational ensemble is reduced to 3 dimensions.</p>
@@ -350,22 +349,31 @@ array([[0.        , 0.68915346, 0.69304598],
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rdfig0</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">rdax0</span> <span class="o">=</span> <span class="n">rdfig0</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">data</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">zip_data_with_labels</span><span class="p">(</span><span class="n">reduced</span><span class="p">):</span>
     <span class="n">rdax0</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.legend.Legend at 0x7fd2165443a0&gt;
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_trajectory_similarity_dimension_reduction_ensemble_similarity_19_0.png" src="../../../_images/examples_analysis_trajectory_similarity_dimension_reduction_ensemble_similarity_19_0.png" />
+<img alt="../../../_images/examples_analysis_trajectory_similarity_dimension_reduction_ensemble_similarity_19_1.png" src="../../../_images/examples_analysis_trajectory_similarity_dimension_reduction_ensemble_similarity_19_1.png" />
 </div>
 </div>
 </section>
@@ -436,15 +444,24 @@ adjustments are performed.</p>
 <span class="n">rdax1</span> <span class="o">=</span> <span class="n">rdfig1</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">data</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">zip_data_with_labels</span><span class="p">(</span><span class="n">reduced1</span><span class="p">):</span>
     <span class="n">rdax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.legend.Legend at 0x7fd1d0c7ad00&gt;
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_trajectory_similarity_dimension_reduction_ensemble_similarity_28_0.png" src="../../../_images/examples_analysis_trajectory_similarity_dimension_reduction_ensemble_similarity_28_0.png" />
+<img alt="../../../_images/examples_analysis_trajectory_similarity_dimension_reduction_ensemble_similarity_28_1.png" src="../../../_images/examples_analysis_trajectory_similarity_dimension_reduction_ensemble_similarity_28_1.png" />
 </div>
 </div>
 </section>
@@ -541,15 +558,24 @@ adjustments are performed.</p>
 <span class="n">split_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">zip_data_with_labels</span><span class="p">(</span><span class="n">rd_p1</span><span class="p">)]</span>
 <span class="n">rd_p1_ax</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">split_data</span><span class="p">,</span> <span class="n">showextrema</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">rd_p1_ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="n">rd_p1_ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">labels</span><span class="p">);</span>
+<span class="n">rd_p1_ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[Text(1, 0, &#39;DCD&#39;), Text(2, 0, &#39;DCD2&#39;), Text(3, 0, &#39;NAMD&#39;)]
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_trajectory_similarity_dimension_reduction_ensemble_similarity_41_0.png" src="../../../_images/examples_analysis_trajectory_similarity_dimension_reduction_ensemble_similarity_41_0.png" />
+<img alt="../../../_images/examples_analysis_trajectory_similarity_dimension_reduction_ensemble_similarity_41_1.png" src="../../../_images/examples_analysis_trajectory_similarity_dimension_reduction_ensemble_similarity_41_1.png" />
 </div>
 </div>
 <p>Expanding out to the second principal component shows that DCD2 and NAMD mainly vary on the second axis.</p>
@@ -560,15 +586,24 @@ adjustments are performed.</p>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rd_p2_fig</span><span class="p">,</span> <span class="n">rd_p2_ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">data</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">zip_data_with_labels</span><span class="p">(</span><span class="n">rd_p2</span><span class="p">):</span>
     <span class="n">rd_p2_ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.legend.Legend at 0x7fd21662ec10&gt;
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_trajectory_similarity_dimension_reduction_ensemble_similarity_43_0.png" src="../../../_images/examples_analysis_trajectory_similarity_dimension_reduction_ensemble_similarity_43_0.png" />
+<img alt="../../../_images/examples_analysis_trajectory_similarity_dimension_reduction_ensemble_similarity_43_1.png" src="../../../_images/examples_analysis_trajectory_similarity_dimension_reduction_ensemble_similarity_43_1.png" />
 </div>
 </div>
 <p>Plotting over the top three principal components gives quite a different result to the reduced coordinates given by stochastic proximity embedding.</p>
@@ -583,15 +618,24 @@ adjustments are performed.</p>
 <span class="n">rd_p3_ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;PC 1&#39;</span><span class="p">)</span>
 <span class="n">rd_p3_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;PC 2&#39;</span><span class="p">)</span>
 <span class="n">rd_p3_ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;PC 3&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.legend.Legend at 0x7fd216582df0&gt;
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_trajectory_similarity_dimension_reduction_ensemble_similarity_45_0.png" src="../../../_images/examples_analysis_trajectory_similarity_dimension_reduction_ensemble_similarity_45_0.png" />
+<img alt="../../../_images/examples_analysis_trajectory_similarity_dimension_reduction_ensemble_similarity_45_1.png" src="../../../_images/examples_analysis_trajectory_similarity_dimension_reduction_ensemble_similarity_45_1.png" />
 </div>
 </div>
 </section>
@@ -625,9 +669,9 @@ adjustments are performed.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[0.        , 0.24363216, 0.59912028],
-       [0.24363216, 0.        , 0.59307327],
-       [0.59912028, 0.59307327, 0.        ]])
+array([[0.        , 0.24545978, 0.60069985],
+       [0.24545978, 0.        , 0.59556372],
+       [0.60069985, 0.59556372, 0.        ]])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -644,9 +688,9 @@ array([[0.        , 0.24363216, 0.59912028],
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[0.        , 0.0701954 , 0.04615557],
-       [0.0701954 , 0.        , 0.05295801],
-       [0.04615557, 0.05295801, 0.        ]])
+array([[0.        , 0.06153911, 0.05076614],
+       [0.06153911, 0.        , 0.03881675],
+       [0.05076614, 0.03881675, 0.        ]])
 </pre></div></div>
 </div>
 </section>

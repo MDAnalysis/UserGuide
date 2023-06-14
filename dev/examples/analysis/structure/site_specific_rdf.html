@@ -22,7 +22,6 @@
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script src="../../../_static/js/versions.js"></script>
@@ -238,17 +237,26 @@ compute RDFs on an atom-to-atom basis, rather than simply giving the averaged RD
                     <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">),</span>  <span class="c1"># distance</span>
                     <span class="n">norm</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span>
                    <span class="p">)</span>
-<span class="n">ss_rdf</span><span class="o">.</span><span class="n">run</span><span class="p">();</span>
+<span class="n">ss_rdf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/home/pbarletta/mambaforge/envs/mda-user-guide/lib/python3.9/site-packages/MDAnalysis/analysis/rdf.py:531: DeprecationWarning: The `u` attribute is superflous and will be removed in MDAnalysis 3.0.0.
+/home/pbarletta/mambaforge/envs/guide/lib/python3.9/site-packages/MDAnalysis/analysis/rdf.py:531: DeprecationWarning: The `u` attribute is superflous and will be removed in MDAnalysis 3.0.0.
   warnings.warn(&#34;The `u` attribute is superflous and will be removed &#34;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;MDAnalysis.analysis.rdf.InterRDF_s at 0x7faa885ab280&gt;
 </pre></div></div>
 </div>
 <p>Like <code class="docutils literal notranslate"><span class="pre">rdf.InterRDF</span></code>, the distance bins are available at <code class="docutils literal notranslate"><span class="pre">ss_rdf.bins</span></code>.</p>
@@ -337,15 +345,24 @@ array([0.        , 0.        , 0.        , 0.        , 0.        ,
 <span class="n">w570</span> <span class="o">=</span> <span class="n">water</span><span class="p">[</span><span class="mi">570</span><span class="p">]</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Radius (angstrom)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radial distribution&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;RDF between CA61 and </span><span class="si">{}{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">w570</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">w570</span><span class="o">.</span><span class="n">resid</span><span class="p">));</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;RDF between CA61 and </span><span class="si">{}{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">w570</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">w570</span><span class="o">.</span><span class="n">resid</span><span class="p">))</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0.5, 1.0, &#39;RDF between CA61 and MW6365&#39;)
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_structure_site_specific_rdf_14_0.png" src="../../../_images/examples_analysis_structure_site_specific_rdf_14_0.png" />
+<img alt="../../../_images/examples_analysis_structure_site_specific_rdf_14_1.png" src="../../../_images/examples_analysis_structure_site_specific_rdf_14_1.png" />
 </div>
 </div>
 <p>If you are having trouble finding pairs of atoms where the results are not simply 0, you can use Numpy functions to find the indices of the nonzero values. Below we count the nonzero entries in the first <code class="docutils literal notranslate"><span class="pre">rdf</span></code> array.</p>
@@ -434,22 +451,31 @@ The water atom with the highest distribution around CA60 has index 568
 <span class="n">w568</span> <span class="o">=</span> <span class="n">water</span><span class="p">[</span><span class="mi">568</span><span class="p">]</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Radius (angstrom)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radial cumulative distribution&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;RDF between CA60 and </span><span class="si">{}{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">w568</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">w568</span><span class="o">.</span><span class="n">resid</span><span class="p">));</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;RDF between CA60 and </span><span class="si">{}{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">w568</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">w568</span><span class="o">.</span><span class="n">resid</span><span class="p">))</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0.5, 1.0, &#39;RDF between CA60 and HW16365&#39;)
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_structure_site_specific_rdf_23_0.png" src="../../../_images/examples_analysis_structure_site_specific_rdf_23_0.png" />
+<img alt="../../../_images/examples_analysis_structure_site_specific_rdf_23_1.png" src="../../../_images/examples_analysis_structure_site_specific_rdf_23_1.png" />
 </div>
 </div>
 </section>
 <section id="The-site-specific-RDF-without-densities">
 <h2>The site-specific RDF without densities<a class="headerlink" href="#The-site-specific-RDF-without-densities" title="Permalink to this heading"></a></h2>
 <p>When the <code class="docutils literal notranslate"><span class="pre">density</span></code> of the selected atom groups over the box volume is not accounted for, your distribution values will be proportionally lower.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
@@ -458,10 +484,40 @@ The water atom with the highest distribution around CA60 has index 568
                     <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">),</span>  <span class="c1"># distance</span>
                     <span class="n">density</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                    <span class="p">)</span>
-<span class="n">ss_rdf_nodensity</span><span class="o">.</span><span class="n">run</span><span class="p">();</span>
-<span class="n">ss_rdf_nodensity</span><span class="o">.</span><span class="n">get_cdf</span><span class="p">();</span>
+<span class="n">ss_rdf_nodensity</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">ss_rdf_nodensity</span><span class="o">.</span><span class="n">get_cdf</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[array([[[0. , 0. , 0. , ..., 0.1, 0.1, 0.1],
+         [0. , 0. , 0. , ..., 0.1, 0.1, 0.1],
+         [0. , 0. , 0. , ..., 0.1, 0.1, 0.1],
+         ...,
+         [0. , 0. , 0. , ..., 0.1, 0.1, 0.1],
+         [0. , 0. , 0. , ..., 0.1, 0.1, 0.1],
+         [0. , 0. , 0. , ..., 0.1, 0.1, 0.1]],
+
+        [[0. , 0. , 0. , ..., 0. , 0.1, 0.1],
+         [0. , 0. , 0. , ..., 0. , 0. , 0. ],
+         [0. , 0. , 0. , ..., 0.1, 0.1, 0.1],
+         ...,
+         [0. , 0. , 0. , ..., 0.1, 0.1, 0.1],
+         [0. , 0. , 0. , ..., 0.1, 0.1, 0.1],
+         [0. , 0. , 0. , ..., 0.1, 0.1, 0.1]]]),
+ array([[[0. , 0. , 0. , ..., 0. , 0.1, 0.1],
+         [0. , 0. , 0. , ..., 0. , 0. , 0. ],
+         [0. , 0. , 0. , ..., 0.1, 0.1, 0.1],
+         ...,
+         [0. , 0. , 0. , ..., 0. , 0. , 0.1],
+         [0. , 0. , 0. , ..., 0. , 0. , 0. ],
+         [0. , 0. , 0. , ..., 0. , 0. , 0. ]]])]
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
@@ -471,15 +527,24 @@ The water atom with the highest distribution around CA60 has index 568
          <span class="n">ss_rdf_nodensity</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">rdf</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">570</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Radius (angstrom)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radial distribution&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;RDF between CA61 and </span><span class="si">{}{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">w570</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">w570</span><span class="o">.</span><span class="n">resid</span><span class="p">));</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;RDF between CA61 and </span><span class="si">{}{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">w570</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">w570</span><span class="o">.</span><span class="n">resid</span><span class="p">))</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0.5, 1.0, &#39;RDF between CA61 and MW6365&#39;)
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_structure_site_specific_rdf_27_0.png" src="../../../_images/examples_analysis_structure_site_specific_rdf_27_0.png" />
+<img alt="../../../_images/examples_analysis_structure_site_specific_rdf_27_1.png" src="../../../_images/examples_analysis_structure_site_specific_rdf_27_1.png" />
 </div>
 </div>
 </section>
