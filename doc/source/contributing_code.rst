@@ -85,8 +85,10 @@ touching existing environments that may have stable versions of MDAnalysis. :
 
     .. code-block:: bash
 
-        conda create --name mdanalysis-dev
+        conda create --name mdanalysis-dev python==3.10
 
+Use a recent version of Python for this environment.
+	
 Activate the environment to build MDAnalysis into it:
 
     .. code-block:: bash
@@ -119,7 +121,7 @@ See the full `conda documentation <http://conda.pydata.org/docs>`__ for more det
 With pip and virtualenv
 -----------------------
 
-Like conda, virtual environments managed with `virtualenv <https://virtualenv.pypa.io/en/latest/>`_ allow you to use different versions of Python and Python packages for your different project. Unlike conda, virtualenv is not a general-purpose package manager. Instead, it leverages what is available on your system, and lets you install Python packages using pip.
+Like conda, virtual environments managed with `virtualenv <https://virtualenv.pypa.io/en/latest/>`_ allow you to use different versions of Python and Python packages for your different project. Unlike conda, virtualenv is not a general-purpose package manager. Instead, it leverages what is available on your system, and lets you install Python packages using :program:`pip`.
 
 To use virtual environments you have to install the virtualenv package first. This can be done with pip:
 
@@ -212,20 +214,37 @@ First we need to install dependencies. You'll need a mix of conda and pip instal
 
     .. code-block:: bash
 
-        conda install -c bioconda -c conda-forge \
-            biopython chemfiles clustalw==2.1 codecov cython \
-            griddataformats gsd hypothesis "joblib>=0.12" \
-            matplotlib mmtf-python mock netcdf4 networkx \
-            "numpy>=1.18.0" psutil pytest scikit-learn scipy \
-            "seaborn>=0.7.0" "tidynamics>=1.0.0" \
-            "tqdm>=4.43.0"
+        conda install -c conda-forge \
+	  'Cython>=0.28' \
+	  'numpy>=1.21.0' \
+	  'biopython>=1.80' \
+	  'networkx>=2.0' \
+	  'GridDataFormats>=0.4.0' \
+	  'mmtf-python>=1.0.0' \
+	  'joblib>=0.12' \
+	  'scipy>=1.5.0' \
+	  'matplotlib>=1.5.1' \
+	  'tqdm>=4.43.0' \
+	  'threadpoolctl'\ 
+	  'packaging' \
+	  'fasteners' \
+	  'netCDF4>=1.0' \
+	  'h5py>=2.10' \
+	  'chemfiles>=0.10' \
+	  'pyedr>=0.7.0' \
+	  'pytng>=0.2.3' \
+	  'gsd>3.0.0' \
+	  'rdkit>=2020.03.1' \
+	  'seaborn' \
+	  'scikit-learn' \
+	  'tidynamics>=1.0.0'
 
         # documentation dependencies
 	conda install -c conda-forge sphinx pybtex pybtex-docutils \
 	    sphinxcontrib-bibtex sphinx_rtd_theme sphinx-sitemap
         python -m pip install msmb_theme==1.2.0
 
-Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.7. We will now install MDAnalysis. 
+Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.9. We will now install MDAnalysis. 
 
     .. code-block:: bash
 
@@ -247,7 +266,7 @@ At this point you should be able to import MDAnalysis from your locally built ve
         $ python  # start an interpreter
         >>> import MDAnalysis as mda
         >>> mda.__version__
-        '2.1.0-dev0'
+        '2.6.0-dev0'
 
 .. note::
     If your version number does not end in :code:`-dev0`, you may be on the ``master`` branch. In your ``mdanalysis/`` directory, switch to the ``develop`` branch:
@@ -266,12 +285,29 @@ Install the dependencies:
     .. code-block:: bash
 
         python -m pip install \
-          biopython chemfiles codecov cython \
-          griddataformats gsd hypothesis "joblib>=0.12" matplotlib \
-          netcdf4 networkx "numpy>=1.18.0" \
-          psutil pytest scikit-learn scipy "seaborn>=0.7.0" \
-          "tidynamics>=1.0.0" \
-          "tqdm>=4.43.0"
+	  'Cython>=0.28' \
+	  'numpy>=1.21.0' \
+	  'biopython>=1.80' \
+	  'networkx>=2.0' \
+	  'GridDataFormats>=0.4.0' \
+	  'mmtf-python>=1.0.0' \
+	  'joblib>=0.12' \
+	  'scipy>=1.5.0' \
+	  'matplotlib>=1.5.1' \
+	  'tqdm>=4.43.0' \
+	  'threadpoolctl'\ 
+	  'packaging' \
+	  'fasteners' \
+	  'netCDF4>=1.0' \
+	  'h5py>=2.10' \
+	  'chemfiles>=0.10' \
+	  'pyedr>=0.7.0' \
+	  'pytng>=0.2.3' \
+	  'gsd>3.0.0' \
+	  'rdkit>=2020.03.1' \
+	  'seaborn' \
+	  'scikit-learn' \
+	  'tidynamics>=1.0.0'
 
 	# for building documentation
 	python -m pip install \
@@ -280,7 +316,7 @@ Install the dependencies:
 
 Some packages, such as ``clustalw``, are not available via pip.
 
-Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.4. We will now install MDAnalysis. 
+Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.9. We will now install MDAnalysis. 
 
     .. code-block:: bash
 
@@ -302,7 +338,7 @@ At this point you should be able to import MDAnalysis from your locally built ve
         $ python  # start an interpreter
         >>> import MDAnalysis as mda
         >>> mda.__version__
-        '2.1.0-dev0'
+        '2.6.0-dev0'
 
 .. note::
     If your version number does not end in :code:`-dev0`, you may be on the ``master`` branch. In your ``mdanalysis/`` directory, switch to the ``develop`` branch:
