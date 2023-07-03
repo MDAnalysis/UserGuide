@@ -88,7 +88,7 @@ touching existing environments that may have stable versions of MDAnalysis. :
         conda create --name mdanalysis-dev python==3.10
 
 Use a recent version of Python for this environment.
-	
+        
 Activate the environment to build MDAnalysis into it:
 
     .. code-block:: bash
@@ -215,33 +215,34 @@ First we need to install dependencies. You'll need a mix of conda and pip instal
     .. code-block:: bash
 
         conda install -c conda-forge \
-	  'Cython>=0.28' \
-	  'numpy>=1.21.0' \
-	  'biopython>=1.80' \
-	  'networkx>=2.0' \
-	  'GridDataFormats>=0.4.0' \
-	  'mmtf-python>=1.0.0' \
-	  'joblib>=0.12' \
-	  'scipy>=1.5.0' \
-	  'matplotlib>=1.5.1' \
-	  'tqdm>=4.43.0' \
-	  'threadpoolctl'\ 
-	  'packaging' \
-	  'fasteners' \
-	  'netCDF4>=1.0' \
-	  'h5py>=2.10' \
-	  'chemfiles>=0.10' \
-	  'pyedr>=0.7.0' \
-	  'pytng>=0.2.3' \
-	  'gsd>3.0.0' \
-	  'rdkit>=2020.03.1' \
-	  'seaborn' \
-	  'scikit-learn' \
-	  'tidynamics>=1.0.0'
+          'Cython>=0.28' \
+          'numpy>=1.21.0' \
+          'biopython>=1.80' \
+          'networkx>=2.0' \
+          'GridDataFormats>=0.4.0' \
+          'mmtf-python>=1.0.0' \
+          'joblib>=0.12' \
+          'scipy>=1.5.0' \
+          'matplotlib>=1.5.1' \
+          'tqdm>=4.43.0' \
+          'threadpoolctl'\ 
+          'packaging' \
+          'fasteners' \
+          'netCDF4>=1.0' \
+          'h5py>=2.10' \
+          'chemfiles>=0.10' \
+          'pyedr>=0.7.0' \
+          'pytng>=0.2.3' \
+          'gsd>3.0.0' \
+          'rdkit>=2020.03.1' \
+          'parmed' \
+          'seaborn' \
+          'scikit-learn' \
+          'tidynamics>=1.0.0'
 
         # documentation dependencies
-	conda install -c conda-forge sphinx pybtex pybtex-docutils \
-	    sphinxcontrib-bibtex sphinx_rtd_theme sphinx-sitemap
+        conda install -c conda-forge sphinx pybtex pybtex-docutils \
+            sphinxcontrib-bibtex sphinx_rtd_theme sphinx-sitemap
         python -m pip install msmb_theme==1.2.0
 
 Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.9. We will now install MDAnalysis. 
@@ -285,34 +286,35 @@ Install the dependencies:
     .. code-block:: bash
 
         python -m pip install \
-	  'Cython>=0.28' \
-	  'numpy>=1.21.0' \
-	  'biopython>=1.80' \
-	  'networkx>=2.0' \
-	  'GridDataFormats>=0.4.0' \
-	  'mmtf-python>=1.0.0' \
-	  'joblib>=0.12' \
-	  'scipy>=1.5.0' \
-	  'matplotlib>=1.5.1' \
-	  'tqdm>=4.43.0' \
-	  'threadpoolctl'\ 
-	  'packaging' \
-	  'fasteners' \
-	  'netCDF4>=1.0' \
-	  'h5py>=2.10' \
-	  'chemfiles>=0.10' \
-	  'pyedr>=0.7.0' \
-	  'pytng>=0.2.3' \
-	  'gsd>3.0.0' \
-	  'rdkit>=2020.03.1' \
-	  'seaborn' \
-	  'scikit-learn' \
-	  'tidynamics>=1.0.0'
+          'Cython>=0.28' \
+          'numpy>=1.21.0' \
+          'biopython>=1.80' \
+          'networkx>=2.0' \
+          'GridDataFormats>=0.4.0' \
+          'mmtf-python>=1.0.0' \
+          'joblib>=0.12' \
+          'scipy>=1.5.0' \
+          'matplotlib>=1.5.1' \
+          'tqdm>=4.43.0' \
+          'threadpoolctl'\ 
+          'packaging' \
+          'fasteners' \
+          'netCDF4>=1.0' \
+          'h5py>=2.10' \
+          'chemfiles>=0.10' \
+          'pyedr>=0.7.0' \
+          'pytng>=0.2.3' \
+          'gsd>3.0.0' \
+          'rdkit>=2020.03.1' \
+          'parmed' \
+          'seaborn' \
+          'scikit-learn' \
+          'tidynamics>=1.0.0'
 
-	# for building documentation
-	python -m pip install \
-	  sphinx sphinx_rtd_theme msmb_theme==1.2.0 sphinx-sitemap \
-	  pybtex pybtex-docutils sphinxcontrib-bibtex
+        # for building documentation
+        python -m pip install \
+          sphinx sphinx_rtd_theme msmb_theme==1.2.0 sphinx-sitemap \
+          pybtex pybtex-docutils sphinxcontrib-bibtex
 
 Some packages, such as ``clustalw``, are not available via pip.
 
@@ -544,10 +546,10 @@ If you added the upstream repository as described above you will see something l
 
     .. code-block:: bash
 
-        origin	git@github.com:your-username/mdanalysis.git (fetch)
-        origin	git@github.com:your-username/mdanalysis.git (push)
-        upstream	git@github.com:MDAnalysis/mdanalysis.git (fetch)
-        upstream	git@github.com:MDAnalysis/mdanalysis.git (push)
+        origin  git@github.com:your-username/mdanalysis.git (fetch)
+        origin  git@github.com:your-username/mdanalysis.git (push)
+        upstream        git@github.com:MDAnalysis/mdanalysis.git (fetch)
+        upstream        git@github.com:MDAnalysis/mdanalysis.git (push)
 
 Now your code is on GitHub, but it is not yet a part of the MDAnalysis project. For that to happen, a pull request needs to be submitted on GitHub. 
 
