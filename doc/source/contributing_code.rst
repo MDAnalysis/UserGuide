@@ -217,11 +217,13 @@ First we need to install dependencies. You'll need a mix of conda and pip instal
             griddataformats gsd hypothesis "joblib>=0.12" \
             matplotlib mmtf-python mock netcdf4 networkx \
             "numpy>=1.18.0" psutil pytest scikit-learn scipy \
-            "seaborn>=0.7.0" sphinx "tidynamics>=1.0.0" \
+            "seaborn>=0.7.0" "tidynamics>=1.0.0" \
             "tqdm>=4.43.0"
 
         # documentation dependencies
-        python -m pip install sphinx-sitemap sphinx_rtd_theme msmb_theme==1.2.0
+	conda install -c conda-forge sphinx pybtex pybtex-docutils \
+	    sphinxcontrib-bibtex sphinx_rtd_theme sphinx-sitemap
+        python -m pip install msmb_theme==1.2.0
 
 Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.7. We will now install MDAnalysis. 
 
@@ -266,10 +268,15 @@ Install the dependencies:
         python -m pip install \
           biopython chemfiles codecov cython \
           griddataformats gsd hypothesis "joblib>=0.12" matplotlib \
-          msmb_theme==1.2.0 netcdf4 networkx "numpy>=1.18.0" \
+          netcdf4 networkx "numpy>=1.18.0" \
           psutil pytest scikit-learn scipy "seaborn>=0.7.0" \
-          sphinx sphinx_rtd_theme "tidynamics>=1.0.0" \
+          "tidynamics>=1.0.0" \
           "tqdm>=4.43.0"
+
+	# for building documentation
+	python -m pip install \
+	  sphinx sphinx_rtd_theme msmb_theme==1.2.0 sphinx-sitemap \
+	  pybtex pybtex-docutils sphinxcontrib-bibtex
 
 Some packages, such as ``clustalw``, are not available via pip.
 
