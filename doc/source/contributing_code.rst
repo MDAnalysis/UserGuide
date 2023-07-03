@@ -85,9 +85,9 @@ touching existing environments that may have stable versions of MDAnalysis. :
 
     .. code-block:: bash
 
-        conda create --name mdanalysis-dev python==3.10
+        conda create --name mdanalysis-dev "python>=3.9"
 
-Use a recent version of Python for this environment.
+Use a recent version of Python that is supported by MDAnalysis for this environment.
         
 Activate the environment to build MDAnalysis into it:
 
