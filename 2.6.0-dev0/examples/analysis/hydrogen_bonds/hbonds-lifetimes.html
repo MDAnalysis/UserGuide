@@ -465,9 +465,12 @@ consecutive two frames.</p>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print donor, hydrogen, acceptor and count info for these hbonds</span>
 <span class="n">counts</span> <span class="o">=</span> <span class="n">hbonds</span><span class="o">.</span><span class="n">count_by_ids</span><span class="p">()</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">donor</span><span class="p">,</span> <span class="n">hydrogen</span><span class="p">,</span> <span class="n">acceptor</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">[:</span><span class="mi">10</span><span class="p">]:</span>
     <span class="n">d</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">donor</span><span class="p">],</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">hydrogen</span><span class="p">],</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">acceptor</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">resname</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">resid</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">h</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">resname</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">resid</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="se">\t</span><span class="s2">count=</span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">resname</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">resid</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">h</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">resname</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">resid</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="se">\t</span><span class="s2">count=</span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -476,16 +479,16 @@ consecutive two frames.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-ARG-71-NH2      HH22    ASP-76-OD1      count=98
-TYR-193-OH      HH      GLU-108-OE1     count=97
-ARG-2-NH1       HH11    ASP-104-OD1     count=96
-THR-199-OG1     HG1     ASP-197-OD1     count=95
-TYR-24-OH       HH      GLY-214-OT2     count=95
-TYR-133-OH      HH      ASP-146-OD1     count=95
-ARG-206-NE      HE      GLU-210-OE1     count=93
 ARG-124-NH2     HH22    GLU-143-OE1     count=93
+ARG-2-NH1       HH11    ASP-104-OD1     count=96
+ARG-206-NE      HE      GLU-210-OE1     count=93
+ARG-71-NH2      HH22    ASP-76-OD1      count=98
 LYS-200-NZ      HZ2     ASP-208-OD2     count=93
 LYS-211-NZ      HZ3     GLU-204-OE1     count=92
+THR-199-OG1     HG1     ASP-197-OD1     count=95
+TYR-133-OH      HH      ASP-146-OD1     count=95
+TYR-193-OH      HH      GLU-108-OE1     count=97
+TYR-24-OH       HH      GLY-214-OT2     count=95
 </pre></div></div>
 </div>
 <p>Now we’ll calculate the lifetime of these hydrogen bonds. To do this, the simplest way is to run <code class="docutils literal notranslate"><span class="pre">HydrogenBondAnalysis</span></code> for each hydrogen bond then use the <code class="docutils literal notranslate"><span class="pre">lifetime</span></code> method. It is very efficient to find hydrogen bonds between two specific atoms, especially with <code class="docutils literal notranslate"><span class="pre">update_selections=False</span></code>.</p>
@@ -588,7 +591,7 @@ LYS-211-NZ      HZ3     GLU-204-OE1     count=92
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2019-2023, Lily Wang, Irfan Alibay, Bjarne Feddersen, Florent Langenfeld, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..</p>
+    <p>&#169; Copyright 2019-2023, Lily Wang, Irfan Alibay, Jan Domanski, Bjarne Feddersen, Florent Langenfeld, Hugo MacDermott-Opeskin, Rocco Meli, Paul Smith, Mieczyslaw Torchala, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..</p>
   </div>
 
   
