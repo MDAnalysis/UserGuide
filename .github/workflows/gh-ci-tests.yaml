@@ -30,15 +30,18 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: setup micromamba
-        uses: mamba-org/provision-with-micromamba@main
+        uses: mamba-org/setup-micromamba@v16
         with:
           environment-file: environment.yml
-          environmentt-name: mda-user-guide
-          extra-specs: |
+          environment-name: mda-user-guide
+          create-args: >- 
             python==3.9
             hole2
             pip
-          channels: conda-forge, plotly
+          condarc: |
+            channels:
+              - conda-forge
+              - plotly
 
       - name: "environment information"
         run: |
