@@ -5,7 +5,7 @@ Generate topology_defaults.txt:
 A table of whether TopologyAttrs are atomwise, residuewise, or segmentwise, and their defaults
 """
 
-from MDAnalysis.core.topologyattrs import AtomAttr, ResidueAttr, SegmentAttr 
+from MDAnalysis.core.topologyattrs import AtomAttr, ResidueAttr, SegmentAttr
 from core import TOPOLOGY_CLS
 from base import TableWriter
 
@@ -23,13 +23,13 @@ class TopologyDefaults(TableWriter):
 
     def _set_up_input(self):
         return TOPOLOGY_CLS
-    
+
     def _atom(self, klass):
         return klass.attrname
-    
+
     def _atomgroup(self, klass):
         return klass.singular
-    
+
     def _default(self, klass):
         try:
             return DEFAULTS[klass.attrname]
@@ -38,7 +38,7 @@ class TopologyDefaults(TableWriter):
                 return repr(klass._gen_initial_values(1, 1, 1)[0])
             except NotImplementedError:
                 return 'No default values'
-    
+
     def _level(self, klass):
         if issubclass(klass, AtomAttr):
             level = 'atom'
@@ -49,7 +49,7 @@ class TopologyDefaults(TableWriter):
         else:
             raise ValueError
         return level
-    
+
     def _type(self, klass):
         return klass.dtype
 

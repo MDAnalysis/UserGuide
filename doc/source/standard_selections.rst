@@ -9,7 +9,7 @@ Standard residues in MDAnalysis selections
 
 Proteins
 ========
-The residue names listed here are accessible via the "protein" keyword in the :ref:`selections`. 
+The residue names listed here are accessible via the "protein" keyword in the :ref:`selections`.
 
 The below names are drawn from the CHARMM 27, OPLS-AA, GROMOS 53A6, AMBER 03, and AMBER 99sb*-ILDN force fields.
 
@@ -28,7 +28,7 @@ Protein backbone atoms in MDAnalysis belong to a recognised protein residue and 
 Nucleic acids
 =============
 
-The residue names listed here are accessible via the "nucleic" keyword in the :ref:`selections`. 
+The residue names listed here are accessible via the "nucleic" keyword in the :ref:`selections`.
 
 The below names are drawn from largely from the CHARMM force field.
 

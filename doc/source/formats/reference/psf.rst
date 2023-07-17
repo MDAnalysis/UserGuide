@@ -18,13 +18,13 @@ A `protein structure file (PSF) <https://www.ks.uiuc.edu/Training/Tutorials/namd
 Reading in
 ==========
 
-PSF files can come in a number of "flavours": STANDARD, EXTENDED, and NAMD. If your file is not a standard file, it must have a NAMD or EXT flag to tell MDAnalysis to how to :ref:`parse the atom section <psf-spec>`. 
+PSF files can come in a number of "flavours": STANDARD, EXTENDED, and NAMD. If your file is not a standard file, it must have a NAMD or EXT flag to tell MDAnalysis to how to :ref:`parse the atom section <psf-spec>`.
 
 As a NAMD file is space-separated, files with missing columns can cause MDAnalysis to read information incorrectly. `This can cause issues for PSF files written from VMD.`_
 
 .. _`This can cause issues for PSF files written from VMD.`: https://github.com/MDAnalysis/mdanalysis/issues/2061
 
-PSF files can encode insertion codes. However, MDAnalysis `does not currently support reading PSF files with insertion codes`_. 
+PSF files can encode insertion codes. However, MDAnalysis `does not currently support reading PSF files with insertion codes`_.
 
 .. _`does not currently support reading PSF files with insertion codes`: https://github.com/MDAnalysis/mdanalysis/issues/2053
 
@@ -68,4 +68,4 @@ no CHEQ::
 
 **NAMD**
 
-This format is space separated (see the `release notes for VMD 1.9.1, psfplugin <http://www.ks.uiuc.edu/Research/vmd/current/devel.html>`_). 
+This format is space separated (see the `release notes for VMD 1.9.1, psfplugin <http://www.ks.uiuc.edu/Research/vmd/current/devel.html>`_).

@@ -36,16 +36,16 @@ from MDAnalysisTests.topology.test_xpdb import TestXPDBParser
 from MDAnalysisTests.topology.test_xyz import XYZBase
 
 
-PARSER_TESTS = (TestCRDParser, TestDLPHistoryParser, TestDLPConfigParser, 
+PARSER_TESTS = (TestCRDParser, TestDLPHistoryParser, TestDLPConfigParser,
                 TestDMSParser, TestFHIAIMS, GMSBase,
-                TestGROParser, TestGSDParser, TestHoomdXMLParser, 
+                TestGROParser, TestGSDParser, TestHoomdXMLParser,
                 LammpsBase, TestMMTFParser, TestMOL2Base,
-                TestPDBParser, TestPDBQT, TestPQRParser, PSFBase, 
-                TestPRMParser, TPRAttrs, TestTXYZParser, 
+                TestPDBParser, TestPDBQT, TestPQRParser, PSFBase,
+                TestPRMParser, TPRAttrs, TestTXYZParser,
                 TestXPDBParser, XYZBase, TestDumpParser)
 
 
-MANDATORY_ATTRS = set(mandatory_attrs) 
+MANDATORY_ATTRS = set(mandatory_attrs)
 
 
 parser_attrs = {}
@@ -78,7 +78,7 @@ class TopologyParsers(TableWriter):
         for a in expected|guessed:
             self.attrs[a].add(self.fields['Format'][-1])
         return line
-    
+
     def _keys(self, parser, *args):
         f = parser.format
         if isinstance(f, (list, tuple)):
@@ -88,23 +88,23 @@ class TopologyParsers(TableWriter):
             key = label = f
         return (key, label)
 
-    
+
     def _description(self, *args):
         key, label = self.keys[-1]
         return DESCRIPTIONS[key]
 
-    
+
     def _format(self, *args):
         key, label = self.keys[-1]
         return self.sphinx_ref(label, key, suffix='-format')
-    
+
     def _attributes_read(self, parser, expected, guessed):
         vals = sorted(expected - guessed)
         return ', '.join(vals)
-    
+
     def _attributes_guessed(self, parser, expected, guessed):
         return ', '.join(sorted(guessed))
-    
+
 
 class TopologyAttrs(TableWriter):
 
@@ -117,16 +117,16 @@ class TopologyAttrs(TableWriter):
 
     def _set_up_input(self):
         return sorted([x, *y] for x, y in NON_CORE_ATTRS.items() if x not in MANDATORY_ATTRS)
-    
+
     def _atom(self, name, singular, *args):
         return singular
-    
+
     def _atomgroup(self, name, *args):
         return name
-    
+
     def _description(self, name, singular, description):
         return description
-    
+
     def _supported_formats(self, name, singular, description):
         return ', '.join(sorted(self.attrs[name]))
 

@@ -15,7 +15,7 @@ Masses
 Atom masses are always guessed for every file format. They are guessed from the ``Atom.atom_type``. This attribute represents a number of different values in MDAnalysis, depending on which file format you used to create your Universe. ``Atom.atom_type`` can be force-field specific atom types, from files that provide this information; or it can be an element, guessed from the atom name. `See further discussion here. <https://github.com/MDAnalysis/mdanalysis/issues/2348>`_
 
 
-.. important:: 
+.. important::
 
     When an atom mass cannot be guessed from the atom ``atom_type`` or ``name``, the atom is assigned a mass of 0.0. Masses are guessed atom-by-atom, so even if most atoms have been guessed correctly, it is possible that some have been given masses of 0. It is important to check for non-zero masses before using methods that rely on them, such as :meth:`AtomGroup.center_of_mass`.
 
@@ -28,7 +28,7 @@ When atom ``atom_type``\ s are guessed, they represent the atom element. Atom ty
 Bonds, Angles, Dihedrals, Impropers
 ====================================
 
-MDAnalysis can guess if bonds exist between two atoms, based on the distance between them. A bond is created if the 2 atoms are within 
+MDAnalysis can guess if bonds exist between two atoms, based on the distance between them. A bond is created if the 2 atoms are within
 
 .. math::
 
@@ -42,8 +42,8 @@ Angles can be guessed from the bond connectivity. MDAnalysis assumes that if ato
 
 ::
 
-   1        
-    \      
+   1
+    \
      2 -- 3
 
 Dihedral angles and improper dihedrals can both be guessed from angles. Proper dihedrals are guessed by assuming that if (1,2,3) is an angle, and 3 & 4 are bonded, then (1,2,3,4) must be a dihedral.
@@ -58,8 +58,8 @@ Likewise, if (1,2,3) is an angle, and 2 & 4 are bonded, then (2, 1, 3, 4) must b
 
 ::
 
-   1        
-    \      
+   1
+    \
      2 -- 3
     /
    4
@@ -69,4 +69,3 @@ The method available to users is :meth:`AtomGroup.guess_bonds <MDAnalysis.core.g
 
 .. _`same algorithm that VMD uses`:
     http://www.ks.uiuc.edu/Research/vmd/vmd-1.9.1/ug/node26.html
-    

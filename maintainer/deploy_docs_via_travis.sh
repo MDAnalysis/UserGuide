@@ -17,7 +17,7 @@
 #  MAINTAIN_DIR      path to maintainer/
 #  VERSION           version of MDAnalysis
 #
-# NOTE: If any of these environment variables are not set or 
+# NOTE: If any of these environment variables are not set or
 #       empty then the script will exit with and error (-o nounset).
 
 set -o errexit -o nounset
@@ -80,5 +80,3 @@ fi
 # https://stackoverflow.com/questions/3878624/how-do-i-programmatically-determine-if-there-are-uncommited-changes
 git diff-index --quiet HEAD -- || git commit -m "rebuilt html docs for version ${VERSION} from branch ${GH_DOC_BRANCH} with sphinx at ${rev}"
 git push -q -f upstream HEAD:gh-pages
-
-

@@ -31,4 +31,4 @@ Writing a CRD file format requires the following attributes to be present:
     - chainIDs
     - tempfactors
 
-If these are not present, then :ref:`default values <topologyattr-defaults>` are provided and a warning is raised. 
+If these are not present, then :ref:`default values <topologyattr-defaults>` are provided and a warning is raised.

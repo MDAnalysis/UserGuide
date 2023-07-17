@@ -34,7 +34,7 @@ MDAnalysis implements a subset of the PDB_ 3.2 standard and the PDBQT_ spec. Unl
 
 If the Universe is missing fields that are :ref:`required in a PDBQT file <pdbqt-spec>`, MDAnalysis provides default values and raises a warning. There are 2 exceptions to this:
 
-    - ``chainIDs``: if a Universe does not have ``chainIDs``, MDAnalysis uses the first character of the segment ``segid`` instead. 
+    - ``chainIDs``: if a Universe does not have ``chainIDs``, MDAnalysis uses the first character of the segment ``segid`` instead.
     - ``elements``: MDAnalysis uses the atom type as the element.
 
 These are the default values:
@@ -143,4 +143,3 @@ We ignore torsion notation and just pull the partial charge and atom type column
     ENDBRANCH   7  24
     TORSDOF 3
     123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789. (column reference)
-

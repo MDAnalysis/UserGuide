@@ -6,12 +6,12 @@ Units and constants
 ===================
 
 The units of MDAnalysis trajectories are the **Å** (**ångström**) for
-**length** and **ps** (**picosecond**) for **time**. Regardless of how the 
-original MD format stored the trajectory data, MDAnalysis converts it to 
-MDAnalysis units when reading the data in, and converts back when writing the 
-data out. Analysis classes generally also use these default units. Exceptions 
+**length** and **ps** (**picosecond**) for **time**. Regardless of how the
+original MD format stored the trajectory data, MDAnalysis converts it to
+MDAnalysis units when reading the data in, and converts back when writing the
+data out. Analysis classes generally also use these default units. Exceptions
 to the default units are always noted in the documentation; for example, mass
-densities can be given in :math:`g/cm^3`. 
+densities can be given in :math:`g/cm^3`.
 
 Other base units are listed in the table :ref:`table-baseunits`.
 
@@ -37,9 +37,9 @@ Unit conversion
 ===============
 
 Quantities can be converted from units with :func:`~MDAnalysis.units.convert`.
-:func:`~MDAnalysis.units.convert` simply multiplies the initial quantity with a 
-precomputed conversion factor, as obtained from 
-:func:`~MDAnalysis.units.get_conversion_factor`. 
+:func:`~MDAnalysis.units.convert` simply multiplies the initial quantity with a
+precomputed conversion factor, as obtained from
+:func:`~MDAnalysis.units.get_conversion_factor`.
 
 The computed conversion factors for each quantity type are stored in :mod:`MDAnalysis.units` and shown below.
 
