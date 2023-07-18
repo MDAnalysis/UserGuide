@@ -54,6 +54,7 @@ dependencies:
       - msmb_theme
       - sphinx-sitemap
       - nbval
+      - pre-commit
       - pyedr>=0.7
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=mdanalysis&subdirectory=package
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=MDAnalysisTests&subdirectory=testsuite
