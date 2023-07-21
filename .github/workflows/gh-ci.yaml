@@ -46,13 +46,6 @@ jobs:
         environment-name: mda-user-guide
         cache-environment: true
         cache-environment-key: gh-ci
-        create-args: >- 
-          python=3.9
-          pip
-        condarc: |
-          channels:
-            - conda-forge
-            - plotly
 
     - name: install_deps
       run: |
