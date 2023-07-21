@@ -35,7 +35,6 @@ jobs:
           environment-file: environment.yml
           environment-name: mda-user-guide
           cache-environment: true
-          cache-environment-key: gh-ci-tests
           create-args: >-
             hole2
 
