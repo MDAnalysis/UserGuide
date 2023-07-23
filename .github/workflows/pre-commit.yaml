@@ -1,0 +1,28 @@
+name: pre-commit
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: setup micromamba
+      uses: mamba-org/setup-micromamba@v1
+      with:
+        environment-file: environment.yml
+        environment-name: mda-user-guide
+        create-args: >-
+          python=3.9
+          pip
+        condarc: |
+          channels:
+            - conda-forge
+            - plotly
+
+    - uses: pre-commit/action@v3.0.0
+      extra-args: --all-files
