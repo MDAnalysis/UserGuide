@@ -1,10 +1,17 @@
 name: pre-commit
 
 on:
-  pull_request:
   push:
-    branches: [main]
-
+    branches:
+      - develop
+      - master
+    tags:
+      - "release-*"
+  pull_request:
+    branches:
+      - develop
+      - master
+      
 concurrency:
   # Probably overly cautious group naming.
   # Commits to develop/master will cancel each other, but PRs will only cancel
