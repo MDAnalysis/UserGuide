@@ -11,7 +11,7 @@ on:
     branches:
       - develop
       - master
-      
+
 concurrency:
   # Probably overly cautious group naming.
   # Commits to develop/master will cancel each other, but PRs will only cancel
@@ -43,4 +43,5 @@ jobs:
             - plotly
 
     - uses: pre-commit/action@v3.0.0
-      extra-args: --all-files
+      with:
+        extra-args: --all-files
