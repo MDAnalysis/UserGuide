@@ -4,13 +4,9 @@ on:
   push:
     branches:
       - develop
-      - master
-    tags:
-      - "release-*"
   pull_request:
     branches:
       - develop
-      - master
 
 concurrency:
   # Probably overly cautious group naming.
