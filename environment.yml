@@ -2,6 +2,7 @@ name: guide
 channels:
   - jaimergp/label/unsupported-cudatoolkit-shim
   - conda-forge
+  - plotly
   - defaults
 dependencies:
   - cython
@@ -33,7 +34,7 @@ dependencies:
   - pip
   - plotly
   - pybtex
-  - python
+  - python=3.9
   - pyvista
   - scikit-image
   - scikit-learn>=1.1.2

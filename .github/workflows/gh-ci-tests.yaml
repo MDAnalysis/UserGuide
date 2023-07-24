@@ -34,14 +34,9 @@ jobs:
         with:
           environment-file: environment.yml
           environment-name: mda-user-guide
-          create-args: >- 
-            python==3.9
+          cache-environment: true
+          create-args: >-
             hole2
-            pip
-          condarc: |
-            channels:
-              - conda-forge
-              - plotly
 
       - name: "environment information"
         run: |

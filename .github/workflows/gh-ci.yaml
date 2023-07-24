@@ -44,13 +44,7 @@ jobs:
       with:
         environment-file: environment.yml
         environment-name: mda-user-guide
-        create-args: >- 
-          python=3.9
-          pip
-        condarc: |
-          channels:
-            - conda-forge
-            - plotly
+        cache-environment: true
 
     - name: install_deps
       run: |
