@@ -184,5 +184,23 @@ Then, run the following command in the ``doc/`` directory:
 This will start a local webserver at http://localhost:8000/, which will refresh every time you save changes to a file in the documentation. This is helpful for both the user guide (first navigate to ``UserGuide/doc``) and the main repository documentation (navigate to ``package/doc/sphinx``).
 
 
+Using pre-commit hooks
+====================================
 
+Manually editing files can often lead to small inconsistencies: a whitespace here, a missing carriage return there. A tool called pre-commit can be used to automatically fix these problems, before a git commit is made. To enable the pre-commit hooks, run the following:
 
+    .. code-block:: bash
+
+        pre-commit install
+
+To perform the pre-commit checks on all the files, run the following:
+
+    .. code-block:: bash
+
+        pre-commit run --all-files
+
+To remove the pre-commit hooks from your .git directory, run the following:
+
+    .. code-block:: bash
+
+        pre-commit uninstall
