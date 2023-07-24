@@ -36,6 +36,7 @@
     :ref:`PDBQT <PDBQT-format>`            PDBQT file
     :ref:`PQR <PQR-format>`                PQR file
     :ref:`RESTRT <INPCRD-format>`          AMBER restart file
+    :ref:`TNG <TNG-format>`                Trajectory Next Generation (TNG) format                               ✓             ✓
     :ref:`TRJ <TRJ-format>`                AMBER ASCII trajectories
     :ref:`TRR <TRR-format>`                GROMACS TRR trajectory                                                ✓             ✓
     :ref:`TRZ <TRZ-format>`                IBIsCO or YASP binary trajectory                                      ✓
