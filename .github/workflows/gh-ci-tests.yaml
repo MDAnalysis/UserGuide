@@ -23,6 +23,9 @@ defaults:
 
 jobs:
   tests:
+    strategy:
+      matrix:
+        version: ["3.9", "3.10", "3.11"]
     runs-on: ubuntu-latest
     name: "examples-tests"
     
@@ -36,6 +39,7 @@ jobs:
           environment-name: mda-user-guide
           cache-environment: true
           create-args: >-
+            python=${{ matrix.version }}
             hole2
 
       - name: "environment information"
