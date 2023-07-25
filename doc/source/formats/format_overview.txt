@@ -40,6 +40,7 @@
     :ref:`PRMTOP <TOP-format>`             AMBER topology file                                                   ✓                          ✓
     :ref:`PSF <PSF-format>`                CHARMM, NAMD, or XPLOR PSF file                                       ✓                          ✓
     :ref:`RESTRT <INPCRD-format>`          AMBER restart file                                                                ✓              ✓
+    :ref:`TNG <TNG-format>`                Trajectory Next Generation (TNG) format                               ?           ?              ?
     :ref:`TOP <TOP-format>`                AMBER topology file                                                   ✓                          ✓
     :ref:`TPR <TPR-format>`                GROMACS run topology file                                             ✓                          ✓
     :ref:`TRJ <TRJ-format>`                AMBER ASCII trajectories                                                          ✓              ✓
