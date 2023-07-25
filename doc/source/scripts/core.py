@@ -32,7 +32,6 @@ DESCRIPTIONS = {
     'PDBQT' : 'PDBQT file',
     'PQR' : 'PQR file',
     'PSF' : 'CHARMM, NAMD, or XPLOR PSF file',
-    'TNG': 'test',
     'TOP': 'AMBER topology file',
     'TPR': 'GROMACS run topology file',
     'TRJ': 'AMBER ASCII trajectories',
