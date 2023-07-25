@@ -14,16 +14,16 @@
  *
  */
 
- 
+
 /* -- page layout --------------------------------------------------------- */
- 
+
 body {
     font-family: 'Georgia', serif;
     font-size: 17px;
     margin: 0;
     padding: 0;
 }
- 
+
 div.document {
     margin: 10px auto 0 auto;
     /* max-width: {{ page_width }}; */
@@ -43,7 +43,7 @@ div.body {
     color: #3e4349;
     padding: 0 30px 30px 30px;
 }
- 
+
 div.footer {
     color: #555;
     font-size: 14px;
@@ -51,17 +51,17 @@ div.footer {
     text-align: right;
     max-width: 880px;
 }
- 
+
 div.footer a {
     color: #444;
     text-decoration: underline;
 }
- 
+
 div.related {
     padding: 10px 10px;
     width: auto;
 }
- 
+
 div.sphinxsidebar {
     float: left;
     font-size: 14px;
@@ -88,11 +88,11 @@ div.sphinxsidebar h4 {
 div.sphinxsidebar h4 {
     font-size: 1.1em;
 }
- 
+
 div.sphinxsidebar h3 a {
     color: #333;
 }
- 
+
 div.sphinxsidebar p {
     color: #888;
 }
@@ -100,13 +100,13 @@ div.sphinxsidebar p {
 div.sphinxsidebar p.searchtip {
     line-height: 1.4em;
 }
- 
+
 div.sphinxsidebar ul {
     color: #000;
     margin: 10px 0 20px;
     padding: 0;
 }
- 
+
 div.sphinxsidebar a {
     color: #444;
 }
@@ -114,7 +114,7 @@ div.sphinxsidebar a {
 div.sphinxsidebar a:hover {
     color: #d00;
 }
- 
+
 div.sphinxsidebar input {
     border: 1px solid #ccc;
     font-family: sans-serif;
@@ -122,7 +122,7 @@ div.sphinxsidebar input {
 }
 
 /* -- body styles --------------------------------------------------------- */
- 
+
 a {
     color: #900;
     text-decoration: none;
@@ -131,7 +131,7 @@ a {
 a:visited {
     color: #700;
 }
- 
+
 a:hover {
     color: #d00;
     text-decoration: underline;
@@ -154,7 +154,7 @@ div.body h3,
 div.body h4 { color: #212224; }
 div.body h5 { color: #000; }
 div.body h6 { color: #777; }
- 
+
 div.body h1 { margin: 0 0 10px 0; }
 div.body h2,
 div.body h3 { margin: 30px 0px 10px 0px; }
@@ -168,26 +168,26 @@ div.body h3 { padding: 10px 0 10px 0; }
 div.body h4 { padding: 10px 0 10px 0; }
 div.body h5,
 div.body h6 { padding: 10px 0 0 0; }
- 
+
 div.body h1,
 div.body h2,
 div.body h3 { border-bottom: 1px solid #ddd; }
 div.body h4 { border-bottom: 1px solid #e5e5e5; }
- 
+
 div.body h1 { font-size: 230%; }
 div.body h2 { font-size: 180%; }
 div.body h3 { font-size: 130%; }
 div.body h4 { font-size: 110%; }
 div.body h5 { font-size: 105%; }
 div.body h6 { font-size: 100%; }
- 
+
 a.headerlink {
     color: #c60f0f;
     font-size: 0.8em;
     padding: 0 4px 0 4px;
     text-decoration: none;
 }
- 
+
 a.headerlink:hover {
     background-color: #c60f0f;
     color: #fff;
@@ -245,7 +245,7 @@ div.body dd,
 div.body li {
     line-height: 1.4em;
 }
- 
+
 div.admonition p.admonition-title + p {
     display: inline;
 }
@@ -258,29 +258,29 @@ div.important, div.note {
     background-color: #eee;
     border: 1px solid #ccc;
 }
- 
+
 div.attention, div.caution, div.hint, div.seealso, div.tip {
     background-color: #fef9e9;
     border: 1px solid #fbe091;
 }
- 
+
 div.topic {
     background-color: #eee;
 }
- 
+
 div.danger, div.error, div.warning {
     background-color: #ffe4e4;
     border: 1px solid #f66;
 }
- 
+
 p.admonition-title {
     display: inline;
 }
- 
+
 p.admonition-title:after {
     content: ':';
 }
- 
+
 pre {
     background-color: #f5f5f5;
     border: 1px solid #C6C9CB;
@@ -297,7 +297,7 @@ pre {
 pre, tt, code {
     font-family: 'Consolas', 'Menlo', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
 }
- 
+
 tt, code {
     background-color: #ecf0f3;
     font-size: 0.85em;

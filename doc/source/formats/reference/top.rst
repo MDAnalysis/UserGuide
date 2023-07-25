@@ -56,4 +56,3 @@ specification`_.  The reader tries to detect if it is a newer
 (AMBER 12?) file format by looking for the flag "ATOMIC_NUMBER".
 
 .. _`PARM parameter/topology file specification`: http://ambermd.org/formats.html#topology
-

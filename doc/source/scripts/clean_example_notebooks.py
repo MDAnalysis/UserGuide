@@ -81,7 +81,7 @@ class References:
     def write_bibliography(self, keys=[]):
         """
         Write ordered, numbered bibliography for each notebook.
-        Output is in HTML. 
+        Output is in HTML.
         """
         bibs = [self.ref_header]
         entries = [self.data.entries[k] for k in keys]
@@ -111,7 +111,7 @@ class References:
 
 class JupyterCell:
     """
-    Handles each Jupyter cell. 
+    Handles each Jupyter cell.
     """
 
     last_executed = '**Last executed:** {} with MDAnalysis {}'
@@ -167,8 +167,8 @@ class JupyterCell:
     def find_reference_keys(self, refs, keys=[]):
         """
         Replace shorthand reference keys with formatted, linked
-        inline references. In the Jupyter notebook these link to the 
-        paper DOI. In the HTML output they are displayed as Sphinx 
+        inline references. In the Jupyter notebook these link to the
+        paper DOI. In the HTML output they are displayed as Sphinx
         references.
 
         Track the order of the keys for a final bibliography cell.
@@ -224,7 +224,7 @@ class JupyterCell:
 
 class JupyterNotebook:
     """
-    Handles a Jupyter notebook. It immediately backs up the original to 
+    Handles a Jupyter notebook. It immediately backs up the original to
     .original, just in case.
     """
     kernel_name = os.environ['CONDA_DEFAULT_ENV']
@@ -279,7 +279,7 @@ class JupyterNotebook:
 
     def execute_and_update(self):
         """
-        Execute the notebook. Overwrite the notebook if 
+        Execute the notebook. Overwrite the notebook if
         """
         original_contents = self.contents
         logger.info('   Executing')

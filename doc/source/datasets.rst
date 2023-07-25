@@ -22,7 +22,7 @@ While this is installed as a separate package, you should import files like so::
 
     u = mda.Universe(PSF, DCD)
 
-A complete list of files and descriptions is in the ``mdanalysis/testsuite/MDAnalysisTests/datafiles.py`` file. The actual files are stored in the ``mdanalysis/testsuite/MDAnalysisTests/data/`` directory. 
+A complete list of files and descriptions is in the ``mdanalysis/testsuite/MDAnalysisTests/datafiles.py`` file. The actual files are stored in the ``mdanalysis/testsuite/MDAnalysisTests/data/`` directory.
 
 .. _mdanalysisdata:
 

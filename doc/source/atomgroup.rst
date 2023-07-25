@@ -4,10 +4,10 @@
 AtomGroup
 ====================
 
-A :class:`~MDAnalysis.core.universe.Universe` contains all particles in the molecular system. MDAnalysis calls a particle an :class:`~MDAnalysis.core.groups.Atom`, regardless of whether it really is (e.g. it may be a united-atom particle or coarse-grained bead). :class:`~MDAnalysis.core.groups.Atom`\ s are grouped with an :class:`~MDAnalysis.core.groups.AtomGroup`; the 'master' :class:`~MDAnalysis.core.groups.AtomGroup` of a Universe is accessible at :code:`Universe.atoms`. 
+A :class:`~MDAnalysis.core.universe.Universe` contains all particles in the molecular system. MDAnalysis calls a particle an :class:`~MDAnalysis.core.groups.Atom`, regardless of whether it really is (e.g. it may be a united-atom particle or coarse-grained bead). :class:`~MDAnalysis.core.groups.Atom`\ s are grouped with an :class:`~MDAnalysis.core.groups.AtomGroup`; the 'master' :class:`~MDAnalysis.core.groups.AtomGroup` of a Universe is accessible at :code:`Universe.atoms`.
 
 .. note::
-    The :class:`~MDAnalysis.core.groups.AtomGroup` is probably the most important object in MDAnalysis. Virtually everything can be accessed through an :class:`~MDAnalysis.core.groups.AtomGroup`. 
+    The :class:`~MDAnalysis.core.groups.AtomGroup` is probably the most important object in MDAnalysis. Virtually everything can be accessed through an :class:`~MDAnalysis.core.groups.AtomGroup`.
 
 -----------------------
 Creating an AtomGroup
@@ -47,7 +47,7 @@ Slicing returns another :class:`~MDAnalysis.core.groups.AtomGroup`. The below co
     ag.indices
 
 
-MDAnalysis also supports fancy indexing: passing a :class:`~numpy.ndarray` or a :class:`~list`. 
+MDAnalysis also supports fancy indexing: passing a :class:`~numpy.ndarray` or a :class:`~list`.
 
 .. ipython:: python
 
@@ -73,7 +73,7 @@ Boolean indexing allows you to pass in an array of :code:`True` or :code:`False`
 Group operators and set methods
 -------------------------------
 
-MDAnalysis supports a number of ways to compare :class:`~MDAnalysis.core.groups.AtomGroup`\ s or construct a new one: group operators (e.g. :meth:`~MDAnalysis.core.groups.AtomGroup.concatenate`, :meth:`~MDAnalysis.core.groups.AtomGroup.subtract`) and set methods (e.g. :meth:`~MDAnalysis.core.groups.AtomGroup.union`, :meth:`~MDAnalysis.core.groups.AtomGroup.difference`). Group operators achieve a similar outcome to set methods. However, a key difference is that :meth:`~MDAnalysis.core.groups.AtomGroup.concatenate` and :meth:`~MDAnalysis.core.groups.AtomGroup.subtract` preserve the order of the atoms and any duplicates. :meth:`~MDAnalysis.core.groups.AtomGroup.union` and :meth:`~MDAnalysis.core.groups.AtomGroup.difference` return an :class:`~MDAnalysis.core.groups.AtomGroup` where each atom is unique, and ordered by its topology index. 
+MDAnalysis supports a number of ways to compare :class:`~MDAnalysis.core.groups.AtomGroup`\ s or construct a new one: group operators (e.g. :meth:`~MDAnalysis.core.groups.AtomGroup.concatenate`, :meth:`~MDAnalysis.core.groups.AtomGroup.subtract`) and set methods (e.g. :meth:`~MDAnalysis.core.groups.AtomGroup.union`, :meth:`~MDAnalysis.core.groups.AtomGroup.difference`). Group operators achieve a similar outcome to set methods. However, a key difference is that :meth:`~MDAnalysis.core.groups.AtomGroup.concatenate` and :meth:`~MDAnalysis.core.groups.AtomGroup.subtract` preserve the order of the atoms and any duplicates. :meth:`~MDAnalysis.core.groups.AtomGroup.union` and :meth:`~MDAnalysis.core.groups.AtomGroup.difference` return an :class:`~MDAnalysis.core.groups.AtomGroup` where each atom is unique, and ordered by its topology index.
 
 .. ipython:: python
 
@@ -149,9 +149,9 @@ Each of these methods create groups that are sorted sets of unique :class:`~MDAn
 Groupby and split
 -----------------
 
-An :class:`~MDAnalysis.core.groups.AtomGroup` can be constructed from another by separating atoms by properties. 
+An :class:`~MDAnalysis.core.groups.AtomGroup` can be constructed from another by separating atoms by properties.
 
-:meth:`AtomGroup.split <MDAnalysis.core.groups.AtomGroup.split>` can create a list of :class:`~MDAnalysis.core.groups.AtomGroup`\ s by splitting another :class:`~MDAnalysis.core.groups.AtomGroup` by the 'level' of connectivity: one of *atom*, *residue*, *molecule*, or *segment*. 
+:meth:`AtomGroup.split <MDAnalysis.core.groups.AtomGroup.split>` can create a list of :class:`~MDAnalysis.core.groups.AtomGroup`\ s by splitting another :class:`~MDAnalysis.core.groups.AtomGroup` by the 'level' of connectivity: one of *atom*, *residue*, *molecule*, or *segment*.
 
 .. ipython:: python
 
@@ -159,7 +159,7 @@ An :class:`~MDAnalysis.core.groups.AtomGroup` can be constructed from another by
     ag1.split('residue')
 
 
-An :class:`~MDAnalysis.core.groups.AtomGroup` can also be separated according to values of :ref:`topology attributes <topology-attributes>` to produce a dictionary of :code:`{value:AtomGroup}`. 
+An :class:`~MDAnalysis.core.groups.AtomGroup` can also be separated according to values of :ref:`topology attributes <topology-attributes>` to produce a dictionary of :code:`{value:AtomGroup}`.
 
 .. ipython:: python
 
@@ -213,7 +213,7 @@ These methods of creating an :class:`~MDAnalysis.core.groups.AtomGroup` result i
     * Boolean indexing
     * Set methods
     * :meth:`AtomGroup.split <MDAnalysis.core.groups.AtomGroup.split>` and :meth:`AtomGroup.groupby <MDAnalysis.core.groups.AtomGroup.groupby>`
-    
+
 These methods return a user-ordered :class:`~MDAnalysis.core.groups.AtomGroup` that can contain duplicates:
 
     * Fancy indexing (with arrays or lists)
@@ -246,13 +246,13 @@ Each method of creating an AtomGroup can also be used to create an empty one. Fo
 and indexing:
 
 .. ipython:: python
-    
+
     u.atoms[6:6]
 
 or set methods:
 
 .. ipython:: python
-    
+
     u.atoms - u.atoms
 
 Empty AtomGroups have a length of 0 and evaluate to :code:`False` in a boolean context.
@@ -261,7 +261,7 @@ Empty AtomGroups have a length of 0 and evaluate to :code:`False` in a boolean c
 
     bool(null)
 
-This allows analysis methods to skip over empty AtomGroups instead of raising an error, which is helpful as occasionally empty AtomGroups can arise from selection logic that is too restrictive (e.g. :ref:`geometric selections <geometric>`). 
+This allows analysis methods to skip over empty AtomGroups instead of raising an error, which is helpful as occasionally empty AtomGroups can arise from selection logic that is too restrictive (e.g. :ref:`geometric selections <geometric>`).
 
 
 Dynamically updating AtomGroups

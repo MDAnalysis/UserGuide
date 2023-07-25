@@ -7,7 +7,7 @@ TPR (GROMACS run topology files)
 
 .. include:: classes/TPR.txt
 
-A GROMACS TPR file is a portable binary run input file. It contains both topology and coordinate information. However, MDAnalysis currently only reads topology information about atoms, bonds, dihedrals, and impropers; it does not read the coordinate information.  
+A GROMACS TPR file is a portable binary run input file. It contains both topology and coordinate information. However, MDAnalysis currently only reads topology information about atoms, bonds, dihedrals, and impropers; it does not read the coordinate information.
 
 .. important:: **Atom ids, residue resids, and molnums**
 
@@ -80,23 +80,23 @@ Bonded interactions available in Gromacs are described in the
 
 .. table:: GROMACS entries used to create bonds.
 
-    =============	======	=====================================================	
-    Directive   	 Type 	 Description                                         	
-    =============	======	=====================================================	
-    bonds       	 1    	 `regular bond`_                                     	
-    bonds       	 2    	 `G96 bond`_                                         	
-    bonds       	 3    	 `Morse bond`_                                       	
-    bonds       	 4    	 `cubic bond`_                                       	
-    bonds       	 5    	 `connections`_                                      	
-    bonds       	 6    	 `harmonic potentials`_                              	
-    bonds       	 7    	 `FENE bonds`_                                       	
-    bonds       	 8    	 `tabulated potential with exclusion/connection`_    	
-    bonds       	 9    	 `tabulated potential without exclusion/connection`_ 	
-    bonds       	 10   	 `restraint potentials`_                             	
-    constraints 	 1    	 `constraints with exclusion/connection`_            	
-    constraints 	 2    	 `constraints without exclusion/connection`_         	
-    settles     	 1    	 `SETTLE constraints`_                               	
-    =============	======	=====================================================	
+    =============	======	=====================================================
+    Directive   	 Type 	 Description
+    =============	======	=====================================================
+    bonds       	 1    	 `regular bond`_
+    bonds       	 2    	 `G96 bond`_
+    bonds       	 3    	 `Morse bond`_
+    bonds       	 4    	 `cubic bond`_
+    bonds       	 5    	 `connections`_
+    bonds       	 6    	 `harmonic potentials`_
+    bonds       	 7    	 `FENE bonds`_
+    bonds       	 8    	 `tabulated potential with exclusion/connection`_
+    bonds       	 9    	 `tabulated potential without exclusion/connection`_
+    bonds       	 10   	 `restraint potentials`_
+    constraints 	 1    	 `constraints with exclusion/connection`_
+    constraints 	 2    	 `constraints without exclusion/connection`_
+    settles     	 1    	 `SETTLE constraints`_
+    =============	======	=====================================================
 
 .. _`regular bond`: http://manual.gromacs.org/current/reference-manual/functions/bonded-interactions.html#harmonic-potential
 .. _`G96 bond`: http://manual.gromacs.org/current/reference-manual/functions/bonded-interactions.html#fourth-power-potential
@@ -115,18 +115,18 @@ Bonded interactions available in Gromacs are described in the
 
 .. table:: GROMACS entries used to create angles.
 
-    ===========	======	=================================	
-    Directive 	 Type 	 Description                     	
-    ===========	======	=================================	
-    angles    	 1    	 `regular angle`_                	
-    angles    	 2    	 `G96 angle`_                    	
-    angles    	 3    	 `Bond-bond cross term`_         	
-    angles    	 4    	 `Bond-angle cross term`_        	
-    angles    	 5    	 `Urey-Bradley`_                 	
-    angles    	 6    	 `Quartic angles`_               	
-    angles    	 8    	 `Tabulated angles`_             	
-    angles    	 10   	 `restricted bending potential`_ 	
-    ===========	======	=================================	
+    ===========	======	=================================
+    Directive 	 Type 	 Description
+    ===========	======	=================================
+    angles    	 1    	 `regular angle`_
+    angles    	 2    	 `G96 angle`_
+    angles    	 3    	 `Bond-bond cross term`_
+    angles    	 4    	 `Bond-angle cross term`_
+    angles    	 5    	 `Urey-Bradley`_
+    angles    	 6    	 `Quartic angles`_
+    angles    	 8    	 `Tabulated angles`_
+    angles    	 10   	 `restricted bending potential`_
+    ===========	======	=================================
 
 
 .. _`regular angle`: http://manual.gromacs.org/current/reference-manual/functions/bonded-interactions.html#harmonic-angle-potential
@@ -140,17 +140,17 @@ Bonded interactions available in Gromacs are described in the
 
 .. table:: GROMACS entries used to create dihedrals.
 
-    ===========	======	=======================================	
-    Directive 	 Type 	 Description                           	
-    ===========	======	=======================================	
-    dihedrals 	 1    	 `proper dihedral`_                    	
-    dihedrals 	 3    	 `Ryckaert-Bellemans dihedral`_        	
-    dihedrals 	 5    	 `Fourier dihedral`_                   	
-    dihedrals 	 8    	 `Tabulated dihedral`_                 	
-    dihedrals 	 9    	 `Periodic proper dihedral`_           	
-    dihedrals 	 10   	 `Restricted dihedral`_                	
-    dihedrals 	 11   	 `Combined bending-torsion potential`_ 	
-    ===========	======	=======================================	
+    ===========	======	=======================================
+    Directive 	 Type 	 Description
+    ===========	======	=======================================
+    dihedrals 	 1    	 `proper dihedral`_
+    dihedrals 	 3    	 `Ryckaert-Bellemans dihedral`_
+    dihedrals 	 5    	 `Fourier dihedral`_
+    dihedrals 	 8    	 `Tabulated dihedral`_
+    dihedrals 	 9    	 `Periodic proper dihedral`_
+    dihedrals 	 10   	 `Restricted dihedral`_
+    dihedrals 	 11   	 `Combined bending-torsion potential`_
+    ===========	======	=======================================
 
 .. _`proper dihedral`: http://manual.gromacs.org/current/reference-manual/functions/bonded-interactions.html#proper-dihedrals
 .. _`Ryckaert-Bellemans dihedral`: http://manual.gromacs.org/current/reference-manual/functions/bonded-interactions.html#proper-dihedrals-ryckaert-bellemans-function
@@ -162,12 +162,12 @@ Bonded interactions available in Gromacs are described in the
 
 .. table:: GROMACS entries used to create improper dihedrals.
 
-    ===========	======	===============================	
-    Directive 	 Type 	 Description                   	
-    ===========	======	===============================	
-    dihedrals 	 2    	 `improper dihedral`_          	
-    dihedrals 	 4    	 `periodic improper dihedral`_ 	
-    ===========	======	===============================	
+    ===========	======	===============================
+    Directive 	 Type 	 Description
+    ===========	======	===============================
+    dihedrals 	 2    	 `improper dihedral`_
+    dihedrals 	 4    	 `periodic improper dihedral`_
+    ===========	======	===============================
 
 .. _`improper dihedral`: http://manual.gromacs.org/current/reference-manual/functions/bonded-interactions.html#improper-dihedrals-harmonic-type
 .. _`periodic improper dihedral`: http://manual.gromacs.org/current/reference-manual/functions/bonded-interactions.html#improper-dihedrals-periodic-type

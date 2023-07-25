@@ -4,17 +4,17 @@
 Installation
 ====================
 
-The latest versions of **MDAnalysis** can be installed using `conda` or `pip`. 
+The latest versions of **MDAnalysis** can be installed using `conda` or `pip`.
 Currently, the conda releases only support serial calculations.
-If you plan to use the parallel OpenMP algorithms, you need to 
+If you plan to use the parallel OpenMP algorithms, you need to
 install MDAnalysis with pip and have a working OpenMP installation.
 
-MDAnalysis has a separate :ref:`test suite <mdanalysistests>` **MDAnalysisTests** that is required to run the test cases and examples. 
-The test files change less frequently, take up around 90 MB of space, 
+MDAnalysis has a separate :ref:`test suite <mdanalysistests>` **MDAnalysisTests** that is required to run the test cases and examples.
+The test files change less frequently, take up around 90 MB of space,
 and are not needed for daily use of MDAnalysis. However, they are often used in examples,
-including many in this User Guide. If you are not interested in developing 
-MDAnalysis or using the example files, you most likely don't need the tests. If you want to 
-run examples in the User Guide, install the tests. 
+including many in this User Guide. If you are not interested in developing
+MDAnalysis or using the example files, you most likely don't need the tests. If you want to
+run examples in the User Guide, install the tests.
 The tests are distributed separately from the main package.
 
 .. note::
@@ -24,7 +24,7 @@ The tests are distributed separately from the main package.
     fails with the error message:
 
         error: Microsoft Visual C++ 14.0 is required. Get it with "Build Tools for Visual Studio": https://visualstudio.microsoft.com/downloads/
-    
+
     Try installing Build Tools for Visual Studio from
     https://visualstudio.microsoft.com/downloads/ (scroll
     down to the Tools for Visual Studio section).
@@ -113,16 +113,16 @@ And to install the test suite:
 Testing
 -------
 
-The tests rely on the `pytest` and `numpy` packages, which must also be installed. Run tests with: 
+The tests rely on the `pytest` and `numpy` packages, which must also be installed. Run tests with:
 
 .. code-block:: bash
 
     pytest --disable-pytest-warnings --pyargs MDAnalysisTests
 
-All tests should pass (i.e. no FAIL, ERROR); SKIPPED or XFAIL are ok. If anything fails or gives an error, 
+All tests should pass (i.e. no FAIL, ERROR); SKIPPED or XFAIL are ok. If anything fails or gives an error,
 `ask on the user mailing list <http://users.mdanalysis.org/>`_ or `raise an issue <https://github.com/MDAnalysis/mdanalysis/issues>`_.
 
-Testing MDAnalysis can take a while, as there are quite a few tests. 
+Testing MDAnalysis can take a while, as there are quite a few tests.
 The plugin `pytest-xdist <https://github.com/pytest-dev/pytest-xdist>`_ can be used to run tests in parallel.
 
 .. code-block:: bash
@@ -134,14 +134,14 @@ Custom compiler flags and optimised installations
 -------------------------------------------------
 
 You can pass any additional compiler flags for the C/C++ compiler using the ``extra_cflags`` variable in ``setup.cfg``.
-This allows you to add any additional compiler options required for your architecture. 
+This allows you to add any additional compiler options required for your architecture.
 
 For example, ``extra_cflags`` can be used to tune your MDAnalysis installation for your current architecture using the `-march`, `-mtune`, `-mcpu` and related compiler flags.
 *Which* particular compiler flags to use depends on your CPU architecture. An example for an x86_64 machine would be to change the line in `setup.cfg` as follows:
 
 .. code-block:: diff
 
-	- #extra_cflags = 
+	- #extra_cflags =
 	+ extra_cflags = -march=native -mtune=native
 
 Use of these flags can give a significant performance boost where the compiler can effectively autovectorise.
@@ -149,7 +149,7 @@ Use of these flags can give a significant performance boost where the compiler c
 Be sure to use the recommended flags for your target architecture. For example, ARM platforms recommend using ``-mcpu`` *instead* of ``-mcpu``, while
 PowerPC platforms prefer *both* ``-mcpu`` and ``-mtune``.
 
-Full dicussion of the these flags is available elsewhere (such as here in this wiki_ or in this ARM_ blog post) and a list of supported options should be provided by your compiler. The list for GCC_ is provided here. 
+Full dicussion of the these flags is available elsewhere (such as here in this wiki_ or in this ARM_ blog post) and a list of supported options should be provided by your compiler. The list for GCC_ is provided here.
 
 .. warning::
     Use of these compiler options is considered **advanced** and may reduce the binary compatibility of MDAnalysis significantly, especially if using `-march`,
@@ -170,7 +170,7 @@ MDAnalysisData_ is an additional package with datasets that can be used in examp
     # pip
     pip install --upgrade MDAnalysisData
 
-This installation does not download all the datasets; instead, the datasets are cached when they are first downloaded using a Python command. 
+This installation does not download all the datasets; instead, the datasets are cached when they are first downloaded using a Python command.
 
 
 .. _`HOLE`: http://www.holeprogram.org
