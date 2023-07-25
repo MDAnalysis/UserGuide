@@ -191,6 +191,7 @@
 <ul class="simple">
 <li><p><a class="reference external" href="http://nglviewer.org/nglview/latest">nglview</a> (<span id="id3">[<a class="reference internal" href="../../../references.html#id15" title="Hai Nguyen, David A Case, and Alexander S Rose. NGLview–interactive molecular graphics for Jupyter notebooks. Bioinformatics, 34(7):1241–1242, April 2018. 00024. URL: https://academic.oup.com/bioinformatics/article/34/7/1241/4721781 (visited on 2020-02-05), doi:10.1093/bioinformatics/btx789.">NCR18</a>]</span>)</p></li>
 </ul>
+<p>Throughout this tutorial we will include cells for visualising Universes with the <a class="reference external" href="http://nglviewer.org/nglview/latest/api.html">NGLView</a> library. However, these will be commented out, and we will show the expected images generated instead of the interactive widgets.</p>
 <p><strong>See also</strong></p>
 <ul class="simple">
 <li><p><a class="reference internal" href="aligning_trajectory_to_frame.html"><span class="doc">Aligning a trajectory to a frame from itself</span></a></p></li>
@@ -201,26 +202,20 @@
 <p class="admonition-title"><strong>Note</strong></p>
 <p>MDAnalysis implements RMSD calculation using the fast QCP algorithm (<span id="id4">[<a class="reference internal" href="../../../references.html#id10" title="Douglas L. Theobald. Rapid calculation of RMSDs using a quaternion-based characteristic polynomial. Acta Crystallographica Section A Foundations of Crystallography, 61(4):478–480, July 2005. 00127. URL: http://scripts.iucr.org/cgi-bin/paper?S0108767305015266 (visited on 2020-02-05), doi:10.1107/S0108767305015266.">The05</a>]</span>) and a rotation matrix <em>R</em> that minimises the RMSD (<span id="id5">[<a class="reference internal" href="../../../references.html#id12" title="Pu Liu, Dimitris K. Agrafiotis, and Douglas L. Theobald. Fast determination of the optimal rotational matrix for macromolecular superpositions. Journal of Computational Chemistry, pages n/a–n/a, 2009. URL: http://doi.wiley.com/10.1002/jcc.21439 (visited on 2020-02-05), doi:10.1002/jcc.21439.">LAT09</a>]</span>). Please cite (<span id="id6">[<a class="reference internal" href="../../../references.html#id10" title="Douglas L. Theobald. Rapid calculation of RMSDs using a quaternion-based characteristic polynomial. Acta Crystallographica Section A Foundations of Crystallography, 61(4):478–480, July 2005. 00127. URL: http://scripts.iucr.org/cgi-bin/paper?S0108767305015266 (visited on 2020-02-05), doi:10.1107/S0108767305015266.">The05</a>]</span>) and (<span id="id7">[<a class="reference internal" href="../../../references.html#id12" title="Pu Liu, Dimitris K. Agrafiotis, and Douglas L. Theobald. Fast determination of the optimal rotational matrix for macromolecular superpositions. Journal of Computational Chemistry, pages n/a–n/a, 2009. URL: http://doi.wiley.com/10.1002/jcc.21439 (visited on 2020-02-05), doi:10.1002/jcc.21439.">LAT09</a>]</span>) when using the <code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.align</span></code> module in published work.</p>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.analysis</span> <span class="kn">import</span> <span class="n">align</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">CRD</span><span class="p">,</span> <span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">,</span> <span class="n">DCD2</span>
-<span class="kn">import</span> <span class="nn">nglview</span> <span class="k">as</span> <span class="nn">nv</span>
+<span class="c1"># import nglview as nv</span>
 
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="c1"># suppress some MDAnalysis warnings when writing PDB files</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4bf76fbc3b2842379b01b023ca29ed64", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <section id="Loading-files">
 <h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this heading"></a></h2>
@@ -235,29 +230,32 @@
 </div>
 </div>
 <p>Currently, the proteins are not aligned to each other. The difference becomes obvious when the closed conformation is compared to the open. Below, we set <code class="docutils literal notranslate"><span class="pre">adk_open</span></code> to the last frame and see the relative positions of each protein in a merged Universe.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adk_open</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># last frame</span>
 <span class="n">merged</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Merge</span><span class="p">(</span><span class="n">adk_open</span><span class="o">.</span><span class="n">atoms</span><span class="p">,</span> <span class="n">adk_closed</span><span class="o">.</span><span class="n">atoms</span><span class="p">)</span>
-<span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">merged</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "34791dc1e4c4499081212c4cbb472927", "version_major": 2, "version_minor": 0}</script></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># merged_view = nv.show_mdanalysis(merged)</span>
+<span class="c1"># merged_view</span>
+</pre></div>
 </div>
-</section>
+</div>
+<center><div style="width: 800px"><img alt="merged_view" src="../../../_images/merged_view.png" />
+</div></center></section>
 <section id="Aligning-a-trajectory-with-AlignTraj">
 <h2>Aligning a trajectory with AlignTraj<a class="headerlink" href="#Aligning-a-trajectory-with-AlignTraj" title="Permalink to this heading"></a></h2>
 <p>While <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/align.html#MDAnalysis.analysis.align.alignto">align.alignto</a> aligns structures, or a frame of a trajectory, <code class="docutils literal notranslate"><span class="pre">align.AlignTraj</span></code> (<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/align.html#MDAnalysis.analysis.align.AlignTraj">API docs</a>) efficiently aligns an entire trajectory to a reference. Unlike most other analysis modules, <code class="docutils literal notranslate"><span class="pre">AlignTraj</span></code> allows you to write the output of the analysis to a file. This
 is because when <code class="docutils literal notranslate"><span class="pre">Universe</span></code>s are created by loading from a file, changes to frame-by-frame (dynamic) information <a class="reference external" href="https://userguide.mdanalysis.org/stable/trajectories/trajectories.html">do not persist</a> when the frame is changed. If the trajectory is not written to a file, or pulled into memory (below), <code class="docutils literal notranslate"><span class="pre">AlignTraj</span></code> will have no effect.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">align</span><span class="o">.</span><span class="n">AlignTraj</span><span class="p">(</span><span class="n">adk_closed</span><span class="p">,</span>  <span class="c1"># trajectory to align</span>
@@ -268,36 +266,42 @@ is because when <code class="docutils literal notranslate"><span class="pre">Uni
                <span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 <span class="c1"># merge adk_closed and adk_open into the same universe</span>
 <span class="n">merged1</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Merge</span><span class="p">(</span><span class="n">adk_closed</span><span class="o">.</span><span class="n">atoms</span><span class="p">,</span> <span class="n">adk_open</span><span class="o">.</span><span class="n">atoms</span><span class="p">)</span>
-<span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">merged1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a9a8e5b7d14643c3bdf685b1430c4ef3", "version_major": 2, "version_minor": 0}</script></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># merged1_view = nv.show_mdanalysis(merged1)</span>
+<span class="c1"># merged1_view</span>
+</pre></div>
 </div>
-<p>As you can see, the <code class="docutils literal notranslate"><span class="pre">adk_closed</span></code> and <code class="docutils literal notranslate"><span class="pre">adk_open</span></code> trajectories still look the same. However, when we load our aligned trajectory from <code class="docutils literal notranslate"><span class="pre">aligned.dcd</span></code>, we can see them superposed:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</div>
+<center><div style="width: 800px"><img alt="merged1_view" src="../../../_images/aligning_trajectory-merged1_view.png" />
+</div></center><p>As you can see, the <code class="docutils literal notranslate"><span class="pre">adk_closed</span></code> and <code class="docutils literal notranslate"><span class="pre">adk_open</span></code> trajectories still look the same. However, when we load our aligned trajectory from <code class="docutils literal notranslate"><span class="pre">aligned.dcd</span></code>, we can see them superposed:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aligned</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="s1">&#39;aligned.dcd&#39;</span><span class="p">)</span>
 <span class="n">aligned</span><span class="o">.</span><span class="n">segments</span><span class="o">.</span><span class="n">segids</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Aligned&#39;</span><span class="p">]</span>  <span class="c1"># rename our segments</span>
 <span class="n">adk_open</span><span class="o">.</span><span class="n">segments</span><span class="o">.</span><span class="n">segids</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Open&#39;</span><span class="p">]</span>  <span class="c1"># so they&#39;re coloured differently</span>
 <span class="n">merged2</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Merge</span><span class="p">(</span><span class="n">aligned</span><span class="o">.</span><span class="n">atoms</span><span class="p">,</span> <span class="n">adk_open</span><span class="o">.</span><span class="n">atoms</span><span class="p">)</span>
-<span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">merged2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "fd74c82d834e4f6da19a9002fa8cafde", "version_major": 2, "version_minor": 0}</script></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># merged2_view = nv.show_mdanalysis(merged2)</span>
+<span class="c1"># merged2_view</span>
+</pre></div>
 </div>
-<p>If you don’t want to write a file, you can also choose to load the entire trajectory into memory. (This is not always feasible depending on how large your trajectory is, and how much memory your device has, in which case it is much more efficient to write an aligned trajectory to a file as above). You can accomplish this in one of two ways:</p>
+</div>
+<center><div style="width: 800px"><img alt="merged2_view" src="../../../_images/aligning_trajectory-merged2_view.png" />
+</div></center><p>If you don’t want to write a file, you can also choose to load the entire trajectory into memory. (This is not always feasible depending on how large your trajectory is, and how much memory your device has, in which case it is much more efficient to write an aligned trajectory to a file as above). You can accomplish this in one of two ways:</p>
 <ol class="arabic simple">
 <li><p>Load the trajectory into memory in the first place</p></li>
 </ol>
@@ -307,8 +311,8 @@ is because when <code class="docutils literal notranslate"><span class="pre">Uni
 <ol class="arabic simple" start="2">
 <li><p>Select <code class="docutils literal notranslate"><span class="pre">in_memory=True</span></code> during <code class="docutils literal notranslate"><span class="pre">AlignTraj</span></code> (below)</p></li>
 </ol>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">align</span><span class="o">.</span><span class="n">AlignTraj</span><span class="p">(</span><span class="n">adk_closed</span><span class="p">,</span>  <span class="c1"># trajectory to align</span>
@@ -320,22 +324,15 @@ is because when <code class="docutils literal notranslate"><span class="pre">Uni
                <span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 <span class="c1"># merge adk_closed and adk_open into the same universe</span>
 <span class="n">merged3</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Merge</span><span class="p">(</span><span class="n">adk_closed</span><span class="o">.</span><span class="n">atoms</span><span class="p">,</span> <span class="n">adk_open</span><span class="o">.</span><span class="n">atoms</span><span class="p">)</span>
-<span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">merged3</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "516b690dbd494f1a824ad19457924bfc", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </section>
 <section id="Copying-coordinates-into-a-new-Universe">
 <h2>Copying coordinates into a new Universe<a class="headerlink" href="#Copying-coordinates-into-a-new-Universe" title="Permalink to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">MDAnalysis.Merge</span></code> does not automatically load coordinates for a trajectory. We can do this ourselves. Below, we copy the coordinates of the 98 frames in the <code class="docutils literal notranslate"><span class="pre">aligned</span></code> universe.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">MDAnalysis.analysis.base</span> <span class="kn">import</span> <span class="n">AnalysisFromFunction</span>
@@ -362,7 +359,7 @@ is because when <code class="docutils literal notranslate"><span class="pre">Uni
 </div>
 <p>To contrast, we will keep the open conformation static.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adk_coords</span> <span class="o">=</span> <span class="n">adk_open</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -371,7 +368,7 @@ is because when <code class="docutils literal notranslate"><span class="pre">Uni
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -381,7 +378,7 @@ is because when <code class="docutils literal notranslate"><span class="pre">Uni
 </div>
 <p>Because there are 98 frames of the <code class="docutils literal notranslate"><span class="pre">aligned</span></code> Universe, we copy the coordinates of the <code class="docutils literal notranslate"><span class="pre">adk_open</span></code> positions and stack them.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adk_traj_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">adk_coords</span><span class="p">]</span> <span class="o">*</span> <span class="mi">98</span><span class="p">)</span>
@@ -390,7 +387,7 @@ is because when <code class="docutils literal notranslate"><span class="pre">Uni
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -400,46 +397,56 @@ is because when <code class="docutils literal notranslate"><span class="pre">Uni
 </div>
 <p>We join <code class="docutils literal notranslate"><span class="pre">aligned_coords</span></code> and <code class="docutils literal notranslate"><span class="pre">adk_traj_coords</span></code> on the second axis with <code class="docutils literal notranslate"><span class="pre">np.hstack</span></code> and load the coordinates into memory into the <code class="docutils literal notranslate"><span class="pre">merged2</span></code> Universe.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merged_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">aligned_coords</span><span class="p">[</span><span class="s1">&#39;timeseries&#39;</span><span class="p">],</span>
                            <span class="n">adk_traj_coords</span><span class="p">])</span>
 <span class="n">merged2</span><span class="o">.</span><span class="n">load_new</span><span class="p">(</span><span class="n">merged_coords</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="n">MemoryReader</span><span class="p">)</span>
-<span class="n">m2_view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">merged2</span><span class="p">)</span>
-<span class="n">m2_view</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d6177c5652b04c8ebaf04a941e4da244", "version_major": 2, "version_minor": 0}</script></div>
+<div class="highlight"><pre>
+&lt;Universe with 6682 atoms&gt;
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># m2_view = nv.show_mdanalysis(merged2)</span>
+<span class="c1"># m2_view</span>
+</pre></div>
+</div>
 </div>
 <p>Online notebooks do not show the molecule trajectory, but here you can use <code class="docutils literal notranslate"><span class="pre">nglview.contrib.movie.MovieMaker</span></code> to make a gif of the trajectory. This requires you to install <code class="docutils literal notranslate"><span class="pre">moviepy</span></code>.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nglview.contrib.movie</span> <span class="kn">import</span> <span class="n">MovieMaker</span>
-<span class="n">movie</span> <span class="o">=</span> <span class="n">MovieMaker</span><span class="p">(</span><span class="n">m2_view</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;merged.gif&#39;</span><span class="p">,</span> <span class="n">in_memory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">movie</span><span class="o">.</span><span class="n">make</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from nglview.contrib.movie import MovieMaker</span>
+<span class="c1"># movie = MovieMaker(</span>
+<span class="c1">#     m2_view,</span>
+<span class="c1">#     step=4,  # only render every 4th frame</span>
+<span class="c1">#     output=&#39;merged.gif&#39;,</span>
+<span class="c1">#     render_params={&quot;factor&quot;: 3},  # set to 4 for higher quality</span>
+<span class="c1"># )</span>
+<span class="c1"># movie.make()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d61733ddb84349ff859f95afbda428e9", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-</section>
+<center><div style="width: 800px"><img alt="merged" src="../../../_images/merged.gif" />
+</div></center></section>
 <section id="Writing-trajectories-to-a-file">
 <h2>Writing trajectories to a file<a class="headerlink" href="#Writing-trajectories-to-a-file" title="Permalink to this heading"></a></h2>
 <p>Finally, we can also save this new trajectory to a file.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">mda</span><span class="o">.</span><span class="n">Writer</span><span class="p">(</span><span class="s1">&#39;aligned.xyz&#39;</span><span class="p">,</span> <span class="n">merged2</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">n_atoms</span><span class="p">)</span> <span class="k">as</span> <span class="n">w</span><span class="p">:</span>

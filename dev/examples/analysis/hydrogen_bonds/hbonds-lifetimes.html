@@ -222,7 +222,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e9a342112e4f4caa9c008d2e0a38491f", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8eb8f51b88754d708b36df5bc3915e4e", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -230,7 +230,7 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;MDAnalysis.analysis.hydrogenbonds.hbond_analysis.HydrogenBondAnalysis at 0x7fb6c56cd610&gt;
+&lt;MDAnalysis.analysis.hydrogenbonds.hbond_analysis.HydrogenBondAnalysis at 0x137309280&gt;
 </pre></div></div>
 </div>
 </section>
@@ -427,7 +427,7 @@ consecutive two frames.</p>
 </section>
 <section id="Hydrogen-bond-lifetime-of-individual-hydrogen-bonds">
 <h2>Hydrogen bond lifetime of individual hydrogen bonds<a class="headerlink" href="#Hydrogen-bond-lifetime-of-individual-hydrogen-bonds" title="Permalink to this heading"></a></h2>
-<p>Let’s first find the 10 most prevalent hydrogen bonds.</p>
+<p>Let’s first find the 3 most prevalent hydrogen bonds.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
@@ -448,7 +448,7 @@ consecutive two frames.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "41f14e4748cf41b9a0e13ac189a7758d", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4a99c32cfaf748968d21b5674b280d08", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
@@ -456,7 +456,7 @@ consecutive two frames.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;MDAnalysis.analysis.hydrogenbonds.hbond_analysis.HydrogenBondAnalysis at 0x7fb6c4b02730&gt;
+&lt;MDAnalysis.analysis.hydrogenbonds.hbond_analysis.HydrogenBondAnalysis at 0x1376ccc70&gt;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -509,7 +509,7 @@ TYR-24-OH       HH      GLY-214-OT2     count=95
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hbond_lifetimes</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># for plotting</span>
 
-<span class="k">for</span> <span class="n">hbond</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">[:</span><span class="mi">10</span><span class="p">]:</span>
+<span class="k">for</span> <span class="n">hbond</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">[:</span><span class="mi">3</span><span class="p">]:</span>
 
         <span class="c1"># find hbonds between specific atoms</span>
         <span class="n">d_ix</span><span class="p">,</span> <span class="n">h_ix</span><span class="p">,</span> <span class="n">a_ix</span> <span class="o">=</span> <span class="n">hbond</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>

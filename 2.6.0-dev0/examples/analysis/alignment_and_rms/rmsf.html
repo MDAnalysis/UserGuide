@@ -190,8 +190,9 @@
 <li><p>MDAnalysis (<span id="id1">[<a class="reference internal" href="../../../references.html#id11" title="Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: http://doi.wiley.com/10.1002/jcc.21787 (visited on 2020-02-05), doi:10.1002/jcc.21787.">MADWB11</a>]</span>, <span id="id2">[<a class="reference internal" href="../../../references.html#id3" title="Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html (visited on 2020-02-05), doi:10.25080/Majora-629e541a-00e.">GLB+16</a>]</span>)</p></li>
 <li><p><a class="reference external" href="https://www.mdanalysis.org/MDAnalysisData/">MDAnalysisData</a></p></li>
 <li><p><a class="reference external" href="https://matplotlib.org/">matplotlib</a></p></li>
-<li><p><a class="reference external" href="http://nglviewer.org/nglview/latest/">nglview</a></p></li>
 </ul>
+<p><strong>Optional packages for visualisation:</strong> * <a class="reference external" href="http://nglviewer.org/nglview/latest/">nglview</a></p>
+<p>Throughout this tutorial we will include cells for visualising Universes with the <a class="reference external" href="http://nglviewer.org/nglview/latest/api.html">NGLView</a> library. However, these will be commented out, and we will show the expected images generated instead of the interactive widgets.</p>
 <p><strong>See also</strong></p>
 <ul class="simple">
 <li><p><a class="reference internal" href="rmsd.html"><span class="doc">RMSD</span></a></p></li>
@@ -208,7 +209,7 @@
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 <span class="kn">from</span> <span class="nn">MDAnalysisData</span> <span class="kn">import</span> <span class="n">datasets</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.analysis</span> <span class="kn">import</span> <span class="n">rms</span><span class="p">,</span> <span class="n">align</span>
-<span class="kn">import</span> <span class="nn">nglview</span> <span class="k">as</span> <span class="nn">nv</span>
+<span class="c1"># import nglview as nv</span>
 
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="c1"># suppress some MDAnalysis warnings about writing PDB files</span>
@@ -374,25 +375,35 @@ these are more characteristic of conformational changes than the more flexible s
 </div>
 </div>
 <p>Below we visualise these values with a rainbow colour scheme. Purple values correspond to low RMSF values, whereas red values correspond to high RMSFs.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-<span class="n">view</span><span class="o">.</span><span class="n">update_representation</span><span class="p">(</span><span class="n">color_scheme</span><span class="o">=</span><span class="s1">&#39;bfactor&#39;</span><span class="p">)</span>
-<span class="n">view</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># view = nv.show_mdanalysis(u)</span>
+<span class="c1"># view.update_representation(color_scheme=&#39;bfactor&#39;)</span>
+<span class="c1"># view</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b3035c34305a454e87fb4c2d752ea673", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<p>You can also write the atoms to a file and visualise it in another program. As the original Universe did not contain <code class="docutils literal notranslate"><span class="pre">altLocs</span></code>, <code class="docutils literal notranslate"><span class="pre">icodes</span></code> or <code class="docutils literal notranslate"><span class="pre">occupancies</span></code> for each atom, some warnings will be printed (which are not visible here).</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from nglview.contrib.movie import MovieMaker</span>
+<span class="c1"># movie = MovieMaker(</span>
+<span class="c1">#     view,</span>
+<span class="c1">#     step=100,  # keep every 100th frame</span>
+<span class="c1">#     output=&#39;images/rmsf-view.gif&#39;,</span>
+<span class="c1">#     render_params={&quot;factor&quot;: 3},  # set to 4 for highest quality</span>
+<span class="c1"># )</span>
+<span class="c1"># movie.make()</span>
+</pre></div>
+</div>
+</div>
+<center><div style="width: 800px"><img alt="rmsf-bfactor-view" src="../../../_images/rmsf-view.gif" />
+</div></center><p>You can also write the atoms to a file and visualise it in another program. As the original Universe did not contain <code class="docutils literal notranslate"><span class="pre">altLocs</span></code>, <code class="docutils literal notranslate"><span class="pre">icodes</span></code> or <code class="docutils literal notranslate"><span class="pre">occupancies</span></code> for each atom, some warnings will be printed (which are not visible here).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;rmsf_tempfactors.pdb&#39;</span><span class="p">)</span>

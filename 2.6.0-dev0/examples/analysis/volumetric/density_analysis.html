@@ -191,7 +191,8 @@
 <li><p>pyvista</p></li>
 <li><p>ipygany</p></li>
 </ul>
-<div class="nbinput docutils container">
+<p>Throughout this tutorial we will include cells for visualising Universes with the <a class="reference external" href="http://nglviewer.org/nglview/latest/api.html">NGLView</a> library. However, these will be commented out, and we will show the expected images generated instead of the interactive widgets.</p>
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
@@ -201,53 +202,52 @@
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">nglview</span> <span class="k">as</span> <span class="nn">nv</span>
+<span class="c1"># import nglview as nv</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "9f784e09d05a4506b61beab79f6751f0"}</script></div>
-</div>
 <section id="Loading-files">
 <h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this heading"></a></h2>
 <p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<span id="id3">[<a class="reference internal" href="../../../references.html#id14" title="Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164 (visited on 2020-02-05), doi:10.1016/j.jmb.2009.09.009.">BDPW09</a>]</span>). It is solvated in TIP4P water and broken across periodic boundaries.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">TPR</span><span class="p">,</span> <span class="n">XTC</span><span class="p">)</span>
-<span class="n">view1</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-<span class="n">view1</span><span class="o">.</span><span class="n">add_representation</span><span class="p">(</span><span class="s1">&#39;point&#39;</span><span class="p">,</span>
-                         <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;resname SOL&#39;</span><span class="p">)</span>
-<span class="n">view1</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "31725dc1d3d2484cb25fdcd5e2df7c1d"}</script></div>
-</div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view1</span><span class="o">.</span><span class="n">render_image</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># view1 = nv.show_mdanalysis(u)</span>
+<span class="c1"># view1.add_representation(</span>
+<span class="c1">#     &#39;licorice&#39;,</span>
+<span class="c1">#     selection=&#39;resname SOL&#39;,</span>
+<span class="c1"># )</span>
+<span class="c1"># view1</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "fc7678635853431b97e33ff27fd69c23"}</script></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from nglview.contrib.movie import MovieMaker</span>
+<span class="c1"># movie = MovieMaker(</span>
+<span class="c1">#     view1,</span>
+<span class="c1">#     step=4,  # keep every 4th step</span>
+<span class="c1">#     render_params={&quot;factor&quot;: 3},  # average quality render</span>
+<span class="c1">#     output=&#39;density_analysis_images/density_analysis-view1.gif&#39;,</span>
+<span class="c1"># )</span>
+<span class="c1"># movie.make()</span>
+</pre></div>
 </div>
-</section>
+</div>
+<center><div style="width: 800px"><img alt="view1" src="../../../_images/density_analysis-view1.gif" />
+</div></center></section>
 <section id="Centering,-aligning,-and-making-molecules-whole-with-on-the-fly-transformations">
 <h2>Centering, aligning, and making molecules whole with on-the-fly transformations<a class="headerlink" href="#Centering,-aligning,-and-making-molecules-whole-with-on-the-fly-transformations" title="Permalink to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">DensityAnalysis</span></code> uses a fixed grid to analyse the density of molecules. As it is likely that this grid may cross the unit cell wall, this means that molecules that have broken across the periodic boundary must be made whole. Because we want to analyse the density of water <em>around a protein</em>, this means:</p>
@@ -286,7 +286,7 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 <p>We want wrap water back into the box before we fit the trajectory, in order to avoid odd placements from the rotation in the alignment.</p>
 <p>You can do this yourself with external tools such as <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">trjconv</span></code>, using the arguments above. Here, we use on-the-fly transformations so we can avoid writing out new trajectories.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">MDAnalysis</span> <span class="kn">import</span> <span class="n">transformations</span> <span class="k">as</span> <span class="n">trans</span>
@@ -309,43 +309,41 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 </div>
 </div>
 <p>When we visualise the transformed trajectory, we can see that it is now centered in the box and whole.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view2</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-<span class="n">view2</span><span class="o">.</span><span class="n">add_representation</span><span class="p">(</span><span class="s1">&#39;point&#39;</span><span class="p">,</span>
-                         <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;resname SOL&#39;</span><span class="p">)</span>
-<span class="n">view2</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "1e9fa43a86fc45a9b49a43bd12d7532d"}</script></div>
-</div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view2</span><span class="o">.</span><span class="n">render_image</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># view2 = nv.show_mdanalysis(u)</span>
+<span class="c1"># view2.add_representation(</span>
+<span class="c1">#     &#39;licorice&#39;,</span>
+<span class="c1">#     selection=&#39;resname SOL&#39;,</span>
+<span class="c1"># )</span>
+<span class="c1"># view2</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "df9e019de6694f10ade45554fde0a0a5"}</script></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from nglview.contrib.movie import MovieMaker</span>
+<span class="c1"># movie = MovieMaker(</span>
+<span class="c1">#     view2,</span>
+<span class="c1">#     step=4,  # keep every 4th step</span>
+<span class="c1">#     render_params={&quot;factor&quot;: 3},  # average quality render</span>
+<span class="c1">#     output=&#39;density_analysis_images/density_analysis-view2.gif&#39;,</span>
+<span class="c1"># )</span>
+<span class="c1"># movie.make()</span>
+</pre></div>
 </div>
-</section>
+</div>
+<center><div style="width: 800px"><img alt="view2" src="../../../_images/density_analysis-view2.gif" />
+</div></center></section>
 <section id="Analysing-the-density-of-water-around-the-protein">
 <h2>Analysing the density of water around the protein<a class="headerlink" href="#Analysing-the-density-of-water-around-the-protein" title="Permalink to this heading"></a></h2>
 <p>Now that the input trajectory has been pre-processed, we can carry out our analysis. We only want to look at the density of numbers of water molecules, so we choose the oxygen atoms only (see <a class="reference internal" href="linear_density.html"><span class="doc">LinearDensity</span></a> for mass and charge density analysis).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ow</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;name OW&#39;</span><span class="p">)</span>
@@ -357,17 +355,17 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;MDAnalysis.analysis.density.DensityAnalysis at 0x7f60ad4211c0&gt;
+&lt;MDAnalysis.analysis.density.DensityAnalysis at 0x1444979d0&gt;
 </pre></div></div>
 </div>
 <p>The results are stored in <code class="docutils literal notranslate"><span class="pre">dens.density</span></code>, a <code class="docutils literal notranslate"><span class="pre">Density</span></code> object. <code class="docutils literal notranslate"><span class="pre">dens.density.grid</span></code> is a numpy array with the average density of the water oxygen atoms, histogrammed onto a grid with 1 <span class="math notranslate nohighlight">\(Å\)</span> spacing on each axis.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">dens</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">density</span><span class="o">.</span><span class="n">grid</span>
@@ -376,7 +374,7 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -386,7 +384,7 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 </div>
 <p>When first calculated, these are in the default units of <span class="math notranslate nohighlight">\(Å^{-3}\)</span>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dens</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">density</span><span class="o">.</span><span class="n">units</span>
@@ -394,7 +392,7 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -404,7 +402,7 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 </div>
 <p>You can convert the units both for the length (<code class="docutils literal notranslate"><span class="pre">convert_length</span></code>) and for the density (<code class="docutils literal notranslate"><span class="pre">convert_density</span></code>). MDAnalysis stores a number of precomputed ways to convert units. Densities can be converted to <span class="math notranslate nohighlight">\(nm^{-3}\)</span>, or converted to a density relative to the bulk density. After executing the code below, the array at <code class="docutils literal notranslate"><span class="pre">dens.density.grid</span></code> now contains the density of water relative to bulk TIP4P water at ambient positions.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dens</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">density</span><span class="o">.</span><span class="n">convert_density</span><span class="p">(</span><span class="s1">&#39;TIP4P&#39;</span><span class="p">)</span>
@@ -413,7 +411,7 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -430,7 +428,7 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 <p>You may want to visualise your densities as part of your analysis. One trivial way is to plot the density of water around the protein as a 3D scatter plot.</p>
 <p>First we need to obtain the x, y, and z axes for the plot by taking the midpoints of the histogram bins. These are stored as <code class="docutils literal notranslate"><span class="pre">dens.density.midpoints</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mx</span><span class="p">,</span> <span class="n">my</span><span class="p">,</span> <span class="n">mz</span> <span class="o">=</span> <span class="n">dens</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">density</span><span class="o">.</span><span class="n">midpoints</span>
@@ -439,7 +437,7 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 </div>
 <p>In the plot below we represent the density of water in a particular bin with the opacity of the scatter point. To do that, we need to first normalise the density values. In the <code class="docutils literal notranslate"><span class="pre">flat</span></code> vector below before, the highest opacity (i.e. the point with the highest density of water oxygen atoms) is 0.1. The array is also flattened so we can treat it as a list of values.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">dens</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">density</span><span class="o">.</span><span class="n">grid</span>
@@ -449,7 +447,7 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 </div>
 <p>We set the colour to an RGBA array representing the colour blue. The last number in an RGBA array represents the alpha channel, which controls the opacity of the point.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">blue</span> <span class="o">=</span> <span class="p">[</span><span class="mi">44</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">201</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
@@ -462,7 +460,7 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 </div>
 <p>Finally we can plot the points on a 3D plot. <code class="docutils literal notranslate"><span class="pre">Axes3D</span></code> must be imported for a 3D plot, even though we do not directly use it. In this case, the plot is not very interesting; it just looks like a box of water.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
@@ -473,23 +471,15 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">mx</span><span class="p">,</span> <span class="n">my</span><span class="p">,</span> <span class="n">mz</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;mpl_toolkits.mplot3d.art3d.Path3DCollection at 0x7f60839bbfa0&gt;
-</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_volumetric_density_analysis_30_1.png" src="../../../_images/examples_analysis_volumetric_density_analysis_30_1.png" />
+<img alt="../../../_images/examples_analysis_volumetric_density_analysis_33_0.png" src="../../../_images/examples_analysis_volumetric_density_analysis_33_0.png" />
 </div>
 </div>
 </section>
@@ -497,7 +487,7 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 <h3>nglview (interactive)<a class="headerlink" href="#nglview-(interactive)" title="Permalink to this heading"></a></h3>
 <p>You could also view the density in NGLView by exporting it to a DX format:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dens</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">density</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="s2">&quot;water.dx&quot;</span><span class="p">)</span>
@@ -506,25 +496,19 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 </div>
 <p>Use the <a class="reference external" href="http://nglviewer.org/ngldev/api/file/src/representation/surface-representation.js.html#lineNumber126">surface representation</a> in NGLViewer to visualize the loaded density at different isolevels: - <code class="docutils literal notranslate"><span class="pre">contour</span> <span class="pre">=</span> <span class="pre">False</span></code> shows a continuous surface (the default); <code class="docutils literal notranslate"><span class="pre">True</span></code> shows a wirefram - <code class="docutils literal notranslate"><span class="pre">isolevel</span> <span class="pre">=</span> <span class="pre">float</span></code> sets the contour level and with <code class="docutils literal notranslate"><span class="pre">isolevel_type=&quot;value&quot;</span></code> is in the units of the density - <code class="docutils literal notranslate"><span class="pre">isolevel_type=&quot;value&quot;</span></code> for densities (the default is “sigma”) and then <code class="docutils literal notranslate"><span class="pre">isolevel</span></code>
 has a different meanin - One can use multiple surfaces at different isolevels (although the current example trajectory has too few frames to generate a well resolved density - <code class="docutils literal notranslate"><span class="pre">smooth</span> <span class="pre">=</span> <span class="pre">float</span></code> controls the surface smoothing of the representation</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view3</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">view3</span><span class="o">.</span><span class="n">add_component</span><span class="p">(</span><span class="s2">&quot;water.dx&quot;</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">clear_representations</span><span class="p">()</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add_surface</span><span class="p">(</span><span class="n">isolevel</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">isolevel_type</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">contour</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">smooth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
-<span class="n">d</span><span class="o">.</span><span class="n">add_surface</span><span class="p">(</span><span class="n">isolevel</span><span class="o">=</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">isolevel_type</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">contour</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">smooth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;cyan&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># view3 = nv.show_mdanalysis(u)</span>
+<span class="c1"># d = view3.add_component(&quot;water.dx&quot;)</span>
+<span class="c1"># d.clear_representations()</span>
+<span class="c1"># d.add_surface(isolevel=0.5, isolevel_type=&quot;value&quot;, opacity=0.1, contour=False, smooth=1, color=&quot;blue&quot;)</span>
+<span class="c1"># d.add_surface(isolevel=1.2, isolevel_type=&quot;value&quot;, opacity=1, contour=True, smooth=1, color=&quot;cyan&quot;)</span>
 
-<span class="n">view3</span>
+<span class="c1"># view3</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "7ecf0eda32f146858ae0e2a7a780fdce"}</script></div>
 </div>
 </section>
 <section id="scikit-image-(triangulated-surface)">
@@ -532,7 +516,7 @@ has a different meanin - One can use multiple surfaces at different isolevels (a
 <p>You could use the Marching Cube (Lewiner) algorithm to triangulate the surface (following <a class="reference external" href="https://scikit-image.org/docs/dev/auto_examples/edges/plot_marching_cubes.html#sphx-glr-auto-examples-edges-plot-marching-cubes-py">this tutorial</a> and <a class="reference external" href="https://stackoverflow.com/questions/6030098/how-to-display-a-3d-plot-of-a-3d-array-isosurface-in-matplotlib-mplot3d-or-simil">StackOverflow post</a>.</p>
 <p>This will require the <a class="reference external" href="https://scikit-image.org/docs/dev/api/skimage.html">skimage</a> library.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">measure</span>
@@ -546,31 +530,23 @@ has a different meanin - One can use multiple surfaces at different isolevels (a
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot_trisurf</span><span class="p">(</span><span class="n">verts</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">verts</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">faces</span><span class="p">,</span> <span class="n">verts</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span>
                 <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;mpl_toolkits.mplot3d.art3d.Poly3DCollection at 0x7f60a2e98880&gt;
-</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_volumetric_density_analysis_37_1.png" src="../../../_images/examples_analysis_volumetric_density_analysis_37_1.png" />
+<img alt="../../../_images/examples_analysis_volumetric_density_analysis_40_0.png" src="../../../_images/examples_analysis_volumetric_density_analysis_40_0.png" />
 </div>
 </div>
 </section>
 <section id="pyvista-(3D-surface)">
 <h3>pyvista (3D surface)<a class="headerlink" href="#pyvista-(3D-surface)" title="Permalink to this heading"></a></h3>
 <p>Similarly, using <a class="reference external" href="https://docs.pyvista.org/">PyVista</a>, you can plot both static and interactive visualizations of the surface at different iso levels (following this <a class="reference external" href="https://stackoverflow.com/questions/6030098/how-to-display-a-3d-plot-of-a-3d-array-isosurface-in-matplotlib-mplot3d-or-simil/35472146#35472146">StackOverflow post</a>). Uncomment the last lines to show the plot in your local machine.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
@@ -584,107 +560,34 @@ has a different meanin - One can use multiple surfaces at different isolevels (a
 <span class="n">p</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">(</span><span class="n">notebook</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">p</span><span class="o">.</span><span class="n">background_color</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span>
 <span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">outline</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>  <span class="c1"># box lines</span>
-<span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">contours</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>  <span class="c1"># surfaces</span>
+<span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">contours</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.2</span><span class="p">);</span>  <span class="c1"># surfaces</span>
 <span class="c1"># p.show()</span>
 <span class="c1"># p.screenshot(&quot;./density_analysis_images/surface.png&quot;);</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Actor (0x7f60a29b1ca0)
-  Center:                     (59.734388541091576, 52.19496303240527, 28.17081691604193)
-  Pickable:                   True
-  Position:                   (0.0, 0.0, 0.0)
-  Scale:                      (1.0, 1.0, 1.0)
-  Visible:                    True
-  X Bounds                    5.810E+00, 1.137E+02
-  Y Bounds                    -2.367E+01, 1.281E+02
-  Z Bounds                    -8.245E+00, 6.459E+01
-  User matrix:                Unset
-  Has mapper:                 True
-
-Property (0x7f60a29b1e20)
-  Ambient:                     0.0
-  Ambient color:               Color(name=&#39;tan&#39;, hex=&#39;#d2b48cff&#39;)
-  Anisotropy:                  0.0
-  Color:                       Color(name=&#39;tan&#39;, hex=&#39;#d2b48cff&#39;)
-  Culling:                     &#34;none&#34;
-  Diffuse:                     1.0
-  Diffuse color:               Color(name=&#39;tan&#39;, hex=&#39;#d2b48cff&#39;)
-  Edge color:                  Color(name=&#39;black&#39;, hex=&#39;#000000ff&#39;)
-  Interpolation:               &#34;Flat&#34;
-  Lighting:                    True
-  Line width:                  1.0
-  Metallic:                    0.0
-  Opacity:                     0.2
-  Point size:                  5.0
-  Render lines as tubes:       False
-  Render points as spheres:    False
-  Roughness:                   0.5
-  Show edges:                  False
-  Specular:                    0.0
-  Specular color:              Color(name=&#39;tan&#39;, hex=&#39;#d2b48cff&#39;)
-  Specular power:              100.0
-  Style:                       &#34;Surface&#34;
-
-DataSetMapper (0x7f60a29b1ee0)
-  Scalar visibility:           True
-  Scalar range:                (0.5, 1.2000000476837158)
-  Interpolate before mapping:  True
-  Scalar map mode:             point
-  Color mode:                  map
-
-Attached dataset:
-PolyData (0x7f60a29b5ca0)
-  N Cells:      9508
-  N Points:     5208
-  N Strips:     0
-  X Bounds:     5.810e+00, 1.137e+02
-  Y Bounds:     -2.367e+01, 1.281e+02
-  Z Bounds:     -8.245e+00, 6.459e+01
-  N Arrays:     1
-</pre></div></div>
-</div>
 <img alt="surface" src="../../../_images/surface.png" />
 <p>Unfortunately plotting interactively appears to render everything with opaque surfaces. Note that this code snippet requires <a class="reference external" href="https://ipygany.readthedocs.io/en/latest/">ipygany</a> to be installed.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">(</span><span class="n">notebook</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">p</span><span class="o">.</span><span class="n">background_color</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span>
 <span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">outline</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>  <span class="c1"># box lines</span>
-<span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">contours</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>  <span class="c1"># surfaces</span>
-<span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">jupyter_backend</span><span class="o">=</span><span class="s2">&quot;ipygany&quot;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">contours</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.2</span><span class="p">);</span>  <span class="c1"># surfaces</span>
+<span class="c1"># uncomment the below for interactivity</span>
+<span class="c1"># p.show(jupyter_backend=&quot;ipygany&quot;)</span>
+<span class="c1"># p.screenshot(&quot;./density_analysis_images/interactive-surface.png&quot;);</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/home/pbarletta/mambaforge/envs/guide/lib/python3.9/site-packages/traittypes/traittypes.py:97: UserWarning: Given trait value dtype &#34;float32&#34; does not match required type &#34;float64&#34;. A coerced copy has been created.
-  warnings.warn(
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "8df94cc795c4478b9ac8dce795693107"}</script></div>
 </div>
 </section>
 <section id="2D-averaging">
 <h3>2D averaging<a class="headerlink" href="#2D-averaging" title="Permalink to this heading"></a></h3>
 <p>Alternatively, you could plot the average density of water on the xy-plane. We get the average x-y positions by averaging over the z-axis.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">avg</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
@@ -693,7 +596,7 @@ PolyData (0x7f60a29b5ca0)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -703,7 +606,7 @@ PolyData (0x7f60a29b5ca0)
 </div>
 <p>Below, it is plotted as a heat map.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -713,28 +616,20 @@ PolyData (0x7f60a29b5ca0)
 <span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Mean density of water over TIP4P literature value&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X-axis ($\AA$)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y-axis ($\AA$)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Text(0, 0.5, &#39;Y-axis ($\\AA$)&#39;)
-</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_volumetric_density_analysis_47_1.png" src="../../../_images/examples_analysis_volumetric_density_analysis_47_1.png" />
+<img alt="../../../_images/examples_analysis_volumetric_density_analysis_50_0.png" src="../../../_images/examples_analysis_volumetric_density_analysis_50_0.png" />
 </div>
 </div>
 <p>You can interpolate values for a smoother average:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -744,23 +639,15 @@ Text(0, 0.5, &#39;Y-axis ($\\AA$)&#39;)
 <span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Mean density of water over TIP4P literature value&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X-axis ($\AA$)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y-axis ($\AA$)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Text(0, 0.5, &#39;Y-axis ($\\AA$)&#39;)
-</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_volumetric_density_analysis_49_1.png" src="../../../_images/examples_analysis_volumetric_density_analysis_49_1.png" />
+<img alt="../../../_images/examples_analysis_volumetric_density_analysis_52_0.png" src="../../../_images/examples_analysis_volumetric_density_analysis_52_0.png" />
 </div>
 </div>
 </section>

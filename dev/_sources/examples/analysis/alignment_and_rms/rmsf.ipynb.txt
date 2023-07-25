@@ -1,7 +1,6 @@
 {
  "cells": [
   {
-   "attachments": {},
    "cell_type": "markdown",
    "metadata": {},
    "source": [
@@ -18,7 +17,11 @@
     "* MDAnalysis (<a data-cite=\"michaud-agrawal_mdanalysis_2011\" href=\"https://doi.org/10.1002/jcc.21787\">Michaud-Agrawal *et al.*, 2011</a>, <a data-cite=\"gowers_mdanalysis_2016\" href=\"https://doi.org/10.25080/Majora-629e541a-00e\">Gowers *et al.*, 2016</a>)\n",
     "* [MDAnalysisData](https://www.mdanalysis.org/MDAnalysisData/)\n",
     "* [matplotlib](https://matplotlib.org/)\n",
+    "\n",
+    "**Optional packages for visualisation:**\n",
     "* [nglview](http://nglviewer.org/nglview/latest/)\n",
+    "\n",
+    "Throughout this tutorial we will include cells for visualising Universes with the [NGLView](http://nglviewer.org/nglview/latest/api.html) library. However, these will be commented out, and we will show the expected images generated instead of the interactive widgets.\n",
     "\n",
     "**See also**\n",
     "\n",
@@ -67,7 +70,7 @@
     "import MDAnalysis as mda\n",
     "from MDAnalysisData import datasets\n",
     "from MDAnalysis.analysis import rms, align\n",
-    "import nglview as nv\n",
+    "# import nglview as nv\n",
     "\n",
     "import warnings\n",
     "# suppress some MDAnalysis warnings about writing PDB files\n",
@@ -340,7 +343,7 @@
      "iopub.status.idle": "2021-05-19T05:56:56.018681Z",
      "shell.execute_reply": "2021-05-19T05:56:56.019069Z"
     },
-    "scrolled": true
+    "scrolled": false
    },
    "outputs": [
     {
@@ -429,26 +432,42 @@
      "shell.execute_reply": "2021-05-19T05:56:56.663125Z"
     }
    },
-   "outputs": [
-    {
-     "data": {
-      "application/vnd.jupyter.widget-view+json": {
-       "model_id": "b3035c34305a454e87fb4c2d752ea673",
-       "version_major": 2,
-       "version_minor": 0
-      },
-      "text/plain": [
-       "NGLWidget(max_frame=4186)"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    }
-   ],
+   "outputs": [],
    "source": [
-    "view = nv.show_mdanalysis(u)\n",
-    "view.update_representation(color_scheme='bfactor')\n",
-    "view"
+    "# view = nv.show_mdanalysis(u)\n",
+    "# view.update_representation(color_scheme='bfactor')\n",
+    "# view"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [],
+   "source": [
+    "# from nglview.contrib.movie import MovieMaker\n",
+    "# movie = MovieMaker(\n",
+    "#     view,\n",
+    "#     step=100,  # keep every 100th frame\n",
+    "#     output='images/rmsf-view.gif',\n",
+    "#     render_params={\"factor\": 3},  # set to 4 for highest quality\n",
+    "# )\n",
+    "# movie.make()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<center>\n",
+    "<div style='width: 800px'>\n",
+    "    \n",
+    "![rmsf-bfactor-view](images/rmsf-view.gif)\n",
+    "    \n",
+    "</div>\n",
+    "</center>"
    ]
   },
   {
@@ -460,7 +479,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 12,
+   "execution_count": 13,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2021-05-19T06:12:30.853608Z",
@@ -522,7 +541,7 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "guide",
+   "display_name": "Python 3 (ipykernel)",
    "language": "python",
    "name": "python3"
   },
@@ -536,7 +555,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.9.15"
+   "version": "3.9.2"
   },
   "toc": {
    "base_numbering": 1,

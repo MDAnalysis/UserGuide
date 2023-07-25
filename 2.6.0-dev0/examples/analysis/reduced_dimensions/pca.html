@@ -187,7 +187,8 @@
 <ul class="simple">
 <li><p><a class="reference external" href="http://nglviewer.org/nglview/latest/api.html">nglview</a></p></li>
 </ul>
-<div class="nbinput docutils container">
+<p>Throughout this tutorial we will include cells for visualising Universes with the <a class="reference external" href="http://nglviewer.org/nglview/latest/api.html">NGLView</a> library. However, these will be commented out, and we will show the expected images generated instead of the interactive widgets.</p>
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
@@ -199,19 +200,13 @@
 <span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.analysis</span> <span class="kn">import</span> <span class="n">pca</span><span class="p">,</span> <span class="n">align</span>
-<span class="kn">import</span> <span class="nn">nglview</span> <span class="k">as</span> <span class="nn">nv</span><span class="p">;</span>
+<span class="c1"># import nglview as nv</span>
 
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="c1"># suppress some MDAnalysis warnings about writing PDB files</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "fe13ef351b564a6fbf9026997cc82aec", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <section id="Loading-files">
 <h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this heading"></a></h2>
@@ -282,22 +277,21 @@ There are 855 backbone atoms in the analysis
 (2565, 2565)
 </pre></div></div>
 </div>
-<p>The variance of each principal component is in <code class="docutils literal notranslate"><span class="pre">pc.variance</span></code>. For example, to get the variance explained by the first principal component:</p>
+<p>The variance of each principal component is in <code class="docutils literal notranslate"><span class="pre">pc.variance</span></code>. For example, to get the variance explained by the first principal component to 5 decimal places:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pc</span><span class="o">.</span><span class="n">variance</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;PC1: </span><span class="si">{</span><span class="n">pc</span><span class="o">.</span><span class="n">variance</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-4203.190531283082
+PC1: 4203.19053
 </pre></div></div>
 </div>
 <p>This variance is somewhat meaningless by itself. It is much more intuitive to consider the variance of a principal component as a percentage of the total variance in the data. MDAnalysis also tracks the percentage cumulative variance in <code class="docutils literal notranslate"><span class="pre">pc.cumulated_variance</span></code>. As shown below, the first principal component contains 90.3% the total trajectory variance. The first three components combined account for 96.4% of the total variance.</p>
@@ -327,23 +321,15 @@ Cumulated variance: 0.964
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pc</span><span class="o">.</span><span class="n">cumulated_variance</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Principal component&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Cumulative variance&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Text(0, 0.5, &#39;Cumulative variance&#39;)
-</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_reduced_dimensions_pca_15_1.png" src="../../../_images/examples_analysis_reduced_dimensions_pca_15_1.png" />
+<img alt="../../../_images/examples_analysis_reduced_dimensions_pca_15_0.png" src="../../../_images/examples_analysis_reduced_dimensions_pca_15_0.png" />
 </div>
 </div>
 </section>
@@ -469,23 +455,15 @@ Text(0, 0.5, &#39;Cumulative variance&#39;)
                  <span class="n">palette</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;Oranges_d&#39;</span><span class="p">,</span>
                                            <span class="n">n_colors</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)))</span>
 <span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;seaborn.axisgrid.PairGrid at 0x7f129017c220&gt;
-</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_reduced_dimensions_pca_21_1.png" src="../../../_images/examples_analysis_reduced_dimensions_pca_21_1.png" />
+<img alt="../../../_images/examples_analysis_reduced_dimensions_pca_21_0.png" src="../../../_images/examples_analysis_reduced_dimensions_pca_21_0.png" />
 </div>
 </div>
 <p>Another way to investigate the essential motions of the trajectory is to project the original trajectory onto each of the principal components, to visualise the motion of the principal component. The outer product <span class="math notranslate nohighlight">\(\otimes\)</span> of the weights <span class="math notranslate nohighlight">\(\mathbf{w}_i(t)\)</span> for principal component <span class="math notranslate nohighlight">\(i\)</span> with the eigenvector <span class="math notranslate nohighlight">\(\mathbf{u}_i\)</span> describes fluctuations around the mean on that axis, so the projected trajectory <span class="math notranslate nohighlight">\(\mathbf{r}_i(t)\)</span> is simply the fluctuations added onto the mean
@@ -523,40 +501,33 @@ positions <span class="math notranslate nohighlight">\(\mathbf{\overline{r}}\)</
 &lt;Universe with 855 atoms&gt;
 </pre></div></div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">proj1</span><span class="o">.</span><span class="n">atoms</span><span class="p">)</span>
-<span class="n">view</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># view = nv.show_mdanalysis(proj1.atoms)</span>
+<span class="c1"># view</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f0a1d542681047b295bcbb23e7b79f8a", "version_major": 2, "version_minor": 0}</script></div>
-</div>
 <p>If you have <code class="docutils literal notranslate"><span class="pre">nglview</span></code> installed, you can view the trajectory in the notebook. Otherwise, you can write the trajectory out to a file and use another program such as VMD. Below, we create a movie of the component.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nglview.contrib.movie</span> <span class="kn">import</span> <span class="n">MovieMaker</span>
-<span class="n">movie</span> <span class="o">=</span> <span class="n">MovieMaker</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;pc1.gif&#39;</span><span class="p">,</span> <span class="n">in_memory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">movie</span><span class="o">.</span><span class="n">make</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from nglview.contrib.movie import MovieMaker</span>
+<span class="c1"># movie = MovieMaker(</span>
+<span class="c1">#     view,</span>
+<span class="c1">#     step=4,  # keep every 4th frame</span>
+<span class="c1">#     output=&#39;pc1.gif&#39;,</span>
+<span class="c1">#     render_params={&quot;factor&quot;: 3},  # set to 4 for highest quality</span>
+<span class="c1"># )</span>
+<span class="c1"># movie.make()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d94d75ac65024f6aac74dc43b75309a6", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<img alt="pc1 gif" src="../../../_images/pc1.gif" />
-</section>
+<center><div style="width: 800px"><img alt="pc1 gif" src="../../../_images/pc1.gif" />
+</div></center></section>
 <section id="Measuring-convergence-with-cosine-content">
 <h2>Measuring convergence with cosine content<a class="headerlink" href="#Measuring-convergence-with-cosine-content" title="Permalink to this heading"></a></h2>
 <p>The essential modes of a trajectory usually describe global, collective motions. The cosine content of a principal component can be interpreted to determine whether proteins are transitioning between conformational states. However, random diffusion can also appear to produce collective motion. The cosine content can measure the convergence of a trajectory and indicate poor sampling.</p>
@@ -601,23 +572,15 @@ Cosine content for PC 3 = 0.723
       <span class="s2">&quot;Time (ps)&quot;</span><span class="p">,</span> <span class="c1"># x-axis</span>
       <span class="s2">&quot;Value&quot;</span><span class="p">,</span> <span class="c1"># y-axis</span>
       <span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1"># no confidence interval</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;seaborn.axisgrid.FacetGrid at 0x7f126d7a8700&gt;
-</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_reduced_dimensions_pca_33_1.png" src="../../../_images/examples_analysis_reduced_dimensions_pca_33_1.png" />
+<img alt="../../../_images/examples_analysis_reduced_dimensions_pca_33_0.png" src="../../../_images/examples_analysis_reduced_dimensions_pca_33_0.png" />
 </div>
 </div>
 </section>

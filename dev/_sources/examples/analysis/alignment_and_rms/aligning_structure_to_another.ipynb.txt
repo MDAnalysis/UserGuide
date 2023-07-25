@@ -21,6 +21,8 @@
     "    \n",
     "* [nglview](http://nglviewer.org/nglview/latest) (<a data-cite=\"nguyen_nglviewinteractive_2018\" href=\"https://doi.org/10.1093/bioinformatics/btx789\">Nguyen *et al.*, 2018</a>)\n",
     "\n",
+    "Throughout this tutorial we will include cells for visualising Universes with the [NGLView](http://nglviewer.org/nglview/latest/api.html) library. However, these will be commented out, and we will show the expected images generated instead of the interactive widgets.\n",
+    "\n",
     "**See also**\n",
     "\n",
     "* [Aligning a trajectory to a frame from another](aligning_trajectory.ipynb)\n",
@@ -54,25 +56,12 @@
     },
     "scrolled": false
    },
-   "outputs": [
-    {
-     "data": {
-      "application/vnd.jupyter.widget-view+json": {
-       "model_id": "edb42f937d0a4cb1b25ef8ab7baafcac",
-       "version_major": 2,
-       "version_minor": 0
-      },
-      "text/plain": []
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    }
-   ],
+   "outputs": [],
    "source": [
     "import MDAnalysis as mda\n",
     "from MDAnalysis.analysis import align\n",
     "from MDAnalysis.tests.datafiles import CRD, PSF, DCD, DCD2\n",
-    "import nglview as nv\n",
+    "# import nglview as nv\n",
     "\n",
     "import warnings\n",
     "# suppress some MDAnalysis warnings about writing PDB files\n",
@@ -103,30 +92,38 @@
      "shell.execute_reply": "2021-05-19T05:56:21.187197Z"
     }
    },
-   "outputs": [
-    {
-     "data": {
-      "application/vnd.jupyter.widget-view+json": {
-       "model_id": "c756b76ba69c4c5caae159a91ea98707",
-       "version_major": 2,
-       "version_minor": 0
-      },
-      "text/plain": [
-       "NGLWidget(max_frame=101)"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    }
-   ],
+   "outputs": [],
    "source": [
     "adk_open = mda.Universe(CRD, DCD2)\n",
-    "nv.show_mdanalysis(adk_open)"
+    "adk_closed = mda.Universe(PSF, DCD)"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# adk_open_view = nv.show_mdanalysis(adk_open)\n",
+    "# adk_open_view"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<center>\n",
+    "<div style='width: 800px'>\n",
+    "    \n",
+    "![adk_open_view](images/aligning_structure_to_another-adk_open_view.gif)\n",
+    "    \n",
+    "</div>\n",
+    "</center>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2021-05-19T06:10:07.078934Z",
@@ -140,25 +137,23 @@
     },
     "scrolled": true
    },
-   "outputs": [
-    {
-     "data": {
-      "application/vnd.jupyter.widget-view+json": {
-       "model_id": "36fc747ff36841a082f14aba3bd03de0",
-       "version_major": 2,
-       "version_minor": 0
-      },
-      "text/plain": [
-       "NGLWidget(max_frame=97)"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    }
-   ],
+   "outputs": [],
    "source": [
-    "adk_closed = mda.Universe(PSF, DCD)\n",
-    "nv.show_mdanalysis(adk_closed.atoms)"
+    "# adk_closed_view = nv.show_mdanalysis(adk_closed)\n",
+    "# adk_closed_view"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<center>\n",
+    "<div style='width: 800px'>\n",
+    "    \n",
+    "![adk_closed_view](images/aligning_structure_to_another-adk_closed_view.gif)\n",
+    "    \n",
+    "</div>\n",
+    "</center>"
    ]
   },
   {
@@ -170,7 +165,17 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "adk_open.trajectory[-1] # last frame\n",
+    "merged = mda.Merge(adk_open.atoms, adk_closed.atoms)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2021-05-19T06:10:08.199887Z",
@@ -183,26 +188,23 @@
      "shell.execute_reply": "2021-05-19T05:56:22.382441Z"
     }
    },
-   "outputs": [
-    {
-     "data": {
-      "application/vnd.jupyter.widget-view+json": {
-       "model_id": "8ea5855d155a410098bba736b228afd6",
-       "version_major": 2,
-       "version_minor": 0
-      },
-      "text/plain": [
-       "NGLWidget()"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    }
-   ],
+   "outputs": [],
    "source": [
-    "adk_open.trajectory[-1] # last frame\n",
-    "merged = mda.Merge(adk_open.atoms, adk_closed.atoms)\n",
-    "nv.show_mdanalysis(merged)"
+    "# merged_view = nv.show_mdanalysis(merged)\n",
+    "# merged_view"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<center>\n",
+    "<div style='width: 800px'>\n",
+    "    \n",
+    "![merged_view](images/merged_view.png)\n",
+    "    \n",
+    "</div>\n",
+    "</center>"
    ]
   },
   {
@@ -221,7 +223,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": 7,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2021-05-19T06:10:09.818954Z",
@@ -241,20 +243,6 @@
      "text": [
       "(21.712154435976014, 6.817293751703919)\n"
      ]
-    },
-    {
-     "data": {
-      "application/vnd.jupyter.widget-view+json": {
-       "model_id": "86591363597c43fcaf6342e80be6e113",
-       "version_major": 2,
-       "version_minor": 0
-      },
-      "text/plain": [
-       "NGLWidget()"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
     }
    ],
    "source": [
@@ -262,8 +250,32 @@
     "                      adk_closed,  # reference\n",
     "                      select='name CA', # selection to operate on\n",
     "                      match_atoms=True) # whether to match atoms\n",
-    "print(rmsds)\n",
-    "nv.show_mdanalysis(mda.Merge(adk_open.atoms, adk_closed.atoms))"
+    "print(rmsds)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [],
+   "source": [
+    "# aligned_view = nv.show_mdanalysis(mda.Merge(adk_open.atoms, adk_closed.atoms))\n",
+    "# aligned_view"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<center>\n",
+    "<div style='width: 800px'>\n",
+    "    \n",
+    "![aligned_view](images/aligning_structure_to_another-aligned_view.png)\n",
+    "    \n",
+    "</div>\n",
+    "</center>"
    ]
   },
   {
@@ -275,7 +287,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": 9,
    "metadata": {},
    "outputs": [
     {
@@ -284,20 +296,6 @@
      "text": [
       "(18.991465038265208, 16.603704620787127)\n"
      ]
-    },
-    {
-     "data": {
-      "application/vnd.jupyter.widget-view+json": {
-       "model_id": "56dd6be262e04ea3b0c61a52bee0d838",
-       "version_major": 2,
-       "version_minor": 0
-      },
-      "text/plain": [
-       "NGLWidget()"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
     }
    ],
    "source": [
@@ -305,8 +303,30 @@
     "                      adk_closed.atoms[:214],  # reference\n",
     "                      select='all', # selection to operate on\n",
     "                      match_atoms=False) # whether to match atoms\n",
-    "print(rmsds)\n",
-    "nv.show_mdanalysis(mda.Merge(adk_open.atoms, adk_closed.atoms))"
+    "print(rmsds)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# shifted_aligned_view = nv.show_mdanalysis(mda.Merge(adk_open.atoms, adk_closed.atoms))\n",
+    "# shifted_aligned_view"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<center>\n",
+    "<div style='width: 800px'>\n",
+    "    \n",
+    "![shifted_aligned_view](images/aligning_structure_to_another-shifted_aligned_view.png)\n",
+    "    \n",
+    "</div>\n",
+    "</center>"
    ]
   },
   {
@@ -318,7 +338,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 11,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2021-05-19T06:10:12.047089Z",
@@ -334,23 +354,41 @@
    "outputs": [
     {
      "data": {
-      "application/vnd.jupyter.widget-view+json": {
-       "model_id": "7d780e22381d4162a43381592b503d30",
-       "version_major": 2,
-       "version_minor": 0
-      },
       "text/plain": [
-       "NGLWidget()"
+       "< Timestep 101 >"
       ]
      },
+     "execution_count": 11,
      "metadata": {},
-     "output_type": "display_data"
+     "output_type": "execute_result"
     }
    ],
    "source": [
     "adk_open.trajectory[0] # set to first frame\n",
-    "adk_open.trajectory[-1] # set to last frame\n",
-    "nv.show_mdanalysis(mda.Merge(adk_open.atoms, adk_closed.atoms))"
+    "adk_open.trajectory[-1] # set to last frame"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# reset_view = nv.show_mdanalysis(mda.Merge(adk_open.atoms, adk_closed.atoms))\n",
+    "# reset_view"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<center>\n",
+    "<div style='width: 800px'>\n",
+    "    \n",
+    "![reset_view](images/aligning_structure_to_another-reset_view.png)\n",
+    "    \n",
+    "</div>\n",
+    "</center>"
    ]
   },
   {
@@ -362,7 +400,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
+   "execution_count": 13,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2021-05-19T06:10:13.318130Z",
@@ -375,26 +413,33 @@
      "shell.execute_reply": "2021-05-19T05:56:23.719656Z"
     }
    },
-   "outputs": [
-    {
-     "data": {
-      "application/vnd.jupyter.widget-view+json": {
-       "model_id": "84ddb608c52f4da48eed4dfeea95d80b",
-       "version_major": 2,
-       "version_minor": 0
-      },
-      "text/plain": [
-       "NGLWidget()"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    }
-   ],
+   "outputs": [],
    "source": [
     "align.alignto(adk_open, adk_closed, select='name CA')\n",
-    "adk_open.atoms.write('aligned.pdb')\n",
-    "nv.show_mdanalysis(mda.Universe('aligned.pdb'))"
+    "adk_open.atoms.write('aligned.pdb')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# from_file_view = nv.show_mdanalysis(mda.Universe('aligned.pdb'))\n",
+    "# from_file_view"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<center>\n",
+    "<div style='width: 800px'>\n",
+    "    \n",
+    "![from_file_view](images/aligning_structure_to_another-from_file_view.png)\n",
+    "    \n",
+    "</div>\n",
+    "</center>"
    ]
   },
   {

@@ -22,7 +22,7 @@ Although PDBQT is a similar file format to PDB, MDAnalysis treats them with seve
     * Connectivity is not supported (i.e. bonds are not read)
 
 .. _PDBQT:
-   http://autodock.scripps.edu/faqs-help/faq/what-is-the-format-of-a-pdbqt-file
+   https://autodock.scripps.edu/wp-content/uploads/sites/56/2021/10/AutoDock4.2.6_UserGuide.pdf
 .. _AutoDock:
    http://autodock.scripps.edu/
 

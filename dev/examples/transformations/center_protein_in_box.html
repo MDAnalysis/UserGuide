@@ -183,29 +183,24 @@
 <ul class="simple">
 <li><p>MDAnalysis (<span id="id1">[<a class="reference internal" href="../../references.html#id11" title="Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: http://doi.wiley.com/10.1002/jcc.21787 (visited on 2020-02-05), doi:10.1002/jcc.21787.">MADWB11</a>]</span>, <span id="id2">[<a class="reference internal" href="../../references.html#id3" title="Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html (visited on 2020-02-05), doi:10.25080/Majora-629e541a-00e.">GLB+16</a>]</span>)</p></li>
 <li><p>MDAnalysisTests</p></li>
-<li><p><a class="reference external" href="http://nglviewer.org/nglview/latest/">nglview</a> (<span id="id3">[<a class="reference internal" href="../../references.html#id15" title="Hai Nguyen, David A Case, and Alexander S Rose. NGLview–interactive molecular graphics for Jupyter notebooks. Bioinformatics, 34(7):1241–1242, April 2018. 00024. URL: https://academic.oup.com/bioinformatics/article/34/7/1241/4721781 (visited on 2020-02-05), doi:10.1093/bioinformatics/btx789.">NCR18</a>]</span>)</p></li>
 </ul>
+<p><strong>Optional packages for visualisation:</strong> * <a class="reference external" href="http://nglviewer.org/nglview/latest/">nglview</a> (<span id="id3">[<a class="reference internal" href="../../references.html#id15" title="Hai Nguyen, David A Case, and Alexander S Rose. NGLview–interactive molecular graphics for Jupyter notebooks. Bioinformatics, 34(7):1241–1242, April 2018. 00024. URL: https://academic.oup.com/bioinformatics/article/34/7/1241/4721781 (visited on 2020-02-05), doi:10.1093/bioinformatics/btx789.">NCR18</a>]</span>)</p>
+<p>Throughout this tutorial we will include cells for visualising Universes with the <a class="reference external" href="http://nglviewer.org/nglview/latest/api.html">NGLView</a> library. However, these will be commented out, and we will show the expected images generated instead of the interactive widgets.</p>
 <p><strong>See also:</strong></p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../../trajectories/transformations.html"><span class="doc">On-the-fly transformations</span></a></p></li>
 <li><p><a class="reference external" href="https://www.mdanalysis.org/2020/03/09/on-the-fly-transformations/">On-the-fly transformations (blog post)</a></p></li>
 </ul>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">TPR</span><span class="p">,</span> <span class="n">XTC</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">nglview</span> <span class="k">as</span> <span class="nn">nv</span>
+<span class="c1"># import nglview as nv</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "29a1a7dbf2a34943bda3330440924068", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <section id="Loading-files">
 <h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this heading"></a></h2>
@@ -223,22 +218,31 @@
 <section id="Before-transformation">
 <h2>Before transformation<a class="headerlink" href="#Before-transformation" title="Permalink to this heading"></a></h2>
 <p>If you have NGLView installed, you can view the trajectory as it currently is.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-<span class="n">view</span><span class="o">.</span><span class="n">add_representation</span><span class="p">(</span><span class="s1">&#39;point&#39;</span><span class="p">,</span> <span class="s1">&#39;resname SOL&#39;</span><span class="p">)</span>
-<span class="n">view</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
-<span class="n">view</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># view = nv.show_mdanalysis(u)</span>
+<span class="c1"># view.add_representation(&#39;point&#39;, &#39;resname SOL&#39;)</span>
+<span class="c1"># view.center()</span>
+<span class="c1"># view</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "23f4e172ca194ab58ffec75f1bcf6c21", "version_major": 2, "version_minor": 0}</script></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from nglview.contrib.movie import MovieMaker</span>
+<span class="c1"># movie = MovieMaker(</span>
+<span class="c1">#     view,</span>
+<span class="c1">#     step=2,</span>
+<span class="c1">#     render_params={&quot;factor&quot;: 2},  # average quality render</span>
+<span class="c1">#     output=&#39;original.gif&#39;,</span>
+<span class="c1"># )</span>
+<span class="c1"># movie.make()</span>
+</pre></div>
+</div>
 </div>
 <p>Otherwise, we embed a gif of it below.</p>
 <img alt="original" src="../../_images/original.gif" />
@@ -249,7 +253,7 @@
 <p>The first step is to “unwrap” the protein from the border of the box, to make the protein whole. MDAnalysis provides the <code class="docutils literal notranslate"><span class="pre">AtomGroup.unwrap</span></code> function to do this easily. Note that this function requires your universe to have bonds in it.</p>
 <p>We loop over the trajectory to unwrap for each frame.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">protein</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;protein&#39;</span><span class="p">)</span>
@@ -260,22 +264,16 @@
 </div>
 </div>
 <p>As you can see, the protein is now whole, but not centered.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unwrapped</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-<span class="n">unwrapped</span><span class="o">.</span><span class="n">add_representation</span><span class="p">(</span><span class="s1">&#39;point&#39;</span><span class="p">,</span> <span class="s1">&#39;resname SOL&#39;</span><span class="p">)</span>
-<span class="n">unwrapped</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
-<span class="n">unwrapped</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># unwrapped = nv.show_mdanalysis(u)</span>
+<span class="c1"># unwrapped.add_representation(&#39;point&#39;, &#39;resname SOL&#39;)</span>
+<span class="c1"># unwrapped.center()</span>
+<span class="c1"># unwrapped</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "09b8fd21398a4a758297867b52531e8f", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>Over the course of the trajectory it leaves the box.</p>
 <img alt="unwrapped" src="../../_images/unwrapped.gif" />
@@ -285,7 +283,7 @@
 <p>The next step is to center the protein in the box. We calculate the center-of-mass of the protein and the center of the box for each timestep. We then move <em>all</em> the atoms so that the protein center-of-mass is in the center of the box.</p>
 <p>If you don’t have masses in your trajectory, try using the <code class="docutils literal notranslate"><span class="pre">center_of_geometry</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">:</span>
@@ -297,22 +295,16 @@
 </div>
 </div>
 <p>The protein is now in the center of the box, but the solvent is likely outside it, as we have just moved all the atoms.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">centered</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-<span class="n">centered</span><span class="o">.</span><span class="n">add_representation</span><span class="p">(</span><span class="s1">&#39;point&#39;</span><span class="p">,</span> <span class="s1">&#39;resname SOL&#39;</span><span class="p">)</span>
-<span class="n">centered</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
-<span class="n">centered</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># centered = nv.show_mdanalysis(u)</span>
+<span class="c1"># centered.add_representation(&#39;point&#39;, &#39;resname SOL&#39;)</span>
+<span class="c1"># centered.center()</span>
+<span class="c1"># centered</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ff9772bf4a1348b38726612d3ceecd54", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <img alt="centered" src="../../_images/centered.gif" />
 </section>
@@ -320,7 +312,7 @@
 <h2>Wrapping the solvent back into the box<a class="headerlink" href="#Wrapping-the-solvent-back-into-the-box" title="Permalink to this heading"></a></h2>
 <p>Luckily, MDAnalysis also has <code class="docutils literal notranslate"><span class="pre">AtomGroup.wrap</span></code> to wrap molecules back into the box. Our trajectory has dimensions defined, which the function will find automatically. If your trajectory does not, or you wish to use a differently sized box, you can pass in a <code class="docutils literal notranslate"><span class="pre">box</span></code> with dimensions in the form <code class="docutils literal notranslate"><span class="pre">[lx,</span> <span class="pre">ly,</span> <span class="pre">lz,</span> <span class="pre">alpha,</span> <span class="pre">beta,</span> <span class="pre">gamma]</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">not_protein</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;not protein&#39;</span><span class="p">)</span>
@@ -331,22 +323,16 @@
 </div>
 </div>
 <p>And now it is centered!</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wrapped</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-<span class="n">wrapped</span><span class="o">.</span><span class="n">add_representation</span><span class="p">(</span><span class="s1">&#39;point&#39;</span><span class="p">,</span> <span class="s1">&#39;resname SOL&#39;</span><span class="p">)</span>
-<span class="n">wrapped</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
-<span class="n">wrapped</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># wrapped = nv.show_mdanalysis(u)</span>
+<span class="c1"># wrapped.add_representation(&#39;point&#39;, &#39;resname SOL&#39;)</span>
+<span class="c1"># wrapped.center()</span>
+<span class="c1"># wrapped</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "74de0471ca4f4f3d9ee3b30ebcb6e871", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <img alt="wrapped" src="../../_images/wrapped.gif" />
 </section>
@@ -355,7 +341,7 @@
 <p>Running all the transformations above can be difficult if your trajectory is large, or your computational resources are limited. Use on-the-fly transformations to keep your data out-of-memory.</p>
 <p>Some common transformations are defined in <code class="docutils literal notranslate"><span class="pre">MDAnalysis.transformations</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis.transformations</span> <span class="k">as</span> <span class="nn">trans</span>
@@ -364,7 +350,7 @@
 </div>
 <p>We re-load our universe.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u2</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">TPR</span><span class="p">,</span> <span class="n">XTC</span><span class="p">)</span>
@@ -376,7 +362,7 @@
 </div>
 <p>From version 1.0.0 onwards, the <code class="docutils literal notranslate"><span class="pre">MDAnalysis.transformations</span></code> module contains <code class="docutils literal notranslate"><span class="pre">wrap</span></code> and <code class="docutils literal notranslate"><span class="pre">unwrap</span></code> functions that correspond with the <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code> versions above. You can only use <code class="docutils literal notranslate"><span class="pre">add_transformations</span></code> <em>once</em>, so pass them all at the same time.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">transforms</span> <span class="o">=</span> <span class="p">[</span><span class="n">trans</span><span class="o">.</span><span class="n">unwrap</span><span class="p">(</span><span class="n">protein2</span><span class="p">),</span>
@@ -387,22 +373,16 @@
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">otf</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">u2</span><span class="p">)</span>
-<span class="n">otf</span><span class="o">.</span><span class="n">add_representation</span><span class="p">(</span><span class="s1">&#39;point&#39;</span><span class="p">,</span> <span class="s1">&#39;resname SOL&#39;</span><span class="p">)</span>
-<span class="n">otf</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
-<span class="n">otf</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># otf = nv.show_mdanalysis(u2)</span>
+<span class="c1"># otf.add_representation(&#39;point&#39;, &#39;resname SOL&#39;)</span>
+<span class="c1"># otf.center()</span>
+<span class="c1"># otf</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c8660d1904874d3b84edf997a672c35a", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <img alt="on the fly" src="../../_images/on_the_fly.gif" />
 </section>

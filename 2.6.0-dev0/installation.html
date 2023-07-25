@@ -182,16 +182,24 @@ down to the Tools for Visual Studio section).</p>
 ask for help on the <a class="reference external" href="https://groups.google.com/forum/#!forum/mdnalysis-discussion">user mailing list</a>.</p>
 <section id="conda">
 <h2>conda<a class="headerlink" href="#conda" title="Permalink to this heading"></a></h2>
+<p>If you use <code class="docutils literal notranslate"><span class="pre">conda</span></code> to manage your Python environment, we highly recommend creating a new environment for MDAnalysis.
+This will ensure that you have a clean installation of MDAnalysis and its dependencies, and will not interfere with other packages you may have installed.
+We further recommend that you install and use <code class="docutils literal notranslate"><span class="pre">mamba</span></code>, a faster drop-in replacement for <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>mdanalysis
+conda<span class="w"> </span>activate<span class="w"> </span>mdanalysis
+conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>mamba
+</pre></div>
+</div>
 <p>To install the latest stable version of MDAnalysis via <code class="docutils literal notranslate"><span class="pre">conda</span></code>, use the following command. This installs all dependencies needed for full analysis functionality (excluding external programs such as <a class="reference external" href="http://www.holeprogram.org">HOLE</a>):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>mdanalysis
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>mdanalysis
 </pre></div>
 </div>
 <p>To upgrade:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>update<span class="w"> </span>mdanalysis
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>update<span class="w"> </span>mdanalysis
 </pre></div>
 </div>
 <p>To install the tests:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>MDAnalysisTests
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>MDAnalysisTests
 </pre></div>
 </div>
 <p>If you intend to use MDAnalysis in JupyterLab, you will have to install

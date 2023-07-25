@@ -189,6 +189,7 @@
 <ul class="simple">
 <li><p><a class="reference external" href="http://nglviewer.org/nglview/latest">nglview</a> (<span id="id3">[<a class="reference internal" href="../../../references.html#id15" title="Hai Nguyen, David A Case, and Alexander S Rose. NGLview–interactive molecular graphics for Jupyter notebooks. Bioinformatics, 34(7):1241–1242, April 2018. 00024. URL: https://academic.oup.com/bioinformatics/article/34/7/1241/4721781 (visited on 2020-02-05), doi:10.1093/bioinformatics/btx789.">NCR18</a>]</span>)</p></li>
 </ul>
+<p>Throughout this tutorial we will include cells for visualising Universes with the <a class="reference external" href="http://nglviewer.org/nglview/latest/api.html">NGLView</a> library. However, these will be commented out, and we will show the expected images generated instead of the interactive widgets.</p>
 <p><strong>See also</strong></p>
 <ul class="simple">
 <li><p><a class="reference internal" href="aligning_trajectory.html"><span class="doc">Aligning a trajectory to a frame from another</span></a></p></li>
@@ -199,14 +200,14 @@
 <p class="admonition-title"><strong>Note</strong></p>
 <p>MDAnalysis implements RMSD calculation using the fast QCP algorithm (<span id="id4">[<a class="reference internal" href="../../../references.html#id10" title="Douglas L. Theobald. Rapid calculation of RMSDs using a quaternion-based characteristic polynomial. Acta Crystallographica Section A Foundations of Crystallography, 61(4):478–480, July 2005. 00127. URL: http://scripts.iucr.org/cgi-bin/paper?S0108767305015266 (visited on 2020-02-05), doi:10.1107/S0108767305015266.">The05</a>]</span>) and a rotation matrix <em>R</em> that minimises the RMSD (<span id="id5">[<a class="reference internal" href="../../../references.html#id12" title="Pu Liu, Dimitris K. Agrafiotis, and Douglas L. Theobald. Fast determination of the optimal rotational matrix for macromolecular superpositions. Journal of Computational Chemistry, pages n/a–n/a, 2009. URL: http://doi.wiley.com/10.1002/jcc.21439 (visited on 2020-02-05), doi:10.1002/jcc.21439.">LAT09</a>]</span>). Please cite (<span id="id6">[<a class="reference internal" href="../../../references.html#id10" title="Douglas L. Theobald. Rapid calculation of RMSDs using a quaternion-based characteristic polynomial. Acta Crystallographica Section A Foundations of Crystallography, 61(4):478–480, July 2005. 00127. URL: http://scripts.iucr.org/cgi-bin/paper?S0108767305015266 (visited on 2020-02-05), doi:10.1107/S0108767305015266.">The05</a>]</span>) and (<span id="id7">[<a class="reference internal" href="../../../references.html#id12" title="Pu Liu, Dimitris K. Agrafiotis, and Douglas L. Theobald. Fast determination of the optimal rotational matrix for macromolecular superpositions. Journal of Computational Chemistry, pages n/a–n/a, 2009. URL: http://doi.wiley.com/10.1002/jcc.21439 (visited on 2020-02-05), doi:10.1002/jcc.21439.">LAT09</a>]</span>) when using the <code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.align</span></code> module in published work.</p>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.analysis</span> <span class="kn">import</span> <span class="n">align</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">CRD</span><span class="p">,</span> <span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">,</span> <span class="n">DCD2</span>
-<span class="kn">import</span> <span class="nn">nglview</span> <span class="k">as</span> <span class="nn">nv</span>
+<span class="c1"># import nglview as nv</span>
 
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="c1"># suppress some MDAnalysis warnings about writing PDB files</span>
@@ -214,69 +215,65 @@
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "edb42f937d0a4cb1b25ef8ab7baafcac", "version_major": 2, "version_minor": 0}</script></div>
-</div>
 <section id="Loading-files">
 <h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this heading"></a></h2>
 <p>The test files we will be working with here are trajectories of a adenylate kinase (AdK), a phosophotransferase enzyme. (<span id="id8">[<a class="reference internal" href="../../../references.html#id14" title="Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164 (visited on 2020-02-05), doi:10.1016/j.jmb.2009.09.009.">BDPW09</a>]</span>) The trajectories sample a transition from a closed to an open conformation.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adk_open</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">CRD</span><span class="p">,</span> <span class="n">DCD2</span><span class="p">)</span>
-<span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">adk_open</span><span class="p">)</span>
+<span class="n">adk_closed</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c756b76ba69c4c5caae159a91ea98707", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adk_closed</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
-<span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">adk_closed</span><span class="o">.</span><span class="n">atoms</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># adk_open_view = nv.show_mdanalysis(adk_open)</span>
+<span class="c1"># adk_open_view</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "36fc747ff36841a082f14aba3bd03de0", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<p>Currently, the proteins are not aligned to each other. The difference becomes even more obvious when the closed conformation is compared to the open. Below, we set <code class="docutils literal notranslate"><span class="pre">adk_open</span></code> to the last frame and see the relative positions of each protein in a merged Universe.</p>
-<div class="nbinput docutils container">
+<center><div style="width: 800px"><img alt="adk_open_view" src="../../../_images/aligning_structure_to_another-adk_open_view.gif" />
+</div></center><div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># adk_closed_view = nv.show_mdanalysis(adk_closed)</span>
+<span class="c1"># adk_closed_view</span>
+</pre></div>
+</div>
+</div>
+<center><div style="width: 800px"><img alt="adk_closed_view" src="../../../_images/aligning_structure_to_another-adk_closed_view.gif" />
+</div></center><p>Currently, the proteins are not aligned to each other. The difference becomes even more obvious when the closed conformation is compared to the open. Below, we set <code class="docutils literal notranslate"><span class="pre">adk_open</span></code> to the last frame and see the relative positions of each protein in a merged Universe.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adk_open</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># last frame</span>
 <span class="n">merged</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Merge</span><span class="p">(</span><span class="n">adk_open</span><span class="o">.</span><span class="n">atoms</span><span class="p">,</span> <span class="n">adk_closed</span><span class="o">.</span><span class="n">atoms</span><span class="p">)</span>
-<span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">merged</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8ea5855d155a410098bba736b228afd6", "version_major": 2, "version_minor": 0}</script></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># merged_view = nv.show_mdanalysis(merged)</span>
+<span class="c1"># merged_view</span>
+</pre></div>
 </div>
-</section>
+</div>
+<center><div style="width: 800px"><img alt="merged_view" src="../../../_images/merged_view.png" />
+</div></center></section>
 <section id="Aligning-a-structure-with-align.alignto">
 <h2>Aligning a structure with align.alignto<a class="headerlink" href="#Aligning-a-structure-with-align.alignto" title="Permalink to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">alignto</span></code> (<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/align.html#MDAnalysis.analysis.align.alignto">API docs</a>) aligns the mobile AtomGroup to the target AtomGroup by minimising the <a class="reference internal" href="rmsd.html"><span class="doc">root mean square deviation (RMSD) between particle positions</span></a> (please see the linked notebook for an explanation of RMSD). It returns <em>(old_rmsd, new_rmsd)</em>. By default (<code class="docutils literal notranslate"><span class="pre">match_atoms=True</span></code>), it will attempt to match the atoms between the mobile and reference structures by
 mass.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rmsds</span> <span class="o">=</span> <span class="n">align</span><span class="o">.</span><span class="n">alignto</span><span class="p">(</span><span class="n">adk_open</span><span class="p">,</span>  <span class="c1"># mobile</span>
@@ -284,11 +281,10 @@ mass.</p>
                       <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span> <span class="c1"># selection to operate on</span>
                       <span class="n">match_atoms</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># whether to match atoms</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">rmsds</span><span class="p">)</span>
-<span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">mda</span><span class="o">.</span><span class="n">Merge</span><span class="p">(</span><span class="n">adk_open</span><span class="o">.</span><span class="n">atoms</span><span class="p">,</span> <span class="n">adk_closed</span><span class="o">.</span><span class="n">atoms</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
@@ -296,15 +292,19 @@ mass.</p>
 (21.712154435976014, 6.817293751703919)
 </pre></div></div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "86591363597c43fcaf6342e80be6e113", "version_major": 2, "version_minor": 0}</script></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># aligned_view = nv.show_mdanalysis(mda.Merge(adk_open.atoms, adk_closed.atoms))</span>
+<span class="c1"># aligned_view</span>
+</pre></div>
 </div>
-<p>However, you may want to align to a structure that where there is not a clear match in particle mass. For example, you could be aligning the alpha-carbons of an atomistic protein to the backbone beads of a coarse-grained structure. Below, we use the somewhat contrived example of aligning 214 alpha-carbons to the first 214 atoms of the reference structure. In this case, we need to switch <code class="docutils literal notranslate"><span class="pre">match_atoms=False</span></code> or the alignment will error.</p>
+</div>
+<center><div style="width: 800px"><img alt="aligned_view" src="../../../_images/aligning_structure_to_another-aligned_view.png" />
+</div></center><p>However, you may want to align to a structure that where there is not a clear match in particle mass. For example, you could be aligning the alpha-carbons of an atomistic protein to the backbone beads of a coarse-grained structure. Below, we use the somewhat contrived example of aligning 214 alpha-carbons to the first 214 atoms of the reference structure. In this case, we need to switch <code class="docutils literal notranslate"><span class="pre">match_atoms=False</span></code> or the alignment will error.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rmsds</span> <span class="o">=</span> <span class="n">align</span><span class="o">.</span><span class="n">alignto</span><span class="p">(</span><span class="n">adk_open</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;name CA&#39;</span><span class="p">),</span>  <span class="c1"># mobile</span>
@@ -312,11 +312,10 @@ mass.</p>
                       <span class="n">select</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="c1"># selection to operate on</span>
                       <span class="n">match_atoms</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># whether to match atoms</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">rmsds</span><span class="p">)</span>
-<span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">mda</span><span class="o">.</span><span class="n">Merge</span><span class="p">(</span><span class="n">adk_open</span><span class="o">.</span><span class="n">atoms</span><span class="p">,</span> <span class="n">adk_closed</span><span class="o">.</span><span class="n">atoms</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
@@ -324,47 +323,66 @@ mass.</p>
 (18.991465038265208, 16.603704620787127)
 </pre></div></div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "56dd6be262e04ea3b0c61a52bee0d838", "version_major": 2, "version_minor": 0}</script></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># shifted_aligned_view = nv.show_mdanalysis(mda.Merge(adk_open.atoms, adk_closed.atoms))</span>
+<span class="c1"># shifted_aligned_view</span>
+</pre></div>
 </div>
-<p>When we align structures, positions are set temporarily. If we flip to the first frame of <code class="docutils literal notranslate"><span class="pre">adk_open</span></code> and back to the last frame, we can see that it has returned to its original location.</p>
+</div>
+<center><div style="width: 800px"><img alt="shifted_aligned_view" src="../../../_images/aligning_structure_to_another-shifted_aligned_view.png" />
+</div></center><p>When we align structures, positions are set temporarily. If we flip to the first frame of <code class="docutils literal notranslate"><span class="pre">adk_open</span></code> and back to the last frame, we can see that it has returned to its original location.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adk_open</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># set to first frame</span>
 <span class="n">adk_open</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># set to last frame</span>
-<span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">mda</span><span class="o">.</span><span class="n">Merge</span><span class="p">(</span><span class="n">adk_open</span><span class="o">.</span><span class="n">atoms</span><span class="p">,</span> <span class="n">adk_closed</span><span class="o">.</span><span class="n">atoms</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "7d780e22381d4162a43381592b503d30", "version_major": 2, "version_minor": 0}</script></div>
+<div class="highlight"><pre>
+&lt; Timestep 101 &gt;
+</pre></div></div>
 </div>
-<p>You can save the aligned positions by writing them out to a PDB file and creating a new Universe.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># reset_view = nv.show_mdanalysis(mda.Merge(adk_open.atoms, adk_closed.atoms))</span>
+<span class="c1"># reset_view</span>
+</pre></div>
+</div>
+</div>
+<center><div style="width: 800px"><img alt="reset_view" src="../../../_images/aligning_structure_to_another-reset_view.png" />
+</div></center><p>You can save the aligned positions by writing them out to a PDB file and creating a new Universe.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">align</span><span class="o">.</span><span class="n">alignto</span><span class="p">(</span><span class="n">adk_open</span><span class="p">,</span> <span class="n">adk_closed</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>
 <span class="n">adk_open</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;aligned.pdb&#39;</span><span class="p">)</span>
-<span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="s1">&#39;aligned.pdb&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "84ddb608c52f4da48eed4dfeea95d80b", "version_major": 2, "version_minor": 0}</script></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from_file_view = nv.show_mdanalysis(mda.Universe(&#39;aligned.pdb&#39;))</span>
+<span class="c1"># from_file_view</span>
+</pre></div>
 </div>
-</section>
+</div>
+<center><div style="width: 800px"><img alt="from_file_view" src="../../../_images/aligning_structure_to_another-from_file_view.png" />
+</div></center></section>
 <section id="References">
 <h2>References<a class="headerlink" href="#References" title="Permalink to this heading"></a></h2>
 <p>[1] Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164">https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164</a>, doi:10.1016/j.jmb.2009.09.009.</p>

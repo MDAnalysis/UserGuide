@@ -191,15 +191,16 @@
 <li><p>MDAnalysisTests</p></li>
 <li><p><a class="reference external" href="https://matplotlib.org">matplotlib</a></p></li>
 <li><p><a class="reference external" href="https://pandas.pydata.org">pandas</a></p></li>
-<li><p><a class="reference external" href="http://nglviewer.org/nglview/latest/api.html">nglview</a></p></li>
 </ul>
+<p><strong>Optional packages for molecular visualisation:</strong> * <a class="reference external" href="http://nglviewer.org/nglview/latest/api.html">nglview</a></p>
+<p>Throughout this tutorial we will include cells for visualising Universes with the <a class="reference external" href="http://nglviewer.org/nglview/latest/api.html">NGLView</a> library. However, these will be commented out, and we will show the expected images generated instead of the interactive widgets.</p>
 <p><strong>See also</strong></p>
 <ul class="simple">
 <li><p><a class="reference internal" href="contacts_within_cutoff.html"><span class="doc">Contact analysis: number of contacts within a cutoff</span></a> (all contacts within a cutoff)</p></li>
 <li><p><a class="reference internal" href="contacts_custom.html"><span class="doc">Write your own contacts analysis method</span></a></p></li>
 <li><p><a class="reference internal" href="contacts_q1q2.html"><span class="doc">Q1 vs Q2 contact analysis</span></a></p></li>
 </ul>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
@@ -207,19 +208,13 @@
 <span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.analysis</span> <span class="kn">import</span> <span class="n">contacts</span>
 
-<span class="kn">import</span> <span class="nn">nglview</span> <span class="k">as</span> <span class="nn">nv</span>
+<span class="c1"># import nglview as nv</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "0f29529b127f438594a40447609c8be4", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <section id="Loading-files">
 <h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this heading"></a></h2>
@@ -237,7 +232,7 @@
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/home/pbarletta/mambaforge/envs/guide/lib/python3.9/site-packages/MDAnalysis/coordinates/DCD.py:165: DeprecationWarning: DCDReader currently makes independent timesteps by copying self.ts while other readers update self.ts inplace. This behavior will be changed in 3.0 to be the same as other readers. Read more at https://github.com/MDAnalysis/mdanalysis/issues/3889 to learn if this change in behavior might affect you.
+/Users/lily/pydev/mdanalysis/package/MDAnalysis/coordinates/DCD.py:165: DeprecationWarning: DCDReader currently makes independent timesteps by copying self.ts while other readers update self.ts inplace. This behavior will be changed in 3.0 to be the same as other readers. Read more at https://github.com/MDAnalysis/mdanalysis/issues/3889 to learn if this change in behavior might affect you.
   warnings.warn(&#34;DCDReader currently makes independent timesteps&#34;
 </pre></div></div>
 </div>
@@ -411,28 +406,20 @@ There are 69 contacts in the reference.
 <p>You can plot directly from the dataframe, or use other tools such as <a class="reference external" href="https://seaborn.pydata.org/">seaborn</a>. In this trajectory, the fraction of native contats drops immediately to under 50%, and fluctuates around 40% for the rest of the simulation. This means that the protein retains a structure where around 40% salt bridges in the reference remain within the distance of the reference. However, it is difficult to infer information on domain rearrangements and other large-scale movement,
 other than that the the protein never returns to a similar state as the initial frame.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ca1_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Frame&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Fraction of contacts&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Text(0, 0.5, &#39;Fraction of contacts&#39;)
-</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_distances_and_contacts_contacts_native_fraction_20_1.png" src="../../../_images/examples_analysis_distances_and_contacts_contacts_native_fraction_20_1.png" />
+<img alt="../../../_images/examples_analysis_distances_and_contacts_contacts_native_fraction_20_0.png" src="../../../_images/examples_analysis_distances_and_contacts_contacts_native_fraction_20_0.png" />
 </div>
 </div>
 </section>
@@ -465,23 +452,15 @@ the native contacts in the reference frame were closer than 4.5 Å. Moreover, th
                       <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Frame&#39;</span><span class="p">,</span> <span class="s1">&#39;Contacts from first frame&#39;</span><span class="p">])</span>
 <span class="n">ca2_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Frame&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Fraction of contacts&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Text(0, 0.5, &#39;Fraction of contacts&#39;)
-</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_distances_and_contacts_contacts_native_fraction_24_1.png" src="../../../_images/examples_analysis_distances_and_contacts_contacts_native_fraction_24_1.png" />
+<img alt="../../../_images/examples_analysis_distances_and_contacts_contacts_native_fraction_24_0.png" src="../../../_images/examples_analysis_distances_and_contacts_contacts_native_fraction_24_0.png" />
 </div>
 </div>
 </section>
@@ -510,7 +489,7 @@ atomgroups from <code class="docutils literal notranslate"><span class="pre">ref
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/home/pbarletta/mambaforge/envs/guide/lib/python3.9/site-packages/MDAnalysis/coordinates/DCD.py:165: DeprecationWarning: DCDReader currently makes independent timesteps by copying self.ts while other readers update self.ts inplace. This behavior will be changed in 3.0 to be the same as other readers. Read more at https://github.com/MDAnalysis/mdanalysis/issues/3889 to learn if this change in behavior might affect you.
+/Users/lily/pydev/mdanalysis/package/MDAnalysis/coordinates/DCD.py:165: DeprecationWarning: DCDReader currently makes independent timesteps by copying self.ts while other readers update self.ts inplace. This behavior will be changed in 3.0 to be the same as other readers. Read more at https://github.com/MDAnalysis/mdanalysis/issues/3889 to learn if this change in behavior might affect you.
   warnings.warn(&#34;DCDReader currently makes independent timesteps&#34;
 </pre></div></div>
 </div>
@@ -622,86 +601,76 @@ simultaneously.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ca3_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Frame&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;AxesSubplot: xlabel=&#39;Frame&#39;&gt;
-</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_distances_and_contacts_contacts_native_fraction_34_1.png" src="../../../_images/examples_analysis_distances_and_contacts_contacts_native_fraction_34_1.png" />
+<img alt="../../../_images/examples_analysis_distances_and_contacts_contacts_native_fraction_34_0.png" src="../../../_images/examples_analysis_distances_and_contacts_contacts_native_fraction_34_0.png" />
 </div>
 </div>
 <p>Indeed, viewing the trajectory shows us that the enzyme transitions from a closed to open state.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># set trajectory to first frame (closed)</span>
 <span class="c1"># make a new Universe with coordinates of first frame</span>
 <span class="n">adk_closed</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Merge</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">)</span><span class="o">.</span><span class="n">load_new</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span><span class="p">)</span>
-<span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">adk_closed</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ec0e5aa37d3e49d7a33b318611acf6eb", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># adk_closed_view = nv.show_mdanalysis(adk_closed)</span>
+<span class="c1"># adk_closed_view</span>
+</pre></div>
+</div>
+</div>
+<center><div style="width: 800px"><img alt="adk_closed_view" src="../../../_images/contacts_native_fraction-adk_closed_view.png" />
+</div></center><div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># set trajectory to last frame (open)</span>
 <span class="c1"># make a new Universe with coordinates of last frame</span>
 <span class="n">adk_open</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Merge</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">)</span><span class="o">.</span><span class="n">load_new</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span><span class="p">)</span>
-<span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">adk_open</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "dc6b26a72c6d40c1ab5217c2e70d3ab3", "version_major": 2, "version_minor": 0}</script></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># adk_open_view = nv.show_mdanalysis(adk_open)</span>
+<span class="c1"># adk_open_view</span>
+</pre></div>
 </div>
-<p>We can also plot the fraction of salt bridges from the first frame, over the fraction from the last frame, as a way to characterise the transition of the protein from closed to open.</p>
+</div>
+<center><div style="width: 800px"><img alt="adk_open_view" src="../../../_images/contacts_native_fraction-adk_open_view.png" />
+</div></center><p>We can also plot the fraction of salt bridges from the first frame, over the fraction from the last frame, as a way to characterise the transition of the protein from closed to open.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ca3_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Contacts from first frame&#39;</span><span class="p">,</span>
             <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Contacts from last frame&#39;</span><span class="p">,</span>
             <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Contacts from last frame&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Text(0, 0.5, &#39;Contacts from last frame&#39;)
-</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_distances_and_contacts_contacts_native_fraction_39_1.png" src="../../../_images/examples_analysis_distances_and_contacts_contacts_native_fraction_39_1.png" />
+<img alt="../../../_images/examples_analysis_distances_and_contacts_contacts_native_fraction_43_0.png" src="../../../_images/examples_analysis_distances_and_contacts_contacts_native_fraction_43_0.png" />
 </div>
 </div>
 </section>

@@ -189,11 +189,12 @@
 <li><p><a class="reference external" href="https://matplotlib.org">matplotlib</a></p></li>
 <li><p><a class="reference external" href="http://nglviewer.org/nglview/latest/">nglview</a></p></li>
 </ul>
+<p>Throughout this tutorial we will include cells for visualising Universes with the <a class="reference external" href="http://nglviewer.org/nglview/latest/api.html">NGLView</a> library. However, these will be commented out, and we will show the expected images generated instead of the interactive widgets.</p>
 <div class="admonition note">
 <p class="admonition-title"><strong>Note</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.helix_analysis.HELANAL</span></code> implements the HELANAL algorithm from <span id="id3">[<a class="reference internal" href="../../../references.html#id4" title="M. Bansal, S. Kumar, and R. Velavan. HELANAL: a program to characterize helix geometry in proteins. Journal of Biomolecular Structure &amp; Dynamics, 17(5):811–819, April 2000. 00175. doi:10.1080/07391102.2000.10506570.">BKV00</a>]</span>, which itself uses the method of <span id="id4">[<a class="reference internal" href="../../../references.html#id36" title="Hiromu Sugeta and Tatsuo Miyazawa. General method for calculating helical parameters of polymer chains from bond lengths, bond angles, and internal-rotation angles. Biopolymers, 5(7):673-679, 1967. URL: https://onlinelibrary.wiley.com/doi/abs/10.1002/bip.1967.360050708, arXiv:https://onlinelibrary.wiley.com/doi/pdf/10.1002/bip.1967.360050708, doi:https://doi.org/10.1002/bip.1967.360050708.">SM67</a>]</span> to characterise each local axis. Please cite them when using this module in published work.</p>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
@@ -201,16 +202,10 @@
 <span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.analysis</span> <span class="kn">import</span> <span class="n">helix_analysis</span> <span class="k">as</span> <span class="n">hel</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">nglview</span> <span class="k">as</span> <span class="nn">nv</span>
+<span class="c1"># import nglview as nv</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f04d29da075040a896a880c5b38c30cf", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <section id="Loading-files">
 <h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this heading"></a></h2>
@@ -228,7 +223,7 @@
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/home/pbarletta/mambaforge/envs/guide/lib/python3.9/site-packages/MDAnalysis/coordinates/DCD.py:165: DeprecationWarning: DCDReader currently makes independent timesteps by copying self.ts while other readers update self.ts inplace. This behavior will be changed in 3.0 to be the same as other readers. Read more at https://github.com/MDAnalysis/mdanalysis/issues/3889 to learn if this change in behavior might affect you.
+/Users/lily/pydev/mdanalysis/package/MDAnalysis/coordinates/DCD.py:165: DeprecationWarning: DCDReader currently makes independent timesteps by copying self.ts while other readers update self.ts inplace. This behavior will be changed in 3.0 to be the same as other readers. Read more at https://github.com/MDAnalysis/mdanalysis/issues/3889 to learn if this change in behavior might affect you.
   warnings.warn(&#34;DCDReader currently makes independent timesteps&#34;
 </pre></div></div>
 </div>
@@ -327,23 +322,15 @@ abs_dev: 1.715
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">local_twists</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frame&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average twist (degrees)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Text(0, 0.5, &#39;Average twist (degrees)&#39;)
-</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/examples_analysis_structure_helanal_13_1.png" src="../../../_images/examples_analysis_structure_helanal_13_1.png" />
+<img alt="../../../_images/examples_analysis_structure_helanal_13_0.png" src="../../../_images/examples_analysis_structure_helanal_13_0.png" />
 </div>
 </div>
 <p>You can also create a Universe from the <code class="docutils literal notranslate"><span class="pre">local_origins</span></code> if you would like to save it as a file and visualise it in programs such as VMD.</p>
@@ -355,23 +342,34 @@ Text(0, 0.5, &#39;Average twist (degrees)&#39;)
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">atomgroups</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">view</span><span class="o">.</span><span class="n">add_trajectory</span><span class="p">(</span><span class="n">origins</span><span class="p">)</span>
-<span class="n">view</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># view = nv.show_mdanalysis(h.atomgroups[0])</span>
+<span class="c1"># view.add_trajectory(origins)</span>
+<span class="c1"># view</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<p>Below we use NGLView to create a representative GIF.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a4a1e2c3bd204c9f826ae4ca03fa7a6a", "version_major": 2, "version_minor": 0}</script></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from nglview.contrib.movie import MovieMaker</span>
+<span class="c1"># movie = MovieMaker(</span>
+<span class="c1">#     view,</span>
+<span class="c1">#     step=4,  # keep every 4th step</span>
+<span class="c1">#     render_params={&quot;factor&quot;: 3},  # controls quality</span>
+<span class="c1">#     output=&#39;helanal_images/helanal-view.gif&#39;,</span>
+<span class="c1"># )</span>
+<span class="c1"># movie.make()</span>
+</pre></div>
 </div>
-</section>
+</div>
+<center><div style="width: 800px"><img alt="helanal gif" src="../../../_images/helanal-view.gif" />
+</div></center></section>
 </section>
 <section id="References">
 <h2>References<a class="headerlink" href="#References" title="Permalink to this heading"></a></h2>

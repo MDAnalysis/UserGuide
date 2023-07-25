@@ -186,13 +186,13 @@
 <li><p>merge this with a protein Universe loaded from a file</p></li>
 <li><p>create custom segments labeling protein domains</p></li>
 </ul>
+<p>Throughout this tutorial we will include cells for visualising Universes with the <a class="reference external" href="http://nglviewer.org/nglview/latest/api.html">NGLView</a> library. However, these will be commented out, and we will show the expected images generated instead of the interactive widgets.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PDB_small</span>
-<span class="kn">import</span> <span class="nn">nglview</span> <span class="k">as</span> <span class="nn">nv</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">Image</span>
 
@@ -201,6 +201,9 @@
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using MDAnalysis version&quot;</span><span class="p">,</span> <span class="n">mda</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+
+<span class="c1"># Optionally, use NGLView to interactively view your trajectory</span>
+<span class="kn">import</span> <span class="nn">nglview</span> <span class="k">as</span> <span class="nn">nv</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using NGLView version&quot;</span><span class="p">,</span> <span class="n">nv</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -209,14 +212,21 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "93c9e88da34c49518a7f4b2166fe9526", "version_major": 2, "version_minor": 0}</script></div>
+<div class="highlight"><pre>
+Using MDAnalysis version 2.6.0-dev0
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "1177615fa88e496c827928276bc1fc63", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Using MDAnalysis version 2.5.0-dev0
 Using NGLView version 3.0.3
 </pre></div></div>
 </div>
@@ -443,24 +453,19 @@ array([&#39;SOL&#39;, &#39;SOL&#39;, &#39;SOL&#39;, ..., &#39;SOL&#39;, &#39;SOL
 </div>
 </div>
 <p>We can view the atoms with NGLView, a library for visualising molecules. It guesses bonds based on distance.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol_view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
-<span class="n">sol_view</span><span class="o">.</span><span class="n">add_representation</span><span class="p">(</span><span class="s1">&#39;ball+stick&#39;</span><span class="p">,</span> <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
-<span class="n">sol_view</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
-<span class="n">sol_view</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sol_view = nv.show_mdanalysis(sol)</span>
+<span class="c1"># sol_view.add_representation(&#39;ball+stick&#39;, selection=&#39;all&#39;)</span>
+<span class="c1"># sol_view.center()</span>
+<span class="c1"># sol_view</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "cebeb36b9cc64e4c993a2ca9871866ac", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-</section>
+<center><div style="width:800px; text-align:center;"><img alt="sol_view" src="../_images/constructing-universe_sol-view.png" />
+</div></center></section>
 <section id="Adding-bonds">
 <h3>Adding bonds<a class="headerlink" href="#Adding-bonds" title="Permalink to this heading"></a></h3>
 <p>Currently, the <code class="docutils literal notranslate"><span class="pre">sol</span></code> universe doesn’t contain any bonds.</p>
@@ -546,24 +551,27 @@ array([&#39;SOL&#39;, &#39;SOL&#39;, &#39;SOL&#39;, ..., &#39;SOL&#39;, &#39;SOL
 <h2>Merging with a protein<a class="headerlink" href="#Merging-with-a-protein" title="Permalink to this heading"></a></h2>
 <p>Now we can merge the water with a protein to create a combined system by using <code class="docutils literal notranslate"><span class="pre">MDAnalysis.Merge</span></code> to combine AtomGroup instances.</p>
 <p>The protein is adenylate kinase (AdK), a phosphotransferase enzyme. <a class="reference internal" href="#References"><span class="std std-ref">[1]</span></a></p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">protein</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PDB_small</span><span class="p">)</span>
-<span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">protein</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "aad8a309e9c6407f95d97840e8a56f72", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<p>We will translate the centers of both systems to the origin, so they can overlap in space.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># protein_view = nv.show_mdanalysis(protein)</span>
+<span class="c1"># protein_view</span>
+</pre></div>
+</div>
+</div>
+<center><div style="width:800px; text-align:center;"><img alt="protein_view" src="../_images/constructing-universe_protein-view.png" />
+</div></center><p>We will translate the centers of both systems to the origin, so they can overlap in space.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cog</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">center_of_geometry</span><span class="p">()</span>
@@ -584,7 +592,7 @@ New solvent center of geometry:  [ 2.78155009e-07 -1.27156576e-07  3.97364299e-0
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cog</span> <span class="o">=</span> <span class="n">protein</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">center_of_geometry</span><span class="p">()</span>
@@ -604,26 +612,28 @@ Original solvent center of geometry:  [-3.66508082  9.60502842 14.33355791]
 New solvent center of geometry:  [8.30580288e-08 3.49225059e-08 2.51332265e-08]
 </pre></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">combined</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Merge</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">atoms</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">atoms</span><span class="p">)</span>
-<span class="n">combined_view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">combined</span><span class="p">)</span>
-<span class="n">combined_view</span><span class="o">.</span><span class="n">add_representation</span><span class="p">(</span><span class="s2">&quot;ball+stick&quot;</span><span class="p">,</span> <span class="n">selection</span><span class="o">=</span><span class="s2">&quot;not protein&quot;</span><span class="p">)</span>
-<span class="n">combined_view</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c6c839ab9b604afa94a88d3e876a9141", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<p>Unfortunately, some water molecules overlap with the protein. We can create a new AtomGroup containing only the molecules where every atom is further away than 6 angstroms from the protein.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># combined_view = nv.show_mdanalysis(combined)</span>
+<span class="c1"># combined_view.add_representation(&quot;ball+stick&quot;, selection=&quot;not protein&quot;)</span>
+<span class="c1"># combined_view</span>
+</pre></div>
+</div>
+</div>
+<center><div style="width:800px; text-align:center;"><img alt="combined_view" src="../_images/constructing-universe_combined-view.png" />
+</div></center><p>Unfortunately, some water molecules overlap with the protein. We can create a new AtomGroup containing only the molecules where every atom is further away than 6 angstroms from the protein.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">no_overlap</span> <span class="o">=</span> <span class="n">combined</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;same resid as (not around 6 protein)&quot;</span><span class="p">)</span>
@@ -631,36 +641,38 @@ New solvent center of geometry:  [8.30580288e-08 3.49225059e-08 2.51332265e-08]
 </div>
 </div>
 <p>With this AtomGroup, we can then construct a new Universe.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Merge</span><span class="p">(</span><span class="n">no_overlap</span><span class="p">)</span>
-<span class="n">view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-<span class="n">view</span><span class="o">.</span><span class="n">add_representation</span><span class="p">(</span><span class="s2">&quot;ball+stick&quot;</span><span class="p">,</span> <span class="n">selection</span><span class="o">=</span><span class="s2">&quot;not protein&quot;</span><span class="p">)</span>
-<span class="n">view</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8c94db97a1b44955bc4e253ebc275fdb", "version_major": 2, "version_minor": 0}</script></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># no_overlap_view = nv.show_mdanalysis(u)</span>
+<span class="c1"># no_overlap_view.add_representation(&quot;ball+stick&quot;, selection=&quot;not protein&quot;)</span>
+<span class="c1"># no_overlap_view</span>
+</pre></div>
 </div>
-</section>
+</div>
+<center><div style="width:800px; text-align:center;"><img alt="no_overlap_view" src="../_images/constructing-universe_no-overlap-view.png" />
+</div></center></section>
 <section id="Adding-a-new-segment">
 <h2>Adding a new segment<a class="headerlink" href="#Adding-a-new-segment" title="Permalink to this heading"></a></h2>
-<p>Often you may want to assign atoms to a segment or chain – for example, adding chain IDs to a PDB file. This requires adding a new Segment with <code class="docutils literal notranslate"><span class="pre">Universe.add_Segment</span></code>.</p>
+<p>Often you may want to assign atoms to a segment or chain – for example, adding segment IDs to a PDB file. This requires adding a new Segment with <code class="docutils literal notranslate"><span class="pre">Universe.add_Segment</span></code>.</p>
 <p>Adenylate kinase has three domains: CORE, NMP, and LID. As shown in the picture below,<a class="reference internal" href="#References"><span class="std std-ref">[1]</span></a> these have the residues:</p>
 <ul class="simple">
 <li><p>CORE: residues 1-29, 60-121, 160-214 (gray)</p></li>
 <li><p>NMP: residues 30-59 (blue)</p></li>
 <li><p>LID: residues 122-159 (yellow)</p></li>
 </ul>
-<p><img alt="d03409c476b246eeb30ba3f8766d55df" src="https://github.com/MDAnalysis/MDAnalysisTutorial/blob/master/doc/sphinx/figs/angle_defs.png?raw=true" /></p>
+<p><img alt="99688fca4cab425494922e5e24edda58" src="https://github.com/MDAnalysis/MDAnalysisTutorial/blob/master/doc/sphinx/figs/angle_defs.png?raw=true" /></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="o">.</span><span class="n">segments</span><span class="o">.</span><span class="n">segids</span>
@@ -668,7 +680,7 @@ New solvent center of geometry:  [8.30580288e-08 3.49225059e-08 2.51332265e-08]
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -679,7 +691,7 @@ array([&#39;4AKE&#39;, &#39;SOL&#39;], dtype=object)
 <p>On examining the Universe, we can see that the protein and solvent are already divided into two segments: protein (‘4AKE’) and solvent (‘SOL’). We will add three more segments (CORE, NMP, and LID) and assign atoms to them.</p>
 <p>First, add a Segment to the Universe with a <code class="docutils literal notranslate"><span class="pre">segid</span></code>. It will be empty:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">core_segment</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">add_Segment</span><span class="p">(</span><span class="n">segid</span><span class="o">=</span><span class="s1">&#39;CORE&#39;</span><span class="p">)</span>
@@ -688,7 +700,7 @@ array([&#39;4AKE&#39;, &#39;SOL&#39;], dtype=object)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -698,7 +710,7 @@ array([&#39;4AKE&#39;, &#39;SOL&#39;], dtype=object)
 </div>
 <p>Residues can’t be broken across segments. To put atoms in a segment, assign the segments attribute of their residues:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">core_atoms</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;resid 1:29 or resid 60:121 or resid 160-214&#39;</span><span class="p">)</span>
@@ -708,7 +720,7 @@ array([&#39;4AKE&#39;, &#39;SOL&#39;], dtype=object)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -717,7 +729,7 @@ array([&#39;4AKE&#39;, &#39;SOL&#39;], dtype=object)
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nmp_segment</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">add_Segment</span><span class="p">(</span><span class="n">segid</span><span class="o">=</span><span class="s1">&#39;NMP&#39;</span><span class="p">)</span>
@@ -731,29 +743,37 @@ array([&#39;4AKE&#39;, &#39;SOL&#39;], dtype=object)
 </pre></div>
 </div>
 </div>
-<p>We can check that we have the correct domains by visualising the protein. NGLView handles molecular structure by converting the MDAnalysis atoms into a PDB, where the chainID of each atom is the first letter of the segment that it belongs to.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<p>As of MDAnalysis 2.1.0, PDBs use the <code class="docutils literal notranslate"><span class="pre">chainID</span></code> <code class="docutils literal notranslate"><span class="pre">TopologyAttr</span></code> for the <code class="docutils literal notranslate"><span class="pre">chainID</span></code> column. If it is missing, it uses a placeholder “X” value instead of the <code class="docutils literal notranslate"><span class="pre">segid</span></code>. We therefore must manually set that ourselves to visualise the protein in NGLView.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">domain_view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-<span class="n">domain_view</span><span class="o">.</span><span class="n">color_by</span><span class="p">(</span><span class="s1">&#39;chainID&#39;</span><span class="p">)</span>
-<span class="n">domain_view</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add the topologyattr to the universe</span>
+<span class="n">u</span><span class="o">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s2">&quot;chainID&quot;</span><span class="p">)</span>
+<span class="n">core_segment</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">chainIDs</span> <span class="o">=</span> <span class="s2">&quot;C&quot;</span>
+<span class="n">nmp_segment</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">chainIDs</span> <span class="o">=</span> <span class="s2">&quot;N&quot;</span>
+<span class="n">lid_segment</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">chainIDs</span> <span class="o">=</span> <span class="s2">&quot;L&quot;</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<p>We can check that we have the correct domains by visualising the protein.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c53cdf006a814613a5047e463424b803", "version_major": 2, "version_minor": 0}</script></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># domain_view = nv.show_mdanalysis(u)</span>
+<span class="c1"># domain_view.add_representation(&quot;protein&quot;, color_scheme=&quot;chainID&quot;)</span>
+<span class="c1"># domain_view</span>
+</pre></div>
 </div>
-</section>
+</div>
+<center><div style="width:800px; text-align:center;"><img alt="no_overlap_view" src="../_images/constructing-universe_domain-view.png" />
+</div></center></section>
 <section id="Tiling-into-a-larger-Universe">
 <h2>Tiling into a larger Universe<a class="headerlink" href="#Tiling-into-a-larger-Universe" title="Permalink to this heading"></a></h2>
 <p>We can use MDAnalysis to tile out a smaller Universe into a bigger one, similarly to <code class="docutils literal notranslate"><span class="pre">editconf</span></code> in GROMACS. To start off, we need to figure out the box size. The default in MDAnalysis is a zero vector. The first three numbers represent the length of each axis, and the last three represent the alpha, beta, and gamma angles of a triclinic box.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">dimensions</span><span class="p">)</span>
@@ -770,7 +790,7 @@ None
 </div>
 <p>We know that our system is cubic in shape, so we can assume angles of 90°. The difference between the lowest and highest x-axis positions is roughly 73 Angstroms.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">max</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="nb">min</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
@@ -778,7 +798,7 @@ None
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -788,7 +808,7 @@ None
 </div>
 <p>So we can set our dimensions.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="o">.</span><span class="n">dimensions</span> <span class="o">=</span> <span class="p">[</span><span class="mi">73</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
@@ -797,7 +817,7 @@ None
 </div>
 <p>To tile out a Universe, we need to copy it and translate the atoms by the box dimensions. We can then merge the cells into one large Universe and assign new dimensions.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tile_universe</span><span class="p">(</span><span class="n">universe</span><span class="p">,</span> <span class="n">n_x</span><span class="p">,</span> <span class="n">n_y</span><span class="p">,</span> <span class="n">n_z</span><span class="p">):</span>
@@ -819,22 +839,25 @@ None
 </div>
 </div>
 <p>Here is a 2 x 2 x 2 version of our original unit cell:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tiled</span> <span class="o">=</span> <span class="n">tile_universe</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">nv</span><span class="o">.</span><span class="n">show_mdanalysis</span><span class="p">(</span><span class="n">tiled</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "accec00e56fc45b3b516384634ac8f66", "version_major": 2, "version_minor": 0}</script></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tiled_view = nv.show_mdanalysis(tiled)</span>
+<span class="c1"># tiled_view</span>
+</pre></div>
 </div>
-</section>
+</div>
+<center><div style="width:800px; text-align:center;"><img alt="tiled_view" src="../_images/constructing-universe_tiled-view.png" />
+</div></center></section>
 <section id="References">
 <h2>References<a class="headerlink" href="#References" title="Permalink to this heading"></a></h2>
 <p>[1]: Beckstein O, Denning EJ, Perilla JR, Woolf TB. Zipping and unzipping of adenylate kinase: atomistic insights into the ensemble of open&lt;–&gt;closed transitions. J Mol Biol. 2009;394(1):160–176. <a class="reference external" href="https://dx.doi.org/10.1016%2Fj.jmb.2009.09.009">doi:10.1016/j.jmb.2009.09.009</a></p>
