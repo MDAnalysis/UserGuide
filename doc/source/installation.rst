@@ -37,23 +37,34 @@ ask for help on the `user mailing list`_.
 
 conda
 =====
+
+If you use ``conda`` to manage your Python environment, we highly recommend creating a new environment for MDAnalysis.
+This will ensure that you have a clean installation of MDAnalysis and its dependencies, and will not interfere with other packages you may have installed.
+We further recommend that you install and use ``mamba``, a faster drop-in replacement for ``conda``.
+
+.. code-block:: bash
+
+    conda create --name mdanalysis
+    conda activate mdanalysis
+    conda install -c conda-forge mamba
+
 To install the latest stable version of MDAnalysis via ``conda``, use the following command. This installs all dependencies needed for full analysis functionality (excluding external programs such as `HOLE`_):
 
 .. code-block:: bash
 
-    conda install -c conda-forge mdanalysis
+    mamba install -c conda-forge mdanalysis
 
 To upgrade:
 
 .. code-block:: bash
 
-    conda update mdanalysis
+    mamba update mdanalysis
 
 To install the tests:
 
 .. code-block:: bash
 
-    conda install -c conda-forge MDAnalysisTests
+    mamba install -c conda-forge MDAnalysisTests
 
 If you intend to use MDAnalysis in JupyterLab, you will have to install
 an extra package for the progress bar in analysis classes:
