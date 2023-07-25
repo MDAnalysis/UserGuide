@@ -18,6 +18,7 @@ def write_unit_table(filename):
         tables.append((data_type, lines))
 
     parent_directory = pathlib.Path(__file__).parent.parent
+    parent_directory.mkdir(exist_ok=True, parents=True)
     filename = parent_directory / filename
 
     with filename.open('w') as f:
