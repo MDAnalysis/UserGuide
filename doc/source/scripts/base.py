@@ -2,6 +2,7 @@
 from __future__ import print_function
 import sys
 import os
+import pathlib
 import tabulate
 import textwrap
 from collections import defaultdict
@@ -33,6 +34,9 @@ class TableWriter(object):
         stem = os.getcwd().split('source')[0]
         self.path = os.path.join(stem, 'source', self.filename)
         self.fields = defaultdict(list)
+        
+        parent_directory = pathlib.Path(self.path).parent
+        parent_directory.mkdir(exist_ok=True, parents=True)
         self.get_lines(*args, **kwargs)
         self.write_table()
 

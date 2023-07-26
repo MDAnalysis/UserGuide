@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e  # exit on failure
+
 GENPATH=$(echo $(cd $(dirname $0) && pwd -P))
 
 which python
