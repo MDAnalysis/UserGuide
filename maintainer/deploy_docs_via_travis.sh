@@ -20,7 +20,10 @@
 # NOTE: If any of these environment variables are not set or 
 #       empty then the script will exit with and error (-o nounset).
 
-set -o errexit -o nounset
+# -o errexit: Causes the shell to exit if any invoked command exits with a non-zero status, which signals an error. This helps catch errors and undefined variables in bash scripts.
+# -o nounset: Causes the shell to exit if any variable is used in the script that is not set. This can help catch typos and other bugs.
+# -o pipefail: Causes the shell to exit if any command in a pipeline fails. This prevents errors in a pipeline from being masked.
+set -o errexit -o nounset -o pipefail
 
 function die () {
     local msg="$1" err=${2:-1}
