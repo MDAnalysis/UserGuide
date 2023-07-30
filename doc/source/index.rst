@@ -14,7 +14,7 @@ Welcome to MDAnalysis User Guide's documentation!
 **MDAnalysis** (`www.mdanalysis.org`_) is a Python
 toolkit to analyse molecular dynamics files and trajectories in :ref:`many popular formats <formats>`. MDAnalysis can write
 most of these formats, too, together with atom selections for use in :ref:`visualisation tools or other analysis programs <selection-exporters>`.
-It provides a fast framework for :ref:`complex analysis tasks <analysis>`, 
+It provides a fast framework for :ref:`complex analysis tasks <analysis>`,
 as well as flexible tooling to construct your own analyses.
 
 .. _`www.mdanalysis.org`: https://www.mdanalysis.org
@@ -25,21 +25,21 @@ Why MDAnalysis?
 The typical use case for MDAnalysis is to manipulate or analyse molecular dynamics trajectories. The library focuses on two key features:
 
    * **Memory efficiency.**
-     The size of trajectory data can quickly overwhelm the memory resources of your computer. 
-     MDAnalysis typically accesses your trajectory by only loading data for one frame at a time. 
+     The size of trajectory data can quickly overwhelm the memory resources of your computer.
+     MDAnalysis typically accesses your trajectory by only loading data for one frame at a time.
      This allows you to work with trajectories of any length without difficulty.
 
    * **Flexibility.**
      MDAnalysis is constructed to be easily extensible.
-     If an analysis method is not already available in MDAnalysis, 
-     you can write your own custom trajectory analysis with the building blocks provided. 
-     If you need to read in a custom file format, you can construct your own Reader or Parser that will automatically get picked up when MDAnalysis is constructing a Universe from files. You can create and add your own labels for atoms, residues, or segments (called :ref:`topology attributes <topology-attributes>`) and relationships between atoms (e.g. bonds, angles). 
+     If an analysis method is not already available in MDAnalysis,
+     you can write your own custom trajectory analysis with the building blocks provided.
+     If you need to read in a custom file format, you can construct your own Reader or Parser that will automatically get picked up when MDAnalysis is constructing a Universe from files. You can create and add your own labels for atoms, residues, or segments (called :ref:`topology attributes <topology-attributes>`) and relationships between atoms (e.g. bonds, angles).
 
 
 Participating
 =============
 
-MDAnalysis welcomes all contributions from its users. There are many ways you can help improve MDAnalysis, from asking questions on the `mdnalysis-discussion`_ mailing list, to raising issues on the `Issue Tracker`_, to adding your own code. Please see :ref:`contributing` for an introduction and guide to contributing to the code and documentation. 
+MDAnalysis welcomes all contributions from its users. There are many ways you can help improve MDAnalysis, from asking questions on the `mdnalysis-discussion`_ mailing list, to raising issues on the `Issue Tracker`_, to adding your own code. Please see :ref:`contributing` for an introduction and guide to contributing to the code and documentation.
 
 .. important::
 
