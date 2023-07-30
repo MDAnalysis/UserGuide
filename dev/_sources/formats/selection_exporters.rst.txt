@@ -6,7 +6,7 @@
 Selection exporters
 ===================
 
-Selection exporters allow you to write a selection of atoms to a file that can be read by another program. 
+Selection exporters allow you to write a selection of atoms to a file that can be read by another program.
 
 .. include:: selection_exporter_formats.txt
 
@@ -19,7 +19,7 @@ Single AtomGroup
 The typical situation is that one has an
 :class:`~MDAnalysis.core.groups.AtomGroup` and wants to work with the
 same selection of atoms in a different package, for example, to
-visualize the atoms in VMD_. 
+visualize the atoms in VMD_.
 
 .. ipython:: python
     :okwarning:
@@ -58,11 +58,11 @@ Multiple selections
     u.select_atoms('resname T*').write('residues.ndx',
                                        name='TYR_THR',
                                        mode='a')
-    u.select_atoms('resname GLY').write('residues.ndx', 
-                                        name='GLY', 
+    u.select_atoms('resname GLY').write('residues.ndx',
+                                        name='GLY',
                                         mode='a')
-    u.select_atoms('resname PRO').write('residues.ndx', 
-                                        name='PRO', 
+    u.select_atoms('resname PRO').write('residues.ndx',
+                                        name='PRO',
                                         mode='a')
 
 Looking at this GROMACS index file, we see:
@@ -93,7 +93,7 @@ Alternatively, you can direcly use the selection writer itself as a `context man
 .. code-block :: python
 
     with mda.selections.gromacs.SelectionWriter('residues.ndx', mode='w') as ndx:
-        ndx.write(u.select_atoms('resname T*'), 
+        ndx.write(u.select_atoms('resname T*'),
                   name='TYR_THR')
         ndx.write(u.select_atoms('resname GLY'),
                   name='GLY')
@@ -103,14 +103,14 @@ And again, you can append to the file with ``mode='a'``:
 .. code-block :: python
 
     with mda.selections.gromacs.SelectionWriter('residues.ndx', mode='a') as ndx:
-        ndx.write(u.select_atoms('resname PRO'), 
+        ndx.write(u.select_atoms('resname PRO'),
                   name='PRO')
 
 
 Reading in selections
 =====================
 
-Currently, MDAnalysis doesn't support reading in atom selections. However, there are other tools that can read files from other programs, such as `GromacsWrapper`_. 
+Currently, MDAnalysis doesn't support reading in atom selections. However, there are other tools that can read files from other programs, such as `GromacsWrapper`_.
 
 .. _CHARMM: http://www.charmm.org
 .. _Gromacs: http://www.gromacs.org

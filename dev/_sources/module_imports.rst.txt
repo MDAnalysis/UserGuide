@@ -12,7 +12,7 @@ We are striving to keep module dependencies small and lightweight (i.e., easily 
 General rules for importing
 ===========================
 
-    - Imports should all happen at the start of a module (not inside classes or functions).  
+    - Imports should all happen at the start of a module (not inside classes or functions).
     - Modules must be imported in the following order:
 
         - `future <https://docs.python.org/2/library/__future__.html>`_ (``from __future__ import absolute_import, print_function, division``)

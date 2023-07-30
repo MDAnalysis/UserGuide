@@ -118,6 +118,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#saving-state-in-jupyter-notebooks">Saving state in Jupyter notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#adding-changes-to-the-userguide">Adding changes to the UserGuide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#automatically-building-documentation">Automatically building documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-pre-commit-hooks">Using pre-commit hooks</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="preparing_releases_and_hotfixes.html">Preparing a release</a></li>
@@ -297,6 +298,27 @@ make<span class="w"> </span>github
 </div>
 </div></blockquote>
 <p>This will start a local webserver at <a class="reference external" href="http://localhost:8000/">http://localhost:8000/</a>, which will refresh every time you save changes to a file in the documentation. This is helpful for both the user guide (first navigate to <code class="docutils literal notranslate"><span class="pre">UserGuide/doc</span></code>) and the main repository documentation (navigate to <code class="docutils literal notranslate"><span class="pre">package/doc/sphinx</span></code>).</p>
+</section>
+<section id="using-pre-commit-hooks">
+<h2>Using pre-commit hooks<a class="headerlink" href="#using-pre-commit-hooks" title="Permalink to this heading"></a></h2>
+<p>Manually editing files can often lead to small inconsistencies: a whitespace here, a missing carriage return there. A tool called pre-commit can be used to automatically fix these problems, before a git commit is made. To enable the pre-commit hooks, run the following:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pre-commit<span class="w"> </span>install
+</pre></div>
+</div>
+</div></blockquote>
+<p>To perform the pre-commit checks on all the files, run the following:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pre-commit<span class="w"> </span>run<span class="w"> </span>--all-files
+</pre></div>
+</div>
+</div></blockquote>
+<p>To remove the pre-commit hooks from your .git directory, run the following:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pre-commit<span class="w"> </span>uninstall
+</pre></div>
+</div>
+</div></blockquote>
 </section>
 </section>
 

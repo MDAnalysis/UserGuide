@@ -17,8 +17,8 @@ Read information from topology and coordinate files to create a :ref:`Universe <
 A topology file is always required for a Universe, whereas coordinate files are optional. :ref:`Some file formats provide both topology and coordinate information <format-overview>`. MDAnalysis supports a number of :ref:`formats <formats>`, which are automatically detected based on the file extension. For example, the above loads a :ref:`GROMACS XTC trajectory <XTC-format>`. Multiple coordinate files can be loaded, as :ref:`described below <chainreader>`; the following code loads two :ref:`CHARMM/NAMD DCD files <DCD-format>` and concatenates them::
 
     u = mda.Universe('topology.psf', 'trajectory1.dcd', 'trajectory2.dcd')
- 
- 
+
+
 Some formats can be loaded with format-specific keyword arguments, such as the :ref:`LAMMPS DATA <DATA-format>` ``atom_style`` specification.
 
 .. seealso::
@@ -32,7 +32,7 @@ Some formats can be loaded with format-specific keyword arguments, such as the :
 Reading multiple trajectories
 --------------------------------
 
-A Universe can load multiple trajectories, which are concatenated in the order given. One exception to this is with :ref:`XTC <XTC-format>` and :ref:`TRR <TRR-format>` files. If the ``continuous=True`` flag is :ref:`passed to Universe <universe-kwargs>`, MDAnalysis will try to stitch them together so that the trajectory is as time-continuous as possible. This means that there will be no duplicate time-frames, or jumps back in time.  
+A Universe can load multiple trajectories, which are concatenated in the order given. One exception to this is with :ref:`XTC <XTC-format>` and :ref:`TRR <TRR-format>` files. If the ``continuous=True`` flag is :ref:`passed to Universe <universe-kwargs>`, MDAnalysis will try to stitch them together so that the trajectory is as time-continuous as possible. This means that there will be no duplicate time-frames, or jumps back in time.
 
 As an example, the following depicted trajectory is split into four parts. The column represents the time. As you can see, some segments overlap. With ``continuous=True``, only the frames marked with a + will be read.
 
@@ -190,7 +190,7 @@ Alternatively, iterate over the trajectory frame-by-frame with :func:`~MDAnalysi
         for ts in u.trajectory:
             w.write(ag)
 
-You can pass keyword arguments to some format writers. For example, the :ref:`LAMMPS DATA <DATA-format>` format allows the ``lengthunit`` and ``timeunit`` keywords to specify the output units.  
+You can pass keyword arguments to some format writers. For example, the :ref:`LAMMPS DATA <DATA-format>` format allows the ``lengthunit`` and ``timeunit`` keywords to specify the output units.
 
 Pickling
 ========

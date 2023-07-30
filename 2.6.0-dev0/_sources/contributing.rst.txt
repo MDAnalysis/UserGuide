@@ -5,8 +5,8 @@
 Contributing to MDAnalysis
 ===========================
 
-MDAnalysis is a free and open source project. It evolves and grows with the demands of its user base. 
-The development team very much welcomes contributions from its users. 
+MDAnalysis is a free and open source project. It evolves and grows with the demands of its user base.
+The development team very much welcomes contributions from its users.
 Contributions can take many forms, such as:
 
     * **bug reports** or **enhancement requests** filed through the `Issue Tracker`_
@@ -32,8 +32,8 @@ Where to start?
 All contributions, bug reports, bug fixes, documentation improvements,
 enhancements, and ideas are welcome.
 
-If you are brand new to MDAnalysis or open-source development, we recommend going 
-through the guides for :ref:`contributing to the main codebase <working-with-mdanalysis-code>` or the :ref:`user guide <working-with-user-guide>`. If you are new to Git and version control, have a look at 
+If you are brand new to MDAnalysis or open-source development, we recommend going
+through the guides for :ref:`contributing to the main codebase <working-with-mdanalysis-code>` or the :ref:`user guide <working-with-user-guide>`. If you are new to Git and version control, have a look at
 :ref:`version-control`.
 
 
@@ -42,16 +42,16 @@ through the guides for :ref:`contributing to the main codebase <working-with-mda
 Version control, Git, and GitHub
 ================================
 
-`Git <http://git-scm.com/>`_ is a version control system that allows many people to work together 
-on a project. 
-Working with Git can be one of the more daunting aspects of contributing 
-to MDAnalysis.  Sticking to the guidelines below will help keep the process 
+`Git <http://git-scm.com/>`_ is a version control system that allows many people to work together
+on a project.
+Working with Git can be one of the more daunting aspects of contributing
+to MDAnalysis.  Sticking to the guidelines below will help keep the process
 straightforward and mostly trouble free.  As always,
 if you are having difficulties please feel free to ask for help.
 
 The code is hosted on `GitHub <https://www.github.com/mdanalysis/mdanalysis>`_. To
 contribute you will need to sign up for a `free GitHub account
-<https://github.com/signup/free>`_. 
+<https://github.com/signup/free>`_.
 
 Some great resources for learning Git:
 

@@ -19,7 +19,7 @@ Bonds and angles are read if present.
 Hoomd XML format does not contain a node for names. The parser will
 look for a name node anyway, and if it doesn't find one, it will use
 the atom types as names. If the Hoomd XML file doesn't contain a type
-node (it should), then all atom types will be \'none\'. 
+node (it should), then all atom types will be \'none\'.
 
 Similar to the names, the parser will try to read atom type, mass, and charge from the XML
 file. Therefore, they are not present, masses and charges will not be guessed. Instead, they will be set to zero, as Hoomd uses unitless mass, charge, etc.
