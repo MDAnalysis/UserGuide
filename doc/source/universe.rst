@@ -29,7 +29,7 @@ Loading from files
 
 A Universe is typically created from a "topology" file, with optional "trajectory" file/s. Trajectory files must have the coordinates in the same order as atoms in the topology. See :ref:`Formats <formats>` for the topology and trajectory formats supported by MDAnalysis, and how to load each specific format. ::
 
-    u = Universe(topology, trajectory)          
+    u = Universe(topology, trajectory)
     u = Universe(pdbfile)                       # read atoms and coordinates from PDB or GRO
     u = Universe(topology, [traj1, traj2, ...]) # read from a list of trajectories
     u = Universe(topology, traj1, traj2, ...)   # read from multiple trajectories
@@ -58,7 +58,7 @@ The default arguments should create a Universe suited for most analysis applicat
     u2 = mda.Universe(GRO, XTC, XTC, all_coordinates=False, continuous=False)
     print([int(ts.time) for ts in u2.trajectory])
 
-    
+
 
 **The following options modify the created Universe:**
 
@@ -84,12 +84,12 @@ You can also pass in keywords for parsing the topology or coordinates. For examp
     user_timestep.trajectory.dt
 
 
-    
+
 
 Constructing from AtomGroups
 ----------------------------
 
-A new Universe can be created from one or more :class:`~MDAnalysis.core.groups.AtomGroup` instances with :func:`~MDAnalysis.core.universe.Merge()`. The :class:`~MDAnalysis.core.groups.AtomGroup` instances can come from different Universes, meaning that this is one way to concatenate selections from different datasets. 
+A new Universe can be created from one or more :class:`~MDAnalysis.core.groups.AtomGroup` instances with :func:`~MDAnalysis.core.universe.Merge()`. The :class:`~MDAnalysis.core.groups.AtomGroup` instances can come from different Universes, meaning that this is one way to concatenate selections from different datasets.
 
 For example, to combine a protein, ligand, and solvent from separate PDB files:
 
@@ -109,7 +109,7 @@ A Universe can be constructed from scratch with :meth:`Universe.empty <MDAnalysi
 
     #. Create the blank Universe with specified number of atoms. If coordinates, set :code:`trajectory=True`. 
     #. Add topology attributes such as atom names.
-    #. (Optional) Load coordinates. 
+    #. (Optional) Load coordinates.
 
 For example, to construct a universe with 6 atoms in 2 residues:
 
@@ -119,19 +119,46 @@ For example, to construct a universe with 6 atoms in 2 residues:
     u = mda.Universe.empty(6, 2, atom_resindex=[0, 0, 0, 1, 1, 1], trajectory=True)
     u.add_TopologyAttr('masses')
     coordinates = np.empty((1000,  # number of frames
-                            u.atoms.n_atoms, 
+                            u.atoms.n_atoms,
                             3))
     u.load_new(coordinates, order='fac')
 
 
 `See this notebook tutorial for more information. <examples/constructing_universe.ipynb>`_
 
+.. _guessing-topology-attributes:
 
+----------------------------
 Guessing topology attributes
 ----------------------------
 
-MDAnalysis can guess two kinds of information. Sometimes MDAnalysis guesses information instead of reading it from certain file formats, which can lead to mistakes such as assigning atoms the wrong element or charge. See :ref:`the available topology parsers <topology-parsers>` for a case-by-case breakdown of which atom properties MDAnalysis guesses for each format. See :ref:`guessing` for how attributes are guessed, and :ref:`topologyattr-defaults` for which attributes have default values.
+MDAnalysis has a guesser library that hold various guesser classes. Each guesser class is tailored to be context-specific. For example, PDBGuesser is specific for guessing attributes for PDB file format. See :ref:`guessing` for more details about the available context-aware guessers.
+The Universe has :meth:`~MDAnalysis.core.universe.Universe.guess_TopologyAttributes` API, which ability to guess an attribute within a specific context either at the universe creation or by using the API directly.
+For example, to guess ``element`` attribute for a PDB file by either of two ways:
 
+.. ipython:: python
+    :okwarning:
+
+    u = mda.Universe(PDB, context='PDB', to_guess=['elements'])
+
+or
+
+.. ipython:: python
+    :okwarning:
+
+    u = mda.Universe(PDB)
+    u.guess_TopologyAttributes(context='PDB', to_guess=['elements'])
+
+**The following options modify how to guess attribute(s):**
+
+* :code:`context`: the context of the guesser to be used in guessing the attribute. You can pass either a string representing the context (see :ref:`guessing` for more detail about available guessers and their context), or as an object of a guesser class. The default value of the context is :code:`default`, which corresponds to a generic :class:`~MDAnalysis.guesser.default_guesser.DefaultGuesser`, that is not specific to any context. You can pass a context once, and whenever you call :meth:`~MDAnalysis.core.universe.Universe.guess_TopologyAttributes` again it will assume that you still using the same context. N.B.: If you didn't pass any ``context`` to the API, it will use the :class:`~MDAnalysis.guesser.default_guesser.DefaultGuesser`
+
+* :code:`to_guess`: list of the attributes to be guessed (these attributes will be either guessed if they don't exist in the universe or partially guessed by only filling its empty values if universe has the attribute). This has to be the plural name of the attributes (masses not mass).
+* :code:`force_guess`: a list of attributes to be forced guessed (these attributes will be either guessed if they don't exist in the universe or their values will be completely overwritten by guessed ones if the universe has the attribute). This has to be the plural name of the attributes (masses not mass).
+* :code:`**kwargs`: to pass any supplemental data to the :meth:`~MDAnalysis.core.universe.Universe.guess_TopologyAttributes` API that can be useful in guessing some attributes (eg. passing vdwradii for bond guessing).
+
+For now, MDAnalysis automatically guess :code:`types` and * :code:`masses` at the universe creation by having a default value of the :code:`to_guess` parameter to be * :code`['types', 'masses']`. This is done using the :class:`~MDAnalysis.guesser.default_guesser.DefaultGuesser`.
+you can stop this by passing ``()`` to the ``to_guess`` parameter.
 
 .. _universe-properties:
 
