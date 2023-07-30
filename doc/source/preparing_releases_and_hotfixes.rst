@@ -85,27 +85,27 @@ Typical workflow for preparing a release
 
         git tag -m "package 0.7.5 of MDAnalysis and MDAnalysisTests" package-0.7.5
         git push --tags origin
- 
+
 #. Upon creation of the new ``package-*`` tag, the `developer mailing list`_, will be triggered to create source/wheels, upload them to testpypi, and re-download them and run tests.
 
 #. If all the tests come back green, you are good to go for a full release.
 
     #. If tests fail you will need to work out the cause of the failure.
-    
+
         #. A temporary github actions failure
-      
+
             Re-run the action and wait for the tests to complete
-          
+
         #. An issue with the source code.
-      
+
             #. Delete the current ``package-*`` branch, and the newly created tags
-          
+
             #. Add the new changes to ``develop`` and restart the release process.
 
             #. Upon getting to the ``package-*`` tag creation, create a test tag with a different version number (bump by a minor release or add a ``-beta`` modifier), so as to trigger the release and tests against testpypi.
-            
+
             #. Delete the test tag, create a normal ``package-<version_number>`` tag with the correct version number.
-            
+
             #. The githuba action will fail, but this is ok since we tested it with the test tag above.
 
 #. If everything works, you can now complete the release by createing a release on Github based on the newly created ``package-<version_number`` tag.
@@ -113,7 +113,7 @@ Typical workflow for preparing a release
 #. This will re-trigger the `deploy github action`_ and upload the source distributions / wheels to PyPI.
 
     #. If the action fails as this point and no files have been deployed, then restart the action.
-    
+
     #. If the action fails and some files have been deployed, then you will not be able to re-upload to PyPI. At this point you will need to yank the release from PyPI and create a new minor version and re-deploy it.
 
 #. Update the release on conda-forge
@@ -121,7 +121,7 @@ Typical workflow for preparing a release
     #. On push to PyPI, the conda-forge bot should automatically pick up the presense of a new version and create a pull request on the `MDAnalysis feedstock`_
 
     #. Update the ``meta.yaml`` file as necessary, especially bumping up the python and dependency minimum versions as necessary.
-    
+
     #. Ask the conda-forge admin to re-render, check that CI returns green, approve and merge the pull request.
 
 #. Documentation will be built automatically and versioned. Check that these have been created appropriately on the `stable branch of the docs page`_.

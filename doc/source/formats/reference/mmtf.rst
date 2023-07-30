@@ -13,4 +13,3 @@ The Macromolecular Transmission Format format
 Individual models within the MMTF file are available via the ``models`` attribute of Universe.
 
 .. _MMTF: https://mmtf.rcsb.org/
-

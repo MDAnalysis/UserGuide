@@ -14,7 +14,7 @@ help:
 
 .PHONY: help Makefile
 
-# make github: 
+# make github:
 github:
 	find .. -name '*.html' -exec rm {} +
 	@make clean

@@ -8,7 +8,7 @@ GMS (Gamess trajectory)
 .. include:: classes/GMS.txt
 
 The GMS output format is a common output format for different
-GAMESS distributions: `GAMESS-US`_, `Firefly`_ (PC-GAMESS) and `GAMESS-UK`_. 
+GAMESS distributions: `GAMESS-US`_, `Firefly`_ (PC-GAMESS) and `GAMESS-UK`_.
 The current version has been tested with US GAMESS and Firefly only.
 
 .. _`GAMESS-US`: http://www.msg.ameslab.gov/gamess/

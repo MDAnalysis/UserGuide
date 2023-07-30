@@ -23,7 +23,7 @@ class SelectionExporterWriter(TableWriter):
 
     def _set_up_input(self):
         return set(_SELECTION_WRITERS.values())
-    
+
     def _program(self, klass):
         # classes have multiple formats.
         # First tends to be the program name, second is extension
@@ -31,16 +31,16 @@ class SelectionExporterWriter(TableWriter):
         if isinstance(p, (list, tuple)):
             p = p[0]
         return self.sphinx_link(p)
-    
+
     def _extension(self, klass):
         return klass.ext
-    
+
     def _description(self, klass):
         return SELECTION_DESCRIPTIONS[klass.ext]
-    
+
     def _class(self, klass):
         return self.sphinx_class(klass, tilde=False)
-    
+
 
 if __name__ == '__main__':
     SelectionExporterWriter()

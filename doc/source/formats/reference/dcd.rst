@@ -7,7 +7,7 @@ DCD (CHARMM, NAMD, or LAMMPS trajectory)
 
 .. include:: classes/DCD.txt
 
-DCD is used by NAMD, CHARMM and LAMMPS as the default trajectory format. 
+DCD is used by NAMD, CHARMM and LAMMPS as the default trajectory format.
 
 
 
@@ -16,9 +16,9 @@ Reading in
 
 **Unitcell dimensions**
 
-Generally, DCD trajectories produced by any code can be read (with the :class:`~MDAnalysis.coordinates.DCD.DCDReader`) although there can be issues with the unitcell dimensions (simulation box). 
-Currently, MDAnalysis tries to guess the correct **format for the unitcell representation** but it can be wrong. 
-**Check the unitcell dimensions**, especially for triclinic unitcells (see `Issue 187`_). 
+Generally, DCD trajectories produced by any code can be read (with the :class:`~MDAnalysis.coordinates.DCD.DCDReader`) although there can be issues with the unitcell dimensions (simulation box).
+Currently, MDAnalysis tries to guess the correct **format for the unitcell representation** but it can be wrong.
+**Check the unitcell dimensions**, especially for triclinic unitcells (see `Issue 187`_).
 
 MDAnalysis always uses ``(*A*, *B*, *C*, *alpha*, *beta*, *gamma*)`` to
 represent the unit cell. Lengths *A*, *B*, *C* are in the MDAnalysis length
@@ -31,15 +31,15 @@ file. If any of these values are < 0 or if any of the angles are > 180
 degrees then it is assumed it is a new-style CHARMM unitcell (at least
 since c36b2) in which box vectors were recorded.
 
-.. important:: 
+.. important::
 
     Check your unit cell dimensions carefully, especially when using triclinic boxes. Old CHARMM trajectories might give wrong unitcell values.
 
 **Units**
 
-The DCD file format is not well defined. In particular, NAMD and CHARMM use it differently. 
-DCD trajectories produced by CHARMM and NAMD( >2.5) record time in AKMA units. 
-If other units have been recorded (e.g., ps) then employ the configurable :ref:`LAMMPS DCD format <LAMMPS-format>` and set the time unit as an optional argument. 
+The DCD file format is not well defined. In particular, NAMD and CHARMM use it differently.
+DCD trajectories produced by CHARMM and NAMD( >2.5) record time in AKMA units.
+If other units have been recorded (e.g., ps) then employ the configurable :ref:`LAMMPS DCD format <LAMMPS-format>` and set the time unit as an optional argument.
 You can find a list of units used in the DCD formats on the MDAnalysis `wiki`_.
 
 .. _`X-PLOR DCD format`: http://www.ks.uiuc.edu/Research/vmd/plugins/molfile/dcdplugin.html

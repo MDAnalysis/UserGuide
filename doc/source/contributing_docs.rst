@@ -5,10 +5,10 @@
 Contributing to the user guide
 ==============================
 
-MDAnalysis maintains two kinds of documentation: 
+MDAnalysis maintains two kinds of documentation:
 
     #. `This user guide <https://www.mdanalysis.org/UserGuide/>`__: a map of how MDAnalysis works, combined with tutorial-like overviews of specific topics (such as the analyses)
-    
+
     #. `The documentation generated from the code itself <https://www.mdanalysis.org/docs/>`__. Largely built from code docstrings, these are meant to provide a clear explanation of the usage of individual classes and functions. They often include technical or historical information such as in which version the function was added, or deprecation notices.
 
 This guide is about how to contribute to the user guide. If you are looking to add to documentation of the main code base, please see :ref:`working-with-mdanalysis-docs`.
@@ -110,7 +110,7 @@ Navigate to the ``doc/`` directory and run ``make html``:
 
 The HTML output will be in ``doc/build/``, which you can open in your browser of choice. The homepage is ``doc/build/index.html``.
 
-If rebuilding the documentation becomes tedious after a while, install the :ref:`sphinx-autobuild <autobuild-sphinx>` extension. 
+If rebuilding the documentation becomes tedious after a while, install the :ref:`sphinx-autobuild <autobuild-sphinx>` extension.
 
 Saving state in Jupyter notebooks
 =================================
@@ -124,7 +124,7 @@ Adding changes to the UserGuide
 
 As with the code, :ref:`commit and push <adding-code-to-mda>` your code to GitHub. Then :ref:`create a pull request <create-a-pull-request>`. The only test run for the User Guide is: that your file compile into HTML documents without errors. As usual, a developer will review your PR and merge the code into the User Guide when it looks good.
 
-It is often difficult to review Jupyter notebooks on GitHub, especially if you embed widgets and images. One way to make it easier on the developers who review your changes is to build the changes on your forked repository and link the relevant sections in your pull request. To do this, create a ``gh-pages`` branch and merge your new branch into it. 
+It is often difficult to review Jupyter notebooks on GitHub, especially if you embed widgets and images. One way to make it easier on the developers who review your changes is to build the changes on your forked repository and link the relevant sections in your pull request. To do this, create a ``gh-pages`` branch and merge your new branch into it.
 
 .. code-block:: bash
 
@@ -155,7 +155,7 @@ On GitHub, navigate to your fork of the repository and go to **Settings**. In th
 
 .. image:: images/gh-pages-settings.png
 
-For each time you add changes to another branch later, just merge into gh-pages and rebuild. 
+For each time you add changes to another branch later, just merge into gh-pages and rebuild.
 
 .. code-block:: bash
 
@@ -182,7 +182,3 @@ Then, run the following command in the ``doc/`` directory:
         python -m sphinx_autobuild source build
 
 This will start a local webserver at http://localhost:8000/, which will refresh every time you save changes to a file in the documentation. This is helpful for both the user guide (first navigate to ``UserGuide/doc``) and the main repository documentation (navigate to ``package/doc/sphinx``).
-
-
-
-

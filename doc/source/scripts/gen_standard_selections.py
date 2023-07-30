@@ -27,7 +27,7 @@ class StandardSelectionTable(TableWriter):
         selected = getattr(klass, attr)
         if sort:
             selected = sorted(selected)
-        
+
         table = chunk_list(list(selected), n=n)
         self.lines = table
 

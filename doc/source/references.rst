@@ -58,8 +58,8 @@ export them to different formats. For example, one can display them in
 BibTeX format, using:
 
 .. code-block:: bash
- 
-   duecredit summary --format=bibtex 
+
+   duecredit summary --format=bibtex
 
 
 **Please cite your use of MDAnalysis and the packages and algorithms
