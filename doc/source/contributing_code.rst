@@ -51,11 +51,11 @@ the upstream (main project) MDAnalysis repository.
 Creating a development environment
 ----------------------------------
 
-To change code and test changes, you'll need to build both **MDAnalysis** and **MDAnalysisTests** 
-from source. This requires a Python environment. We highly recommend that you use 
-virtual environments. This allows you to have multiple experimental development versions 
-of MDAnalysis that do not interfere with each other, or your own stable version. 
-Since MDAnalysis is split into the actual package and a test suite, you need to install 
+To change code and test changes, you'll need to build both **MDAnalysis** and **MDAnalysisTests**
+from source. This requires a Python environment. We highly recommend that you use
+virtual environments. This allows you to have multiple experimental development versions
+of MDAnalysis that do not interfere with each other, or your own stable version.
+Since MDAnalysis is split into the actual package and a test suite, you need to install
 both modules in development mode.
 
 You can do this either with :ref:`conda <dev-with-conda>` or :ref:`pip <dev-with-pip>`.
@@ -71,7 +71,7 @@ You can do this either with :ref:`conda <dev-with-conda>` or :ref:`pip <dev-with
 With conda
 ----------
 
-Install either `Anaconda <https://www.anaconda.com/download/>`_ 
+Install either `Anaconda <https://www.anaconda.com/download/>`_
 or `miniconda <https://conda.io/miniconda.html>`_.
 Make sure your conda is up to date:
 
@@ -79,8 +79,8 @@ Make sure your conda is up to date:
 
         conda update conda
 
-Create a new environment with ``conda create``. This will allow you to change code in 
-an isolated environment without touching your base Python installation, and without 
+Create a new environment with ``conda create``. This will allow you to change code in
+an isolated environment without touching your base Python installation, and without
 touching existing environments that may have stable versions of MDAnalysis. :
 
     .. code-block:: bash
@@ -88,7 +88,7 @@ touching existing environments that may have stable versions of MDAnalysis. :
         conda create --name mdanalysis-dev "python>=3.9"
 
 Use a recent version of Python that is supported by MDAnalysis for this environment.
-        
+
 Activate the environment to build MDAnalysis into it:
 
     .. code-block:: bash
@@ -142,7 +142,7 @@ This will create a new folder ``my-project-env``. This folder contains the virtu
 
         source myproject-env/bin/activate
 
-Now you can install packages via pip without affecting your global environment. The packages that you install when the environment is activated will be available in terminal sessions that have the environment activated. 
+Now you can install packages via pip without affecting your global environment. The packages that you install when the environment is activated will be available in terminal sessions that have the environment activated.
 
 .. note::
     When you finish developing MDAnalysis you can deactivate the environment with
@@ -207,9 +207,9 @@ With conda
 ----------
 
 .. note::
-    Make sure that you have :ref:`cloned the repository <forking-code-repo>`  
+    Make sure that you have :ref:`cloned the repository <forking-code-repo>`
     and activated your virtual environment with :code:`conda activate mdanalysis-dev`.
-    
+
 First we need to install dependencies. You'll need a mix of conda and pip installations:
 
     .. code-block:: bash
@@ -225,7 +225,7 @@ First we need to install dependencies. You'll need a mix of conda and pip instal
           'scipy>=1.5.0' \
           'matplotlib>=1.5.1' \
           'tqdm>=4.43.0' \
-          'threadpoolctl'\ 
+          'threadpoolctl'\
           'packaging' \
           'fasteners' \
           'netCDF4>=1.0' \
@@ -245,7 +245,7 @@ First we need to install dependencies. You'll need a mix of conda and pip instal
             sphinxcontrib-bibtex sphinx_rtd_theme sphinx-sitemap
         python -m pip install msmb_theme==1.2.0
 
-Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.9. We will now install MDAnalysis. 
+Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.9. We will now install MDAnalysis.
 
     .. code-block:: bash
 
@@ -255,7 +255,7 @@ Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also
         # Build and install the MDAnalysis package
         cd package/
         python -m pip install -e .
-        
+
         # Build and install the test suite
         cd ../testsuite/
         python -m pip install -e .
@@ -277,7 +277,7 @@ With pip and virtualenv
 -----------------------
 
 .. note::
-    Make sure that you have :ref:`cloned the repository <forking-code-repo>`  
+    Make sure that you have :ref:`cloned the repository <forking-code-repo>`
     and activated your virtual environment with :code:`source myproject-env/bin/activate`
     (or :code:`workon my-project` if you used the `virtualenvwrapper package <https://virtualenvwrapper.readthedocs.io/en/latest/>`_)
 
@@ -296,7 +296,7 @@ Install the dependencies:
           'scipy>=1.5.0' \
           'matplotlib>=1.5.1' \
           'tqdm>=4.43.0' \
-          'threadpoolctl'\ 
+          'threadpoolctl'\
           'packaging' \
           'fasteners' \
           'netCDF4>=1.0' \
@@ -318,7 +318,7 @@ Install the dependencies:
 
 Some packages, such as ``clustalw``, are not available via pip.
 
-Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.9. We will now install MDAnalysis. 
+Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.9. We will now install MDAnalysis.
 
     .. code-block:: bash
 
@@ -328,7 +328,7 @@ Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also
         # Build and install the MDAnalysis package
         cd package/
         python -m pip install -e .
-        
+
         # Build and install the test suite
         cd ../testsuite/
         python -m pip install -e .
@@ -369,7 +369,7 @@ Creating a branch
 -----------------
 
 The develop branch should only contain approved, tested code, so create a
-feature branch for making your changes. For example, to create a branch called 
+feature branch for making your changes. For example, to create a branch called
 ``shiny-new-feature`` from ``develop``:
 
     .. code-block:: bash
@@ -438,7 +438,7 @@ Imports in the code should follow the :ref:`general-rules-for-importing`.
 Developing in Cython
 --------------------
 
-The ``setup.py`` script first looks for the `.c` files included in the standard MDAnalysis distribution. These are not in the GitHub repository, so ``setup.py`` will use Cython to compile extensions. `.pyx` source files are used instead of `.c` files. From there, `.pyx` files are converted to `.c` files if they are newer than the already present `.c` files or if the ``--force`` flag is set (i.e. ``python setup.py build --force``). End users (or developers) should not trigger the `.pyx` to `.c` conversion, since `.c` files delivered with source packages are always up-to-date. However, developers who work on the `.pyx` files will automatically trigger the conversion since `.c` files will then be outdated. 
+The ``setup.py`` script first looks for the `.c` files included in the standard MDAnalysis distribution. These are not in the GitHub repository, so ``setup.py`` will use Cython to compile extensions. `.pyx` source files are used instead of `.c` files. From there, `.pyx` files are converted to `.c` files if they are newer than the already present `.c` files or if the ``--force`` flag is set (i.e. ``python setup.py build --force``). End users (or developers) should not trigger the `.pyx` to `.c` conversion, since `.c` files delivered with source packages are always up-to-date. However, developers who work on the `.pyx` files will automatically trigger the conversion since `.c` files will then be outdated.
 
 Place all source files for compiled shared object files into the same directory as the final shared object file.
 
@@ -446,7 +446,7 @@ Place all source files for compiled shared object files into the same directory 
 
     ::
 
-        MDAnalysis 
+        MDAnalysis
             |--lib
             |   |-- _distances.so
             |   |-- distances.pyx
@@ -512,7 +512,7 @@ Then commit with:
 
         git commit -m
 
-This opens up a message editor. 
+This opens up a message editor.
 
 *Always* add a descriptive comment for your commit message (feel free to be verbose!):
 
@@ -551,7 +551,7 @@ If you added the upstream repository as described above you will see something l
         upstream        git@github.com:MDAnalysis/mdanalysis.git (fetch)
         upstream        git@github.com:MDAnalysis/mdanalysis.git (push)
 
-Now your code is on GitHub, but it is not yet a part of the MDAnalysis project. For that to happen, a pull request needs to be submitted on GitHub. 
+Now your code is on GitHub, but it is not yet a part of the MDAnalysis project. For that to happen, a pull request needs to be submitted on GitHub.
 
 .. _rebase-code:
 
@@ -572,7 +572,7 @@ This will replay your commits on top of the latest development code from MDAnaly
 leads to merge conflicts, you must resolve these before submitting your pull
 request.  If you have uncommitted changes, you will need to ``git stash`` them
 prior to updating.  This will effectively store your changes and they can be
-reapplied after updating with ``git stash apply``. 
+reapplied after updating with ``git stash apply``.
 
 Once rebased, push your changes:
 
@@ -587,7 +587,7 @@ and `create a pull request <https://github.com/MDAnalysis/mdanalysis/pulls>`_.
 Creating a pull request
 -----------------------
 
-The typical approach to adding your code to MDAnalysis is to make a `pull request <https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests>`_ on GitHub. Please make sure that your contribution :ref:`passes all tests <test-code>`. If there are test failures, you will need to address them before we can review your contribution and eventually merge them. If you have problems with making the tests pass, please ask for help! (You can do this in the comments of the pull request). 
+The typical approach to adding your code to MDAnalysis is to make a `pull request <https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests>`_ on GitHub. Please make sure that your contribution :ref:`passes all tests <test-code>`. If there are test failures, you will need to address them before we can review your contribution and eventually merge them. If you have problems with making the tests pass, please ask for help! (You can do this in the comments of the pull request).
 
     #. Navigate to your repository on GitHub
     #. Click on the :guilabel:`Pull Request` button
@@ -604,7 +604,7 @@ The typical approach to adding your code to MDAnalysis is to make a `pull reques
 Your pull request is then sent to the repository maintainers. After this, the following happens:
 
     #. A :ref:`suite of tests are run on your code <continuous-integration>` with the tools :ref:`travis`, :ref:`appveyor` and :ref:`codecov`. If they fail, please fix your pull request by pushing updates to it.
-    #. Developers will ask questions and comment in the pull request. You may be asked to make changes. 
+    #. Developers will ask questions and comment in the pull request. You may be asked to make changes.
     #. When everything looks good, a core developer will merge your code into the ``develop`` branch of MDAnalysis. Your code will be in the next release.
 
 If you need to make changes to your code, you can do so on your local repository as you did before. Committing and pushing the changes will  update your pull request and restart the automated tests.
@@ -614,10 +614,10 @@ If you need to make changes to your code, you can do so on your local repository
 Working with the code documentation
 ===================================
 
-MDAnalysis maintains two kinds of documentation: 
+MDAnalysis maintains two kinds of documentation:
 
     #. `This user guide <https://www.mdanalysis.org/UserGuide/>`__: a map of how MDAnalysis works, combined with tutorial-like overviews of specific topics (such as the analyses)
-    
+
     #. `The documentation generated from the code itself <https://www.mdanalysis.org/docs/>`__. Largely built from code docstrings, these are meant to provide a clear explanation of the usage of individual classes and functions. They often include technical or historical information such as in which version the function was added, or deprecation notices.
 
 This guide is for the documentation generated from the code. If you are looking to contribute to the user guide, please see :ref:`working-with-user-guide`.
@@ -639,9 +639,9 @@ Note that each page of the  `online documentation <https://www.mdanalysis.org/do
 Building the documentation
 --------------------------
 
-The online documentation is generated from the pages in ``mdanalysis/package/doc/sphinx/source/documentation_pages``. The documentation for the current release are hosted at www.mdanalysis.org/docs, while the development version is at www.mdanalysis.org/mdanalysis/. 
+The online documentation is generated from the pages in ``mdanalysis/package/doc/sphinx/source/documentation_pages``. The documentation for the current release are hosted at www.mdanalysis.org/docs, while the development version is at www.mdanalysis.org/mdanalysis/.
 
-In order to build the documentation, you must first :ref:`clone the main MDAnalysis repo <forking-code-repo>`. :ref:`Set up a virtual environment <create-virtual-environment>` in the same way as you would for the code (you should typically use the same environment as you do for the code). Build the development version of MDAnalysis. 
+In order to build the documentation, you must first :ref:`clone the main MDAnalysis repo <forking-code-repo>`. :ref:`Set up a virtual environment <create-virtual-environment>` in the same way as you would for the code (you should typically use the same environment as you do for the code). Build the development version of MDAnalysis.
 
 Then, generate the docs with:
 
@@ -659,7 +659,7 @@ and retry.
 
 You will then be able to open the home page, ``doc/html/index.html``, and look through the docs. In particular, have a look at any pages that you tinkered with. It is typical to go through multiple cycles of fix, rebuild the docs, check and fix again.
 
-If rebuilding the documentation becomes tedious after a while, install the :ref:`sphinx-autobuild <autobuild-sphinx>` extension. 
+If rebuilding the documentation becomes tedious after a while, install the :ref:`sphinx-autobuild <autobuild-sphinx>` extension.
 
 -------------------------
 Where to write docstrings
@@ -671,8 +671,8 @@ When writing Python code, you should always add a docstring to each public (visi
     * function
     * class
     * method
- 
-\When you add a new module, you should include a docstring with a short sentence describing what the module does, and/or a long document including examples and references. 
+
+\When you add a new module, you should include a docstring with a short sentence describing what the module does, and/or a long document including examples and references.
 
 .. _guidelines-for-docstrings:
 
@@ -721,7 +721,7 @@ A typical function docstring looks like the following:
 
 
         .. versionadded:: 0.16.0
-  
+
 * Do not use "Example" or "Examples" as a normal section heading (e.g. in module level docs): *only* use it as a `NumPy doc Section <https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard>`__. It will not be rendered properly, and will mess up sectioning.
 
 
@@ -734,7 +734,7 @@ A typical function docstring looks like the following:
         n_atoms, n_residues : int
             numbers of atoms/residues
 
-* We are using MathJax with sphinx so you can write LaTeX code in math tags. 
+* We are using MathJax with sphinx so you can write LaTeX code in math tags.
 
     In blocks, the code below
 
@@ -748,7 +748,7 @@ A typical function docstring looks like the following:
 
         .. math::
             e^{i\pi} = -1
-    
+
 
     Math directives can also be used inline.
 
@@ -772,7 +772,7 @@ A typical function docstring looks like the following:
                 """
 
     .. seealso::
-    
+
         See `Stackoverflow: Mathjax expression in sphinx python not rendering correctly <http://stackoverflow.com/questions/16468397/mathjax-expression-in-sphinx-python-not-rendering-correclty">`_ for further discussion.
 
 
@@ -808,7 +808,7 @@ For parameters and attributes, we typically mention the new entity in a `version
 .. code-block:: rst
 
    .. deprecated:: X.Y.Z
-      Describe (1) alternatives (what should users rather use) and 
+      Describe (1) alternatives (what should users rather use) and
       (2) in which future release the feature will be removed.
 
 When a feature is removed, we remove the deprecation notice and add a `versionchanged`_ to the docs of the enclosing scope. For example, when a parameter of a function is removed, we update the docs of the function. Function/class removal are indicated in the module docs. When we remove a whole module, we typically indicate it in the top-level reST docs that contain the TOC tree that originally included the module.

@@ -5,7 +5,7 @@
 Slicing trajectories
 ====================
 
-MDAnalysis trajectories can be indexed to return a :class:`~MDAnalysis.coordinates.base.Timestep`, or sliced to give a :class:`~MDAnalysis.coordinates.base.FrameIterator`. 
+MDAnalysis trajectories can be indexed to return a :class:`~MDAnalysis.coordinates.base.Timestep`, or sliced to give a :class:`~MDAnalysis.coordinates.base.FrameIterator`.
 
 .. ipython:: python
     :okwarning:
@@ -17,7 +17,7 @@ MDAnalysis trajectories can be indexed to return a :class:`~MDAnalysis.coordinat
     u.trajectory[4]
 
 
-Indexing a trajectory shifts the :class:`~MDAnalysis.core.universe.Universe` to point towards that particular frame, updating dynamic data such as ``Universe.atoms.positions``. 
+Indexing a trajectory shifts the :class:`~MDAnalysis.core.universe.Universe` to point towards that particular frame, updating dynamic data such as ``Universe.atoms.positions``.
 
 .. note::
 

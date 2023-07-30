@@ -7,7 +7,7 @@ ITP (GROMACS portable topology files)
 
 .. include:: classes/ITP.txt
 
-A ITP_ file is a portable topology file. 
+A ITP_ file is a portable topology file.
 
 .. important::
 

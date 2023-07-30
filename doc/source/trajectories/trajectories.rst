@@ -41,7 +41,7 @@ Indexing the trajectory returns the timestep for that frame, and sets the Univer
 
     print('Time of fourth frame', u.trajectory.time)
 
-Many tasks involve applying a function to each frame of a trajectory. For these, you need to iterate through the frames, *even if you don't directly use the timestep*. This is because the act of iterating moves the Universe onto the next frame, changing the dynamic atom coordinates. 
+Many tasks involve applying a function to each frame of a trajectory. For these, you need to iterate through the frames, *even if you don't directly use the timestep*. This is because the act of iterating moves the Universe onto the next frame, changing the dynamic atom coordinates.
 
 Trajectories can also be :ref:`sliced <slicing-trajectories>` if you only want to work on a subset of frames.
 
@@ -52,7 +52,7 @@ Trajectories can also be :ref:`sliced <slicing-trajectories>` if you only want t
         # the radius of gyration depends on the changing positions
         rad = protein.radius_of_gyration()
         print('frame={}: radgyr={}'.format(ts.frame, rad))
-    
+
 Note that after iterating over the trajectory, the frame is always set back to the first frame, even if your loop stopped before the trajectory end.
 
 .. ipython:: python
@@ -65,10 +65,8 @@ Because MDAnalysis will pull trajectory data directly from the file it is readin
         for ts in u.trajectory:
             ts.dimensions = [10, 10, 10, 90, 90, 90]
             w.write(u.atoms)
-    
+
     u_with_box = mda.Universe(PSF, 'with_box.trr')
 
 
-Sometimes you may wish to only transform part of the trajectory, or to not write a file out. In these cases, MDAnalysis supports :ref:`"on-the-fly" transformations <transformations>` that are performed on a frame when it is read. 
-
-
+Sometimes you may wish to only transform part of the trajectory, or to not write a file out. In these cases, MDAnalysis supports :ref:`"on-the-fly" transformations <transformations>` that are performed on a frame when it is read.

@@ -12,7 +12,7 @@ Tests in MDAnalysis
 Whenever you add new code, you should create an appropriate test case that checks that your code is working as it should. This is very important because:
 
     #. Firstly, it ensures that your code works as expected, i.e.
-    
+
         - it succeeds in your test cases *and*
         - it fails predictably
     #. More importantly, in the future we can always test that it is still working correctly. Unit tests are a crucial component of proper software engineering (see e.g. `Software Carpentry on Testing <http://software-carpentry.org/4_0/test>`_) and a large (and growing) test suite is one of the strengths of MDAnalysis.
@@ -153,7 +153,7 @@ Coverage is the ratio of ``hits / (sum of hit + partial + miss)``. See the `Code
 
 MDAnalysis aims for 90% code coverage; your pull request will fail the Codecov check if the coverage falls below 85%. You can increase coverage by writing futher tests.
 
-On your pull request, Codecov will leave a comment with three sections: 
+On your pull request, Codecov will leave a comment with three sections:
 
     - a visual map of the areas with coverage changes
 
@@ -206,7 +206,7 @@ To check equality up to a certain precision (e.g. floating point numbers and ite
         ref = mda.Universe(PSF, PDB_small)
         u = mda.Universe(PDB_small)
         assert_almost_equal(u.atoms.positions, ref.atoms.positions)
-    
+
 To test for exact equality (e.g. integers, booleans, strings), use :func:`~numpy.testing.assert_equal` from :mod:`numpy.testing`. As with :func:`~numpy.testing.assert_almost_equal`, this should be used for iterables of exact values as well. Do not iterate over and compare every single value. ::
 
     from numpy.testing import assert_equal
@@ -234,7 +234,7 @@ Do not use ``assert_raises`` from :mod:`numpy.testing` or the ``pytest.mark.rais
         a = [1, 2, 3]
         with pytest.raises(IndexError):
             b = a[4]
-    
+
     def test_for_warning():
         with pytest.warns(DeprecationWarning):
             deprecated_function.run()
@@ -315,7 +315,7 @@ Use the :func:`pytest.mark.parametrize` decorator to test the same function for 
     @pytest.mark.parametrize('name, compound', (('molnums', 'molecules'),
                                                 ('fragindices', 'fragments')))
     # fragment is a fixture defined earlier
-    def test_center_of_mass_compounds_special(self, fragment,  
+    def test_center_of_mass_compounds_special(self, fragment,
                                               pbc, name, compound):
         ref = [a.center_of_mass() for a in fragment.groupby(name).values()]
         com = fragment.center_of_mass(pbc=pbc, compound=compound)
@@ -344,7 +344,7 @@ Do not use :func:`os.chdir` to change directories in tests, because it can break
 
 To create a temporary file::
 
-    def outfile(tmpdir):  
+    def outfile(tmpdir):
         temp_file = str(tmpdir.join('test.pdb'))
 
 

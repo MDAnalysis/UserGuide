@@ -34,7 +34,7 @@ class TableWriter(object):
         stem = os.getcwd().split('source')[0]
         self.path = os.path.join(stem, 'source', self.filename)
         self.fields = defaultdict(list)
-        
+
         parent_directory = pathlib.Path(self.path).parent
         parent_directory.mkdir(exist_ok=True, parents=True)
         self.get_lines(*args, **kwargs)
