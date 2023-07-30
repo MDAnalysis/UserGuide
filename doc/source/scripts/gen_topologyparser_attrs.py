@@ -10,12 +10,13 @@ This script imports the testsuite, which tests these.
 import os
 import sys
 from collections import defaultdict
-from core import DESCRIPTIONS, NON_CORE_ATTRS
-from base import TableWriter
 
+from base import TableWriter
+from core import DESCRIPTIONS, NON_CORE_ATTRS
 from MDAnalysisTests.topology.base import mandatory_attrs
 from MDAnalysisTests.topology.test_crd import TestCRDParser
-from MDAnalysisTests.topology.test_dlpoly import TestDLPHistoryParser, TestDLPConfigParser
+from MDAnalysisTests.topology.test_dlpoly import (TestDLPConfigParser,
+                                                  TestDLPHistoryParser)
 from MDAnalysisTests.topology.test_dms import TestDMSParser
 from MDAnalysisTests.topology.test_fhiaims import TestFHIAIMS
 from MDAnalysisTests.topology.test_gms import GMSBase
@@ -34,7 +35,6 @@ from MDAnalysisTests.topology.test_tprparser import TPRAttrs
 from MDAnalysisTests.topology.test_txyz import TestTXYZParser
 from MDAnalysisTests.topology.test_xpdb import TestXPDBParser
 from MDAnalysisTests.topology.test_xyz import XYZBase
-
 
 PARSER_TESTS = (TestCRDParser, TestDLPHistoryParser, TestDLPConfigParser,
                 TestDMSParser, TestFHIAIMS, GMSBase,

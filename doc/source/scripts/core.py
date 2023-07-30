@@ -1,5 +1,7 @@
 from __future__ import print_function
+
 import os
+
 import tabulate
 from MDAnalysis import _TOPOLOGY_ATTRS
 

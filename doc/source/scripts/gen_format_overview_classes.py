@@ -8,9 +8,9 @@ Generates:
 
 from collections import defaultdict
 
-from MDAnalysis import _READERS, _SINGLEFRAME_WRITERS, _PARSERS, _CONVERTERS
 from base import TableWriter
 from core import DESCRIPTIONS
+from MDAnalysis import _CONVERTERS, _PARSERS, _READERS, _SINGLEFRAME_WRITERS
 
 FILE_TYPES = defaultdict(dict)
 

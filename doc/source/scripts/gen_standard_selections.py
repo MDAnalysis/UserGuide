@@ -11,6 +11,7 @@ Writes standard selection names for:
 from base import TableWriter
 from MDAnalysis.core import selection as sel
 
+
 def chunk_list(lst, n=8):
     return [lst[i:i+n] for i in range(0, len(lst), n)]
 

@@ -14,11 +14,12 @@
 # import sys
 
 import datetime
-from collections import OrderedDict
-import MDAnalysis as mda
 import subprocess
-import sphinx_rtd_theme
+from collections import OrderedDict
+
+import MDAnalysis as mda
 import msmb_theme
+import sphinx_rtd_theme
 from ipywidgets.embed import DEFAULT_EMBED_REQUIREJS_URL
 
 # -- Project information -----------------------------------------------------
