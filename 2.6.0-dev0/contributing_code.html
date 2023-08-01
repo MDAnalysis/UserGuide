@@ -138,6 +138,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#testing-your-code">Testing your code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#documenting-your-code">Documenting your code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ensure-pep8-compliance-mandatory-and-format-your-code-with-darker-optional">Ensure PEP8 compliance (mandatory) and format your code with Darker (optional)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#adding-your-code-to-mdanalysis">Adding your code to MDAnalysis</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#committing-your-code">Committing your code</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pushing-your-code-to-github">Pushing your code to GitHub</a></li>
@@ -211,6 +212,7 @@
 <li><p><a class="reference internal" href="#writing-new-code"><span class="std std-ref">Add your new feature or bug fix</span></a> or <a class="reference internal" href="#guidelines-for-docstrings"><span class="std std-ref">add your new documentation</span></a></p></li>
 <li><p><a class="reference internal" href="testing.html#testing"><span class="std std-ref">Add and run tests</span></a> (if adding to the code)</p></li>
 <li><p><a class="reference internal" href="#building-code-documentation"><span class="std std-ref">Build and view the documentation</span></a> (if adding to the docs)</p></li>
+<li><p><a class="reference internal" href="#format-darker"><span class="std std-ref">Ensure PEP8 compliance (mandatory)</span></a> and format your code with Darker (optional)</p></li>
 <li><p><a class="reference internal" href="#adding-code-to-mda"><span class="std std-ref">Commit and push your changes, and open a pull request.</span></a></p></li>
 </ol>
 </div></blockquote>
@@ -613,6 +615,42 @@ and switch in between them using the <code class="docutils literal notranslate">
 <section id="documenting-your-code">
 <h3>Documenting your code<a class="headerlink" href="#documenting-your-code" title="Permalink to this heading"></a></h3>
 <p>Changes to the code should be reflected in the ongoing <code class="docutils literal notranslate"><span class="pre">CHANGELOG</span></code>. Add an entry here to document your fix, enhancement, or change. In addition, add your name to the author list. If you are addressing an issue, make sure to include the issue number.</p>
+</section>
+<section id="ensure-pep8-compliance-mandatory-and-format-your-code-with-darker-optional">
+<span id="format-darker"></span><h3>Ensure PEP8 compliance (mandatory) and format your code with Darker (optional)<a class="headerlink" href="#ensure-pep8-compliance-mandatory-and-format-your-code-with-darker-optional" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://github.com/akaihola/darker">Darker</a> is a <em>partial formatting</em> tool that helps to reformat new or modified code
+lines so the codebase progressively adapts a code style instead of doing a full reformat,
+which would be a big commitment. It was designed with the <code class="docutils literal notranslate"><span class="pre">black</span></code> formatter in mind, hence the name.</p>
+<p>In MDAnalysis <strong>we only require PEP8 compliance</strong>, so if you want to make sure that your PR passes the darker bot, you’ll
+need both darker and <code class="docutils literal notranslate"><span class="pre">flake8</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">darker</span> <span class="n">flake8</span>
+</pre></div>
+</div>
+<p>You’ll also need the original codebase so darker can first get a diff between the current <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch and your code.
+After making your changes to your local copy of the <strong>MDAnalysis</strong> repo, add the remote repo
+(here we’re naming it <code class="docutils literal notranslate"><span class="pre">upstream</span></code>), and fetch the content:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">upstream</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">MDAnalysis</span><span class="o">/</span><span class="n">mdanalysis</span><span class="o">.</span><span class="n">git</span>
+<span class="n">git</span> <span class="n">fetch</span> <span class="n">upstream</span>
+</pre></div>
+</div>
+<p>Now you can check your modifications on the package:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">darker</span> <span class="o">--</span><span class="n">diff</span> <span class="o">-</span><span class="n">r</span> <span class="n">upstream</span><span class="o">/</span><span class="n">develop</span> <span class="n">package</span><span class="o">/</span><span class="n">MDAnalysis</span> <span class="o">-</span><span class="n">L</span> <span class="n">flake8</span>
+</pre></div>
+</div>
+<p>and the test suite:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">darker</span> <span class="o">--</span><span class="n">diff</span> <span class="o">-</span><span class="n">r</span> <span class="n">upstream</span><span class="o">/</span><span class="n">develop</span> <span class="n">testsuite</span><span class="o">/</span><span class="n">MDAnalysisTests</span> <span class="o">-</span><span class="n">L</span> <span class="n">flake8</span>
+</pre></div>
+</div>
+<p>Darker will first suggest changes so that the new code lines comply with <code class="docutils literal notranslate"><span class="pre">black</span></code>’s rules, like this:</p>
+<img alt="_images/darker_black.png" src="_images/darker_black.png" />
+<p>and then show flake8 errors and warnings. These look like this:</p>
+<img alt="_images/darker_pep8.png" src="_images/darker_pep8.png" />
+<p>You are free to skip the diffs and then manually fix the PEP8 faults.
+Or if you’re ok with the suggested formatting changes, just apply the suggested fixes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">darker</span> <span class="o">-</span><span class="n">r</span> <span class="n">upstream</span><span class="o">/</span><span class="n">develop</span> <span class="n">package</span><span class="o">/</span><span class="n">MDAnalysis</span> <span class="o">-</span><span class="n">L</span> <span class="n">flake8</span>
+<span class="n">darker</span> <span class="o">-</span><span class="n">r</span> <span class="n">upstream</span><span class="o">/</span><span class="n">develop</span> <span class="n">testsuite</span><span class="o">/</span><span class="n">MDAnalysisTests</span> <span class="o">-</span><span class="n">L</span> <span class="n">flake8</span>
+</pre></div>
+</div>
 </section>
 <section id="adding-your-code-to-mdanalysis">
 <span id="adding-code-to-mda"></span><h3>Adding your code to MDAnalysis<a class="headerlink" href="#adding-your-code-to-mdanalysis" title="Permalink to this heading"></a></h3>

@@ -21,6 +21,7 @@ Here is an overview of the development workflow for code or inline code document
     #. :ref:`Add your new feature or bug fix <writing-new-code>` or :ref:`add your new documentation <guidelines-for-docstrings>`
     #. :ref:`Add and run tests <testing>` (if adding to the code)
     #. :ref:`Build and view the documentation <building-code-documentation>` (if adding to the docs)
+    #. :ref:`Ensure PEP8 compliance (mandatory) <format-darker>` and format your code with Darker (optional)
     #. :ref:`Commit and push your changes, and open a pull request. <adding-code-to-mda>`
 
 
@@ -472,6 +473,51 @@ Documenting your code
 ---------------------
 
 Changes to the code should be reflected in the ongoing ``CHANGELOG``. Add an entry here to document your fix, enhancement, or change. In addition, add your name to the author list. If you are addressing an issue, make sure to include the issue number.
+
+.. _format-darker:
+
+-------------------------------------------------------------------------------
+Ensure PEP8 compliance (mandatory) and format your code with Darker (optional)
+-------------------------------------------------------------------------------
+
+`Darker <https://github.com/akaihola/darker>`_ is a *partial formatting* tool that helps to reformat new or modified code
+lines so the codebase progressively adapts a code style instead of doing a full reformat,
+which would be a big commitment. It was designed with the ``black`` formatter in mind, hence the name.
+
+In MDAnalysis **we only require PEP8 compliance**, so if you want to make sure that your PR passes the darker bot, you'll
+need both darker and ``flake8``: ::
+
+    pip install darker flake8
+
+
+You'll also need the original codebase so darker can first get a diff between the current ``develop`` branch and your code.
+After making your changes to your local copy of the **MDAnalysis** repo, add the remote repo
+(here we're naming it ``upstream``), and fetch the content: ::
+
+    git remote add upstream https://github.com/MDAnalysis/mdanalysis.git
+    git fetch upstream
+
+Now you can check your modifications on the package: ::
+
+    darker --diff -r upstream/develop package/MDAnalysis -L flake8
+
+and the test suite: ::
+
+    darker --diff -r upstream/develop testsuite/MDAnalysisTests -L flake8
+
+Darker will first suggest changes so that the new code lines comply with ``black``'s rules, like this:
+
+.. image:: images/darker_black.png
+
+and then show flake8 errors and warnings. These look like this:
+
+.. image:: images/darker_pep8.png
+
+You are free to skip the diffs and then manually fix the PEP8 faults.
+Or if you're ok with the suggested formatting changes, just apply the suggested fixes: ::
+
+    darker -r upstream/develop package/MDAnalysis -L flake8
+    darker -r upstream/develop testsuite/MDAnalysisTests -L flake8
 
 
 .. _adding-code-to-mda:
