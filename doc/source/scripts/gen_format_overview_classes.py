@@ -25,7 +25,7 @@ for clstype, dct in (('Coordinate reader', _READERS),
 
 sorted_types = sorted(FILE_TYPES.items())
 
-SUCCESS = u'\u2713'
+SUCCESS = u'\u2713' # checkmark
 FAIL = ''
 
 class FormatOverview(TableWriter):
