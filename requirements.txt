@@ -16,6 +16,7 @@ sphinx
 sphinxcontrib-bibtex
 sphinx-rtd-theme
 sphinx-sitemap
+syrupy
 tabulate
 threadpoolctl
 git+https://github.com/MDAnalysis/mdanalysis@develop#egg=mdanalysis&subdirectory=package

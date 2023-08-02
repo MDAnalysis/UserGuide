@@ -59,3 +59,4 @@ dependencies:
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=mdanalysis&subdirectory=package
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=MDAnalysisTests&subdirectory=testsuite
       - git+https://github.com/MDAnalysis/MDAnalysisData@master#egg=MDAnalysisData
+      - syrupy # snapshot tests

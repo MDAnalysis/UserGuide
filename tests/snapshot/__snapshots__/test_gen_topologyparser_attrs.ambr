@@ -1,0 +1,369 @@
+# serializer version: 1
+# name: test_ConnectivityAttrs
+  list([
+    list([
+      'angles',
+      'angles',
+      ':ref:`DATA <DATA-format>`, :ref:`GSD <GSD-format>`, :ref:`PSF <PSF-format>`, :ref:`TOP, PRMTOP, PARM7 <TOP-format>`, :ref:`TPR <TPR-format>`, :ref:`XML <XML-format>`',
+    ]),
+    list([
+      'bonds',
+      'bonds',
+      ':ref:`DATA <DATA-format>`, :ref:`DMS <DMS-format>`, :ref:`GSD <GSD-format>`, :ref:`MMTF <MMTF-format>`, :ref:`MOL2 <MOL2-format>`, :ref:`PSF <PSF-format>`, :ref:`TOP, PRMTOP, PARM7 <TOP-format>`, :ref:`TPR <TPR-format>`, :ref:`TXYZ, ARC <TXYZ-format>`, :ref:`XML <XML-format>`',
+    ]),
+    list([
+      'dihedrals',
+      'dihedrals',
+      ':ref:`DATA <DATA-format>`, :ref:`GSD <GSD-format>`, :ref:`PSF <PSF-format>`, :ref:`TOP, PRMTOP, PARM7 <TOP-format>`, :ref:`TPR <TPR-format>`, :ref:`XML <XML-format>`',
+    ]),
+    list([
+      'impropers',
+      'impropers',
+      ':ref:`DATA <DATA-format>`, :ref:`GSD <GSD-format>`, :ref:`PSF <PSF-format>`, :ref:`TOP, PRMTOP, PARM7 <TOP-format>`, :ref:`TPR <TPR-format>`, :ref:`XML <XML-format>`',
+    ]),
+  ])
+# ---
+# name: test_TopologyAttrs
+  list([
+    list([
+      'altLoc',
+      'altLocs',
+      'Alternate location',
+      ':ref:`MMTF <MMTF-format>`, :ref:`PDB, ENT <PDB-format>`, :ref:`PDBQT <PDBQT-format>`, :ref:`XPDB <XPDB-format>`',
+    ]),
+    list([
+      'angles',
+      'angles',
+      '',
+      ':ref:`DATA <DATA-format>`, :ref:`GSD <GSD-format>`, :ref:`PSF <PSF-format>`, :ref:`TOP, PRMTOP, PARM7 <TOP-format>`, :ref:`TPR <TPR-format>`, :ref:`XML <XML-format>`',
+    ]),
+    list([
+      'aromaticity',
+      'aromaticities',
+      '',
+      '',
+    ]),
+    list([
+      'atomiccharge',
+      'atomiccharges',
+      'Atomic number',
+      ':ref:`GMS <GMS-format>`',
+    ]),
+    list([
+      'atomnum',
+      'atomnums',
+      '?',
+      ':ref:`DMS <DMS-format>`',
+    ]),
+    list([
+      'bonds',
+      'bonds',
+      '',
+      ':ref:`DATA <DATA-format>`, :ref:`DMS <DMS-format>`, :ref:`GSD <GSD-format>`, :ref:`MMTF <MMTF-format>`, :ref:`MOL2 <MOL2-format>`, :ref:`PSF <PSF-format>`, :ref:`TOP, PRMTOP, PARM7 <TOP-format>`, :ref:`TPR <TPR-format>`, :ref:`TXYZ, ARC <TXYZ-format>`, :ref:`XML <XML-format>`',
+    ]),
+    list([
+      'chainID',
+      'chainIDs',
+      'chain ID',
+      ':ref:`DMS <DMS-format>`, :ref:`PDB, ENT <PDB-format>`, :ref:`XPDB <XPDB-format>`',
+    ]),
+    list([
+      'charge',
+      'charges',
+      'partial atomic charge',
+      ':ref:`DATA <DATA-format>`, :ref:`DMS <DMS-format>`, :ref:`GSD <GSD-format>`, :ref:`MMTF <MMTF-format>`, :ref:`MOL2 <MOL2-format>`, :ref:`PDBQT <PDBQT-format>`, :ref:`PQR <PQR-format>`, :ref:`PSF <PSF-format>`, :ref:`TOP, PRMTOP, PARM7 <TOP-format>`, :ref:`TPR <TPR-format>`, :ref:`XML <XML-format>`',
+    ]),
+    list([
+      'chargegroup',
+      'chargegroups',
+      '',
+      '',
+    ]),
+    list([
+      'chirality',
+      'chiralities',
+      '',
+      '',
+    ]),
+    list([
+      'cmaps',
+      'cmaps',
+      '',
+      '',
+    ]),
+    list([
+      'dihedrals',
+      'dihedrals',
+      '',
+      ':ref:`DATA <DATA-format>`, :ref:`GSD <GSD-format>`, :ref:`PSF <PSF-format>`, :ref:`TOP, PRMTOP, PARM7 <TOP-format>`, :ref:`TPR <TPR-format>`, :ref:`XML <XML-format>`',
+    ]),
+    list([
+      'element',
+      'elements',
+      'atom element',
+      ':ref:`IN, FHIAIMS <IN-format>`, :ref:`MOL2 <MOL2-format>`, :ref:`PDB, ENT <PDB-format>`, :ref:`TPR <TPR-format>`, :ref:`TXYZ, ARC <TXYZ-format>`, :ref:`XYZ <XYZ-format>`',
+    ]),
+    list([
+      'epsilon',
+      'epsilons',
+      '',
+      '',
+    ]),
+    list([
+      'epsilon14',
+      'epsilon14s',
+      '',
+      '',
+    ]),
+    list([
+      'formalcharge',
+      'formalcharges',
+      '',
+      '',
+    ]),
+    list([
+      'gbscreen',
+      'gbscreens',
+      '',
+      '',
+    ]),
+    list([
+      'icode',
+      'icodes',
+      'atom insertion code',
+      ':ref:`MMTF <MMTF-format>`, :ref:`PDB, ENT <PDB-format>`, :ref:`PDBQT <PDBQT-format>`, :ref:`PQR <PQR-format>`, :ref:`XPDB <XPDB-format>`',
+    ]),
+    list([
+      'impropers',
+      'impropers',
+      '',
+      ':ref:`DATA <DATA-format>`, :ref:`GSD <GSD-format>`, :ref:`PSF <PSF-format>`, :ref:`TOP, PRMTOP, PARM7 <TOP-format>`, :ref:`TPR <TPR-format>`, :ref:`XML <XML-format>`',
+    ]),
+    list([
+      'model',
+      'models',
+      'model number (from 0)',
+      ':ref:`MMTF <MMTF-format>`',
+    ]),
+    list([
+      'molnum',
+      'molnums',
+      '[molecules] number (from 0)',
+      ':ref:`TPR <TPR-format>`',
+    ]),
+    list([
+      'moltype',
+      'moltypes',
+      '[moleculetype] name',
+      ':ref:`TPR <TPR-format>`',
+    ]),
+    list([
+      'name',
+      'names',
+      'atom names',
+      ':ref:`CONFIG <CONFIG-format>`, :ref:`CRD <CRD-format>`, :ref:`DMS <DMS-format>`, :ref:`GMS <GMS-format>`, :ref:`GRO <GRO-format>`, :ref:`GSD <GSD-format>`, :ref:`HISTORY <HISTORY-format>`, :ref:`IN, FHIAIMS <IN-format>`, :ref:`MMTF <MMTF-format>`, :ref:`MOL2 <MOL2-format>`, :ref:`PDB, ENT <PDB-format>`, :ref:`PDBQT <PDBQT-format>`, :ref:`PQR <PQR-format>`, :ref:`PSF <PSF-format>`, :ref:`TOP, PRMTOP, PARM7 <TOP-format>`, :ref:`TPR <TPR-format>`, :ref:`TXYZ, ARC <TXYZ-format>`, :ref:`XPDB <XPDB-format>`, :ref:`XYZ <XYZ-format>`',
+    ]),
+    list([
+      'nbindex',
+      'nbindices',
+      '',
+      '',
+    ]),
+    list([
+      'occupancy',
+      'occupancies',
+      'atom occupancy',
+      ':ref:`MMTF <MMTF-format>`, :ref:`PDB, ENT <PDB-format>`, :ref:`PDBQT <PDBQT-format>`, :ref:`XPDB <XPDB-format>`',
+    ]),
+    list([
+      'radius',
+      'radii',
+      'atomic radius',
+      ':ref:`GSD <GSD-format>`, :ref:`PQR <PQR-format>`, :ref:`XML <XML-format>`',
+    ]),
+    list([
+      'record_type',
+      'record_types',
+      'ATOM / HETATM',
+      ':ref:`PDB, ENT <PDB-format>`, :ref:`PDBQT <PDBQT-format>`, :ref:`PQR <PQR-format>`, :ref:`XPDB <XPDB-format>`',
+    ]),
+    list([
+      'resname',
+      'resnames',
+      'residue name (except GSD has ints)',
+      ':ref:`CRD <CRD-format>`, :ref:`DMS <DMS-format>`, :ref:`GRO <GRO-format>`, :ref:`GSD <GSD-format>`, :ref:`MMTF <MMTF-format>`, :ref:`MOL2 <MOL2-format>`, :ref:`PDB, ENT <PDB-format>`, :ref:`PDBQT <PDBQT-format>`, :ref:`PQR <PQR-format>`, :ref:`PSF <PSF-format>`, :ref:`TOP, PRMTOP, PARM7 <TOP-format>`, :ref:`TPR <TPR-format>`, :ref:`XPDB <XPDB-format>`',
+    ]),
+    list([
+      'rmin',
+      'rmins',
+      '',
+      '',
+    ]),
+    list([
+      'rmin14',
+      'rmin14s',
+      '',
+      '',
+    ]),
+    list([
+      'solventradius',
+      'solventradii',
+      '',
+      '',
+    ]),
+    list([
+      'tempfactor',
+      'tempfactors',
+      'B-factor',
+      ':ref:`CRD <CRD-format>`, :ref:`MMTF <MMTF-format>`, :ref:`PDB, ENT <PDB-format>`, :ref:`PDBQT <PDBQT-format>`, :ref:`XPDB <XPDB-format>`',
+    ]),
+    list([
+      'type_index',
+      'type_indices',
+      'amber atom type number',
+      ':ref:`TOP, PRMTOP, PARM7 <TOP-format>`',
+    ]),
+    list([
+      'ureybradleys',
+      'ureybradleys',
+      '',
+      '',
+    ]),
+  ])
+# ---
+# name: test_TopologyParsers
+  list([
+    list([
+      ':ref:`CONFIG <CONFIG-format>`',
+      'DL_Poly CONFIG file',
+      'names',
+      'masses, types',
+    ]),
+    list([
+      ':ref:`CRD <CRD-format>`',
+      'CHARMM CARD file',
+      'names, resnames, tempfactors',
+      'masses, types',
+    ]),
+    list([
+      ':ref:`DATA <DATA-format>`',
+      'LAMMPS data file',
+      'angles, bonds, charges, dihedrals, impropers',
+      '',
+    ]),
+    list([
+      ':ref:`DMS <DMS-format>`',
+      'DESRES Molecular Structure file',
+      'atomnums, bonds, chainIDs, charges, names, resnames',
+      'types',
+    ]),
+    list([
+      ':ref:`GMS <GMS-format>`',
+      'GAMESS file',
+      'atomiccharges, names',
+      'masses, types',
+    ]),
+    list([
+      ':ref:`GRO <GRO-format>`',
+      'GROMACS structure file',
+      'names, resnames',
+      'masses, types',
+    ]),
+    list([
+      ':ref:`GSD <GSD-format>`',
+      'HOOMD GSD file',
+      'angles, bonds, charges, dihedrals, impropers, names, radii, resnames',
+      '',
+    ]),
+    list([
+      ':ref:`HISTORY <HISTORY-format>`',
+      'DL_Poly HISTORY file',
+      'names',
+      'masses, types',
+    ]),
+    list([
+      ':ref:`IN, FHIAIMS <IN-format>`',
+      'FHI-aims input file',
+      'elements, names',
+      'masses, types',
+    ]),
+    list([
+      ':ref:`LAMMPSDUMP <LAMMPSDUMP-format>`',
+      'LAMMPS ascii dump file',
+      '',
+      'masses',
+    ]),
+    list([
+      ':ref:`MMTF <MMTF-format>`',
+      'MMTF file',
+      'altLocs, bonds, charges, icodes, models, names, occupancies, resnames, tempfactors',
+      'masses',
+    ]),
+    list([
+      ':ref:`MOL2 <MOL2-format>`',
+      'Tripos MOL2 file',
+      'bonds, charges, elements, names, resnames',
+      'masses',
+    ]),
+    list([
+      ':ref:`PDB, ENT <PDB-format>`',
+      'Standard PDB file',
+      'altLocs, chainIDs, elements, icodes, names, occupancies, record_types, resnames, tempfactors',
+      'masses, types',
+    ]),
+    list([
+      ':ref:`PDBQT <PDBQT-format>`',
+      'PDBQT file',
+      'altLocs, charges, icodes, names, occupancies, record_types, resnames, tempfactors',
+      'masses',
+    ]),
+    list([
+      ':ref:`PQR <PQR-format>`',
+      'PQR file',
+      'charges, icodes, names, radii, record_types, resnames',
+      'masses, types',
+    ]),
+    list([
+      ':ref:`PSF <PSF-format>`',
+      'CHARMM, NAMD, or XPLOR PSF file',
+      'angles, bonds, charges, dihedrals, impropers, names, resnames',
+      '',
+    ]),
+    list([
+      ':ref:`TOP, PRMTOP, PARM7 <TOP-format>`',
+      'AMBER topology file',
+      'angles, bonds, charges, dihedrals, impropers, names, resnames, type_indices',
+      '',
+    ]),
+    list([
+      ':ref:`TPR <TPR-format>`',
+      'GROMACS run topology file',
+      'angles, bonds, charges, dihedrals, elements, impropers, molnums, moltypes, names, resnames',
+      '',
+    ]),
+    list([
+      ':ref:`TXYZ, ARC <TXYZ-format>`',
+      'Tinker file',
+      'bonds, elements, names',
+      'masses',
+    ]),
+    list([
+      ':ref:`XML <XML-format>`',
+      'HOOMD XML file',
+      'angles, bonds, charges, dihedrals, impropers, radii',
+      '',
+    ]),
+    list([
+      ':ref:`XPDB <XPDB-format>`',
+      'Extended PDB file',
+      'altLocs, chainIDs, icodes, names, occupancies, record_types, resnames, tempfactors',
+      'masses, types',
+    ]),
+    list([
+      ':ref:`XYZ <XYZ-format>`',
+      'XYZ file',
+      'elements, names',
+      'masses, types',
+    ]),
+  ])
+# ---
