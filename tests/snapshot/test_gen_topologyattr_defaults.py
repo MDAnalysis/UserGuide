@@ -1,8 +1,9 @@
 
 from doc.source.scripts.gen_topologyattr_defaults import TopologyDefaults
 from MDAnalysis.core import selection as sel
-
+from unittest.mock import patch
 
 def test_TopologyDefaults(snapshot):
-    td = TopologyDefaults()
+    with patch("builtins.open"):
+        td = TopologyDefaults()
     assert td.lines == snapshot
