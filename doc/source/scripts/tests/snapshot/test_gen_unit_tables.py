@@ -1,5 +1,5 @@
 
-from doc.source.scripts.gen_unit_tables import write_unit_table
+from gen_unit_tables import write_unit_table
 from unittest.mock import patch, mock_open
 from pathlib import Path
 

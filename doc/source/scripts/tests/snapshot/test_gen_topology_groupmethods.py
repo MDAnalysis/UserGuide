@@ -1,5 +1,5 @@
 
-from doc.source.scripts.gen_topology_groupmethods import TransplantedMethods
+from gen_topology_groupmethods import TransplantedMethods
 from MDAnalysis.core import selection as sel
 from unittest.mock import patch
 

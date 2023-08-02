@@ -1,5 +1,5 @@
 
-from doc.source.scripts.gen_standard_selections import StandardSelectionTable
+from gen_standard_selections import StandardSelectionTable
 from MDAnalysis.core import selection as sel
 from unittest.mock import patch
 

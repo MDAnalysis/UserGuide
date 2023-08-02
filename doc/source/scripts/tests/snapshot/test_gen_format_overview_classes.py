@@ -1,4 +1,4 @@
-from doc.source.scripts.gen_format_overview_classes import FormatOverview, FILE_TYPES, CoordinateReaders, SphinxClasses
+from gen_format_overview_classes import FormatOverview, FILE_TYPES, CoordinateReaders, SphinxClasses
 from unittest.mock import patch
 
 def test_FILE_TYPES():

@@ -1,5 +1,5 @@
 
-from doc.source.scripts.gen_topologyparser_attrs import TopologyParsers, TopologyAttrs, ConnectivityAttrs
+from gen_topologyparser_attrs import TopologyParsers, TopologyAttrs, ConnectivityAttrs
 from MDAnalysis.core import selection as sel
 from unittest.mock import patch
 
