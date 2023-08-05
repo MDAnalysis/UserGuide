@@ -6,6 +6,10 @@ import pathlib
 import tabulate
 import textwrap
 from collections import defaultdict
+import helpers
+
+def _sanitize_name(name: str) -> str:
+    return '_' + name.replace(' ', '_').replace('/', '_').lower()
 
 
 class TableWriter(object):
@@ -17,12 +21,24 @@ class TableWriter(object):
     Filename relative to source.
     """
 
-    filename = ''
-    include_table = False
-    headings = []
-    preprocess = []
-    postprocess = []
-    sort = True
+    def __init__(self, *,
+        filename: str,
+        include_table: bool = False,
+        headings: list = [],
+        preprocess: list = [],
+        postprocess: list = [],
+        sort: bool = True,
+        inputs: set = set(),
+        methods: dict = {},
+    ):
+        self.filename = filename
+        self.include_table = include_table
+        self.headings = headings
+        self.preprocess = preprocess
+        self.postprocess = postprocess
+        self.sort = sort
+        self.inputs = inputs
+        self.methods = methods
 
     def __getattr__(self, key):
         try:
@@ -30,7 +46,7 @@ class TableWriter(object):
         except KeyError:
             return super(TableWriter, self).__getattr__(key)
 
-    def __init__(self, *args, **kwargs):
+    def do_stuff(self, *args, **kwargs):
         stem = os.getcwd().split('source')[0]
         self.path = os.path.join(stem, 'source', self.filename)
         self.fields = defaultdict(list)
@@ -40,20 +56,15 @@ class TableWriter(object):
         self.get_lines(*args, **kwargs)
         self.write_table()
 
-    def _run_method(self, method, *args, **kwargs):
-        sanitized = self.sanitize_name(method)
-        meth = getattr(self, sanitized)
+    def _run_method(self, method_name: str, *args, **kwargs) -> None:
+        sanitized_method_name = _sanitize_name(method_name)
+        meth = self.methods[method_name] or getattr(self, sanitized_method_name)
         val = meth(*args, **kwargs)
-        self.fields[method].append(val)
-        return val
-
-    @staticmethod
-    def sanitize_name(name):
-        return '_' + name.replace(' ', '_').replace('/', '_').lower()
+        self.fields[method_name].append(val)
 
     def get_lines(self, *args, **kwargs):
         lines = []
-        for items in self._set_up_input():
+        for items in self.inputs or self._set_up_input():
             try:
                 lines.append(self.get_line(*items))
             except TypeError:  # one argument
@@ -62,7 +73,7 @@ class TableWriter(object):
             lines = sorted(lines)
         self.lines = lines
 
-    def get_line(self, *args):
+    def get_line(self, *args) -> list:
         line = []
         for p in self.preprocess:
             self._run_method(p, *args)
@@ -88,21 +99,17 @@ class TableWriter(object):
     # ==== HELPER FUNCTIONS ==== #
 
     @staticmethod
-    def sphinx_class(klass, tilde=True):
-        prefix = '~' if tilde else ''
-        return ':class:`{}{}.{}`'.format(prefix, klass.__module__, klass.__name__)
+    def sphinx_class(self, klass: type, tilde: bool =True) -> str:
+        return helpers.sphinx_class(klass=klass, tilde=tilde)
 
     @staticmethod
     def sphinx_meth(meth, tilde=True):
-        prefix = '~' if tilde else ''
-        return ':meth:`{}{}.{}`'.format(prefix, meth.__module__, meth.__qualname__)
+        return helpers.sphinx_meth(meth=meth, tilde=tilde)
 
     @staticmethod
     def sphinx_ref(txt, label=None, suffix=''):
-        if label is None:
-            label = txt
-        return ':ref:`{} <{}{}>`'.format(txt, label, suffix)
+        return helpers.sphinx_ref(txt=txt, label=label, suffix=suffix)
 
     @staticmethod
     def sphinx_link(txt):
-        return '`{}`_'.format(txt)
+        return helpers.sphinx_link(txt=txt)
