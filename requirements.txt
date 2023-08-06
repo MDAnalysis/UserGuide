@@ -5,6 +5,7 @@ jupyter-contrib-nbextensions
 matplotlib
 msmb_theme
 nbsphinx
+nbval
 nglview
 numpy
 packaging
