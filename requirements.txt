@@ -6,6 +6,7 @@ matplotlib
 msmb_theme
 nbsphinx
 nbval
+notebook
 nglview
 numpy
 packaging
