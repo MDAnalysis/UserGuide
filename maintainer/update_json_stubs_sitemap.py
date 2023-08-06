@@ -9,14 +9,13 @@
 #  3. Write a sitemap.xml file for the root directory
 #
 
+import errno
+import glob
 import json
 import os
 import shutil
-import xml.etree.ElementTree as ET
-import errno
-import glob
 import textwrap
-import shutil
+import xml.etree.ElementTree as ET
 
 try:
     from urllib.request import Request, urlopen

@@ -6,9 +6,10 @@ A table of transplanted methods.
 """
 
 from collections import defaultdict
-from MDAnalysis.core.groups import GroupBase
+
 from base import TableWriter
 from core import TOPOLOGY_CLS
+from MDAnalysis.core.groups import GroupBase
 
 
 class TransplantedMethods(TableWriter):

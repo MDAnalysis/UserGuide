@@ -4,8 +4,9 @@ Writes unit tables
 """
 import pathlib
 import sys
-import tabulate
 import textwrap
+
+import tabulate
 from MDAnalysis.units import conversion_factor
 
 

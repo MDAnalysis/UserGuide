@@ -5,10 +5,9 @@ Generate topology_defaults.txt:
 A table of whether TopologyAttrs are atomwise, residuewise, or segmentwise, and their defaults
 """
 
-from MDAnalysis.core.topologyattrs import AtomAttr, ResidueAttr, SegmentAttr
-from core import TOPOLOGY_CLS
 from base import TableWriter
-
+from core import TOPOLOGY_CLS
+from MDAnalysis.core.topologyattrs import AtomAttr, ResidueAttr, SegmentAttr
 
 DEFAULTS = {
     'resids': 'continuous sequence from 1 to n_residues',

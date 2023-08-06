@@ -4,8 +4,8 @@ Generates:
     - ../formats/selection_exporters.txt
 """
 
-from MDAnalysis import _SELECTION_WRITERS
 from base import TableWriter
+from MDAnalysis import _SELECTION_WRITERS
 
 SELECTION_DESCRIPTIONS = {
     'vmd': 'VMD macros, available in Representations',

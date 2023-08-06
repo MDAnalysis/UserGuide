@@ -1,11 +1,13 @@
 
 from __future__ import print_function
-import sys
+
 import os
 import pathlib
-import tabulate
+import sys
 import textwrap
 from collections import defaultdict
+
+import tabulate
 
 
 class TableWriter(object):

@@ -22,23 +22,22 @@ References
 This script uses the sphinxcontrib-bibtex extension for references.
 """
 
-import os
-import glob
+import argparse
 import datetime
+import glob
+import logging
+import os
 import re
 import shutil
-import argparse
-import logging
 import sys
 
-import nbformat
-from nbconvert.preprocessors import ExecutePreprocessor
-import pybtex as tex
-from pybtex.database import parse_file, BibliographyData
-import pybtex.plugin
-from pybtex.style import formatting
-
 import MDAnalysis as mda
+import nbformat
+import pybtex as tex
+import pybtex.plugin
+from nbconvert.preprocessors import ExecutePreprocessor
+from pybtex.database import BibliographyData, parse_file
+from pybtex.style import formatting
 
 parser = argparse.ArgumentParser(description='Clean Jupyter notebooks.')
 parser.add_argument('files', type=str, nargs='+', help='notebook files')
