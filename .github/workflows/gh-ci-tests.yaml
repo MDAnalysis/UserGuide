@@ -29,19 +29,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: setup micromamba
-        uses: mamba-org/setup-micromamba@v1
+      - uses: actions/setup-python@v4
         with:
-          environment-file: environment.yml
-          environment-name: mda-user-guide
-          cache-environment: true
-          create-args: >-
-            hole2
-
-      - name: "environment information"
-        run: |
-          micromamba info
-          micromamba list
+          python-version: '3.9'
+          cache: 'pip' # caching pip dependencies
+      - run: pip install -r requirements.txt
 
       - name: "test notebooks"
         run: |
