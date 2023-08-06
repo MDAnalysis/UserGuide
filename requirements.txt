@@ -1,6 +1,8 @@
 cython
+dask==2021.1.0
 git+https://github.com/MDAnalysis/mdanalysis@develop#egg=mdanalysis&subdirectory=package
 git+https://github.com/MDAnalysis/mdanalysis@develop#egg=MDAnalysisTests&subdirectory=testsuite
+git+https://github.com/MDAnalysis/MDAnalysisData@master#egg=MDAnalysisData
 ipython
 ipywidgets<8.0.0
 jupyter-contrib-nbextensions
@@ -12,11 +14,16 @@ nglview
 notebook<7
 numpy
 packaging
+pandas
 pandoc
+parmed
 plotly
 pre-commit
 pybtex
 pyedr>=0.7.0
+pyvista
+scikit-image
+seaborn
 sphinx
 sphinx-rtd-theme
 sphinx-sitemap
