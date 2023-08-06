@@ -24,7 +24,6 @@ defaults:
 jobs:
   tests_conda:
     runs-on: ubuntu-latest
-    name: "examples-tests"
 
     steps:
       - uses: actions/checkout@v3
@@ -49,7 +48,6 @@ jobs:
 
   tests_pip:
     runs-on: ubuntu-latest
-    name: "examples-tests"
 
     steps:
       - uses: actions/checkout@v3
