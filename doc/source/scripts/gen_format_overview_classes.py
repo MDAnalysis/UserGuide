@@ -27,7 +27,7 @@ for clstype, dct in (
 
 sorted_types = sorted(FILE_TYPES.items())
 
-SUCCESS = "\u2713"
+SUCCESS = "\u2713"  # checkmark
 FAIL = ""
 
 

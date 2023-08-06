@@ -1,0 +1,35 @@
+# serializer version: 1
+# name: test_SelectionExporterWriter
+  list([
+    list([
+      '`CHARMM`_',
+      'str',
+      'CHARMM selection of individual atoms',
+      ':class:`MDAnalysis.selections.charmm.SelectionWriter`',
+    ]),
+    list([
+      '`Gromacs`_',
+      'ndx',
+      'GROMACS index file',
+      ':class:`MDAnalysis.selections.gromacs.SelectionWriter`',
+    ]),
+    list([
+      '`Jmol`_',
+      'spt',
+      'Jmol selection commands',
+      ':class:`MDAnalysis.selections.jmol.SelectionWriter`',
+    ]),
+    list([
+      '`PyMol`_',
+      'pml',
+      'PyMOL selection string',
+      ':class:`MDAnalysis.selections.pymol.SelectionWriter`',
+    ]),
+    list([
+      '`VMD`_',
+      'vmd',
+      'VMD macros, available in Representations',
+      ':class:`MDAnalysis.selections.vmd.SelectionWriter`',
+    ]),
+  ])
+# ---

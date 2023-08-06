@@ -37,6 +37,7 @@ def write_unit_table(filename):
             )
             f.write("\n")
     print("Wrote ", filename)
+    return tables
 
 
 if __name__ == "__main__":
