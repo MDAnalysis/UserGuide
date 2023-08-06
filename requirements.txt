@@ -6,7 +6,7 @@ matplotlib
 msmb_theme
 nbsphinx
 nbval
-notebook
+notebook<7
 nglview
 numpy
 packaging
