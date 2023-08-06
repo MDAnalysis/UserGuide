@@ -25,12 +25,18 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - uses: actions/setup-python@v4
+    - name: setup micromamba
+      uses: mamba-org/setup-micromamba@v1
       with:
-        python-version: '3.9'
-        cache: 'pip' # caching pip dependencies
-
-    - run: pip install -r requirements.txt
+        environment-file: environment.yml
+        environment-name: mda-user-guide
+        create-args: >-
+          python=3.9
+          pip
+        condarc: |
+          channels:
+            - conda-forge
+            - plotly
 
     - uses: pre-commit/action@v3.0.0
       with:
