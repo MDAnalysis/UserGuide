@@ -22,7 +22,32 @@ defaults:
     shell: bash -l {0}
 
 jobs:
-  tests:
+  tests_conda:
+    runs-on: ubuntu-latest
+    name: "examples-tests"
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: setup micromamba
+        uses: mamba-org/setup-micromamba@v1
+        with:
+          environment-file: environment.yml
+          environment-name: mda-user-guide
+          cache-environment: true
+          create-args: >-
+            hole2
+
+      - name: "environment information"
+        run: |
+          micromamba info
+          micromamba list
+
+      - name: "test notebooks"
+        working-directory: tests/
+        run: python -m pytest
+
+  tests_pip:
     runs-on: ubuntu-latest
     name: "examples-tests"
 
@@ -40,4 +65,4 @@ jobs:
 
       - name: "test notebooks"
         working-directory: tests/
-        run: pytest
+        run: python -m pytest
