@@ -8,17 +8,18 @@ from base import TableWriter
 from MDAnalysis import _SELECTION_WRITERS
 
 SELECTION_DESCRIPTIONS = {
-    'vmd': 'VMD macros, available in Representations',
-    'pml': 'PyMOL selection string',
-    'ndx': 'GROMACS index file',
-    'str': 'CHARMM selection of individual atoms',
-    'spt': 'Jmol selection commands',
+    "vmd": "VMD macros, available in Representations",
+    "pml": "PyMOL selection string",
+    "ndx": "GROMACS index file",
+    "str": "CHARMM selection of individual atoms",
+    "spt": "Jmol selection commands",
 }
 
+
 class SelectionExporterWriter(TableWriter):
-    headings = ['Program', 'Extension', 'Description', 'Class']
-    filename = 'formats/selection_exporter_formats.txt'
-    include_table = 'Supported selection exporters'
+    headings = ["Program", "Extension", "Description", "Class"]
+    filename = "formats/selection_exporter_formats.txt"
+    include_table = "Supported selection exporters"
     sort = True
 
     def _set_up_input(self):
@@ -42,5 +43,5 @@ class SelectionExporterWriter(TableWriter):
         return self.sphinx_class(klass, tilde=False)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     SelectionExporterWriter()

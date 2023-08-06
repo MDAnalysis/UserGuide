@@ -24,22 +24,23 @@ from ipywidgets.embed import DEFAULT_EMBED_REQUIREJS_URL
 
 # -- Project information -----------------------------------------------------
 
-project = 'MDAnalysis User Guide'
+project = "MDAnalysis User Guide"
+
 
 def sort_authors(filename):
     """Generate sorted list of authors from AUTHORS"""
     authors = []
-    with open(filename, 'r') as f:
+    with open(filename, "r") as f:
         contents = f.read()
-    lines = contents.split('Chronological list of authors')[1].split('\n')[2:]
+    lines = contents.split("Chronological list of authors")[1].split("\n")[2:]
     lines = [x for x in lines if x]
     for line in lines:
         line = line.strip()
-        if line[:2] == '- ':
+        if line[:2] == "- ":
             authors.append(line[2:].strip())
 
     # remove original authors
-    original = ['Lily Wang', 'Richard J. Gowers', 'Oliver Beckstein']
+    original = ["Lily Wang", "Richard J. Gowers", "Oliver Beckstein"]
     for name in original:
         authors.remove(name)
 
@@ -49,10 +50,10 @@ def sort_authors(filename):
     return authors
 
 
-author_list = sort_authors('AUTHORS')
-author = ', '.join(author_list[:-1]) + ', and ' + author_list[-1]
+author_list = sort_authors("AUTHORS")
+author = ", ".join(author_list[:-1]) + ", and " + author_list[-1]
 now = datetime.datetime.now()
-copyright = '2019-{}, {}.'.format(now.year, author)
+copyright = "2019-{}, {}.".format(now.year, author)
 
 # -- Scripts -----------------------------------------------
 # Get Travis to regenerate txt tables by re-running scripts
@@ -64,7 +65,7 @@ copyright = '2019-{}, {}.'.format(now.year, author)
 # TURNED OFF FOR NOW until we sort out how versioned docs
 # work and how we will install MDAnalysis + dependencies
 #
-subprocess.call('./scripts/generate_all.sh')
+subprocess.call("./scripts/generate_all.sh")
 
 # -- General configuration ---------------------------------------------------
 
@@ -72,56 +73,63 @@ subprocess.call('./scripts/generate_all.sh')
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary',
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.mathjax',
-    'sphinx.ext.ifconfig',
-    'sphinx.ext.viewcode',
-    'sphinx.ext.napoleon',
-    'sphinx.ext.githubpages',
-    'sphinx_sitemap',
-    'nbsphinx',
-    'sphinx_rtd_theme',
-    'IPython.sphinxext.ipython_console_highlighting',
-    'IPython.sphinxext.ipython_directive',
-    'sphinxcontrib.bibtex',
-    'matplotlib.sphinxext.plot_directive',
+    "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.mathjax",
+    "sphinx.ext.ifconfig",
+    "sphinx.ext.viewcode",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.githubpages",
+    "sphinx_sitemap",
+    "nbsphinx",
+    "sphinx_rtd_theme",
+    "IPython.sphinxext.ipython_console_highlighting",
+    "IPython.sphinxext.ipython_directive",
+    "sphinxcontrib.bibtex",
+    "matplotlib.sphinxext.plot_directive",
 ]
 
-bibtex_bibfiles = ['references.bib']
+bibtex_bibfiles = ["references.bib"]
 
-pygments_style = 'default'
+pygments_style = "default"
 
 todo_include_todos = True
 
-mathjax_path = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+mathjax_path = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
 
 html_baseurl = "https://userguide.mdanalysis.org/"
 sitemap_url_scheme = "{link}"
-html_use_opensearch = 'https://userguide.mdanalysis.org'
+html_use_opensearch = "https://userguide.mdanalysis.org"
 
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ["_templates"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store',
-                    '.ipynb_checkpoints', '**/.ipynb_checkpoints',
-                    'scripts', '**/.*.ipynb', '.*']
+exclude_patterns = [
+    "_build",
+    "Thumbs.db",
+    ".DS_Store",
+    ".ipynb_checkpoints",
+    "**/.ipynb_checkpoints",
+    "scripts",
+    "**/.*.ipynb",
+    ".*",
+]
 
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'msmb_theme'
+html_theme = "msmb_theme"
 # Add any paths that contain custom themes here, relative to this directory.
 html_theme_path = [
     msmb_theme.get_html_theme_path(),
-    sphinx_rtd_theme.get_html_theme_path()
+    sphinx_rtd_theme.get_html_theme_path(),
 ]
 
 # styles/fonts to match http://mdanalysis.org (see public/css)
@@ -131,71 +139,72 @@ html_theme_path = [
 # /* MDAnalysis white: #FFFFFF */
 # /* MDAnalysis black: #000000 */
 
-color = {'orange': '#FF9200',
-         'gray': '#808080',
-         'white': '#FFFFFF',
-         'black': '#000000', }
+color = {
+    "orange": "#FF9200",
+    "gray": "#808080",
+    "white": "#FFFFFF",
+    "black": "#000000",
+}
 
 extra_nav_links = OrderedDict()
-extra_nav_links['MDAnalysis'] = 'http://mdanalysis.org'
-extra_nav_links['docs'] = 'http://docs.mdanalysis.org'
-extra_nav_links['wiki'] = 'http://wiki.mdanalysis.org'
-extra_nav_links['user discussion group'] = 'http://users.mdanalysis.org'
-extra_nav_links['GitHub'] = 'https://github.com/mdanalysis'
-extra_nav_links['@mdanalysis'] = 'https://twitter.com/mdanalysis'
+extra_nav_links["MDAnalysis"] = "http://mdanalysis.org"
+extra_nav_links["docs"] = "http://docs.mdanalysis.org"
+extra_nav_links["wiki"] = "http://wiki.mdanalysis.org"
+extra_nav_links["user discussion group"] = "http://users.mdanalysis.org"
+extra_nav_links["GitHub"] = "https://github.com/mdanalysis"
+extra_nav_links["@mdanalysis"] = "https://twitter.com/mdanalysis"
 
 html_theme_options = {
-    'canonical_url': '',
-    'logo_only': True,
-    'display_version': True,
-    'prev_next_buttons_location': 'bottom',
-    'style_external_links': False,
-    'style_nav_header_background': 'white',  # '#e76900', # dark orange
+    "canonical_url": "",
+    "logo_only": True,
+    "display_version": True,
+    "prev_next_buttons_location": "bottom",
+    "style_external_links": False,
+    "style_nav_header_background": "white",  # '#e76900', # dark orange
     # Toc options
-    'collapse_navigation': True,
-    'sticky_navigation': True,
-    'navigation_depth': 4,
-    'includehidden': True,
-    'titles_only': False,
+    "collapse_navigation": True,
+    "sticky_navigation": True,
+    "navigation_depth": 4,
+    "includehidden": True,
+    "titles_only": False,
 }
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 html_favicon = "_static/logos/mdanalysis-logo.ico"
-html_logo = '_static/logos/user_guide.png'
+html_logo = "_static/logos/user_guide.png"
 
-html_context = {
-    'versions_json_url': 'https://userguide.mdanalysis.org/versions.json'
-}
+html_context = {"versions_json_url": "https://userguide.mdanalysis.org/versions.json"}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
-html_css_files = ['custom.css']  # , 'readable.css']
+html_static_path = ["_static"]
+html_css_files = ["custom.css"]  # , 'readable.css']
 
 # Custom sidebar templates, maps document names to template names.
 # alabaster sidebars
 html_sidebars = {
-    '**': [
-        'about.html',
-        'navigation.html',
-        'relations.html',
-        'searchbox.html',
+    "**": [
+        "about.html",
+        "navigation.html",
+        "relations.html",
+        "searchbox.html",
     ]
 }
 
 # Configuration for intersphinx: refer to the Python standard library
 # and other packages used by MDAnalysis
 mda_version = mda.__version__
-intersphinx_mapping = {'python': ('https://docs.python.org/3/', None),
-                       'numpy': ('https://numpy.org/doc/stable/', None),
-                       'mdanalysis': (f'https://docs.mdanalysis.org/{mda_version}/', None),
-                       'pytest': ('https://docs.pytest.org/en/latest/', None),
-                       'chemfiles': ('https://chemfiles.org/chemfiles.py/latest/', None),
-                       'parmed': ('https://parmed.github.io/ParmEd/html/', None),
-                       }
+intersphinx_mapping = {
+    "python": ("https://docs.python.org/3/", None),
+    "numpy": ("https://numpy.org/doc/stable/", None),
+    "mdanalysis": (f"https://docs.mdanalysis.org/{mda_version}/", None),
+    "pytest": ("https://docs.pytest.org/en/latest/", None),
+    "chemfiles": ("https://chemfiles.org/chemfiles.py/latest/", None),
+    "parmed": ("https://parmed.github.io/ParmEd/html/", None),
+}
 
 # nbsphinx
 html_js_files = [
@@ -216,6 +225,6 @@ nbsphinx_prolog = r"""
 MDAnalysis_version = version = mda.__version__
 
 # rst-epilog implements substitutions
-rst_epilog = """
-.. |MDAnalysis_version| replace:: {0}
-""".format(MDAnalysis_version)
+rst_epilog = f"""
+.. |MDAnalysis_version| replace:: {MDAnalysis_version}
+"""

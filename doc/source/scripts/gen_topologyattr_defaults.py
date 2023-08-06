@@ -10,14 +10,15 @@ from core import TOPOLOGY_CLS
 from MDAnalysis.core.topologyattrs import AtomAttr, ResidueAttr, SegmentAttr
 
 DEFAULTS = {
-    'resids': 'continuous sequence from 1 to n_residues',
-    'resnums': 'continuous sequence from 1 to n_residues',
-    'ids': 'continuous sequence from 1 to n_atoms',
+    "resids": "continuous sequence from 1 to n_residues",
+    "resnums": "continuous sequence from 1 to n_residues",
+    "ids": "continuous sequence from 1 to n_atoms",
 }
 
+
 class TopologyDefaults(TableWriter):
-    filename = 'generated/topology/defaults.txt'
-    headings = ('Atom', 'AtomGroup', 'default', 'level', 'type')
+    filename = "generated/topology/defaults.txt"
+    headings = ("Atom", "AtomGroup", "default", "level", "type")
     sort = True
 
     def _set_up_input(self):
@@ -36,15 +37,15 @@ class TopologyDefaults(TableWriter):
             try:
                 return repr(klass._gen_initial_values(1, 1, 1)[0])
             except NotImplementedError:
-                return 'No default values'
+                return "No default values"
 
     def _level(self, klass):
         if issubclass(klass, AtomAttr):
-            level = 'atom'
+            level = "atom"
         elif issubclass(klass, ResidueAttr):
-            level = 'residue'
+            level = "residue"
         elif issubclass(klass, SegmentAttr):
-            level = 'segment'
+            level = "segment"
         else:
             raise ValueError
         return level
@@ -52,5 +53,6 @@ class TopologyDefaults(TableWriter):
     def _type(self, klass):
         return klass.dtype
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     TopologyDefaults()

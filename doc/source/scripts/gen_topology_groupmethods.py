@@ -13,9 +13,8 @@ from MDAnalysis.core.groups import GroupBase
 
 
 class TransplantedMethods(TableWriter):
-
-    headings = ['Method', 'Description', 'Requires']
-    filename = 'generated/topology/groupmethods.txt'
+    headings = ["Method", "Description", "Requires"]
+    filename = "generated/topology/groupmethods.txt"
 
     def _set_up_input(self):
         items = []
@@ -28,10 +27,11 @@ class TransplantedMethods(TableWriter):
         return self.sphinx_meth(method)
 
     def _description(self, klass, method):
-        return ' '.join(method.__doc__.split('.\n')[0].split())
+        return " ".join(method.__doc__.split(".\n")[0].split())
 
     def _requires(self, klass, method):
         return klass.attrname
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     TransplantedMethods()
