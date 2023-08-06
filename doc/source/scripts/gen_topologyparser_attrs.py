@@ -15,8 +15,10 @@ from base import TableWriter
 from core import DESCRIPTIONS, NON_CORE_ATTRS
 from MDAnalysisTests.topology.base import mandatory_attrs
 from MDAnalysisTests.topology.test_crd import TestCRDParser
-from MDAnalysisTests.topology.test_dlpoly import (TestDLPConfigParser,
-                                                  TestDLPHistoryParser)
+from MDAnalysisTests.topology.test_dlpoly import (
+    TestDLPConfigParser,
+    TestDLPHistoryParser,
+)
 from MDAnalysisTests.topology.test_dms import TestDMSParser
 from MDAnalysisTests.topology.test_fhiaims import TestFHIAIMS
 from MDAnalysisTests.topology.test_gms import GMSBase
