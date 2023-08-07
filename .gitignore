@@ -21,10 +21,6 @@ doc/build
 *.bak
 *.so
 
-# Ignore generated docs
-# */**/*.txt
-# !requirements.txt
-
 # ignore generated files
 *.vmd
 *.crd
