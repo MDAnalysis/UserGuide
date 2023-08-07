@@ -25,11 +25,8 @@ class TableWriter(object):
     postprocess = []
     sort = True
 
-    def __getattr__(self, key):
-        try:
-            return self.fields[key]
-        except KeyError:
-            return super(TableWriter, self).__getattr__(key)
+    def __getattr__(self, key: str) -> list:
+        return self.fields[key]
 
     def __init__(self, *args, **kwargs):
         stem = os.getcwd().split("source")[0]
@@ -99,10 +96,8 @@ class TableWriter(object):
         return ":meth:`{}{}.{}`".format(prefix, meth.__module__, meth.__qualname__)
 
     @staticmethod
-    def sphinx_ref(txt, label=None, suffix=""):
-        if label is None:
-            label = txt
-        return ":ref:`{} <{}{}>`".format(txt, label, suffix)
+    def sphinx_ref(txt: str, label: str = None, suffix: str = "") -> str:
+        return f":ref:`{txt} <{label}{suffix}>`"
 
     @staticmethod
     def sphinx_link(txt):
