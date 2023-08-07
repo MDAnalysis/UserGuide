@@ -213,26 +213,15 @@ the upstream (main project) MDAnalysis repository.</p>
 <section id="creating-a-development-environment">
 <span id="create-virtual-environment-user-guide"></span><h2>Creating a development environment<a class="headerlink" href="#creating-a-development-environment" title="Permalink to this heading"></a></h2>
 <p><a class="reference internal" href="contributing_code.html#create-virtual-environment"><span class="std std-ref">Create a new virtual environment</span></a> for the user guide. Install the required dependencies, and activate the <code class="docutils literal notranslate"><span class="pre">nglview</span></code> extension. We use <code class="docutils literal notranslate"><span class="pre">nglview</span></code> for visualizing molecules in Jupyter notebook tutorials.</p>
-<p>If using <code class="docutils literal notranslate"><span class="pre">conda</span></code>:</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">conda</span></code> or similar (<code class="docutils literal notranslate"><span class="pre">miniconda</span></code>, <code class="docutils literal notranslate"><span class="pre">mamba</span></code>, <code class="docutils literal notranslate"><span class="pre">micromamba</span></code>), create a new environment with all the dependencies:</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>UserGuide/
-conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6<span class="w"> </span>-f<span class="w"> </span>environment.yml<span class="w"> </span>--quiet
+conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>--file<span class="w"> </span>environment.yml<span class="w"> </span>--quiet
 conda<span class="w"> </span>activate<span class="w"> </span>mda-user-guide
 jupyter-nbextension<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>nglview<span class="w"> </span>--py<span class="w"> </span>--sys-prefix
 </pre></div>
 </div>
 </div></blockquote>
-<p>If using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>UserGuide/
-pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
-jupyter-nbextension<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>nglview<span class="w"> </span>--py<span class="w"> </span>--sys-prefix
-</pre></div>
-</div>
-</div></blockquote>
-<p>If installing using <code class="docutils literal notranslate"><span class="pre">pip</span></code>, you will need to also install <code class="docutils literal notranslate"><span class="pre">pandoc</span></code> seperately.
-Further information on installing pandoc can be found on the <a class="reference external" href="https://pandoc.org/installing.html">Pandoc website</a>.
-We generally recommend installing via <code class="docutils literal notranslate"><span class="pre">conda</span></code> since it is the easiest approach.</p>
 </section>
 <section id="building-the-user-guide">
 <span id="build-user-guide"></span><h2>Building the user guide<a class="headerlink" href="#building-the-user-guide" title="Permalink to this heading"></a></h2>
