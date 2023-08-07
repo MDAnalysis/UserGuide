@@ -36,7 +36,6 @@ jobs:
         condarc: |
           channels:
             - conda-forge
-            - plotly
 
     - uses: pre-commit/action@v3.0.0
       with:

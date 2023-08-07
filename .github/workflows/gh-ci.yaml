@@ -47,8 +47,7 @@ jobs:
         cache-environment: true
 
     - name: install_deps
-      run: |
-        jupyter-nbextension enable nglview --py --sys-prefix
+      run: jupyter-nbextension enable nglview --py --sys-prefix
 
     - name: install_released_mda
       # If it's a release, pick up the latest version of MDAnalysis/Tests and deploy that
