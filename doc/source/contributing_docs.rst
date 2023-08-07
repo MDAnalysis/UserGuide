@@ -73,28 +73,14 @@ Creating a development environment
 
 :ref:`Create a new virtual environment <create-virtual-environment>` for the user guide. Install the required dependencies, and activate the ``nglview`` extension. We use ``nglview`` for visualizing molecules in Jupyter notebook tutorials.
 
-If using ``conda``:
+Using ``conda`` or similar (``miniconda``, ``mamba``, ``micromamba``), create a new environment with all the dependencies:
 
     .. code-block:: bash
 
         cd UserGuide/
-        conda env create python=3.6 -f environment.yml --quiet
+        conda env create --file environment.yml --quiet
         conda activate mda-user-guide
         jupyter-nbextension enable nglview --py --sys-prefix
-
-
-If using ``pip``:
-
-    .. code-block:: bash
-
-        cd UserGuide/
-        pip install -r requirements.txt
-        jupyter-nbextension enable nglview --py --sys-prefix
-
-If installing using ``pip``, you will need to also install ``pandoc`` seperately.
-Further information on installing pandoc can be found on the `Pandoc website <https://pandoc.org/installing.html>`__.
-We generally recommend installing via ``conda`` since it is the easiest approach.
-
 
 .. _build-user-guide:
 
