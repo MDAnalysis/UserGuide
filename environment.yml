@@ -5,57 +5,66 @@ channels:
   - plotly
   - defaults
 dependencies:
+  # mdanalysis dependencies
   - cython
-  - distributed==2021.1.0
-  - dask==2021.1.0
-  - python-graphviz
-  - pytest
-  - decorator
-  - docutils
-  - graphviz
-  - ipywidgets<8.0.0
-  - ipython
-  - ipygany
-  - jedi
-  - jinja2
-  - jupyter_contrib_nbextensions
   - matplotlib
-  - nbclient
-  - nbconvert
-  - nbformat
-  - nbsphinx
   - networkx
-  - nglview
-  - notebook
   - numpy
+  - openmm>=7.0.0
   - packaging
   - parmed
-  - parso
-  - pip
-  - plotly
-  - pybtex
-  - python=3.9
-  - pyvista
-  - scikit-image
   - scikit-learn>=1.1.2
+  - threadpoolctl
+  # building documentation
+  - docutils
+  - pandoc
+  - pybtex
   - sphinx
   - sphinxcontrib-bibtex
-  - threadpoolctl
+  # used by custom_parallel_analysis.ipynb
+  - graphviz
   - tabulate
-  - widgetsnbextension
-  - ipycytoscape>=1.3.0
+  - python-graphviz
+  # used in multiple notebooks
+  - jupyter_contrib_nbextensions
+  - nbconvert
+  - nbformat
+  - nglview
+  - notebook<7
   - seaborn>=0.12.1
-  - openmm>=7.0.0
-  - pandoc
+  # used in pairwise_rmsd.ipynb
+  - plotly
+  # used in custom_parallel_analysis.ipynb
+  - distributed==2021.1.0
+  - dask==2021.1.0
+  # used in density_analysis.ipynb
+  - ipygany
+  # used in density_analysis.ipynb
+  - pyvista
+  # used in density_analysis.ipynb
+  - scikit-image
+  # used in aligning_trajectory.ipynb
   - moviepy
-  - ipyvtklink
+  # used in conf.py
+  - ipython
+  - ipywidgets<8.0.0
+  - nbsphinx
+  # used for notebook testing
+  - pytest
+  - python=3.9
+  - pip
   - pip:
-      - sphinx_rtd_theme
+      # used in conf.py
       - msmb_theme
+      - sphinx_rtd_theme
       - sphinx-sitemap
+      # used for notebook testing
       - nbval
+      # developer tooling
       - pre-commit
+      # mdanalysis dependencies
       - pyedr>=0.7
+      # mdanalysis and its tests and test data
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=mdanalysis&subdirectory=package
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=MDAnalysisTests&subdirectory=testsuite
       - git+https://github.com/MDAnalysis/MDAnalysisData@master#egg=MDAnalysisData
