@@ -120,9 +120,9 @@ Packaging the release
             #. Delete the current ``package-*`` branch, and the newly created tags
 
             #. Add the new changes to ``develop`` and restart the release process.
-            
+
             #. If the code had successfully uploaded to testpypi and failed later, you will need to create a test ``package-*`` tag which contains a different release number of in the source code (bumpy by a minor release or add a ``-beta`` modifier). Note: if the code had not successfully uploaded you can just continue the release process as normal.
-                           
+
             #. If CI comes back green then delete the test tag, and create a normal ``package-*`` tag with the correct version number.
 
             #. The github action will fail, but this is ok since we tested it with the test tag above.
