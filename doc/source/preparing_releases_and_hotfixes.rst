@@ -132,7 +132,7 @@ Completing the release
 ----------------------
 
 If everything works, you can now complete the release by:
-   
+
 #. Creating a release on GitHub based on the newly created ``package-<version_number>`` tag.
 
 #. Make sure you include relevant release notes, including any known issues and highlights for the release.
