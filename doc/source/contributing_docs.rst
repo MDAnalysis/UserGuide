@@ -42,7 +42,7 @@ Here is an overview of the development workflow for the user guide, as expanded 
 
     #. :ref:`Fork the MDAnalysis repository <forking-user-guide>` from the mdanalysis account into your own account
     #. :ref:`Set up an isolated virtual environment <create-virtual-environment-user-guide>` for your documentation
-    #. :ref:`Create a new branch off the master branch <create-code-branch>`
+    #. :ref:`Create a new branch off the develop branch <create-code-branch>`
     #. Add your new documentation.
     #. :ref:`Build and view the documentation <build-user-guide>`.
     #. :ref:`Commit and push your changes, and open a pull request <add-changes-user-guide>`.

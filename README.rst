@@ -15,7 +15,7 @@ This repository contains the `user guide`_ for MDAnalysis. The user guide origin
 .. _`user guide`: https://www.mdanalysis.org/UserGuide/index.html
 .. _`many popular formats`: https://www.mdanalysis.org/UserGuide/formats/index.html
 .. _MDAnalysis: https://www.mdanalysis.org
-.. _LICENSE: https://github.com/MDAnalysis/mdanalysis/blob/master/LICENSE
+.. _LICENSE: https://github.com/MDAnalysis/mdanalysis/blob/develop/LICENSE
 .. _`project for Google Season of Docs 2019-2020`: https://developers.google.com/season-of-docs/docs/participants/project-mdanalysis
 
 .. |usergroup| image:: https://img.shields.io/badge/Google%20Group-Users-lightgrey.svg

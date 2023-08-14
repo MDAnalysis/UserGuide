@@ -270,9 +270,6 @@ At this point you should be able to import MDAnalysis from your locally built ve
         >>> mda.__version__
         '2.6.0-dev0'
 
-.. note::
-    If your version number does not end in :code:`-dev0`, you may be on the ``master`` branch. In your ``mdanalysis/`` directory, switch to the ``develop`` branch:
-    :code:`git checkout develop`.
 
 With pip and virtualenv
 -----------------------
@@ -343,10 +340,6 @@ At this point you should be able to import MDAnalysis from your locally built ve
         >>> mda.__version__
         '2.6.0-dev0'
 
-.. note::
-    If your version number does not end in :code:`-dev0`, you may be on the ``master`` branch. In your ``mdanalysis/`` directory, switch to the ``develop`` branch:
-    :code:`git checkout develop`.
-
 
 .. _branches-in-mdanalysis:
 
@@ -354,14 +347,9 @@ At this point you should be able to import MDAnalysis from your locally built ve
 Branches in MDAnalysis
 ----------------------
 
-There are two important branches in MDAnalysis:
+The most important branch of MDAnalysis is the ``develop`` branch, to which all development code for the next release is pushed.
 
-    - ``master``: for production-ready code
-    - ``develop``: for development code
-
-The ``master`` branch is only for stable, production-ready code. Development code should *never* be committed to this branch. Typically, code is only committed by the release manager, when a release is ready.
-
-The ``develop`` branch can be considered an "integration" branch for including your code into the next release. Only working, tested code should be committed to this branch. Code contributions ("features") should branch off ``develop`` rather than ``master``.
+The ``develop`` branch can be considered an "integration" branch for including your code into the next release. Only working, tested code should be committed to this branch. All code contributions ("features") should branch off ``develop``. At each release, a snapshot of the ``develop`` branch is taken, packaged and uploaded to PyPi and conda-forge.
 
 
 .. _create-code-branch:
@@ -386,10 +374,16 @@ There are several special branch names that you should not use for your feature 
 
     - ``master``
     - ``develop``
-    - ``release-*``
+    - ``package-*``
+    - ``gh-pages``
 
 
-``release`` branches are used to :ref:`prepare a new production release <preparing-release>` and should be handled by the release manager only.
+``package`` branches are used to :ref:`prepare a new production release <preparing-release>` and should be handled by the release manager only.
+
+``master`` is the old stable code branch and is kept protected for historical reasons.
+
+``gh-pages`` is where built documentation to be uploaded to github pages is held.
+
 
 .. _writing-new-code:
 
@@ -673,7 +667,7 @@ in the Scientific Python community. They are nice to read as normal text and are
 
 This standard specifies the format of
 the different sections of the docstring. See `this document
-<https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt>`_
+<https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard>`_
 for a detailed explanation, or look at some of the existing functions to
 extend it in a similar manner.
 
