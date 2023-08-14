@@ -5,7 +5,7 @@
 Preparing a release
 ===================
 
-Rules for a release branches:
+Rules for release branches:
 
     - Branch from ``develop``
     - Naming convention: ``package-*`` where ``*`` is a version number
@@ -133,11 +133,11 @@ Completing the release
 
 If everything works, you can now complete the release by:
    
-#. Creating a release on Github based on the newly created ``package-<version_number`` tag.
+#. Creating a release on GitHub based on the newly created ``package-<version_number>`` tag.
 
 #. Make sure you include relevant release notes, including any known issues and highlights for the release.
 
-#. Once published, the `deploy github action`_ will be triggered which will upload the source distributions / wheels to PyPI.
+#. Once published, the `deploy github action`_ will be triggered which will upload the source distributions and wheels to PyPI.
 
     #. If the `deploy github action`_ fails and no files have been uploaded, then restart the action.
 
@@ -169,7 +169,7 @@ To do this you will need to:
 
 #. If NumPy pins differ from those conda-forge uses, you will need to update the ``conda_build_config.yaml`` accordingly.
 
-#. Ask the conda-forge admin to re-render, check that CI returns green, approve and merge the pull request.
+#. Ask the conda-forge bot to re-render, check that CI returns green, approve and merge the pull request.
 
 
 Create a blog post outlining the release
@@ -193,7 +193,7 @@ Once the release is completed you can go ahead and update the ``develop`` branch
 Clean up old developer builds of the documentation
 --------------------------------------------------
 
-Whilst new docs are automatically deployed on a release, old developer builds (appended with ``-dev``) are not automatically cleaned up. To avoid causing large amounts of files being uploaded to github pages, we need to delete these old developer builds manually. To do this switch to the ``gh-pages`` branch and just delete these old files and push the change directly.
+Whilst new docs are automatically deployed on a release, old developer builds (appended with ``-dev``) are not automatically cleaned up. To avoid causing large amounts of files being uploaded to GitHub Pages, we need to delete these old developer builds manually. To do this switch to the ``gh-pages`` branch, delete these old files, and push the change directly.
 
 
 .. _`developer mailing list`: https://groups.google.com/forum/#!forum/mdnalysis-devel
