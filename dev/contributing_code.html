@@ -437,11 +437,6 @@ python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </sp
 </pre></div>
 </div>
 </div></blockquote>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If your version number does not end in <code class="code docutils literal notranslate"><span class="pre">-dev0</span></code>, you may be on the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch. In your <code class="docutils literal notranslate"><span class="pre">mdanalysis/</span></code> directory, switch to the <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch:
-<code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">develop</span></code>.</p>
-</div>
 </section>
 <section id="id2">
 <h4>With pip and virtualenv<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h4>
@@ -511,24 +506,12 @@ python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </sp
 </pre></div>
 </div>
 </div></blockquote>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If your version number does not end in <code class="code docutils literal notranslate"><span class="pre">-dev0</span></code>, you may be on the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch. In your <code class="docutils literal notranslate"><span class="pre">mdanalysis/</span></code> directory, switch to the <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch:
-<code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">develop</span></code>.</p>
-</div>
 </section>
 </section>
 <section id="branches-in-mdanalysis">
 <span id="id4"></span><h3>Branches in MDAnalysis<a class="headerlink" href="#branches-in-mdanalysis" title="Permalink to this heading"></a></h3>
-<p>There are two important branches in MDAnalysis:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">master</span></code>: for production-ready code</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">develop</span></code>: for development code</p></li>
-</ul>
-</div></blockquote>
-<p>The <code class="docutils literal notranslate"><span class="pre">master</span></code> branch is only for stable, production-ready code. Development code should <em>never</em> be committed to this branch. Typically, code is only committed by the release manager, when a release is ready.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch can be considered an “integration” branch for including your code into the next release. Only working, tested code should be committed to this branch. Code contributions (“features”) should branch off <code class="docutils literal notranslate"><span class="pre">develop</span></code> rather than <code class="docutils literal notranslate"><span class="pre">master</span></code>.</p>
+<p>The most important branch of MDAnalysis is the <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch, to which all development code for the next release is pushed.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch can be considered an “integration” branch for including your code into the next release. Only working, tested code should be committed to this branch. All code contributions (“features”) should branch off <code class="docutils literal notranslate"><span class="pre">develop</span></code>. At each release, a snapshot of the <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch is taken, packaged and uploaded to PyPi and conda-forge.</p>
 <section id="creating-a-branch">
 <span id="create-code-branch"></span><h4>Creating a branch<a class="headerlink" href="#creating-a-branch" title="Permalink to this heading"></a></h4>
 <p>The develop branch should only contain approved, tested code, so create a
@@ -548,10 +531,13 @@ and switch in between them using the <code class="docutils literal notranslate">
 <div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">master</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">develop</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">release-*</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">package-*</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gh-pages</span></code></p></li>
 </ul>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">release</span></code> branches are used to <a class="reference internal" href="preparing_releases_and_hotfixes.html#preparing-release"><span class="std std-ref">prepare a new production release</span></a> and should be handled by the release manager only.</p>
+<p><code class="docutils literal notranslate"><span class="pre">package</span></code> branches are used to <a class="reference internal" href="preparing_releases_and_hotfixes.html#preparing-release"><span class="std std-ref">prepare a new production release</span></a> and should be handled by the release manager only.</p>
+<p><code class="docutils literal notranslate"><span class="pre">master</span></code> is the old stable code branch and is kept protected for historical reasons.</p>
+<p><code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> is where built documentation to be uploaded to github pages is held.</p>
 </section>
 </section>
 <section id="writing-new-code">
@@ -796,7 +782,7 @@ reapplied after updating with <code class="docutils literal notranslate"><span c
 <p>MDAnalysis has a lot of documentation in the Python doc strings. The docstrings follow the <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard">Numpy Docstring Standard</a>, which is used widely
 in the Scientific Python community. They are nice to read as normal text and are converted by sphinx to normal ReST through <a class="reference external" href="http://sphinxcontrib-napoleon.readthedocs.org/en/latest/index.html">napoleon</a>.</p>
 <p>This standard specifies the format of
-the different sections of the docstring. See <a class="reference external" href="https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt">this document</a>
+the different sections of the docstring. See <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard">this document</a>
 for a detailed explanation, or look at some of the existing functions to
 extend it in a similar manner.</p>
 <p>Note that each page of the  <a class="reference external" href="https://www.mdanalysis.org/docs/">online documentation</a> has a link to the <em>Source</em> of the page. You can look at it in order to find out how a particular page has been written in reST and copy the approach for your own documentation.</p>
