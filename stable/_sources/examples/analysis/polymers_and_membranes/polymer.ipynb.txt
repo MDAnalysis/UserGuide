@@ -296,7 +296,7 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "Python 3.9.15 ('mda-user-guide')",
+   "display_name": "guide",
    "language": "python",
    "name": "python3"
   },
@@ -310,7 +310,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.9.15"
+   "version": "3.9.15 | packaged by conda-forge | (main, Nov 22 2022, 15:55:03) \n[GCC 10.4.0]"
   },
   "toc": {
    "base_numbering": 1,
@@ -327,7 +327,7 @@
   },
   "vscode": {
    "interpreter": {
-    "hash": "7b52aa17ef4e9358c0e91ff3f0bf50d10667bb8b55636d4b9fb967a2ff94bd8c"
+    "hash": "5edc5d8d8cbc0935a054a8e44024f729bc376180aae27775d15f2ff38c68f892"
    }
   }
  },
