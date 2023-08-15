@@ -73,7 +73,7 @@ Getting the develop branch ready for a release
 
 #. Finalise the ``CHANGELOG`` with the release number and date. Ensure that the ``CHANGELOG`` summarizes important changes and includes all authors that contributed to this release.
 
-#. Make sure the version number matches the release version. The following files need to be updated: ``maintainer/conda/MDAnalysis/meta.yaml``, ``package/MDAnalysis/version.py``, ``package/setup.py``, ``testsuite/MDAnalysisTests/__init__.py``, and ``testsuite/setup.py``.
+#. Make sure the version number matches the release version. The following files need to be updated: ``package/MDAnalysis/version.py``, ``package/setup.py``, ``testsuite/MDAnalysisTests/__init__.py``, and ``testsuite/setup.py``.
 
 #. Create a pull request against ``develop`` from this branch.
 
@@ -83,7 +83,7 @@ Packaging the release
 
 #. Create a new tag from ``develop`` named ``release-<version_number>`` where ``<version_number>`` is the release version number (this tag contains a snapshot of the Python source files as they were when the release was created):
 
-    .. code-block: bash
+    .. code-block:: bash
 
         git tag -m "release 0.7.5 of MDAnalysis and MDAnalysisTests" release-0.7.5
         git push --tags origin

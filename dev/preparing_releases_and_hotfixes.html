@@ -222,7 +222,7 @@
 <li><p>Declare feature freeze on <code class="docutils literal notranslate"><span class="pre">develop</span></code> via <cite>discord</cite> and the <a class="reference external" href="https://groups.google.com/forum/#!forum/mdnalysis-devel">developer mailing list</a></p></li>
 <li><p>Create a pre-release feature branch from <code class="docutils literal notranslate"><span class="pre">develop</span></code></p></li>
 <li><p>Finalise the <code class="docutils literal notranslate"><span class="pre">CHANGELOG</span></code> with the release number and date. Ensure that the <code class="docutils literal notranslate"><span class="pre">CHANGELOG</span></code> summarizes important changes and includes all authors that contributed to this release.</p></li>
-<li><p>Make sure the version number matches the release version. The following files need to be updated: <code class="docutils literal notranslate"><span class="pre">maintainer/conda/MDAnalysis/meta.yaml</span></code>, <code class="docutils literal notranslate"><span class="pre">package/MDAnalysis/version.py</span></code>, <code class="docutils literal notranslate"><span class="pre">package/setup.py</span></code>, <code class="docutils literal notranslate"><span class="pre">testsuite/MDAnalysisTests/__init__.py</span></code>, and <code class="docutils literal notranslate"><span class="pre">testsuite/setup.py</span></code>.</p></li>
+<li><p>Make sure the version number matches the release version. The following files need to be updated: <code class="docutils literal notranslate"><span class="pre">package/MDAnalysis/version.py</span></code>, <code class="docutils literal notranslate"><span class="pre">package/setup.py</span></code>, <code class="docutils literal notranslate"><span class="pre">testsuite/MDAnalysisTests/__init__.py</span></code>, and <code class="docutils literal notranslate"><span class="pre">testsuite/setup.py</span></code>.</p></li>
 <li><p>Create a pull request against <code class="docutils literal notranslate"><span class="pre">develop</span></code> from this branch.</p></li>
 </ol>
 </section>
@@ -231,7 +231,11 @@
 <ol class="arabic">
 <li><p>Create a new tag from <code class="docutils literal notranslate"><span class="pre">develop</span></code> named <code class="docutils literal notranslate"><span class="pre">release-&lt;version_number&gt;</span></code> where <code class="docutils literal notranslate"><span class="pre">&lt;version_number&gt;</span></code> is the release version number (this tag contains a snapshot of the Python source files as they were when the release was created):</p>
 <blockquote>
-<div></div></blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>tag<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;release 0.7.5 of MDAnalysis and MDAnalysisTests&quot;</span><span class="w"> </span>release-0.7.5
+git<span class="w"> </span>push<span class="w"> </span>--tags<span class="w"> </span>origin
+</pre></div>
+</div>
+</div></blockquote>
 </li>
 <li><p>Create a <code class="docutils literal notranslate"><span class="pre">package-&lt;version_number&gt;</span></code> branch from <code class="docutils literal notranslate"><span class="pre">develop</span></code>. This branch is automatically protected, so you will also need to create a separate branch to create commits via PR against <code class="docutils literal notranslate"><span class="pre">package-&lt;version_number&gt;</span></code>.</p></li>
 <li><p>Generate new C/C++ files and commit them to the <code class="docutils literal notranslate"><span class="pre">package-&lt;version_number&gt;</span></code> branch via PR. We recommend generate the C/C++ files by building a <em>source distribution</em> tarball so you can check at the same time that there are no issues with the distribution creation process:</p>
