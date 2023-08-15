@@ -73,7 +73,7 @@ Getting the develop branch ready for a release
 
 #. Finalise the ``CHANGELOG`` with the release number and date. Ensure that the ``CHANGELOG`` summarizes important changes and includes all authors that contributed to this release.
 
-#. Make sure the version number matches the release version. The following files need to be updated: ``maintainer/conda/MDAnalysis/meta.yaml``, ``package/MDAnalysis/version.py``, ``package/setup.py``, ``testsuite/MDAnalysisTests/__init__.py``, and ``testsuite/setup.py``.
+#. Make sure the version number matches the release version. The following files need to be updated: ``package/MDAnalysis/version.py``, ``package/setup.py``, ``testsuite/MDAnalysisTests/__init__.py``, and ``testsuite/setup.py``.
 
 #. Create a pull request against ``develop`` from this branch.
 
