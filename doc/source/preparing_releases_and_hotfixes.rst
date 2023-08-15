@@ -83,7 +83,7 @@ Packaging the release
 
 #. Create a new tag from ``develop`` named ``release-<version_number>`` where ``<version_number>`` is the release version number (this tag contains a snapshot of the Python source files as they were when the release was created):
 
-    .. code-block: bash
+    .. code-block:: bash
 
         git tag -m "release 0.7.5 of MDAnalysis and MDAnalysisTests" release-0.7.5
         git push --tags origin
