@@ -139,8 +139,12 @@ Configured in `azure-pipelines.yml` file. Uses YAML syntax to define Azure Pipel
 Cirrus CI
 ---------
 
-Configured in `.cirrus.star` file. Uses the Starlark syntax in YAML to define tasks. See `Cirrus CI documentation <https://cirrus-ci.org/guide/writing-tasks/>`_ for more information.
+The file `.cirrus.star` tells the provider what to do, it uses the Starlark syntax in YAML to define tasks. See `Cirrus CI documentation <https://cirrus-ci.org/guide/writing-tasks/>`_ for more information.
 
+The actual files defining the workflows are in:
+
+- maintainer/ci/cirrus-ci.yml
+- maintainer/ci/cirrus-deploy.yml
 
 
 .. _codecov:
