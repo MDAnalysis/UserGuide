@@ -6,15 +6,14 @@ channels:
   - defaults
 dependencies:
   # mdanalysis dependencies
-  - cython
   - matplotlib
   - networkx
-  - numpy
   - openmm>=7.0.0
   - packaging
   - parmed
   - scikit-learn>=1.1.2
   - threadpoolctl
+  - pyedr>=0.7
   # building documentation
   - docutils
   - pandoc
@@ -62,8 +61,6 @@ dependencies:
       - nbval
       # developer tooling
       - pre-commit
-      # mdanalysis dependencies
-      - pyedr>=0.7
       # mdanalysis and its tests and test data
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=mdanalysis&subdirectory=package
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=MDAnalysisTests&subdirectory=testsuite
