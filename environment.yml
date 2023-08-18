@@ -24,25 +24,22 @@ dependencies:
   - graphviz
   - tabulate
   - python-graphviz
-  # used in multiple notebooks
+  # extensions
   - jupyter_contrib_nbextensions
-  - nbconvert
+  - nbconvert # not called by any notebook explicitly but to download notebooks, or in nbsphinx
   - nbformat
-  - nglview
   - notebook<7
-  - seaborn>=0.12.1
-  # used in pairwise_rmsd.ipynb
+  # used for visualising/plotting
   - plotly
-  # used in custom_parallel_analysis.ipynb
+  - ipygany
+  - pyvista
+  - scikit-image
+  - seaborn>=0.12.1
+  # parallelization
   - distributed==2021.1.0
   - dask==2021.1.0
-  # used in density_analysis.ipynb
-  - ipygany
-  # used in density_analysis.ipynb
-  - pyvista
-  # used in density_analysis.ipynb
-  - scikit-image
-  # used in aligning_trajectory.ipynb
+  # used for visualising/making movies of molecules;
+  - nglview
   - moviepy
   # used in conf.py
   - ipython
