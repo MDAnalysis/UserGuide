@@ -27,7 +27,7 @@ from ipywidgets.embed import DEFAULT_EMBED_REQUIREJS_URL
 project = "MDAnalysis User Guide"
 
 
-def sort_authors(filename):
+def sort_authors(filename: str) -> list[str]:
     """Generate sorted list of authors from AUTHORS"""
     authors = []
     with open(filename, "r") as f:
@@ -207,7 +207,7 @@ intersphinx_mapping = {
 }
 
 # nbsphinx
-html_js_files = [
+html_js_files: list[str] = [
     # 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js',
     # DEFAULT_EMBED_REQUIREJS_URL,
 ]

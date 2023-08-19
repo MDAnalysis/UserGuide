@@ -7,12 +7,13 @@ Generate three tables:
 
 This script imports the testsuite, which tests these.
 """
-import os
-import sys
 from collections import defaultdict
+from typing import Any
 
+import base
 from base import TableWriter
 from core import DESCRIPTIONS, NON_CORE_ATTRS
+from MDAnalysis.topology.base import TopologyReaderBase
 from MDAnalysisTests.topology.base import mandatory_attrs
 from MDAnalysisTests.topology.test_crd import TestCRDParser
 from MDAnalysisTests.topology.test_dlpoly import (
@@ -64,101 +65,170 @@ PARSER_TESTS = (
 )
 
 
-MANDATORY_ATTRS = set(mandatory_attrs)
+def create_parser_attributes() -> dict[Any, tuple[set[str], set[str]]]:
+    parser_attrs = {}
+    for test_parser_class in PARSER_TESTS:
+        expected, guessed = set(test_parser_class.expected_attrs) - set(
+            mandatory_attrs
+        ), set(test_parser_class.guessed_attrs)
+        # clunky hack for PDB
+        if test_parser_class is TestPDBParser:
+            expected.add("elements")
+        parser_attrs[test_parser_class.parser] = (expected, guessed)
+    return parser_attrs
 
 
-parser_attrs = {}
+class TopologyParsers:
+    def __init__(self) -> None:
+        def _keys(parser: TopologyReaderBase) -> tuple[str, str]:
+            f = parser.format
+            if isinstance(f, (list, tuple)):
+                key = f[0]
+                label = ", ".join(f)
+            else:
+                key = label = f
+            return (key, label)
 
+        def _description(
+            parser: TopologyReaderBase,
+            expected: set[str],
+            guessed: set[str],
+            key_label: tuple[str, str],
+        ) -> str:
+            key, label = key_label
+            return DESCRIPTIONS[key]
 
-for p in PARSER_TESTS:
-    e, g = set(p.expected_attrs) - MANDATORY_ATTRS, set(p.guessed_attrs)
-    # clunky hack for PDB
-    if p is TestPDBParser:
-        e.add("elements")
-    parser_attrs[p.parser] = (e, g)
+        def _format(
+            parser: TopologyReaderBase,
+            expected: set[str],
+            guessed: set[str],
+            key_label: tuple[str, str],
+        ) -> str:
+            key, label = key_label
+            return base.sphinx_ref(txt=label, label=key, suffix="-format")
 
+        def _attributes_read(
+            parser: TopologyReaderBase,
+            expected: set[str],
+            guessed: set[str],
+            key_label: tuple[str, str],
+        ) -> str:
+            vals = sorted(expected - guessed)
+            return ", ".join(vals)
 
-class TopologyParsers(TableWriter):
-    headings = ["Format", "Description", "Attributes read", "Attributes guessed"]
-    preprocess = ["keys"]
-    filename = "formats/topology_parsers.txt"
-    include_table = "Table of supported topology parsers and the attributes read"
-    sort = True
+        def _attributes_guessed(
+            parser: TopologyReaderBase,
+            expected: set[str],
+            guessed: set[str],
+            key_label: tuple[str, str],
+        ) -> str:
+            return ", ".join(sorted(guessed))
 
-    def __init__(self):
-        self.attrs = defaultdict(set)
-        super(TopologyParsers, self).__init__()
-
-    def _set_up_input(self):
-        return [[x, *y] for x, y in parser_attrs.items()]
-
-    def get_line(self, parser, expected, guessed):
-        line = super(TopologyParsers, self).get_line(parser, expected, guessed)
-        for a in expected | guessed:
-            self.attrs[a].add(self.fields["Format"][-1])
-        return line
-
-    def _keys(self, parser, *args):
-        f = parser.format
-        if isinstance(f, (list, tuple)):
-            key = f[0]
-            label = ", ".join(f)
-        else:
-            key = label = f
-        return (key, label)
-
-    def _description(self, *args):
-        key, label = self.keys[-1]
-        return DESCRIPTIONS[key]
-
-    def _format(self, *args):
-        key, label = self.keys[-1]
-        return self.sphinx_ref(label, key, suffix="-format")
-
-    def _attributes_read(self, parser, expected, guessed):
-        vals = sorted(expected - guessed)
-        return ", ".join(vals)
-
-    def _attributes_guessed(self, parser, expected, guessed):
-        return ", ".join(sorted(guessed))
-
-
-class TopologyAttrs(TableWriter):
-    headings = ("Atom", "AtomGroup", "Description", "Supported formats")
-    filename = "generated/topology/topologyattrs.txt"
-
-    def __init__(self, attrs):
-        self.attrs = attrs
-        super(TopologyAttrs, self).__init__()
-
-    def _set_up_input(self):
-        return sorted(
-            [x, *y] for x, y in NON_CORE_ATTRS.items() if x not in MANDATORY_ATTRS
+        parser_attrs = create_parser_attributes()
+        input_items = [
+            [parser, expected, guessed, _keys(parser=parser)]
+            for parser, (expected, guessed) in parser_attrs.items()
+        ]
+        self.table_writer = TableWriter(
+            filename="formats/topology_parsers.txt",
+            include_table="Table of supported topology parsers and the attributes read",
+            sort=True,
+            input_items=input_items,
+            lines=[],
+            column_spec=[
+                ("Format", _format),
+                ("Description", _description),
+                ("Attributes read", _attributes_read),
+                ("Attributes guessed", _attributes_guessed),
+            ],
         )
+        self.table_writer.generate_lines_and_write_table()
 
-    def _atom(self, name, singular, *args):
-        return singular
+        attrs = defaultdict(set)
 
-    def _atomgroup(self, name, *args):
-        return name
+        def _get_attrs(
+            line: list[str],
+            format: str,
+            parser: TopologyReaderBase,
+            expected: set[str],
+            guessed: set[str],
+            key_label: tuple[str, str],
+        ) -> None:
+            for attribute in expected | guessed:
+                attrs[attribute].add(format)
 
-    def _description(self, name, singular, description):
-        return description
+        for line, format, args in zip(
+            self.table_writer.lines,
+            self.table_writer.fields["Format"],
+            input_items,
+        ):
+            _get_attrs(line, format, *args)
 
-    def _supported_formats(self, name, singular, description):
-        return ", ".join(sorted(self.attrs[name]))
-
-
-class ConnectivityAttrs(TopologyAttrs):
-    headings = ("Atom", "AtomGroup", "Supported formats")
-    filename = "generated/topology/connectivityattrs.txt"
-
-    def _set_up_input(self):
-        inp = [[x] * 3 for x in "bonds angles dihedrals impropers".split()]
-        return inp
+        self.attrs = attrs
 
 
-if __name__ == "__main__":
+class TopologyAttrs:
+    def __init__(self, attrs: dict[str, Any]) -> None:
+        def _atom(name: str, singular: str, description: str) -> str:
+            return singular
+
+        def _atomgroup(name: str, singular: str, description: str) -> str:
+            return name
+
+        def _description(name: str, singular: str, description: str) -> str:
+            return description
+
+        def _supported_formats(name: str, singular: str, description: str) -> str:
+            return ", ".join(sorted(attrs[name]))
+
+        input_items = sorted(
+            [x, *y] for x, y in NON_CORE_ATTRS.items() if x not in set(mandatory_attrs)
+        )
+        self.table_writer = TableWriter(
+            filename="generated/topology/topologyattrs.txt",
+            lines=[],
+            input_items=input_items,
+            column_spec=[
+                ("Atom", _atom),
+                ("AtomGroup", _atomgroup),
+                ("Description", _description),
+                ("Supported formats", _supported_formats),
+            ],
+        )
+        self.table_writer.generate_lines_and_write_table()
+
+
+class ConnectivityAttrs:
+    def __init__(self, attrs: dict[str, Any]) -> None:
+        def _atom(name: str) -> str:
+            return name
+
+        def _atomgroup(name: str) -> str:
+            return name
+
+        def _supported_formats(name: str) -> str:
+            return ", ".join(sorted(attrs[name]))
+
+        input_items = [("bonds",), ("angles",), ("dihedrals",), ("impropers",)]
+
+        self.table_writer = TableWriter(
+            filename="generated/topology/connectivityattrs.txt",
+            input_items=input_items,
+            lines=[],
+            column_spec=[
+                ("Atom", _atom),
+                ("AtomGroup", _atomgroup),
+                ("Supported formats", _supported_formats),
+            ],
+        )
+        self.table_writer.generate_lines_and_write_table()
+
+
+def main() -> None:
     top = TopologyParsers()
     TopologyAttrs(top.attrs)
     ConnectivityAttrs(top.attrs)
+
+
+if __name__ == "__main__":
+    main()
