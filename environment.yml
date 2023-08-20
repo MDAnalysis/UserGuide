@@ -20,18 +20,17 @@ dependencies:
   - pybtex
   - sphinx
   - sphinxcontrib-bibtex
-  # used by custom_parallel_analysis.ipynb
-  - graphviz
   - tabulate
-  - python-graphviz
   # extensions
   - jupyter_contrib_nbextensions
   - nbconvert # not called by any notebook explicitly but to download notebooks, or in nbsphinx
   - nbformat
   - notebook<7
   # used for visualising/plotting
-  - plotly
+  - graphviz
   - ipygany
+  - plotly
+  - python-graphviz
   - pyvista
   - scikit-image
   - seaborn>=0.12.1
