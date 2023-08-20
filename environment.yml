@@ -53,6 +53,7 @@ dependencies:
       # docs themes
       - msmb_theme
       - sphinx_rtd_theme
+      # extensions
       - sphinx-sitemap
       # used for notebook testing
       - nbval
