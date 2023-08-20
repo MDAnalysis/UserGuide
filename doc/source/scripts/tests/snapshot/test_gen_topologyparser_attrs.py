@@ -4,10 +4,16 @@ from gen_topologyparser_attrs import ConnectivityAttrs, TopologyAttrs, TopologyP
 from MDAnalysis.core import selection as sel
 
 
-def test_TopologyParsers(snapshot):
+def test_TopologyParsers_lines(snapshot):
     with patch("builtins.open"):
         top = TopologyParsers()
     assert top.lines == snapshot
+
+
+def test_TopologyParsers_attrs(snapshot):
+    with patch("builtins.open"):
+        top = TopologyParsers()
+    assert top.attrs == snapshot
 
 
 def test_TopologyAttrs(snapshot):
