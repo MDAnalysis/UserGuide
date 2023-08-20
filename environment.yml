@@ -50,7 +50,7 @@ dependencies:
   - python=3.9
   - pip
   - pip:
-      # used in conf.py
+      # docs themes
       - msmb_theme
       - sphinx_rtd_theme
       - sphinx-sitemap
