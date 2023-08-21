@@ -6,7 +6,6 @@ channels:
   - defaults
 dependencies:
   # mdanalysis dependencies
-  - matplotlib
   - networkx
   - openmm>=7.0.0
   - packaging
