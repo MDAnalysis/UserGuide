@@ -261,6 +261,9 @@ Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also
         cd ../testsuite/
         python -m pip install -e .
 
+
+.. note:: If installing  fails due to compiler ensure that you have the installed the build essentials package. It can be installed with your OS/distro's package manager. 
+
 At this point you should be able to import MDAnalysis from your locally built version. If you are running the development version, this is visible from the version number ending in :code:`-dev0`. For example:
 
     .. code-block:: bash
