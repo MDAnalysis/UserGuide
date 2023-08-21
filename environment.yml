@@ -9,7 +9,6 @@ dependencies:
   - openmm>=7.0.0
   - parmed
   - scikit-learn>=1.1.2
-  - threadpoolctl
   - pyedr>=0.7
   # building documentation
   - docutils
