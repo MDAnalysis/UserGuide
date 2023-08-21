@@ -22,9 +22,12 @@ dependencies:
   - sphinxcontrib-bibtex
   - tabulate
   # extensions
+  - ipython
+  - ipywidgets<8.0.0
   - jupyter_contrib_nbextensions
   - nbconvert # not called by any notebook explicitly but to download notebooks, or in nbsphinx
   - nbformat
+  - nbsphinx
   - notebook<7
   # used for visualising/plotting
   - graphviz
@@ -40,10 +43,6 @@ dependencies:
   # used for visualising/making movies of molecules;
   - nglview
   - moviepy
-  # used in conf.py
-  - ipython
-  - ipywidgets<8.0.0
-  - nbsphinx
   # used for notebook testing
   - pytest
   - python=3.9
