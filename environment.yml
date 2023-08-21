@@ -7,7 +7,6 @@ channels:
 dependencies:
   # mdanalysis dependencies
   - openmm>=7.0.0
-  - packaging
   - parmed
   - scikit-learn>=1.1.2
   - threadpoolctl
