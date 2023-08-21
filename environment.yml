@@ -6,7 +6,6 @@ channels:
   - defaults
 dependencies:
   # mdanalysis dependencies
-  - networkx
   - openmm>=7.0.0
   - packaging
   - parmed
