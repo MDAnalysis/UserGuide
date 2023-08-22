@@ -5,57 +5,55 @@ channels:
   - plotly
   - defaults
 dependencies:
-  - cython
-  - distributed==2021.1.0
-  - dask==2021.1.0
-  - python-graphviz
-  - pytest
-  - decorator
-  - docutils
-  - graphviz
-  - ipywidgets<8.0.0
-  - ipython
-  - ipygany
-  - jedi
-  - jinja2
-  - jupyter_contrib_nbextensions
-  - matplotlib
-  - nbclient
-  - nbconvert
-  - nbformat
-  - nbsphinx
-  - networkx
-  - nglview
-  - notebook
-  - numpy
-  - packaging
+  # mdanalysis dependencies
+  - openmm>=7.0.0
   - parmed
-  - parso
-  - pip
-  - plotly
-  - pybtex
-  - python=3.9
-  - pyvista
-  - scikit-image
   - scikit-learn>=1.1.2
+  - pyedr>=0.7
+  # building documentation
+  - docutils
+  - pandoc
+  - pybtex
   - sphinx
   - sphinxcontrib-bibtex
-  - threadpoolctl
   - tabulate
-  - widgetsnbextension
-  - ipycytoscape>=1.3.0
+  # extensions
+  - ipython
+  - ipywidgets<8.0.0
+  - jupyter_contrib_nbextensions
+  - nbconvert # not called by any notebook explicitly but to download notebooks, or in nbsphinx
+  - nbformat
+  - nbsphinx
+  - notebook<7
+  # used for visualising/plotting
+  - graphviz
+  - ipygany
+  - plotly
+  - python-graphviz
+  - pyvista
+  - scikit-image
   - seaborn>=0.12.1
-  - openmm>=7.0.0
-  - pandoc
+  # parallelization
+  - distributed==2021.1.0
+  - dask==2021.1.0
+  # used for visualising/making movies of molecules;
+  - nglview
   - moviepy
-  - ipyvtklink
+  # used for notebook testing
+  - pytest
+  - python=3.9
+  - pip
   - pip:
-      - sphinx_rtd_theme
+      # docs themes
       - msmb_theme
+      - sphinx_rtd_theme
+      # extensions
       - sphinx-sitemap
+      # used for notebook testing
       - nbval
+      # developer tooling
       - pre-commit
-      - pyedr>=0.7
+      # mdanalysis and its tests and test data
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=mdanalysis&subdirectory=package
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=MDAnalysisTests&subdirectory=testsuite
       - git+https://github.com/MDAnalysis/MDAnalysisData@master#egg=MDAnalysisData
