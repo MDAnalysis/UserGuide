@@ -11,7 +11,7 @@ dependencies:
   - scikit-learn>=1.1.2
   - pyedr>=0.7
   # building documentation
-  - docutils
+  - docutils<0.18
   - pandoc
   - pybtex
   - sphinx
