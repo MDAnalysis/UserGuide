@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PSF (CHARMM, NAMD, or XPLOR protein structure file) &mdash; MDAnalysis User Guide  documentation</title>
@@ -15,11 +15,12 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../../_static/js/versions.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -186,8 +187,12 @@
            <div itemprop="articleBody">
              
   <section id="psf-charmm-namd-or-xplor-protein-structure-file">
-<span id="psf-format"></span><h1>PSF (CHARMM, NAMD, or XPLOR protein structure file)<a class="headerlink" href="#psf-charmm-namd-or-xplor-protein-structure-file" title="Link to this heading"></a></h1>
+<span id="psf-format"></span><h1>PSF (CHARMM, NAMD, or XPLOR protein structure file)<a class="headerlink" href="#psf-charmm-namd-or-xplor-protein-structure-file" title="Permalink to this heading"></a></h1>
 <table class="docutils align-default">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 72%" />
+</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><strong>Topology parser</strong></p></td>
 <td><p><a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/topology/PSFParser.html#MDAnalysis.topology.PSFParser.PSFParser" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.topology.PSFParser.PSFParser</span></code></a></p></td>
@@ -202,13 +207,13 @@
 <p>Atom <code class="code docutils literal notranslate"><span class="pre">indices</span></code> are MDAnalysis derived and always index from 0, no matter the file type.</p>
 </div>
 <section id="reading-in">
-<h2>Reading in<a class="headerlink" href="#reading-in" title="Link to this heading"></a></h2>
+<h2>Reading in<a class="headerlink" href="#reading-in" title="Permalink to this heading"></a></h2>
 <p>PSF files can come in a number of “flavours”: STANDARD, EXTENDED, and NAMD. If your file is not a standard file, it must have a NAMD or EXT flag to tell MDAnalysis to how to <a class="reference internal" href="#psf-spec"><span class="std std-ref">parse the atom section</span></a>.</p>
 <p>As a NAMD file is space-separated, files with missing columns can cause MDAnalysis to read information incorrectly. <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/issues/2061">This can cause issues for PSF files written from VMD.</a></p>
 <p>PSF files can encode insertion codes. However, MDAnalysis <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/issues/2053">does not currently support reading PSF files with insertion codes</a>.</p>
 </section>
 <section id="psf-specification">
-<span id="psf-spec"></span><h2>PSF specification<a class="headerlink" href="#psf-specification" title="Link to this heading"></a></h2>
+<span id="psf-spec"></span><h2>PSF specification<a class="headerlink" href="#psf-specification" title="Permalink to this heading"></a></h2>
 <p><strong>CHARMM</strong></p>
 <p>Normal (standard) and extended (EXT) PSF format are
 supported. CHEQ is supported in the sense that CHEQ data is simply

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Format overview &mdash; MDAnalysis User Guide  documentation</title>
@@ -15,11 +15,12 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../_static/js/versions.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -148,7 +149,7 @@
            <div itemprop="articleBody">
              
   <section id="format-overview">
-<span id="formats"></span><h1>Format overview<a class="headerlink" href="#format-overview" title="Link to this heading"></a></h1>
+<span id="formats"></span><h1>Format overview<a class="headerlink" href="#format-overview" title="Permalink to this heading"></a></h1>
 <p>MDAnalysis can read topology or coordinate information from a wide variety of file formats. The emphasis is on formats used in popular simulation packages. By default, MDAnalysis figures out formats by looking at the extension, unless the format is <a class="reference internal" href="../universe.html#universe-loading"><span class="std std-ref">explicitly specified</span></a> with the <code class="docutils literal notranslate"><span class="pre">format</span></code> or <code class="docutils literal notranslate"><span class="pre">topology_format</span></code> keywords.</p>
 <p>Below is <a class="reference internal" href="#id1"><span class="std std-ref">a table of formats in MDAnalysis</span></a>, and which information can be read from them. A topology file supplies the list of atoms in the system, their connectivity and possibly additional information such as B-factors, partial charges, etc. The details depend on the file format and not every topology file provides all (or even any) additional data.</p>
 <div class="admonition important">
@@ -165,7 +166,15 @@
 </ul>
 </div></blockquote>
 <span class="target" id="id1"></span><table class="docutils align-default" id="id10">
-<caption><span class="caption-text">Table of all supported formats in MDAnalysis</span><a class="headerlink" href="#id10" title="Link to this table"></a></caption>
+<caption><span class="caption-text">Table of all supported formats in MDAnalysis</span><a class="headerlink" href="#id10" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 44%" />
+<col style="width: 7%" />
+<col style="width: 8%" />
+<col style="width: 4%" />
+<col style="width: 5%" />
+</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>File type</p></th>
 <th class="head"><p>Description</p></th>
@@ -529,9 +538,15 @@
 </tbody>
 </table>
 <section id="topology">
-<span id="topology-parsers"></span><h2>Topology<a class="headerlink" href="#topology" title="Link to this heading"></a></h2>
+<span id="topology-parsers"></span><h2>Topology<a class="headerlink" href="#topology" title="Permalink to this heading"></a></h2>
 <table class="docutils align-default" id="id11">
-<caption><span class="caption-text">Table of supported topology parsers and the attributes read</span><a class="headerlink" href="#id11" title="Link to this table"></a></caption>
+<caption><span class="caption-text">Table of supported topology parsers and the attributes read</span><a class="headerlink" href="#id11" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 17%" />
+<col style="width: 51%" />
+<col style="width: 11%" />
+</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Format</p></th>
 <th class="head"><p>Description</p></th>
@@ -654,9 +669,15 @@
 </table>
 </section>
 <section id="coordinates">
-<span id="coordinate-readers"></span><h2>Coordinates<a class="headerlink" href="#coordinates" title="Link to this heading"></a></h2>
+<span id="coordinate-readers"></span><h2>Coordinates<a class="headerlink" href="#coordinates" title="Permalink to this heading"></a></h2>
 <table class="docutils align-default" id="id12">
-<caption><span class="caption-text">Table of supported coordinate readers and the information read</span><a class="headerlink" href="#id12" title="Link to this table"></a></caption>
+<caption><span class="caption-text">Table of supported coordinate readers and the information read</span><a class="headerlink" href="#id12" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 50%" />
+<col style="width: 9%" />
+<col style="width: 6%" />
+</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>File type</p></th>
 <th class="head"><p>Description</p></th>

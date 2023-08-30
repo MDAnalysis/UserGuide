@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calculating the RDF atom-to-atom &mdash; MDAnalysis User Guide  documentation</title>
@@ -16,11 +16,12 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -176,7 +177,7 @@
              
   <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
 <script>require=requirejs;</script><section id="Calculating-the-RDF-atom-to-atom">
-<h1>Calculating the RDF atom-to-atom<a class="headerlink" href="#Calculating-the-RDF-atom-to-atom" title="Link to this heading"></a></h1>
+<h1>Calculating the RDF atom-to-atom<a class="headerlink" href="#Calculating-the-RDF-atom-to-atom" title="Permalink to this heading"></a></h1>
 <p>We calculate the site-specific radial distribution functions of solvent around certain atoms.</p>
 <p><strong>Last updated:</strong> December 2022 with MDAnalysis 2.4.0-dev0</p>
 <p><strong>Minimum version of MDAnalysis:</strong> 0.19.0</p>
@@ -203,7 +204,7 @@
 </div>
 </div>
 <section id="Loading-files">
-<h2>Loading files<a class="headerlink" href="#Loading-files" title="Link to this heading"></a></h2>
+<h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this heading"></a></h2>
 <p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<span id="id3">[<a class="reference internal" href="../../../references.html#id14" title="Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164 (visited on 2020-02-05), doi:10.1016/j.jmb.2009.09.009.">BDPW09</a>]</span>)</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -215,7 +216,7 @@
 </div>
 </section>
 <section id="Calculating-the-site-specific-radial-distribution-function">
-<h2>Calculating the site-specific radial distribution function<a class="headerlink" href="#Calculating-the-site-specific-radial-distribution-function" title="Link to this heading"></a></h2>
+<h2>Calculating the site-specific radial distribution function<a class="headerlink" href="#Calculating-the-site-specific-radial-distribution-function" title="Permalink to this heading"></a></h2>
 <p>A radial distribution function <span class="math notranslate nohighlight">\(g_{ab}(r)\)</span> describes the time-averaged density of particles in <span class="math notranslate nohighlight">\(b\)</span> from the reference group <span class="math notranslate nohighlight">\(a\)</span> at distance <span class="math notranslate nohighlight">\(r\)</span>. It is normalised so that it becomes 1 for large separations in a homogenous system. See <a class="reference internal" href="average_rdf.html"><span class="doc">the tutorial on averaged RDFs</span></a> for more information. The <code class="docutils literal notranslate"><span class="pre">InterRDF_s</span></code> class (<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/rdf.html#MDAnalysis.analysis.rdf.InterRDF_s">API docs</a>) allows you to
 compute RDFs on an atom-to-atom basis, rather than simply giving the averaged RDF as in <code class="docutils literal notranslate"><span class="pre">InterRDF</span></code>.</p>
 <p>Below, I calculate the RDF between selected alpha-carbons and the water atoms within 15 angstroms of CA60, <em>in the first frame of the trajectory</em>. The water group does not update over the trajectory as the water moves towards and away from the alpha-carbon.</p>
@@ -473,7 +474,7 @@ Text(0.5, 1.0, &#39;RDF between CA60 and HW16365&#39;)
 </div>
 </section>
 <section id="The-site-specific-RDF-without-densities">
-<h2>The site-specific RDF without densities<a class="headerlink" href="#The-site-specific-RDF-without-densities" title="Link to this heading"></a></h2>
+<h2>The site-specific RDF without densities<a class="headerlink" href="#The-site-specific-RDF-without-densities" title="Permalink to this heading"></a></h2>
 <p>When the <code class="docutils literal notranslate"><span class="pre">density</span></code> of the selected atom groups over the box volume is not accounted for, your distribution values will be proportionally lower.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
@@ -549,7 +550,7 @@ Text(0.5, 1.0, &#39;RDF between CA61 and MW6365&#39;)
 </div>
 </section>
 <section id="References">
-<h2>References<a class="headerlink" href="#References" title="Link to this heading"></a></h2>
+<h2>References<a class="headerlink" href="#References" title="Permalink to this heading"></a></h2>
 <p>[1] Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164">https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164</a>, doi:10.1016/j.jmb.2009.09.009.</p>
 <p>[2] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
 <p>[3] Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>, doi:10.1002/jcc.21787.</p>

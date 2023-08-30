@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Advanced topology concepts &mdash; MDAnalysis User Guide  documentation</title>
@@ -15,11 +15,12 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="_static/js/versions.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -149,9 +150,9 @@
            <div itemprop="articleBody">
              
   <section id="advanced-topology-concepts">
-<span id="advanced-topology"></span><h1>Advanced topology concepts<a class="headerlink" href="#advanced-topology-concepts" title="Link to this heading"></a></h1>
+<span id="advanced-topology"></span><h1>Advanced topology concepts<a class="headerlink" href="#advanced-topology-concepts" title="Permalink to this heading"></a></h1>
 <section id="adding-a-residue-or-segment-to-a-universe">
-<span id="adding-residue"></span><h2>Adding a Residue or Segment to a Universe<a class="headerlink" href="#adding-a-residue-or-segment-to-a-universe" title="Link to this heading"></a></h2>
+<span id="adding-residue"></span><h2>Adding a Residue or Segment to a Universe<a class="headerlink" href="#adding-a-residue-or-segment-to-a-universe" title="Permalink to this heading"></a></h2>
 <p>To add a <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/core/groups.html#MDAnalysis.core.groups.Residue" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Residue</span></code></a> or <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/core/groups.html#MDAnalysis.core.groups.Segment" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Segment</span></code></a> to a topology, use the <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.add_Residue" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Universe.add_Residue</span></code></a> or <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.add_Segment" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Universe.add_Segment</span></code></a> methods.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">u</span><span class="o">.</span><span class="n">segments</span>
@@ -174,7 +175,7 @@
 <p>Another example is <a class="reference internal" href="examples/constructing_universe.html#Adding-a-new-segment"><span class="std std-ref">creating custom segments for protein domains</span></a>.</p>
 </section>
 <section id="molecules">
-<span id="molecule"></span><h2>Molecules<a class="headerlink" href="#molecules" title="Link to this heading"></a></h2>
+<span id="molecule"></span><h2>Molecules<a class="headerlink" href="#molecules" title="Permalink to this heading"></a></h2>
 <p>In MDAnalysis, a molecule is a GROMACS-only concept that is relevant in some analysis methods. A group of atoms is considered a “molecule” if it is defined by the <code class="code docutils literal notranslate"><span class="pre">[</span> <span class="pre">moleculetype</span> <span class="pre">]</span></code> section in a <a class="reference external" href="http://manual.gromacs.org/documentation/2019/reference-manual/file-formats.html#top">GROMACS topology</a>. Molecules are only defined if a Universe is created from a GROMACS topology file (i.e. with a .tpr extension). Unlike fragments, they are not accessible directly from atoms.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tpr</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">TPR</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tpr</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">molecules</span>
@@ -194,7 +195,7 @@
 </div>
 </section>
 <section id="adding-custom-topologyattrs">
-<span id="custom-topologyattrs"></span><h2>Adding custom TopologyAttrs<a class="headerlink" href="#adding-custom-topologyattrs" title="Link to this heading"></a></h2>
+<span id="custom-topologyattrs"></span><h2>Adding custom TopologyAttrs<a class="headerlink" href="#adding-custom-topologyattrs" title="Permalink to this heading"></a></h2>
 </section>
 </section>
 

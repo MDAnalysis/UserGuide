@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Auxiliary files &mdash; MDAnalysis User Guide  documentation</title>
@@ -15,11 +15,12 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../_static/js/versions.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -160,12 +161,18 @@
            <div itemprop="articleBody">
              
   <section id="auxiliary-files">
-<span id="auxiliary"></span><h1>Auxiliary files<a class="headerlink" href="#auxiliary-files" title="Link to this heading"></a></h1>
+<span id="auxiliary"></span><h1>Auxiliary files<a class="headerlink" href="#auxiliary-files" title="Permalink to this heading"></a></h1>
 <p>Auxiliary readers allow you to read in timeseries data accompanying a trajectory that is not stored in the regular trajectory file.</p>
 <section id="supported-formats">
-<h2>Supported formats<a class="headerlink" href="#supported-formats" title="Link to this heading"></a></h2>
+<h2>Supported formats<a class="headerlink" href="#supported-formats" title="Permalink to this heading"></a></h2>
 <blockquote>
 <div><table class="docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 10%" />
+<col style="width: 13%" />
+<col style="width: 47%" />
+</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Reader</p></th>
 <th class="head"><p>Format</p></th>
@@ -205,10 +212,10 @@ Reads full file on initialisation.</p></td>
 </div></blockquote>
 </section>
 <section id="xvg-files">
-<h2>XVG Files<a class="headerlink" href="#xvg-files" title="Link to this heading"></a></h2>
+<h2>XVG Files<a class="headerlink" href="#xvg-files" title="Permalink to this heading"></a></h2>
 </section>
 <section id="reading-data-directly">
-<h2>Reading data directly<a class="headerlink" href="#reading-data-directly" title="Link to this heading"></a></h2>
+<h2>Reading data directly<a class="headerlink" href="#reading-data-directly" title="Permalink to this heading"></a></h2>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 
 <span class="gp">In [2]: </span><span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">XVG_BZ2</span>  <span class="c1"># cobrotoxin protein forces</span>
@@ -216,7 +223,7 @@ Reads full file on initialisation.</p></td>
 <span class="gp">In [3]: </span><span class="n">aux</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">auxreader</span><span class="p">(</span><span class="n">XVG_BZ2</span><span class="p">)</span>
 
 <span class="gp">In [4]: </span><span class="n">aux</span>
-<span class="gh">Out[4]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7f384c5de7c0&gt;</span>
+<span class="gh">Out[4]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7f354b2d0f70&gt;</span>
 </pre></div>
 </div>
 <p>In stand-alone use, an auxiliary reader allows you to iterate over each step in a set of auxiliary data.</p>
@@ -250,7 +257,7 @@ Reads full file on initialisation.</p></td>
 </div>
 </section>
 <section id="loading-data-into-a-universe">
-<h2>Loading data into a Universe<a class="headerlink" href="#loading-data-into-a-universe" title="Link to this heading"></a></h2>
+<h2>Loading data into a Universe<a class="headerlink" href="#loading-data-into-a-universe" title="Permalink to this heading"></a></h2>
 <p>Auxiliary data may be added to a trajectory Reader through the
 <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.add_auxiliary" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_auxiliary()</span></code></a> method. Auxiliary data
 may be passed in as a AuxReader instance, or directly as e.g. a filename, in
@@ -275,7 +282,7 @@ guess an appropriate reader.</p>
 </div>
 </section>
 <section id="passing-arguments-to-auxiliary-data">
-<h2>Passing arguments to auxiliary data<a class="headerlink" href="#passing-arguments-to-auxiliary-data" title="Link to this heading"></a></h2>
+<h2>Passing arguments to auxiliary data<a class="headerlink" href="#passing-arguments-to-auxiliary-data" title="Permalink to this heading"></a></h2>
 <p>For alignment with trajectory data, auxiliary readers provide methods to
 assign each auxiliary step to the nearest trajectory timestep, read all steps
 assigned to a trajectory timestep and calculate ‘representative’ value(s) of
@@ -287,7 +294,7 @@ trajectory. If there are no auxiliary steps assigned to a given timestep (or non
 <code class="docutils literal notranslate"><span class="pre">cutoff</span></code>, if set), the representative value(s) are set to <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>.</p>
 </section>
 <section id="iterating-over-auxiliary-data">
-<h2>Iterating over auxiliary data<a class="headerlink" href="#iterating-over-auxiliary-data" title="Link to this heading"></a></h2>
+<h2>Iterating over auxiliary data<a class="headerlink" href="#iterating-over-auxiliary-data" title="Permalink to this heading"></a></h2>
 <p>Auxiliary data may not perfectly line up with the trajectory, or have missing data.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PDB</span><span class="p">,</span> <span class="n">TRR</span>
 
@@ -362,7 +369,7 @@ over the auxiliary independent of the trajectory.</p>
 timestep after iteration is complete.</p>
 </section>
 <section id="accessing-auxiliary-attributes">
-<h2>Accessing auxiliary attributes<a class="headerlink" href="#accessing-auxiliary-attributes" title="Link to this heading"></a></h2>
+<h2>Accessing auxiliary attributes<a class="headerlink" href="#accessing-auxiliary-attributes" title="Permalink to this heading"></a></h2>
 <p>To check the values of attributes of an added auxiliary, use
 <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.get_aux_attribute" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_aux_attribute()</span></code></a>.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [23]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">get_aux_attribute</span><span class="p">(</span><span class="s1">&#39;protein_force&#39;</span><span class="p">,</span> <span class="s1">&#39;dt&#39;</span><span class="p">)</span>
@@ -391,7 +398,7 @@ directly by using <a class="reference external" href="https://docs.mdanalysis.or
 </div>
 </section>
 <section id="recreating-auxiliaries">
-<h2>Recreating auxiliaries<a class="headerlink" href="#recreating-auxiliaries" title="Link to this heading"></a></h2>
+<h2>Recreating auxiliaries<a class="headerlink" href="#recreating-auxiliaries" title="Permalink to this heading"></a></h2>
 <p>To recreate an auxiliary, the set of attributes necessary to replicate it can
 first be obtained with <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/auxiliary/base.html#MDAnalysis.auxiliary.base.AuxReader.get_description" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_description()</span></code></a>.
 The returned dictionary can then be passed to
@@ -415,7 +422,7 @@ original auxiliary reader.</p>
 <span class="gp">In [30]: </span><span class="k">del</span> <span class="n">aux</span>
 
 <span class="gp">In [31]: </span><span class="n">mda</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">auxreader</span><span class="p">(</span><span class="o">**</span><span class="n">description</span><span class="p">)</span>
-<span class="gh">Out[31]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7f384c41dca0&gt;</span>
+<span class="gh">Out[31]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7f354b440760&gt;</span>
 </pre></div>
 </div>
 <p>The ‘description’ of any or all the auxiliaries added to a trajectory can be
@@ -433,14 +440,14 @@ obtained using <a class="reference external" href="https://docs.mdanalysis.org/2
 </div>
 </section>
 <section id="edr-files">
-<h2>EDR Files<a class="headerlink" href="#edr-files" title="Link to this heading"></a></h2>
+<h2>EDR Files<a class="headerlink" href="#edr-files" title="Permalink to this heading"></a></h2>
 <p>EDR files are created by GROMACS during simulations and contain additional non-trajectory time-series data of the
 system, such as energies, temperature, or pressure. The EDRReader allows direct reading of these binary files
 and associating of the data with trajectory time steps just like the XVGReader does. As all functionality of the base AuxReaders (see XVGReader above) also works with
 the EDRReader, this section will highlight functionality unique to the EDRReader.</p>
 </section>
 <section id="standalone-usage">
-<h2>Standalone Usage<a class="headerlink" href="#standalone-usage" title="Link to this heading"></a></h2>
+<h2>Standalone Usage<a class="headerlink" href="#standalone-usage" title="Permalink to this heading"></a></h2>
 <p>The EDRReader is initialised by passing the path to an EDR file as an argument.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [35]: </span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 
@@ -530,7 +537,7 @@ the EDRReader, this section will highlight functionality unique to the EDRReader
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [45]: </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="gp">In [46]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">],</span> <span class="n">temp</span><span class="p">[</span><span class="s2">&quot;Temperature&quot;</span><span class="p">])</span>
-<span class="gh">Out[46]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x7f384f407a90&gt;]</span>
+<span class="gh">Out[46]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x7f354a9d6310&gt;]</span>
 
 <span class="gp">In [47]: </span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Temperature [K]&quot;</span><span class="p">)</span>
 <span class="gh">Out[47]: </span><span class="go">Text(0, 0.5, &#39;Temperature [K]&#39;)</span>
@@ -547,7 +554,7 @@ the EDRReader, this section will highlight functionality unique to the EDRReader
 </figure>
 </section>
 <section id="unit-handling">
-<h2>Unit Handling<a class="headerlink" href="#unit-handling" title="Link to this heading"></a></h2>
+<h2>Unit Handling<a class="headerlink" href="#unit-handling" title="Permalink to this heading"></a></h2>
 <p>On object creation, the EDRReader creates a <code class="docutils literal notranslate"><span class="pre">unit_dict</span></code> attribute which contains
 information on the units of the data stored within. These units are read from the
 EDR file automatically and by default converted to MDAnalysis base units where such units
@@ -563,7 +570,7 @@ are defined. The automatic unit conversion can be disabled by setting the <code 
 </div>
 </section>
 <section id="use-with-trajectories">
-<h2>Use with Trajectories<a class="headerlink" href="#use-with-trajectories" title="Link to this heading"></a></h2>
+<h2>Use with Trajectories<a class="headerlink" href="#use-with-trajectories" title="Permalink to this heading"></a></h2>
 <p>An arbitrary number of terms to be associated with a trajectory can be specified as a dictionary.
 The dictionary is chosen so that the name to be used in MDAnalysis to access the data is mapped to the name in <cite>aux.terms</cite>.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [53]: </span><span class="kn">from</span> <span class="nn">MDAnalysisTests.datafiles</span> <span class="kn">import</span> <span class="n">AUX_EDR_TPR</span><span class="p">,</span> <span class="n">AUX_EDR_XTC</span>
@@ -590,7 +597,7 @@ specify that the EDRReader should be passed as the <cite>auxdata</cite> argument
 </div>
 </section>
 <section id="selecting-trajectory-frames-based-on-auxiliary-data">
-<h2>Selecting Trajectory Frames Based on Auxiliary Data<a class="headerlink" href="#selecting-trajectory-frames-based-on-auxiliary-data" title="Link to this heading"></a></h2>
+<h2>Selecting Trajectory Frames Based on Auxiliary Data<a class="headerlink" href="#selecting-trajectory-frames-based-on-auxiliary-data" title="Permalink to this heading"></a></h2>
 <p>One use case for the new auxiliary readers is the selection of frames based on auxiliary data.
 To select only those frames with a potential energy below a certain threshold, the
 following can be used:</p>
@@ -615,7 +622,7 @@ following can be used:</p>
 </div>
 </section>
 <section id="memory-usage">
-<h2>Memory Usage<a class="headerlink" href="#memory-usage" title="Link to this heading"></a></h2>
+<h2>Memory Usage<a class="headerlink" href="#memory-usage" title="Permalink to this heading"></a></h2>
 <p>It is assumed that the EDR file is small enough to be read in full. However,
 since one EDRReader instance is created for each term added to a trajectory,
 memory usage monitoring was implemented. A warning will be issued if 1 GB of

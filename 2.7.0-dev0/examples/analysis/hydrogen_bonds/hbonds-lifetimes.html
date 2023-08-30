@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calculating hydrogen bond lifetimes &mdash; MDAnalysis User Guide  documentation</title>
@@ -16,11 +16,12 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -149,7 +150,7 @@
              
   <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
 <script>require=requirejs;</script><section id="Calculating-hydrogen-bond-lifetimes">
-<h1>Calculating hydrogen bond lifetimes<a class="headerlink" href="#Calculating-hydrogen-bond-lifetimes" title="Link to this heading"></a></h1>
+<h1>Calculating hydrogen bond lifetimes<a class="headerlink" href="#Calculating-hydrogen-bond-lifetimes" title="Permalink to this heading"></a></h1>
 <p>We will calculate the lifetime of intramolecular hydrogen bonds in a protein.</p>
 <p><strong>Last updated:</strong> December 2022</p>
 <p><strong>Minimum version of MDAnalysis:</strong> 2.0.0-dev0</p>
@@ -188,7 +189,7 @@
 </div>
 </div>
 <section id="Loading-files">
-<h2>Loading files<a class="headerlink" href="#Loading-files" title="Link to this heading"></a></h2>
+<h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -200,7 +201,7 @@
 <p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<span id="id3">[<a class="reference internal" href="../../../references.html#id14" title="Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164 (visited on 2020-02-05), doi:10.1016/j.jmb.2009.09.009.">BDPW09</a>]</span>)</p>
 </section>
 <section id="Find-all-hydrogen-bonds">
-<h2>Find all hydrogen bonds<a class="headerlink" href="#Find-all-hydrogen-bonds" title="Link to this heading"></a></h2>
+<h2>Find all hydrogen bonds<a class="headerlink" href="#Find-all-hydrogen-bonds" title="Permalink to this heading"></a></h2>
 <p>First, find the hydrogen bonds.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -235,7 +236,7 @@
 </div>
 </section>
 <section id="Calculate-hydrogen-bond-lifetimes">
-<h2>Calculate hydrogen bond lifetimes<a class="headerlink" href="#Calculate-hydrogen-bond-lifetimes" title="Link to this heading"></a></h2>
+<h2>Calculate hydrogen bond lifetimes<a class="headerlink" href="#Calculate-hydrogen-bond-lifetimes" title="Permalink to this heading"></a></h2>
 <p>The hydrogen bond lifetime is calculated via the time autocorrelation function of the presence of a hydrogen bond:</p>
 <center><div class="math notranslate nohighlight">
 \[C(\tau) = \bigg\langle \frac{h_{ij}(t_0) h_{ij}(t_0 + \tau)}{h_{ij}(t_0)^2} \bigg\rangle\]</div>
@@ -295,7 +296,7 @@
 </div>
 </section>
 <section id="Calculating-the-time-constant">
-<h2>Calculating the time constant<a class="headerlink" href="#Calculating-the-time-constant" title="Link to this heading"></a></h2>
+<h2>Calculating the time constant<a class="headerlink" href="#Calculating-the-time-constant" title="Permalink to this heading"></a></h2>
 <p>To obtain the hydrogen bond lifetime, you can fit a biexponential to the time autocorrelation curve. We will fit the following biexponential:</p>
 <center><div class="math notranslate nohighlight">
 \[A\exp(-t / \tau_1) + B\exp(-t / \tau_2)\]</div>
@@ -378,7 +379,7 @@ time_constant = 6.14 ps
 </div>
 </section>
 <section id="Intermittent-lifetime">
-<h2>Intermittent lifetime<a class="headerlink" href="#Intermittent-lifetime" title="Link to this heading"></a></h2>
+<h2>Intermittent lifetime<a class="headerlink" href="#Intermittent-lifetime" title="Permalink to this heading"></a></h2>
 <p>The above example shows you how to calculate the continuous hydrogen bond lifetime. This means that the hydrogen bond must be present at every frame from <span class="math notranslate nohighlight">\(t_0\)</span> to <span class="math notranslate nohighlight">\(t_0 + \tau\)</span>. To allow for small fluctuations in the DA distance or DHA angle, the intermittent hydrogen bond lifetime may be calculated. This allows a hydrogen bond to break for up to a specified number of frames and still be considered present.</p>
 <p>In the <code class="docutils literal notranslate"><span class="pre">lifetime</span></code> method, the <code class="docutils literal notranslate"><span class="pre">intermittency</span></code> argument is used to set the maxium number of frames for which a hydrogen bond is allowed to break. The default is <code class="docutils literal notranslate"><span class="pre">intermittency=0</span></code>, which means that if a hydrogen bond is missing at any frame between <span class="math notranslate nohighlight">\(t_0\)</span> and <span class="math notranslate nohighlight">\(t_0 + \tau\)</span>, it will not be considered present at <span class="math notranslate nohighlight">\(t_0+\tau\)</span>. This is equivalent to the continuous lifetime. However, with a value of <code class="docutils literal notranslate"><span class="pre">intermittency=2</span></code>, all hydrogen bonds are allowed to break for up to a maximum of
 consecutive two frames.</p>
@@ -426,7 +427,7 @@ consecutive two frames.</p>
 </div>
 </section>
 <section id="Hydrogen-bond-lifetime-of-individual-hydrogen-bonds">
-<h2>Hydrogen bond lifetime of individual hydrogen bonds<a class="headerlink" href="#Hydrogen-bond-lifetime-of-individual-hydrogen-bonds" title="Link to this heading"></a></h2>
+<h2>Hydrogen bond lifetime of individual hydrogen bonds<a class="headerlink" href="#Hydrogen-bond-lifetime-of-individual-hydrogen-bonds" title="Permalink to this heading"></a></h2>
 <p>Let’s first find the 3 most prevalent hydrogen bonds.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
@@ -571,7 +572,7 @@ TYR-24-OH       HH      GLY-214-OT2     count=95
 </div>
 </section>
 <section id="References">
-<h2>References<a class="headerlink" href="#References" title="Link to this heading"></a></h2>
+<h2>References<a class="headerlink" href="#References" title="Permalink to this heading"></a></h2>
 <p>[1] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
 <p>[2] Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>, doi:10.1002/jcc.21787.</p>
 <p>[3] Paul Smith, Robert M. Ziolek, Elena Gazzarrini, Dylan M. Owen, and Christian D. Lorenz. On the interaction of hyaluronic acid with synovial fluid lipid membranes. Phys. Chem. Chem. Phys., 21(19):9845-9857, 2018. URL: <a class="reference external" href="http://dx.doi.org/10.1039/C9CP01532A">http://dx.doi.org/10.1039/C9CP01532A</a></p>

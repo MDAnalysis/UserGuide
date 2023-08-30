@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Protein dihedral angle analysis &mdash; MDAnalysis User Guide  documentation</title>
@@ -16,11 +16,12 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -178,7 +179,7 @@
              
   <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
 <script>require=requirejs;</script><section id="Protein-dihedral-angle-analysis">
-<h1>Protein dihedral angle analysis<a class="headerlink" href="#Protein-dihedral-angle-analysis" title="Link to this heading"></a></h1>
+<h1>Protein dihedral angle analysis<a class="headerlink" href="#Protein-dihedral-angle-analysis" title="Permalink to this heading"></a></h1>
 <p>We look at backbone dihedral angles and generate Ramachandran and Janin plots.</p>
 <p>The methods and examples shown here are only applicable to Universes where protein residue names have standard names, i.e. the backbone is comprised of –N–CA–C–N–CA– atoms.</p>
 <p><strong>Last updated:</strong> December 2022 with MDAnalysis 2.4.0-dev0</p>
@@ -206,7 +207,7 @@
 </div>
 </div>
 <section id="Loading-files">
-<h2>Loading files<a class="headerlink" href="#Loading-files" title="Link to this heading"></a></h2>
+<h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this heading"></a></h2>
 <p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<span id="id3">[<a class="reference internal" href="../../../references.html#id14" title="Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164 (visited on 2020-02-05), doi:10.1016/j.jmb.2009.09.009.">BDPW09</a>]</span>)</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -228,7 +229,7 @@ There are 214 residues in the protein
 </div>
 </section>
 <section id="Selecting-dihedral-atom-groups">
-<h2>Selecting dihedral atom groups<a class="headerlink" href="#Selecting-dihedral-atom-groups" title="Link to this heading"></a></h2>
+<h2>Selecting dihedral atom groups<a class="headerlink" href="#Selecting-dihedral-atom-groups" title="Permalink to this heading"></a></h2>
 <p>Proteins have canonical dihedral angles defined on the backbone atoms. <span class="math notranslate nohighlight">\(\phi\)</span> (phi), <span class="math notranslate nohighlight">\(\psi\)</span> (psi) and <span class="math notranslate nohighlight">\(\omega\)</span> (omega) are backbone angles. The side-chain dihedral angles are called <span class="math notranslate nohighlight">\(\chi_n\)</span> (chi-<span class="math notranslate nohighlight">\(n\)</span>), and can vary in number.</p>
 <center><div style="width: 250px; text-align: center;"><img alt="dihedral angles in proteins" src="../../../_images/dihedrals.png" />
 </div></center><p>MDAnalysis allows you to directly select the atoms involved in the <span class="math notranslate nohighlight">\(\phi\)</span>, <span class="math notranslate nohighlight">\(\psi\)</span>, <span class="math notranslate nohighlight">\(\omega\)</span>, and <span class="math notranslate nohighlight">\(\chi_1\)</span> angles, provided that your protein atoms have standard names. If MDAnalysis cannot find atoms matching the names that it expects, it will return <code class="docutils literal notranslate"><span class="pre">None</span></code>. You can see below that <code class="docutils literal notranslate"><span class="pre">phi_selection()</span></code> returns an ordered AtomGroup of the atoms in the <span class="math notranslate nohighlight">\(\phi\)</span> angle of a residue if they can be found, and <code class="docutils literal notranslate"><span class="pre">None</span></code> if not.</p>
@@ -271,7 +272,7 @@ SOL: None
 </ul>
 </section>
 <section id="Calculating-dihedral-angles">
-<h2>Calculating dihedral angles<a class="headerlink" href="#Calculating-dihedral-angles" title="Link to this heading"></a></h2>
+<h2>Calculating dihedral angles<a class="headerlink" href="#Calculating-dihedral-angles" title="Permalink to this heading"></a></h2>
 <p>Dihedral angles can be calculated directly from the AtomGroup, by converting it to a <code class="docutils literal notranslate"><span class="pre">Dihedral</span></code> object.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -319,7 +320,7 @@ SOL: None
 </pre></div></div>
 </div>
 <section id="Plotting">
-<h3>Plotting<a class="headerlink" href="#Plotting" title="Link to this heading"></a></h3>
+<h3>Plotting<a class="headerlink" href="#Plotting" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -381,7 +382,7 @@ SOL: None
 </section>
 </section>
 <section id="Ramachandran-analysis">
-<h2>Ramachandran analysis<a class="headerlink" href="#Ramachandran-analysis" title="Link to this heading"></a></h2>
+<h2>Ramachandran analysis<a class="headerlink" href="#Ramachandran-analysis" title="Permalink to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Ramachandran</span></code> class (<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/dihedrals.html#MDAnalysis.analysis.dihedrals.Ramachandran">API docs</a>) calculates the <span class="math notranslate nohighlight">\(\phi\)</span> and <span class="math notranslate nohighlight">\(\psi\)</span> angles of the selected residues over the course of the trajectory, again saving it into <code class="docutils literal notranslate"><span class="pre">.angles</span></code>. If residues are given that do not contain a <span class="math notranslate nohighlight">\(\phi\)</span> and <span class="math notranslate nohighlight">\(\psi\)</span> angle, they are omitted from the results. For example, the angles returned are from every residue in the protein
 <em>except</em> the first and last, for which a <span class="math notranslate nohighlight">\(\phi\)</span> angle and a <span class="math notranslate nohighlight">\(\psi\)</span> angle do not exist, respectively.</p>
 <p>The returned <code class="docutils literal notranslate"><span class="pre">angles</span></code> are in the shape (<code class="docutils literal notranslate"><span class="pre">n_frames</span></code>, <code class="docutils literal notranslate"><span class="pre">n_residues</span></code>, 2) where the last dimension holds the <span class="math notranslate nohighlight">\(\phi\)</span> and <span class="math notranslate nohighlight">\(\psi\)</span> angle.</p>
@@ -467,7 +468,7 @@ SOL: None
 </div>
 </section>
 <section id="Janin-analysis">
-<h2>Janin analysis<a class="headerlink" href="#Janin-analysis" title="Link to this heading"></a></h2>
+<h2>Janin analysis<a class="headerlink" href="#Janin-analysis" title="Permalink to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Janin</span></code> class (<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/dihedrals.html#MDAnalysis.analysis.dihedrals.Janin">API docs</a>) works similarly to the <code class="docutils literal notranslate"><span class="pre">Ramachandran</span></code> analysis, but looks at the <span class="math notranslate nohighlight">\(\chi_1\)</span> and <span class="math notranslate nohighlight">\(\chi_2\)</span> angles instead. It therefore ignores all residues without a long enough side-chain, such as alanine, cysteine, and so on.</p>
 <p>Again, the returned <code class="docutils literal notranslate"><span class="pre">angles</span></code> are in the shape (<code class="docutils literal notranslate"><span class="pre">n_frames</span></code>, <code class="docutils literal notranslate"><span class="pre">n_residues</span></code>, 2) where the last dimension holds the <span class="math notranslate nohighlight">\(\chi_1\)</span> and <span class="math notranslate nohighlight">\(\chi_2\)</span> angle. We can see that only about half of the residues in AdK have side-chains long enough for this analysis.</p>
 <div class="nbinput docutils container">
@@ -527,7 +528,7 @@ SOL: None
 </div>
 </section>
 <section id="References">
-<h2>References<a class="headerlink" href="#References" title="Link to this heading"></a></h2>
+<h2>References<a class="headerlink" href="#References" title="Permalink to this heading"></a></h2>
 <p>[1] Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164">https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164</a>, doi:10.1016/j.jmb.2009.09.009.</p>
 <p>[2] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
 <p>[3] Joël Janin, Shoshanna Wodak, Michael Levitt, and Bernard Maigret. Conformation of amino acid side-chains in proteins. Journal of Molecular Biology, 125(3):357 – 386, 1978. 00874. URL: <a class="reference external" href="http://www.sciencedirect.com/science/article/pii/0022283678904084">http://www.sciencedirect.com/science/article/pii/0022283678904084</a>, doi:10.1016/0022-2836(78)90408-4.</p>

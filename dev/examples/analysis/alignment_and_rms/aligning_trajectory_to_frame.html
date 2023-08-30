@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aligning a trajectory to itself &mdash; MDAnalysis User Guide  documentation</title>
@@ -16,11 +16,12 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -177,7 +178,7 @@
              
   <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
 <script>require=requirejs;</script><section id="Aligning-a-trajectory-to-itself">
-<h1>Aligning a trajectory to itself<a class="headerlink" href="#Aligning-a-trajectory-to-itself" title="Link to this heading"></a></h1>
+<h1>Aligning a trajectory to itself<a class="headerlink" href="#Aligning-a-trajectory-to-itself" title="Permalink to this heading"></a></h1>
 <p>We use <code class="docutils literal notranslate"><span class="pre">align.AlignTraj</span></code> to align a trajectory to a reference frame and write it to a file.</p>
 <p><strong>Last updated:</strong> December 2022 with MDAnalysis 2.4.0-dev0</p>
 <p><strong>Minimum version of MDAnalysis:</strong> 1.0.0</p>
@@ -207,7 +208,7 @@
 </div>
 </div>
 <section id="Loading-files">
-<h2>Loading files<a class="headerlink" href="#Loading-files" title="Link to this heading"></a></h2>
+<h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this heading"></a></h2>
 <p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<span id="id7">[<a class="reference internal" href="../../../references.html#id14" title="Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164 (visited on 2020-02-05), doi:10.1016/j.jmb.2009.09.009.">BDPW09</a>]</span>) The trajectory samples a transition from a closed to an open conformation.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -229,7 +230,7 @@
 </div>
 </section>
 <section id="Aligning-a-trajectory-to-the-first-frame">
-<h2>Aligning a trajectory to the first frame<a class="headerlink" href="#Aligning-a-trajectory-to-the-first-frame" title="Link to this heading"></a></h2>
+<h2>Aligning a trajectory to the first frame<a class="headerlink" href="#Aligning-a-trajectory-to-the-first-frame" title="Permalink to this heading"></a></h2>
 <p>While <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/align.html#MDAnalysis.analysis.align.alignto">align.alignto</a> aligns structures, or a frame of a trajectory, <code class="docutils literal notranslate"><span class="pre">align.AlignTraj</span></code> (<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/align.html#MDAnalysis.analysis.align.AlignTraj">API docs</a>) efficiently aligns an entire trajectory to a reference.</p>
 <p>We first check the <a class="reference internal" href="rmsd.html"><span class="doc">root mean square deviation (RMSD) values</span></a> of our unaligned trajectory, so we can compare results (please see the linked notebook for an explanation of RMSD). The code below sets the <code class="docutils literal notranslate"><span class="pre">mobile</span></code> trajectory to the last frame by indexing the last timestep, <code class="docutils literal notranslate"><span class="pre">ref</span></code> to the first frame by indexing the first timestep, and computes the root mean squared deviation between the alpha-carbon positions.</p>
 <div class="nbinput docutils container">
@@ -300,7 +301,7 @@ Aligned RMSD: 6.81
 </div>
 </section>
 <section id="Aligning-a-trajectory-to-the-third-frame">
-<h2>Aligning a trajectory to the third frame<a class="headerlink" href="#Aligning-a-trajectory-to-the-third-frame" title="Link to this heading"></a></h2>
+<h2>Aligning a trajectory to the third frame<a class="headerlink" href="#Aligning-a-trajectory-to-the-third-frame" title="Permalink to this heading"></a></h2>
 <p>We can align the trajectory to any frame: for example, the third one. The procedure is much the same, except that we must set <code class="docutils literal notranslate"><span class="pre">ref</span></code> to the third frame by indexing the third timestep.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
@@ -353,7 +354,7 @@ Aligned RMSD, all-atom: 6.72
 </div>
 </section>
 <section id="References">
-<h2>References<a class="headerlink" href="#References" title="Link to this heading"></a></h2>
+<h2>References<a class="headerlink" href="#References" title="Permalink to this heading"></a></h2>
 <p>[1] Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164">https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164</a>, doi:10.1016/j.jmb.2009.09.009.</p>
 <p>[2] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
 <p>[3] Pu Liu, Dimitris K. Agrafiotis, and Douglas L. Theobald. Fast determination of the optimal rotational matrix for macromolecular superpositions. Journal of Computational Chemistry, pages n/a–n/a, 2009. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21439">http://doi.wiley.com/10.1002/jcc.21439</a>, doi:10.1002/jcc.21439.</p>

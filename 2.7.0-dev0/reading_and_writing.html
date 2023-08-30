@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reading and writing files &mdash; MDAnalysis User Guide  documentation</title>
@@ -15,11 +15,12 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="_static/js/versions.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -165,9 +166,9 @@
            <div itemprop="articleBody">
              
   <section id="reading-and-writing-files">
-<span id="reading-and-writing"></span><h1>Reading and writing files<a class="headerlink" href="#reading-and-writing-files" title="Link to this heading"></a></h1>
+<span id="reading-and-writing"></span><h1>Reading and writing files<a class="headerlink" href="#reading-and-writing-files" title="Permalink to this heading"></a></h1>
 <section id="input">
-<h2>Input<a class="headerlink" href="#input" title="Link to this heading"></a></h2>
+<h2>Input<a class="headerlink" href="#input" title="Permalink to this heading"></a></h2>
 <p>Read information from topology and coordinate files to create a <a class="reference internal" href="universe.html#universe-loading"><span class="std std-ref">Universe</span></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 <span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="s1">&#39;topology.gro&#39;</span><span class="p">,</span> <span class="s1">&#39;trajectory.xtc&#39;</span><span class="p">)</span>
@@ -183,7 +184,7 @@
 <p>See <a class="reference internal" href="universe.html#universe-loading"><span class="std std-ref">Loading from files</span></a> for more information on loading data into a Universe from files.</p>
 </div>
 <section id="reading-multiple-trajectories">
-<span id="chainreader"></span><h3>Reading multiple trajectories<a class="headerlink" href="#reading-multiple-trajectories" title="Link to this heading"></a></h3>
+<span id="chainreader"></span><h3>Reading multiple trajectories<a class="headerlink" href="#reading-multiple-trajectories" title="Permalink to this heading"></a></h3>
 <p>A Universe can load multiple trajectories, which are concatenated in the order given. One exception to this is with <a class="reference internal" href="formats/reference/xtc.html#xtc-format"><span class="std std-ref">XTC</span></a> and <a class="reference internal" href="formats/reference/trr.html#trr-format"><span class="std std-ref">TRR</span></a> files. If the <code class="docutils literal notranslate"><span class="pre">continuous=True</span></code> flag is <a class="reference internal" href="universe.html#universe-kwargs"><span class="std std-ref">passed to Universe</span></a>, MDAnalysis will try to stitch them together so that the trajectory is as time-continuous as possible. This means that there will be no duplicate time-frames, or jumps back in time.</p>
 <p>As an example, the following depicted trajectory is split into four parts. The column represents the time. As you can see, some segments overlap. With <code class="docutils literal notranslate"><span class="pre">continuous=True</span></code>, only the frames marked with a + will be read.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">part01</span><span class="p">:</span>  <span class="o">++++--</span>
@@ -199,7 +200,7 @@
 </div>
 <p>More information can be found at the API reference for <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/coordinates/chain.html#MDAnalysis.coordinates.chain.ChainReader" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChainReader</span></code></a>.</p>
 <section id="trajectory-formats">
-<h4>Trajectory formats<a class="headerlink" href="#trajectory-formats" title="Link to this heading"></a></h4>
+<h4>Trajectory formats<a class="headerlink" href="#trajectory-formats" title="Permalink to this heading"></a></h4>
 <p>If no <code class="docutils literal notranslate"><span class="pre">format</span></code> keyword is provided, <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/coordinates/chain.html#MDAnalysis.coordinates.chain.ChainReader" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChainReader</span></code></a> will try to guess the format for each file from its extension. You can force <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/coordinates/chain.html#MDAnalysis.coordinates.chain.ChainReader" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChainReader</span></code></a> to use the same format for every file by using the <code class="docutils literal notranslate"><span class="pre">format</span></code> keyword. You can also specify which format to use by file, by passing in a sequence of <code class="docutils literal notranslate"><span class="pre">(filename,</span> <span class="pre">format)</span></code> tuples.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 
@@ -214,9 +215,9 @@
 </section>
 </section>
 <section id="in-memory-trajectories">
-<span id="memory-reader"></span><h3>In-memory trajectories<a class="headerlink" href="#in-memory-trajectories" title="Link to this heading"></a></h3>
+<span id="memory-reader"></span><h3>In-memory trajectories<a class="headerlink" href="#in-memory-trajectories" title="Permalink to this heading"></a></h3>
 <section id="reading-trajectories-into-memory">
-<h4>Reading trajectories into memory<a class="headerlink" href="#reading-trajectories-into-memory" title="Link to this heading"></a></h4>
+<h4>Reading trajectories into memory<a class="headerlink" href="#reading-trajectories-into-memory" title="Permalink to this heading"></a></h4>
 <p>If your device has sufficient memory to load an entire trajectory into memory, then analysis can be sped up substantially by transferring the
 trajectory to memory. This makes it possible to
 operate on raw coordinates using existing MDAnalysis tools. In
@@ -234,7 +235,7 @@ automatically transfers a trajectory to memory:</p>
 <p>MDAnalysis uses the <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/coordinates/memory.html#MDAnalysis.coordinates.memory.MemoryReader" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MemoryReader</span></code></a> class to load this data in.</p>
 </section>
 <section id="transferring-trajectories-into-memory">
-<h4>Transferring trajectories into memory<a class="headerlink" href="#transferring-trajectories-into-memory" title="Link to this heading"></a></h4>
+<h4>Transferring trajectories into memory<a class="headerlink" href="#transferring-trajectories-into-memory" title="Permalink to this heading"></a></h4>
 <p>The decision to transfer the trajectory to memory can be made at any
 time with the
 <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.transfer_to_memory" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transfer_to_memory()</span></code></a> method
@@ -247,7 +248,7 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/
 <p>This operation may take a while (passing <code class="docutils literal notranslate"><span class="pre">verbose=True</span></code> to <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.transfer_to_memory" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transfer_to_memory()</span></code></a> will display a progress bar). However, subsequent operations on the trajectory will be very fast.</p>
 </section>
 <section id="building-trajectories-in-memory">
-<h4>Building trajectories in memory<a class="headerlink" href="#building-trajectories-in-memory" title="Link to this heading"></a></h4>
+<h4>Building trajectories in memory<a class="headerlink" href="#building-trajectories-in-memory" title="Permalink to this heading"></a></h4>
 <p><a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/coordinates/memory.html#MDAnalysis.coordinates.memory.MemoryReader" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MemoryReader</span></code></a> can also be used to directly generate a trajectory as a numpy array.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="kn">from</span> <span class="nn">MDAnalysisTests.datafiles</span> <span class="kn">import</span> <span class="n">PDB</span>
 
@@ -275,13 +276,13 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/
 
 <span class="gp">In [16]: </span><span class="n">universe</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[16]: </span>
-<span class="go">array([[0.41133624, 0.37131798, 0.26106352],</span>
-<span class="go">       [0.01348739, 0.7059396 , 0.60819006],</span>
-<span class="go">       [0.9570468 , 0.18730465, 0.7351085 ],</span>
+<span class="go">array([[0.24558303, 0.71937597, 0.29919493],</span>
+<span class="go">       [0.93755525, 0.27503327, 0.23034106],</span>
+<span class="go">       [0.6987076 , 0.36994675, 0.6987952 ],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.8496506 , 0.64389336, 0.9618554 ],</span>
-<span class="go">       [0.5866049 , 0.8934701 , 0.9678053 ],</span>
-<span class="go">       [0.1312825 , 0.70784664, 0.7665832 ]], dtype=float32)</span>
+<span class="go">       [0.2978372 , 0.076014  , 0.6535448 ],</span>
+<span class="go">       [0.6156695 , 0.81650746, 0.6687791 ],</span>
+<span class="go">       [0.8326424 , 0.9737068 , 0.5428265 ]], dtype=float32)</span>
 </pre></div>
 </div>
 <p>or they can be directly passed in when creating a Universe.</p>
@@ -289,26 +290,26 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/
 
 <span class="gp">In [18]: </span><span class="n">universe2</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[18]: </span>
-<span class="go">array([[0.41133624, 0.37131798, 0.26106352],</span>
-<span class="go">       [0.01348739, 0.7059396 , 0.60819006],</span>
-<span class="go">       [0.9570468 , 0.18730465, 0.7351085 ],</span>
+<span class="go">array([[0.24558303, 0.71937597, 0.29919493],</span>
+<span class="go">       [0.93755525, 0.27503327, 0.23034106],</span>
+<span class="go">       [0.6987076 , 0.36994675, 0.6987952 ],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.8496506 , 0.64389336, 0.9618554 ],</span>
-<span class="go">       [0.5866049 , 0.8934701 , 0.9678053 ],</span>
-<span class="go">       [0.1312825 , 0.70784664, 0.7665832 ]], dtype=float32)</span>
+<span class="go">       [0.2978372 , 0.076014  , 0.6535448 ],</span>
+<span class="go">       [0.6156695 , 0.81650746, 0.6687791 ],</span>
+<span class="go">       [0.8326424 , 0.9737068 , 0.5428265 ]], dtype=float32)</span>
 </pre></div>
 </div>
 </section>
 <section id="in-memory-trajectories-of-an-atom-selection">
-<h4>In-memory trajectories of an atom selection<a class="headerlink" href="#in-memory-trajectories-of-an-atom-selection" title="Link to this heading"></a></h4>
+<h4>In-memory trajectories of an atom selection<a class="headerlink" href="#in-memory-trajectories-of-an-atom-selection" title="Permalink to this heading"></a></h4>
 <p>Creating a trajectory of an atom selection requires transferring the appropriate units. This is often needed when using <code class="xref py py-meth docutils literal notranslate"><span class="pre">Merge()</span></code> to create a new Universe, as coordinates are not automatically loaded in.</p>
 </section>
 </section>
 </section>
 <section id="output">
-<h2>Output<a class="headerlink" href="#output" title="Link to this heading"></a></h2>
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this heading"></a></h2>
 <section id="frames-and-trajectories">
-<h3>Frames and trajectories<a class="headerlink" href="#frames-and-trajectories" title="Link to this heading"></a></h3>
+<h3>Frames and trajectories<a class="headerlink" href="#frames-and-trajectories" title="Permalink to this heading"></a></h3>
 <p>MDAnalysis <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a>s can be written out to a <a class="reference internal" href="formats/index.html#coordinate-readers"><span class="std std-ref">number of formats</span></a> with <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.write" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a>. For example, to write the current frame as a PDB:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PDB</span><span class="p">,</span> <span class="n">TRR</span>
 <span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PDB</span><span class="p">,</span> <span class="n">TRR</span><span class="p">)</span>
@@ -335,7 +336,7 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/
 </section>
 </section>
 <section id="pickling">
-<h2>Pickling<a class="headerlink" href="#pickling" title="Link to this heading"></a></h2>
+<h2>Pickling<a class="headerlink" href="#pickling" title="Permalink to this heading"></a></h2>
 <p>MDAnalysis supports pickling of most of its data structures and trajectory formats. Unsupported attributes can be found in PR <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/issues/2887">#2887</a>.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [19]: </span><span class="kn">import</span> <span class="nn">pickle</span>
 

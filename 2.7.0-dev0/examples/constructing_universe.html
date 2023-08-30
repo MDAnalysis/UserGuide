@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Constructing, modifying, and adding to a Universe &mdash; MDAnalysis User Guide  documentation</title>
@@ -16,11 +16,12 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -176,7 +177,7 @@
              
   <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
 <script>require=requirejs;</script><section id="Constructing,-modifying,-and-adding-to-a-Universe">
-<h1>Constructing, modifying, and adding to a Universe<a class="headerlink" href="#Constructing,-modifying,-and-adding-to-a-Universe" title="Link to this heading"></a></h1>
+<h1>Constructing, modifying, and adding to a Universe<a class="headerlink" href="#Constructing,-modifying,-and-adding-to-a-Universe" title="Permalink to this heading"></a></h1>
 <p>MDAnalysis version: ≥ 0.20.1</p>
 <p><strong>Last updated:</strong> December 2022 with MDAnalysis 2.4.0-dev0</p>
 <p>Sometimes you may want to construct a Universe from scratch, or add attributes that are not read from a file. For example, you may want to group a Universe into chains, or create custom segments for protein domains.</p>
@@ -231,9 +232,9 @@ Using NGLView version 3.0.3
 </pre></div></div>
 </div>
 <section id="Creating-and-populating-a-Universe-with-water">
-<h2>Creating and populating a Universe with water<a class="headerlink" href="#Creating-and-populating-a-Universe-with-water" title="Link to this heading"></a></h2>
+<h2>Creating and populating a Universe with water<a class="headerlink" href="#Creating-and-populating-a-Universe-with-water" title="Permalink to this heading"></a></h2>
 <section id="Creating-a-blank-Universe">
-<h3>Creating a blank Universe<a class="headerlink" href="#Creating-a-blank-Universe" title="Link to this heading"></a></h3>
+<h3>Creating a blank Universe<a class="headerlink" href="#Creating-a-blank-Universe" title="Permalink to this heading"></a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">Universe.empty()</span></code> method creates a blank Universe. The <code class="docutils literal notranslate"><span class="pre">natoms</span></code> (int) argument must be included. Optional arguments are:</p>
 <ul class="simple">
 <li><p>n_residues (int): number of residues</p></li>
@@ -297,7 +298,7 @@ segindices: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 </div>
 </section>
 <section id="Adding-topology-attributes">
-<h3>Adding topology attributes<a class="headerlink" href="#Adding-topology-attributes" title="Link to this heading"></a></h3>
+<h3>Adding topology attributes<a class="headerlink" href="#Adding-topology-attributes" title="Permalink to this heading"></a></h3>
 <p>There isn’t much we can do with our current Universe because MDAnalysis has no information on the particle elements, positions, etc. We can add relevant information manually using TopologyAttrs.</p>
 <p><strong>names</strong></p>
 <div class="nbinput docutils container">
@@ -397,7 +398,7 @@ array([&#39;SOL&#39;, &#39;SOL&#39;, &#39;SOL&#39;, ..., &#39;SOL&#39;, &#39;SOL
 </div>
 </section>
 <section id="Adding-positions">
-<h3>Adding positions<a class="headerlink" href="#Adding-positions" title="Link to this heading"></a></h3>
+<h3>Adding positions<a class="headerlink" href="#Adding-positions" title="Permalink to this heading"></a></h3>
 <p>Positions can simply be assigned, without adding a topology attribute.</p>
 <p>The O-H bond length in water is around 0.96 Angstrom, and the bond angle is 104.45°. We can first obtain a set of coordinates for one molecule, and then translate it for every water molecule.</p>
 <div class="nbinput nblast docutils container">
@@ -467,7 +468,7 @@ array([&#39;SOL&#39;, &#39;SOL&#39;, &#39;SOL&#39;, ..., &#39;SOL&#39;, &#39;SOL
 <center><div style="width:800px; text-align:center;"><img alt="sol_view" src="../_images/constructing-universe_sol-view.png" />
 </div></center></section>
 <section id="Adding-bonds">
-<h3>Adding bonds<a class="headerlink" href="#Adding-bonds" title="Link to this heading"></a></h3>
+<h3>Adding bonds<a class="headerlink" href="#Adding-bonds" title="Permalink to this heading"></a></h3>
 <p>Currently, the <code class="docutils literal notranslate"><span class="pre">sol</span></code> universe doesn’t contain any bonds.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
@@ -548,7 +549,7 @@ array([&#39;SOL&#39;, &#39;SOL&#39;, &#39;SOL&#39;, ..., &#39;SOL&#39;, &#39;SOL
 </section>
 </section>
 <section id="Merging-with-a-protein">
-<h2>Merging with a protein<a class="headerlink" href="#Merging-with-a-protein" title="Link to this heading"></a></h2>
+<h2>Merging with a protein<a class="headerlink" href="#Merging-with-a-protein" title="Permalink to this heading"></a></h2>
 <p>Now we can merge the water with a protein to create a combined system by using <code class="docutils literal notranslate"><span class="pre">MDAnalysis.Merge</span></code> to combine AtomGroup instances.</p>
 <p>The protein is adenylate kinase (AdK), a phosphotransferase enzyme. <a class="reference internal" href="#References"><span class="std std-ref">[1]</span></a></p>
 <div class="nbinput nblast docutils container">
@@ -662,7 +663,7 @@ New solvent center of geometry:  [8.30580288e-08 3.49225059e-08 2.51332265e-08]
 <center><div style="width:800px; text-align:center;"><img alt="no_overlap_view" src="../_images/constructing-universe_no-overlap-view.png" />
 </div></center></section>
 <section id="Adding-a-new-segment">
-<h2>Adding a new segment<a class="headerlink" href="#Adding-a-new-segment" title="Link to this heading"></a></h2>
+<h2>Adding a new segment<a class="headerlink" href="#Adding-a-new-segment" title="Permalink to this heading"></a></h2>
 <p>Often you may want to assign atoms to a segment or chain – for example, adding segment IDs to a PDB file. This requires adding a new Segment with <code class="docutils literal notranslate"><span class="pre">Universe.add_Segment</span></code>.</p>
 <p>Adenylate kinase has three domains: CORE, NMP, and LID. As shown in the picture below,<a class="reference internal" href="#References"><span class="std std-ref">[1]</span></a> these have the residues:</p>
 <ul class="simple">
@@ -670,7 +671,7 @@ New solvent center of geometry:  [8.30580288e-08 3.49225059e-08 2.51332265e-08]
 <li><p>NMP: residues 30-59 (blue)</p></li>
 <li><p>LID: residues 122-159 (yellow)</p></li>
 </ul>
-<p><img alt="a5e7613cb0954f4f9398d607158006aa" src="https://github.com/MDAnalysis/MDAnalysisTutorial/blob/master/doc/sphinx/figs/angle_defs.png?raw=true" /></p>
+<p><img alt="fb81c7270b3f4b96a0321488834be1d1" src="https://github.com/MDAnalysis/MDAnalysisTutorial/blob/master/doc/sphinx/figs/angle_defs.png?raw=true" /></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
@@ -770,7 +771,7 @@ array([&#39;4AKE&#39;, &#39;SOL&#39;], dtype=object)
 <center><div style="width:800px; text-align:center;"><img alt="no_overlap_view" src="../_images/constructing-universe_domain-view.png" />
 </div></center></section>
 <section id="Tiling-into-a-larger-Universe">
-<h2>Tiling into a larger Universe<a class="headerlink" href="#Tiling-into-a-larger-Universe" title="Link to this heading"></a></h2>
+<h2>Tiling into a larger Universe<a class="headerlink" href="#Tiling-into-a-larger-Universe" title="Permalink to this heading"></a></h2>
 <p>We can use MDAnalysis to tile out a smaller Universe into a bigger one, similarly to <code class="docutils literal notranslate"><span class="pre">editconf</span></code> in GROMACS. To start off, we need to figure out the box size. The default in MDAnalysis is a zero vector. The first three numbers represent the length of each axis, and the last three represent the alpha, beta, and gamma angles of a triclinic box.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
@@ -859,11 +860,11 @@ None
 <center><div style="width:800px; text-align:center;"><img alt="tiled_view" src="../_images/constructing-universe_tiled-view.png" />
 </div></center></section>
 <section id="References">
-<h2>References<a class="headerlink" href="#References" title="Link to this heading"></a></h2>
+<h2>References<a class="headerlink" href="#References" title="Permalink to this heading"></a></h2>
 <p>[1]: Beckstein O, Denning EJ, Perilla JR, Woolf TB. Zipping and unzipping of adenylate kinase: atomistic insights into the ensemble of open&lt;–&gt;closed transitions. J Mol Biol. 2009;394(1):160–176. <a class="reference external" href="https://dx.doi.org/10.1016%2Fj.jmb.2009.09.009">doi:10.1016/j.jmb.2009.09.009</a></p>
 </section>
 <section id="Acknowledgments">
-<h2>Acknowledgments<a class="headerlink" href="#Acknowledgments" title="Link to this heading"></a></h2>
+<h2>Acknowledgments<a class="headerlink" href="#Acknowledgments" title="Permalink to this heading"></a></h2>
 <p>The Universe tiling code was modified from <a class="reference external" href="https://github.com/richardjgowers">&#64;richardjgowers</a>’s <a class="reference external" href="https://gist.github.com/richardjgowers/b16b871259451e85af0bd2907d30de91">gist on the issue</a> in 2016.</p>
 </section>
 </section>

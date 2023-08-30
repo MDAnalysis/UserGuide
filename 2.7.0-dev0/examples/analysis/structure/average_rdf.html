@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Average radial distribution functions &mdash; MDAnalysis User Guide  documentation</title>
@@ -16,11 +16,12 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -176,7 +177,7 @@
              
   <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
 <script>require=requirejs;</script><section id="Average-radial-distribution-functions">
-<h1>Average radial distribution functions<a class="headerlink" href="#Average-radial-distribution-functions" title="Link to this heading"></a></h1>
+<h1>Average radial distribution functions<a class="headerlink" href="#Average-radial-distribution-functions" title="Permalink to this heading"></a></h1>
 <p>Here we calculate the average radial cumulative distribution functions between two groups of atoms.</p>
 <p><strong>Last updated:</strong> December 2022 with MDAnalysis 2.4.0-dev0</p>
 <p><strong>Minimum version of MDAnalysis:</strong> 0.17.0</p>
@@ -202,7 +203,7 @@
 </div>
 </div>
 <section id="Loading-files">
-<h2>Loading files<a class="headerlink" href="#Loading-files" title="Link to this heading"></a></h2>
+<h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this heading"></a></h2>
 <p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. <a class="reference internal" href="#References"><span class="std std-ref">[3]</span></a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -214,7 +215,7 @@
 </div>
 </section>
 <section id="Calculating-the-average-radial-distribution-function-for-two-groups-of-atoms">
-<h2>Calculating the average radial distribution function for two groups of atoms<a class="headerlink" href="#Calculating-the-average-radial-distribution-function-for-two-groups-of-atoms" title="Link to this heading"></a></h2>
+<h2>Calculating the average radial distribution function for two groups of atoms<a class="headerlink" href="#Calculating-the-average-radial-distribution-function-for-two-groups-of-atoms" title="Permalink to this heading"></a></h2>
 <p>A radial distribution function <span class="math notranslate nohighlight">\(g_{ab}(r)\)</span> describes the time-averaged density of particles in <span class="math notranslate nohighlight">\(b\)</span> from the reference group <span class="math notranslate nohighlight">\(a\)</span> at distance <span class="math notranslate nohighlight">\(r\)</span>. It is normalised so that it becomes 1 for large separations in a homogenous system.</p>
 <div class="math notranslate nohighlight">
 \[g_{ab}(r) = (N_{a} N_{b})^{-1} \sum_{i=1}^{N_a} \sum_{j=1}^{N_b} \langle \delta(|\mathbf{r}_i - \mathbf{r}_j| - r) \rangle\]</div>
@@ -333,7 +334,7 @@ array([0.000e+00, 0.000e+00, 0.000e+00, 0.000e+00, 0.000e+00, 0.000e+00,
 </div>
 </section>
 <section id="Calculating-the-average-radial-distribution-function-for-a-group-of-atoms-to-itself">
-<h2>Calculating the average radial distribution function for a group of atoms to itself<a class="headerlink" href="#Calculating-the-average-radial-distribution-function-for-a-group-of-atoms-to-itself" title="Link to this heading"></a></h2>
+<h2>Calculating the average radial distribution function for a group of atoms to itself<a class="headerlink" href="#Calculating-the-average-radial-distribution-function-for-a-group-of-atoms-to-itself" title="Permalink to this heading"></a></h2>
 <p>You may want to calculate the average RDF for a group of atoms where atoms overlap; for instance, looking at residue 60 around itself. In this case you should avoid including contributions from atoms interacting with themselves. The <code class="docutils literal notranslate"><span class="pre">exclusion_block</span></code> keyword allows you to mask pairs within the same chunk of atoms. Here you can pass <code class="docutils literal notranslate"><span class="pre">exclusion_block=(1,</span> <span class="pre">1)</span></code> to create chunks of size 1 and avoid computing the RDF to itself.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
@@ -521,7 +522,7 @@ Text(0, 0.5, &#39;Radial distribution&#39;)
 </div>
 </section>
 <section id="References">
-<h2>References<a class="headerlink" href="#References" title="Link to this heading"></a></h2>
+<h2>References<a class="headerlink" href="#References" title="Permalink to this heading"></a></h2>
 <p>[1] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
 <p>[2] Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>, doi:10.1002/jcc.21787.</p>
 </section>

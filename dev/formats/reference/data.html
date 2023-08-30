@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DATA (LAMMPS) &mdash; MDAnalysis User Guide  documentation</title>
@@ -15,11 +15,12 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../../_static/js/versions.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -186,8 +187,12 @@
            <div itemprop="articleBody">
              
   <section id="data-lammps">
-<span id="data-format"></span><h1>DATA (LAMMPS)<a class="headerlink" href="#data-lammps" title="Link to this heading"></a></h1>
+<span id="data-format"></span><h1>DATA (LAMMPS)<a class="headerlink" href="#data-lammps" title="Permalink to this heading"></a></h1>
 <table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 71%" />
+</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><strong>Coordinate reader</strong></p></td>
 <td><p><a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/coordinates/LAMMPS.html#MDAnalysis.coordinates.LAMMPS.DATAReader" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.coordinates.LAMMPS.DATAReader</span></code></a></p></td>
@@ -207,7 +212,7 @@ for other recognized values and the documentation for the LAMMPS
 <a class="reference external" href="http://lammps.sandia.gov/doc/units.html">units command</a>.</p>
 </div>
 <section id="reading-in">
-<h2>Reading in<a class="headerlink" href="#reading-in" title="Link to this heading"></a></h2>
+<h2>Reading in<a class="headerlink" href="#reading-in" title="Permalink to this heading"></a></h2>
 <p>Lammps atoms can have <a class="reference external" href="http://lammps.sandia.gov/doc/atom_style.html">lots of different formats, and even custom formats</a>. By default, MDAnalysis checks:</p>
 <blockquote>
 <div><ul class="simple">
@@ -229,7 +234,7 @@ for other recognized values and the documentation for the LAMMPS
 <p>Only id, resid, charge, type, and coordinate information will be read from the file, even if other topology attributes are specified in the <code class="docutils literal notranslate"><span class="pre">atom_style</span></code> argument.</p>
 </section>
 <section id="writing-out">
-<h2>Writing out<a class="headerlink" href="#writing-out" title="Link to this heading"></a></h2>
+<h2>Writing out<a class="headerlink" href="#writing-out" title="Permalink to this heading"></a></h2>
 <p>MDAnalysis supports writing out the header and applicable sections from Atoms, Masses, Velocities, Bonds, Angles, Dihedrals, and Impropers. The Atoms section is written in the “full” sub-style if charges are available or “molecular” sub-style if they are not. The molecule id is set to 0 for all atoms.</p>
 <p>This writer assumes “conventional” or “real” LAMMPS units where length is measured in Angstroms and velocity is measured in Angstroms per femtosecond. To write in different units, specify <code class="docutils literal notranslate"><span class="pre">lengthunit</span></code> or <code class="docutils literal notranslate"><span class="pre">timeunit</span></code>.</p>
 <p>For example, to write a certain frame with nanometer units:</p>

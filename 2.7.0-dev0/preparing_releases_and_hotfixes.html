@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Preparing a release &mdash; MDAnalysis User Guide  documentation</title>
@@ -15,11 +15,12 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="_static/js/versions.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -159,7 +160,7 @@
            <div itemprop="articleBody">
              
   <section id="preparing-a-release">
-<span id="preparing-release"></span><h1>Preparing a release<a class="headerlink" href="#preparing-a-release" title="Link to this heading"></a></h1>
+<span id="preparing-release"></span><h1>Preparing a release<a class="headerlink" href="#preparing-a-release" title="Permalink to this heading"></a></h1>
 <p>Rules for release branches:</p>
 <blockquote>
 <div><ul class="simple">
@@ -168,7 +169,7 @@
 </ul>
 </div></blockquote>
 <section id="release-policy-and-release-numbering">
-<h2>Release policy and release numbering<a class="headerlink" href="#release-policy-and-release-numbering" title="Link to this heading"></a></h2>
+<h2>Release policy and release numbering<a class="headerlink" href="#release-policy-and-release-numbering" title="Permalink to this heading"></a></h2>
 <p>We use a <strong>MAJOR.MINOR.PATCH</strong> scheme to label releases. We adhere to the idea of <a class="reference external" href="http://semver.org/">semantic versioning</a> (semantic versioning was introduced with release 0.9, see <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/issues/200">Issue 200</a>): Given a version number <strong>MAJOR.MINOR.PATCH</strong>, we increment the:</p>
 <blockquote>
 <div><ul class="simple">
@@ -192,9 +193,9 @@
 <p>so that people using the <a class="reference internal" href="contributing_code.html#branches-in-mdanalysis"><span class="std std-ref">develop branch</span></a> from the source repository can immediately see that it is not a final release. For example, “0.7.6-dev0” is the state <em>before</em> the 0.7.6 release.</p>
 </section>
 <section id="typical-workflow-for-preparing-a-release">
-<h2>Typical workflow for preparing a release<a class="headerlink" href="#typical-workflow-for-preparing-a-release" title="Link to this heading"></a></h2>
+<h2>Typical workflow for preparing a release<a class="headerlink" href="#typical-workflow-for-preparing-a-release" title="Permalink to this heading"></a></h2>
 <section id="summary-of-tasks">
-<h3>Summary of tasks<a class="headerlink" href="#summary-of-tasks" title="Link to this heading"></a></h3>
+<h3>Summary of tasks<a class="headerlink" href="#summary-of-tasks" title="Permalink to this heading"></a></h3>
 <blockquote>
 <div><ul class="simple">
 <li><p>Declare a <cite>feature freeze</cite> on <cite>develop</cite> via discord and/or the developer mailing list</p></li>
@@ -217,7 +218,7 @@
 </div></blockquote>
 </section>
 <section id="getting-the-develop-branch-ready-for-a-release">
-<h3>Getting the develop branch ready for a release<a class="headerlink" href="#getting-the-develop-branch-ready-for-a-release" title="Link to this heading"></a></h3>
+<h3>Getting the develop branch ready for a release<a class="headerlink" href="#getting-the-develop-branch-ready-for-a-release" title="Permalink to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>Declare feature freeze on <code class="docutils literal notranslate"><span class="pre">develop</span></code> via <cite>discord</cite> and the <a class="reference external" href="https://groups.google.com/forum/#!forum/mdnalysis-devel">developer mailing list</a></p></li>
 <li><p>Create a pre-release feature branch from <code class="docutils literal notranslate"><span class="pre">develop</span></code></p></li>
@@ -227,7 +228,7 @@
 </ol>
 </section>
 <section id="packaging-the-release">
-<h3>Packaging the release<a class="headerlink" href="#packaging-the-release" title="Link to this heading"></a></h3>
+<h3>Packaging the release<a class="headerlink" href="#packaging-the-release" title="Permalink to this heading"></a></h3>
 <ol class="arabic">
 <li><p>Create a new tag from <code class="docutils literal notranslate"><span class="pre">develop</span></code> named <code class="docutils literal notranslate"><span class="pre">release-&lt;version_number&gt;</span></code> where <code class="docutils literal notranslate"><span class="pre">&lt;version_number&gt;</span></code> is the release version number (this tag contains a snapshot of the Python source files as they were when the release was created):</p>
 <blockquote>
@@ -287,7 +288,7 @@ git<span class="w"> </span>push<span class="w"> </span>--tags<span class="w"> </
 </ol>
 </section>
 <section id="completing-the-release">
-<h3>Completing the release<a class="headerlink" href="#completing-the-release" title="Link to this heading"></a></h3>
+<h3>Completing the release<a class="headerlink" href="#completing-the-release" title="Permalink to this heading"></a></h3>
 <p>If everything works, you can now complete the release by:</p>
 <ol class="arabic">
 <li><p>Creating a release on GitHub based on the newly created <code class="docutils literal notranslate"><span class="pre">package-&lt;version_number&gt;</span></code> tag.</p></li>
@@ -303,7 +304,7 @@ git<span class="w"> </span>push<span class="w"> </span>--tags<span class="w"> </
 </ol>
 </section>
 <section id="manually-upload-cirrus-ci-wheels-temporary">
-<h3>Manually upload Cirrus CI wheels (temporary)<a class="headerlink" href="#manually-upload-cirrus-ci-wheels-temporary" title="Link to this heading"></a></h3>
+<h3>Manually upload Cirrus CI wheels (temporary)<a class="headerlink" href="#manually-upload-cirrus-ci-wheels-temporary" title="Permalink to this heading"></a></h3>
 <p>Unfortunately the deployment of Cirrus CI generated wheels (for <cite>osx-arm64</cite> and <cite>linux-aarch64</cite>) does not get properly triggered by a release.</p>
 <ol class="arabic simple">
 <li><p>Go to the <code class="docutils literal notranslate"><span class="pre">package-*</span></code> tag triggered Cirrus CI run results and download the generated wheels.</p></li>
@@ -311,7 +312,7 @@ git<span class="w"> </span>push<span class="w"> </span>--tags<span class="w"> </
 </ol>
 </section>
 <section id="update-conda-forge-packages">
-<h3>Update <cite>conda-forge</cite> packages<a class="headerlink" href="#update-conda-forge-packages" title="Link to this heading"></a></h3>
+<h3>Update <cite>conda-forge</cite> packages<a class="headerlink" href="#update-conda-forge-packages" title="Permalink to this heading"></a></h3>
 <p>On push to PyPI, the conda-forge bot should automatically pick up the presense of a new version and create a pull request on the <a class="reference external" href="https://github.com/conda-forge/mdanalysis-feedstock">MDAnalysis feedstock</a> and the <a class="reference external" href="https://github.com/conda-forge/mdanalysistests-feedstock">MDAnalysisTests feedstock</a>. You will need to merge the MDAnalysis feedstock followed by the MDAnalysisTests feedstock in order for the new package to appear on conda-forge.</p>
 <p>To do this you will need to:</p>
 <ol class="arabic simple">
@@ -321,11 +322,11 @@ git<span class="w"> </span>push<span class="w"> </span>--tags<span class="w"> </
 </ol>
 </section>
 <section id="create-a-blog-post-outlining-the-release">
-<h3>Create a blog post outlining the release<a class="headerlink" href="#create-a-blog-post-outlining-the-release" title="Link to this heading"></a></h3>
+<h3>Create a blog post outlining the release<a class="headerlink" href="#create-a-blog-post-outlining-the-release" title="Permalink to this heading"></a></h3>
 <p>Create a blog post outlining the release notes and publicize it on the mailing list / discord / twitter/ etc…!</p>
 </section>
 <section id="increment-develop-branch-files-ready-for-the-next-version">
-<h3>Increment develop branch files ready for the next version<a class="headerlink" href="#increment-develop-branch-files-ready-for-the-next-version" title="Link to this heading"></a></h3>
+<h3>Increment develop branch files ready for the next version<a class="headerlink" href="#increment-develop-branch-files-ready-for-the-next-version" title="Permalink to this heading"></a></h3>
 <p>Once the release is completed you can go ahead and update the <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch so that it is ready for the next round of development.</p>
 <ol class="arabic simple">
 <li><p>Update the 4 version file locations with the <code class="docutils literal notranslate"><span class="pre">-dev0</span></code> appended version of the next release.</p></li>
@@ -334,7 +335,7 @@ git<span class="w"> </span>push<span class="w"> </span>--tags<span class="w"> </
 </ol>
 </section>
 <section id="clean-up-old-developer-builds-of-the-documentation">
-<h3>Clean up old developer builds of the documentation<a class="headerlink" href="#clean-up-old-developer-builds-of-the-documentation" title="Link to this heading"></a></h3>
+<h3>Clean up old developer builds of the documentation<a class="headerlink" href="#clean-up-old-developer-builds-of-the-documentation" title="Permalink to this heading"></a></h3>
 <p>Whilst new docs are automatically deployed on a release, old developer builds (appended with <code class="docutils literal notranslate"><span class="pre">-dev</span></code>) are not automatically cleaned up. To avoid causing large amounts of files being uploaded to GitHub Pages, we need to delete these old developer builds manually. To do this switch to the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch, delete these old files, and push the change directly.</p>
 </section>
 </section>

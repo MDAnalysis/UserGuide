@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calculating the root mean square deviation of atomic structures &mdash; MDAnalysis User Guide  documentation</title>
@@ -16,11 +16,12 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -180,7 +181,7 @@
              
   <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
 <script>require=requirejs;</script><section id="Calculating-the-root-mean-square-deviation-of-atomic-structures">
-<h1>Calculating the root mean square deviation of atomic structures<a class="headerlink" href="#Calculating-the-root-mean-square-deviation-of-atomic-structures" title="Link to this heading"></a></h1>
+<h1>Calculating the root mean square deviation of atomic structures<a class="headerlink" href="#Calculating-the-root-mean-square-deviation-of-atomic-structures" title="Permalink to this heading"></a></h1>
 <p>We calculate the RMSD of domains in adenylate kinase as it transitions from an open to closed structure, and look at calculating weighted RMSDs.</p>
 <p><strong>Last updated:</strong> December 2022 with MDAnalysis 2.4.0-dev0</p>
 <p><strong>Minimum version of MDAnalysis:</strong> 1.0.0</p>
@@ -214,7 +215,7 @@
 </div>
 </div>
 <section id="Loading-files">
-<h2>Loading files<a class="headerlink" href="#Loading-files" title="Link to this heading"></a></h2>
+<h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this heading"></a></h2>
 <p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<span id="id5">[<a class="reference internal" href="../../../references.html#id14" title="Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164 (visited on 2020-02-05), doi:10.1016/j.jmb.2009.09.009.">BDPW09</a>]</span>) The trajectory <code class="docutils literal notranslate"><span class="pre">DCD</span></code> samples a transition from a closed to an open conformation. AdK has three domains:</p>
 <ul class="simple">
 <li><p>CORE</p></li>
@@ -242,7 +243,7 @@
 </div>
 </section>
 <section id="Background">
-<h2>Background<a class="headerlink" href="#Background" title="Link to this heading"></a></h2>
+<h2>Background<a class="headerlink" href="#Background" title="Permalink to this heading"></a></h2>
 <p>The root mean square deviation (RMSD) of particle coordinates is one measure of distance, or dissimilarity, between molecular conformations. Each structure should have matching elementwise atoms <span class="math notranslate nohighlight">\(i\)</span> in the same order, as the distance between them is calculated and summed for the final result. It is calculated between coordinate arrays <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{x}^{\text{ref}}\)</span> according to the equation below:</p>
 <div class="math notranslate nohighlight">
 \[\text{RMSD}(\mathbf{x}, \mathbf{x}^{\text{ref}}) = \sqrt{\frac{1}{n} \sum_{i=1}^{n}{|\mathbf{x}_i-\mathbf{x}_i^{\text{ref}}|^2}}\]</div>
@@ -261,7 +262,7 @@ metric suffers from the problem of <em>degeneracy</em>: many different structure
 <p>RMSD analyses are frequently weighted by mass. The MDAnalysis RMSD class (<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/rms.html#MDAnalysis.analysis.rms.RMSD">API docs</a>) allows you to both <a class="reference internal" href="#Mass"><span class="std std-ref">select mass-weighting</span></a> with <code class="docutils literal notranslate"><span class="pre">weights='mass'</span></code> or <code class="docutils literal notranslate"><span class="pre">weights_groupselections='mass'</span></code>, or to <a class="reference internal" href="#Custom-weights"><span class="std std-ref">pass custom arrays</span></a> into either keyword.</p>
 </section>
 <section id="RMSD-between-two-sets-of-coordinates">
-<h2>RMSD between two sets of coordinates<a class="headerlink" href="#RMSD-between-two-sets-of-coordinates" title="Link to this heading"></a></h2>
+<h2>RMSD between two sets of coordinates<a class="headerlink" href="#RMSD-between-two-sets-of-coordinates" title="Permalink to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.rms.rmsd</span></code> function returns the root mean square deviation (in Angstrom) between two sets of coordinates. Here, we calculate the RMSD between the backbone atoms of the open and closed conformations of AdK. Only considering the backbone atoms is often more helpful than calculating the RMSD for all the atoms, as movement in amino acid side-chains isn’t indicative of overall conformational change.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -285,7 +286,7 @@ metric suffers from the problem of <em>degeneracy</em>: many different structure
 </div>
 </section>
 <section id="RMSD-of-a-Universe-with-multiple-selections">
-<h2>RMSD of a Universe with multiple selections<a class="headerlink" href="#RMSD-of-a-Universe-with-multiple-selections" title="Link to this heading"></a></h2>
+<h2>RMSD of a Universe with multiple selections<a class="headerlink" href="#RMSD-of-a-Universe-with-multiple-selections" title="Permalink to this heading"></a></h2>
 <p>It is more efficient to use the <code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.rms.RMSD</span></code> class to calculate the RMSD of an entire trajectory to a single reference point, than to use the the <code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.rms.rmsd</span></code> function.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">rms.RMSD</span></code> class first performs a rotational and translational alignment of the target trajectory to the reference universe at <code class="docutils literal notranslate"><span class="pre">ref_frame</span></code>, using the atoms in <code class="docutils literal notranslate"><span class="pre">select</span></code> to determine the transformation. The RMSD of the <code class="docutils literal notranslate"><span class="pre">select</span></code> selection is calculated. Then, <em>without further alignment</em>, the RMSD of each group in <code class="docutils literal notranslate"><span class="pre">groupselections</span></code> is calculated.</p>
 <div class="nbinput nblast docutils container">
@@ -340,7 +341,7 @@ metric suffers from the problem of <em>degeneracy</em>: many different structure
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">R.rmsd</span></code> has a row for each timestep. The first two columns of each row are the frame index of the time step, and the time (which is guessed in trajectory formats without timesteps). The third column is RMSD of <code class="docutils literal notranslate"><span class="pre">select</span></code>. The last few columns are the RMSD of the groups in <code class="docutils literal notranslate"><span class="pre">groupselections</span></code>.</p>
 <section id="Plotting-the-data">
-<h3>Plotting the data<a class="headerlink" href="#Plotting-the-data" title="Link to this heading"></a></h3>
+<h3>Plotting the data<a class="headerlink" href="#Plotting-the-data" title="Permalink to this heading"></a></h3>
 <p>We can easily plot this data using the common data analysis package <a class="reference external" href="https://pandas.pydata.org">pandas</a>. We turn the <code class="docutils literal notranslate"><span class="pre">R.rmsd</span></code> array into a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html#dataframe">DataFrame</a> and label each column below.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
@@ -520,7 +521,7 @@ Text(0, 0.5, &#39;RMSD ($\\AA$)&#39;)
 </section>
 </section>
 <section id="RMSD-of-an-AtomGroup-with-multiple-selections">
-<h2>RMSD of an AtomGroup with multiple selections<a class="headerlink" href="#RMSD-of-an-AtomGroup-with-multiple-selections" title="Link to this heading"></a></h2>
+<h2>RMSD of an AtomGroup with multiple selections<a class="headerlink" href="#RMSD-of-an-AtomGroup-with-multiple-selections" title="Permalink to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">RMSD</span></code> class accepts both <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>s and <code class="docutils literal notranslate"><span class="pre">Universe</span></code>s as arguments. Restricting the atoms considered to an AtomGroup can be very helpful, as the <code class="docutils literal notranslate"><span class="pre">select</span></code> and <code class="docutils literal notranslate"><span class="pre">groupselections</span></code> arguments are applied only to the atoms in the original <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>. In the example below, for example, only the alpha-carbons of the CORE domain are incorporated in the analysis.</p>
 <div class="admonition note">
 <p class="admonition-title"><strong>Note</strong></p>
@@ -577,11 +578,11 @@ Text(0, 0.5, &#39;RMSD ($\\AA$)&#39;)
 </div>
 </section>
 <section id="Weighted-RMSD-of-a-trajectory">
-<h2>Weighted RMSD of a trajectory<a class="headerlink" href="#Weighted-RMSD-of-a-trajectory" title="Link to this heading"></a></h2>
+<h2>Weighted RMSD of a trajectory<a class="headerlink" href="#Weighted-RMSD-of-a-trajectory" title="Permalink to this heading"></a></h2>
 <p>You can also calculate the weighted RMSD of a trajectory using the <code class="docutils literal notranslate"><span class="pre">weights</span></code> and <code class="docutils literal notranslate"><span class="pre">weights_groupselections</span></code> keywords. The former only applies weights to the group in <code class="docutils literal notranslate"><span class="pre">select</span></code>, while the latter must be a list of the <em>same length and order</em> as <code class="docutils literal notranslate"><span class="pre">groupselections</span></code>. If you would like to only weight certain groups in <code class="docutils literal notranslate"><span class="pre">groupselections</span></code>, use <code class="docutils literal notranslate"><span class="pre">None</span></code> for the unweighted groups. Both <code class="docutils literal notranslate"><span class="pre">weights</span></code> and <code class="docutils literal notranslate"><span class="pre">weights_groupselections</span></code> accept <code class="docutils literal notranslate"><span class="pre">None</span></code> (for unweighted), <code class="docutils literal notranslate"><span class="pre">'mass'</span></code> (to weight by mass), and
 custom arrays. A custom array should have the same number of values as there are particles in the corresponding AtomGroup.</p>
 <section id="Mass">
-<h3>Mass<a class="headerlink" href="#Mass" title="Link to this heading"></a></h3>
+<h3>Mass<a class="headerlink" href="#Mass" title="Permalink to this heading"></a></h3>
 <p>It is common to weight RMSD analyses by particle weight, so the <code class="docutils literal notranslate"><span class="pre">RMSD</span></code> class accepts <code class="docutils literal notranslate"><span class="pre">'mass'</span></code> as an argument for <code class="docutils literal notranslate"><span class="pre">weights</span></code>. Note that the <code class="docutils literal notranslate"><span class="pre">weights</span></code> keyword only applies to the group in <code class="docutils literal notranslate"><span class="pre">select</span></code>, and does not apply to the <code class="docutils literal notranslate"><span class="pre">groupselections</span></code>; these remain unweighted below.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
@@ -638,7 +639,7 @@ Text(0, 0.5, &#39;Mass-weighted RMSD ($\\AA$)&#39;)
 </div>
 </section>
 <section id="Custom-weights">
-<h3>Custom weights<a class="headerlink" href="#Custom-weights" title="Link to this heading"></a></h3>
+<h3>Custom weights<a class="headerlink" href="#Custom-weights" title="Permalink to this heading"></a></h3>
 <p>You can also pass in an array of values for the weights. This must have the same length as the number of atoms in your selection groups. In this example, we pass in arrays of residue numbers. This <strong>is not a typical weighting you might choose</strong>, but we use it here to show how you can get different results to the previous graphs for mass-weighted and non-weighted RMSD. You could choose to pass in an array of charges, or your own custom value.</p>
 <p>First we select the atom groups to make this easier.</p>
 <div class="nbinput docutils container">
@@ -722,7 +723,7 @@ Text(0, 0.5, &#39;Charge-weighted RMSD ($\\AA$)&#39;)
 </section>
 </section>
 <section id="References">
-<h2>References<a class="headerlink" href="#References" title="Link to this heading"></a></h2>
+<h2>References<a class="headerlink" href="#References" title="Permalink to this heading"></a></h2>
 <p>[1] Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164">https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164</a>, doi:10.1016/j.jmb.2009.09.009.</p>
 <p>[2] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
 <p>[3] Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>, doi:10.1002/jcc.21787.</p>

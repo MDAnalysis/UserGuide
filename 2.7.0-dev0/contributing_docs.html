@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contributing to the user guide &mdash; MDAnalysis User Guide  documentation</title>
@@ -15,11 +15,12 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="_static/js/versions.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -153,7 +154,7 @@
            <div itemprop="articleBody">
              
   <section id="contributing-to-the-user-guide">
-<span id="working-with-user-guide"></span><h1>Contributing to the user guide<a class="headerlink" href="#contributing-to-the-user-guide" title="Link to this heading"></a></h1>
+<span id="working-with-user-guide"></span><h1>Contributing to the user guide<a class="headerlink" href="#contributing-to-the-user-guide" title="Permalink to this heading"></a></h1>
 <p>MDAnalysis maintains two kinds of documentation:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -197,7 +198,7 @@ but it does make the doc building a bit more complex.</p>
 </ol>
 </div></blockquote>
 <section id="forking-and-cloning-the-user-guide">
-<span id="forking-user-guide"></span><h2>Forking and cloning the User Guide<a class="headerlink" href="#forking-and-cloning-the-user-guide" title="Link to this heading"></a></h2>
+<span id="forking-user-guide"></span><h2>Forking and cloning the User Guide<a class="headerlink" href="#forking-and-cloning-the-user-guide" title="Permalink to this heading"></a></h2>
 <p>Go to the <a class="reference external" href="https://github.com/MDAnalysis/UserGuide">MDAnalysis project page</a> and hit the <span class="guilabel">Fork</span> button. You will
 want to clone your fork to your machine:</p>
 <blockquote>
@@ -211,7 +212,7 @@ git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </s
 the upstream (main project) MDAnalysis repository.</p>
 </section>
 <section id="creating-a-development-environment">
-<span id="create-virtual-environment-user-guide"></span><h2>Creating a development environment<a class="headerlink" href="#creating-a-development-environment" title="Link to this heading"></a></h2>
+<span id="create-virtual-environment-user-guide"></span><h2>Creating a development environment<a class="headerlink" href="#creating-a-development-environment" title="Permalink to this heading"></a></h2>
 <p><a class="reference internal" href="contributing_code.html#create-virtual-environment"><span class="std std-ref">Create a new virtual environment</span></a> for the user guide. Install the required dependencies, and activate the <code class="docutils literal notranslate"><span class="pre">nglview</span></code> extension. We use <code class="docutils literal notranslate"><span class="pre">nglview</span></code> for visualizing molecules in Jupyter notebook tutorials.</p>
 <p>Using <code class="docutils literal notranslate"><span class="pre">conda</span></code> or similar (<code class="docutils literal notranslate"><span class="pre">miniconda</span></code>, <code class="docutils literal notranslate"><span class="pre">mamba</span></code>, <code class="docutils literal notranslate"><span class="pre">micromamba</span></code>), create a new environment with all the dependencies:</p>
 <blockquote>
@@ -224,7 +225,7 @@ jupyter-nbextension<span class="w"> </span><span class="nb">enable</span><span c
 </div></blockquote>
 </section>
 <section id="building-the-user-guide">
-<span id="build-user-guide"></span><h2>Building the user guide<a class="headerlink" href="#building-the-user-guide" title="Link to this heading"></a></h2>
+<span id="build-user-guide"></span><h2>Building the user guide<a class="headerlink" href="#building-the-user-guide" title="Permalink to this heading"></a></h2>
 <p>Navigate to the <code class="docutils literal notranslate"><span class="pre">doc/</span></code> directory and run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code>:</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>doc/
@@ -236,11 +237,11 @@ make<span class="w"> </span>html
 <p>If rebuilding the documentation becomes tedious after a while, install the <a class="reference internal" href="#autobuild-sphinx"><span class="std std-ref">sphinx-autobuild</span></a> extension.</p>
 </section>
 <section id="saving-state-in-jupyter-notebooks">
-<h2>Saving state in Jupyter notebooks<a class="headerlink" href="#saving-state-in-jupyter-notebooks" title="Link to this heading"></a></h2>
+<h2>Saving state in Jupyter notebooks<a class="headerlink" href="#saving-state-in-jupyter-notebooks" title="Permalink to this heading"></a></h2>
 <p>One of the neat things about <code class="docutils literal notranslate"><span class="pre">nglview</span></code> is the ability to interact with molecules via the viewer. This ability can be preserved for the HTML pages generated from Jupyer notebooks by <code class="docutils literal notranslate"><span class="pre">nbsphinx</span></code>, if you save the notebook widget state after execution.</p>
 </section>
 <section id="adding-changes-to-the-userguide">
-<span id="add-changes-user-guide"></span><h2>Adding changes to the UserGuide<a class="headerlink" href="#adding-changes-to-the-userguide" title="Link to this heading"></a></h2>
+<span id="add-changes-user-guide"></span><h2>Adding changes to the UserGuide<a class="headerlink" href="#adding-changes-to-the-userguide" title="Permalink to this heading"></a></h2>
 <p>As with the code, <a class="reference internal" href="contributing_code.html#adding-code-to-mda"><span class="std std-ref">commit and push</span></a> your code to GitHub. Then <a class="reference internal" href="contributing_code.html#id6"><span class="std std-ref">create a pull request</span></a>. The only test run for the User Guide is: that your file compile into HTML documents without errors. As usual, a developer will review your PR and merge the code into the User Guide when it looks good.</p>
 <p>It is often difficult to review Jupyter notebooks on GitHub, especially if you embed widgets and images. One way to make it easier on the developers who review your changes is to build the changes on your forked repository and link the relevant sections in your pull request. To do this, create a <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch and merge your new branch into it.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># the first time</span>
@@ -273,7 +274,7 @@ make<span class="w"> </span>github
 </div>
 </section>
 <section id="automatically-building-documentation">
-<span id="autobuild-sphinx"></span><h2>Automatically building documentation<a class="headerlink" href="#automatically-building-documentation" title="Link to this heading"></a></h2>
+<span id="autobuild-sphinx"></span><h2>Automatically building documentation<a class="headerlink" href="#automatically-building-documentation" title="Permalink to this heading"></a></h2>
 <p>Constantly rebuilding documentation can become tedious when you have many changes to make. Use <a class="reference external" href="https://pypi.org/project/sphinx-autobuild">sphinx-autobuild</a> to rebuild documentation every time you make changes to any document, including Jupyter notebooks. Install <code class="docutils literal notranslate"><span class="pre">sphinx-autobuild</span></code>:</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>sphinx-autobuild
@@ -289,7 +290,7 @@ make<span class="w"> </span>github
 <p>This will start a local webserver at <a class="reference external" href="http://localhost:8000/">http://localhost:8000/</a>, which will refresh every time you save changes to a file in the documentation. This is helpful for both the user guide (first navigate to <code class="docutils literal notranslate"><span class="pre">UserGuide/doc</span></code>) and the main repository documentation (navigate to <code class="docutils literal notranslate"><span class="pre">package/doc/sphinx</span></code>).</p>
 </section>
 <section id="using-pre-commit-hooks">
-<h2>Using pre-commit hooks<a class="headerlink" href="#using-pre-commit-hooks" title="Link to this heading"></a></h2>
+<h2>Using pre-commit hooks<a class="headerlink" href="#using-pre-commit-hooks" title="Permalink to this heading"></a></h2>
 <p>Manually editing files can often lead to small inconsistencies: a whitespace here, a missing carriage return there. A tool called pre-commit can be used to automatically fix these problems, before a git commit is made. To enable the pre-commit hooks, run the following:</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pre-commit<span class="w"> </span>install

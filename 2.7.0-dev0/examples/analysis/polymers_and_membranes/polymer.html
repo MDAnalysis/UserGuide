@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Determining the persistence length of a polymer &mdash; MDAnalysis User Guide  documentation</title>
@@ -16,11 +16,12 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -173,7 +174,7 @@
              
   <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
 <script>require=requirejs;</script><section id="Determining-the-persistence-length-of-a-polymer">
-<h1>Determining the persistence length of a polymer<a class="headerlink" href="#Determining-the-persistence-length-of-a-polymer" title="Link to this heading"></a></h1>
+<h1>Determining the persistence length of a polymer<a class="headerlink" href="#Determining-the-persistence-length-of-a-polymer" title="Permalink to this heading"></a></h1>
 <p>Here we determine the persistence length of a polymer.</p>
 <p><strong>Last updated:</strong> December 2022 with MDAnalysis 2.4.0-dev0</p>
 <p><strong>Minimum version of MDAnalysis:</strong> 1.0.0</p>
@@ -194,7 +195,7 @@
 </div>
 </div>
 <section id="Loading-files">
-<h2>Loading files<a class="headerlink" href="#Loading-files" title="Link to this heading"></a></h2>
+<h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this heading"></a></h2>
 <p>The test files we will be working with here feature a pure polymer melt of a polyamide.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -206,7 +207,7 @@
 </div>
 </section>
 <section id="Choosing-the-chains-and-backbone-atoms">
-<h2>Choosing the chains and backbone atoms<a class="headerlink" href="#Choosing-the-chains-and-backbone-atoms" title="Link to this heading"></a></h2>
+<h2>Choosing the chains and backbone atoms<a class="headerlink" href="#Choosing-the-chains-and-backbone-atoms" title="Permalink to this heading"></a></h2>
 <p>We can define the chains of polyamide to be the common definition of a molecule: where each atom is bonded to at least one other in the group, and not bonded to any atom outside the group. MDAnalysis provides these as <code class="docutils literal notranslate"><span class="pre">fragments</span></code>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -236,7 +237,7 @@
 </div>
 </section>
 <section id="Calculating-the-persistence-length">
-<h2>Calculating the persistence length<a class="headerlink" href="#Calculating-the-persistence-length" title="Link to this heading"></a></h2>
+<h2>Calculating the persistence length<a class="headerlink" href="#Calculating-the-persistence-length" title="Permalink to this heading"></a></h2>
 <p>The persistence length is the length at which two points on the polymer chain become decorrelated. This is determined by first measuring the autocorrelation <span class="math notranslate nohighlight">\(C(n)\)</span> of two bond vectors <span class="math notranslate nohighlight">\((\mathbf{a}_i, \mathbf{a}_{i + n})\)</span> separated by <span class="math notranslate nohighlight">\(n\)</span> bonds, where</p>
 <div class="math notranslate nohighlight">
 \[C(n) = \langle \cos\theta_{i, i+n} \rangle = \langle \mathbf{a_i} \cdot \mathbf{a_{i+n}} \rangle\]</div>
@@ -308,7 +309,7 @@ The persistence length is 6.917
 </div>
 </section>
 <section id="References">
-<h2>References<a class="headerlink" href="#References" title="Link to this heading"></a></h2>
+<h2>References<a class="headerlink" href="#References" title="Permalink to this heading"></a></h2>
 <p>[1] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
 <p>[2] Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>, doi:10.1002/jcc.21787.</p>
 </section>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TOP, PRMTOP, PARM7 (AMBER topology) &mdash; MDAnalysis User Guide  documentation</title>
@@ -15,11 +15,12 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../../_static/js/versions.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -186,8 +187,12 @@
            <div itemprop="articleBody">
              
   <section id="top-prmtop-parm7-amber-topology">
-<span id="top-format"></span><h1>TOP, PRMTOP, PARM7 (AMBER topology)<a class="headerlink" href="#top-prmtop-parm7-amber-topology" title="Link to this heading"></a></h1>
+<span id="top-format"></span><h1>TOP, PRMTOP, PARM7 (AMBER topology)<a class="headerlink" href="#top-prmtop-parm7-amber-topology" title="Permalink to this heading"></a></h1>
 <table class="docutils align-default">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 72%" />
+</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><strong>Topology parser</strong></p></td>
 <td><p><a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/topology/TOPParser.html#MDAnalysis.topology.TOPParser.TOPParser" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.topology.TOPParser.TOPParser</span></code></a></p></td>
@@ -195,7 +200,7 @@
 </tbody>
 </table>
 <section id="amber-specification">
-<h2>AMBER specification<a class="headerlink" href="#amber-specification" title="Link to this heading"></a></h2>
+<h2>AMBER specification<a class="headerlink" href="#amber-specification" title="Permalink to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The Amber charge is converted to electron charges as used in
@@ -203,7 +208,11 @@ MDAnalysis and other packages. To get back Amber charges, multiply
 by 18.2223.</p>
 </div>
 <table class="docutils align-default" id="id1">
-<caption><span class="caption-text">Attributes parsed from AMBER keywords</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<caption><span class="caption-text">Attributes parsed from AMBER keywords</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 56%" />
+<col style="width: 44%" />
+</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>AMBER flag</p></td>
 <td><p>MDAnalysis attribute</p></td>
@@ -248,7 +257,7 @@ DIHEDRALS_WITHOUT_HYDROGEN</p></td>
 </table>
 </section>
 <section id="developer-notes">
-<h2>Developer notes<a class="headerlink" href="#developer-notes" title="Link to this heading"></a></h2>
+<h2>Developer notes<a class="headerlink" href="#developer-notes" title="Permalink to this heading"></a></h2>
 <p>The format is defined in <a class="reference external" href="http://ambermd.org/formats.html#topology">PARM parameter/topology file
 specification</a>.  The reader tries to detect if it is a newer
 (AMBER 12?) file format by looking for the flag “ATOMIC_NUMBER”.</p>

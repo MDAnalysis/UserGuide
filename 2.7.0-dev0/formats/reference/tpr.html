@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TPR (GROMACS run topology files) &mdash; MDAnalysis User Guide  documentation</title>
@@ -15,11 +15,12 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../../_static/js/versions.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -187,8 +188,12 @@
            <div itemprop="articleBody">
              
   <section id="tpr-gromacs-run-topology-files">
-<span id="tpr-format"></span><h1>TPR (GROMACS run topology files)<a class="headerlink" href="#tpr-gromacs-run-topology-files" title="Link to this heading"></a></h1>
+<span id="tpr-format"></span><h1>TPR (GROMACS run topology files)<a class="headerlink" href="#tpr-gromacs-run-topology-files" title="Permalink to this heading"></a></h1>
 <table class="docutils align-default">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 72%" />
+</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><strong>Topology parser</strong></p></td>
 <td><p><a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/topology/TPRParser.html#MDAnalysis.topology.TPRParser.TPRParser" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.topology.TPRParser.TPRParser</span></code></a></p></td>
@@ -208,9 +213,15 @@ Finally, molecules are also numbered from 0, in the attribute <code class="code 
 <p>Atom <code class="code docutils literal notranslate"><span class="pre">indices</span></code> and residue <code class="code docutils literal notranslate"><span class="pre">resindices</span></code> are MDAnalysis derived and always index from 0, no matter the file type.</p>
 </div>
 <section id="supported-versions">
-<h2>Supported versions<a class="headerlink" href="#supported-versions" title="Link to this heading"></a></h2>
+<h2>Supported versions<a class="headerlink" href="#supported-versions" title="Permalink to this heading"></a></h2>
 <table class="docutils align-default" id="id1">
-<caption><span class="caption-text">TPR format versions and generations read by <code class="xref py py-func docutils literal notranslate"><span class="pre">MDAnalysis.topology.TPRParser.parse()</span></code>.</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<caption><span class="caption-text">TPR format versions and generations read by <code class="xref py py-func docutils literal notranslate"><span class="pre">MDAnalysis.topology.TPRParser.parse()</span></code>.</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 29%" />
+<col style="width: 41%" />
+<col style="width: 10%" />
+</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>TPX format</p></th>
 <th class="head"><p>TPX generation</p></th>
@@ -275,7 +286,7 @@ the <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis
 supported.</p>
 </section>
 <section id="tpr-specification">
-<h2>TPR specification<a class="headerlink" href="#tpr-specification" title="Link to this heading"></a></h2>
+<h2>TPR specification<a class="headerlink" href="#tpr-specification" title="Permalink to this heading"></a></h2>
 <p>The TPR reader is a pure-python implementation of a basic TPR
 parser. Currently the following sections of the topology are parsed:</p>
 <ul class="simple">
@@ -290,7 +301,12 @@ parser. Currently the following sections of the topology are parsed:</p>
 <a class="reference external" href="http://manual.gromacs.org/current/reference-manual/index.html">Gromacs manual</a>. The following ones are used to build the topology (see
 <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/pull/463">Issue 463</a>):</p>
 <table class="docutils align-default" id="id2">
-<caption><span class="caption-text">GROMACS entries used to create bonds.</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<caption><span class="caption-text">GROMACS entries used to create bonds.</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 8%" />
+<col style="width: 74%" />
+</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Directive</p></th>
 <th class="head"><p>Type</p></th>
@@ -353,7 +369,12 @@ parser. Currently the following sections of the topology are parsed:</p>
 </tbody>
 </table>
 <table class="docutils align-default" id="id3">
-<caption><span class="caption-text">GROMACS entries used to create angles.</span><a class="headerlink" href="#id3" title="Link to this table"></a></caption>
+<caption><span class="caption-text">GROMACS entries used to create angles.</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 12%" />
+<col style="width: 66%" />
+</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Directive</p></th>
 <th class="head"><p>Type</p></th>
@@ -396,7 +417,12 @@ parser. Currently the following sections of the topology are parsed:</p>
 </tbody>
 </table>
 <table class="docutils align-default" id="id4">
-<caption><span class="caption-text">GROMACS entries used to create dihedrals.</span><a class="headerlink" href="#id4" title="Link to this table"></a></caption>
+<caption><span class="caption-text">GROMACS entries used to create dihedrals.</span><a class="headerlink" href="#id4" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 11%" />
+<col style="width: 70%" />
+</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Directive</p></th>
 <th class="head"><p>Type</p></th>
@@ -435,7 +461,12 @@ parser. Currently the following sections of the topology are parsed:</p>
 </tbody>
 </table>
 <table class="docutils align-default" id="id5">
-<caption><span class="caption-text">GROMACS entries used to create improper dihedrals.</span><a class="headerlink" href="#id5" title="Link to this table"></a></caption>
+<caption><span class="caption-text">GROMACS entries used to create improper dihedrals.</span><a class="headerlink" href="#id5" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 13%" />
+<col style="width: 65%" />
+</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Directive</p></th>
 <th class="head"><p>Type</p></th>
@@ -455,7 +486,7 @@ parser. Currently the following sections of the topology are parsed:</p>
 </table>
 </section>
 <section id="developer-notes">
-<h2>Developer notes<a class="headerlink" href="#developer-notes" title="Link to this heading"></a></h2>
+<h2>Developer notes<a class="headerlink" href="#developer-notes" title="Permalink to this heading"></a></h2>
 <p>This tpr parser is written according to the following files</p>
 <ul class="simple">
 <li><p><code class="file docutils literal notranslate"><em><span class="pre">gromacs_dir</span></em><span class="pre">/src/kernel/gmxdump.c</span></code></p></li>

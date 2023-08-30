@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Parallelizing analysis &mdash; MDAnalysis User Guide  documentation</title>
@@ -16,11 +16,12 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -172,7 +173,7 @@
              
   <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
 <script>require=requirejs;</script><section id="Parallelizing-analysis">
-<h1>Parallelizing analysis<a class="headerlink" href="#Parallelizing-analysis" title="Link to this heading"></a></h1>
+<h1>Parallelizing analysis<a class="headerlink" href="#Parallelizing-analysis" title="Permalink to this heading"></a></h1>
 <p>As we approach the exascale barrier, researchers are handling increasingly large volumes of molecular dynamics (MD) data. Whilst MDAnalysis is a flexible and relatively fast framework for complex analysis tasks in MD simulations, implementing a parallel computing framework would play a pivotal role in accelerating the time to solution for such large datasets.</p>
 <p>This document illustrates how you can run your own analysis scripts in parallel with MDAnalysis.</p>
 <p><strong>Last updated:</strong> December 2022 with MDAnalysis 2.4.0-dev0</p>
@@ -206,11 +207,11 @@
 </div>
 </div>
 <section id="Background">
-<h2>Background<a class="headerlink" href="#Background" title="Link to this heading"></a></h2>
+<h2>Background<a class="headerlink" href="#Background" title="Permalink to this heading"></a></h2>
 <p>In MDAnalysis, most implemented analysis methods are based on <code class="docutils literal notranslate"><span class="pre">AnalysisBase</span></code>, which provides a generic API for users to write their own trajectory analysis. However, this framework only takes single-core power of the PC by iterating through the trajectory and running a frame-wise analysis. Below we aim to first explore some possible simple implementations of parallelism, including using multiprocessing and dask. We will also discuss the acceleration approaches that should be considered,
 ranging from your own multiple-core laptops/desktops to distributed clusters. “</p>
 <section id="Loading-files">
-<h3>Loading files<a class="headerlink" href="#Loading-files" title="Link to this heading"></a></h3>
+<h3>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this heading"></a></h3>
 <p>The test files we will be working with here feature adenylate kinase (AdK), a phosopho-transferase enzyme. (<span id="id3">[<a class="reference internal" href="../../references.html#id14" title="Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164 (visited on 2020-02-05), doi:10.1016/j.jmb.2009.09.009.">BDPW09</a>]</span>). The trajectory has 4187 frames, which will take quite some time to run the analysis on with the conventional serial (single-core) approach.</p>
 <p>Note: downloading these datasets from MDAnalysisData may take some time.</p>
 <div class="nbinput nblast docutils container">
@@ -252,7 +253,7 @@ Number of atoms: 3341
 </div>
 </section>
 <section id="Radius-of-gyration">
-<h3>Radius of gyration<a class="headerlink" href="#Radius-of-gyration" title="Link to this heading"></a></h3>
+<h3>Radius of gyration<a class="headerlink" href="#Radius-of-gyration" title="Permalink to this heading"></a></h3>
 <p>For a detail description of this analysis, read <a class="reference external" href="https://mdanalysis.org/UserGuide/examples/analysis/custom_trajectory_analysis.html">Writing your own trajectory</a>.</p>
 <p>Here is a common form of single-frame method that we can normally see inside <code class="docutils literal notranslate"><span class="pre">AnalysisBase</span></code>. It may contain both some dynamic parts that changes along time either implicitly or explicitly (e.g. <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>) and some static parts (e.g. a reference frame).</p>
 <div class="nbinput nblast docutils container">
@@ -284,7 +285,7 @@ Number of atoms: 3341
 </div>
 </section>
 <section id="Serial-Analysis">
-<h3>Serial Analysis<a class="headerlink" href="#Serial-Analysis" title="Link to this heading"></a></h3>
+<h3>Serial Analysis<a class="headerlink" href="#Serial-Analysis" title="Permalink to this heading"></a></h3>
 <p>Below is the serial version of the analysis that we normally use.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -332,9 +333,9 @@ Text(0.5, 0, &#39;Frame&#39;)
 </section>
 </section>
 <section id="Parallelization-in-a-simple-per-frame-fashion">
-<h2>Parallelization in a simple per-frame fashion<a class="headerlink" href="#Parallelization-in-a-simple-per-frame-fashion" title="Link to this heading"></a></h2>
+<h2>Parallelization in a simple per-frame fashion<a class="headerlink" href="#Parallelization-in-a-simple-per-frame-fashion" title="Permalink to this heading"></a></h2>
 <section id="Frame-wise-form-of-the-function">
-<h3>Frame-wise form of the function<a class="headerlink" href="#Frame-wise-form-of-the-function" title="Link to this heading"></a></h3>
+<h3>Frame-wise form of the function<a class="headerlink" href="#Frame-wise-form-of-the-function" title="Permalink to this heading"></a></h3>
 <p>The coordinates of the <code class="docutils literal notranslate"><span class="pre">atomgroup</span></code> analysed change with each frame of the trajectory. We need to explicitly point the analysis function to the frame that needs to be analysed with a <code class="docutils literal notranslate"><span class="pre">frame_index</span></code>: <code class="docutils literal notranslate"><span class="pre">atomgroup.universe.trajectory[frame_index]</span></code> in order to update the positions (and any other dynamic per-frame information) appropriately. Therefore, the first step to making the <code class="docutils literal notranslate"><span class="pre">radgyr</span></code> function parallelisable is to add a <code class="docutils literal notranslate"><span class="pre">frame_index</span></code> argument.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
@@ -369,7 +370,7 @@ Text(0.5, 0, &#39;Frame&#39;)
 </div>
 </section>
 <section id="Parallelization-with-multiprocessing">
-<h3>Parallelization with multiprocessing<a class="headerlink" href="#Parallelization-with-multiprocessing" title="Link to this heading"></a></h3>
+<h3>Parallelization with multiprocessing<a class="headerlink" href="#Parallelization-with-multiprocessing" title="Permalink to this heading"></a></h3>
 <p>The native parallelisation module in Python is called <a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html#module-multiprocessing">multiprocessing</a>. It contains useful tools to build a pool of working cores, map the function into different workers, and gather and order the results from all the workers.</p>
 <p>Below we use <code class="docutils literal notranslate"><span class="pre">Pool</span></code> from <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code> as a context manager. We can define how many cores (or workers) we want to use with <code class="docutils literal notranslate"><span class="pre">Pool(n_jobs)</span></code>.</p>
 <div class="nbinput nblast docutils container">
@@ -439,7 +440,7 @@ Text(0.5, 0, &#39;Frame&#39;)
 </div>
 </section>
 <section id="Parallelization-with-dask">
-<h3>Parallelization with dask<a class="headerlink" href="#Parallelization-with-dask" title="Link to this heading"></a></h3>
+<h3>Parallelization with dask<a class="headerlink" href="#Parallelization-with-dask" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://docs.dask.org/en/latest/">Dask</a> is a flexible library for parallel computing in Python. It provides advanced parallelism for analytics and has been integrated or utilized in many scientific softwares. It can be scaled from one single computer to a cluster of computers inside a HPC center.</p>
 <p>Dask has a dynamic task scheduling system with synchronous (single-threaded), threaded, multiprocessing and distributed schedulers. The wrapping function in dask, <code class="docutils literal notranslate"><span class="pre">dask.delayed</span></code>, mimics for loops and wraps Python code into a Dask graph. This code can then be easily run in parallel, and visualized with <code class="docutils literal notranslate"><span class="pre">dask.visualize()</span></code> to examine if the task is well distributed. The code inside <code class="docutils literal notranslate"><span class="pre">dask.delayed</span></code> is not run immediately on execution, but pushed into a job queue waiting for submission. You can
 read more on <a class="reference external" href="https://docs.dask.org/en/latest/delayed.html">dask website</a>.</p>
@@ -617,14 +618,14 @@ Text(0.5, 0, &#39;Frame&#39;)
 </div></center></section>
 </section>
 <section id="Parallelization-in-a-split-apply-combine-fashion">
-<h2>Parallelization in a split-apply-combine fashion<a class="headerlink" href="#Parallelization-in-a-split-apply-combine-fashion" title="Link to this heading"></a></h2>
+<h2>Parallelization in a split-apply-combine fashion<a class="headerlink" href="#Parallelization-in-a-split-apply-combine-fashion" title="Permalink to this heading"></a></h2>
 <p>The aforementioned per-frame approach should normally be <strong>avoided</strong> because in <strong>each</strong> task, all the attributes (<code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>, <code class="docutils literal notranslate"><span class="pre">Universe</span></code>, and etc) need to be pickled. This pickling may take even more time than your lightweight analysis! Besides, in Dask, a significant amount of overhead time is needed to build a comprehensive Dask graph with thousands of tasks.</p>
 <p>Therefore, we should normally use a split-apply-combine scheme for parallel trajectory analysis. Here, the trajectory is <strong>split</strong> into blocks, analysis is performed separately and in parallel on each block (“apply”), and then results from each block are gathered and <strong>combined</strong>.</p>
 <center><div style="width: 650px; text-align: center;"><p><img alt="Split-apply-combine approach" src="../../_images/dask_sac.png" /></p>
 </div></center><p>Image from (<span id="id4">[<a class="reference internal" href="../../references.html#id29" title="Max Linke Shujie Fan, Ioannis Paraskevakos, Richard J. Gowers, Michael Gecht, and Oliver Beckstein. PMDA - Parallel Molecular Dynamics Analysis. In Chris Calloway, David Lippa, Dillon Niederhut, and David Shupe, editors, Proceedings of the 18th Python in Science Conference, 134 - 142. 2019. doi:10.25080/Majora-7ddc1dd1-013.">SFPG+19</a>]</span>) used under CC-BY license.</p>
 <p>We will show a simple illustration of split-apply-combine approach with dask below:</p>
 <section id="Block-analysis-function">
-<h3>Block analysis function<a class="headerlink" href="#Block-analysis-function" title="Link to this heading"></a></h3>
+<h3>Block analysis function<a class="headerlink" href="#Block-analysis-function" title="Permalink to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">&#64;dask.delayed</span></code> is a common syntax to decorate a function into delayed-enabled. It is the same as delaying the function by <code class="docutils literal notranslate"><span class="pre">dask.delayed(analyze_block)(bs,</span> <span class="pre">radgyr,</span> <span class="pre">...)</span></code> later on.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
@@ -642,7 +643,7 @@ Text(0.5, 0, &#39;Frame&#39;)
 </div>
 </section>
 <section id="Split-the-trajectory">
-<h3>Split the trajectory<a class="headerlink" href="#Split-the-trajectory" title="Link to this heading"></a></h3>
+<h3>Split the trajectory<a class="headerlink" href="#Split-the-trajectory" title="Permalink to this heading"></a></h3>
 <p>This is a very simple way to split the trajectory. It splits the trajectory into defined <code class="docutils literal notranslate"><span class="pre">n_blocks</span></code> which is normally the same as the number of cores you want to use.</p>
 <p>Since it is achieved by evenly dividing the <code class="docutils literal notranslate"><span class="pre">n_frames</span></code> by <code class="docutils literal notranslate"><span class="pre">n_blocks</span></code>, and setting the last block to end at the last frame, sometime it is not really balanced (e.g. the last block).</p>
 <div class="nbinput nblast docutils container">
@@ -677,7 +678,7 @@ Text(0.5, 0, &#39;Frame&#39;)
 </div>
 </section>
 <section id="Apply-the-analysis-per-block">
-<h3>Apply the analysis per block<a class="headerlink" href="#Apply-the-analysis-per-block" title="Link to this heading"></a></h3>
+<h3>Apply the analysis per block<a class="headerlink" href="#Apply-the-analysis-per-block" title="Permalink to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
@@ -720,7 +721,7 @@ Text(0.5, 0, &#39;Frame&#39;)
 </div>
 </section>
 <section id="Combine-the-results">
-<h3>Combine the results<a class="headerlink" href="#Combine-the-results" title="Link to this heading"></a></h3>
+<h3>Combine the results<a class="headerlink" href="#Combine-the-results" title="Permalink to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
@@ -765,7 +766,7 @@ Text(0.5, 0, &#39;Frame&#39;)
 </div></center></section>
 </section>
 <section id="Other-possible-parallelism-approaches-for-multiple-analyses">
-<h2>Other possible parallelism approaches for multiple analyses<a class="headerlink" href="#Other-possible-parallelism-approaches-for-multiple-analyses" title="Link to this heading"></a></h2>
+<h2>Other possible parallelism approaches for multiple analyses<a class="headerlink" href="#Other-possible-parallelism-approaches-for-multiple-analyses" title="Permalink to this heading"></a></h2>
 <p>You may want to perform multiple analyses (or analyze multiple trajectories). In this case, you can use some high-level parallelism, i.e. running all the serial analyses in parallel.</p>
 <p>Here we use <a class="reference external" href="https://joblib.readthedocs.io/en/latest/">joblib</a>. It is implemented on <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code> and provides lightweight pipelining in Python. Compared to <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code>, it has a simple API and convenient persistence of cached results.”</p>
 <div class="nbinput nblast docutils container">
@@ -868,11 +869,11 @@ Text(0.5, 0, &#39;Frame&#39;)
 </div>
 </section>
 <section id="See-Also">
-<h2>See Also<a class="headerlink" href="#See-Also" title="Link to this heading"></a></h2>
+<h2>See Also<a class="headerlink" href="#See-Also" title="Permalink to this heading"></a></h2>
 <p>The parallel version of MDAnalysis is still under development. For existing solutions and some implementations of parallel analysis, go to <a class="reference external" href="https://www.mdanalysis.org/pmda/">PMDA</a>. PMDA (<span id="id5">[<a class="reference internal" href="../../references.html#id29" title="Max Linke Shujie Fan, Ioannis Paraskevakos, Richard J. Gowers, Michael Gecht, and Oliver Beckstein. PMDA - Parallel Molecular Dynamics Analysis. In Chris Calloway, David Lippa, Dillon Niederhut, and David Shupe, editors, Proceedings of the 18th Python in Science Conference, 134 - 142. 2019. doi:10.25080/Majora-7ddc1dd1-013.">SFPG+19</a>]</span>) applies the aforementioned split-apply-combine scheme with Dask. In the future, it may provide a framework that consolidates all the parallelisation schemes described in this tutorial.”</p>
 </section>
 <section id="References">
-<h2>References<a class="headerlink" href="#References" title="Link to this heading"></a></h2>
+<h2>References<a class="headerlink" href="#References" title="Permalink to this heading"></a></h2>
 <p>[1] Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164">https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164</a>, doi:10.1016/j.jmb.2009.09.009.</p>
 <p>[2] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
 <p>[3] Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>, doi:10.1002/jcc.21787.</p>

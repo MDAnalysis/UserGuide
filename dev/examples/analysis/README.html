@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Analysis &mdash; MDAnalysis User Guide  documentation</title>
@@ -15,11 +15,12 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -197,7 +198,7 @@
            <div itemprop="articleBody">
              
   <section id="analysis">
-<span id="id1"></span><h1>Analysis<a class="headerlink" href="#analysis" title="Link to this heading"></a></h1>
+<span id="id1"></span><h1>Analysis<a class="headerlink" href="#analysis" title="Permalink to this heading"></a></h1>
 <p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">analysis</span></code> module of MDAnalysis provides the tools needed to analyse your data.
 Several analyses are included with the package. These range from standard algorithms
 (e.g. <a class="reference internal" href="alignment_and_rms/README.html#alignment-and-rms"><span class="std std-ref">calculating root mean squared quantities</span></a>) to unique algorithms such as
@@ -209,7 +210,7 @@ references and citation information.</p>
 <a class="reference internal" href="custom_trajectory_analysis.html"><span class="doc">several ways to write your own analysis</span></a>.</p>
 <p>If you want to run your own script in parallel in MDAnalysis, here is a <a class="reference internal" href="custom_parallel_analysis.html"><span class="doc">tutorial on make your code parallelizable</span></a>.</p>
 <section id="imports-and-dependencies">
-<h2>Imports and dependencies<a class="headerlink" href="#imports-and-dependencies" title="Link to this heading"></a></h2>
+<h2>Imports and dependencies<a class="headerlink" href="#imports-and-dependencies" title="Permalink to this heading"></a></h2>
 <p>Analysis modules are not imported by default. In order to use them, you will need to import
 them separately, e.g.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">MDAnalysis.analysis</span> <span class="kn">import</span> <span class="n">align</span>
@@ -226,7 +227,7 @@ the <a class="reference external" href="http://www.holeprogram.org/">HOLE</a> pr
 </section>
 </section>
 <section id="alignments-and-rms-fitting">
-<span id="alignment-and-rms"></span><h1>Alignments and RMS fitting<a class="headerlink" href="#alignments-and-rms-fitting" title="Link to this heading"></a></h1>
+<span id="alignment-and-rms"></span><h1>Alignments and RMS fitting<a class="headerlink" href="#alignments-and-rms-fitting" title="Permalink to this heading"></a></h1>
 <p>The <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/analysis/align.html#module-MDAnalysis.analysis.align" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.align</span></code></a> and <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/analysis/rms.html#module-MDAnalysis.analysis.rms" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.rms</span></code></a>
 modules contain the functions used for aligning structures,
 aligning trajectories, and calculating root mean squared quantities.</p>
@@ -254,7 +255,7 @@ cite these references when using these modules.</p>
 </div>
 </section>
 <section id="distances-and-contacts">
-<h1>Distances and contacts<a class="headerlink" href="#distances-and-contacts" title="Link to this heading"></a></h1>
+<h1>Distances and contacts<a class="headerlink" href="#distances-and-contacts" title="Permalink to this heading"></a></h1>
 <p>The <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/analysis/distances.html#module-MDAnalysis.analysis.distances" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.distances</span></code></a> module provides functions to rapidly compute distances. These largely take in coordinate arrays.</p>
 <div class="toctree-wrapper compound">
 <ul>
@@ -275,7 +276,7 @@ cite these references when using these modules.</p>
 </div>
 </section>
 <section id="trajectory-similarity">
-<span id="id4"></span><h1>Trajectory similarity<a class="headerlink" href="#trajectory-similarity" title="Link to this heading"></a></h1>
+<span id="id4"></span><h1>Trajectory similarity<a class="headerlink" href="#trajectory-similarity" title="Permalink to this heading"></a></h1>
 <p>A molecular dynamics trajectory with <span class="math notranslate nohighlight">\(N\)</span> atoms can be considered through a path through <span class="math notranslate nohighlight">\(3N\)</span>-dimensional molecular configuration space. MDAnalysis contains a number of algorithms to compare the conformational ensembles of different trajectories. Most of these are in the <code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.encore</span></code> module (<span id="id5">[<a class="reference internal" href="../../references.html#id6" title="Matteo Tiberti, Elena Papaleo, Tone Bengtsen, Wouter Boomsma, and Kresten Lindorff-Larsen. ENCORE: Software for Quantitative Ensemble Comparison. PLOS Computational Biology, 11(10):e1004415, October 2015. 00031. URL: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004415 (visited on 2020-02-05), doi:10.1371/journal.pcbi.1004415.">TPB+15</a>]</span>) and compare estimated probability distributions to measure similarity. The <a class="reference external" href="/examples/analysis/trajectory_similarity/psa.html">path similarity analysis</a> compares the RMSD between pairs of structures in conformation transition paths. <code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.encore</span></code> also contains functions for evaluating the conformational convergence of a trajectory using the <a class="reference external" href="/examples/analysis/trajectory_similarity/clustering_ensemble_similarity.html">similarity over conformation clusters</a> or <a class="reference external" href="/examples/analysis/trajectory_similarity/dimension_reduction_ensemble_similarity.html">similarity in a reduced dimensional space</a>.</p>
 <div class="toctree-wrapper compound">
 <ul>
@@ -288,7 +289,7 @@ cite these references when using these modules.</p>
 </div>
 </section>
 <section id="structure">
-<h1>Structure<a class="headerlink" href="#structure" title="Link to this heading"></a></h1>
+<h1>Structure<a class="headerlink" href="#structure" title="Permalink to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="structure/elastic_network.html">Elastic network analysis</a></li>
@@ -300,7 +301,7 @@ cite these references when using these modules.</p>
 </div>
 </section>
 <section id="volumetric-analyses">
-<h1>Volumetric analyses<a class="headerlink" href="#volumetric-analyses" title="Link to this heading"></a></h1>
+<h1>Volumetric analyses<a class="headerlink" href="#volumetric-analyses" title="Permalink to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="volumetric/linear_density.html">Computing mass and charge density on each axis</a></li>
@@ -309,7 +310,7 @@ cite these references when using these modules.</p>
 </div>
 </section>
 <section id="dimension-reduction">
-<h1>Dimension reduction<a class="headerlink" href="#dimension-reduction" title="Link to this heading"></a></h1>
+<h1>Dimension reduction<a class="headerlink" href="#dimension-reduction" title="Permalink to this heading"></a></h1>
 <p>A molecular dynamics trajectory with <span class="math notranslate nohighlight">\(N\)</span> atoms can be considered
 a path through <span class="math notranslate nohighlight">\(3N\)</span>-dimensional molecular configuration space.
 It remains difficult to extract important dynamics or compare trajectory
@@ -329,7 +330,7 @@ reduction.</p>
 </div>
 </section>
 <section id="polymers-and-membranes">
-<h1>Polymers and membranes<a class="headerlink" href="#polymers-and-membranes" title="Link to this heading"></a></h1>
+<h1>Polymers and membranes<a class="headerlink" href="#polymers-and-membranes" title="Permalink to this heading"></a></h1>
 <p>MDAnalysis has several analyses specifically for polymers, membranes, and membrane proteins.</p>
 <div class="toctree-wrapper compound">
 <ul>
@@ -339,7 +340,7 @@ reduction.</p>
 </div>
 </section>
 <section id="hydrogen-bond-analysis">
-<span id="hydrogen-bonds"></span><h1>Hydrogen Bond Analysis<a class="headerlink" href="#hydrogen-bond-analysis" title="Link to this heading"></a></h1>
+<span id="hydrogen-bonds"></span><h1>Hydrogen Bond Analysis<a class="headerlink" href="#hydrogen-bond-analysis" title="Permalink to this heading"></a></h1>
 <p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.hydrogen_bonds</span></code> module provides methods to find and analyse hydrogen bonds in a Universe.</p>
 <div class="toctree-wrapper compound">
 <ul>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calculating the root mean square fluctuation over a trajectory &mdash; MDAnalysis User Guide  documentation</title>
@@ -16,11 +16,12 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -181,7 +182,7 @@
              
   <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
 <script>require=requirejs;</script><section id="Calculating-the-root-mean-square-fluctuation-over-a-trajectory">
-<h1>Calculating the root mean square fluctuation over a trajectory<a class="headerlink" href="#Calculating-the-root-mean-square-fluctuation-over-a-trajectory" title="Link to this heading"></a></h1>
+<h1>Calculating the root mean square fluctuation over a trajectory<a class="headerlink" href="#Calculating-the-root-mean-square-fluctuation-over-a-trajectory" title="Permalink to this heading"></a></h1>
 <p>We calculate the RMSF of the alpha-carbons in adenylate kinase (AdK) as it transitions from an open to closed structure, with reference to the average conformation of AdK.</p>
 <p><strong>Last updated:</strong> December 2022 with MDAnalysis 2.4.0-dev0</p>
 <p><strong>Minimum version of MDAnalysis:</strong> 1.0.0</p>
@@ -218,7 +219,7 @@
 </div>
 </div>
 <section id="Loading-files">
-<h2>Loading files<a class="headerlink" href="#Loading-files" title="Link to this heading"></a></h2>
+<h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this heading"></a></h2>
 <p>The test files we will be working with here are an equilibrium trajectory of adenylate kinase (AdK), a phosophotransferase enzyme. (<span id="id7">[<a class="reference internal" href="../../../references.html#id23" title="Sean Seyler and Oliver Beckstein. Molecular dynamics trajectory for benchmarking MDAnalysis. June 2017. 00002. URL: https://figshare.com/articles/Molecular_dynamics_trajectory_for_benchmarking_MDAnalysis/5108170 (visited on 2020-02-09), doi:10.6084/m9.figshare.5108170.v1.">SB17</a>]</span>) AdK has three domains:</p>
 <ul class="simple">
 <li><p>CORE</p></li>
@@ -245,7 +246,7 @@
 </div>
 </section>
 <section id="Background">
-<h2>Background<a class="headerlink" href="#Background" title="Link to this heading"></a></h2>
+<h2>Background<a class="headerlink" href="#Background" title="Permalink to this heading"></a></h2>
 <p>The root-mean-square-fluctuation (RMSF) of a structure is the time average of the <a class="reference internal" href="rmsd.html"><span class="doc">RMSD</span></a>. It is calculated according to the below equation, where <span class="math notranslate nohighlight">\(\mathbf{x}_i\)</span> is the coordinates of particle <span class="math notranslate nohighlight">\(i\)</span>, and <span class="math notranslate nohighlight">\(\langle\mathbf{x}_i\rangle\)</span> is the ensemble average position of <span class="math notranslate nohighlight">\(i\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\rho_i = \sqrt{\left\langle (\mathbf{x}_i - \langle\mathbf{x}_i\rangle)^2 \right\rangle}\]</div>
@@ -253,7 +254,7 @@
 these are more characteristic of conformational changes than the more flexible side-chains.</p>
 </section>
 <section id="Creating-an-average-structure">
-<h2>Creating an average structure<a class="headerlink" href="#Creating-an-average-structure" title="Link to this heading"></a></h2>
+<h2>Creating an average structure<a class="headerlink" href="#Creating-an-average-structure" title="Permalink to this heading"></a></h2>
 <p>We can generate an average structure to align to with the <code class="docutils literal notranslate"><span class="pre">align.AverageStructure</span></code> class. Here we first align to the first frame (<code class="docutils literal notranslate"><span class="pre">ref_frame=0</span></code>), and then average the coordinates.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -267,7 +268,7 @@ these are more characteristic of conformational changes than the more flexible s
 </div>
 </section>
 <section id="Aligning-the-trajectory-to-a-reference">
-<h2>Aligning the trajectory to a reference<a class="headerlink" href="#Aligning-the-trajectory-to-a-reference" title="Link to this heading"></a></h2>
+<h2>Aligning the trajectory to a reference<a class="headerlink" href="#Aligning-the-trajectory-to-a-reference" title="Permalink to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">rms.RMSF</span></code> does not allow on-the-fly alignment to a reference, and presumes that you have already aligned the trajectory. Therefore we need to first align our trajectory to the average conformation.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -294,7 +295,7 @@ these are more characteristic of conformational changes than the more flexible s
 </div>
 </section>
 <section id="Calculating-RMSF">
-<h2>Calculating RMSF<a class="headerlink" href="#Calculating-RMSF" title="Link to this heading"></a></h2>
+<h2>Calculating RMSF<a class="headerlink" href="#Calculating-RMSF" title="Permalink to this heading"></a></h2>
 <p>The trajectory is now fitted to the reference, and the RMSF (<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/rms.html#MDAnalysis.analysis.rms.RMSF">API docs</a>) can be calculated.</p>
 <div class="admonition note">
 <p class="admonition-title"><strong>Note</strong></p>
@@ -311,7 +312,7 @@ these are more characteristic of conformational changes than the more flexible s
 </div>
 </section>
 <section id="Plotting-RMSF">
-<h2>Plotting RMSF<a class="headerlink" href="#Plotting-RMSF" title="Link to this heading"></a></h2>
+<h2>Plotting RMSF<a class="headerlink" href="#Plotting-RMSF" title="Permalink to this heading"></a></h2>
 <p>We can now plot the RMSF using the common plotting package <a class="reference external" href="https://matplotlib.org/3.1.1/gallery/index.html">matplotlib</a>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
@@ -354,7 +355,7 @@ these are more characteristic of conformational changes than the more flexible s
 </div>
 </section>
 <section id="Visualising-RMSF-as-B-factors">
-<h2>Visualising RMSF as B-factors<a class="headerlink" href="#Visualising-RMSF-as-B-factors" title="Link to this heading"></a></h2>
+<h2>Visualising RMSF as B-factors<a class="headerlink" href="#Visualising-RMSF-as-B-factors" title="Permalink to this heading"></a></h2>
 <p>Colouring a protein by RMSF allows you to visually identify regions of high fluctuation. This is commonly done by setting temperature factor (also known as b-factor) values, writing out to a format with B-factor specification (e.g. PDB), and visualising the file in a program such as <a class="reference external" href="https://www.ks.uiuc.edu/Research/vmd/">VMD</a> or nglview.</p>
 <p>MDAnalysis uses the <code class="docutils literal notranslate"><span class="pre">tempfactor</span></code> topology attribute for this information. Below, we iterate through each residue of the protein and set the <code class="docutils literal notranslate"><span class="pre">tempfactor</span></code> attribute for <em>every</em> atom in the residue to the alpha-carbon RMSF value; this is necessary so every atom in the residue is coloured with the alpha-carbon RMSF.</p>
 <div class="nbinput nblast docutils container">
@@ -406,7 +407,7 @@ these are more characteristic of conformational changes than the more flexible s
 </div>
 </section>
 <section id="References">
-<h2>References<a class="headerlink" href="#References" title="Link to this heading"></a></h2>
+<h2>References<a class="headerlink" href="#References" title="Permalink to this heading"></a></h2>
 <p>[1] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
 <p>[2] Pu Liu, Dimitris K. Agrafiotis, and Douglas L. Theobald. Fast determination of the optimal rotational matrix for macromolecular superpositions. Journal of Computational Chemistry, pages n/a–n/a, 2009. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21439">http://doi.wiley.com/10.1002/jcc.21439</a>, doi:10.1002/jcc.21439.</p>
 <p>[3] Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>, doi:10.1002/jcc.21787.</p>

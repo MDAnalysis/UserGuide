@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PDBQT (Autodock structure) &mdash; MDAnalysis User Guide  documentation</title>
@@ -15,11 +15,12 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../../_static/js/versions.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -187,8 +188,12 @@
            <div itemprop="articleBody">
              
   <section id="pdbqt-autodock-structure">
-<span id="pdbqt-format"></span><h1>PDBQT (Autodock structure)<a class="headerlink" href="#pdbqt-autodock-structure" title="Link to this heading"></a></h1>
+<span id="pdbqt-format"></span><h1>PDBQT (Autodock structure)<a class="headerlink" href="#pdbqt-autodock-structure" title="Permalink to this heading"></a></h1>
 <table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 71%" />
+</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><strong>Coordinate reader</strong></p></td>
 <td><p><a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/coordinates/PDBQT.html#MDAnalysis.coordinates.PDBQT.PDBQTReader" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.coordinates.PDBQT.PDBQTReader</span></code></a></p></td>
@@ -202,7 +207,7 @@
 </tbody>
 </table>
 <section id="reading-in">
-<h2>Reading in<a class="headerlink" href="#reading-in" title="Link to this heading"></a></h2>
+<h2>Reading in<a class="headerlink" href="#reading-in" title="Permalink to this heading"></a></h2>
 <p>MDAnalysis reads coordinates from <a href="#id3"><span class="problematic" id="id4">PDBQT_</span></a> files and additional optional
 data such as B-factors, partial charge and <a class="reference external" href="http://autodock.scripps.edu/">AutoDock</a> atom types.  It
 is also possible to substitute a PDBQT file for a PSF file in order to
@@ -217,7 +222,7 @@ available in this case).</p>
 </div></blockquote>
 </section>
 <section id="writing-out">
-<h2>Writing out<a class="headerlink" href="#writing-out" title="Link to this heading"></a></h2>
+<h2>Writing out<a class="headerlink" href="#writing-out" title="Permalink to this heading"></a></h2>
 <p>MDAnalysis implements a subset of the <a class="reference external" href="http://www.wwpdb.org/documentation/file-format-content/format32/v3.2.html">PDB</a> 3.2 standard and the <a href="#id5"><span class="problematic" id="id6">PDBQT_</span></a> spec. Unlike the <a class="reference internal" href="pdb.html#pdb-format"><span class="std std-ref">PDB, ENT (Standard PDB file)</span></a> writer, MDAnalysis cannot write multi-frame trajectories to a PDBQT file.</p>
 <p>If the Universe is missing fields that are <a class="reference internal" href="#pdbqt-spec"><span class="std std-ref">required in a PDBQT file</span></a>, MDAnalysis provides default values and raises a warning. There are 2 exceptions to this:</p>
 <blockquote>
@@ -243,7 +248,7 @@ available in this case).</p>
 </div></blockquote>
 </section>
 <section id="pdbqt-specification">
-<span id="pdbqt-spec"></span><h2>PDBQT specification<a class="headerlink" href="#pdbqt-specification" title="Link to this heading"></a></h2>
+<span id="pdbqt-spec"></span><h2>PDBQT specification<a class="headerlink" href="#pdbqt-specification" title="Permalink to this heading"></a></h2>
 <dl class="simple">
 <dt>Records read:</dt><dd><ul class="simple">
 <li><p><strong>CRYST1</strong> for unit cell dimensions A,B,C, alpha,beta,gamma</p></li>
@@ -252,7 +257,13 @@ available in this case).</p>
 </dd>
 </dl>
 <table class="docutils align-default" id="id2">
-<caption><span class="caption-text">Original <a class="reference external" href="http://www.wwpdb.org/documentation/file-format-content/format32/v3.2.html">PDB format documentation</a> with <a class="reference external" href="http://autodock.scripps.edu/faqs-help/faq/what-is-the-format-of-a-pdbqt-file">AutoDOCK extensions</a></span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<caption><span class="caption-text">Original <a class="reference external" href="http://www.wwpdb.org/documentation/file-format-content/format32/v3.2.html">PDB format documentation</a> with <a class="reference external" href="http://autodock.scripps.edu/faqs-help/faq/what-is-the-format-of-a-pdbqt-file">AutoDOCK extensions</a></span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 15%" />
+<col style="width: 14%" />
+<col style="width: 56%" />
+</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>COLUMNS</p></th>
 <th class="head"><p>DATA  TYPE</p></th>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Principal component analysis of a trajectory &mdash; MDAnalysis User Guide  documentation</title>
@@ -16,11 +16,12 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -174,7 +175,7 @@
              
   <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
 <script>require=requirejs;</script><section id="Principal-component-analysis-of-a-trajectory">
-<h1>Principal component analysis of a trajectory<a class="headerlink" href="#Principal-component-analysis-of-a-trajectory" title="Link to this heading"></a></h1>
+<h1>Principal component analysis of a trajectory<a class="headerlink" href="#Principal-component-analysis-of-a-trajectory" title="Permalink to this heading"></a></h1>
 <p>Here we compute the principal component analysis of a trajectory.</p>
 <p><strong>Last updated:</strong> December 2022 with MDAnalysis 2.4.0-dev0</p>
 <p><strong>Minimum version of MDAnalysis:</strong> 1.0.0</p>
@@ -209,7 +210,7 @@
 </div>
 </div>
 <section id="Loading-files">
-<h2>Loading files<a class="headerlink" href="#Loading-files" title="Link to this heading"></a></h2>
+<h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this heading"></a></h2>
 <p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<span id="id3">[<a class="reference internal" href="../../../references.html#id14" title="Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164 (visited on 2020-02-05), doi:10.1016/j.jmb.2009.09.009.">BDPW09</a>]</span>) The trajectory <code class="docutils literal notranslate"><span class="pre">DCD</span></code> samples a transition from a closed to an open conformation.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -221,7 +222,7 @@
 </div>
 </section>
 <section id="Principal-component-analysis">
-<h2>Principal component analysis<a class="headerlink" href="#Principal-component-analysis" title="Link to this heading"></a></h2>
+<h2>Principal component analysis<a class="headerlink" href="#Principal-component-analysis" title="Permalink to this heading"></a></h2>
 <p>Principal component analysis is a common linear dimensionality reduction technique that maps the coordinates in each frame of your trajectory to a linear combination of orthogonal vectors. The vectors are called <strong>principal components</strong>, and they are ordered such that the first principal component accounts for the most variance in the original data (i.e. the largest uncorrelated motion in your trajectory), and each successive component accounts for less and less variance. The frame-by-frame
 conformational fluctuation can be considered a linear combination of the essential dynamics yielded by the PCA. Please see <span id="id4">[<a class="reference internal" href="../../../references.html#id32" title="Andrea Amadei, Antonius B. M. Linssen, and Herman J. C. Berendsen. Essential dynamics of proteins. Proteins: Structure, Function, and Bioinformatics, 17(4):412–425, 1993. _eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1002/prot.340170408. URL: http://onlinelibrary.wiley.com/doi/abs/10.1002/prot.340170408 (visited on 2021-01-05), doi:https://doi.org/10.1002/prot.340170408.">ALB93</a>]</span>, <span id="id5">[<a class="reference internal" href="../../../references.html#id33" title="I. T. Jolliffe. Principal Component Analysis. Springer Series in Statistics. Springer-Verlag, New York, 2 edition, 2002. ISBN 978-0-387-95442-4. URL: http://www.springer.com/gp/book/9780387954424 (visited on 2021-01-05), doi:10.1007/b98835.">Jol02</a>]</span>, <span id="id6">[<a class="reference internal" href="../../../references.html#id34" title="Florian Sittel, Abhinav Jain, and Gerhard Stock. Principal component analysis of molecular dynamics: on the use of Cartesian vs. internal coordinates. The Journal of Chemical Physics, 141(1):014111, July 2014. doi:10.1063/1.4885338.">SJS14</a>]</span>, or <span id="id7">[<a class="reference internal" href="../../../references.html#id35" title="Florian Sittel and Gerhard Stock. Perspective: Identification of collective variables and metastable states of protein dynamics. The Journal of Chemical Physics, 149(15):150901, October 2018. Publisher: American Institute of Physics. URL: http://aip.scitation.org/doi/10.1063/1.5049637 (visited on 2021-01-05), doi:10.1063/1.5049637.">SS18</a>]</span> for a more in-depth introduction to PCA.</p>
 <p>Trajectory coordinates can be transformed onto a lower-dimensional space (<em>essential subspace</em>) constructed from these principal components in order to compare conformations. You can thereby visualise the motion described by that component.</p>
@@ -334,7 +335,7 @@ Cumulated variance: 0.964
 </div>
 </section>
 <section id="Visualising-projections-into-a-reduced-dimensional-space">
-<h2>Visualising projections into a reduced dimensional space<a class="headerlink" href="#Visualising-projections-into-a-reduced-dimensional-space" title="Link to this heading"></a></h2>
+<h2>Visualising projections into a reduced dimensional space<a class="headerlink" href="#Visualising-projections-into-a-reduced-dimensional-space" title="Permalink to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">pc.transform()</span></code> method transforms a given atom group into weights <span class="math notranslate nohighlight">\(\mathbf{w}_i\)</span> over each principal component <span class="math notranslate nohighlight">\(i\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{w}_i(t) = (\mathbf{r}(t)-\mathbf{\overline{r}}) \cdot \mathbf{u}_i\]</div>
@@ -529,7 +530,7 @@ positions <span class="math notranslate nohighlight">\(\mathbf{\overline{r}}\)</
 <center><div style="width: 800px"><img alt="pc1 gif" src="../../../_images/pc1.gif" />
 </div></center></section>
 <section id="Measuring-convergence-with-cosine-content">
-<h2>Measuring convergence with cosine content<a class="headerlink" href="#Measuring-convergence-with-cosine-content" title="Link to this heading"></a></h2>
+<h2>Measuring convergence with cosine content<a class="headerlink" href="#Measuring-convergence-with-cosine-content" title="Permalink to this heading"></a></h2>
 <p>The essential modes of a trajectory usually describe global, collective motions. The cosine content of a principal component can be interpreted to determine whether proteins are transitioning between conformational states. However, random diffusion can also appear to produce collective motion. The cosine content can measure the convergence of a trajectory and indicate poor sampling.</p>
 <p>The cosine content of a principal component measures how similar it is to a cosine shape. Values range from 0 (no similarity to a cosine) and 1 (a perfect cosine shape). If the values of the first few principal components are close to 1, this can indicate poor sampling, as the motion of the particles may not be distinguished from random diffusion. Values below 0.7 do not indicate poor sampling.</p>
 <p>For more information, please see <span id="id8">[<a class="reference internal" href="../../../references.html#id31" title="Gia G. Maisuradze, Adam Liwo, and Harold A. Scheraga. Principal component analysis for protein folding dynamics. Journal of molecular biology, 385(1):312–329, January 2009. URL: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2652707/ (visited on 2020-12-27), doi:10.1016/j.jmb.2008.10.018.">MLS09</a>]</span>.</p>
@@ -585,7 +586,7 @@ Cosine content for PC 3 = 0.723
 </div>
 </section>
 <section id="References">
-<h2>References<a class="headerlink" href="#References" title="Link to this heading"></a></h2>
+<h2>References<a class="headerlink" href="#References" title="Permalink to this heading"></a></h2>
 <p>[1] Andrea Amadei, Antonius B. M. Linssen, and Herman J. C. Berendsen. Essential dynamics of proteins. Proteins: Structure, Function, and Bioinformatics, 17(4):412–425, 1993. _eprint: <a class="reference external" href="https://onlinelibrary.wiley.com/doi/pdf/10.1002/prot.340170408">https://onlinelibrary.wiley.com/doi/pdf/10.1002/prot.340170408</a>. URL: <a class="reference external" href="http://onlinelibrary.wiley.com/doi/abs/10.1002/prot.340170408">http://onlinelibrary.wiley.com/doi/abs/10.1002/prot.340170408</a>, doi:https://doi.org/10.1002/prot.340170408.</p>
 <p>[2] Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164">https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164</a>, doi:10.1016/j.jmb.2009.09.009.</p>
 <p>[3] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>

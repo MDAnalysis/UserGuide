@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Installation &mdash; MDAnalysis User Guide  documentation</title>
@@ -15,11 +15,12 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="_static/js/versions.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -154,7 +155,7 @@
            <div itemprop="articleBody">
              
   <section id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h1>
 <p>The latest versions of <strong>MDAnalysis</strong> can be installed using <cite>conda</cite> or <cite>pip</cite>.
 Currently, the conda releases only support serial calculations.
 If you plan to use the parallel OpenMP algorithms, you need to
@@ -181,7 +182,7 @@ down to the Tools for Visual Studio section).</p>
 <p>If you encounter any issues following these instructions, please
 ask for help on the <a class="reference external" href="https://groups.google.com/forum/#!forum/mdnalysis-discussion">user mailing list</a>.</p>
 <section id="conda">
-<h2>conda<a class="headerlink" href="#conda" title="Link to this heading"></a></h2>
+<h2>conda<a class="headerlink" href="#conda" title="Permalink to this heading"></a></h2>
 <p>If you use <code class="docutils literal notranslate"><span class="pre">conda</span></code> to manage your Python environment, we highly recommend creating a new environment for MDAnalysis.
 This will ensure that you have a clean installation of MDAnalysis and its dependencies, and will not interfere with other packages you may have installed.
 We further recommend that you install and use <code class="docutils literal notranslate"><span class="pre">mamba</span></code>, a faster drop-in replacement for <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
@@ -210,7 +211,7 @@ jupyter<span class="w"> </span>labextension<span class="w"> </span>install<span 
 </div>
 </section>
 <section id="pip">
-<h2>pip<a class="headerlink" href="#pip" title="Link to this heading"></a></h2>
+<h2>pip<a class="headerlink" href="#pip" title="Permalink to this heading"></a></h2>
 <p>The following command will install or upgrade the latest stable version of MDAnalysis via <code class="docutils literal notranslate"><span class="pre">pip</span></code>, with core dependencies. This means that some packages required by specific analysis modules will not be installed.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>MDAnalysis
 </pre></div>
@@ -231,7 +232,7 @@ jupyter<span class="w"> </span>labextension<span class="w"> </span>install<span 
 </div>
 </section>
 <section id="development-versions">
-<h2>Development versions<a class="headerlink" href="#development-versions" title="Link to this heading"></a></h2>
+<h2>Development versions<a class="headerlink" href="#development-versions" title="Permalink to this heading"></a></h2>
 <p>To install development versions of MDAnalysis, you can compile it from source. In order to install from source, you will need <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">cython</span></code>. See <a class="reference internal" href="contributing_code.html#create-virtual-environment"><span class="std std-ref">Creating a development environment</span></a> for instructions on how to create a full development environment.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/MDAnalysis/mdanalysis
 <span class="nb">cd</span><span class="w"> </span>mdanalysis
@@ -244,7 +245,7 @@ pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </s
 </pre></div>
 </div>
 <section id="testing">
-<h3>Testing<a class="headerlink" href="#testing" title="Link to this heading"></a></h3>
+<h3>Testing<a class="headerlink" href="#testing" title="Permalink to this heading"></a></h3>
 <p>The tests rely on the <cite>pytest</cite> and <cite>numpy</cite> packages, which must also be installed. Run tests with:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>--disable-pytest-warnings<span class="w"> </span>--pyargs<span class="w"> </span>MDAnalysisTests
 </pre></div>
@@ -259,7 +260,7 @@ pytest<span class="w"> </span>--disable-pytest-warnings<span class="w"> </span>-
 </div>
 </section>
 <section id="custom-compiler-flags-and-optimised-installations">
-<h3>Custom compiler flags and optimised installations<a class="headerlink" href="#custom-compiler-flags-and-optimised-installations" title="Link to this heading"></a></h3>
+<h3>Custom compiler flags and optimised installations<a class="headerlink" href="#custom-compiler-flags-and-optimised-installations" title="Permalink to this heading"></a></h3>
 <p>You can pass any additional compiler flags for the C/C++ compiler using the <code class="docutils literal notranslate"><span class="pre">extra_cflags</span></code> variable in <code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code>.
 This allows you to add any additional compiler options required for your architecture.</p>
 <p>For example, <code class="docutils literal notranslate"><span class="pre">extra_cflags</span></code> can be used to tune your MDAnalysis installation for your current architecture using the <cite>-march</cite>, <cite>-mtune</cite>, <cite>-mcpu</cite> and related compiler flags.
@@ -282,7 +283,7 @@ before proceeding with analysis.</p>
 </section>
 </section>
 <section id="additional-datasets">
-<h2>Additional datasets<a class="headerlink" href="#additional-datasets" title="Link to this heading"></a></h2>
+<h2>Additional datasets<a class="headerlink" href="#additional-datasets" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://www.mdanalysis.org/MDAnalysisData/">MDAnalysisData</a> is an additional package with datasets that can be used in example tutorials. You can install it with <code class="docutils literal notranslate"><span class="pre">conda</span></code> or <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># conda</span>
 conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>mdanalysisdata

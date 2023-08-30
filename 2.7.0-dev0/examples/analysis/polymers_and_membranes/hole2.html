@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Analysing pore dimensions with HOLE2 &mdash; MDAnalysis User Guide  documentation</title>
@@ -16,11 +16,12 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -175,7 +176,7 @@
              
   <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
 <script>require=requirejs;</script><section id="Analysing-pore-dimensions-with-HOLE2">
-<h1>Analysing pore dimensions with HOLE2<a class="headerlink" href="#Analysing-pore-dimensions-with-HOLE2" title="Link to this heading"></a></h1>
+<h1>Analysing pore dimensions with HOLE2<a class="headerlink" href="#Analysing-pore-dimensions-with-HOLE2" title="Permalink to this heading"></a></h1>
 <p>Here we use <code class="docutils literal notranslate"><span class="pre">HOLE</span></code> to analyse pore dimensions in a membrane.</p>
 <p><strong>Last updated:</strong> December 2022 with MDAnalysis 2.4.0-dev0</p>
 <p><strong>Minimum version of MDAnalysis:</strong> 1.0.0</p>
@@ -209,14 +210,14 @@
 </div>
 </div>
 <section id="Background">
-<h2>Background<a class="headerlink" href="#Background" title="Link to this heading"></a></h2>
+<h2>Background<a class="headerlink" href="#Background" title="Permalink to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.hole2</span></code> module (<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/hole2.html">API docs</a>) provides wrapper classes and functions that call the <a class="reference external" href="http://www.holeprogram.org">HOLE</a> program. This means you must have installed the program yourself before you can use the class. You then have 2 options, you either pass the path to your <code class="docutils literal notranslate"><span class="pre">hole</span></code> executable to the class; in this example, <code class="docutils literal notranslate"><span class="pre">hole</span></code> is installed at <code class="docutils literal notranslate"><span class="pre">~/hole2/exe/hole</span></code>. Or, set your binary path
 variable (<code class="docutils literal notranslate"><span class="pre">$PATH</span></code> in Unix systems) to point to the executable’s folder so you don’t have to point to the binary explicitly every time you call <code class="docutils literal notranslate"><span class="pre">hole</span></code> or any of its helper tools. This is what we have done here, so we don’t have to set the <code class="docutils literal notranslate"><span class="pre">executable</span></code> argument.</p>
 <p>HOLE defines a series of points throughout the pore from which a sphere can be generated that does not overlap any atom (as defined by its van der Waals radius). (Please see (<span id="id5">[<a class="reference internal" href="../../../references.html#id21" title="O S Smart, J M Goodfellow, and B A Wallace. The pore dimensions of gramicidin A. Biophysical Journal, 65(6):2455–2460, December 1993. 00522. URL: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1225986/ (visited on 2020-02-10), doi:10.1016/S0006-3495(93)81293-1.">SGW93</a>]</span>, <span id="id6">[<a class="reference internal" href="../../../references.html#id20" title="O. S. Smart, J. G. Neduvelil, X. Wang, B. A. Wallace, and M. S. Sansom. HOLE: a program for the analysis of the pore dimensions of ion channel structural models. Journal of Molecular Graphics, 14(6):354–360, 376, December 1996. 00935. doi:10.1016/s0263-7855(97)00009-x.">SNW+96</a>]</span>) for a complete explanation). By default, it ignores residues with the following names: “SOL”, “WAT”, “TIP”, “HOH”, “K “, “NA “, “CL “. You can change these with the <code class="docutils literal notranslate"><span class="pre">ignore_residues</span></code> keyword. Note that the residue names must have 3 characters. Wildcards <em>do not</em> work.</p>
 <p>This tutorial first demonstrates how to use the <code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.hole2.hole</span></code> function similarly to <a class="reference internal" href="#Using-HOLE-with-a-PDB-file"><span class="std std-ref">the HOLE binary on a PDB file</span></a>. We then demonstrate how to use the <code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.hole2.HoleAnalysis</span></code> class on a <a class="reference internal" href="#Using-HOLE-with-a-trajectory"><span class="std std-ref">trajectory of data</span></a>. You may prefer to use the more fully-featured <code class="docutils literal notranslate"><span class="pre">HoleAnalysis</span></code> class for the extra functionality we provide, such as creating an animation in VMD of the pore.</p>
 </section>
 <section id="Using-HOLE-with-a-PDB-file">
-<h2>Using HOLE with a PDB file<a class="headerlink" href="#Using-HOLE-with-a-PDB-file" title="Link to this heading"></a></h2>
+<h2>Using HOLE with a PDB file<a class="headerlink" href="#Using-HOLE-with-a-PDB-file" title="Permalink to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">hole</span></code> function allows you to specify points to begin searching at (<code class="docutils literal notranslate"><span class="pre">cpoint</span></code>) and a search direction (<code class="docutils literal notranslate"><span class="pre">cvect</span></code>), the sampling resolution (<code class="docutils literal notranslate"><span class="pre">sample</span></code>), and more. Please see the documentation for full details.</p>
 <p>The PDB file here is the experimental structure of the Gramicidin A channel. Note that we pass <code class="docutils literal notranslate"><span class="pre">HOLE</span></code> a PDB file directly, without creating a <code class="docutils literal notranslate"><span class="pre">MDAnalysis.Universe</span></code>.</p>
 <p>We are setting a <code class="docutils literal notranslate"><span class="pre">random_seed</span></code> here so that the results in the tutorial can be reproducible. This is normally not advised.</p>
@@ -333,7 +334,7 @@ The pore is 42.4 angstroms long
 </div></center><p>MDAnalysis supports many of the options that can be customised in HOLE. For example, you can specify a starting point for the pore search within the pore with <code class="docutils literal notranslate"><span class="pre">cpoint</span></code>, and a <code class="docutils literal notranslate"><span class="pre">sample</span></code> distance (default: 0.2 angstrom) for the distance between the planes used in HOLE. Please see the <a class="reference external" href="https://www.mdanalysis.org/docs/documentation_pages/analysis/hole2.html">MDAnalysis.analysis.hole2</a> for more information.</p>
 </section>
 <section id="Using-HOLE-with-a-trajectory">
-<h2>Using HOLE with a trajectory<a class="headerlink" href="#Using-HOLE-with-a-trajectory" title="Link to this heading"></a></h2>
+<h2>Using HOLE with a trajectory<a class="headerlink" href="#Using-HOLE-with-a-trajectory" title="Permalink to this heading"></a></h2>
 <p>One of the limitations of the <code class="docutils literal notranslate"><span class="pre">hole</span></code> program is that it can only accept PDB files. In order to use other formats with <code class="docutils literal notranslate"><span class="pre">hole</span></code>, or to run <code class="docutils literal notranslate"><span class="pre">hole</span></code> on trajectories, we can use the <code class="docutils literal notranslate"><span class="pre">hole2.HoleAnalysis</span></code> class with an <code class="docutils literal notranslate"><span class="pre">MDAnalysis.Universe</span></code>. While the example file below is a PDB, you can use any files to create your Universe. You can also specify that the HOLE analysis is only run on a particular group of atoms with the <code class="docutils literal notranslate"><span class="pre">select</span></code> keyword (default value: ‘protein’).</p>
 <p>As with <code class="docutils literal notranslate"><span class="pre">hole()</span></code>, <code class="docutils literal notranslate"><span class="pre">HoleAnalysis</span></code> allows you to select a starting point for the search (<code class="docutils literal notranslate"><span class="pre">cpoint</span></code>). You can pass in a coordinate array; alternatively, you can use the center-of-geometry of your atom selection in each frame as the start.</p>
 <div class="nbinput docutils container">
@@ -362,7 +363,7 @@ The pore is 42.4 angstroms long
 </pre></div></div>
 </div>
 <section id="Working-with-the-data">
-<h3>Working with the data<a class="headerlink" href="#Working-with-the-data" title="Link to this heading"></a></h3>
+<h3>Working with the data<a class="headerlink" href="#Working-with-the-data" title="Permalink to this heading"></a></h3>
 <p>Again, the data is stored in <code class="docutils literal notranslate"><span class="pre">ha.results.profiles</span></code> as a dictionary of <code class="docutils literal notranslate"><span class="pre">numpy.recarray</span></code>s. The dictionary is indexed by frame; we can see the HOLE profile for the fourth frame below (truncated to the first 10 values).</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
@@ -546,7 +547,7 @@ Text(0.5, 0, &#39;Frame&#39;)
 </div>
 </section>
 <section id="Visualising-the-VMD-surface">
-<h3>Visualising the VMD surface<a class="headerlink" href="#Visualising-the-VMD-surface" title="Link to this heading"></a></h3>
+<h3>Visualising the VMD surface<a class="headerlink" href="#Visualising-the-VMD-surface" title="Permalink to this heading"></a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">create_vmd_surface()</span></code> method is built into the <code class="docutils literal notranslate"><span class="pre">HoleAnalysis</span></code> class. It writes a VMD file that changes the pore surface for each frame in VMD. Again, load your file and source the file in the Tk Console:</p>
 <p><code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">holeanalysis.vmd</span></code></p>
 <div class="nbinput docutils container">
@@ -569,7 +570,7 @@ Text(0.5, 0, &#39;Frame&#39;)
 <center><div style="width: 300px"><img alt="hole.gif" src="../../../_images/pore.gif" />
 </div></center></section>
 <section id="Plotting">
-<h3>Plotting<a class="headerlink" href="#Plotting" title="Link to this heading"></a></h3>
+<h3>Plotting<a class="headerlink" href="#Plotting" title="Permalink to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">HoleAnalysis</span></code> has several convenience methods for plotting. <code class="docutils literal notranslate"><span class="pre">plot()</span></code> plots the HOLE radius over each pore coordinate, differentiating each frame with colour.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
@@ -702,7 +703,7 @@ Text(0.5, 0, &#39;Frame&#39;)
 </section>
 </section>
 <section id="Ordering-HOLE-profiles-with-an-order-parameter">
-<h2>Ordering HOLE profiles with an order parameter<a class="headerlink" href="#Ordering-HOLE-profiles-with-an-order-parameter" title="Link to this heading"></a></h2>
+<h2>Ordering HOLE profiles with an order parameter<a class="headerlink" href="#Ordering-HOLE-profiles-with-an-order-parameter" title="Permalink to this heading"></a></h2>
 <p>If you are interested in the HOLE profiles over an order parameter, you can directly pass that into the analysis after it is run. Below, we use an order parameter of RMSD from a reference structure.</p>
 <div class="admonition note">
 <p class="admonition-title"><strong>Note</strong></p>
@@ -799,7 +800,7 @@ Frame 10:  6.11
 </pre></div></div>
 </div>
 <section id="id8">
-<h3>Plotting<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<h3>Plotting<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">HoleAnalysis</span></code> also provides convenience functions for plotting over order parameters. Unlike <code class="docutils literal notranslate"><span class="pre">plot()</span></code>, <code class="docutils literal notranslate"><span class="pre">plot_order_parameters()</span></code> requires an <code class="docutils literal notranslate"><span class="pre">aggregator</span></code> function that reduces an array of radii to a singular value. The default function is <code class="docutils literal notranslate"><span class="pre">min()</span></code>. You can also pass in functions such as <code class="docutils literal notranslate"><span class="pre">max()</span></code> or <code class="docutils literal notranslate"><span class="pre">np.mean()</span></code>, or define your own function to operate on an array and return a vlue.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
@@ -857,7 +858,7 @@ Frame 10:  6.11
 </section>
 </section>
 <section id="Deleting-HOLE-files">
-<h2>Deleting HOLE files<a class="headerlink" href="#Deleting-HOLE-files" title="Link to this heading"></a></h2>
+<h2>Deleting HOLE files<a class="headerlink" href="#Deleting-HOLE-files" title="Permalink to this heading"></a></h2>
 <p>The HOLE program and related MDAnalysis code write a number of files out. Both the <code class="docutils literal notranslate"><span class="pre">hole()</span></code> function and <code class="docutils literal notranslate"><span class="pre">HoleAnalysis</span></code> class contain ways to easily remove these files.</p>
 <p>For <code class="docutils literal notranslate"><span class="pre">hole()</span></code>, pass in <code class="docutils literal notranslate"><span class="pre">keep_files=False</span></code> to delete HOLE files as soon as the analysis is done. However, this will also remove the sphpdb file required to create a VMD surface from the analysis. If you need to write a VMD surface file, use the <code class="docutils literal notranslate"><span class="pre">HoleAnalysis</span></code> class instead.</p>
 <p>You can track the created files at the <code class="docutils literal notranslate"><span class="pre">tmp_files</span></code> attribute.</p>
@@ -959,7 +960,7 @@ Frame 10:  6.11
 </div>
 </section>
 <section id="References">
-<h2>References<a class="headerlink" href="#References" title="Link to this heading"></a></h2>
+<h2>References<a class="headerlink" href="#References" title="Permalink to this heading"></a></h2>
 <p>[1] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016. 00152. URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p>
 <p>[2] Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011. 00778. URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>, doi:10.1002/jcc.21787.</p>
 <p>[3] O S Smart, J M Goodfellow, and B A Wallace. The pore dimensions of gramicidin A. Biophysical Journal, 65(6):2455–2460, December 1993. 00522. URL: <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1225986/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1225986/</a>, doi:10.1016/S0006-3495(93)81293-1.</p>

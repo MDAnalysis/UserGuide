@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Standard residues in MDAnalysis selections &mdash; MDAnalysis User Guide  documentation</title>
@@ -15,11 +15,12 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="_static/js/versions.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -156,12 +157,22 @@
            <div itemprop="articleBody">
              
   <section id="standard-residues-in-mdanalysis-selections">
-<span id="standard-selections"></span><h1>Standard residues in MDAnalysis selections<a class="headerlink" href="#standard-residues-in-mdanalysis-selections" title="Link to this heading"></a></h1>
+<span id="standard-selections"></span><h1>Standard residues in MDAnalysis selections<a class="headerlink" href="#standard-residues-in-mdanalysis-selections" title="Permalink to this heading"></a></h1>
 <section id="proteins">
-<span id="protein-selection"></span><h2>Proteins<a class="headerlink" href="#proteins" title="Link to this heading"></a></h2>
+<span id="protein-selection"></span><h2>Proteins<a class="headerlink" href="#proteins" title="Permalink to this heading"></a></h2>
 <p>The residue names listed here are accessible via the “protein” keyword in the <a class="reference internal" href="selections.html#selections"><span class="std std-ref">Atom selection language</span></a>.</p>
 <p>The below names are drawn from the CHARMM 27, OPLS-AA, GROMOS 53A6, AMBER 03, and AMBER 99sb*-ILDN force fields.</p>
 <table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>ACE</p></td>
 <td><p>ALA</p></td>
@@ -283,63 +294,79 @@
 </tbody>
 </table>
 <section id="protein-backbone">
-<h3>Protein backbone<a class="headerlink" href="#protein-backbone" title="Link to this heading"></a></h3>
+<h3>Protein backbone<a class="headerlink" href="#protein-backbone" title="Permalink to this heading"></a></h3>
 <p>Protein backbone atoms in MDAnalysis belong to a recognised protein residue and have the atom names:</p>
 <table class="docutils align-default">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
 <tbody>
-<tr class="row-odd"><td><p>N</p></td>
-<td><p>C</p></td>
+<tr class="row-odd"><td><p>CA</p></td>
 <td><p>O</p></td>
-<td><p>CA</p></td>
+<td><p>C</p></td>
+<td><p>N</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 </section>
 <section id="nucleic-acids">
-<span id="nucleic-selection"></span><h2>Nucleic acids<a class="headerlink" href="#nucleic-acids" title="Link to this heading"></a></h2>
+<span id="nucleic-selection"></span><h2>Nucleic acids<a class="headerlink" href="#nucleic-acids" title="Permalink to this heading"></a></h2>
 <p>The residue names listed here are accessible via the “nucleic” keyword in the <a class="reference internal" href="selections.html#selections"><span class="std std-ref">Atom selection language</span></a>.</p>
 <p>The below names are drawn from largely from the CHARMM force field.</p>
 <table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+</colgroup>
 <tbody>
-<tr class="row-odd"><td><p>DC5</p></td>
-<td><p>URA</p></td>
-<td><p>DG5</p></td>
-<td><p>DT5</p></td>
+<tr class="row-odd"><td><p>RC5</p></td>
+<td><p>RC</p></td>
+<td><p>C</p></td>
+<td><p>ADE</p></td>
+<td><p>DA</p></td>
+<td><p>A</p></td>
+<td><p>THY</p></td>
 <td><p>DT</p></td>
-<td><p>RC5</p></td>
+</tr>
+<tr class="row-even"><td><p>DC5</p></td>
+<td><p>DC</p></td>
+<td><p>G</p></td>
+<td><p>RG3</p></td>
 <td><p>RC3</p></td>
+<td><p>DT5</p></td>
+<td><p>DA5</p></td>
 <td><p>DC3</p></td>
 </tr>
-<tr class="row-even"><td><p>DA</p></td>
-<td><p>RA</p></td>
-<td><p>U</p></td>
-<td><p>DT3</p></td>
-<td><p>RA5</p></td>
-<td><p>DC</p></td>
-<td><p>RG5</p></td>
-<td><p>G</p></td>
-</tr>
-<tr class="row-odd"><td><p>RG</p></td>
-<td><p>RU</p></td>
-<td><p>A</p></td>
-<td><p>T</p></td>
-<td><p>RA3</p></td>
-<td><p>RG3</p></td>
-<td><p>ADE</p></td>
-<td><p>RU5</p></td>
-</tr>
-<tr class="row-even"><td><p>C</p></td>
-<td><p>CYT</p></td>
-<td><p>GUA</p></td>
-<td><p>RU3</p></td>
-<td><p>DG3</p></td>
-<td><p>RC</p></td>
-<td><p>DG</p></td>
-<td><p>DA5</p></td>
-</tr>
 <tr class="row-odd"><td><p>DA3</p></td>
-<td><p>THY</p></td>
+<td><p>U</p></td>
+<td><p>RU5</p></td>
+<td><p>RG</p></td>
+<td><p>T</p></td>
+<td><p>CYT</p></td>
+<td><p>URA</p></td>
+<td><p>RA</p></td>
+</tr>
+<tr class="row-even"><td><p>DG3</p></td>
+<td><p>DT3</p></td>
+<td><p>RU</p></td>
+<td><p>RA3</p></td>
+<td><p>DG5</p></td>
+<td><p>RA5</p></td>
+<td><p>RU3</p></td>
+<td><p>GUA</p></td>
+</tr>
+<tr class="row-odd"><td><p>RG5</p></td>
+<td><p>DG</p></td>
 <td></td>
 <td></td>
 <td></td>
@@ -350,55 +377,79 @@
 </tbody>
 </table>
 <section id="nucleic-backbone">
-<h3>Nucleic backbone<a class="headerlink" href="#nucleic-backbone" title="Link to this heading"></a></h3>
+<h3>Nucleic backbone<a class="headerlink" href="#nucleic-backbone" title="Permalink to this heading"></a></h3>
 <p>Nucleic backbone atoms in MDAnalysis belong to a recognised nucleic acid residue and have the atom names:</p>
 <table class="docutils align-default">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 23%" />
+<col style="width: 23%" />
+<col style="width: 23%" />
+<col style="width: 23%" />
+</colgroup>
 <tbody>
-<tr class="row-odd"><td><p>O3’</p></td>
-<td><p>C5’</p></td>
+<tr class="row-odd"><td><p>P</p></td>
+<td><p>O3’</p></td>
 <td><p>O5’</p></td>
-<td><p>P</p></td>
 <td><p>C3’</p></td>
+<td><p>C5’</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="nucleobases">
-<span id="nucleobase-selection"></span><h3>Nucleobases<a class="headerlink" href="#nucleobases" title="Link to this heading"></a></h3>
+<span id="nucleobase-selection"></span><h3>Nucleobases<a class="headerlink" href="#nucleobases" title="Permalink to this heading"></a></h3>
 <p>Nucleobase atoms from nucleic acid residues are recognised based on their names in CHARMM.</p>
 <table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 18%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
 <tbody>
-<tr class="row-odd"><td><p>C6</p></td>
-<td><p>O4</p></td>
-<td><p>N2</p></td>
-<td><p>C4</p></td>
+<tr class="row-odd"><td><p>N2</p></td>
 <td><p>N9</p></td>
-<td><p>O6</p></td>
-<td><p>O2</p></td>
-<td><p>N3</p></td>
-</tr>
-<tr class="row-even"><td><p>N7</p></td>
-<td><p>C2</p></td>
-<td><p>C5M</p></td>
-<td><p>N1</p></td>
+<td><p>C6</p></td>
 <td><p>C5</p></td>
-<td><p>N4</p></td>
+<td><p>C4</p></td>
+<td><p>N1</p></td>
+<td><p>N7</p></td>
+<td><p>O4</p></td>
+</tr>
+<tr class="row-even"><td><p>N4</p></td>
+<td><p>O2</p></td>
+<td><p>C5M</p></td>
+<td><p>O6</p></td>
 <td><p>C8</p></td>
 <td><p>N6</p></td>
+<td><p>N3</p></td>
+<td><p>C2</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="nucleic-sugars">
-<h3>Nucleic sugars<a class="headerlink" href="#nucleic-sugars" title="Link to this heading"></a></h3>
+<h3>Nucleic sugars<a class="headerlink" href="#nucleic-sugars" title="Permalink to this heading"></a></h3>
 <p>Nucleic sugar atoms from nucleic acid residues are recognised by MDAnalysis if they have the atom names:</p>
 <table class="docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>C4’</p></td>
-<td><p>C1’</p></td>
-<td><p>C2’</p></td>
 <td><p>O4’</p></td>
 <td><p>C3’</p></td>
+<td><p>C2’</p></td>
+<td><p>C1’</p></td>
 </tr>
 </tbody>
 </table>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Atom selection language &mdash; MDAnalysis User Guide  documentation</title>
@@ -15,11 +15,12 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="_static/js/versions.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -157,7 +158,7 @@
            <div itemprop="articleBody">
              
   <section id="atom-selection-language">
-<span id="selections"></span><h1>Atom selection language<a class="headerlink" href="#atom-selection-language" title="Link to this heading"></a></h1>
+<span id="selections"></span><h1>Atom selection language<a class="headerlink" href="#atom-selection-language" title="Permalink to this heading"></a></h1>
 <p>AtomGroups can be created by selecting atoms using the MDAnalysis atom selection language:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 
@@ -205,7 +206,7 @@ which can happen with complicated selections. When order matters, <a class="refe
 <p>It is possible to export selections for external software
 packages with the help of <a class="reference internal" href="formats/selection_exporters.html#selection-exporters"><span class="std std-ref">Selection exporters</span></a>.</p>
 <section id="selection-keywords">
-<h2>Selection Keywords<a class="headerlink" href="#selection-keywords" title="Link to this heading"></a></h2>
+<h2>Selection Keywords<a class="headerlink" href="#selection-keywords" title="Permalink to this heading"></a></h2>
 <p>The following describes all selection keywords currently understood by the
 selection parser. The following applies to all selections:</p>
 <ul class="simple">
@@ -240,7 +241,7 @@ For more information on pattern matching, see the <a class="reference external" 
 </li>
 </ul>
 <section id="simple-selections">
-<h3>Simple selections<a class="headerlink" href="#simple-selections" title="Link to this heading"></a></h3>
+<h3>Simple selections<a class="headerlink" href="#simple-selections" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>protein</dt><dd><p>Selects atoms that belong to a <a class="reference internal" href="standard_selections.html#protein-selection"><span class="std std-ref">hard-coded set of standard protein residue names</span></a>.</p>
 </dd>
@@ -297,7 +298,7 @@ e.g. <code class="code docutils literal notranslate"><span class="pre">icode</sp
 </dl>
 </section>
 <section id="boolean">
-<h3>Boolean<a class="headerlink" href="#boolean" title="Link to this heading"></a></h3>
+<h3>Boolean<a class="headerlink" href="#boolean" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>not</dt><dd><p>all atoms not in the selection, e.g. <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">protein</span></code> selects all atoms
 that aren’t part of a protein</p>
@@ -309,7 +310,7 @@ that aren’t part of a protein</p>
 </dl>
 </section>
 <section id="geometric">
-<span id="id1"></span><h3>Geometric<a class="headerlink" href="#geometric" title="Link to this heading"></a></h3>
+<span id="id1"></span><h3>Geometric<a class="headerlink" href="#geometric" title="Permalink to this heading"></a></h3>
 <p>The geometric keywords below all implement periodic boundary conditions by default when valid cell dimensions are accessible from the Universe. This can be turned off by passing in the keyword <code class="docutils literal notranslate"><span class="pre">periodic=False</span></code>:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;around 6 protein&quot;</span><span class="p">,</span> <span class="n">periodic</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="gh">Out[11]: </span><span class="go">&lt;AtomGroup with 0 atoms&gt;</span>
@@ -360,7 +361,7 @@ the following <em>operators</em>: <strong>&lt;, &gt;, &lt;=, &gt;=, ==, !=</stro
 </dl>
 </section>
 <section id="similarity-and-connectivity">
-<h3>Similarity and connectivity<a class="headerlink" href="#similarity-and-connectivity" title="Link to this heading"></a></h3>
+<h3>Similarity and connectivity<a class="headerlink" href="#similarity-and-connectivity" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>same <em>subkeyword</em> as <em>selection</em></dt><dd><p>selects all atoms that have the same <em>subkeyword</em> value as any atom in
 <em>selection</em>. Allowed <em>subkeyword</em> values are the atom properties: <code class="docutils literal notranslate"><span class="pre">name,</span>
@@ -379,7 +380,7 @@ nitrogens</p>
 </dl>
 </section>
 <section id="index">
-<h3>Index<a class="headerlink" href="#index" title="Link to this heading"></a></h3>
+<h3>Index<a class="headerlink" href="#index" title="Permalink to this heading"></a></h3>
 <dl>
 <dt>index <em>index-range</em></dt><dd><p>selects all atoms within a range of (0-based) inclusive indices,
 e.g. <code class="docutils literal notranslate"><span class="pre">index</span> <span class="pre">0</span></code> selects the first atom in the universe; <code class="docutils literal notranslate"><span class="pre">index</span> <span class="pre">5:10</span></code>
@@ -396,7 +397,7 @@ selects 5th through 10th atoms, inclusive.</p>
 </dl>
 </section>
 <section id="preexisting-selections-and-modifiers">
-<span id="preexisting-selections"></span><h3>Preexisting selections and modifiers<a class="headerlink" href="#preexisting-selections-and-modifiers" title="Link to this heading"></a></h3>
+<span id="preexisting-selections"></span><h3>Preexisting selections and modifiers<a class="headerlink" href="#preexisting-selections-and-modifiers" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt>group <cite>group-name</cite></dt><dd><p>selects the atoms in the <code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code> passed to the function as an
 argument named <cite>group-name</cite>. Only the atoms common to <cite>group-name</cite> and the
@@ -423,7 +424,7 @@ itself be empty.  When calling
 </section>
 </section>
 <section id="dynamic-selections">
-<span id="id2"></span><h2>Dynamic selections<a class="headerlink" href="#dynamic-selections" title="Link to this heading"></a></h2>
+<span id="id2"></span><h2>Dynamic selections<a class="headerlink" href="#dynamic-selections" title="Permalink to this heading"></a></h2>
 <p>By default <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.select_atoms" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">select_atoms()</span></code></a> returns an
 <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a>, in which the list of atoms is
 constant across trajectory frame changes. If
@@ -487,7 +488,7 @@ across frames:</p>
 </div>
 </section>
 <section id="ordered-selections">
-<span id="id3"></span><h2>Ordered selections<a class="headerlink" href="#ordered-selections" title="Link to this heading"></a></h2>
+<span id="id3"></span><h2>Ordered selections<a class="headerlink" href="#ordered-selections" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.select_atoms" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">select_atoms()</span></code></a> sorts the atoms
 in the <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> by atom index before
 returning them (this is to eliminate possible duplicates in the

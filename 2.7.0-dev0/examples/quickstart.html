@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Quick start guide &mdash; MDAnalysis User Guide  documentation</title>
@@ -16,11 +16,12 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -175,7 +176,7 @@
              
   <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
 <script>require=requirejs;</script><section id="Quick-start-guide">
-<h1>Quick start guide<a class="headerlink" href="#Quick-start-guide" title="Link to this heading"></a></h1>
+<h1>Quick start guide<a class="headerlink" href="#Quick-start-guide" title="Permalink to this heading"></a></h1>
 <p>MDAnalysis version: ≥ 0.18.0</p>
 <p><strong>Last updated:</strong> December 2022 with MDAnalysis 2.4.0</p>
 <p>This guide is designed as a basic introduction to MDAnalysis to get you up and running. You can see more complex tasks in our <a class="reference external" href="https://userguide.mdanalysis.org/stable/examples/README.html">Example notebooks</a>. This page outlines how to:</p>
@@ -223,7 +224,7 @@ Using MDAnalysis version 2.6.0-dev0
 </div>
 <p>If you get an error message, you need to install MDAnalysis. If your version is under <code class="docutils literal notranslate"><span class="pre">0.18.0</span></code>, you need to upgrade MDAnalysis. <a class="reference external" href="https://www.mdanalysis.org/UserGuide/installation">Instructions for both are here.</a> After installing, restart this notebook.</p>
 <section id="Overview">
-<h2>Overview<a class="headerlink" href="#Overview" title="Link to this heading"></a></h2>
+<h2>Overview<a class="headerlink" href="#Overview" title="Permalink to this heading"></a></h2>
 <p>MDAnalysis is a Python package that provides tools to access and analyse data in molecular dynamics trajectories. Several key data structures form the backbone of MDAnalysis.</p>
 <ul class="simple">
 <li><p>A molecular system consists of particles. A particle is represented as an <code class="docutils literal notranslate"><span class="pre">Atom</span></code> object, even if it is a coarse-grained bead.</p></li>
@@ -233,7 +234,7 @@ Using MDAnalysis version 2.6.0-dev0
 <p>A fundamental concept in MDAnalysis is that at any one time, only one time frame of the trajectory is being accessed. The <code class="docutils literal notranslate"><span class="pre">trajectory</span></code> attribute of a <code class="docutils literal notranslate"><span class="pre">Universe</span></code> is usually a file reader. Think of the trajectory as a function <span class="math notranslate nohighlight">\(X(t)\)</span> of the frame index <span class="math notranslate nohighlight">\(t\)</span> that only makes the data from this specific frame available. This structure is important because it allows MDAnalysis to work with trajectory files too large to fit into the computer’s memory.</p>
 </section>
 <section id="Loading-a-structure-or-trajectory">
-<h2>Loading a structure or trajectory<a class="headerlink" href="#Loading-a-structure-or-trajectory" title="Link to this heading"></a></h2>
+<h2>Loading a structure or trajectory<a class="headerlink" href="#Loading-a-structure-or-trajectory" title="Permalink to this heading"></a></h2>
 <p>Working with MDAnalysis typically starts with loading data into a <code class="docutils literal notranslate"><span class="pre">Universe</span></code>, the central data structure in MDAnalysis. The <a class="reference external" href="https://www.mdanalysis.org/UserGuide/universe">user guide</a> has a complete explanation of ways to create and manipulate a <code class="docutils literal notranslate"><span class="pre">Universe</span></code>.</p>
 <p>The first arguments for creating a <code class="docutils literal notranslate"><span class="pre">Universe</span></code> are topology and trajectory files.</p>
 <ul class="simple">
@@ -308,7 +309,7 @@ False
 </div>
 </section>
 <section id="Working-with-groups-of-atoms">
-<h2>Working with groups of atoms<a class="headerlink" href="#Working-with-groups-of-atoms" title="Link to this heading"></a></h2>
+<h2>Working with groups of atoms<a class="headerlink" href="#Working-with-groups-of-atoms" title="Permalink to this heading"></a></h2>
 <p>Most analysis requires creating and working with an <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>, a collection of <code class="docutils literal notranslate"><span class="pre">Atom</span></code>s. For convenience, you can also work with chemically meaningful groups of <code class="docutils literal notranslate"><span class="pre">Atoms</span></code> such as a <code class="docutils literal notranslate"><span class="pre">Residue</span></code> or a <code class="docutils literal notranslate"><span class="pre">Segment</span></code>. These come with analogous containers to <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>: <code class="docutils literal notranslate"><span class="pre">ResidueGroup</span></code> and <code class="docutils literal notranslate"><span class="pre">SegmentGroup</span></code>. For instance, the <code class="docutils literal notranslate"><span class="pre">.residues</span></code> attribute of a <code class="docutils literal notranslate"><span class="pre">Universe</span></code> returns a <code class="docutils literal notranslate"><span class="pre">ResidueGroup</span></code>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -327,7 +328,7 @@ False
 </pre></div></div>
 </div>
 <section id="Selecting-atoms">
-<h3>Selecting atoms<a class="headerlink" href="#Selecting-atoms" title="Link to this heading"></a></h3>
+<h3>Selecting atoms<a class="headerlink" href="#Selecting-atoms" title="Permalink to this heading"></a></h3>
 <p>The easiest way to access the particles of your <code class="docutils literal notranslate"><span class="pre">Universe</span></code> is with the <code class="docutils literal notranslate"><span class="pre">atoms</span></code> attribute:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -443,7 +444,7 @@ False
 <p>The <a class="reference external" href="https://userguide.mdanalysis.org/stable/atomgroup.html">user guide</a> has a complete rundown of creating <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>s through indexing, selection language, and set methods.</p>
 </section>
 <section id="Getting-atom-information-from-AtomGroups">
-<h3>Getting atom information from AtomGroups<a class="headerlink" href="#Getting-atom-information-from-AtomGroups" title="Link to this heading"></a></h3>
+<h3>Getting atom information from AtomGroups<a class="headerlink" href="#Getting-atom-information-from-AtomGroups" title="Permalink to this heading"></a></h3>
 <p>An <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code> can tell you information about the atoms inside it with a number of convenient attributes.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
@@ -550,7 +551,7 @@ False
 <p>A complete list of topology attributes can be found <a class="reference external" href="https://userguide.mdanalysis.org/stable/topology_system.html">in the user guide.</a></p>
 </section>
 <section id="AtomGroup-positions-and-methods">
-<h3>AtomGroup positions and methods<a class="headerlink" href="#AtomGroup-positions-and-methods" title="Link to this heading"></a></h3>
+<h3>AtomGroup positions and methods<a class="headerlink" href="#AtomGroup-positions-and-methods" title="Permalink to this heading"></a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">.positions</span></code> attribute is probably the most important information you can get from an <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>: a <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> of coordinates, with the shape <code class="docutils literal notranslate"><span class="pre">(n_atoms,</span> <span class="pre">3)</span></code>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
@@ -687,7 +688,7 @@ N-H-H angle: 106.20
 </section>
 </section>
 <section id="Working-with-trajectories">
-<h2>Working with trajectories<a class="headerlink" href="#Working-with-trajectories" title="Link to this heading"></a></h2>
+<h2>Working with trajectories<a class="headerlink" href="#Working-with-trajectories" title="Permalink to this heading"></a></h2>
 <p>The <a class="reference external" href="https://userguide.mdanalysis.org/stable/trajectories/trajectories.html">trajectory of a Universe contains the changing coordinate information</a>. The number of frames in a trajectory is its length:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
@@ -898,7 +899,7 @@ Frame:  10, Time:   11 ps, Rgyr: 16.8521 A
 </div>
 </div>
 <section id="Dynamic-selection">
-<h3>Dynamic selection<a class="headerlink" href="#Dynamic-selection" title="Link to this heading"></a></h3>
+<h3>Dynamic selection<a class="headerlink" href="#Dynamic-selection" title="Permalink to this heading"></a></h3>
 <p>As seen above, coordinates change while iterating over the trajectory. Therefore, properties calculated from the coordinates, such as the radius of gyration, also change.</p>
 <p>Selections are often defined on static properties that do not change when moving through a trajectory. Above, the static selection is all the atoms that are in a protein. You can define the selection once and then recalculate the property of interest for each frame of the trajectory.</p>
 <p>However, some selections contain distance-dependent queries (such as <code class="docutils literal notranslate"><span class="pre">around</span></code> or <code class="docutils literal notranslate"><span class="pre">point</span></code>, <a class="reference external" href="https://userguide.mdanalysis.org/stable/selections.html">see selection keywords for more details</a>). In this case, the selection should be updated for each time step using a dynamic selection by setting the keyword <code class="docutils literal notranslate"><span class="pre">updating=True</span></code>. This command gives an <code class="docutils literal notranslate"><span class="pre">UpdatingAtomGroup</span></code> rather than a static <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>.</p>
@@ -995,11 +996,11 @@ Frame:  10, Time:   11 ps, Rgyr: 16.8521 A
 </section>
 </section>
 <section id="Writing-out-coordinates">
-<h2>Writing out coordinates<a class="headerlink" href="#Writing-out-coordinates" title="Link to this heading"></a></h2>
+<h2>Writing out coordinates<a class="headerlink" href="#Writing-out-coordinates" title="Permalink to this heading"></a></h2>
 <p>MDAnalysis supports <a class="reference external" href="https://userguide.mdanalysis.org/stable/selections.html">writing data out</a> into a range of file formats, including both single frame formats (e.g. PDB, GRO) and trajectory writers (e.g. XTC, DCD, and multi-frame PDB files). (You can <a class="reference external" href="https://userguide.mdanalysis.org/stable/formats/selection_exporters.html">also write selections out to other programs, such as VMD macros.</a>)The user guide has a <a class="reference external" href="https://userguide.mdanalysis.org/stable/formats/index.html">complete list of
 formats</a>, each with their own <a class="reference external" href="https://userguide.mdanalysis.org/stable/formats/format_reference.html">reference pages</a>.</p>
 <section id="Single-frame">
-<h3>Single frame<a class="headerlink" href="#Single-frame" title="Link to this heading"></a></h3>
+<h3>Single frame<a class="headerlink" href="#Single-frame" title="Permalink to this heading"></a></h3>
 <p>The most straightforward way to write to a file that can only hold a single frame is to use the <code class="docutils literal notranslate"><span class="pre">write()</span></code> method of any <code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>. MDAnalysis uses the file extension to determine the output file format. For instance, to only write out the <span class="math notranslate nohighlight">\(C_{\alpha}\)</span> atoms to a file in GRO format:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ca</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>
 <span class="n">ca</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;calphas.gro&#39;</span><span class="p">)</span>
@@ -1007,7 +1008,7 @@ formats</a>, each with their own <a class="reference external" href="https://use
 </div>
 </section>
 <section id="Trajectories">
-<h3>Trajectories<a class="headerlink" href="#Trajectories" title="Link to this heading"></a></h3>
+<h3>Trajectories<a class="headerlink" href="#Trajectories" title="Permalink to this heading"></a></h3>
 <p>The <a class="reference external" href="https://userguide.mdanalysis.org/stable/reading_and_writing.html#output">standard way to write out trajectories</a> is to:</p>
 <ol class="arabic simple">
 <li><p>Open a trajectory <code class="docutils literal notranslate"><span class="pre">Writer</span></code> and specify how many atoms a frame will contain</p></li>
@@ -1024,7 +1025,7 @@ formats</a>, each with their own <a class="reference external" href="https://use
 </section>
 </section>
 <section id="Analysis">
-<h2>Analysis<a class="headerlink" href="#Analysis" title="Link to this heading"></a></h2>
+<h2>Analysis<a class="headerlink" href="#Analysis" title="Permalink to this heading"></a></h2>
 <p>MDAnalysis comes with a <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis_modules.html">diverse set of analysis modules</a>, and the building blocks to <a class="reference external" href="https://userguide.mdanalysis.org/stable/examples/analysis/custom_trajectory_analysis.html">implement your own</a>. (Please see a list of analysis tutorials in the <a class="reference external" href="https://userguide.mdanalysis.org/stable/examples/analysis/README.html">user guide</a>.)</p>
 <p>The majority of these follow a common interface:</p>
 <ol class="arabic simple">
@@ -1036,7 +1037,7 @@ formats</a>, each with their own <a class="reference external" href="https://use
 <p><strong>However, not all analysis uses this model. It is important to check the documentation for each analysis.</strong> You can also see examples in the <a class="reference external" href="https://userguide.mdanalysis.org/stable/examples/README.html">Example gallery</a>.</p>
 <p>Below, simple RMSD analysis is shown. The <code class="docutils literal notranslate"><span class="pre">rms</span></code> module follows the interface above.</p>
 <section id="RMSD">
-<h3>RMSD<a class="headerlink" href="#RMSD" title="Link to this heading"></a></h3>
+<h3>RMSD<a class="headerlink" href="#RMSD" title="Permalink to this heading"></a></h3>
 <p>Not all sub-modules of MDAnalysis are imported with <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">MDAnalysis</span></code>. Most analysis modules have to be imported explicitly.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
@@ -1237,7 +1238,7 @@ formats</a>, each with their own <a class="reference external" href="https://use
 </section>
 </section>
 <section id="References">
-<h2>References<a class="headerlink" href="#References" title="Link to this heading"></a></h2>
+<h2>References<a class="headerlink" href="#References" title="Permalink to this heading"></a></h2>
 <p>When using MDAnalysis in published work, please cite both these papers:</p>
 <ul class="simple">
 <li><ol class="upperalpha simple" start="14">
@@ -1254,7 +1255,7 @@ doi:<a class="reference external" href="https://doi.org/10.25080/Majora-629e541a
 </ul>
 <p>The primary sources of each module will be in their documentation.</p>
 <section id="Automatic-citations-with-duecredit">
-<h3>Automatic citations with duecredit<a class="headerlink" href="#Automatic-citations-with-duecredit" title="Link to this heading"></a></h3>
+<h3>Automatic citations with duecredit<a class="headerlink" href="#Automatic-citations-with-duecredit" title="Permalink to this heading"></a></h3>
 <p>Citations can be also be automatically generated using <code class="docutils literal notranslate"><span class="pre">duecredit</span></code>. <a class="reference external" href="https://mdanalysis.org/UserGuide/references.html">Complete installation and usage instructions can be found in the user guide</a>, but it is simple to generate a list of citations for your python script <code class="docutils literal notranslate"><span class="pre">my_script.py</span></code>.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>duecredit<span class="w"> </span>my_script.py
 </pre></div>

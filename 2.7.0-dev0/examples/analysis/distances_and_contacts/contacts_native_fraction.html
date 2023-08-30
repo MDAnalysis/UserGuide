@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fraction of native contacts over a trajectory &mdash; MDAnalysis User Guide  documentation</title>
@@ -16,11 +16,12 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -181,7 +182,7 @@
              
   <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
 <script>require=requirejs;</script><section id="Fraction-of-native-contacts-over-a-trajectory">
-<h1>Fraction of native contacts over a trajectory<a class="headerlink" href="#Fraction-of-native-contacts-over-a-trajectory" title="Link to this heading"></a></h1>
+<h1>Fraction of native contacts over a trajectory<a class="headerlink" href="#Fraction-of-native-contacts-over-a-trajectory" title="Permalink to this heading"></a></h1>
 <p>Here, we calculate the native contacts of a trajectory as a fraction of the native contacts in a given reference.</p>
 <p><strong>Last updated:</strong> December 2022 with MDAnalysis 2.4.0-dev0</p>
 <p><strong>Minimum version of MDAnalysis:</strong> 1.0.0</p>
@@ -217,7 +218,7 @@
 </div>
 </div>
 <section id="Loading-files">
-<h2>Loading files<a class="headerlink" href="#Loading-files" title="Link to this heading"></a></h2>
+<h2>Loading files<a class="headerlink" href="#Loading-files" title="Permalink to this heading"></a></h2>
 <p>The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<span id="id3">[<a class="reference internal" href="../../../references.html#id14" title="Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164 (visited on 2020-02-05), doi:10.1016/j.jmb.2009.09.009.">BDPW09</a>]</span>) The trajectory <code class="docutils literal notranslate"><span class="pre">DCD</span></code> samples a transition from a closed to an open conformation.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -238,7 +239,7 @@
 </div>
 </section>
 <section id="Background">
-<h2>Background<a class="headerlink" href="#Background" title="Link to this heading"></a></h2>
+<h2>Background<a class="headerlink" href="#Background" title="Permalink to this heading"></a></h2>
 <p>Residues can be determined to be in contact if atoms from the two residues are within a certain distance. <em>Native</em> contacts are those contacts that exist within a native state, as opposed to <em>non-native</em> contacts, which are formed along the path to a folded state or during the transition between two conformational states. MDAnalysis defines native contacts as those present in the reference structure (<code class="docutils literal notranslate"><span class="pre">refgroup</span></code>) given to the analysis.</p>
 <p>Proteins often have more than one native state. Calculating the fraction of native contacts within a protein over a simulation can give insight into transitions between states, or into folding and unfolding processes. MDAnalysis supports three metrics for determining contacts:</p>
 <ul class="simple">
@@ -249,7 +250,7 @@
 <p>Please see the API documentation for the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/contacts.html#MDAnalysis.analysis.contacts.Contacts">Contacts</a> class for more information.</p>
 </section>
 <section id="Defining-the-groups-for-contact-analysis">
-<h2>Defining the groups for contact analysis<a class="headerlink" href="#Defining-the-groups-for-contact-analysis" title="Link to this heading"></a></h2>
+<h2>Defining the groups for contact analysis<a class="headerlink" href="#Defining-the-groups-for-contact-analysis" title="Permalink to this heading"></a></h2>
 <p>For the purposes of this tutorial, we define pseudo-salt bridges as contacts. A more appropriate quantity for studying the transition between two protein conformations may be the contacts formed by alpha-carbon atoms, as this will give us insight into the movements of the protein in terms of the secondary and tertiary structure. The <a class="reference internal" href="contacts_q1q2.html"><span class="doc">Q1 vs Q2 contact analysis</span></a> demonstrates an example using the alpha-carbon atoms.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -264,7 +265,7 @@
 </div>
 </section>
 <section id="Hard-cutoff-with-a-single-reference">
-<h2>Hard cutoff with a single reference<a class="headerlink" href="#Hard-cutoff-with-a-single-reference" title="Link to this heading"></a></h2>
+<h2>Hard cutoff with a single reference<a class="headerlink" href="#Hard-cutoff-with-a-single-reference" title="Permalink to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">'hard_cut'</span></code> or <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/contacts.html#MDAnalysis.analysis.contacts.hard_cut_q">hard_cut_q()</a> method uses a hard cutoff for determining native contacts. Two residues are in contact if the distance between them is lower than or equal to the distance in the reference structure.</p>
 <p>Below, we use the atomgroups in the universe at the current frame as a reference.</p>
 <div class="nbinput nblast docutils container">
@@ -402,7 +403,7 @@ There are 69 contacts in the reference.
 </pre></div></div>
 </div>
 <section id="Plotting">
-<h3>Plotting<a class="headerlink" href="#Plotting" title="Link to this heading"></a></h3>
+<h3>Plotting<a class="headerlink" href="#Plotting" title="Permalink to this heading"></a></h3>
 <p>You can plot directly from the dataframe, or use other tools such as <a class="reference external" href="https://seaborn.pydata.org/">seaborn</a>. In this trajectory, the fraction of native contats drops immediately to under 50%, and fluctuates around 40% for the rest of the simulation. This means that the protein retains a structure where around 40% salt bridges in the reference remain within the distance of the reference. However, it is difficult to infer information on domain rearrangements and other large-scale movement,
 other than that the the protein never returns to a similar state as the initial frame.</p>
 <div class="nbinput docutils container">
@@ -425,7 +426,7 @@ other than that the the protein never returns to a similar state as the initial 
 </section>
 </section>
 <section id="Radius-cutoff">
-<h2>Radius cutoff<a class="headerlink" href="#Radius-cutoff" title="Link to this heading"></a></h2>
+<h2>Radius cutoff<a class="headerlink" href="#Radius-cutoff" title="Permalink to this heading"></a></h2>
 <p>Another metric that MDAnalysis supports is determining residues to be in contact if they are within a certain radius. This is similar to the hard cutoff metric, in that there is no potential. The difference is that a single radius is used as the cutoff for all contacts, rather than the distance between the residues in the reference. For a tutorial on similar contact analysis of residues within a cutoff, see <a class="reference internal" href="contacts_within_cutoff.html"><span class="doc">Number of contacts within cutoff</span></a>. That tutorial is for
 calculating the overall number or fraction of contacts, instead of the fraction of native contacts.</p>
 <p>You can choose this method by passing in the method name <code class="docutils literal notranslate"><span class="pre">'radius_cut'</span></code>, which uses the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/contacts.html#MDAnalysis.analysis.contacts.radius_cut_q">radius_cut_q()</a>. The <code class="docutils literal notranslate"><span class="pre">radius</span></code> keyword specifies the distance used in ångström. No other arguments need to passed into <code class="docutils literal notranslate"><span class="pre">kwargs</span></code>.</p>
@@ -441,7 +442,7 @@ calculating the overall number or fraction of contacts, instead of the fraction 
 </div>
 </div>
 <section id="id6">
-<h3>Plotting<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<h3>Plotting<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
 <p>Again, we can plot over time. We can see that the fraction of native contacts from the first frame has a very different shape for the <code class="docutils literal notranslate"><span class="pre">radius_cut</span></code> method vs the <code class="docutils literal notranslate"><span class="pre">hard_cut</span></code> method. While the <code class="docutils literal notranslate"><span class="pre">hard_cut</span></code> metric tells us that &gt;50% the native contacts never have equal or lower distance during the trajectory, as compared to the reference, the <code class="docutils literal notranslate"><span class="pre">radius_cut</span></code> analysis shows us that the fraction of contacts within 4.5 Å decreases gradually to 75% over the trajectory. We can infer that almost half
 the native contacts in the reference frame were closer than 4.5 Å. Moreover, the continuous decrease suggests that the protein may be unfolding, or a large-scale changes in conformation are occurring in such a way that the native salt bridges are not preserved or re-formed.</p>
 <div class="nbinput docutils container">
@@ -466,9 +467,9 @@ the native contacts in the reference frame were closer than 4.5 Å. Moreover, th
 </section>
 </section>
 <section id="Soft-cutoff-and-multiple-references">
-<h2>Soft cutoff and multiple references<a class="headerlink" href="#Soft-cutoff-and-multiple-references" title="Link to this heading"></a></h2>
+<h2>Soft cutoff and multiple references<a class="headerlink" href="#Soft-cutoff-and-multiple-references" title="Permalink to this heading"></a></h2>
 <section id="Multiple-references">
-<h3>Multiple references<a class="headerlink" href="#Multiple-references" title="Link to this heading"></a></h3>
+<h3>Multiple references<a class="headerlink" href="#Multiple-references" title="Permalink to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">refgroup</span></code> can either be two contacting groups in a reference configuration, or a list of tuples of two contacting groups.</p>
 <p>Below we want to look at native contacts from the first frame, and the last frame. To do this, we create a new universe called <code class="docutils literal notranslate"><span class="pre">ref</span></code> with the same files (and therefore same data) as <code class="docutils literal notranslate"><span class="pre">u</span></code>. We need to do this so that the (<code class="docutils literal notranslate"><span class="pre">acidic,</span> <span class="pre">basic</span></code>) selections from <code class="docutils literal notranslate"><span class="pre">u</span></code>, which are assigned from the first frame, remain unchanged. <code class="docutils literal notranslate"><span class="pre">ref</span></code> is a different Universe so when we set it to its last frame (with index <code class="docutils literal notranslate"><span class="pre">-1</span></code>), it does not affect <code class="docutils literal notranslate"><span class="pre">u</span></code> or the previous selections. Now, when we re-select the
 atomgroups from <code class="docutils literal notranslate"><span class="pre">ref</span></code> with the selection string used in the <a class="reference internal" href="#Hard-cutoff-with-a-single-reference"><span class="std std-ref">hard-cutoff section</span></a>, different contacts are selected to the contacts found in the first frame of <code class="docutils literal notranslate"><span class="pre">u</span></code>.</p>
@@ -495,7 +496,7 @@ atomgroups from <code class="docutils literal notranslate"><span class="pre">ref
 </div>
 </section>
 <section id="Soft-cutoff">
-<h3>Soft cutoff<a class="headerlink" href="#Soft-cutoff" title="Link to this heading"></a></h3>
+<h3>Soft cutoff<a class="headerlink" href="#Soft-cutoff" title="Permalink to this heading"></a></h3>
 <p>This time we will use the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/contacts.html#MDAnalysis.analysis.contacts.soft_cut_q">soft_cut_q</a> algorithm to calculate contacts by setting <code class="docutils literal notranslate"><span class="pre">method='soft_cut'</span></code>. This method uses the soft potential below to determine if atoms are in contact:</p>
 <div class="math notranslate nohighlight">
 \[Q(r, r_0) = \frac{1}{1 + e^{\beta (r - \lambda r_0)}}\]</div>
@@ -593,7 +594,7 @@ simultaneously.</p>
 </div>
 </section>
 <section id="id7">
-<h3>Plotting<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<h3>Plotting<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
 <p>Again, we can see that the fraction of native contacts from the first frame has a very different shape for the <code class="docutils literal notranslate"><span class="pre">soft_cut</span></code> method vs the other methods. Like the <code class="docutils literal notranslate"><span class="pre">radius_cut</span></code> method, a gradual decrease in salt bridges is visible; unlike that plot, however, more than 80% native contacts are counted by 100 frames using this metric. By itself, this analysis might suggest that the protein is unfolding.</p>
 <p>More interesting is the fraction of native contacts from the <em>last</em> frame, which rises from ~70% to 100% over the simulation. This rise indicates that the protein is not <em>unfolding</em>, per se (where contacts from the last frame would be expected to rise much less); but instead, a rearrangement of the domains is occurring, where new contacts are formed in the final state.</p>
 <div class="nbinput docutils container">
@@ -676,7 +677,7 @@ simultaneously.</p>
 </section>
 </section>
 <section id="References">
-<h2>References<a class="headerlink" href="#References" title="Link to this heading"></a></h2>
+<h2>References<a class="headerlink" href="#References" title="Permalink to this heading"></a></h2>
 <p>[1] Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009. 00107. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164">https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164</a>, doi:10.1016/j.jmb.2009.09.009.</p>
 <p>[2] R. B. Best, G. Hummer, and W. A. Eaton. Native contacts determine protein folding mechanisms in atomistic simulations. Proceedings of the National Academy of Sciences, 110(44):17874–17879, October 2013. 00259. URL: <a class="reference external" href="http://www.pnas.org/cgi/doi/10.1073/pnas.1311599110">http://www.pnas.org/cgi/doi/10.1073/pnas.1311599110</a>, doi:10.1073/pnas.1311599110.</p>
 <p>[3] Joel Franklin, Patrice Koehl, Sebastian Doniach, and Marc Delarue. MinActionPath: maximum likelihood trajectory for large-scale structural transitions in a coarse-grained locally harmonic energy landscape. Nucleic Acids Research, 35(suppl_2):W477–W482, July 2007. 00083. URL: <a class="reference external" href="https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/gkm342">https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/gkm342</a>, doi:10.1093/nar/gkm342.</p>

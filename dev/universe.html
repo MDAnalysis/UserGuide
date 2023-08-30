@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Universe &mdash; MDAnalysis User Guide  documentation</title>
@@ -15,11 +15,12 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="_static/js/versions.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -154,7 +155,7 @@
            <div itemprop="articleBody">
              
   <section id="universe">
-<span id="id1"></span><h1>Universe<a class="headerlink" href="#universe" title="Link to this heading"></a></h1>
+<span id="id1"></span><h1>Universe<a class="headerlink" href="#universe" title="Permalink to this heading"></a></h1>
 <blockquote>
 <div><p><em>If you wish to make an apple pie from scratch, you must first invent the universe.</em></p>
 <p class="attribution">—Carl Sagan, Cosmos</p>
@@ -167,9 +168,9 @@
 </ul>
 <p>A <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a> ties the static information from the “topology” (e.g. atom identities) to dynamically updating information from the “trajectory” (e.g. coordinates). A key feature of MDAnalysis is that an entire trajectory is not loaded into memory (unless the user explicitly does so with <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/coordinates/memory.html#MDAnalysis.coordinates.memory.MemoryReader" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MemoryReader</span></code></a>). Instead, the <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.trajectory" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">trajectory</span></code></a> attribute provides a view on a specific frame of the trajectory. This allows the analysis of arbitrarily long trajectories without a significant impact on memory.</p>
 <section id="creating-a-universe">
-<h2>Creating a Universe<a class="headerlink" href="#creating-a-universe" title="Link to this heading"></a></h2>
+<h2>Creating a Universe<a class="headerlink" href="#creating-a-universe" title="Permalink to this heading"></a></h2>
 <section id="loading-from-files">
-<span id="universe-loading"></span><h3>Loading from files<a class="headerlink" href="#loading-from-files" title="Link to this heading"></a></h3>
+<span id="universe-loading"></span><h3>Loading from files<a class="headerlink" href="#loading-from-files" title="Permalink to this heading"></a></h3>
 <p>A Universe is typically created from a “topology” file, with optional “trajectory” file/s. Trajectory files must have the coordinates in the same order as atoms in the topology. See <a class="reference internal" href="formats/index.html#formats"><span class="std std-ref">Formats</span></a> for the topology and trajectory formats supported by MDAnalysis, and how to load each specific format.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">Universe</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">trajectory</span><span class="p">)</span>
 <span class="n">u</span> <span class="o">=</span> <span class="n">Universe</span><span class="p">(</span><span class="n">pdbfile</span><span class="p">)</span>                       <span class="c1"># read atoms and coordinates from PDB or GRO</span>
@@ -228,7 +229,7 @@
 </div>
 </section>
 <section id="constructing-from-atomgroups">
-<h3>Constructing from AtomGroups<a class="headerlink" href="#constructing-from-atomgroups" title="Link to this heading"></a></h3>
+<h3>Constructing from AtomGroups<a class="headerlink" href="#constructing-from-atomgroups" title="Permalink to this heading"></a></h3>
 <p>A new Universe can be created from one or more <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> instances with <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Merge" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">Merge()</span></code></a>. The <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> instances can come from different Universes, meaning that this is one way to concatenate selections from different datasets.</p>
 <p>For example, to combine a protein, ligand, and solvent from separate PDB files:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">u1</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="s2">&quot;protein.pdb&quot;</span><span class="p">)</span>
@@ -240,7 +241,7 @@
 </div>
 </section>
 <section id="constructing-from-scratch">
-<h3>Constructing from scratch<a class="headerlink" href="#constructing-from-scratch" title="Link to this heading"></a></h3>
+<h3>Constructing from scratch<a class="headerlink" href="#constructing-from-scratch" title="Permalink to this heading"></a></h3>
 <p>A Universe can be constructed from scratch with <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.empty" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Universe.empty</span></code></a>. There are three stages to this process:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -266,12 +267,12 @@
 <p><a class="reference internal" href="examples/constructing_universe.html"><span class="doc">See this notebook tutorial for more information.</span></a></p>
 </section>
 <section id="guessing-topology-attributes">
-<h3>Guessing topology attributes<a class="headerlink" href="#guessing-topology-attributes" title="Link to this heading"></a></h3>
+<h3>Guessing topology attributes<a class="headerlink" href="#guessing-topology-attributes" title="Permalink to this heading"></a></h3>
 <p>MDAnalysis can guess two kinds of information. Sometimes MDAnalysis guesses information instead of reading it from certain file formats, which can lead to mistakes such as assigning atoms the wrong element or charge. See <a class="reference internal" href="formats/index.html#topology-parsers"><span class="std std-ref">the available topology parsers</span></a> for a case-by-case breakdown of which atom properties MDAnalysis guesses for each format. See <a class="reference internal" href="formats/guessing.html#guessing"><span class="std std-ref">Guessing</span></a> for how attributes are guessed, and <a class="reference internal" href="topology_system.html#topologyattr-defaults"><span class="std std-ref">Default values and attribute levels</span></a> for which attributes have default values.</p>
 </section>
 </section>
 <section id="universe-properties-and-methods">
-<span id="universe-properties"></span><h2>Universe properties and methods<a class="headerlink" href="#universe-properties-and-methods" title="Link to this heading"></a></h2>
+<span id="universe-properties"></span><h2>Universe properties and methods<a class="headerlink" href="#universe-properties-and-methods" title="Permalink to this heading"></a></h2>
 <p>A Universe holds master groups of atoms and topology objects:</p>
 <blockquote>
 <div><ul class="simple">

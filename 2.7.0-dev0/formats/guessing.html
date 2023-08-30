@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Guessing &mdash; MDAnalysis User Guide  documentation</title>
@@ -15,11 +15,12 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -151,10 +152,10 @@
            <div itemprop="articleBody">
              
   <section id="guessing">
-<span id="id1"></span><h1>Guessing<a class="headerlink" href="#guessing" title="Link to this heading"></a></h1>
+<span id="id1"></span><h1>Guessing<a class="headerlink" href="#guessing" title="Permalink to this heading"></a></h1>
 <p>When a Universe is created from a Universe, MDAnalysis guesses properties that have not been read from the file. Sometimes these properties are available in the file, but are simply not read by MDAnalysis. For example, <a class="reference internal" href="#guessing-masses"><span class="std std-ref">masses are always guessed</span></a>.</p>
 <section id="masses">
-<span id="guessing-masses"></span><h2>Masses<a class="headerlink" href="#masses" title="Link to this heading"></a></h2>
+<span id="guessing-masses"></span><h2>Masses<a class="headerlink" href="#masses" title="Permalink to this heading"></a></h2>
 <p>Atom masses are always guessed for every file format. They are guessed from the <code class="docutils literal notranslate"><span class="pre">Atom.atom_type</span></code>. This attribute represents a number of different values in MDAnalysis, depending on which file format you used to create your Universe. <code class="docutils literal notranslate"><span class="pre">Atom.atom_type</span></code> can be force-field specific atom types, from files that provide this information; or it can be an element, guessed from the atom name. <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/issues/2348">See further discussion here.</a></p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -162,11 +163,11 @@
 </div>
 </section>
 <section id="types">
-<h2>Types<a class="headerlink" href="#types" title="Link to this heading"></a></h2>
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this heading"></a></h2>
 <p>When atom <code class="docutils literal notranslate"><span class="pre">atom_type</span></code>s are guessed, they represent the atom element. Atom types are always guessed from the atom name. MDAnalysis follows biological naming conventions, where atoms named “CA” are much more likely to represent an alpha-carbon than a calcium atom. This guesser is still relatively fragile for non-traditionally biological atom names.</p>
 </section>
 <section id="bonds-angles-dihedrals-impropers">
-<h2>Bonds, Angles, Dihedrals, Impropers<a class="headerlink" href="#bonds-angles-dihedrals-impropers" title="Link to this heading"></a></h2>
+<h2>Bonds, Angles, Dihedrals, Impropers<a class="headerlink" href="#bonds-angles-dihedrals-impropers" title="Permalink to this heading"></a></h2>
 <p>MDAnalysis can guess if bonds exist between two atoms, based on the distance between them. A bond is created if the 2 atoms are within</p>
 <div class="math notranslate nohighlight">
 \[d &lt; f \cdot (R_1 + R_2)\]</div>

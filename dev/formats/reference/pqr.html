@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PQR file (PDB2PQR / APBS) &mdash; MDAnalysis User Guide  documentation</title>
@@ -15,11 +15,12 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../../_static/js/versions.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -187,8 +188,12 @@
            <div itemprop="articleBody">
              
   <section id="pqr-file-pdb2pqr-apbs">
-<span id="pqr-format"></span><h1>PQR file (PDB2PQR / APBS)<a class="headerlink" href="#pqr-file-pdb2pqr-apbs" title="Link to this heading"></a></h1>
+<span id="pqr-format"></span><h1>PQR file (PDB2PQR / APBS)<a class="headerlink" href="#pqr-file-pdb2pqr-apbs" title="Permalink to this heading"></a></h1>
 <table class="docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><strong>Coordinate reader</strong></p></td>
 <td><p><a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/coordinates/PQR.html#MDAnalysis.coordinates.PQR.PQRReader" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.coordinates.PQR.PQRReader</span></code></a></p></td>
@@ -215,7 +220,7 @@ option are guaranteed to conform to the above format:</p>
 </pre></div>
 </div>
 <section id="reading-in">
-<h2>Reading in<a class="headerlink" href="#reading-in" title="Link to this heading"></a></h2>
+<h2>Reading in<a class="headerlink" href="#reading-in" title="Permalink to this heading"></a></h2>
 <p>MDAnalysis reads data on a per-line basis from PQR files using the following format:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">recordName</span> <span class="n">serial</span> <span class="n">atomName</span> <span class="n">residueName</span> <span class="n">chainID</span> <span class="n">residueNumber</span> <span class="n">X</span> <span class="n">Y</span> <span class="n">Z</span> <span class="n">charge</span> <span class="n">radius</span>
 </pre></div>
@@ -230,7 +235,7 @@ format is read:</p>
 <em>must</em> be separated by at least one space or tab character.</p>
 </section>
 <section id="writing-out">
-<h2>Writing out<a class="headerlink" href="#writing-out" title="Link to this heading"></a></h2>
+<h2>Writing out<a class="headerlink" href="#writing-out" title="Permalink to this heading"></a></h2>
 <p>Charges (“Q”) are taken from the <code class="xref py py-attr docutils literal notranslate"><span class="pre">MDAnalysis.core.groups.Atom.charge</span></code> attribute while radii are obtained from the <code class="xref py py-attr docutils literal notranslate"><span class="pre">MDAnalysis.core.groups.Atom.radius</span></code> attribute.</p>
 <blockquote>
 <div><ul class="simple">
@@ -249,28 +254,28 @@ and can be omitted:</p>
 </div>
 </section>
 <section id="pqr-specification">
-<h2>PQR specification<a class="headerlink" href="#pqr-specification" title="Link to this heading"></a></h2>
+<h2>PQR specification<a class="headerlink" href="#pqr-specification" title="Permalink to this heading"></a></h2>
 <p>The PQR fields read are:</p>
-<dl class="simple glossary">
-<dt id="term-recordName">recordName<a class="headerlink" href="#term-recordName" title="Link to this term"></a></dt><dd><p>A string which specifies the type of PQR entry and should either be ATOM or
+<dl class="glossary simple">
+<dt id="term-recordName">recordName<a class="headerlink" href="#term-recordName" title="Permalink to this term"></a></dt><dd><p>A string which specifies the type of PQR entry and should either be ATOM or
 HETATM.</p>
 </dd>
-<dt id="term-serial">serial<a class="headerlink" href="#term-serial" title="Link to this term"></a></dt><dd><p>An integer which provides the atom index (but note that MDAnalysis renumbers
+<dt id="term-serial">serial<a class="headerlink" href="#term-serial" title="Permalink to this term"></a></dt><dd><p>An integer which provides the atom index (but note that MDAnalysis renumbers
 atoms so one cannot rely on the <em>serial</em>)</p>
 </dd>
-<dt id="term-atomName">atomName<a class="headerlink" href="#term-atomName" title="Link to this term"></a></dt><dd><p>A string which provides the atom name.</p>
+<dt id="term-atomName">atomName<a class="headerlink" href="#term-atomName" title="Permalink to this term"></a></dt><dd><p>A string which provides the atom name.</p>
 </dd>
-<dt id="term-residueName">residueName<a class="headerlink" href="#term-residueName" title="Link to this term"></a></dt><dd><p>A string which provides the residue name.</p>
+<dt id="term-residueName">residueName<a class="headerlink" href="#term-residueName" title="Permalink to this term"></a></dt><dd><p>A string which provides the residue name.</p>
 </dd>
-<dt id="term-chainID">chainID<a class="headerlink" href="#term-chainID" title="Link to this term"></a></dt><dd><p>An optional string which provides the chain ID of the atom.</p>
+<dt id="term-chainID">chainID<a class="headerlink" href="#term-chainID" title="Permalink to this term"></a></dt><dd><p>An optional string which provides the chain ID of the atom.</p>
 </dd>
-<dt id="term-residueNumber">residueNumber<a class="headerlink" href="#term-residueNumber" title="Link to this term"></a></dt><dd><p>An integer which provides the residue index.</p>
+<dt id="term-residueNumber">residueNumber<a class="headerlink" href="#term-residueNumber" title="Permalink to this term"></a></dt><dd><p>An integer which provides the residue index.</p>
 </dd>
-<dt id="term-X-Y-Z">X Y Z<a class="headerlink" href="#term-X-Y-Z" title="Link to this term"></a></dt><dd><p>Three floats which provide the atomic coordiantes.</p>
+<dt id="term-X-Y-Z">X Y Z<a class="headerlink" href="#term-X-Y-Z" title="Permalink to this term"></a></dt><dd><p>Three floats which provide the atomic coordiantes.</p>
 </dd>
-<dt id="term-charge">charge<a class="headerlink" href="#term-charge" title="Link to this term"></a></dt><dd><p>A float which provides the atomic charge (in electrons).</p>
+<dt id="term-charge">charge<a class="headerlink" href="#term-charge" title="Permalink to this term"></a></dt><dd><p>A float which provides the atomic charge (in electrons).</p>
 </dd>
-<dt id="term-radius">radius<a class="headerlink" href="#term-radius" title="Link to this term"></a></dt><dd><p>A float which provides the atomic radius (in Å).</p>
+<dt id="term-radius">radius<a class="headerlink" href="#term-radius" title="Permalink to this term"></a></dt><dd><p>A float which provides the atomic radius (in Å).</p>
 </dd>
 </dl>
 <p>Clearly, this format can deviate wildly from <a class="reference external" href="http://www.wwpdb.org/documentation/file-format">PDB</a> due to the use of whitespaces

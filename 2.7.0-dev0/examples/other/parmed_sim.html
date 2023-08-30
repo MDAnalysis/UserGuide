@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Using ParmEd with MDAnalysis and OpenMM to simulate a selection of atoms &mdash; MDAnalysis User Guide  documentation</title>
@@ -16,11 +16,12 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -172,7 +173,7 @@
              
   <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
 <script>require=requirejs;</script><section id="Using-ParmEd-with-MDAnalysis-and-OpenMM-to-simulate-a-selection-of-atoms">
-<h1>Using ParmEd with MDAnalysis and OpenMM to simulate a selection of atoms<a class="headerlink" href="#Using-ParmEd-with-MDAnalysis-and-OpenMM-to-simulate-a-selection-of-atoms" title="Link to this heading"></a></h1>
+<h1>Using ParmEd with MDAnalysis and OpenMM to simulate a selection of atoms<a class="headerlink" href="#Using-ParmEd-with-MDAnalysis-and-OpenMM-to-simulate-a-selection-of-atoms" title="Permalink to this heading"></a></h1>
 <p>Here we use MDAnalysis to convert a ParmEd structure to an MDAnalysis Universe, select a subset of atoms, and convert it back to ParmEd to simulate with OpenMM.</p>
 <p><strong>Last updated:</strong> December 2022 with MDAnalysis 2.4.0-dev0</p>
 <p><strong>Last updated:</strong> December 2022</p>
@@ -199,7 +200,7 @@
 </div>
 </div>
 <section id="Loading-files:-the-difference-between-ParmEd-and-MDAnalysis">
-<h2>Loading files: the difference between ParmEd and MDAnalysis<a class="headerlink" href="#Loading-files:-the-difference-between-ParmEd-and-MDAnalysis" title="Link to this heading"></a></h2>
+<h2>Loading files: the difference between ParmEd and MDAnalysis<a class="headerlink" href="#Loading-files:-the-difference-between-ParmEd-and-MDAnalysis" title="Permalink to this heading"></a></h2>
 <p>Both ParmEd and MDAnalysis read a number of file formats. However, while MDAnalysis is typically used to analyse simulations, ParmEd is often used to set them up. This requires ParmEd to read topology parameter information that MDAnalysis typically ignores, such as the equilibrium length and force constants of bonds in the system. For example, the ParmEd structure below.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -349,7 +350,7 @@
 </div>
 </section>
 <section id="Using-MDAnalysis-to-select-atoms">
-<h2>Using MDAnalysis to select atoms<a class="headerlink" href="#Using-MDAnalysis-to-select-atoms" title="Link to this heading"></a></h2>
+<h2>Using MDAnalysis to select atoms<a class="headerlink" href="#Using-MDAnalysis-to-select-atoms" title="Permalink to this heading"></a></h2>
 <p>One reason we might want to convert a ParmEd structure into MDAnalysis is to use its sophisticated <a class="reference external" href="https://www.mdanalysis.org/UserGuide/selections.html">atom selection syntax</a>. While ParmEd has its <a class="reference external" href="https://parmed.github.io/ParmEd/html/structure.html#structure-manipulation-slicing-combining-replicating-and-splitting">own ways to select atoms</a>, MDAnalysis allows you to select atoms based on geometric distance.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
@@ -380,7 +381,7 @@
 </div>
 </section>
 <section id="Using-ParmEd-and-OpenMM-to-create-a-simulation-system">
-<h2>Using ParmEd and OpenMM to create a simulation system<a class="headerlink" href="#Using-ParmEd-and-OpenMM-to-create-a-simulation-system" title="Link to this heading"></a></h2>
+<h2>Using ParmEd and OpenMM to create a simulation system<a class="headerlink" href="#Using-ParmEd-and-OpenMM-to-create-a-simulation-system" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
@@ -508,7 +509,7 @@
 </div>
 </section>
 <section id="References">
-<h2>References<a class="headerlink" href="#References" title="Link to this heading"></a></h2>
+<h2>References<a class="headerlink" href="#References" title="Permalink to this heading"></a></h2>
 <p>[1] R. J. Gowers, M. Linke, J. Barnoud, T. J. E. Reddy, M. N. Melo, S. L. Seyler, D. L. Dotson, J. Domanski, S. Buchoux, I. M. Kenney, and O. Beckstein. <a class="reference external" href="http://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">MDAnalysis: A Python package for the rapid analysis of molecular dynamics simulations</a>. In S. Benthall and S. Rostrup, editors, <em>Proceedings of the 15th Python in Science Conference</em>, pages 98-105, Austin, TX, 2016. SciPy, doi:
 <a class="reference external" href="https://doi.org/10.25080/majora-629e541a-00e">10.25080/majora-629e541a-00e</a>.</p>
 <p>[2] N. Michaud-Agrawal, E. J. Denning, T. B. Woolf, and O. Beckstein. MDAnalysis: A Toolkit for the Analysis of Molecular Dynamics Simulations. <em>J. Comput. Chem</em>. 32 (2011), 2319-2327, <a class="reference external" href="https://dx.doi.org/10.1002/jcc.21787">doi:10.1002/jcc.21787</a>. PMCID:<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3144279/">PMC3144279</a></p>
