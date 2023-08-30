@@ -147,15 +147,15 @@ If everything works, you can now complete the release by:
 Manually upload Cirrus CI wheels (temporary)
 --------------------------------------------
 
+Unfortunately the deployment of Cirrus CI generated wheels (for `osx-arm64` and `linux-aarch64`) does not get properly triggered by a release. However, they are properly uploaded to `TestPyPi`_
 
-.. todo:: actually add some examples & links of how to do this.`
+#. Go to the recently updated TestPyPi release and download all the `.whl` files which have the tags `arm64` and `aarch64`.
 
+#. From a local directory upload these wheels using ``twine``.
 
-Unfortunately the deployment of Cirrus CI generated wheels (for `osx-arm64` and `linux-aarch64`) does not get properly triggered by a release.
+    .. code-block:: bash
 
-#. Go to the ``package-*`` tag triggered Cirrus CI run results and download the generated wheels.
-
-#. Upload them to PyPi using ``twine``.
+       twine upload -r pypi *.whl --verbose
 
 
 Update `conda-forge` packages
@@ -170,6 +170,20 @@ To do this you will need to:
 #. If NumPy pins differ from those conda-forge uses, you will need to update the ``conda_build_config.yaml`` accordingly.
 
 #. Ask the conda-forge bot to re-render, check that CI returns green, approve and merge the pull request.
+
+Create a release of the UserGuide
+---------------------------------
+
+For now, the UserGuide is released at the same time as the core library. To make a release of the UserGuide you should:
+
+#. Create a new release tag and upload them for the UserGuide repository.
+
+    .. code-block:: bash
+
+        git tag -m 'release 2.6.1 of the MDAnalysis UserGuide' release-2.6.1
+        git push --tags origin
+
+#. This will automatically trigger a Github Action to build a new set of docs for that release and upload them. Due to the large size of the ``gh-pages`` branch on the UserGuide, this can be both slow and flaky, make sure to keep an eye out for any potential failures.
 
 
 Create a blog post outlining the release
@@ -193,7 +207,9 @@ Once the release is completed you can go ahead and update the ``develop`` branch
 Clean up old developer builds of the documentation
 --------------------------------------------------
 
-Whilst new docs are automatically deployed on a release, old developer builds (appended with ``-dev``) are not automatically cleaned up. To avoid causing large amounts of files being uploaded to GitHub Pages, we need to delete these old developer builds manually. To do this switch to the ``gh-pages`` branch, delete these old files, and push the change directly.
+Whilst new docs are automatically deployed on a release, old developer builds (appended with ``-dev``) are not automatically cleaned up. To avoid causing large amounts of files being uploaded to GitHub Pages, we need to delete these old developer builds manually. To do this switch to the ``gh-pages`` branch, delete these old files, and push the change directly. You should do this for both the core library and the UserGuide.
+
+While this is still a manual procedure, you should also edit `versions.json` to remove the old dev links.
 
 
 .. _`developer mailing list`: https://groups.google.com/forum/#!forum/mdnalysis-devel
@@ -201,3 +217,4 @@ Whilst new docs are automatically deployed on a release, old developer builds (a
 .. _`MDAnalysis feedstock`: https://github.com/conda-forge/mdanalysis-feedstock
 .. _`MDAnalysisTests feedstock`: https://github.com/conda-forge/mdanalysistests-feedstock
 .. _`stable branch of the docs page`: https://docs.mdanalysis.org/stable
+.. _`TestPyPi`: https://test.pypi.org/project/MDAnalysis/

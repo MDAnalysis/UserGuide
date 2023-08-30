@@ -122,6 +122,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#completing-the-release">Completing the release</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#manually-upload-cirrus-ci-wheels-temporary">Manually upload Cirrus CI wheels (temporary)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#update-conda-forge-packages">Update <cite>conda-forge</cite> packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-release-of-the-userguide">Create a release of the UserGuide</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#create-a-blog-post-outlining-the-release">Create a blog post outlining the release</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#increment-develop-branch-files-ready-for-the-next-version">Increment develop branch files ready for the next version</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#clean-up-old-developer-builds-of-the-documentation">Clean up old developer builds of the documentation</a></li>
@@ -305,10 +306,16 @@ git<span class="w"> </span>push<span class="w"> </span>--tags<span class="w"> </
 </section>
 <section id="manually-upload-cirrus-ci-wheels-temporary">
 <h3>Manually upload Cirrus CI wheels (temporary)<a class="headerlink" href="#manually-upload-cirrus-ci-wheels-temporary" title="Permalink to this heading"></a></h3>
-<p>Unfortunately the deployment of Cirrus CI generated wheels (for <cite>osx-arm64</cite> and <cite>linux-aarch64</cite>) does not get properly triggered by a release.</p>
-<ol class="arabic simple">
-<li><p>Go to the <code class="docutils literal notranslate"><span class="pre">package-*</span></code> tag triggered Cirrus CI run results and download the generated wheels.</p></li>
-<li><p>Upload them to PyPi using <code class="docutils literal notranslate"><span class="pre">twine</span></code>.</p></li>
+<p>Unfortunately the deployment of Cirrus CI generated wheels (for <cite>osx-arm64</cite> and <cite>linux-aarch64</cite>) does not get properly triggered by a release. However, they are properly uploaded to <a class="reference external" href="https://test.pypi.org/project/MDAnalysis/">TestPyPi</a></p>
+<ol class="arabic">
+<li><p>Go to the recently updated TestPyPi release and download all the <cite>.whl</cite> files which have the tags <cite>arm64</cite> and <cite>aarch64</cite>.</p></li>
+<li><p>From a local directory upload these wheels using <code class="docutils literal notranslate"><span class="pre">twine</span></code>.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>twine<span class="w"> </span>upload<span class="w"> </span>-r<span class="w"> </span>pypi<span class="w"> </span>*.whl<span class="w"> </span>--verbose
+</pre></div>
+</div>
+</div></blockquote>
+</li>
 </ol>
 </section>
 <section id="update-conda-forge-packages">
@@ -319,6 +326,21 @@ git<span class="w"> </span>push<span class="w"> </span>--tags<span class="w"> </
 <li><p>Update the <code class="docutils literal notranslate"><span class="pre">meta.yaml</span></code> files as necessary, especially bumping up the python and dependency minimum versions as necessary.</p></li>
 <li><p>If NumPy pins differ from those conda-forge uses, you will need to update the <code class="docutils literal notranslate"><span class="pre">conda_build_config.yaml</span></code> accordingly.</p></li>
 <li><p>Ask the conda-forge bot to re-render, check that CI returns green, approve and merge the pull request.</p></li>
+</ol>
+</section>
+<section id="create-a-release-of-the-userguide">
+<h3>Create a release of the UserGuide<a class="headerlink" href="#create-a-release-of-the-userguide" title="Permalink to this heading"></a></h3>
+<p>For now, the UserGuide is released at the same time as the core library. To make a release of the UserGuide you should:</p>
+<ol class="arabic">
+<li><p>Create a new release tag and upload them for the UserGuide repository.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>tag<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;release 2.6.1 of the MDAnalysis UserGuide&#39;</span><span class="w"> </span>release-2.6.1
+git<span class="w"> </span>push<span class="w"> </span>--tags<span class="w"> </span>origin
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>This will automatically trigger a Github Action to build a new set of docs for that release and upload them. Due to the large size of the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch on the UserGuide, this can be both slow and flaky, make sure to keep an eye out for any potential failures.</p></li>
 </ol>
 </section>
 <section id="create-a-blog-post-outlining-the-release">
@@ -336,7 +358,8 @@ git<span class="w"> </span>push<span class="w"> </span>--tags<span class="w"> </
 </section>
 <section id="clean-up-old-developer-builds-of-the-documentation">
 <h3>Clean up old developer builds of the documentation<a class="headerlink" href="#clean-up-old-developer-builds-of-the-documentation" title="Permalink to this heading"></a></h3>
-<p>Whilst new docs are automatically deployed on a release, old developer builds (appended with <code class="docutils literal notranslate"><span class="pre">-dev</span></code>) are not automatically cleaned up. To avoid causing large amounts of files being uploaded to GitHub Pages, we need to delete these old developer builds manually. To do this switch to the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch, delete these old files, and push the change directly.</p>
+<p>Whilst new docs are automatically deployed on a release, old developer builds (appended with <code class="docutils literal notranslate"><span class="pre">-dev</span></code>) are not automatically cleaned up. To avoid causing large amounts of files being uploaded to GitHub Pages, we need to delete these old developer builds manually. To do this switch to the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch, delete these old files, and push the change directly. You should do this for both the core library and the UserGuide.</p>
+<p>While this is still a manual procedure, you should also edit <cite>versions.json</cite> to remove the old dev links.</p>
 </section>
 </section>
 </section>
