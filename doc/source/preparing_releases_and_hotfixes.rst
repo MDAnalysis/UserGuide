@@ -209,7 +209,7 @@ Clean up old developer builds of the documentation
 
 Whilst new docs are automatically deployed on a release, old developer builds (appended with ``-dev``) are not automatically cleaned up. To avoid causing large amounts of files being uploaded to GitHub Pages, we need to delete these old developer builds manually. To do this switch to the ``gh-pages`` branch, delete these old files, and push the change directly. You should do this for both the core library and the UserGuide.
 
-While this is still a manual procedure, you should also edit `versions.json` to remove the all dev links.
+While this is still a manual procedure, you should also edit `versions.json` to remove the old dev links.
 
 
 .. _`developer mailing list`: https://groups.google.com/forum/#!forum/mdnalysis-devel
