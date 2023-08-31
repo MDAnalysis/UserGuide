@@ -138,4 +138,4 @@ def sphinx_ref(*, txt: str, label: Optional[str] = None, suffix: str = "") -> st
 
 
 def sphinx_link(*, txt: str) -> str:
-    return "`{}`_".format(txt)
+    return f"`{txt}`_"
