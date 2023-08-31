@@ -66,9 +66,7 @@ def _description(fmt: str, handlers: dict[HANDLER_T, Type[Any]], key: str) -> st
 class FormatOverview:
     def __init__(self) -> None:
         def _topology(fmt: str, handlers: dict[HANDLER_T, Type[Any]], key: str) -> str:
-            if "Topology parser" in handlers:
-                return SUCCESS
-            return FAIL
+            return SUCCESS if "Topology parser" in handlers else FAIL
 
         def _coordinates(
             fmt: str, handlers: dict[HANDLER_T, Type[Any]], key: str
