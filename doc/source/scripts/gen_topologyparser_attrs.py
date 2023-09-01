@@ -189,7 +189,7 @@ class TopologyAttrs:
 
 
 class ConnectivityAttrs:
-    def __init__(self, attrs: dict[str, Any]) -> None:
+    def __init__(self, attrs: dict[str, set[str]]) -> None:
         def _atom(name: str) -> str:
             return name
 
