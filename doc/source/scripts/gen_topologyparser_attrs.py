@@ -143,25 +143,16 @@ class TopologyParsers:
         )
         self.table_writer.generate_lines_and_write_table()
 
-        attrs = defaultdict(set)
-
-        def _get_attrs(
-            line: list[str],
-            format: str,
-            parser: TopologyReaderBase,
-            expected: set[str],
-            guessed: set[str],
-            key_label: tuple[str, str],
-        ) -> None:
-            for attribute in expected | guessed:
-                attrs[attribute].add(format)
-
-        for line, format, args in zip(
-            self.table_writer.lines,
-            self.table_writer.fields["Format"],
-            input_items,
-        ):
-            _get_attrs(line, format, *args)
+def _get_format_attrs(topology_parser: TopologyParser) -> dict[str, set[str]]:
+    attrs = defaultdict(set)
+    writer = topology_parser.table_writer
+    for format, (expected, guessed, _) in zip(
+        writer.fields["Format"],
+        input_items,
+    ):
+        for attribute in expected | guessed:
+            attrs[attribute].add(format)
+    return attrs
 
         self.attrs = attrs
 
