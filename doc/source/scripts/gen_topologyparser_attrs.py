@@ -144,11 +144,11 @@ class TopologyParsers:
         self.table_writer.generate_lines_and_write_table()
 
 
-def _get_format_attrs(topology_parsers: TopologyParsers) -> dict[str, set[str]]:
+def get_format_attrs(topology_parsers: TopologyParsers) -> dict[str, set[str]]:
     attrs = defaultdict(set)
     writer = topology_parsers.table_writer
     assert writer.input_items
-    for format, (expected, guessed, _) in zip(
+    for format, (_, expected, guessed, _) in zip(
         writer.fields["Format"],
         writer.input_items,
     ):
@@ -216,7 +216,7 @@ class ConnectivityAttrs:
 
 def main() -> None:
     top = TopologyParsers()
-    topology_attrs = _get_format_attrs(top)
+    topology_attrs = get_format_attrs(top)
     TopologyAttrs(topology_attrs)
     ConnectivityAttrs(topology_attrs)
 
