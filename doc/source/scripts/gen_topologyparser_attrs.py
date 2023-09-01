@@ -68,9 +68,8 @@ PARSER_TESTS = (
 def create_parser_attributes() -> dict[Any, tuple[set[str], set[str]]]:
     parser_attrs = {}
     for test_parser_class in PARSER_TESTS:
-        expected, guessed = set(test_parser_class.expected_attrs) - set(
-            mandatory_attrs
-        ), set(test_parser_class.guessed_attrs)
+        expected = set(test_parser_class.expected_attrs) - set(mandatory_attrs)
+        guessed = set(test_parser_class.guessed_attrs)
         # clunky hack for PDB
         if test_parser_class is TestPDBParser:
             expected.add("elements")
