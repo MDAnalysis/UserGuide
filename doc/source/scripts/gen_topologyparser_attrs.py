@@ -158,7 +158,7 @@ def _get_format_attrs(topology_parser: TopologyParser) -> dict[str, set[str]]:
 
 
 class TopologyAttrs:
-    def __init__(self, attrs: dict[str, Any]) -> None:
+    def __init__(self, attrs: dict[str, set[str]]) -> None:
         def _atom(name: str, singular: str, description: str) -> str:
             return singular
 
