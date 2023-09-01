@@ -216,8 +216,9 @@ class ConnectivityAttrs:
 
 def main() -> None:
     top = TopologyParsers()
-    TopologyAttrs(top.attrs)
-    ConnectivityAttrs(top.attrs)
+    topology_attrs = _get_format_attrs(top)
+    TopologyAttrs(topology_attrs)
+    ConnectivityAttrs(topology_attrs)
 
 
 if __name__ == "__main__":
