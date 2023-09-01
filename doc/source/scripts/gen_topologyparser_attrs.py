@@ -143,18 +143,18 @@ class TopologyParsers:
         )
         self.table_writer.generate_lines_and_write_table()
 
-def _get_format_attrs(topology_parser: TopologyParser) -> dict[str, set[str]]:
+
+def _get_format_attrs(topology_parsers: TopologyParsers) -> dict[str, set[str]]:
     attrs = defaultdict(set)
-    writer = topology_parser.table_writer
+    writer = topology_parsers.table_writer
+    assert writer.input_items
     for format, (expected, guessed, _) in zip(
         writer.fields["Format"],
-        input_items,
+        writer.input_items,
     ):
         for attribute in expected | guessed:
             attrs[attribute].add(format)
     return attrs
-
-        self.attrs = attrs
 
 
 class TopologyAttrs:
