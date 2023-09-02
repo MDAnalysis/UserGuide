@@ -14,12 +14,8 @@
 # import sys
 
 import datetime
-import subprocess
-from collections import OrderedDict
-
 import MDAnalysis as mda
-import msmb_theme
-import sphinx_rtd_theme
+import subprocess
 from ipywidgets.embed import DEFAULT_EMBED_REQUIREJS_URL
 
 # -- Project information -----------------------------------------------------
@@ -125,12 +121,8 @@ exclude_patterns = [
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = "msmb_theme"
-# Add any paths that contain custom themes here, relative to this directory.
-html_theme_path = [
-    msmb_theme.get_html_theme_path(),
-    sphinx_rtd_theme.get_html_theme_path(),
-]
+html_theme = 'mdanalysis_sphinx_theme'
+
 
 # styles/fonts to match http://mdanalysis.org (see public/css)
 #
@@ -146,13 +138,13 @@ color = {
     "black": "#000000",
 }
 
-extra_nav_links = OrderedDict()
-extra_nav_links["MDAnalysis"] = "http://mdanalysis.org"
-extra_nav_links["docs"] = "http://docs.mdanalysis.org"
-extra_nav_links["wiki"] = "http://wiki.mdanalysis.org"
-extra_nav_links["user discussion group"] = "http://users.mdanalysis.org"
-extra_nav_links["GitHub"] = "https://github.com/mdanalysis"
-extra_nav_links["@mdanalysis"] = "https://twitter.com/mdanalysis"
+extra_nav_links = {}
+extra_nav_links['MDAnalysis'] = 'http://mdanalysis.org'
+extra_nav_links['docs'] = 'http://docs.mdanalysis.org'
+extra_nav_links['wiki'] = 'http://wiki.mdanalysis.org'
+extra_nav_links['user discussion group'] = 'http://users.mdanalysis.org'
+extra_nav_links['GitHub'] = 'https://github.com/mdanalysis'
+extra_nav_links['@mdanalysis'] = 'https://twitter.com/mdanalysis'
 
 html_theme_options = {
     "canonical_url": "",
@@ -162,11 +154,12 @@ html_theme_options = {
     "style_external_links": False,
     "style_nav_header_background": "white",  # '#e76900', # dark orange
     # Toc options
-    "collapse_navigation": True,
-    "sticky_navigation": True,
-    "navigation_depth": 4,
-    "includehidden": True,
-    "titles_only": False,
+    'collapse_navigation': True,
+    'sticky_navigation': True,
+    'navigation_depth': 4,
+    'includehidden': True,
+    'titles_only': False,
+    'mda_official': True,
 }
 
 # The name of an image file (within the static path) to use as favicon of the
@@ -180,8 +173,8 @@ html_context = {"versions_json_url": "https://userguide.mdanalysis.org/versions.
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ["_static"]
-html_css_files = ["custom.css"]  # , 'readable.css']
+# html_static_path = ['_static']
+# html_css_files = ['custom.css']  # , 'readable.css']
 
 # Custom sidebar templates, maps document names to template names.
 # alabaster sidebars
