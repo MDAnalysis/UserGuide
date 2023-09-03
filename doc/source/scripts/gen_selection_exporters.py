@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Generates:
     - ../formats/selection_exporters.txt

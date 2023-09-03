@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Generates:
     - ../formats/format_overview.txt : table of format overview

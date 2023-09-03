@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Generate topology_defaults.txt:
 
