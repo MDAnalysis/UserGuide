@@ -11,6 +11,7 @@ dependencies:
   - scikit-learn>=1.1.2
   - pyedr>=0.7
   # building documentation
+  - mdanalysis-sphinx-theme
   - docutils<0.18
   - pandoc
   - pybtex
@@ -44,9 +45,6 @@ dependencies:
   - python=3.9
   - pip
   - pip:
-      # docs themes
-      - msmb_theme
-      - sphinx_rtd_theme
       # extensions
       - sphinx-sitemap
       # used for notebook testing
