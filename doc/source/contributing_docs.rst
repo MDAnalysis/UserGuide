@@ -150,9 +150,12 @@ rule to the ``sanitize_output.cfg`` file and try to make it as specific as possi
 
 On the hole2 notebook
 """""""""""""""""""""
-If you test all notebooks you may run into errors with the *hole2* notebook.
-You can safely ignore them, unless you want to work with it.
-In this case you'll have to download `hole2`_, compile it, and make sure your system can find
+The *hole2* notebook is special in that it requires installation of extra software to run,
+namely the `hole2`_ program. If you test all the notebooks you may therefore run
+into errors if hole2 is not installed. These errors can be generally ignored unless
+you do specifically want to test the hole2 notebook. Of course, you should take
+note of other errors that occur if hole2 is installed!
+To run the hole2 notebook you'll have to download `hole2`_, compile it, and make sure your system can find
 the hole2 executable. In UNIX-based systems this implies adding its path to the ``$PATH``
 environmental variable like this::
 
