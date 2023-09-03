@@ -142,8 +142,8 @@ Exactly matching cell outputs between runs is a high bar for testing and tends t
 -- otherwise correct cells may give different outputs each time they are run (e.g. cells with code
 that outputs memory locations).
 To alleviate this, before testing each cell pytest will match its output against the regular
-expressions from ``sanitize_output.cfg`` and replace matching variable strings with constant strings
-that won't change between runs and hence prevent spurious failures.
+expressions from ``sanitize_output.cfg``. This file contains replacements for strings that we know will vary.
+Pytest will replace the dynamic output with these constant strings, which won't change between runs and hence prevent spurious failures.
 
 If your code correctly outputs variable strings each time its run, you should add a replacement
 rule and try to make it as specific as possible.
