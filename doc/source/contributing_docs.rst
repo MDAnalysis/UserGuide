@@ -136,7 +136,7 @@ This tells pytest to scan the outputs of all cells and replace the matching stri
 
 .. _`nbval`: https://nbval.readthedocs.io/en/latest/
 
-sanitization
+Sanitization
 """"""""""""
 Exactly matching cell outputs between runs is a high bar for testing and tends to give false positives.
 Otherwise correct cells may give different outputs each time they are run (e.g. cells with code
