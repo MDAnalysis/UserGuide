@@ -148,7 +148,7 @@ Pytest will replace the dynamic output with these constant strings, which won't 
 If your code correctly outputs variable strings each time its run, you should add a replacement
 rule and try to make it as specific as possible.
 
-on the hole2 notebook
+On the hole2 notebook
 """""""""""""""""""""
 If you test all notebooks you may run into errors with the *hole2* notebook.
 You can safely ignore them, unless you want to work with it.
