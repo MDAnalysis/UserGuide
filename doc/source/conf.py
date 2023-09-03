@@ -147,18 +147,6 @@ extra_nav_links['GitHub'] = 'https://github.com/mdanalysis'
 extra_nav_links['@mdanalysis'] = 'https://twitter.com/mdanalysis'
 
 html_theme_options = {
-    "canonical_url": "",
-    "logo_only": True,
-    "display_version": True,
-    "prev_next_buttons_location": "bottom",
-    "style_external_links": False,
-    "style_nav_header_background": "white",  # '#e76900', # dark orange
-    # Toc options
-    'collapse_navigation': True,
-    'sticky_navigation': True,
-    'navigation_depth': 4,
-    'includehidden': True,
-    'titles_only': False,
     'mda_official': True,
 }
 
@@ -191,12 +179,12 @@ html_sidebars = {
 # and other packages used by MDAnalysis
 mda_version = mda.__version__
 intersphinx_mapping = {
-    "python": ("https://docs.python.org/3/", None),
-    "numpy": ("https://numpy.org/doc/stable/", None),
-    "mdanalysis": (f"https://docs.mdanalysis.org/{mda_version}/", None),
-    "pytest": ("https://docs.pytest.org/en/latest/", None),
-    "chemfiles": ("https://chemfiles.org/chemfiles.py/latest/", None),
-    "parmed": ("https://parmed.github.io/ParmEd/html/", None),
+    'python': ('https://docs.python.org/3/', None),
+    'numpy': ('https://numpy.org/doc/stable/', None),
+    'mdanalysis': (f'https://docs.mdanalysis.org/{mda_version}/', None),
+    'pytest': ('https://docs.pytest.org/en/latest/', None),
+    'chemfiles': ('https://chemfiles.org/chemfiles.py/latest/', None),
+    'parmed': ('https://parmed.github.io/ParmEd/html/', None),
 }
 
 # nbsphinx
