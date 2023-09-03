@@ -146,7 +146,7 @@ expressions from ``sanitize_output.cfg``. This file contains replacements for st
 Pytest will replace the dynamic output with these constant strings, which won't change between runs and hence prevent spurious failures.
 
 If your code correctly outputs variable strings each time its run, you should add a replacement
-rule and try to make it as specific as possible.
+rule to the ``sanitize_output.cfg`` file and try to make it as specific as possible.
 
 On the hole2 notebook
 """""""""""""""""""""
