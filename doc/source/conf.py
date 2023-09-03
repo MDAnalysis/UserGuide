@@ -133,12 +133,9 @@ extra_nav_links['@mdanalysis'] = 'https://twitter.com/mdanalysis'
 
 html_theme_options = {
     'mda_official': True,
+
 }
 
-# The name of an image file (within the static path) to use as favicon of the
-# docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
-# pixels large.
-html_favicon = "_static/logos/mdanalysis-logo.ico"
 html_logo = "_static/logos/user_guide.png"
 
 html_context = {"versions_json_url": "https://userguide.mdanalysis.org/versions.json"}
