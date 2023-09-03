@@ -123,21 +123,6 @@ exclude_patterns = [
 #
 html_theme = 'mdanalysis_sphinx_theme'
 
-
-# styles/fonts to match http://mdanalysis.org (see public/css)
-#
-# /* MDAnalysis orange: #FF9200 */
-# /* MDAnalysis gray: #808080 */
-# /* MDAnalysis white: #FFFFFF */
-# /* MDAnalysis black: #000000 */
-
-color = {
-    "orange": "#FF9200",
-    "gray": "#808080",
-    "white": "#FFFFFF",
-    "black": "#000000",
-}
-
 extra_nav_links = {}
 extra_nav_links['MDAnalysis'] = 'http://mdanalysis.org'
 extra_nav_links['docs'] = 'http://docs.mdanalysis.org'
