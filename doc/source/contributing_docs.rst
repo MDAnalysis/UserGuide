@@ -138,8 +138,8 @@ This tells pytest to scan the outputs of all cells and replace the matching stri
 
 Sanitization
 """"""""""""
-Exactly matching cell outputs between runs is a high bar for testing and tends to give false positives.
-Otherwise correct cells may give different outputs each time they are run (e.g. cells with code
+Exactly matching cell outputs between runs is a high bar for testing and tends to give false errors
+-- otherwise correct cells may give different outputs each time they are run (e.g. cells with code
 that outputs memory locations).
 To alleviate this, before testing each cell pytest will match its output against the regular
 expressions from ``sanitize_output.cfg`` and replace matching variable strings with constant strings
