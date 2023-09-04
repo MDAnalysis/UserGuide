@@ -66,7 +66,7 @@ subprocess.call("./scripts/generate_all.sh")
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
-# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
+# extensions coming with Sphinx (named "sphinx.ext.*") or your custom
 # ones.
 extensions = [
     "sphinx.ext.autodoc",
@@ -121,18 +121,18 @@ exclude_patterns = [
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'mdanalysis_sphinx_theme'
+html_theme = "mdanalysis_sphinx_theme"
 
 extra_nav_links = {}
-extra_nav_links['MDAnalysis'] = 'http://mdanalysis.org'
-extra_nav_links['docs'] = 'http://docs.mdanalysis.org'
-extra_nav_links['wiki'] = 'http://wiki.mdanalysis.org'
-extra_nav_links['user discussion group'] = 'http://users.mdanalysis.org'
-extra_nav_links['GitHub'] = 'https://github.com/mdanalysis'
-extra_nav_links['@mdanalysis'] = 'https://twitter.com/mdanalysis'
+extra_nav_links["MDAnalysis"] = "http://mdanalysis.org"
+extra_nav_links["docs"] = "http://docs.mdanalysis.org"
+extra_nav_links["wiki"] = "http://wiki.mdanalysis.org"
+extra_nav_links["user discussion group"] = "http://users.mdanalysis.org"
+extra_nav_links["GitHub"] = "https://github.com/mdanalysis"
+extra_nav_links["@mdanalysis"] = "https://twitter.com/mdanalysis"
 
 html_theme_options = {
-    'mda_official': True,
+    "mda_official": True,
 
 }
 
@@ -143,8 +143,8 @@ html_context = {"versions_json_url": "https://userguide.mdanalysis.org/versions.
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-# html_static_path = ['_static']
-# html_css_files = ['custom.css']  # , 'readable.css']
+# html_static_path = ["_static"]
+# html_css_files = ["custom.css"]  # , "readable.css"]
 
 # Custom sidebar templates, maps document names to template names.
 # alabaster sidebars
@@ -161,17 +161,17 @@ html_sidebars = {
 # and other packages used by MDAnalysis
 mda_version = mda.__version__
 intersphinx_mapping = {
-    'python': ('https://docs.python.org/3/', None),
-    'numpy': ('https://numpy.org/doc/stable/', None),
-    'mdanalysis': (f'https://docs.mdanalysis.org/{mda_version}/', None),
-    'pytest': ('https://docs.pytest.org/en/latest/', None),
-    'chemfiles': ('https://chemfiles.org/chemfiles.py/latest/', None),
-    'parmed': ('https://parmed.github.io/ParmEd/html/', None),
+    "python": ("https://docs.python.org/3/", None),
+    "numpy": ("https://numpy.org/doc/stable/", None),
+    "mdanalysis": (f"https://docs.mdanalysis.org/{mda_version}/", None),
+    "pytest": ("https://docs.pytest.org/en/latest/", None),
+    "chemfiles": ("https://chemfiles.org/chemfiles.py/latest/", None),
+    "parmed": ("https://parmed.github.io/ParmEd/html/", None),
 }
 
 # nbsphinx
 html_js_files = [
-    # 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js',
+    # "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js",
     # DEFAULT_EMBED_REQUIREJS_URL,
 ]
 
@@ -179,7 +179,7 @@ ipython_warning_is_error = False
 nbsphinx_prolog = r"""
 .. raw:: html
 
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
     <script>require=requirejs;</script>
 
 """
