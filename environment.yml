@@ -12,7 +12,7 @@ dependencies:
   - pyedr>=0.7
   # building documentation
   - mdanalysis-sphinx-theme
-  - docutils<0.18
+  - docutils
   - pandoc
   - pybtex
   - sphinx
