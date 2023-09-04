@@ -83,6 +83,7 @@ extensions = [
     "IPython.sphinxext.ipython_directive",
     "sphinxcontrib.bibtex",
     "matplotlib.sphinxext.plot_directive",
+    "mdanalysis_sphinx_theme",
 ]
 
 bibtex_bibfiles = ["references.bib"]
