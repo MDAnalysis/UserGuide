@@ -16,7 +16,6 @@
 import datetime
 import MDAnalysis as mda
 import subprocess
-from ipywidgets.embed import DEFAULT_EMBED_REQUIREJS_URL
 
 # -- Project information -----------------------------------------------------
 
@@ -143,8 +142,8 @@ html_context = {"versions_json_url": "https://userguide.mdanalysis.org/versions.
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-# html_static_path = ["_static"]
-# html_css_files = ["custom.css"]  # , "readable.css"]
+html_static_path = ["_static"]
+html_css_files = []
 
 # Custom sidebar templates, maps document names to template names.
 # alabaster sidebars
@@ -172,7 +171,6 @@ intersphinx_mapping = {
 # nbsphinx
 html_js_files = [
     # "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js",
-    # DEFAULT_EMBED_REQUIREJS_URL,
 ]
 
 ipython_warning_is_error = False
