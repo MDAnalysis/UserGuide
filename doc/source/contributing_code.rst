@@ -687,7 +687,7 @@ Then, generate the docs with:
 
     .. code-block:: bash
 
-        python setup.py build_sphinx -E
+        cd doc/sphinx && make html
 
 This generates and updates the files in ``doc/html``. If the above command fails with an ``ImportError``, run
 
