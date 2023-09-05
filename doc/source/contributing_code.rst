@@ -243,8 +243,8 @@ First we need to install dependencies. You'll need a mix of conda and pip instal
 
         # documentation dependencies
         conda install -c conda-forge sphinx pybtex pybtex-docutils \
-            sphinxcontrib-bibtex sphinx_rtd_theme sphinx-sitemap
-        python -m pip install msmb_theme==1.2.0
+            sphinxcontrib-bibtex mdanalysis_sphinx_theme sphinx-sitemap
+        python -m pip install
 
 Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.9. We will now install MDAnalysis.
 
@@ -311,7 +311,7 @@ Install the dependencies:
 
         # for building documentation
         python -m pip install \
-          sphinx sphinx_rtd_theme msmb_theme==1.2.0 sphinx-sitemap \
+          sphinx mdanalysis_sphinx_theme sphinx-sitemap \
           pybtex pybtex-docutils sphinxcontrib-bibtex
 
 Some packages, such as ``clustalw``, are not available via pip.
