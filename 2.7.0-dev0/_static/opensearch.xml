@@ -6,6 +6,5 @@
   <Url type="text/html" method="get"
        template="https://userguide.mdanalysis.org/search.html?q={searchTerms}"/>
   <LongName>MDAnalysis User Guide  documentation</LongName>
-  <Image height="16" width="16" type="image/x-icon">https://userguide.mdanalysis.org/_static/mdanalysis-logo.ico</Image>
   
 </OpenSearchDescription>

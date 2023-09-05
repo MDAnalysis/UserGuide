@@ -1,24 +1,33 @@
+
+
+
+  
+
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.1/css/academicons.min.css" integrity="sha512-b1ASx0WHgVFL5ZQhTgiPWX+68KjS38Jk87jg7pe+qC7q9YkEtFq0z7xCglv7qGIs/68d3mAp+StfC8WKC5SSAg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="shortcut icon" href="../_static/logo/mda_favicon.ico">
+</head>
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Auxiliary files &mdash; MDAnalysis User Guide  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/msmb.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/site.css" type="text/css" />
       <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="shortcut icon" href="../_static/mdanalysis-logo.ico"/>
     <link rel="canonical" href="https://userguide.mdanalysis.org/formats/auxiliary.html" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -39,15 +48,30 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: white" >
 
-          
-          
-          <a href="../index.html">
-            
-              <img src="../_static/user_guide.png" class="logo" alt="Logo"/>
-          </a>
-              <div class="version">
-                2.7.0-dev0
-              </div>
+
+
+
+  
+
+
+
+
+<a href="../index.html">
+  
+    <img src="../_static/user_guide.png" class="logo" alt="Logo"/>
+</a>
+
+
+  
+  
+  
+    <div class="version">
+      2.7.0-dev0
+    </div>
+  
+
+
+
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -55,6 +79,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+
+
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
 <ul>
@@ -167,12 +193,6 @@
 <h2>Supported formats<a class="headerlink" href="#supported-formats" title="Permalink to this heading"></a></h2>
 <blockquote>
 <div><table class="docutils align-default">
-<colgroup>
-<col style="width: 30%" />
-<col style="width: 10%" />
-<col style="width: 13%" />
-<col style="width: 47%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Reader</p></th>
 <th class="head"><p>Format</p></th>
@@ -223,7 +243,7 @@ Reads full file on initialisation.</p></td>
 <span class="gp">In [3]: </span><span class="n">aux</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">auxreader</span><span class="p">(</span><span class="n">XVG_BZ2</span><span class="p">)</span>
 
 <span class="gp">In [4]: </span><span class="n">aux</span>
-<span class="gh">Out[4]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7fd471920580&gt;</span>
+<span class="gh">Out[4]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7fd55a588880&gt;</span>
 </pre></div>
 </div>
 <p>In stand-alone use, an auxiliary reader allows you to iterate over each step in a set of auxiliary data.</p>
@@ -422,7 +442,7 @@ original auxiliary reader.</p>
 <span class="gp">In [30]: </span><span class="k">del</span> <span class="n">aux</span>
 
 <span class="gp">In [31]: </span><span class="n">mda</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">auxreader</span><span class="p">(</span><span class="o">**</span><span class="n">description</span><span class="p">)</span>
-<span class="gh">Out[31]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7fd4717fa250&gt;</span>
+<span class="gh">Out[31]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7fd559dcf5b0&gt;</span>
 </pre></div>
 </div>
 <p>The ‘description’ of any or all the auxiliaries added to a trajectory can be
@@ -537,7 +557,7 @@ the EDRReader, this section will highlight functionality unique to the EDRReader
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [45]: </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="gp">In [46]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">],</span> <span class="n">temp</span><span class="p">[</span><span class="s2">&quot;Temperature&quot;</span><span class="p">])</span>
-<span class="gh">Out[46]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x7fd471b273a0&gt;]</span>
+<span class="gh">Out[46]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x7fd55a0ebd30&gt;]</span>
 
 <span class="gp">In [47]: </span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Temperature [K]&quot;</span><span class="p">)</span>
 <span class="gh">Out[47]: </span><span class="go">Text(0, 0.5, &#39;Temperature [K]&#39;)</span>
@@ -654,13 +674,14 @@ the memory limit is set to 200 MB.</p>
   </div>
 
   
- 
+
 <div class="footer"><p>Please see
     our <a href="https://www.mdanalysis.org/pages/privacy/">Privacy Policy</a>
     to learn how <a href="https://www.mdanalysis.org">MDAnalysis</a> collects data.</p>
     <script data-goatcounter="https://mdanalysis.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </div>
+
 
 
 </footer>

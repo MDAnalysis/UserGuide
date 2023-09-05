@@ -1,24 +1,33 @@
+
+
+
+  
+
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.1/css/academicons.min.css" integrity="sha512-b1ASx0WHgVFL5ZQhTgiPWX+68KjS38Jk87jg7pe+qC7q9YkEtFq0z7xCglv7qGIs/68d3mAp+StfC8WKC5SSAg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="shortcut icon" href="../../_static/logo/mda_favicon.ico">
+</head>
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TRR (GROMACS lossless trajectory file) &mdash; MDAnalysis User Guide  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/msmb.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/site.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-    <link rel="shortcut icon" href="../../_static/mdanalysis-logo.ico"/>
     <link rel="canonical" href="https://userguide.mdanalysis.org/formats/reference/trr.html" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -39,15 +48,30 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: white" >
 
-          
-          
-          <a href="../../index.html">
-            
-              <img src="../../_static/user_guide.png" class="logo" alt="Logo"/>
-          </a>
-              <div class="version">
-                2.7.0-dev0
-              </div>
+
+
+
+  
+
+
+
+
+<a href="../../index.html">
+  
+    <img src="../../_static/user_guide.png" class="logo" alt="Logo"/>
+</a>
+
+
+  
+  
+  
+    <div class="version">
+      2.7.0-dev0
+    </div>
+  
+
+
+
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -55,6 +79,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+
+
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
 <ul>
@@ -190,10 +216,6 @@
   <section id="trr-gromacs-lossless-trajectory-file">
 <span id="trr-format"></span><h1>TRR (GROMACS lossless trajectory file)<a class="headerlink" href="#trr-gromacs-lossless-trajectory-file" title="Permalink to this heading"></a></h1>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 32%" />
-<col style="width: 68%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><strong>Coordinate reader</strong></p></td>
 <td><p><a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/coordinates/TRR.html#MDAnalysis.coordinates.TRR.TRRReader" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.coordinates.TRR.TRRReader</span></code></a></p></td>
@@ -210,7 +232,7 @@
 </div>
 <section id="reading-in">
 <h2>Reading in<a class="headerlink" href="#reading-in" title="Permalink to this heading"></a></h2>
-<p>MDAnalysis uses XDR based readers for GROMACS formats, which store offsets on the disk. The offsets are used to enable access to random frames efficiently. These offsets will be generated automatically the first time the trajectory is opened, and offsets are generally stored in hidden <code class="docutils literal notranslate"><span class="pre">*_offsets.npz</span></code> files. <a class="footnote-reference brackets" href="#error" id="id1">1</a></p>
+<p>MDAnalysis uses XDR based readers for GROMACS formats, which store offsets on the disk. The offsets are used to enable access to random frames efficiently. These offsets will be generated automatically the first time the trajectory is opened, and offsets are generally stored in hidden <code class="docutils literal notranslate"><span class="pre">*_offsets.npz</span></code> files. <a class="footnote-reference brackets" href="#error" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
 <p>Trajectories split across multiple files can be <a class="reference internal" href="../../reading_and_writing.html#chainreader"><span class="std std-ref">read continuously into MDAnalysis</span></a> with <code class="docutils literal notranslate"><span class="pre">continuous=True</span></code>, in the style of <a class="reference external" href="http://manual.gromacs.org/documentation/2018/onlinehelp/gmx-trjcat.html">gmx trjcat</a>.</p>
 </section>
 <section id="writing-out">
@@ -220,11 +242,12 @@
 <section id="developer-notes">
 <h2>Developer notes<a class="headerlink" href="#developer-notes" title="Permalink to this heading"></a></h2>
 <p>It sometimes can happen that the stored offsets get out off sync with the trajectory they refer to. For this the offsets also store the number of atoms, size of the file and last modification time. If any of them change, the offsets are recalculated. Writing of the offset file can fail when the directory where the trajectory file resides is not writable or if the disk is full. In this case a warning message will be shown but the offsets will nevertheless be used during the lifetime of the trajectory Reader. However, the next time the trajectory is opened, the offsets will have to be rebuilt again.</p>
-<dl class="footnote brackets">
-<dt class="label" id="error"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Occasionally, MDAnalysis fails to read XDR offsets, resulting in an error. The workaround for this is to create the Universe with regenerated offsets by using the keyword argument <code class="docutils literal notranslate"><span class="pre">refresh_offsets=True</span></code>, as documented in <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/issues/1893">Issue 1893</a>.</p>
-</dd>
-</dl>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="error" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Occasionally, MDAnalysis fails to read XDR offsets, resulting in an error. The workaround for this is to create the Universe with regenerated offsets by using the keyword argument <code class="docutils literal notranslate"><span class="pre">refresh_offsets=True</span></code>, as documented in <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/issues/1893">Issue 1893</a>.</p>
+</aside>
+</aside>
 </section>
 </section>
 
@@ -243,13 +266,14 @@
   </div>
 
   
- 
+
 <div class="footer"><p>Please see
     our <a href="https://www.mdanalysis.org/pages/privacy/">Privacy Policy</a>
     to learn how <a href="https://www.mdanalysis.org">MDAnalysis</a> collects data.</p>
     <script data-goatcounter="https://mdanalysis.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </div>
+
 
 
 </footer>

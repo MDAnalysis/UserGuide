@@ -1,24 +1,33 @@
+
+
+
+  
+
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.1/css/academicons.min.css" integrity="sha512-b1ASx0WHgVFL5ZQhTgiPWX+68KjS38Jk87jg7pe+qC7q9YkEtFq0z7xCglv7qGIs/68d3mAp+StfC8WKC5SSAg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="shortcut icon" href="_static/logo/mda_favicon.ico">
+</head>
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reading and writing files &mdash; MDAnalysis User Guide  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
+      <link rel="stylesheet" href="_static/site.css" type="text/css" />
       <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
-      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-    <link rel="shortcut icon" href="_static/mdanalysis-logo.ico"/>
     <link rel="canonical" href="https://userguide.mdanalysis.org/reading_and_writing.html" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -39,15 +48,30 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: white" >
 
-          
-          
-          <a href="index.html">
-            
-              <img src="_static/user_guide.png" class="logo" alt="Logo"/>
-          </a>
-              <div class="version">
-                2.7.0-dev0
-              </div>
+
+
+
+  
+
+
+
+
+<a href="index.html">
+  
+    <img src="_static/user_guide.png" class="logo" alt="Logo"/>
+</a>
+
+
+  
+  
+  
+    <div class="version">
+      2.7.0-dev0
+    </div>
+  
+
+
+
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -55,6 +79,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+
+
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
 <ul>
@@ -276,13 +302,13 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/
 
 <span class="gp">In [16]: </span><span class="n">universe</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[16]: </span>
-<span class="go">array([[0.49155158, 0.04427287, 0.069142  ],</span>
-<span class="go">       [0.49055496, 0.80884004, 0.6015848 ],</span>
-<span class="go">       [0.02901389, 0.6047384 , 0.27537283],</span>
+<span class="go">array([[0.0340273 , 0.767901  , 0.23205677],</span>
+<span class="go">       [0.21633612, 0.50341326, 0.8427395 ],</span>
+<span class="go">       [0.07176753, 0.95263326, 0.37738153],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.16283451, 0.40129045, 0.77234876],</span>
-<span class="go">       [0.30984774, 0.13802621, 0.69992316],</span>
-<span class="go">       [0.8638068 , 0.5266942 , 0.41936985]], dtype=float32)</span>
+<span class="go">       [0.51436603, 0.82826066, 0.6930183 ],</span>
+<span class="go">       [0.5521827 , 0.4456918 , 0.05794019],</span>
+<span class="go">       [0.51160467, 0.14218263, 0.0342399 ]], dtype=float32)</span>
 </pre></div>
 </div>
 <p>or they can be directly passed in when creating a Universe.</p>
@@ -290,13 +316,13 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/
 
 <span class="gp">In [18]: </span><span class="n">universe2</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[18]: </span>
-<span class="go">array([[0.49155158, 0.04427287, 0.069142  ],</span>
-<span class="go">       [0.49055496, 0.80884004, 0.6015848 ],</span>
-<span class="go">       [0.02901389, 0.6047384 , 0.27537283],</span>
+<span class="go">array([[0.0340273 , 0.767901  , 0.23205677],</span>
+<span class="go">       [0.21633612, 0.50341326, 0.8427395 ],</span>
+<span class="go">       [0.07176753, 0.95263326, 0.37738153],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.16283451, 0.40129045, 0.77234876],</span>
-<span class="go">       [0.30984774, 0.13802621, 0.69992316],</span>
-<span class="go">       [0.8638068 , 0.5266942 , 0.41936985]], dtype=float32)</span>
+<span class="go">       [0.51436603, 0.82826066, 0.6930183 ],</span>
+<span class="go">       [0.5521827 , 0.4456918 , 0.05794019],</span>
+<span class="go">       [0.51160467, 0.14218263, 0.0342399 ]], dtype=float32)</span>
 </pre></div>
 </div>
 </section>
@@ -418,13 +444,14 @@ after serialization:</p>
   </div>
 
   
- 
+
 <div class="footer"><p>Please see
     our <a href="https://www.mdanalysis.org/pages/privacy/">Privacy Policy</a>
     to learn how <a href="https://www.mdanalysis.org">MDAnalysis</a> collects data.</p>
     <script data-goatcounter="https://mdanalysis.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </div>
+
 
 
 </footer>
