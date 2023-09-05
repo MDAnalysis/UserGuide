@@ -14,8 +14,8 @@
 # import sys
 
 import datetime
-import MDAnalysis as mda
 import subprocess
+import MDAnalysis as mda
 
 # -- Project information -----------------------------------------------------
 
@@ -132,7 +132,6 @@ extra_nav_links["@mdanalysis"] = "https://twitter.com/mdanalysis"
 
 html_theme_options = {
     "mda_official": True,
-
 }
 
 html_logo = "_static/logos/user_guide.png"
