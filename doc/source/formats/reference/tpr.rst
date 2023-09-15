@@ -58,14 +58,37 @@ TPR specification
 =================
 
 The TPR reader is a pure-python implementation of a basic TPR
-parser. Currently the following sections of the topology are parsed:
+parser. Currently the following topology attributes are parsed:
 
-* Atoms: number, name, type, resname, resid, segid, mass, charge,
+* Atoms: number, name, type, resname, resid, segid, chainID, mass, charge,
   [residue, segment, radius, bfactor, resnum, moltype]
 * Bonds
 * Angles
 * Dihedrals
 * Impropers
+
+``segid`` and ``chainID``
+-------------------------
+
+MDAnalysis gets the ``segment`` and ``chainID`` attributes from the TPR ``molblock`` field.
+Since TPR files are built from GROMACS topology files, ``molblock`` fields get their names from the
+compounds listed under the ``[ molecules ]`` header. For example::
+
+    [ molecules ]
+    ; Compound        #mols
+    Protein_chain_A     1
+    Protein_chain_B     1
+    SOL             40210
+
+So, the TPR will get 3 ``molblock`` s: ``Protein_chain_A``, ``Protein_chain_B`` and ``SOL``, while
+MDAnalysis will set the ``segid`` s to ``seg_{segment_index}_{molblock}``, thus:
+``seg_0_Protein_chain_A``, ``seg_1_Protein_chain_B`` and ``seg_2_SOL``. On the other hand,
+``chainID`` will be identical to ``molblock`` unless ``molblock`` is named "Protein_chain_XXX",
+in which case ``chainID`` will be set to ``XXX``. Thus in this case the ``chainID`` s will be:
+``A``, ``B`` and ``SOL``.
+
+Bonds
+------
 
 Bonded interactions available in Gromacs are described in the
 `Gromacs manual`_. The following ones are used to build the topology (see
