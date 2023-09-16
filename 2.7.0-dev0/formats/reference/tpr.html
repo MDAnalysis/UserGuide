@@ -2,6 +2,10 @@
 
 
   
+    
+  
+
+
 
 
 <head>
@@ -141,7 +145,11 @@
 <li class="toctree-l2"><a class="reference internal" href="top.html">TOP, PRMTOP, PARM7 (AMBER topology)</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">TPR (GROMACS run topology files)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#supported-versions">Supported versions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tpr-specification">TPR specification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tpr-specification">TPR specification</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#segid-and-chainid"><code class="docutils literal notranslate"><span class="pre">segid</span></code> and <code class="docutils literal notranslate"><span class="pre">chainID</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bonds">Bonds</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#developer-notes">Developer notes</a></li>
 </ul>
 </li>
@@ -304,15 +312,36 @@ supported.</p>
 <section id="tpr-specification">
 <h2>TPR specification<a class="headerlink" href="#tpr-specification" title="Permalink to this heading"></a></h2>
 <p>The TPR reader is a pure-python implementation of a basic TPR
-parser. Currently the following sections of the topology are parsed:</p>
+parser. Currently the following topology attributes are parsed:</p>
 <ul class="simple">
-<li><p>Atoms: number, name, type, resname, resid, segid, mass, charge,
+<li><p>Atoms: number, name, type, resname, resid, segid, chainID, mass, charge,
 [residue, segment, radius, bfactor, resnum, moltype]</p></li>
 <li><p>Bonds</p></li>
 <li><p>Angles</p></li>
 <li><p>Dihedrals</p></li>
 <li><p>Impropers</p></li>
 </ul>
+<section id="segid-and-chainid">
+<h3><code class="docutils literal notranslate"><span class="pre">segid</span></code> and <code class="docutils literal notranslate"><span class="pre">chainID</span></code><a class="headerlink" href="#segid-and-chainid" title="Permalink to this heading"></a></h3>
+<p>MDAnalysis gets the <code class="docutils literal notranslate"><span class="pre">segment</span></code> and <code class="docutils literal notranslate"><span class="pre">chainID</span></code> attributes from the TPR <code class="docutils literal notranslate"><span class="pre">molblock</span></code> field.
+Since TPR files are built from GROMACS topology files, <code class="docutils literal notranslate"><span class="pre">molblock</span></code> fields get their names from the
+compounds listed under the <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">molecules</span> <span class="pre">]</span></code> header. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="n">molecules</span> <span class="p">]</span>
+<span class="p">;</span> <span class="n">Compound</span>        <span class="c1">#mols</span>
+<span class="n">Protein_chain_A</span>     <span class="mi">1</span>
+<span class="n">Protein_chain_B</span>     <span class="mi">1</span>
+<span class="n">SOL</span>             <span class="mi">40210</span>
+</pre></div>
+</div>
+<p>So, the TPR will get 3 <code class="docutils literal notranslate"><span class="pre">molblock</span></code> s: <code class="docutils literal notranslate"><span class="pre">Protein_chain_A</span></code>, <code class="docutils literal notranslate"><span class="pre">Protein_chain_B</span></code> and <code class="docutils literal notranslate"><span class="pre">SOL</span></code>, while
+MDAnalysis will set the <code class="docutils literal notranslate"><span class="pre">segid</span></code> s to <code class="docutils literal notranslate"><span class="pre">seg_{segment_index}_{molblock}</span></code>, thus:
+<code class="docutils literal notranslate"><span class="pre">seg_0_Protein_chain_A</span></code>, <code class="docutils literal notranslate"><span class="pre">seg_1_Protein_chain_B</span></code> and <code class="docutils literal notranslate"><span class="pre">seg_2_SOL</span></code>. On the other hand,
+<code class="docutils literal notranslate"><span class="pre">chainID</span></code> will be identical to <code class="docutils literal notranslate"><span class="pre">molblock</span></code> unless <code class="docutils literal notranslate"><span class="pre">molblock</span></code> is named “Protein_chain_XXX”,
+in which case <code class="docutils literal notranslate"><span class="pre">chainID</span></code> will be set to <code class="docutils literal notranslate"><span class="pre">XXX</span></code>. Thus in this case the <code class="docutils literal notranslate"><span class="pre">chainID</span></code> s will be:
+<code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">B</span></code> and <code class="docutils literal notranslate"><span class="pre">SOL</span></code>.</p>
+</section>
+<section id="bonds">
+<h3>Bonds<a class="headerlink" href="#bonds" title="Permalink to this heading"></a></h3>
 <p>Bonded interactions available in Gromacs are described in the
 <a class="reference external" href="http://manual.gromacs.org/current/reference-manual/index.html">Gromacs manual</a>. The following ones are used to build the topology (see
 <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/pull/463">Issue 463</a>):</p>
@@ -480,6 +509,7 @@ parser. Currently the following sections of the topology are parsed:</p>
 </tr>
 </tbody>
 </table>
+</section>
 </section>
 <section id="developer-notes">
 <h2>Developer notes<a class="headerlink" href="#developer-notes" title="Permalink to this heading"></a></h2>
