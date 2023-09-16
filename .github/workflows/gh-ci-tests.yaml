@@ -45,7 +45,6 @@ jobs:
 
       - name: "test snapshots"
         working-directory: doc/source/scripts/
-        continue-on-error: true
         run: python -m pytest
 
       - name: "test notebooks"
