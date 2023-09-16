@@ -115,26 +115,36 @@ Ideally, you want all tests to pass. This will look like:
 
     .. image:: images/ci_checks_passed.png
 
-.. _appveyor:
+.. _github-actions:
 
---------
-Appveyor
---------
+--------------
+GitHub Actions
+--------------
 
-`AppVeyor`_ is a continuous integration/continuous deployment service. MDAnalysis uses it for `testing builds on Windows`_.
-
-Builds are configured in the file ``.appveyor.yml``. If you add a new dependency to MDAnalysis, you will need to add it to the ``$CONDA_DEPENDENCIES`` or ``$PIP_DEPENDENCIES`` in ``.appveyor.yml`` to pass tests.
-
-.. _`testing builds on Windows`: https://ci.appveyor.com/project/orbeckst/mdanalysis
+Configured in `.github/` directory. Uses YAML syntax to define both workflows and actions. See `GitHub Actions documentation <https://help.github.com/en/actions>`_ for more information.
 
 
-.. _travis:
+.. _azure:
 
-------
-Travis
-------
+-----
+Azure
+-----
 
-`Travis is a continuous integration service <https://travis-ci.com/MDAnalysis/mdanalysis>`_ for Linux and MacOS. MDAnalysis uses it for exhaustive testing on Linux systems, and some testing on MacOS. If you add a new dependency to MDAnalysis, you will need to add it to the ``$CONDA_DEPENDENCIES`` or ``$PIP_DEPENDENCIES`` in ``.travis.yml`` to pass tests.
+Configured in `azure-pipelines.yml` file. Uses YAML syntax to define Azure Pipelines tasks. See `Azure Pipelines documentation <https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema>`_ for more information.
+
+
+.. _cirrus:
+
+---------
+Cirrus CI
+---------
+
+The file `.cirrus.star` tells the provider what to do, it uses the Starlark syntax in YAML to define tasks. See `Cirrus CI documentation <https://cirrus-ci.org/guide/writing-tasks/>`_ for more information.
+
+The actual files defining the workflows are in:
+
+- maintainer/ci/cirrus-ci.yml
+- maintainer/ci/cirrus-deploy.yml
 
 
 .. _codecov:
