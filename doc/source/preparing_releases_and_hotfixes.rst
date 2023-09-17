@@ -181,7 +181,8 @@ For now, the UserGuide is released at the same time as the core library. To make
 #. Re-generate the Syrup test snapshots, and commit those to git and confirm the build passes.
 
     .. code-block:: bash
-        python -m pytest --snapshot-update
+        cd doc/source/scripts
+        python -m pytest tests/snapshot/ --snapshot-update
 
 #. Create a new release tag and upload them for the UserGuide repository.
 
