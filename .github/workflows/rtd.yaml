@@ -16,4 +16,4 @@ jobs:
     steps:
     - uses: readthedocs/actions/preview@v1
       with:
-        project-slug: "mdanalysis"
+        project-slug: "UserGuide"
