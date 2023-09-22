@@ -28,7 +28,7 @@ Although PDBQT is a similar file format to PDB, MDAnalysis treats them with seve
 Writing out
 ===========
 
-MDAnalysis implements a subset of the PDB_ 3.2 standard and the `PDBQT`_ spec.
+MDAnalysis implements a subset of the `PDB`_ 3.2 standard and the `PDBQT`_ spec.
 Unlike the :ref:`PDB-format` writer, MDAnalysis cannot write multi-frame trajectories to a PDBQT file.
 
 If the Universe is missing fields that are :ref:`required in a PDBQT file <pdbqt-spec>`,
