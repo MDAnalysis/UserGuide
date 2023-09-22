@@ -10,8 +10,8 @@ PDBQT (Autodock structure)
 Reading in
 ==========
 
-MDAnalysis reads coordinates from PDBQT_ files and additional optional
-data such as B-factors, partial charge and AutoDock_ atom types.  It
+MDAnalysis reads coordinates from `PDBQT`_ files and additional optional
+data such as B-factors, partial charge and `AutoDock`_ atom types.  It
 is also possible to substitute a PDBQT file for a PSF file in order to
 define the list of atoms (but no connectivity information will be
 available in this case).
@@ -21,20 +21,20 @@ Although PDBQT is a similar file format to PDB, MDAnalysis treats them with seve
     * Multi-model PDBQT files are not supported
     * Connectivity is not supported (i.e. bonds are not read)
 
-.. _PDBQT:
-   https://autodock.scripps.edu/wp-content/uploads/sites/56/2021/10/AutoDock4.2.6_UserGuide.pdf
-.. _AutoDock:
-   http://autodock.scripps.edu/
-
+.. _PDBQT: https://autodock.scripps.edu/
+   wp-content/uploads/sites/56/2021/10/AutoDock4.2.6_UserGuide.pdf
+.. _AutoDock: http://autodock.scripps.edu/
 
 Writing out
 ===========
 
-MDAnalysis implements a subset of the PDB_ 3.2 standard and the PDBQT_ spec. Unlike the :ref:`PDB-format` writer, MDAnalysis cannot write multi-frame trajectories to a PDBQT file.
+MDAnalysis implements a subset of the PDB_ 3.2 standard and the `PDBQT`_ spec.
+Unlike the :ref:`PDB-format` writer, MDAnalysis cannot write multi-frame trajectories to a PDBQT file.
 
-If the Universe is missing fields that are :ref:`required in a PDBQT file <pdbqt-spec>`, MDAnalysis provides default values and raises a warning. There are 2 exceptions to this:
+If the Universe is missing fields that are :ref:`required in a PDBQT file <pdbqt-spec>`,
+MDAnalysis provides default values and raises a warning. There are 2 exceptions to this:
 
-    - ``chainIDs``: if a Universe does not have ``chainIDs``, MDAnalysis uses the first character of the segment ``segid`` instead.
+    - ``chainIDs``: if a Universe does not have ``chainIDs``, MDAnalysis will use the ``segids`` instead.
     - ``elements``: MDAnalysis uses the atom type as the element.
 
 These are the default values:
@@ -50,9 +50,8 @@ These are the default values:
     * types (elements): ''
     * charges: 0.0
 
-    .. _PDB: http://www.wwpdb.org/documentation/file-format-content/format32/v3.2.html
-    .. _PDBQT: http://autodock.scripps.edu/faqs-help/faq/what-is-the-format-of-a-pdbqt-file
-
+    .. _PDB: https://www.wwpdb.org/documentation/file-format-content/format32/
+       v3.2.html
 
 .. _pdbqt-spec:
 
@@ -63,12 +62,7 @@ Records read:
     - **CRYST1** for unit cell dimensions A,B,C, alpha,beta,gamma
     - **ATOM** or **HETATM** for serial, name, resName, chainID, resSeq, x, y, z, occupancy, tempFactor, segID
 
-.. _PDB format documentation:
-    http://www.wwpdb.org/documentation/file-format-content/format32/v3.2.html
-.. _AutoDOCK extensions:
-    http://autodock.scripps.edu/faqs-help/faq/what-is-the-format-of-a-pdbqt-file
-
-.. table:: Original `PDB format documentation`_ with `AutoDOCK extensions`_
+.. table:: `PDB`_ format with AutoDOCK extensions for the `PDBQT`_ format.
 
     =============  ============  ===========  =============================================
     COLUMNS        DATA  TYPE    FIELD        DEFINITION
@@ -94,7 +88,8 @@ Records read:
     47 - 54        Real(8.3)     z            Orthogonal coordinates for Z in Angstroms.
     55 - 60        Real(6.2)     occupancy    Occupancy.
     61 - 66        Real(6.2)     tempFactor   Temperature  factor.
-    67 - 76        Real(10.4)    partialChrg  Gasteiger PEOE partial charge *q*.
+    67 - 70        LString(4)    footnote     Usually blank. IGNORED.
+    71 - 76        Real(6.4)     partialChrg  Gasteiger PEOE partial charge *q*.
     79 - 80        LString(2)    atomType     AutoDOCK atom type *t*.
     =============  ============  ===========  =============================================
 
