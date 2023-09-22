@@ -124,15 +124,14 @@ exclude_patterns = [
 html_theme = "mdanalysis_sphinx_theme"
 
 extra_nav_links = {}
-extra_nav_links["MDAnalysis"] = "http://mdanalysis.org"
-extra_nav_links["docs"] = "http://docs.mdanalysis.org"
-extra_nav_links["wiki"] = "http://wiki.mdanalysis.org"
-extra_nav_links["user discussion group"] = "http://users.mdanalysis.org"
-extra_nav_links["GitHub"] = "https://github.com/mdanalysis"
-extra_nav_links["@mdanalysis"] = "https://twitter.com/mdanalysis"
+extra_nav_links["MDAnalysis"] = "https://mdanalysis.org"
+extra_nav_links["API docs (stable)"] = "https://docs.mdanalysis.org/stable"
+extra_nav_links["API docs (development)"] = "https://docs.mdanalysis.org/dev"
+extra_nav_links["MDAKits"] = "https://mdakits.mdanalysis.org/"
 
 html_theme_options = {
     "mda_official": True,
+    "extra_nav_links": extra_nav_links,
 }
 
 html_logo = "_static/logos/user_guide.png"
