@@ -32,9 +32,27 @@ Where to start?
 All contributions, bug reports, bug fixes, documentation improvements,
 enhancements, and ideas are welcome.
 
-If you are brand new to MDAnalysis or open-source development, we recommend going
-through the guides for :ref:`contributing to the main codebase <working-with-mdanalysis-code>` or the :ref:`user guide <working-with-user-guide>`. If you are new to Git and version control, have a look at
+If you are new to Git and version control, have a look at
 :ref:`version-control`.
+
+If you are looking to contribute a code or documentation fix, or core feature to MDAnalysis,
+and you are brand new to MDAnalysis or open-source development -- we recommend going
+through the guides for :ref:`contributing to the main codebase <working-with-mdanalysis-code>`
+or the :ref:`user guide <working-with-user-guide>`. 
+
+If you are looking to contribute your own project or new addition to MDAnalysis,
+we encourage you to consider doing so by creating an
+:ref:`MDAnalysis toolkit (MDAKit) <https://mdakits.mdanalysis.org/about.html>`.
+MDAKits are standalone packages that build on MDAnalysis to enhance its functionality.
+or solve specific scientific or technical problems. MDAKits can be optionally
+registered at the :ref:`MDAKits registry <https://mdakits.mdanalysis.org/mdakits.html>`
+to advertise to the broader MDAnalysis community.
+All packages on the registry are continuously tested
+against the latest and development versions of MDAnalysis.
+
+For more on creating an MDAKit, please see the documentation on
+:ref:`Making an MDAKit <https://mdakits.mdanalysis.org/makingakit.html>`.
+
 
 
 .. _version-control:
