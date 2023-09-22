@@ -51,7 +51,7 @@ All packages on the registry are continuously tested
 against the latest and development versions of MDAnalysis.
 
 For more on creating an MDAKit, please see the documentation on
-:ref:`Making an MDAKit`_.
+`Making an MDAKit`_.
 
 
 
