@@ -50,7 +50,7 @@
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search"  style="background: white" >
+        <div class="wy-side-nav-search" >
 
 
 
@@ -84,15 +84,28 @@
   </form>
 </div>
 
-
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+        </div>
+<div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+    
+    <!-- <p class="caption" role="heading"></p> -->
+    <ul>
+        
+        <li class="toctree-l1"><a class="reference internal" href="https://mdanalysis.org">MDAnalysis</a></li>
+        
+        <li class="toctree-l1"><a class="reference internal" href="https://docs.mdanalysis.org/stable">API docs (stable)</a></li>
+        
+        <li class="toctree-l1"><a class="reference internal" href="https://docs.mdanalysis.org/dev">API docs (development)</a></li>
+        
+        <li class="toctree-l1"><a class="reference internal" href="https://mdakits.mdanalysis.org/">MDAKits</a></li>
+        
+    </ul>
+    
+        <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/quickstart.html">Quick start guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently asked questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/README.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Data structures</span></p>
 <ul>
@@ -167,15 +180,15 @@
 <li class="toctree-l1"><a class="reference internal" href="preparing_releases_and_hotfixes.html">Preparing a release</a></li>
 <li class="toctree-l1"><a class="reference internal" href="module_imports.html">Module imports in MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testing.html">Tests in MDAnalysis</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/dev/index.html">Development docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 
-        </div>
+</div>
+
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">MDAnalysis User Guide</a>
       </nav>
@@ -306,13 +319,13 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/
 
 <span class="gp">In [16]: </span><span class="n">universe</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[16]: </span>
-<span class="go">array([[0.14709824, 0.08970277, 0.9742915 ],</span>
-<span class="go">       [0.14527689, 0.00414572, 0.53830814],</span>
-<span class="go">       [0.5935887 , 0.6575836 , 0.242559  ],</span>
+<span class="go">array([[0.28356573, 0.01892412, 0.9871016 ],</span>
+<span class="go">       [0.91713035, 0.14615725, 0.21850912],</span>
+<span class="go">       [0.55505323, 0.79246575, 0.08050079],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.8638782 , 0.17317942, 0.09106847],</span>
-<span class="go">       [0.8965208 , 0.89356846, 0.10971333],</span>
-<span class="go">       [0.4427317 , 0.9150204 , 0.1744728 ]], dtype=float32)</span>
+<span class="go">       [0.3672949 , 0.02096725, 0.40102318],</span>
+<span class="go">       [0.6931172 , 0.618447  , 0.42436442],</span>
+<span class="go">       [0.03265343, 0.5769461 , 0.12529215]], dtype=float32)</span>
 </pre></div>
 </div>
 <p>or they can be directly passed in when creating a Universe.</p>
@@ -320,13 +333,13 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/
 
 <span class="gp">In [18]: </span><span class="n">universe2</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[18]: </span>
-<span class="go">array([[0.14709824, 0.08970277, 0.9742915 ],</span>
-<span class="go">       [0.14527689, 0.00414572, 0.53830814],</span>
-<span class="go">       [0.5935887 , 0.6575836 , 0.242559  ],</span>
+<span class="go">array([[0.28356573, 0.01892412, 0.9871016 ],</span>
+<span class="go">       [0.91713035, 0.14615725, 0.21850912],</span>
+<span class="go">       [0.55505323, 0.79246575, 0.08050079],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.8638782 , 0.17317942, 0.09106847],</span>
-<span class="go">       [0.8965208 , 0.89356846, 0.10971333],</span>
-<span class="go">       [0.4427317 , 0.9150204 , 0.1744728 ]], dtype=float32)</span>
+<span class="go">       [0.3672949 , 0.02096725, 0.40102318],</span>
+<span class="go">       [0.6931172 , 0.618447  , 0.42436442],</span>
+<span class="go">       [0.03265343, 0.5769461 , 0.12529215]], dtype=float32)</span>
 </pre></div>
 </div>
 </section>

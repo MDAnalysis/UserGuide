@@ -32,9 +32,27 @@ Where to start?
 All contributions, bug reports, bug fixes, documentation improvements,
 enhancements, and ideas are welcome.
 
-If you are brand new to MDAnalysis or open-source development, we recommend going
-through the guides for :ref:`contributing to the main codebase <working-with-mdanalysis-code>` or the :ref:`user guide <working-with-user-guide>`. If you are new to Git and version control, have a look at
+If you are new to Git and version control, have a look at
 :ref:`version-control`.
+
+If you are looking to contribute a code or documentation fix, or core feature to MDAnalysis,
+and you are brand new to MDAnalysis or open-source development -- we recommend going
+through the guides for :ref:`contributing to the main codebase <working-with-mdanalysis-code>`
+or the :ref:`user guide <working-with-user-guide>`.
+
+If you are looking to contribute your own project or new addition to MDAnalysis,
+we encourage you to open an issue at the `Issue Tracker`_ or consider creating an
+`MDAnalysis toolkit (MDAKit)`_ .
+MDAKits are standalone packages that build on MDAnalysis to enhance its functionality.
+or solve specific scientific or technical problems. MDAKits can be optionally
+registered at the `MDAKits registry`_
+to advertise to the broader MDAnalysis community.
+All packages on the registry are continuously tested
+against the latest and development versions of MDAnalysis.
+
+For more on creating an MDAKit, please see the documentation on
+`Making an MDAKit`_.
+
 
 
 .. _version-control:
@@ -71,3 +89,6 @@ you can work seamlessly between your local repository and GitHub.
    http://groups.google.com/group/mdnalysis-discussion
 .. _`Code of Conduct`: https://www.mdanalysis.org/pages/conduct/
 .. _`Issue Tracker`: https://github.com/MDAnalysis/mdanalysis/issues
+.. _`MDAKits registry`: https://mdakits.mdanalysis.org/mdakits.html
+.. _`MDAnalysis toolkit (MDAKit)`: https://mdakits.mdanalysis.org/about.html
+.. _`Making an MDAKit`: https://mdakits.mdanalysis.org/makingakit.html

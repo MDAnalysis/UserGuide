@@ -50,7 +50,7 @@
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search"  style="background: white" >
+        <div class="wy-side-nav-search" >
 
 
 
@@ -84,15 +84,28 @@
   </form>
 </div>
 
-
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+        </div>
+<div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+    
+    <!-- <p class="caption" role="heading"></p> -->
+    <ul>
+        
+        <li class="toctree-l1"><a class="reference internal" href="https://mdanalysis.org">MDAnalysis</a></li>
+        
+        <li class="toctree-l1"><a class="reference internal" href="https://docs.mdanalysis.org/stable">API docs (stable)</a></li>
+        
+        <li class="toctree-l1"><a class="reference internal" href="https://docs.mdanalysis.org/dev">API docs (development)</a></li>
+        
+        <li class="toctree-l1"><a class="reference internal" href="https://mdakits.mdanalysis.org/">MDAKits</a></li>
+        
+    </ul>
+    
+        <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/quickstart.html">Quick start guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently asked questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/README.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/stable/index.html">API docs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Data structures</span></p>
 <ul>
@@ -153,15 +166,15 @@
 <li class="toctree-l1"><a class="reference internal" href="preparing_releases_and_hotfixes.html">Preparing a release</a></li>
 <li class="toctree-l1"><a class="reference internal" href="module_imports.html">Module imports in MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testing.html">Tests in MDAnalysis</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://docs.mdanalysis.org/dev/index.html">Development docs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 
-        </div>
+</div>
+
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">MDAnalysis User Guide</a>
       </nav>
@@ -208,9 +221,23 @@ members agree and adhere to — please read it.</p>
 <h2>Where to start?<a class="headerlink" href="#where-to-start" title="Permalink to this heading"></a></h2>
 <p>All contributions, bug reports, bug fixes, documentation improvements,
 enhancements, and ideas are welcome.</p>
-<p>If you are brand new to MDAnalysis or open-source development, we recommend going
-through the guides for <a class="reference internal" href="contributing_code.html#working-with-mdanalysis-code"><span class="std std-ref">contributing to the main codebase</span></a> or the <a class="reference internal" href="contributing_docs.html#working-with-user-guide"><span class="std std-ref">user guide</span></a>. If you are new to Git and version control, have a look at
+<p>If you are new to Git and version control, have a look at
 <a class="reference internal" href="#version-control"><span class="std std-ref">Version control, Git, and GitHub</span></a>.</p>
+<p>If you are looking to contribute a code or documentation fix, or core feature to MDAnalysis,
+and you are brand new to MDAnalysis or open-source development – we recommend going
+through the guides for <a class="reference internal" href="contributing_code.html#working-with-mdanalysis-code"><span class="std std-ref">contributing to the main codebase</span></a>
+or the <a class="reference internal" href="contributing_docs.html#working-with-user-guide"><span class="std std-ref">user guide</span></a>.</p>
+<p>If you are looking to contribute your own project or new addition to MDAnalysis,
+we encourage you to open an issue at the <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/issues">Issue Tracker</a> or consider creating an
+<a class="reference external" href="https://mdakits.mdanalysis.org/about.html">MDAnalysis toolkit (MDAKit)</a> .
+MDAKits are standalone packages that build on MDAnalysis to enhance its functionality.
+or solve specific scientific or technical problems. MDAKits can be optionally
+registered at the <a class="reference external" href="https://mdakits.mdanalysis.org/mdakits.html">MDAKits registry</a>
+to advertise to the broader MDAnalysis community.
+All packages on the registry are continuously tested
+against the latest and development versions of MDAnalysis.</p>
+<p>For more on creating an MDAKit, please see the documentation on
+<a class="reference external" href="https://mdakits.mdanalysis.org/makingakit.html">Making an MDAKit</a>.</p>
 </section>
 <section id="version-control-git-and-github">
 <span id="version-control"></span><h2>Version control, Git, and GitHub<a class="headerlink" href="#version-control-git-and-github" title="Permalink to this heading"></a></h2>
