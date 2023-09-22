@@ -41,7 +41,7 @@ through the guides for :ref:`contributing to the main codebase <working-with-mda
 or the :ref:`user guide <working-with-user-guide>`. 
 
 If you are looking to contribute your own project or new addition to MDAnalysis,
-we encourage you to consider doing so by creating an
+we encourage you to open an issue or consider creating an
 :ref:`MDAnalysis toolkit (MDAKit) <https://mdakits.mdanalysis.org/about.html>`.
 MDAKits are standalone packages that build on MDAnalysis to enhance its functionality.
 or solve specific scientific or technical problems. MDAKits can be optionally
