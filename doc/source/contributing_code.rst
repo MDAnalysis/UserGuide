@@ -243,7 +243,7 @@ First we need to install dependencies. You'll need a mix of conda and pip instal
           'mda-xdrlib'
 
         # documentation dependencies
-        conda install -c conda-forge 'mdanalysis-sphinx-theme>=1.3.0'
+        conda install -c conda-forge 'mdanalysis-sphinx-theme>=1.3.0' docutils sphinx-sitemap sphinxcontrib-bibtex pybtex pybtex-docutils
         python -m pip install docutils sphinx-sitemap sphinxcontrib-bibtex pybtex pybtex-docutils
 
 Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.9. We will now install MDAnalysis.
