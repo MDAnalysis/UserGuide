@@ -448,12 +448,12 @@ and activated your virtual environment with <code class="code docutils literal n
 <span class="w">  </span><span class="s1">&#39;parmed&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s1">&#39;seaborn&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s1">&#39;scikit-learn&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="s1">&#39;tidynamics&gt;=1.0.0&#39;</span>
+<span class="w">  </span><span class="s1">&#39;tidynamics&gt;=1.0.0&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;mda-xdrlib&#39;</span>
 
 <span class="c1"># documentation dependencies</span>
-conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>sphinx<span class="w"> </span>pybtex<span class="w"> </span>pybtex-docutils<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>sphinxcontrib-bibtex<span class="w"> </span>mdanalysis-sphinx-theme<span class="w"> </span>sphinx-sitemap
-python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install
+conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span><span class="s1">&#39;mdanalysis-sphinx-theme&gt;=1.3.0&#39;</span><span class="w"> </span>docutils<span class="w"> </span>sphinx-sitemap<span class="w"> </span>sphinxcontrib-bibtex<span class="w"> </span>pybtex<span class="w"> </span>pybtex-docutils
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>docutils<span class="w"> </span>sphinx-sitemap<span class="w"> </span>sphinxcontrib-bibtex<span class="w"> </span>pybtex<span class="w"> </span>pybtex-docutils
 </pre></div>
 </div>
 </div></blockquote>
@@ -516,12 +516,13 @@ and activated your virtual environment with <code class="code docutils literal n
 <span class="w">  </span><span class="s1">&#39;parmed&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s1">&#39;seaborn&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s1">&#39;scikit-learn&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="s1">&#39;tidynamics&gt;=1.0.0&#39;</span>
+<span class="w">  </span><span class="s1">&#39;tidynamics&gt;=1.0.0&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;mda-xdrlib&#39;</span>
 
 <span class="c1"># for building documentation</span>
 python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>sphinx<span class="w"> </span>mdanalysis_sphinx_theme<span class="w"> </span>sphinx-sitemap<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>pybtex<span class="w"> </span>pybtex-docutils<span class="w"> </span>sphinxcontrib-bibtex
+<span class="w">  </span>sphinx<span class="w"> </span><span class="s1">&#39;mdanalysis-sphinx-theme&gt;=1.3.0&#39;</span><span class="w"> </span>sphinx-sitemap<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>pybtex<span class="w"> </span>docutils<span class="w"> </span>pybtex-docutils<span class="w"> </span>sphinxcontrib-bibtex
 </pre></div>
 </div>
 </div></blockquote>
@@ -546,7 +547,7 @@ python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </sp
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python<span class="w">  </span><span class="c1"># start an interpreter</span>
 &gt;&gt;&gt;<span class="w"> </span>import<span class="w"> </span>MDAnalysis<span class="w"> </span>as<span class="w"> </span>mda
 &gt;&gt;&gt;<span class="w"> </span>mda.__version__
-<span class="s1">&#39;2.6.0-dev0&#39;</span>
+<span class="s1">&#39;2.7.0-dev0&#39;</span>
 </pre></div>
 </div>
 </div></blockquote>
