@@ -239,12 +239,12 @@ First we need to install dependencies. You'll need a mix of conda and pip instal
           'parmed' \
           'seaborn' \
           'scikit-learn' \
-          'tidynamics>=1.0.0'
+          'tidynamics>=1.0.0' \
+          'mda-xdrlib'
 
         # documentation dependencies
-        conda install -c conda-forge sphinx pybtex pybtex-docutils \
-            sphinxcontrib-bibtex mdanalysis-sphinx-theme sphinx-sitemap
-        python -m pip install
+        conda install -c conda-forge 'mdanalysis-sphinx-theme>=1.3.0'
+        python -m pip install docutils sphinx-sitemap sphinxcontrib-bibtex pybtex pybtex-docutils
 
 Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.9. We will now install MDAnalysis.
 
@@ -307,12 +307,13 @@ Install the dependencies:
           'parmed' \
           'seaborn' \
           'scikit-learn' \
-          'tidynamics>=1.0.0'
+          'tidynamics>=1.0.0' \
+          'mda-xdrlib'
 
         # for building documentation
         python -m pip install \
-          sphinx mdanalysis_sphinx_theme sphinx-sitemap \
-          pybtex pybtex-docutils sphinxcontrib-bibtex
+          sphinx 'mdanalysis-sphinx-theme>=1.3.0' sphinx-sitemap \
+          pybtex docutils pybtex-docutils sphinxcontrib-bibtex
 
 Some packages, such as ``clustalw``, are not available via pip.
 
@@ -338,7 +339,7 @@ At this point you should be able to import MDAnalysis from your locally built ve
         $ python  # start an interpreter
         >>> import MDAnalysis as mda
         >>> mda.__version__
-        '2.6.0-dev0'
+        '2.7.0-dev0'
 
 
 .. _branches-in-mdanalysis:
