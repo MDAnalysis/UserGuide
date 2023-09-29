@@ -85,17 +85,18 @@ Adding new documentation
 The documentation is built using `Sphinx <https://www.sphinx-doc.org/en/master/>`_.
 The user guide is largely composed of four different kinds of files:
 
-* reStructuredText files (``.rst``) which contain the text of the documentation
-* Jupyter notebooks (``.ipynb``) which contain code examples
+* :ref:`reStructuredText files <restructuredtext-files>` (``.rst``) which contain the text of the documentation
+* :ref:`Jupyter notebooks <jupyter-files>` (``.ipynb``) which contain code examples
 * Python scripts (``.py``) in the ``doc/source/scripts/`` directory which are used
   for automatically generated documentation
 * Text files (``.txt``) which contain the automatically generated documentation.
+  These should not be edited directly as changes will not be included.
   These are largely tables and lists of topology attributes for readers, writers,
   and parsers
 
 
 What file to edit
-""""""""""""""""""
+"""""""""""""""""
 The structure of the user guide is a bit convoluted!
 In order to figure out which file you should be editing, the easiest
 way is probably to ``ctrl+F`` or otherwise search through the repository
@@ -138,6 +139,7 @@ to the Jupyter notebook itself, and changes will be reflected in the final
 documentation.
 
 
+.. _restructuredtext-files:
 
 reStructuredText files
 """"""""""""""""""""""
@@ -169,6 +171,7 @@ will be rendered as:
         In [2]: x**3
         Out[2]: 8
 
+.. _jupyter-files:
 
 Jupyter notebook files
 """"""""""""""""""""""
@@ -176,6 +179,27 @@ Jupyter notebook files
 Jupyter notebooks are a great way to write documentation, since they allow you to
 write text and code in the same document. The user guide uses Jupyter notebooks
 for all the tutorials and examples.
+
+.. important::
+    
+    One of the neat things about ``nglview`` is the ability to interact with molecules via the viewer.
+    Many of our notebooks include cells that render MDAnalysis systems.
+    However, this creates very large files.
+    **We ask that you avoid saving the state of the viewer in the notebooks.**
+    We also ask in general that you leave NGLView cells commented out.
+
+Everything in the ``doc/source/examples/`` directory is a Jupyter notebook.
+They are rendered in the user guide on the "Examples" page, and
+are also listed in the "Analysis" section of the user guide.
+
+Jupyter notebooks should be edited and created using the User guide environment
+that you created in the :ref:`previous section <create-virtual-environment-user-guide>`.
+
+When you add a new Jupyter notebook, you should add it to the ``doc/source/examples/``
+directory and add a link to it in the ``doc/source/examples/README.rst`` file.
+
+Further notes on testing Jupyter notebooks are included below.
+
 
 
 .. _build-user-guide:
@@ -194,15 +218,6 @@ The HTML output will be in ``doc/build/``, which you can open in your browser of
 
 If rebuilding the documentation becomes tedious after a while, install the :ref:`sphinx-autobuild <autobuild-sphinx>` extension.
 
-Saving state in Jupyter notebooks
-=================================
-
-One of the neat things about ``nglview`` is the ability to interact with molecules via the viewer.
-This ability can be preserved for the HTML pages generated from Jupyer notebooks by ``nbsphinx``,
-if you save the notebook widget state after execution.
-
-**However, this creates very large files** -- we ask that Jupyter notebooks have the nglview
-cells commented out, so that the HTML pages are not too large.
 
 .. _nbval-testing:
 
