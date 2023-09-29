@@ -34,6 +34,17 @@ will be rendered as:
         In [2]: x**3
         Out[2]: 8
 
+
+The ``nbsphinx`` extension lets you include Jupyter notebooks in the documentation.
+Everything in the `Examples <https://userguide.mdanalysis.org/stable/examples/README.html>`_
+or the `Analysis <https://userguide.mdanalysis.org/stable/examples/analysis/README.html>`_
+sections of the user guide is actually originally a Jupyter notebook.
+The notebooks can be found in the ``doc/source/examples/``
+`directory <https://github.com/MDAnalysis/UserGuide/tree/develop/doc/source/examples>`_
+of the UserGuide repository, and edits can be made there.
+
+
+
 Many code examples in the docs are run during the
 doc build. This approach means that code examples will always be up to date,
 but it does make the doc building a bit more complex.
@@ -102,7 +113,12 @@ If rebuilding the documentation becomes tedious after a while, install the :ref:
 Saving state in Jupyter notebooks
 =================================
 
-One of the neat things about ``nglview`` is the ability to interact with molecules via the viewer. This ability can be preserved for the HTML pages generated from Jupyer notebooks by ``nbsphinx``, if you save the notebook widget state after execution.
+One of the neat things about ``nglview`` is the ability to interact with molecules via the viewer.
+This ability can be preserved for the HTML pages generated from Jupyer notebooks by ``nbsphinx``,
+if you save the notebook widget state after execution.
+
+**However, this creates very large files** -- we ask that Jupyter notebooks have the nglview
+cells commented out, so that the HTML pages are not too large.
 
 .. _nbval-testing:
 
@@ -169,9 +185,76 @@ environmental variable like this::
 Adding changes to the UserGuide
 ===============================
 
-As with the code, :ref:`commit and push <adding-code-to-mda>` your code to GitHub. Then :ref:`create a pull request <create-a-pull-request>`. The only test run for the User Guide is: that your file compile into HTML documents without errors. As usual, a developer will review your PR and merge the code into the User Guide when it looks good.
+As with the code, :ref:`commit and push <adding-code-to-mda>` your code to GitHub.
+Then :ref:`create a pull request <create-a-pull-request>`.
+The only test run for the User Guide is: that your file compile into HTML documents without errors.
+As usual, a developer will review your PR and merge the code into the User Guide when it looks good.
 
-It is often difficult to review Jupyter notebooks on GitHub, especially if you embed widgets and images. One way to make it easier on the developers who review your changes is to build the changes on your forked repository and link the relevant sections in your pull request. To do this, create a ``gh-pages`` branch and merge your new branch into it.
+If you have issues building your documentation locally, pull requests
+create preview documentation on ReadTheDocs, which you can use to check renders.
+We believe it is best to open PRs early and often, so that we can catch issues early!
+
+
+Optional steps and tips
+=======================
+
+The below sections are optional, but may be helpful for more advanced users.
+
+Using pre-commit hooks
+""""""""""""""""""""""
+
+Manually editing files can often lead to small inconsistencies: a whitespace here, a missing carriage return there. A tool called pre-commit can be used to automatically fix these problems, before a git commit is made. To enable the pre-commit hooks, run the following:
+
+    .. code-block:: bash
+
+        pre-commit install
+
+To perform the pre-commit checks on all the files, run the following:
+
+    .. code-block:: bash
+
+        pre-commit run --all-files
+
+To remove the pre-commit hooks from your .git directory, run the following:
+
+    .. code-block:: bash
+
+        pre-commit uninstall
+
+
+.. _autobuild-sphinx:
+
+Automatically building documentation
+""""""""""""""""""""""""""""""""""""
+
+Constantly rebuilding documentation can become tedious when you have many changes to make. Use `sphinx-autobuild <https://pypi.org/project/sphinx-autobuild>`_ to rebuild documentation every time you make changes to any document, including Jupyter notebooks. Install ``sphinx-autobuild``:
+
+    .. code-block:: bash
+
+        pip install sphinx-autobuild
+
+Then, run the following command in the ``doc/`` directory:
+
+    .. code-block:: bash
+
+        python -m sphinx_autobuild source build
+
+This will start a local webserver at http://localhost:8000/, which will refresh every time you save changes to a file in the documentation. This is helpful for both the user guide (first navigate to ``UserGuide/doc``) and the main repository documentation (navigate to ``package/doc/sphinx``).
+
+
+Advanced preview with gh-pages
+""""""""""""""""""""""""""""""
+
+.. note::
+
+    This section documents how to render documentation on a fork without ReadTheDocs.
+    This is *generally unnecessary* and should only be done in cases where we
+    believe ReadTheDocs is not rendering our documentation properly.
+    For all other cases, please use the ReadTheDocs preview in pull requests.
+
+It is often difficult to review Jupyter notebooks on GitHub, especially if you embed widgets and images.
+One way to make it easier on the developers who review your changes is to build the changes on your forked repository and link the relevant sections in your pull request.
+To do this, create a ``gh-pages`` branch and merge your new branch into it.
 
 .. code-block:: bash
 
@@ -210,44 +293,3 @@ For each time you add changes to another branch later, just merge into gh-pages 
     git merge origin/my_branch
     cd doc/
     make github
-
-.. _autobuild-sphinx:
-
-Automatically building documentation
-====================================
-
-Constantly rebuilding documentation can become tedious when you have many changes to make. Use `sphinx-autobuild <https://pypi.org/project/sphinx-autobuild>`_ to rebuild documentation every time you make changes to any document, including Jupyter notebooks. Install ``sphinx-autobuild``:
-
-    .. code-block:: bash
-
-        pip install sphinx-autobuild
-
-Then, run the following command in the ``doc/`` directory:
-
-    .. code-block:: bash
-
-        python -m sphinx_autobuild source build
-
-This will start a local webserver at http://localhost:8000/, which will refresh every time you save changes to a file in the documentation. This is helpful for both the user guide (first navigate to ``UserGuide/doc``) and the main repository documentation (navigate to ``package/doc/sphinx``).
-
-
-Using pre-commit hooks
-====================================
-
-Manually editing files can often lead to small inconsistencies: a whitespace here, a missing carriage return there. A tool called pre-commit can be used to automatically fix these problems, before a git commit is made. To enable the pre-commit hooks, run the following:
-
-    .. code-block:: bash
-
-        pre-commit install
-
-To perform the pre-commit checks on all the files, run the following:
-
-    .. code-block:: bash
-
-        pre-commit run --all-files
-
-To remove the pre-commit hooks from your .git directory, run the following:
-
-    .. code-block:: bash
-
-        pre-commit uninstall
