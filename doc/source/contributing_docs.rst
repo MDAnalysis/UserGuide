@@ -13,35 +13,16 @@ MDAnalysis maintains two kinds of documentation:
 
 This guide is about how to contribute to the user guide. If you are looking to add to documentation of the main code base, please see :ref:`working-with-mdanalysis-docs`.
 
-The user guide makes use of a number of Sphinx extensions to ensure that the code examples are always up-to-date. These include `nbsphinx <https://nbsphinx.readthedocs.io>`_ and the `ipython directive <http://matplotlib.org/sampledoc/ipython_directive.html>`__.
 
-The ``ipython`` directive lets you put code in the documentation which will be run
-during the doc build. For example:
-
-    ::
-
-        .. ipython:: python
-
-            x = 2
-            x**3
-
-will be rendered as:
-
-    .. ipython::
-
-        In [1]: x = 2
-
-        In [2]: x**3
-        Out[2]: 8
+Overview
+========
 
 
-The ``nbsphinx`` extension lets you include Jupyter notebooks in the documentation.
-Everything in the `Examples <https://userguide.mdanalysis.org/stable/examples/README.html>`_
-or the `Analysis <https://userguide.mdanalysis.org/stable/examples/analysis/README.html>`_
-sections of the user guide is actually originally a Jupyter notebook.
-The notebooks can be found in the ``doc/source/examples/``
-`directory <https://github.com/MDAnalysis/UserGuide/tree/develop/doc/source/examples>`_
-of the UserGuide repository, and edits can be made there.
+
+
+
+
+
 
 
 
@@ -93,6 +74,109 @@ Using ``conda`` or similar (``miniconda``, ``mamba``, ``micromamba``), create a 
         conda env create --file environment.yml --quiet
         conda activate mda-user-guide
         jupyter-nbextension enable nglview --py --sys-prefix
+
+
+
+.. _add-new-documentation:
+
+Adding new documentation
+========================
+
+The documentation is built using `Sphinx <https://www.sphinx-doc.org/en/master/>`_.
+The user guide is largely composed of four different kinds of files:
+
+* reStructuredText files (``.rst``) which contain the text of the documentation
+* Jupyter notebooks (``.ipynb``) which contain code examples
+* Python scripts (``.py``) in the ``doc/source/scripts/`` directory which are used
+  for automatically generated documentation
+* Text files (``.txt``) which contain the automatically generated documentation.
+  These are largely tables and lists of topology attributes for readers, writers,
+  and parsers
+
+
+What file to edit
+""""""""""""""""""
+The structure of the user guide is a bit convoluted!
+In order to figure out which file you should be editing, the easiest
+way is probably to ``ctrl+F`` or otherwise search through the repository
+for the text you want to edit. Otherwise, you can look at the
+``index.rst`` file in the ``doc/source`` directory.
+This file contains the *home page* of the user guide and the "overall"
+tables of contents for the rest of the documentation.
+
+For example, the
+``index.rst`` file might contain the following lines:
+
+    .. code-block:: rst
+
+        .. toctree::
+            :maxdepth: 1
+            :caption: Getting started
+            :hidden:
+
+            installation
+            examples/quickstart
+            faq
+            examples/README
+
+This tells Sphinx that the first three entries in the "Getting started" section
+of the documentation are:
+
+    #. ``installation.rst``
+    #. ``examples/quickstart.ipynb``
+    #. ``faq.rst``
+    #. ``examples/README.rst``
+
+All internal links in the user guide are relative to the ``doc/source`` directory.
+``installation.rst``, therefore, can be found at ``UserGuide/doc/source/installation.rst``.
+This is the file you should edit if you want to change the installation instructions.
+
+Note that the ``examples/quickstart.ipynb`` entry is a Jupyter notebook.
+We use the `nbsphinx`_ extension to convert Jupyter notebooks to HTML
+during the doc build. All changes to the Quickstart guide should be made
+to the Jupyter notebook itself, and changes will be reflected in the final
+documentation.
+
+
+
+reStructuredText files
+""""""""""""""""""""""
+
+These are the files that end in ``.rst`` and contain plain text.
+reStructuredText is a markup language that is used to write
+documentation for Sphinx in Python.
+The `reStructuredText Primer <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`_
+is a good place to start if you are unfamiliar with the syntax.
+
+The user guide also makes use of a number of Sphinx extensions to ensure that the code examples are always up-to-date.
+One example is the `ipython directive <http://matplotlib.org/sampledoc/ipython_directive.html>`__.
+The ``ipython`` directive lets you put code in the documentation which will be run
+during the doc build. For example:
+
+    ::
+
+        .. ipython:: python
+
+            x = 2
+            x**3
+
+will be rendered as:
+
+    .. ipython::
+
+        In [1]: x = 2
+
+        In [2]: x**3
+        Out[2]: 8
+
+
+Jupyter notebook files
+""""""""""""""""""""""
+
+Jupyter notebooks are a great way to write documentation, since they allow you to
+write text and code in the same document. The user guide uses Jupyter notebooks
+for all the tutorials and examples.
+
 
 .. _build-user-guide:
 
@@ -293,3 +377,7 @@ For each time you add changes to another branch later, just merge into gh-pages 
     git merge origin/my_branch
     cd doc/
     make github
+
+
+
+.. _nbsphinx: https://nbsphinx.readthedocs.io
