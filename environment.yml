@@ -1,4 +1,4 @@
-name: guide
+name: mda-user-guide
 channels:
   - jaimergp/label/unsupported-cudatoolkit-shim
   - conda-forge
