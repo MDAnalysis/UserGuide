@@ -309,6 +309,22 @@ To remove the pre-commit hooks from your .git directory, run the following:
         pre-commit uninstall
 
 
+
+Then :ref:`create a pull request <create-a-pull-request>`.
+The only test run for the User Guide is: that your file compile into HTML documents without errors.
+As usual, a developer will review your PR and merge the code into the User Guide when it looks good.
+
+If you have issues building your documentation locally, pull requests
+create preview documentation on ReadTheDocs, which you can use to check renders.
+We believe it is best to open PRs early and often, so that we can catch issues early!
+
+
+Optional steps and tips
+=======================
+
+The below sections are optional, but may be helpful for more advanced users.
+
+
 .. _autobuild-sphinx:
 
 Automatically building documentation
