@@ -13,7 +13,7 @@ def gen_release_notes(filename):
     parent_directory.mkdir(exist_ok=True, parents=True)
     filename = parent_directory / filename
 
-    filetext = "# Release notes for the MDAnalysis library\n\n\n"
+    filetext = "# MDAnalysis Release Notes\n\n\n"
 
     # Should be ordered
     for release in repo.get_releases():

@@ -1,4 +1,4 @@
-# Release notes for the MDAnalysis library
+# MDAnalysis Release Notes
 
 
 ## Release 2.6.1 of MDAnalysis
