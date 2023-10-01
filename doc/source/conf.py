@@ -84,6 +84,7 @@ extensions = [
     "sphinxcontrib.bibtex",
     "matplotlib.sphinxext.plot_directive",
     "mdanalysis_sphinx_theme",
+    "myst_parser",
 ]
 
 bibtex_bibfiles = ["references.bib"]

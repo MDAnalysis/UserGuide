@@ -22,6 +22,7 @@ dependencies:
   - ipython
   - ipywidgets<8.0.0
   - jupyter_contrib_nbextensions
+  - myst-parser
   - nbconvert # not called by any notebook explicitly but to download notebooks, or in nbsphinx
   - nbformat
   - nbsphinx
@@ -51,6 +52,8 @@ dependencies:
       - nbval
       # developer tooling
       - pre-commit
+      # doc generation
+      - pygithub
       # mdanalysis and its tests and test data
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=mdanalysis&subdirectory=package
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=MDAnalysisTests&subdirectory=testsuite
