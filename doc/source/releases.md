@@ -7,7 +7,7 @@ This is a bugfix release of the 2.6.x version branch of MDAnalysis, it serves as
 
 See the [CHANGELOG](https://github.com/MDAnalysis/mdanalysis/blob/release-2.6.1/package/CHANGELOG) for more details.
 
-## Bug fixes and changes
+### Bug fixes and changes
 
 * Reverting the v2.6.0 behaviour, builds are now again made using the oldest supported NumPy version (NumPy 1.22.3 for Python 3.9-3.10, and 1.22.3 for Python 3.11) [PR #4261]
 * Uses of numpy `in1d` have been replaced with `isin` in prepartion for NumPy 2.0 [PR #4255]
@@ -15,7 +15,7 @@ See the [CHANGELOG](https://github.com/MDAnalysis/mdanalysis/blob/release-2.6.1/
 * Fix to element guessing code to more accurately interpret atom names split by numbers (i.e. N0A is now recognised as N rather than NA) [Issue #4167, PR #4168]
 * Clarification of SurvivalProbability function documentation [Issue #4247, PR #4248]1
 
-## New Contributors
+### New Contributors
 * @pillose made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4168
 
 ## Release 2.6.0 of MDAnalysis
@@ -29,7 +29,7 @@ The minimum supported NumPy version has been raised to 1.22.3 as per NEP29. Plea
 Supported Python versions:
   - 3.9, 3.10, 3.11
 
-## Major changes:
+### Major changes:
 
 See the [CHANGELOG](https://github.com/MDAnalysis/mdanalysis/blob/release-2.6.0/package/CHANGELOG) and our [release blog post](https://www.mdanalysis.org/blog/#mdanalysis-2.6-is-out) for more details.
 
@@ -55,7 +55,7 @@ See the [CHANGELOG](https://github.com/MDAnalysis/mdanalysis/blob/release-2.6.0/
 * The misspelt `Boltzman_constant` entry in `MDAnalysis.units` is now deprecated in favour the correctly spelt `Boltzmann_constant`. (https://github.com/MDAnalysis/mdanalysis/pull/4230 and https://github.com/MDAnalysis/mdanalysis/pull/4214)
 * `MDAnalysis.analysis.hole2` is now deprecated in favour of a new [HOLE2 MDAKit](https://www.mdanalysis.org/hole2-mdakit/). (https://github.com/MDAnalysis/mdanalysis/pull/4200)
 
-## New Contributors
+### New Contributors
 * @MohitKumar020291 made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4182
 * @Shubx10 made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4184
 * @ztimol made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4191
@@ -151,7 +151,7 @@ See the [CHANGELOG](https://github.com/MDAnalysis/mdanalysis/blob/release-2.5.0/
       bespoke code to transfer atomic properties from the non-standardized mol
       to the standardized one.
 
-## New Contributors
+### New Contributors
 * @mglagolev made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/3959
 * @chrispfae made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4009
 * @ooprathamm made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4010
@@ -233,7 +233,7 @@ See the [CHANGELOG](https://github.com/MDAnalysis/mdanalysis/blob/release-2.4.0/
 * The `sequence_aligment()` method has been deprecated and will be removed in version 3.0.0 (PR #3951)
 * MDAnalysis.analysis.nucleicacids' direct indexing of selection indices to obtain pair distances results has been deprecated in favor of accessing `results.pair_distances` (PR #3958)
 
-## New Contributors
+### New Contributors
 * @jaclark5 made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/3846
 * @pgbarletta made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/3876
 * @jfennick made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/3832

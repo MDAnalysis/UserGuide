@@ -1,12 +1,12 @@
-import pathlib
 import os
+import pathlib
 
 from github import Github
 
 
 def gen_release_notes(filename):
-    git = Github(os.environ['GITHUB_TOKEN'])
-    repo = git.get_repo('MDAnalysis/mdanalysis')
+    git = Github(os.environ["GITHUB_TOKEN"])
+    repo = git.get_repo("MDAnalysis/mdanalysis")
     releases = repo.get_releases()
 
     parent_directory = pathlib.Path(__file__).parent.parent
@@ -18,23 +18,23 @@ def gen_release_notes(filename):
     # Should be ordered
     for release in repo.get_releases():
         # MDAnalysis releases always follow a tag pattern of *-release_version
-        version = release.tag_name.split('-')[1]
+        version = release.tag_name.split("-")[1]
 
         # Only write out version 2.x+ since those are the only ones that
         # we can guarantee similarly written notes for
-        if int(version.split('.')[0]) < 2:
+        if int(version.split(".")[0]) < 2:
             continue
 
-        if release.body.startswith('###'):
+        if release.body.startswith("###"):
             filetext += release.body[1:]
         else:
             filetext += release.body
 
         filetext += "\n\n"
 
-    with open(filename, 'w') as f:
+    with open(filename, "w") as f:
         f.write(filetext)
 
 
 if __name__ == "__main__":
-    gen_release_notes('releases.md')
+    gen_release_notes("releases.md")
