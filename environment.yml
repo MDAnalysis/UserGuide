@@ -52,8 +52,6 @@ dependencies:
       - nbval
       # developer tooling
       - pre-commit
-      # doc generation
-      - pygithub
       # mdanalysis and its tests and test data
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=mdanalysis&subdirectory=package
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=MDAnalysisTests&subdirectory=testsuite

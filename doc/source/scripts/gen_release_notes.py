@@ -18,11 +18,11 @@ def gen_release_notes(filename):
     # Should be ordered
     for release in repo.get_releases():
         # MDAnalysis releases always follow a tag pattern of *-release_version
-        version = release.tag_name.split('-')[0]
+        version = release.tag_name.split('-')[1]
 
         # Only write out version 2.x+ since those are the only ones that
         # we can guarantee similarly written notes for
-        if version.split('.')[0] < 2:
+        if int(version.split('.')[0]) < 2:
             continue
 
         if release.body.startswith('###'):
