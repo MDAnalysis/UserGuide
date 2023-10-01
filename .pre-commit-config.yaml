@@ -4,6 +4,7 @@ repos:
     hooks:
     -   id: check-yaml
     -   id: end-of-file-fixer
+        exclude: ^(doc/source/releases.md)
     -   id: trailing-whitespace
         exclude: ^(.*\.(pdb)|doc/source/releases.md)$
 -   repo: https://github.com/pycqa/isort
