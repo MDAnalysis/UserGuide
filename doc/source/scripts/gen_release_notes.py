@@ -1,5 +1,6 @@
 import os
 import pathlib
+import re
 
 from github import Github
 
@@ -31,6 +32,13 @@ def gen_release_notes(filename):
             filetext += release.body
 
         filetext += "\n\n"
+
+    # replace all @ starting handles with github links
+    # \b doesn't work so we're using \s and getting extra whitespace
+    handles = set(re.findall(r'\s@\w+', filetext))
+    for entry in handles:
+        new_word = f" [{entry[1:]}](https://github.com/{entry[2:]})"
+        filetext = filetext.replace(entry, new_word)
 
     with open(filename, "w") as f:
         f.write(filetext)

@@ -16,7 +16,7 @@ See the [CHANGELOG](https://github.com/MDAnalysis/mdanalysis/blob/release-2.6.1/
 * Clarification of SurvivalProbability function documentation [Issue #4247, PR #4248]1
 
 ### New Contributors
-* @pillose made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4168
+* [@pillose](https://github.com/pillose) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4168
 
 ## Release 2.6.0 of MDAnalysis
 
@@ -56,9 +56,9 @@ See the [CHANGELOG](https://github.com/MDAnalysis/mdanalysis/blob/release-2.6.0/
 * `MDAnalysis.analysis.hole2` is now deprecated in favour of a new [HOLE2 MDAKit](https://www.mdanalysis.org/hole2-mdakit/). (https://github.com/MDAnalysis/mdanalysis/pull/4200)
 
 ### New Contributors
-* @MohitKumar020291 made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4182
-* @Shubx10 made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4184
-* @ztimol made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4191
+* [@MohitKumar020291](https://github.com/MohitKumar020291) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4182
+* [@Shubx10](https://github.com/Shubx10) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4184
+* [@ztimol](https://github.com/ztimol) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4191
 
 ## Release 2.5.0 of MDAnalysis
 
@@ -152,22 +152,22 @@ See the [CHANGELOG](https://github.com/MDAnalysis/mdanalysis/blob/release-2.5.0/
       to the standardized one.
 
 ### New Contributors
-* @mglagolev made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/3959
-* @chrispfae made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4009
-* @ooprathamm made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4010
-* @MeetB7 made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4022
-* @v-parmar made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4032
-* @MoSchaeffler made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4049
-* @jandom made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4043
-* @xhgchen made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4037
-* @DrDomenicoMarson made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4074
-* @AHMED-salah00 made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4059
-* @schlaicha made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4076
-* @jvermaas made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4031
-* @SophiaRuan made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4072
-* @marinegor made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4085
-* @g2707 made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4089
-* @DanielJamesEvans made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4109
+* [@mglagolev](https://github.com/mglagolev) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/3959
+* [@chrispfae](https://github.com/chrispfae) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4009
+* [@ooprathamm](https://github.com/ooprathamm) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4010
+* [@MeetB7](https://github.com/MeetB7) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4022
+* [@v](https://github.com/v)-parmar made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4032
+* [@MoSchaeffler](https://github.com/MoSchaeffler) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4049
+* [@jandom](https://github.com/jandom) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4043
+* [@xhgchen](https://github.com/xhgchen) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4037
+* [@DrDomenicoMarson](https://github.com/DrDomenicoMarson) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4074
+* [@AHMED](https://github.com/AHMED)-salah00 made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4059
+* [@schlaicha](https://github.com/schlaicha) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4076
+* [@jvermaas](https://github.com/jvermaas) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4031
+* [@SophiaRuan](https://github.com/SophiaRuan) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4072
+* [@marinegor](https://github.com/marinegor) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4085
+* [@g2707](https://github.com/g2707) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4089
+* [@DanielJamesEvans](https://github.com/DanielJamesEvans) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4109
 
 ## Release 2.4.3 of MDAnalysis
 
@@ -212,10 +212,10 @@ See the [CHANGELOG](https://github.com/MDAnalysis/mdanalysis/blob/release-2.4.0/
 #### Fixes:
 
 #### Enchancements:
-* As part of their [outreachy project](https://www.mdanalysis.org/2022/12/15/uma_outreachy/) @umak has started adding type annotations throughout the MDAnalysis codebase
-* As part of their [GSoC project](https://www.mdanalysis.org/2022/11/20/bjarne_gsoc/) @BFedder has added an auxialliary reader for EDR files (PR #3749)
-* As part of their [GSoC project](https://www.mdanalysis.org/2022/12/09/Aya-gsoc-final-report/) @aya9aladdin has fixed various issues with guessing and and attribute reading. This will be followed by the introduction of a new guesser system in a future release.
-* A reader for TNG files has been added by @hmacdope, follow up on his previous [GSoC 2020](https://www.mdanalysis.org/2020/09/02/final-report-hugo/) work on creating a python library for reading TNG files (PR 3765)
+* As part of their [outreachy project](https://www.mdanalysis.org/2022/12/15/uma_outreachy/) [@umak](https://github.com/umak) has started adding type annotations throughout the MDAnalysis codebase
+* As part of their [GSoC project](https://www.mdanalysis.org/2022/11/20/bjarne_gsoc/) [@BFedder](https://github.com/BFedder) has added an auxialliary reader for EDR files (PR #3749)
+* As part of their [GSoC project](https://www.mdanalysis.org/2022/12/09/Aya-gsoc-final-report/) [@aya9aladdin](https://github.com/aya9aladdin) has fixed various issues with guessing and and attribute reading. This will be followed by the introduction of a new guesser system in a future release.
+* A reader for TNG files has been added by [@hmacdope](https://github.com/hmacdope), follow up on his previous [GSoC 2020](https://www.mdanalysis.org/2020/09/02/final-report-hugo/) work on creating a python library for reading TNG files (PR 3765)
 * Addition of a new isolayer selection method (PR #3846)
 * Various enchancements and fixes to the LAMMPS DUMP Parser (allowing box translation on reading, allowing coordinates to be unwrapped based on dump image flags, and importing of forces and velocities) (PR #3844)
 * All readers now have a timeseries attribute (PR #3890)
@@ -234,10 +234,10 @@ See the [CHANGELOG](https://github.com/MDAnalysis/mdanalysis/blob/release-2.4.0/
 * MDAnalysis.analysis.nucleicacids' direct indexing of selection indices to obtain pair distances results has been deprecated in favor of accessing `results.pair_distances` (PR #3958)
 
 ### New Contributors
-* @jaclark5 made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/3846
-* @pgbarletta made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/3876
-* @jfennick made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/3832
-* @Hakarishirenai made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/3956
+* [@jaclark5](https://github.com/jaclark5) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/3846
+* [@pgbarletta](https://github.com/pgbarletta) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/3876
+* [@jfennick](https://github.com/jfennick) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/3832
+* [@Hakarishirenai](https://github.com/Hakarishirenai) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/3956
 
 
 
