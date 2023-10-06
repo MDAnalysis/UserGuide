@@ -331,10 +331,10 @@
 <p>Protein backbone atoms in MDAnalysis belong to a recognised protein residue and have the atom names:</p>
 <table class="docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p>N</p></td>
-<td><p>O</p></td>
+<tr class="row-odd"><td><p>O</p></td>
 <td><p>C</p></td>
 <td><p>CA</p></td>
+<td><p>N</p></td>
 </tr>
 </tbody>
 </table>
@@ -346,44 +346,44 @@
 <p>The below names are drawn from largely from the CHARMM force field.</p>
 <table class="docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p>CYT</p></td>
-<td><p>THY</p></td>
-<td><p>RC5</p></td>
-<td><p>T</p></td>
-<td><p>DT5</p></td>
-<td><p>DC</p></td>
-<td><p>GUA</p></td>
-<td><p>G</p></td>
-</tr>
-<tr class="row-even"><td><p>DG3</p></td>
-<td><p>DC5</p></td>
-<td><p>RG5</p></td>
-<td><p>DG5</p></td>
-<td><p>RA5</p></td>
-<td><p>DC3</p></td>
-<td><p>ADE</p></td>
+<tr class="row-odd"><td><p>RU5</p></td>
+<td><p>DG</p></td>
 <td><p>RU</p></td>
-</tr>
-<tr class="row-odd"><td><p>DA</p></td>
-<td><p>RC3</p></td>
-<td><p>RG3</p></td>
-<td><p>RU3</p></td>
-<td><p>RC</p></td>
+<td><p>RG5</p></td>
 <td><p>DA3</p></td>
-<td><p>RU5</p></td>
-<td><p>RA3</p></td>
+<td><p>CYT</p></td>
+<td><p>RC</p></td>
+<td><p>THY</p></td>
 </tr>
-<tr class="row-even"><td><p>DG</p></td>
+<tr class="row-even"><td><p>DC5</p></td>
+<td><p>T</p></td>
+<td><p>RA5</p></td>
+<td><p>RG3</p></td>
+<td><p>DG3</p></td>
+<td><p>RC5</p></td>
+<td><p>URA</p></td>
+<td><p>DT3</p></td>
+</tr>
+<tr class="row-odd"><td><p>DT5</p></td>
+<td><p>G</p></td>
 <td><p>DT</p></td>
 <td><p>RG</p></td>
-<td><p>C</p></td>
-<td><p>A</p></td>
 <td><p>U</p></td>
-<td><p>RA</p></td>
-<td><p>URA</p></td>
+<td><p>RC3</p></td>
+<td><p>DG5</p></td>
+<td><p>GUA</p></td>
 </tr>
-<tr class="row-odd"><td><p>DT3</p></td>
+<tr class="row-even"><td><p>DC</p></td>
+<td><p>ADE</p></td>
 <td><p>DA5</p></td>
+<td><p>A</p></td>
+<td><p>C</p></td>
+<td><p>DC3</p></td>
+<td><p>RU3</p></td>
+<td><p>DA</p></td>
+</tr>
+<tr class="row-odd"><td><p>RA</p></td>
+<td><p>RA3</p></td>
 <td></td>
 <td></td>
 <td></td>
@@ -398,11 +398,11 @@
 <p>Nucleic backbone atoms in MDAnalysis belong to a recognised nucleic acid residue and have the atom names:</p>
 <table class="docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p>C5’</p></td>
-<td><p>P</p></td>
-<td><p>O5’</p></td>
+<tr class="row-odd"><td><p>O5’</p></td>
 <td><p>C3’</p></td>
 <td><p>O3’</p></td>
+<td><p>P</p></td>
+<td><p>C5’</p></td>
 </tr>
 </tbody>
 </table>
@@ -412,23 +412,23 @@
 <p>Nucleobase atoms from nucleic acid residues are recognised based on their names in CHARMM.</p>
 <table class="docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p>C5</p></td>
-<td><p>C5M</p></td>
-<td><p>N3</p></td>
-<td><p>C4</p></td>
-<td><p>N1</p></td>
-<td><p>O2</p></td>
-<td><p>O6</p></td>
-<td><p>C2</p></td>
-</tr>
-<tr class="row-even"><td><p>C8</p></td>
-<td><p>N6</p></td>
-<td><p>N4</p></td>
-<td><p>N9</p></td>
+<tr class="row-odd"><td><p>O6</p></td>
 <td><p>N2</p></td>
-<td><p>O4</p></td>
-<td><p>C6</p></td>
+<td><p>N1</p></td>
+<td><p>C5M</p></td>
+<td><p>N9</p></td>
 <td><p>N7</p></td>
+<td><p>C6</p></td>
+<td><p>C8</p></td>
+</tr>
+<tr class="row-even"><td><p>O2</p></td>
+<td><p>O4</p></td>
+<td><p>N4</p></td>
+<td><p>C5</p></td>
+<td><p>N6</p></td>
+<td><p>C4</p></td>
+<td><p>C2</p></td>
+<td><p>N3</p></td>
 </tr>
 </tbody>
 </table>
@@ -439,9 +439,9 @@
 <table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p>C1’</p></td>
-<td><p>C2’</p></td>
-<td><p>C3’</p></td>
 <td><p>C4’</p></td>
+<td><p>C3’</p></td>
+<td><p>C2’</p></td>
 <td><p>O4’</p></td>
 </tr>
 </tbody>
