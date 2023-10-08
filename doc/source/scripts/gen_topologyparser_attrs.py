@@ -79,10 +79,17 @@ for p in PARSER_TESTS:
 
 
 class TopologyParsers(TableWriter):
-    headings = ["Format", "Description", "Attributes read", "Attributes guessed"]
+    headings = [
+        "Format",
+        "Description",
+        "Attributes read",
+        "Attributes guessed",
+    ]
     preprocess = ["keys"]
     filename = "formats/topology_parsers.txt"
-    include_table = "Table of supported topology parsers and the attributes read"
+    include_table = (
+        "Table of supported topology parsers and the attributes read"
+    )
     sort = True
 
     def __init__(self):
@@ -133,7 +140,9 @@ class TopologyAttrs(TableWriter):
 
     def _set_up_input(self):
         return sorted(
-            [x, *y] for x, y in NON_CORE_ATTRS.items() if x not in MANDATORY_ATTRS
+            [x, *y]
+            for x, y in NON_CORE_ATTRS.items()
+            if x not in MANDATORY_ATTRS
         )
 
     def _atom(self, name, singular, *args):

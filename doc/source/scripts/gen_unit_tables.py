@@ -32,7 +32,8 @@ def write_unit_table(filename):
             f.write("\n\n")
             f.write(
                 textwrap.indent(
-                    tabulate.tabulate(lines, headers=headings, tablefmt="rst"), "    "
+                    tabulate.tabulate(lines, headers=headings, tablefmt="rst"),
+                    "    ",
                 )
             )
             f.write("\n")

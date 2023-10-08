@@ -116,9 +116,9 @@ class JupyterCell:
     time_fmt = "%b %d, %Y"
     tag = "a"
     close_tag = "</{}>".format(tag)
-    tagline = ('<{} data-cite="{{key}}" ' 'href="{{url}}">{{authors}}</{}>').format(
-        tag, tag
-    )
+    tagline = (
+        '<{} data-cite="{{key}}" ' 'href="{{url}}">{{authors}}</{}>'
+    ).format(tag, tag)
 
     @classmethod
     def as_references(cls, refs, keys=[]):
@@ -171,7 +171,9 @@ class JupyterCell:
 
         Track the order of the keys for a final bibliography cell.
         """
-        matches = [x for x in re.split(refs.regex, self.source) if x is not None]
+        matches = [
+            x for x in re.split(refs.regex, self.source) if x is not None
+        ]
         new_source = ""
 
         while len(matches) > 1:
@@ -191,7 +193,9 @@ class JupyterCell:
             elif prev_char in ('"', "'"):
                 new_source += before.rsplit("<", maxsplit=1)[0]
                 if len(matches) > 2:
-                    matches[2] = matches[2].split(self.close_tag, maxsplit=1)[-1]
+                    matches[2] = matches[2].split(self.close_tag, maxsplit=1)[
+                        -1
+                    ]
             tag = self.tagline.format(key=key, authors=authors, url=url)
             new_source += tag
             matches.pop(0)
@@ -322,7 +326,9 @@ def clean_all_notebooks(notebooks):
     if len(errs):
         errmsgs = ["{}: {}".format(nb, err) for nb, err in errs]
         delim = "\n" + "===" * 10 + "\n"
-        raise ValueError("Notebooks have errors: {}".format(delim.join(errmsgs)))
+        raise ValueError(
+            "Notebooks have errors: {}".format(delim.join(errmsgs))
+        )
 
 
 if __name__ == "__main__":

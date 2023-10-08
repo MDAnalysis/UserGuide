@@ -6,7 +6,9 @@ from MDAnalysis.core import selection as sel
 
 def test_StandardSelectionTable_protein(snapshot):
     with patch("builtins.open"):
-        ss = StandardSelectionTable("protein", sel.ProteinSelection, "prot_res", True)
+        ss = StandardSelectionTable(
+            "protein", sel.ProteinSelection, "prot_res", True
+        )
     assert ss.lines == snapshot
 
 
@@ -20,7 +22,9 @@ def test_StandardSelectionTable_protein_backbone(snapshot):
 
 def test_StandardSelectionTable_nucleic(snapshot):
     with patch("builtins.open"):
-        ss = StandardSelectionTable("nucleic", sel.NucleicSelection, "nucl_res", True)
+        ss = StandardSelectionTable(
+            "nucleic", sel.NucleicSelection, "nucl_res", True
+        )
     assert ss.lines == snapshot
 
 
@@ -34,7 +38,9 @@ def test_StandardSelectionTable_nucleic_backbone(snapshot):
 
 def test_StandardSelectionTable_base(snapshot):
     with patch("builtins.open"):
-        ss = StandardSelectionTable("base", sel.BaseSelection, "base_atoms", True)
+        ss = StandardSelectionTable(
+            "base", sel.BaseSelection, "base_atoms", True
+        )
     assert ss.lines == snapshot
 
 

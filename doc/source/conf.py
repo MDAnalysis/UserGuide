@@ -175,7 +175,9 @@ html_theme_options = {
 html_favicon = "_static/logos/mdanalysis-logo.ico"
 html_logo = "_static/logos/user_guide.png"
 
-html_context = {"versions_json_url": "https://userguide.mdanalysis.org/versions.json"}
+html_context = {
+    "versions_json_url": "https://userguide.mdanalysis.org/versions.json"
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
