@@ -174,11 +174,11 @@ To do this you will need to:
 Create a release of the UserGuide
 ---------------------------------
 
-For now, the UserGuide is released at the same time as the core library. To make a release of the UserGuide you should:
+For now, the UserGuide is released at the same time as the core library. If it's failing please fix *before* you do the tag / release. Here is how to update the snapshots
 
 #. Update the version of MDA used by the UserGuide to the release version.
 
-#. Re-generate the Syrup test snapshots, and commit those to git and confirm the build passes.
+#. Re-generate the Syrupy test snapshots, and commit those a to git and confirm the build passes.
 
     .. code-block:: bash
         cd doc/source/scripts
