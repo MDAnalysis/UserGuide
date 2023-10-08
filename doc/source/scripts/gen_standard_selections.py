@@ -36,8 +36,14 @@ class StandardSelectionTable(TableWriter):
 
 if __name__ == "__main__":
     StandardSelectionTable("protein", sel.ProteinSelection, "prot_res", True)
-    StandardSelectionTable("protein_backbone", sel.BackboneSelection, "bb_atoms")
+    StandardSelectionTable(
+        "protein_backbone", sel.BackboneSelection, "bb_atoms"
+    )
     StandardSelectionTable("nucleic", sel.NucleicSelection, "nucl_res")
-    StandardSelectionTable("nucleic_backbone", sel.NucleicBackboneSelection, "bb_atoms")
+    StandardSelectionTable(
+        "nucleic_backbone", sel.NucleicBackboneSelection, "bb_atoms"
+    )
     StandardSelectionTable("base", sel.BaseSelection, "base_atoms")
-    StandardSelectionTable("nucleic_sugar", sel.NucleicSugarSelection, "sug_atoms")
+    StandardSelectionTable(
+        "nucleic_sugar", sel.NucleicSugarSelection, "sug_atoms"
+    )

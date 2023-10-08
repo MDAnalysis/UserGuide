@@ -27,7 +27,7 @@ for clstype, dct in (
 
 sorted_types = sorted(FILE_TYPES.items())
 
-SUCCESS = "\u2713"
+SUCCESS = "\u2713"  # checkmark
 FAIL = ""
 
 
@@ -35,7 +35,14 @@ class FormatOverview(TableWriter):
     filename = "formats/format_overview.txt"
     include_table = "Table of all supported formats in MDAnalysis"
     preprocess = ["keys"]
-    headings = ["File type", "Description", "Topology", "Coordinates", "Read", "Write"]
+    headings = [
+        "File type",
+        "Description",
+        "Topology",
+        "Coordinates",
+        "Read",
+        "Write",
+    ]
 
     def _set_up_input(self):
         return sorted_types
@@ -80,7 +87,9 @@ class FormatOverview(TableWriter):
 
 class CoordinateReaders(FormatOverview):
     filename = "formats/coordinate_readers.txt"
-    include_table = "Table of supported coordinate readers and the information read"
+    include_table = (
+        "Table of supported coordinate readers and the information read"
+    )
     headings = ["File type", "Description", "Velocities", "Forces"]
 
     def _set_up_input(self):

@@ -88,12 +88,16 @@ class TableWriter(object):
     @staticmethod
     def sphinx_class(klass, tilde=True):
         prefix = "~" if tilde else ""
-        return ":class:`{}{}.{}`".format(prefix, klass.__module__, klass.__name__)
+        return ":class:`{}{}.{}`".format(
+            prefix, klass.__module__, klass.__name__
+        )
 
     @staticmethod
     def sphinx_meth(meth, tilde=True):
         prefix = "~" if tilde else ""
-        return ":meth:`{}{}.{}`".format(prefix, meth.__module__, meth.__qualname__)
+        return ":meth:`{}{}.{}`".format(
+            prefix, meth.__module__, meth.__qualname__
+        )
 
     @staticmethod
     def sphinx_ref(txt: str, label: str = None, suffix: str = "") -> str:
