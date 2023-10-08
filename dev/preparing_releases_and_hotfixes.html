@@ -373,8 +373,13 @@ git<span class="w"> </span>push<span class="w"> </span>--tags<span class="w"> </
 </section>
 <section id="create-a-release-of-the-userguide">
 <h3>Create a release of the UserGuide<a class="headerlink" href="#create-a-release-of-the-userguide" title="Permalink to this heading"></a></h3>
-<p>For now, the UserGuide is released at the same time as the core library. To make a release of the UserGuide you should:</p>
+<p>For now, the UserGuide is released at the same time as the core library. If it’s failing please fix <em>before</em> you do the tag / release. Here is how to update the snapshots</p>
 <ol class="arabic">
+<li><p>Update the version of MDA used by the UserGuide to the release version.</p></li>
+<li><p>Re-generate the Syrupy test snapshots, and commit those a to git and confirm the build passes.</p>
+<blockquote>
+<div></div></blockquote>
+</li>
 <li><p>Create a new release tag and upload them for the UserGuide repository.</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>tag<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;release 2.6.1 of the MDAnalysis UserGuide&#39;</span><span class="w"> </span>release-2.6.1
