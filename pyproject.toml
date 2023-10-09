@@ -1,0 +1,11 @@
+[tool.isort]
+profile = "black"
+
+[tool.flake8]
+max-line-length = 130
+extend-ignore = ["E203", "PEA001"]
+exclude = [
+    "doc/source/conf.py",
+    "doc/source/scripts/clean_example_notebooks.py",
+    "maintainer/update_json_stubs_sitemap.py",
+]

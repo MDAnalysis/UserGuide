@@ -15,16 +15,16 @@ def test_FILE_TYPES():
 def test_FormatOverview(snapshot):
     with patch("builtins.open"):
         ov = FormatOverview()
-    assert ov.lines == snapshot
+    assert ov.table_writer.lines == snapshot
 
 
 def test_CoordinateReaders(snapshot):
     with patch("builtins.open"):
         cr = CoordinateReaders()
-    assert cr.lines == snapshot
+    assert cr.table_writer.lines == snapshot
 
 
 def test_SphinxClasses(snapshot):
     with patch("builtins.open"):
         sc = SphinxClasses("PDB")
-    assert sc.lines == snapshot
+    assert sc.table_writer.lines == snapshot

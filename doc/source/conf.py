@@ -23,7 +23,7 @@ import MDAnalysis as mda
 project = "MDAnalysis User Guide"
 
 
-def sort_authors(filename):
+def sort_authors(filename: str) -> list[str]:
     """Generate sorted list of authors from AUTHORS"""
     authors = []
     with open(filename, "r") as f:
@@ -144,7 +144,7 @@ html_context = {
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ["_static"]
-html_css_files = []
+html_css_files: list[str] = []
 
 # Custom sidebar templates, maps document names to template names.
 # alabaster sidebars
@@ -170,8 +170,9 @@ intersphinx_mapping = {
 }
 
 # nbsphinx
-html_js_files = [
-    # "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js",
+html_js_files: list[str] = [
+    # 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js',
+    # DEFAULT_EMBED_REQUIREJS_URL,
 ]
 
 ipython_warning_is_error = False
