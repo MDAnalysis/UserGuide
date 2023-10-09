@@ -168,11 +168,15 @@ class TopologyAttrs:
         def _description(name: str, singular: str, description: str) -> str:
             return description
 
-        def _supported_formats(name: str, singular: str, description: str) -> str:
+        def _supported_formats(
+            name: str, singular: str, description: str
+        ) -> str:
             return ", ".join(sorted(attrs[name]))
 
         input_items = sorted(
-            [x, *y] for x, y in NON_CORE_ATTRS.items() if x not in set(mandatory_attrs)
+            [x, *y]
+            for x, y in NON_CORE_ATTRS.items()
+            if x not in set(mandatory_attrs)
         )
         self.table_writer = TableWriter(
             filename="generated/topology/topologyattrs.txt",

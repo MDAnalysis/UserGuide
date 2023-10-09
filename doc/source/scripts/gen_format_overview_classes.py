@@ -54,17 +54,23 @@ def _create_key(fmt: str, handlers: dict[HANDLER_T, Type[Any]]) -> str:
     return key
 
 
-def _file_type(fmt: str, handlers: dict[HANDLER_T, Type[Any]], key: str) -> str:
+def _file_type(
+    fmt: str, handlers: dict[HANDLER_T, Type[Any]], key: str
+) -> str:
     return base.sphinx_ref(txt=fmt, label=key, suffix="-format")
 
 
-def _description(fmt: str, handlers: dict[HANDLER_T, Type[Any]], key: str) -> str:
+def _description(
+    fmt: str, handlers: dict[HANDLER_T, Type[Any]], key: str
+) -> str:
     return DESCRIPTIONS[key]
 
 
 class FormatOverview:
     def __init__(self) -> None:
-        def _topology(fmt: str, handlers: dict[HANDLER_T, Type[Any]], key: str) -> str:
+        def _topology(
+            fmt: str, handlers: dict[HANDLER_T, Type[Any]], key: str
+        ) -> str:
             return SUCCESS if "Topology parser" in handlers else FAIL
 
         def _coordinates(
@@ -74,10 +80,14 @@ class FormatOverview:
                 return SUCCESS
             return FAIL
 
-        def _read(fmt: str, handlers: dict[HANDLER_T, Type[Any]], key: str) -> str:
+        def _read(
+            fmt: str, handlers: dict[HANDLER_T, Type[Any]], key: str
+        ) -> str:
             return SUCCESS
 
-        def _write(fmt: str, handlers: dict[HANDLER_T, Type[Any]], key: str) -> str:
+        def _write(
+            fmt: str, handlers: dict[HANDLER_T, Type[Any]], key: str
+        ) -> str:
             if "Coordinate writer" in handlers:
                 return SUCCESS
             if "Converter" in handlers:
@@ -116,7 +126,9 @@ class CoordinateReaders:
                 return SUCCESS
             return FAIL
 
-        def _forces(fmt: str, handlers: dict[HANDLER_T, Type[Any]], key: str) -> str:
+        def _forces(
+            fmt: str, handlers: dict[HANDLER_T, Type[Any]], key: str
+        ) -> str:
             if handlers["Coordinate reader"].units.get("force"):
                 return SUCCESS
             return FAIL

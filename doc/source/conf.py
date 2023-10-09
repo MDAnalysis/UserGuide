@@ -144,7 +144,7 @@ html_context = {
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ["_static"]
-html_css_files = []
+html_css_files: list[str] = []
 
 # Custom sidebar templates, maps document names to template names.
 # alabaster sidebars

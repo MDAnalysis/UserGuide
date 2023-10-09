@@ -67,7 +67,9 @@ if __name__ == "__main__":
         klass=sel.NucleicBackboneSelection,
         attribute_name="bb_atoms",
     )
-    StandardSelectionTable("base", klass=sel.BaseSelection, attribute_name="base_atoms")
+    StandardSelectionTable(
+        "base", klass=sel.BaseSelection, attribute_name="base_atoms"
+    )
     StandardSelectionTable(
         "nucleic_sugar",
         klass=sel.NucleicSugarSelection,

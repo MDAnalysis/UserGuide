@@ -23,7 +23,9 @@ class TransplantedMethods:
                     items.append((name, klass, method))
             return [x[1:] for x in sorted(items)]
 
-        def _method(klass: TopologyAttr, method: Callable[[TopologyAttr], str]) -> str:
+        def _method(
+            klass: TopologyAttr, method: Callable[[TopologyAttr], str]
+        ) -> str:
             return base.sphinx_method(method=method)
 
         def _description(

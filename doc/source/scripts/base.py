@@ -129,10 +129,14 @@ def sphinx_class(*, klass: Type[Any], tilde: bool = True) -> str:
 
 def sphinx_method(*, method: Callable[..., Any], tilde: bool = True) -> str:
     prefix = "~" if tilde else ""
-    return ":meth:`{}{}.{}`".format(prefix, method.__module__, method.__qualname__)
+    return ":meth:`{}{}.{}`".format(
+        prefix, method.__module__, method.__qualname__
+    )
 
 
-def sphinx_ref(*, txt: str, label: Optional[str] = None, suffix: str = "") -> str:
+def sphinx_ref(
+    *, txt: str, label: Optional[str] = None, suffix: str = ""
+) -> str:
     return f":ref:`{txt} <{label}{suffix}>`"
 
 
