@@ -18,7 +18,7 @@
     ]),
     list([
       ':meth:`~MDAnalysis.core.topologyattrs.Charges.quadrupole_moment`',
-      'Quadrupole moment of the group according to :cite:p:`Gray1984`',
+      'Quadrupole moment of the group according to :footcite:p:`Gray1984`',
       'charges',
     ]),
     list([
