@@ -5,13 +5,13 @@ import re
 from github import Github
 
 
-def gen_release_notes(filename: str):
+def gen_release_notes(filename: str) -> None:
     git = Github(os.environ["GITHUB_TOKEN"])
     repo = git.get_repo("MDAnalysis/mdanalysis")
 
     parent_directory = pathlib.Path(__file__).parent.parent
     parent_directory.mkdir(exist_ok=True, parents=True)
-    filename = parent_directory / filename
+    filename = parent_directory / filename  # type: ignore
 
     filetext = "# MDAnalysis Release Notes\n\n\n"
 
