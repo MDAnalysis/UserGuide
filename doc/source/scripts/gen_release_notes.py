@@ -5,7 +5,7 @@ import re
 from github import Github
 
 
-def gen_release_notes(filename):
+def gen_release_notes(filename: str):
     git = Github(os.environ["GITHUB_TOKEN"])
     repo = git.get_repo("MDAnalysis/mdanalysis")
 
