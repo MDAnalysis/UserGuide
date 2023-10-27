@@ -16,11 +16,7 @@ import os
 import shutil
 import textwrap
 import xml.etree.ElementTree as ET
-
-try:
-    from urllib.request import Request, urlopen
-except ImportError:
-    from urllib2 import Request, urlopen
+from urllib.request import Request, urlopen
 
 URL = os.environ["URL"]
 VERSION = os.environ["VERSION"]

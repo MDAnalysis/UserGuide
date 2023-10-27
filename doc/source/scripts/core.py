@@ -1,8 +1,3 @@
-from __future__ import print_function
-
-import os
-
-import tabulate
 from MDAnalysis import _TOPOLOGY_ATTRS
 
 # ====== TOPOLOGY ====== #
@@ -75,17 +70,19 @@ ATTRS = {
     for c in _TOPOLOGY_ATTRS.values()
 }
 
-base_attrnames = set(["atomattrs", "residueattrs", "segmentattrs", "topologyattrs"])
+base_attrnames = {"atomattrs", "residueattrs", "segmentattrs", "topologyattrs"}
 
-core_attrnames = set(["indices", "resindices", "segindices"])
+core_attrnames = {"indices", "resindices", "segindices"}
 
 BASE_ATTRS = {k: v for k, v in ATTRS.items() if k in base_attrnames}
 
 NON_BASE_ATTRS = {k: v for k, v in ATTRS.items() if k not in base_attrnames}
 
-NON_CORE_ATTRS = {k: v for k, v in NON_BASE_ATTRS.items() if k not in core_attrnames}
+NON_CORE_ATTRS = {
+    k: v for k, v in NON_BASE_ATTRS.items() if k not in core_attrnames
+}
 
 TOPOLOGY_CLS = sorted(
-    set([x for x in _TOPOLOGY_ATTRS.values() if x.attrname in NON_CORE_ATTRS.keys()]),
+    {x for x in _TOPOLOGY_ATTRS.values() if x.attrname in NON_CORE_ATTRS},
     key=lambda x: x.attrname,
 )

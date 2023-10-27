@@ -43,7 +43,10 @@ jobs:
           micromamba info
           micromamba list
 
+      - name: "test snapshots"
+        working-directory: doc/source/scripts/
+        run: python -m pytest
+
       - name: "test notebooks"
-        run: |
-          cd ${GITHUB_WORKSPACE}/tests
-          pytest
+        working-directory: tests/
+        run: python -m pytest
