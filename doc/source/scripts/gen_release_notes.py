@@ -8,7 +8,6 @@ from github import Github
 def gen_release_notes(filename):
     git = Github(os.environ["GITHUB_TOKEN"])
     repo = git.get_repo("MDAnalysis/mdanalysis")
-    releases = repo.get_releases()
 
     parent_directory = pathlib.Path(__file__).parent.parent
     parent_directory.mkdir(exist_ok=True, parents=True)
