@@ -410,7 +410,7 @@ We recommend that you use a Python Integrated Development Environment (IDE) (`Py
 To apply the code formatting in an automated way, you can also use code formatters. External tools include `autopep8`_ and `yapf`_. Most IDEs either have their own code formatter or will work with one of the above through plugins.
 See :ref:`format-darker` for notes on maintaining code style compliance with existing tools.
 
-   
+
 .. _`PEP8`: https://www.python.org/dev/peps/pep-0008/
 .. _`flake8`: http://flake8.readthedocs.org/en/latest/
 .. _`PyCharm`: https://www.jetbrains.com/pycharm/
@@ -529,7 +529,7 @@ Or if you're ok with the suggested formatting changes, just apply the suggested 
 .. _`black`: https://black.readthedocs.io/
 .. _`issue #2450`: https://github.com/MDAnalysis/mdanalysis/issues/2450
 
-    
+
 .. _adding-code-to-mda:
 
 ------------------------------
