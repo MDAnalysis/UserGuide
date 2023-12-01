@@ -397,8 +397,8 @@ Code formatting in Python
 
 MDAnalysis is a project with a long history and many contributors; it hasn't used a consistent coding style. Since version 0.11.0, we are trying to update all the code to conform with `PEP8`_. Our strategy is to update the style every time we touch an old function and thus switch to `PEP8`_ continuously.
 
-**Important requirements (from PEP8)** (with our own style adapations):
-    - keep line length to **88 characters or less**; break long lines sensibly
+**Important requirements (from PEP8)**:
+    - keep line length to **79 characters or less**; break long lines sensibly although for readability we may allow longer lines
     - indent with **spaces** and use **4 spaces per level**
     - naming:
 
