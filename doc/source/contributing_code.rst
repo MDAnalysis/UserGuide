@@ -518,9 +518,9 @@ Or if you're ok with the suggested formatting changes, just apply the suggested 
 
 .. note::
 
-   MDAnalysis does *not* currently use the `black`_ code formatter across the whole project, therefore please consider the following rules:
+   MDAnalysis does *not* currently use the popular `black`_ code formatter across the whole project, therefore please consider the following rules:
 
-   * Do **not run ``black`` on an existing file** that you are editing. This makes the diff for the PR very difficult to read.
+   * Do **not run ``black`` on an existing file** that you are editing. This makes the diff for the PR very difficult to read. Instead use ``darker`` as explained above to only reformat your changes.
    * You *may* run ``black`` on a *new file* that you are adding to the code base.
 
    For an ongoing discussion (which you are welcome to join) see `issue #2450`_.
