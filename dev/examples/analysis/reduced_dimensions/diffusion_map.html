@@ -260,7 +260,7 @@
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/home/pbarletta/mambaforge/envs/guide/lib/python3.9/site-packages/MDAnalysis/coordinates/DCD.py:165: DeprecationWarning: DCDReader currently makes independent timesteps by copying self.ts while other readers update self.ts inplace. This behavior will be changed in 3.0 to be the same as other readers. Read more at https://github.com/MDAnalysis/mdanalysis/issues/3889 to learn if this change in behavior might affect you.
+/home/pbarletta/mambaforge/envs/mda-user-guide/lib/python3.9/site-packages/MDAnalysis/coordinates/DCD.py:165: DeprecationWarning: DCDReader currently makes independent timesteps by copying self.ts while other readers update self.ts inplace. This behavior will be changed in 3.0 to be the same as other readers. Read more at https://github.com/MDAnalysis/mdanalysis/issues/3889 to learn if this change in behavior might affect you.
   warnings.warn(&#34;DCDReader currently makes independent timesteps&#34;
 </pre></div></div>
 </div>
@@ -290,7 +290,7 @@ conformational states are not well-sampled (e.g. replica exchange simulations), 
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;MDAnalysis.analysis.diffusionmap.DiffusionMap at 0x7f10a66864c0&gt;
+&lt;MDAnalysis.analysis.diffusionmap.DiffusionMap at 0x7f75f1291520&gt;
 </pre></div></div>
 </div>
 <p>The first eigenvector in a diffusion map is always essentially all ones (when divided by a constant):</p>
@@ -308,26 +308,26 @@ conformational states are not well-sampled (e.g. replica exchange simulations), 
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([-0.10101525, -0.10101525, -0.10101525, -0.10101525, -0.10101525,
-       -0.10101525, -0.10101525, -0.10101525, -0.10101525, -0.10101525,
-       -0.10101525, -0.10101525, -0.10101525, -0.10101525, -0.10101525,
-       -0.10101525, -0.10101525, -0.10101525, -0.10101525, -0.10101525,
-       -0.10101525, -0.10101525, -0.10101525, -0.10101525, -0.10101525,
-       -0.10101525, -0.10101525, -0.10101525, -0.10101525, -0.10101525,
-       -0.10101525, -0.10101525, -0.10101525, -0.10101525, -0.10101525,
-       -0.10101525, -0.10101525, -0.10101525, -0.10101525, -0.10101525,
-       -0.10101525, -0.10101525, -0.10101525, -0.10101525, -0.10101525,
-       -0.10101525, -0.10101525, -0.10101525, -0.10101525, -0.10101525,
-       -0.10101525, -0.10101525, -0.10101525, -0.10101525, -0.10101525,
-       -0.10101525, -0.10101525, -0.10101525, -0.10101525, -0.10101525,
-       -0.10101525, -0.10101525, -0.10101525, -0.10101525, -0.10101525,
-       -0.10101525, -0.10101525, -0.10101525, -0.10101525, -0.10101525,
-       -0.10101525, -0.10101525, -0.10101525, -0.10101525, -0.10101525,
-       -0.10101525, -0.10101525, -0.10101525, -0.10101525, -0.10101525,
-       -0.10101525, -0.10101525, -0.10101525, -0.10101525, -0.10101525,
-       -0.10101525, -0.10101525, -0.10101525, -0.10101525, -0.10101525,
-       -0.10101525, -0.10101525, -0.10101525, -0.10101525, -0.10101525,
-       -0.10101525, -0.10101525, -0.10101525])
+array([0.10101525, 0.10101525, 0.10101525, 0.10101525, 0.10101525,
+       0.10101525, 0.10101525, 0.10101525, 0.10101525, 0.10101525,
+       0.10101525, 0.10101525, 0.10101525, 0.10101525, 0.10101525,
+       0.10101525, 0.10101525, 0.10101525, 0.10101525, 0.10101525,
+       0.10101525, 0.10101525, 0.10101525, 0.10101525, 0.10101525,
+       0.10101525, 0.10101525, 0.10101525, 0.10101525, 0.10101525,
+       0.10101525, 0.10101525, 0.10101525, 0.10101525, 0.10101525,
+       0.10101525, 0.10101525, 0.10101525, 0.10101525, 0.10101525,
+       0.10101525, 0.10101525, 0.10101525, 0.10101525, 0.10101525,
+       0.10101525, 0.10101525, 0.10101525, 0.10101525, 0.10101525,
+       0.10101525, 0.10101525, 0.10101525, 0.10101525, 0.10101525,
+       0.10101525, 0.10101525, 0.10101525, 0.10101525, 0.10101525,
+       0.10101525, 0.10101525, 0.10101525, 0.10101525, 0.10101525,
+       0.10101525, 0.10101525, 0.10101525, 0.10101525, 0.10101525,
+       0.10101525, 0.10101525, 0.10101525, 0.10101525, 0.10101525,
+       0.10101525, 0.10101525, 0.10101525, 0.10101525, 0.10101525,
+       0.10101525, 0.10101525, 0.10101525, 0.10101525, 0.10101525,
+       0.10101525, 0.10101525, 0.10101525, 0.10101525, 0.10101525,
+       0.10101525, 0.10101525, 0.10101525, 0.10101525, 0.10101525,
+       0.10101525, 0.10101525, 0.10101525])
 </pre></div></div>
 </div>
 <p>Therefore, when we embed the trajectory onto the dominant eigenvectors, we ignore the first eigenvector. In order to determine which vectors are dominant, we can examine the eigenvalues for a <strong>spectral gap</strong>: where the eigenvalues stop decreasing constantly in value.</p>
@@ -346,7 +346,7 @@ array([-0.10101525, -0.10101525, -0.10101525, -0.10101525, -0.10101525,
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&lt;matplotlib.lines.Line2D at 0x7f10a3e2be80&gt;]
+[&lt;matplotlib.lines.Line2D at 0x7f75f1291970&gt;]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -422,29 +422,29 @@ array([-0.10101525, -0.10101525, -0.10101525, -0.10101525, -0.10101525,
   <tbody>
     <tr>
       <th>0</th>
-      <td>-0.094795</td>
-      <td>-0.075950</td>
-      <td>-0.054708</td>
-      <td>-0.035526</td>
-      <td>-0.022757</td>
+      <td>0.094795</td>
+      <td>0.075950</td>
+      <td>0.054708</td>
+      <td>0.035526</td>
+      <td>0.022757</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-0.166068</td>
-      <td>-0.132017</td>
-      <td>-0.094409</td>
-      <td>-0.060914</td>
-      <td>-0.038667</td>
+      <td>0.166068</td>
+      <td>0.132017</td>
+      <td>0.094409</td>
+      <td>0.060914</td>
+      <td>0.038667</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.199960</td>
-      <td>-0.154475</td>
-      <td>-0.107425</td>
-      <td>-0.067632</td>
-      <td>-0.041445</td>
+      <td>0.199960</td>
+      <td>0.154475</td>
+      <td>0.107425</td>
+      <td>0.067632</td>
+      <td>0.041445</td>
       <td>2.0</td>
     </tr>
     <tr>
@@ -494,7 +494,7 @@ array([-0.10101525, -0.10101525, -0.10101525, -0.10101525, -0.10101525,
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;seaborn.axisgrid.PairGrid at 0x7f10a5e45370&gt;
+&lt;seaborn.axisgrid.PairGrid at 0x7f75f0149520&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
