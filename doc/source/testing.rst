@@ -45,7 +45,7 @@ It is recommended that you run the tests from the ``mdanalysis/testsuite/MDAnaly
     cd testsuite/MDAnalysisTests
     pytest  --disable-pytest-warnings
 
-All tests should pass: no **FAIL** or **ERROR** cases should be triggered; *SKIPPED* or *XFAIL* are ok. For anything that fails or gives an error, ask on the `mdnalysis-discussion`_ mailing list or raise an issue on the `Issue Tracker <https://github.com/MDAnalysis/mdanalysis/issues>`_.
+All tests should pass: no **FAIL** or **ERROR** cases should be triggered; *SKIPPED* or *XFAIL* are ok. For anything that fails or gives an error, ask on `GitHub Discussions`_ or raise an issue on the `Issue Tracker <https://github.com/MDAnalysis/mdanalysis/issues>`_.
 
 We use the ``--disable-pytest-warnings`` when the whole testsuite is running, as pytest raises a lot of false positives when we warn users about missing topology attributes. When running single tests or only single modules, consider running the tests *with* warnings enabled (i.e. without ``--disable-pytest-warnings``). This allows you to see if you trigger any un-caught deprecation warnings or other warnings in libraries we use.
 
@@ -389,4 +389,4 @@ If possible, re-use the existing data files in MDAnalysis for tests; this helps 
     #. Make sure your new files are picked up by the pattern-matching in ``testsuite/setup.py`` (in the ``package_data`` dictionary).
 
 
-.. _`mdnalysis-discussion`: http://groups.google.com/group/mdnalysis-discussion
+.. _`GitHub Discussions`: https://github.com/MDAnalysis/mdanalysis/discussions

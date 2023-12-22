@@ -15,7 +15,7 @@ Contributions can take many forms, such as:
     * **new features** in the code
     * improvements and additions to **documentation** (including typo fixes)
     * improvements to the **build systems**
-    * **questions** or **discussions** on the `mdnalysis-discussion`_ mailing list
+    * **questions** or **discussions** on `GitHub Discussions`_
 
 The MDAnalysis community subscribes to a `Code of Conduct`_ that all community
 members agree and adhere to --- please read it.
