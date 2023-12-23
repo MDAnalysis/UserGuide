@@ -55,12 +55,12 @@ MDAnalysis welcomes all contributions from its users. There are many ways you ca
 Communications
 --------------
 
-Questions and discussions about MDAnalysis take place on the mailing lists and this repository’s `Issue Tracker`_. Anybody is welcome to join these conversations. Please ask questions about the usage of MDAnalysis on the `mdnalysis-discussion`_ mailing list, and report problems on the `Issue Tracker`_.
+Questions and discussions about MDAnalysis take place on `GitHub Discussions`_ and this repository’s `Issue Tracker`_. Anybody is welcome to join these conversations. Please ask questions about the usage of MDAnalysis on the `mdnalysis-discussion`_ mailing list, and report problems on the `Issue Tracker`_.
 
 Wherever possible, do not take these conversations to private channels, including contacting the maintainers directly. Keeping communication public means everybody can benefit and learn from the conversation.
 
-.. _`mdnalysis-discussion`:
-   https://groups.google.com/group/mdnalysis-discussion
+.. _`GitHub Discussions`:
+   https://github.com/MDAnalysis/mdanalysis/discussions
 .. _`Code of Conduct`: https://www.mdanalysis.org/pages/conduct/
 .. _`Issue Tracker`: https://github.com/MDAnalysis/mdanalysis/issues
 
