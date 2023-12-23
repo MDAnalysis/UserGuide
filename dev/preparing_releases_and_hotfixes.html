@@ -243,7 +243,7 @@
 <h3>Summary of tasks<a class="headerlink" href="#summary-of-tasks" title="Permalink to this heading"></a></h3>
 <blockquote>
 <div><ul class="simple">
-<li><p>Declare a <cite>feature freeze</cite> on <cite>develop</cite> via discord and/or the developer mailing list</p></li>
+<li><p>Declare a <cite>feature freeze</cite> on <cite>develop</cite> via discord and/or GitHub Discussions (Announcement)</p></li>
 <li><p>Finalize the <code class="docutils literal notranslate"><span class="pre">CHANGELOG</span></code> file with the date of release</p></li>
 <li><p>Increment the version across <code class="docutils literal notranslate"><span class="pre">MDAnalysis</span></code> and <code class="docutils literal notranslate"><span class="pre">MDAnalysisTests</span></code> (4 places)</p></li>
 <li><p><cite>Merge</cite> changes into <cite>develop</cite></p></li>
@@ -265,7 +265,7 @@
 <section id="getting-the-develop-branch-ready-for-a-release">
 <h3>Getting the develop branch ready for a release<a class="headerlink" href="#getting-the-develop-branch-ready-for-a-release" title="Permalink to this heading"></a></h3>
 <ol class="arabic simple">
-<li><p>Declare feature freeze on <code class="docutils literal notranslate"><span class="pre">develop</span></code> via <cite>discord</cite> and the <a class="reference external" href="https://groups.google.com/forum/#!forum/mdnalysis-devel">developer mailing list</a></p></li>
+<li><p>Declare feature freeze on <code class="docutils literal notranslate"><span class="pre">develop</span></code> via <cite>discord</cite> and <a href="#id1"><span class="problematic" id="id2">`GitHub Discussions (Anouncement)`_</span></a></p></li>
 <li><p>Create a pre-release feature branch from <code class="docutils literal notranslate"><span class="pre">develop</span></code></p></li>
 <li><p>Finalise the <code class="docutils literal notranslate"><span class="pre">CHANGELOG</span></code> with the release number and date. Ensure that the <code class="docutils literal notranslate"><span class="pre">CHANGELOG</span></code> summarizes important changes and includes all authors that contributed to this release.</p></li>
 <li><p>Make sure the version number matches the release version. The following files need to be updated: <code class="docutils literal notranslate"><span class="pre">package/MDAnalysis/version.py</span></code>, <code class="docutils literal notranslate"><span class="pre">package/setup.py</span></code>, <code class="docutils literal notranslate"><span class="pre">testsuite/MDAnalysisTests/__init__.py</span></code>, and <code class="docutils literal notranslate"><span class="pre">testsuite/setup.py</span></code>.</p></li>
@@ -402,7 +402,7 @@ git<span class="w"> </span>push<span class="w"> </span>--tags<span class="w"> </
 </section>
 <section id="create-a-blog-post-outlining-the-release">
 <h3>Create a blog post outlining the release<a class="headerlink" href="#create-a-blog-post-outlining-the-release" title="Permalink to this heading"></a></h3>
-<p>Create a blog post outlining the release notes and publicize it on the mailing list / discord / twitter/ etc…!</p>
+<p>Create a blog post outlining the release notes and publicize it on GitHub Discussions / discord / twitter/ etc…!</p>
 </section>
 <section id="increment-develop-branch-files-ready-for-the-next-version">
 <h3>Increment develop branch files ready for the next version<a class="headerlink" href="#increment-develop-branch-files-ready-for-the-next-version" title="Permalink to this heading"></a></h3>
@@ -410,7 +410,7 @@ git<span class="w"> </span>push<span class="w"> </span>--tags<span class="w"> </
 <ol class="arabic simple">
 <li><p>Update the 4 version file locations with the <code class="docutils literal notranslate"><span class="pre">-dev0</span></code> appended version of the next release.</p></li>
 <li><p>Update the CHANGELOG with a new entry for the next release.</p></li>
-<li><p>Once these changes are merged into the <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch, message the developers on discord and the mailing list letting them know that the feature freeze is over.</p></li>
+<li><p>Once these changes are merged into the <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch, message the developers on discord and GitHub Discussions letting them know that the feature freeze is over.</p></li>
 </ol>
 </section>
 <section id="clean-up-old-developer-builds-of-the-documentation">

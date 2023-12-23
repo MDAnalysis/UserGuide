@@ -74,9 +74,9 @@ Any module from the standard library can be used, as well as the following nonst
 
 because these packages are always installed.
 
-If you must depend on a new external package, first discuss its use on the `developer mailing list`_ or as part of the issue/pull request.
+If you must depend on a new external package, first discuss its use on `GitHub Discussions (Development)`_ or as part of the issue/pull request.
 
-.. _`developer mailing list`: https://groups.google.com/forum/#!forum/mdnalysis-devel
+.. _`GitHub Discussions (Development)`: https://github.com/MDAnalysis/mdanalysis/discussions/categories/developement
 
 
 .. _core-modules:

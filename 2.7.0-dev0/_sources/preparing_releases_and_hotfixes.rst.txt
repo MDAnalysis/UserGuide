@@ -46,7 +46,7 @@ Typical workflow for preparing a release
 Summary of tasks
 ----------------
 
-  * Declare a `feature freeze` on `develop` via discord and/or the developer mailing list
+  * Declare a `feature freeze` on `develop` via discord and/or GitHub Discussions (Announcement)
   * Finalize the ``CHANGELOG`` file with the date of release
   * Increment the version across ``MDAnalysis`` and ``MDAnalysisTests`` (4 places)
   * `Merge` changes into `develop`
@@ -67,7 +67,7 @@ Summary of tasks
 Getting the develop branch ready for a release
 ----------------------------------------------
 
-#. Declare feature freeze on ``develop`` via `discord` and the `developer mailing list`_
+#. Declare feature freeze on ``develop`` via `discord` and `GitHub Discussions (Anouncement)`_
 
 #. Create a pre-release feature branch from ``develop``
 
@@ -204,7 +204,7 @@ For now, the UserGuide is released at the same time as the core library. If it's
 Create a blog post outlining the release
 ----------------------------------------
 
-Create a blog post outlining the release notes and publicize it on the mailing list / discord / twitter/ etc...!
+Create a blog post outlining the release notes and publicize it on GitHub Discussions / discord / twitter/ etc...!
 
 
 Increment develop branch files ready for the next version
@@ -216,7 +216,7 @@ Once the release is completed you can go ahead and update the ``develop`` branch
 
 #. Update the CHANGELOG with a new entry for the next release.
 
-#. Once these changes are merged into the ``develop`` branch, message the developers on discord and the mailing list letting them know that the feature freeze is over.
+#. Once these changes are merged into the ``develop`` branch, message the developers on discord and GitHub Discussions letting them know that the feature freeze is over.
 
 
 Clean up old developer builds of the documentation
@@ -227,7 +227,7 @@ Whilst new docs are automatically deployed on a release, old developer builds (a
 While this is still a manual procedure, you should also edit `versions.json` to remove the old dev links.
 
 
-.. _`developer mailing list`: https://groups.google.com/forum/#!forum/mdnalysis-devel
+.. _`GitHub Discussions (Announcement)`: https://groups.google.com/forum/#!forum/mdnalysis-devel
 .. _`deploy github action`: https://github.com/MDAnalysis/mdanalysis/tree/develop/.github/workflows/deploy.yaml
 .. _`MDAnalysis feedstock`: https://github.com/conda-forge/mdanalysis-feedstock
 .. _`MDAnalysisTests feedstock`: https://github.com/conda-forge/mdanalysistests-feedstock
