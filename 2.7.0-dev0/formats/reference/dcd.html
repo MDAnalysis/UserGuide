@@ -235,10 +235,10 @@
 <table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><strong>Coordinate reader</strong></p></td>
-<td><p><a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/coordinates/DCD.html#MDAnalysis.coordinates.DCD.DCDReader" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.coordinates.DCD.DCDReader</span></code></a></p></td>
+<td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.coordinates.DCD.DCDReader</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Coordinate writer</strong></p></td>
-<td><p><a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/coordinates/DCD.html#MDAnalysis.coordinates.DCD.DCDWriter" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.coordinates.DCD.DCDWriter</span></code></a></p></td>
+<td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.coordinates.DCD.DCDWriter</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -246,7 +246,7 @@
 <section id="reading-in">
 <h2>Reading in<a class="headerlink" href="#reading-in" title="Permalink to this heading"></a></h2>
 <p><strong>Unitcell dimensions</strong></p>
-<p>Generally, DCD trajectories produced by any code can be read (with the <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/coordinates/DCD.html#MDAnalysis.coordinates.DCD.DCDReader" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DCDReader</span></code></a>) although there can be issues with the unitcell dimensions (simulation box).
+<p>Generally, DCD trajectories produced by any code can be read (with the <code class="xref py py-class docutils literal notranslate"><span class="pre">DCDReader</span></code>) although there can be issues with the unitcell dimensions (simulation box).
 Currently, MDAnalysis tries to guess the correct <strong>format for the unitcell representation</strong> but it can be wrong.
 <strong>Check the unitcell dimensions</strong>, especially for triclinic unitcells (see <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/issues/187">Issue 187</a>).</p>
 <p>MDAnalysis always uses <code class="docutils literal notranslate"><span class="pre">(*A*,</span> <span class="pre">*B*,</span> <span class="pre">*C*,</span> <span class="pre">*alpha*,</span> <span class="pre">*beta*,</span> <span class="pre">*gamma*)</span></code> to

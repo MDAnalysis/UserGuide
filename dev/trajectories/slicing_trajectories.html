@@ -201,7 +201,7 @@
 <span class="gh">Out[4]: </span><span class="go">&lt; Timestep 4 &gt;</span>
 </pre></div>
 </div>
-<p>Indexing a trajectory shifts the <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a> to point towards that particular frame, updating dynamic data such as <code class="docutils literal notranslate"><span class="pre">Universe.atoms.positions</span></code>.</p>
+<p>Indexing a trajectory shifts the <code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code> to point towards that particular frame, updating dynamic data such as <code class="docutils literal notranslate"><span class="pre">Universe.atoms.positions</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The trajectory frame is not read from the MD data. It is the internal index assigned by MDAnalysis.</p>
@@ -210,7 +210,7 @@
 <span class="gh">Out[5]: </span><span class="go">4</span>
 </pre></div>
 </div>
-<p><em>Creating</em> a <code class="xref py py-class docutils literal notranslate"><span class="pre">FrameIterator</span></code> by slicing a trajectory does not shift the <a class="reference external" href="https://docs.mdanalysis.org/2.7.0-dev0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v2.7.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a> to a new frame, but <em>iterating</em> over the sliced trajectory will rewind the trajectory back to the first frame.</p>
+<p><em>Creating</em> a <code class="xref py py-class docutils literal notranslate"><span class="pre">FrameIterator</span></code> by slicing a trajectory does not shift the <code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code> to a new frame, but <em>iterating</em> over the sliced trajectory will rewind the trajectory back to the first frame.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="n">fiter</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[</span><span class="mi">10</span><span class="p">::</span><span class="mi">10</span><span class="p">]</span>
 
 <span class="gp">In [7]: </span><span class="n">frames</span> <span class="o">=</span> <span class="p">[</span><span class="n">ts</span><span class="o">.</span><span class="n">frame</span> <span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">fiter</span><span class="p">]</span>
