@@ -67,7 +67,7 @@ Summary of tasks
 Getting the develop branch ready for a release
 ----------------------------------------------
 
-#. Declare feature freeze on ``develop`` via `discord` and `GitHub Discussions (Anouncement)`_
+#. Declare feature freeze on ``develop`` via `discord` and `GitHub Discussions (Announcement)`_
 
 #. Create a pre-release feature branch from ``develop``
 
