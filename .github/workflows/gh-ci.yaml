@@ -42,7 +42,6 @@ jobs:
       with:
         environment-file: environment.yml
         environment-name: mda-user-guide
-        cache-environment: true
 
     - name: install_deps
       run: |
