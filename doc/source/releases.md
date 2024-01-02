@@ -1,6 +1,58 @@
 # MDAnalysis Release Notes
 
 
+## Release 2.7.0 of MDAnalysis
+
+This a minor release of MDAnalysis.
+
+This release of MDAnalysis is packaged under a [GPLv3+ license](https://www.gnu.org/licenses/gpl-3.0.en.html), additionally all contributions made from commit 44733fc214dcfdcc2b7cb3e3705258781bb491bd onwards are made under the [LGPLv2.1+ license](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html).
+
+The minimum supported NumPy version is 1.22.3.
+
+Supported Python versions:
+  - 3.9, 3.10, 3.11, 3.12
+
+### Major changes:
+
+See the [CHANGELOG](https://github.com/MDAnalysis/mdanalysis/blob/release-2.7.0/package/CHANGELOG) and our [release blog post](https://www.mdanalysis.org/blog/#mdanalysis-2.7-is-out) for more details.
+
+#### Fixes:
+* NoJump now properly handles jumps that occur on the second frame of NPT trajectories, PR #4258
+* Fix charge reading from PDBQT files. PR #4283
+* Fixed a case where qcprot.CalcRMSDRotationalMatrix would return a RMSD of None. PR #4273
+
+#### Enhancements:
+* Support was added for reading chainID from prmtop AMBER topologies (PR #4007)
+* Added support for Python 3.12 (PR #4309, #4300, #4301, #4319, #4325, #4327, #4329)
+* Added support for reading `chainID` from PDBQT files (PR #4284)
+* TPR reader now sets `chainID` from `molblock` (PR #4281)
+* Various improvements to the organization and performance of Major and Minor Pair analyses (PR #3735)
+* C distance backend is now exposed via `libmdanalysis.pxd` (PR #4342)
+* Added a GROMOS11 Reader (PR #4294)
+
+#### Changes:
+* Added `mda_xdrlib` as a core dependency to replace the now deprecated Python `xdrlib` code (PR #4271)
+* ConverterBase has been moved to `MDAnalysis.converters.base` (PR #4253)
+* `networkx` is now an optional dependency of MDAnalysis (PR #4331)
+* `BioPython` is now an optional dependency of MDAnalysis (PR #4332)
+* Results for WatsonCrickDist nucleic acids analysis are now stored in  `analysis.nucleicacids.WatsonCrickDist.results.distances` (PR #3735)
+
+#### Deprecations:
+* Importing ConverterBase from `MDAnalysis.coordinates.base` will not be possible after MDAnalysis 3.0 (PR #4253)
+* Deprecation with intent of removal in MDAnalysis v3.0 of the X3DNA legacy code (PR #4333)
+* Deprecation with intent of removal in MDAnalysis v3.0 of the TRZ reader and writer (PR #4335)
+* Deprecation with intent of removal in MDAnalysis v3.0 of the `MDAnalysis.lib.util.which` method (PR #4340)
+* The `asel` argument of the `timeseries` attribute of Readers is now deprecated in favour of the `atomgroup` argument (PR #4343)
+* In `nucleicacids.WatsonCrickDist`, accepting lists of `Residue` objects was deprecated in favor of using `ResidueGroup`: using `List[Residue]` will be removed in release 3.0.0; instead use a `ResidueGroup` (PR #3735)
+* In `nucleicacids.WatsonCrickDist` the result `results.pair_distances` was deprecated and will be removed in 3.0.0; use `results.distances` instead (PR #3735)
+
+## New Contributors
+* [@jennaswa](https://github.com/jennaswa) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4289
+* [@Sumit112192](https://github.com/Sumit112192) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4346
+* [@HeetVekariya](https://github.com/HeetVekariya) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4359
+* [@JoStoe](https://github.com/JoStoe) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4292
+* [@ljwoods2](https://github.com/ljwoods2) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4366
+
 ## Release 2.6.1 of MDAnalysis
 
 This is a bugfix release of the 2.6.x version branch of MDAnalysis, it serves as an amendment to the earlier released version 2.6.0.
