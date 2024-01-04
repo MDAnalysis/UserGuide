@@ -5,7 +5,7 @@
 
 This a minor release of MDAnalysis.
 
-This release of MDAnalysis is packaged under a [GPLv3+ license](https://www.gnu.org/licenses/gpl-3.0.en.html), additionally all contributions made from commit 44733fc214dcfdcc2b7cb3e3705258781bb491bd onwards are made under the [LGPLv2.1+ license](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html).
+This release of MDAnalysis is packaged under a [GPLv3+ license](https://www.gnu.org/licenses/gpl-3.0.en.html), additionally all contributions made from commit `44733fc214dcfdcc2b7cb3e3705258781bb491bd` onwards are made under the [LGPLv2.1+ license](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html).
 
 The minimum supported NumPy version is 1.22.3.
 
