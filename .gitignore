@@ -36,6 +36,8 @@ doc/build
 
 # example files
 doc/source/examples/**/*.*
+!doc/source/examples/conftest.py
+!doc/source/examples/__init__.py
 !doc/source/examples/**/*.ipynb
 !doc/source/examples/**/*.rst
 !doc/source/examples/**/*.gif
