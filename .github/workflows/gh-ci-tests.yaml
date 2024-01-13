@@ -43,9 +43,9 @@ jobs:
           micromamba info
           micromamba list
 
-     #- name: "test snapshots"
-     #    working-directory: doc/source/scripts/
-     #    run: python -m pytest
+      - name: "test snapshots"
+          working-directory: doc/source/scripts/
+          run: python -m pytest
 
       - name: "test notebooks"
         working-directory: tests/
