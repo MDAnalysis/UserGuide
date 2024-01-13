@@ -32,6 +32,7 @@ DESCRIPTIONS = {
     "TNG": "Trajectory Next Generation file",
     "TOP": "AMBER topology file",
     "TPR": "GROMACS run topology file",
+    "TRC": "GROMOS11 trajectory file",
     "TRJ": "AMBER ASCII trajectories",
     "TRR": "GROMACS TRR trajectory",
     "TRZ": "IBIsCO or YASP binary trajectory",

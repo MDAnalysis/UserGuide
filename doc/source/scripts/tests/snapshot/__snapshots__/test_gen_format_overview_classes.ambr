@@ -212,6 +212,12 @@
       '✓',
     ]),
     list([
+      ':ref:`TRC <TRC-format>`',
+      'GROMOS11 trajectory file',
+      '',
+      '',
+    ]),
+    list([
       ':ref:`TRJ <TRJ-format>`',
       'AMBER ASCII trajectories',
       '',
@@ -590,6 +596,14 @@
       'GROMACS run topology file',
       '✓',
       '',
+      '✓',
+      '',
+    ]),
+    list([
+      ':ref:`TRC <TRC-format>`',
+      'GROMOS11 trajectory file',
+      '',
+      '✓',
       '✓',
       '',
     ]),
