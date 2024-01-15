@@ -397,8 +397,8 @@ Code formatting in Python
 
 MDAnalysis is a project with a long history and many contributors; it hasn't used a consistent coding style. Since version 0.11.0, we are trying to update all the code to conform with `PEP8`_. Our strategy is to update the style every time we touch an old function and thus switch to `PEP8`_ continuously.
 
-**Important requirements (from PEP8):**
-    - keep line length to **79 characters or less**; break long lines sensibly
+**Important requirements (from PEP8)**:
+    - keep line length to **79 characters or less**; break long lines sensibly although for readability we may allow longer lines
     - indent with **spaces** and use **4 spaces per level**
     - naming:
 
@@ -408,6 +408,7 @@ MDAnalysis is a project with a long history and many contributors; it hasn't use
 We recommend that you use a Python Integrated Development Environment (IDE) (`PyCharm`_ and others) or external tools like `flake8`_ for code linting. For integration of external tools with emacs and vim, check out `elpy`_ (emacs) and `python-mode`_ (vim).
 
 To apply the code formatting in an automated way, you can also use code formatters. External tools include `autopep8`_ and `yapf`_. Most IDEs either have their own code formatter or will work with one of the above through plugins.
+See :ref:`format-darker` for notes on maintaining code style compliance with existing tools.
 
 
 .. _`PEP8`: https://www.python.org/dev/peps/pep-0008/
@@ -475,7 +476,7 @@ Changes to the code should be reflected in the ongoing ``CHANGELOG``. Add an ent
 Ensure PEP8 compliance (mandatory) and format your code with Darker (optional)
 -------------------------------------------------------------------------------
 
-`Darker <https://github.com/akaihola/darker>`_ is a *partial formatting* tool that helps to reformat new or modified code
+`darker`_ is a *partial formatting* tool that helps to reformat new or modified code
 lines so the codebase progressively adapts a code style instead of doing a full reformat,
 which would be a big commitment. It was designed with the ``black`` formatter in mind, hence the name.
 
@@ -513,6 +514,20 @@ Or if you're ok with the suggested formatting changes, just apply the suggested 
 
     darker -r upstream/develop package/MDAnalysis -L flake8
     darker -r upstream/develop testsuite/MDAnalysisTests -L flake8
+
+
+.. note::
+
+   MDAnalysis does *not* currently use the popular `black`_ code formatter across the whole project, therefore please consider the following rules:
+
+   * **Do not run** ``black`` on an existing file that you are editing. This makes the diff for the PR very difficult to read. Instead use ``darker`` as explained above to only reformat your changes.
+   * You *may* run ``black`` on a *new file* that you are adding to the code base.
+
+   For an ongoing discussion (which you are welcome to join) see `issue #2450`_.
+
+.. _`darker`: https://github.com/akaihola/darker
+.. _`black`: https://black.readthedocs.io/
+.. _`issue #2450`: https://github.com/MDAnalysis/mdanalysis/issues/2450
 
 
 .. _adding-code-to-mda:

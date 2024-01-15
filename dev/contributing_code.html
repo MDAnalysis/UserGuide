@@ -594,8 +594,8 @@ and switch in between them using the <code class="docutils literal notranslate">
 <h4>Code formatting in Python<a class="headerlink" href="#code-formatting-in-python" title="Link to this heading"></a></h4>
 <p>MDAnalysis is a project with a long history and many contributors; it hasn’t used a consistent coding style. Since version 0.11.0, we are trying to update all the code to conform with <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8</a>. Our strategy is to update the style every time we touch an old function and thus switch to <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8</a> continuously.</p>
 <dl>
-<dt><strong>Important requirements (from PEP8):</strong></dt><dd><ul>
-<li><p>keep line length to <strong>79 characters or less</strong>; break long lines sensibly</p></li>
+<dt><strong>Important requirements (from PEP8)</strong>:</dt><dd><ul>
+<li><p>keep line length to <strong>79 characters or less</strong>; break long lines sensibly although for readability we may allow longer lines</p></li>
 <li><p>indent with <strong>spaces</strong> and use <strong>4 spaces per level</strong></p></li>
 <li><p>naming:</p>
 <blockquote>
@@ -609,7 +609,8 @@ and switch in between them using the <code class="docutils literal notranslate">
 </dd>
 </dl>
 <p>We recommend that you use a Python Integrated Development Environment (IDE) (<a class="reference external" href="https://www.jetbrains.com/pycharm/">PyCharm</a> and others) or external tools like <a class="reference external" href="http://flake8.readthedocs.org/en/latest/">flake8</a> for code linting. For integration of external tools with emacs and vim, check out <a class="reference external" href="https://github.com/jorgenschaefer/elpy">elpy</a> (emacs) and <a class="reference external" href="https://github.com/klen/python-mode">python-mode</a> (vim).</p>
-<p>To apply the code formatting in an automated way, you can also use code formatters. External tools include <a class="reference external" href="https://github.com/hhatto/autopep8">autopep8</a> and <a class="reference external" href="https://github.com/google/yapf">yapf</a>. Most IDEs either have their own code formatter or will work with one of the above through plugins.</p>
+<p>To apply the code formatting in an automated way, you can also use code formatters. External tools include <a class="reference external" href="https://github.com/hhatto/autopep8">autopep8</a> and <a class="reference external" href="https://github.com/google/yapf">yapf</a>. Most IDEs either have their own code formatter or will work with one of the above through plugins.
+See <a class="reference internal" href="#format-darker"><span class="std std-ref">Ensure PEP8 compliance (mandatory) and format your code with Darker (optional)</span></a> for notes on maintaining code style compliance with existing tools.</p>
 </section>
 <section id="modules-and-dependencies">
 <h4>Modules and dependencies<a class="headerlink" href="#modules-and-dependencies" title="Link to this heading"></a></h4>
@@ -652,7 +653,7 @@ and switch in between them using the <code class="docutils literal notranslate">
 </section>
 <section id="ensure-pep8-compliance-mandatory-and-format-your-code-with-darker-optional">
 <span id="format-darker"></span><h3>Ensure PEP8 compliance (mandatory) and format your code with Darker (optional)<a class="headerlink" href="#ensure-pep8-compliance-mandatory-and-format-your-code-with-darker-optional" title="Link to this heading"></a></h3>
-<p><a class="reference external" href="https://github.com/akaihola/darker">Darker</a> is a <em>partial formatting</em> tool that helps to reformat new or modified code
+<p><a class="reference external" href="https://github.com/akaihola/darker">darker</a> is a <em>partial formatting</em> tool that helps to reformat new or modified code
 lines so the codebase progressively adapts a code style instead of doing a full reformat,
 which would be a big commitment. It was designed with the <code class="docutils literal notranslate"><span class="pre">black</span></code> formatter in mind, hence the name.</p>
 <p>In MDAnalysis <strong>we only require PEP8 compliance</strong>, so if you want to make sure that your PR passes the darker bot, you’ll
@@ -684,6 +685,15 @@ Or if you’re ok with the suggested formatting changes, just apply the suggeste
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">darker</span> <span class="o">-</span><span class="n">r</span> <span class="n">upstream</span><span class="o">/</span><span class="n">develop</span> <span class="n">package</span><span class="o">/</span><span class="n">MDAnalysis</span> <span class="o">-</span><span class="n">L</span> <span class="n">flake8</span>
 <span class="n">darker</span> <span class="o">-</span><span class="n">r</span> <span class="n">upstream</span><span class="o">/</span><span class="n">develop</span> <span class="n">testsuite</span><span class="o">/</span><span class="n">MDAnalysisTests</span> <span class="o">-</span><span class="n">L</span> <span class="n">flake8</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>MDAnalysis does <em>not</em> currently use the popular <a class="reference external" href="https://black.readthedocs.io/">black</a> code formatter across the whole project, therefore please consider the following rules:</p>
+<ul class="simple">
+<li><p><strong>Do not run</strong> <code class="docutils literal notranslate"><span class="pre">black</span></code> on an existing file that you are editing. This makes the diff for the PR very difficult to read. Instead use <code class="docutils literal notranslate"><span class="pre">darker</span></code> as explained above to only reformat your changes.</p></li>
+<li><p>You <em>may</em> run <code class="docutils literal notranslate"><span class="pre">black</span></code> on a <em>new file</em> that you are adding to the code base.</p></li>
+</ul>
+<p>For an ongoing discussion (which you are welcome to join) see <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/issues/2450">issue #2450</a>.</p>
 </div>
 </section>
 <section id="adding-your-code-to-mdanalysis">
