@@ -8,7 +8,7 @@ The topology system
 MDAnalysis groups static data about a :class:`~MDAnalysis.core.universe.Universe` into its topology. This is typically loaded from a topology file. Topology information falls into 3 categories:
 
     * :ref:`Atom containers (Residues and Segments) <residues-and-segments>`
-    * :ref:`Atom attributes (e.g. name, mass, bfactor) <topology-attributes>`
+    * :ref:`Atom attributes (e.g. name, mass, tempfactor) <topology-attributes>`
     * :ref:`Topology objects: bonds, angles, dihedrals, impropers <topology-objects>`
 
 Users will almost never interact directly with a :class:`~MDAnalysis.core.topology.Topology`. Modifying atom containers or topology attributes is typically done through :class:`~MDAnalysis.core.universe.Universe`. Methods for viewing containers or topology attributes, or for calculating topology object values, are accessed through :class:`~MDAnalysis.core.groups.AtomGroup`.
@@ -59,7 +59,7 @@ The following attributes are read or guessed from every format supported by MDAn
 Format-specific attributes
 ---------------------------------
 
-The table below lists attributes that are read from supported formats. These can also be :ref:`added to a Universe <add-topologyattrs>` created from a file that does not support them. 
+The table below lists attributes that are read from supported formats. These can also be :ref:`added to a Universe <add-topologyattrs>` created from a file that does not support them.
 
 .. include:: generated/topology/topologyattrs.txt
 
@@ -85,7 +85,7 @@ Each of the attributes above can be added to a Universe if it was not available 
 :meth:`~MDAnalysis.core.universe.Universe.add_TopologyAttr` takes two arguments:
 
     * :code:`topologyattr` : the singular or plural name of a TopologyAttr, *or* a MDAnalysis TopologyAttr object. This must already have been defined as a :class:`~MDAnalysis.core.topologyattrs.TopologyAttr` (see :ref:`custom-topologyattrs` for an example of adding a custom topology attribute).
-    * :code:`values` (optional) : if :code:`topologyattr` is a string, the values for that attribute. This can be :code:`None` if the attribute has default values defined, e.g. :code:`bfactors`. 
+    * :code:`values` (optional) : if :code:`topologyattr` is a string, the values for that attribute. This can be :code:`None` if the attribute has default values defined, e.g. :code:`tempfactors`.
 
 .. ipython:: python
     :okwarning:
@@ -93,16 +93,16 @@ Each of the attributes above can be added to a Universe if it was not available 
     import MDAnalysis as mda
     from MDAnalysis.tests.datafiles import PSF
     psf = mda.Universe(PSF)
-    hasattr(psf.atoms, 'bfactors')
-    psf.add_TopologyAttr('bfactors')
-    psf.atoms.bfactors
+    hasattr(psf.atoms, 'tempfactors')
+    psf.add_TopologyAttr('tempfactors')
+    psf.atoms.tempfactors
 
 One way to modify topology attributes is to simply replace them with :meth:`~MDAnalysis.core.universe.Universe.add_TopologyAttr`:
 
 .. ipython:: python
 
-    psf.add_TopologyAttr('bfactors', range(len(psf.atoms)))
-    psf.atoms.bfactors
+    psf.add_TopologyAttr('tempfactors', range(len(psf.atoms)))
+    psf.atoms.tempfactors
 
 The number of values provided should correspond with the "level" of the attribute. For example, B-factors are atomic-level information. However, residue names and residue ids apply to residues. See a :ref:`table of attribute levels and default values <topologyattr-defaults>` for more information.
 
@@ -123,15 +123,15 @@ Existing topology attributes can be directly modified by assigning new values.
     pdb.residues[:3].atoms.resnames
 
 
-.. note:: 
+.. note::
 
-    This method cannot be used with connectivity attributes, i.e. bonds, angles, dihedrals, and impropers. 
+    This method cannot be used with connectivity attributes, i.e. bonds, angles, dihedrals, and impropers.
 
 
 Similarly to adding topology attributes with :meth:`~MDAnalysis.core.universe.Universe.add_TopologyAttr`, the "level" of the attribute matters. Residue attributes can only be assigned to attributes at the Residue or ResidueGroup level. The same applies to attributes for Atoms and Segments. For example, we would get a NotImplementedError if we tried to assign resnames to an AtomGroup.
 
 .. code-block:: ipython
-    
+
     In [15]: pdb.residues[0].atoms.resnames = ['new_name']
 
     NotImplementedErrorTraceback (most recent call last)
@@ -195,7 +195,7 @@ These accept the following values:
     * an iterable of :class:`~MDAnalysis.core.topologyobjects.TopologyObject`\ s
 
 
-Prior to version 0.21.0, objects could be added to a Universe with :meth:`~MDAnalysis.core.universe.Universe.add_TopologyAttr`. 
+Prior to version 0.21.0, objects could be added to a Universe with :meth:`~MDAnalysis.core.universe.Universe.add_TopologyAttr`.
 
 .. ipython:: python
     :okwarning:

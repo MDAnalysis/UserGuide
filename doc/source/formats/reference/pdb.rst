@@ -21,11 +21,11 @@ details):
     - **COMPND** (:attr:`Universe.trajectory.compound`)
     - **REMARK** (:attr:`Universe.trajectory.remarks`)
 
-All other lines are ignored. Multi-`MODEL`_ PDB files are read as trajectories with a default timestep of 1 ps :ref:`(pass in the dt argument to change this) <universe-kwargs>`. Currently, MDAnalysis `cannot read multi-model PDB files written by VMD`_, as VMD uses the keyword "END" to separate models instead of "MODEL"/"ENDMDL" keywords. 
+All other lines are ignored. Multi-`MODEL`_ PDB files are read as trajectories with a default timestep of 1 ps :ref:`(pass in the dt argument to change this) <universe-kwargs>`. Currently, MDAnalysis `cannot read multi-model PDB files written by VMD`_, as VMD uses the keyword "END" to separate models instead of "MODEL"/"ENDMDL" keywords.
 
 .. _`cannot read multi-model PDB files written by VMD`: https://github.com/MDAnalysis/mdanalysis/issues/1133
 
-.. important:: 
+.. important::
 
     Previously, MDAnalysis did not read elements from a file.
     Now, if valid elements are provided, MDAnalysis will read them in and will *not* guess them from atom names.
@@ -46,7 +46,7 @@ Writing out
 
 MDAnalysis can write both single-frame PDBs and convert trajectories to multi-model PDBs. If the Universe is missing fields that are :ref:`required in a PDB file <pdb-spec>`, MDAnalysis provides default values and raises a warning. There are 2 exceptions to this:
 
-    - ``chainIDs``: if a Universe does not have ``chainIDs``, MDAnalysis uses the first character of the segment ``segid`` instead. 
+    - ``chainIDs``: if a Universe does not have ``chainIDs``, MDAnalysis uses the first character of the segment ``segid`` instead.
     - ``elements``: Elements are *always* guessed from the atom name.
 
 These are the default values:
@@ -59,7 +59,7 @@ These are the default values:
     * resids: 1
     * occupancies: 1.0
     * tempfactors: 0.0
-    
+
 
 .. _pdb-spec:
 

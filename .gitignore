@@ -21,10 +21,6 @@ doc/build
 *.bak
 *.so
 
-# Ignore generated docs
-# */**/*.txt
-# !requirements.txt
-
 # ignore generated files
 *.vmd
 *.crd
@@ -40,6 +36,8 @@ doc/build
 
 # example files
 doc/source/examples/**/*.*
+!doc/source/examples/conftest.py
+!doc/source/examples/__init__.py
 !doc/source/examples/**/*.ipynb
 !doc/source/examples/**/*.rst
 !doc/source/examples/**/*.gif
@@ -48,3 +46,8 @@ doc/source/examples/**/*.*
 # backup files
 doc/source/examples/**/.*.ipynb
 
+# ignore HOLE2 local install folder
+hole2
+
+# Ignore auto-generated tables
+*.txt

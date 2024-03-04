@@ -5,7 +5,7 @@
 Slicing trajectories
 ====================
 
-MDAnalysis trajectories can be indexed to return a :class:`~MDAnalysis.coordinates.base.Timestep`, or sliced to give a :class:`~MDAnalysis.coordinates.base.FrameIterator`. 
+MDAnalysis trajectories can be indexed to return a :class:`~MDAnalysis.coordinates.base.Timestep`, or sliced to give a :class:`~MDAnalysis.coordinates.base.FrameIterator`.
 
 .. ipython:: python
     :okwarning:
@@ -17,7 +17,7 @@ MDAnalysis trajectories can be indexed to return a :class:`~MDAnalysis.coordinat
     u.trajectory[4]
 
 
-Indexing a trajectory shifts the :class:`~MDAnalysis.core.universe.Universe` to point towards that particular frame, updating dynamic data such as ``Universe.atoms.positions``. 
+Indexing a trajectory shifts the :class:`~MDAnalysis.core.universe.Universe` to point towards that particular frame, updating dynamic data such as ``Universe.atoms.positions``.
 
 .. note::
 
@@ -48,7 +48,7 @@ You can also create a sliced trajectory with boolean indexing and fancy indexing
 
     protein = u.select_atoms('protein')
     rmsd = rms.RMSD(protein, protein).run()
-    bools = rmsd.rmsd.T[-1] < 2
+    bools = rmsd.results.rmsd.T[-1] < 2
     print(bools)
 
 .. ipython:: python

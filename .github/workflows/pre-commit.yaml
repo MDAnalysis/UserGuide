@@ -1,0 +1,43 @@
+name: pre-commit
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop
+
+concurrency:
+  # Probably overly cautious group naming.
+  # Commits to develop will cancel each other, but PRs will only cancel
+  # commits within the same PR
+  group: "${{ github.ref }}-${{ github.head_ref }}-${{ github.workflow }}"
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash -l {0}
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: setup micromamba
+      uses: mamba-org/setup-micromamba@v1
+      with:
+        environment-file: environment.yml
+        environment-name: mda-user-guide
+        create-args: >-
+          python=3.9
+          pip
+        condarc: |
+          channels:
+            - conda-forge
+            - plotly
+
+    - uses: pre-commit/action@v3.0.0
+      with:
+        extra_args: --all-files

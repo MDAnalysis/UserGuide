@@ -7,12 +7,12 @@ GRO (GROMACS structure file)
 
 .. include:: classes/GRO.txt
 
-GRO files provide topology, coordinate, and sometimes velocity information. 
+GRO files provide topology, coordinate, and sometimes velocity information.
 
 Reading in
 ==========
 
-Prior to MDAnalysis version 0.21.0 and GROMACS 2019.5, MDAnalysis failed to parse GRO files with box sizes where an axis length was longer than 10 characters. 
+Prior to MDAnalysis version 0.21.0 and GROMACS 2019.5, MDAnalysis failed to parse GRO files with box sizes where an axis length was longer than 10 characters.
 
 .. important::
 

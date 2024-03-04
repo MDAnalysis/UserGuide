@@ -1,46 +1,61 @@
 name: mda-user-guide
 channels:
-  - defaults
+  - jaimergp/label/unsupported-cudatoolkit-shim
   - conda-forge
+  - plotly
+  - defaults
 dependencies:
-  - cython
-  - dask
-  - decorator==4.4.2
-  - docutils==0.15.2
-  - graphviz
-  - ipywidgets==7.6.3
-  - ipython==7.22.0
-  - ipygany
-  - jedi==0.18.0
-  - jinja2<3.0
-  - jupyter_contrib_nbextensions==0.5.1
-  - matplotlib==3.2.2
-  - nbclient==0.5.3
-  - nbconvert==6.0.7
-  - nbformat==5.0.8
-  - nbsphinx==0.8.1
-  - networkx==2.5.1
-  - nglview==2.7.7
-  - notebook==6.1.6
-  - numpy==1.20.2
-  - packaging
+  # mdanalysis dependencies
+  - openmm>=7.0.0
   - parmed
-  - parso==0.8.2
-  - pip==20.3.3
-  - plotly==4.14.1
-  - pybtex==0.23.0
-  - python
+  - scikit-learn>=1.1.2
+  - pyedr>=0.7
+  # building documentation
+  - mdanalysis-sphinx-theme >=1.3.0
+  - docutils
+  - pandoc
+  - pybtex
+  - sphinx
+  - sphinxcontrib-bibtex
+  - tabulate
+  # extensions
+  - ipython
+  - ipywidgets<8.0.0
+  - jupyter_contrib_nbextensions
+  - myst-parser
+  - nbconvert # not called by any notebook explicitly but to download notebooks, or in nbsphinx
+  - nbformat
+  - nbsphinx
+  - notebook<7
+  # used for visualising/plotting
+  - graphviz
+  - ipygany
+  - plotly
+  - python-graphviz
   - pyvista
   - scikit-image
-  - sphinx==3.5.3
-  - sphinxcontrib-bibtex==1.0.0
-  - sphinx_rtd_theme==0.5.2
-  - threadpoolctl
-  - tabulate==0.8.7
-  - widgetsnbextension==3.5.1
-  - Jinja2==2.11
+  - seaborn>=0.12.1
+  # parallelization
+  - distributed==2021.1.0
+  - dask==2021.1.0
+  # used for visualising/making movies of molecules;
+  - nglview
+  - moviepy
+  # used for notebook testing
+  - pytest
+  - python=3.9
+  - pip
   - pip:
-      - msmb_theme==1.2.0
-      - sphinx-sitemap==1.0.2
+      # extensions
+      - sphinx-sitemap
+      # used for notebook testing
+      - nbval
+      # developer tooling
+      - pre-commit
+      # doc generation dependency
+      - pygithub
+      # mdanalysis and its tests and test data
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=mdanalysis&subdirectory=package
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=MDAnalysisTests&subdirectory=testsuite
+      - git+https://github.com/MDAnalysis/MDAnalysisData@master#egg=MDAnalysisData
+      - syrupy # snapshot tests

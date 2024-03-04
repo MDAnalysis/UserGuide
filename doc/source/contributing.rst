@@ -5,8 +5,8 @@
 Contributing to MDAnalysis
 ===========================
 
-MDAnalysis is a free and open source project. It evolves and grows with the demands of its user base. 
-The development team very much welcomes contributions from its users. 
+MDAnalysis is a free and open source project. It evolves and grows with the demands of its user base.
+The development team very much welcomes contributions from its users.
 Contributions can take many forms, such as:
 
     * **bug reports** or **enhancement requests** filed through the `Issue Tracker`_
@@ -15,7 +15,7 @@ Contributions can take many forms, such as:
     * **new features** in the code
     * improvements and additions to **documentation** (including typo fixes)
     * improvements to the **build systems**
-    * **questions** or **discussions** on the `mdnalysis-discussion`_ mailing list
+    * **questions** or **discussions** on `GitHub Discussions`_
 
 The MDAnalysis community subscribes to a `Code of Conduct`_ that all community
 members agree and adhere to --- please read it.
@@ -32,9 +32,27 @@ Where to start?
 All contributions, bug reports, bug fixes, documentation improvements,
 enhancements, and ideas are welcome.
 
-If you are brand new to MDAnalysis or open-source development, we recommend going 
-through the guides for :ref:`contributing to the main codebase <working-with-mdanalysis-code>` or the :ref:`user guide <working-with-user-guide>`. If you are new to Git and version control, have a look at 
+If you are new to Git and version control, have a look at
 :ref:`version-control`.
+
+If you are looking to contribute a code or documentation fix, or core feature to MDAnalysis,
+and you are brand new to MDAnalysis or open-source development -- we recommend going
+through the guides for :ref:`contributing to the main codebase <working-with-mdanalysis-code>`
+or the :ref:`user guide <working-with-user-guide>`.
+
+If you are looking to contribute your own project or new addition to MDAnalysis,
+we encourage you to open an issue at the `Issue Tracker`_ or consider creating an
+`MDAnalysis toolkit (MDAKit)`_ .
+MDAKits are standalone packages that build on MDAnalysis to enhance its functionality.
+or solve specific scientific or technical problems. MDAKits can be optionally
+registered at the `MDAKits registry`_
+to advertise to the broader MDAnalysis community.
+All packages on the registry are continuously tested
+against the latest and development versions of MDAnalysis.
+
+For more on creating an MDAKit, please see the documentation on
+`Making an MDAKit`_.
+
 
 
 .. _version-control:
@@ -42,16 +60,16 @@ through the guides for :ref:`contributing to the main codebase <working-with-mda
 Version control, Git, and GitHub
 ================================
 
-`Git <http://git-scm.com/>`_ is a version control system that allows many people to work together 
-on a project. 
-Working with Git can be one of the more daunting aspects of contributing 
-to MDAnalysis.  Sticking to the guidelines below will help keep the process 
+`Git <http://git-scm.com/>`_ is a version control system that allows many people to work together
+on a project.
+Working with Git can be one of the more daunting aspects of contributing
+to MDAnalysis.  Sticking to the guidelines below will help keep the process
 straightforward and mostly trouble free.  As always,
 if you are having difficulties please feel free to ask for help.
 
 The code is hosted on `GitHub <https://www.github.com/mdanalysis/mdanalysis>`_. To
 contribute you will need to sign up for a `free GitHub account
-<https://github.com/signup/free>`_. 
+<https://github.com/signup/free>`_.
 
 Some great resources for learning Git:
 
@@ -71,3 +89,6 @@ you can work seamlessly between your local repository and GitHub.
    http://groups.google.com/group/mdnalysis-discussion
 .. _`Code of Conduct`: https://www.mdanalysis.org/pages/conduct/
 .. _`Issue Tracker`: https://github.com/MDAnalysis/mdanalysis/issues
+.. _`MDAKits registry`: https://mdakits.mdanalysis.org/mdakits.html
+.. _`MDAnalysis toolkit (MDAKit)`: https://mdakits.mdanalysis.org/about.html
+.. _`Making an MDAKit`: https://mdakits.mdanalysis.org/makingakit.html

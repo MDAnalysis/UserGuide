@@ -5,11 +5,10 @@
 Preparing a release
 ===================
 
-Rules for a release branch:
+Rules for release branches:
 
-    - May branch from: ``develop``
-    - Must be merged into: ``master`` (and ``develop`` if needed)
-    - Naming convention: ``release-*`` where ``*`` is a version number
+    - Branch from ``develop``
+    - Naming convention: ``package-*`` where ``*`` is a version number
 
 Release policy and release numbering
 ====================================
@@ -44,111 +43,193 @@ so that people using the :ref:`develop branch <branches-in-mdanalysis>` from the
 Typical workflow for preparing a release
 ========================================
 
-#. Declare feature freeze on ``develop`` via the `developer mailing list`_
+Summary of tasks
+----------------
 
-#. Create a release branch from ``develop``::
+  * Declare a `feature freeze` on `develop` via discord and/or GitHub Discussions (Announcement)
+  * Finalize the ``CHANGELOG`` file with the date of release
+  * Increment the version across ``MDAnalysis`` and ``MDAnalysisTests`` (4 places)
+  * `Merge` changes into `develop`
+  * Create a tag from `develop` named `release-<version_number>`
+  * Create a `package-<version_number>` branch from `develop`
+  * Add rebuilt `C / C++` files to `package-<version_number>`
+  * Create a tag from `package-<version_number>`
+  * Check automated testing of source distribution and wheel generation and upload
+  * Create a new release from newly created tag
+  * Check that deployment actions have adequately pushed dist and wheels to PyPi
+  * Manually upload Cirrus CI wheels (temporary)
+  * Update `conda-forge` packages
+  * Create a blog post outlining the release
+  * Increment develop branch files ready for the next version
+  * Clean up old dev docs builds
 
-    git checkout -b release-0.7.6 develop
 
-#. Finalise the ``CHANGELOG`` with the release number and date. Summarize important changes and add all authors that contributed to this release.
+Getting the develop branch ready for a release
+----------------------------------------------
 
-#. Make sure the version number is right::
+#. Declare feature freeze on ``develop`` via `discord` and `GitHub Discussions (Announcement)`_
 
-    ./maintainer/change_release.sh 0.7.6
+#. Create a pre-release feature branch from ``develop``
 
-#. Check that the documentation is up-to-date and tests pass. Check that any new Cython code has compiled.
+#. Finalise the ``CHANGELOG`` with the release number and date. Ensure that the ``CHANGELOG`` summarizes important changes and includes all authors that contributed to this release.
 
-#. Commit the finalized state::
+#. Make sure the version number matches the release version. The following files need to be updated: ``package/MDAnalysis/version.py``, ``package/setup.py``, ``testsuite/MDAnalysisTests/__init__.py``, and ``testsuite/setup.py``.
 
-    git commit -m "release 0.7.6 ready"
+#. Create a pull request against ``develop`` from this branch.
 
-#. Build a source distribution tarballs under ``package/dist/MDAnalysis-MAJOR-MINOR-PATCH.tar.gz`` and ``testsuite/dist/MDAnalysisTests-MAJOR-MINOR-PATCH.tar.gz``:
+
+Packaging the release
+---------------------
+
+#. Create a new tag from ``develop`` named ``release-<version_number>`` where ``<version_number>`` is the release version number (this tag contains a snapshot of the Python source files as they were when the release was created):
+
+    .. code-block:: bash
+
+        git tag -m "release 0.7.5 of MDAnalysis and MDAnalysisTests" release-0.7.5
+        git push --tags origin
+
+#. Create a ``package-<version_number>`` branch from ``develop``. This branch is automatically protected, so you will also need to create a separate branch to create commits via PR against ``package-<version_number>``.
+
+#. Generate new C/C++ files and commit them to the ``package-<version_number>`` branch via PR. We recommend generate the C/C++ files by building a *source distribution* tarball so you can check at the same time that there are no issues with the distribution creation process:
 
     .. code-block:: bash
 
         # MDAnalysis
         cd package/
-        python setup.py sdist
+        pipx run build --sdist
 
-        # MDAnalysisTests
-        cd ../testsuite/
-        python setup.py sdist
+#. Once committed, create a new tag based on ``package-<version_number>`` (this tag will contain a record of all the files as they were deployed to users for that version):
 
-#. Test the distribution in a ``tmp`` directory.
+    .. code-block:: bash
 
-    #. Unpack and try to build it:
+        git tag -m "package 0.7.5 of MDAnalysis and MDAnalysisTests" package-0.7.5
+        git push --tags origin
 
-        .. code-block:: bash
+#. Upon creation of the new ``package-*`` tag, the `deploy github action`_ workflow will be automatically triggered to create source/wheels, upload them to testpypi, re-download them and run tests.
 
-            mkdir tmp && cd tmp
-            tar -zxvf ../dist/MDAnalysis-0.7.5.tar.gz
-            cd MDAnalysis-0.7.5
-            python setup.py build --build-lib=.
+#. If all the tests come back green, you are good to go for a full release.
 
-    
-    #. Run the tests again:
+    #. If tests fail you will need to work out the cause of the failure.
 
-        .. code-block::
+        #. A temporary github actions failure
 
-            python
-            >>> import MDAnalysis.tests
-            >>> MDAnalysis.tests.test(label='full', extra_argv=['--exe'])
+            Re-run the action and wait for the tests to complete
 
-        
-        The above should work at least on Linux and Mac OS X. If it fails then go back and fix things and *do not release*.
+        #. An issue with the source code.
 
+            #. Delete the current ``package-*`` branch, and the newly created tags
 
-#. If everything works, merge the branch into master and tag the release::
+            #. Add the new changes to ``develop`` and restart the release process.
 
-    git checkout master
-    git merge --no-ff release-0.7.6
-    git tag -m 'release 0.7.5 of MDAnalysis and MDAnalysisTests' release-0.7.5
-    git push --tags origin master
+            #. If the code had successfully uploaded to testpypi and failed later, you will need to create a test ``package-*`` tag which contains a different release number of in the source code (bumpy by a minor release or add a ``-beta`` modifier). Note: if the code had not successfully uploaded you can just continue the release process as normal.
 
-#. Merge the branch back into ``develop`` (this is not required if the only change was the version number)::
+            #. If CI comes back green then delete the test tag, and create a normal ``package-*`` tag with the correct version number.
 
-    git checkout develop
-    git merge --no-ff release-0.7.6
-    ./maintainer/change_release.sh 0.7.7-devel
-    git commit -a -m "version number changed to 0.7.7-devel"
-
-#. Build and deploy the docs manually. (You may need to first ``pip install sphinx==2.2.0 sphinx_sitemap sphinx_rtd_theme``)::
-
-    cd package/
-    python setup.py build_sphinx
-    cd ..
-
-    # You need a OAUTH token that gives commit access to the MDAnalysis/docs repo
-    export GH_TOKEN=<secret>
-
-    ./maintainer/deploy_master_docs.sh
-
-#. Update the release on the Python package index (Pypi)
-
-    #. Upload the package to Pypi. You need to have run ``python setup.py register`` previously.
-
-        .. code-block:: bash
-
-            twine upload -r pypi dist/MDAnalysis-0.16.2.tar.gz 
-
-    #. Upload the docs to Pypi
-
-    #. Make the new tar ball a *featured* release so that it shows up on the front page (and *unfeature* any older releases).
-
-    #. Provide a short description (a condensed version of the ``CHANGELOG``)
-
-#. Update the release on Anaconda
-
-    conda packages are built on conda-forge.
-
-    #. Create a pull request from https://github.com/MDAnalysis/mdanalysis-feedstock for https://github.com/conda-forge/mdanalysis-feedstock
-    #. Create a pull request from https://github.com/MDAnalysis/mdanalysistests-feedstock to https://github.com/conda-forge/mdanalysistests-feedstock
-
-#. Create a ReleaseXYZ wiki page, modelled after e.g. `Release062 <https://github.com/MDAnalysis/mdanalysis/wiki/Release062>`_ (using the ``CHANGELOG`` as a reference). Add it to the `Release Notes <https://github.com/MDAnalysis/mdanalysis/wiki/Release-Notes>`_.
+            #. The github action will fail, but this is ok since we tested it with the test tag above.
 
 
-#. Delete the release branch::
+Completing the release
+----------------------
 
-    git branch -d release-0.7.6
+If everything works, you can now complete the release by:
 
-.. _`developer mailing list`: https://groups.google.com/forum/#!forum/mdnalysis-devel
+#. Creating a release on GitHub based on the newly created ``package-<version_number>`` tag.
+
+#. Make sure you include relevant release notes, including any known issues and highlights for the release.
+
+#. Once published, the `deploy github action`_ will be triggered which will upload the source distributions and wheels to PyPI.
+
+    #. If the `deploy github action`_ fails and no files have been uploaded, then restart the action.
+
+    #. If the action fails and some files have been uploaded, then you will not be able to re-upload to PyPI. At this point you will need to yank the release from PyPI and create a new minor version and re-deploy it.
+
+
+Manually upload Cirrus CI wheels (temporary)
+--------------------------------------------
+
+Unfortunately the deployment of Cirrus CI generated wheels (for `osx-arm64` and `linux-aarch64`) does not get properly triggered by a release. However, they are properly uploaded to `TestPyPi`_
+
+#. Go to the recently updated TestPyPi release and download all the `.whl` files which have the tags `arm64` and `aarch64`.
+
+#. From a local directory upload these wheels using ``twine``.
+
+    .. code-block:: bash
+
+       twine upload -r pypi *.whl --verbose
+
+
+Update `conda-forge` packages
+-----------------------------
+
+On push to PyPI, the conda-forge bot should automatically pick up the presense of a new version and create a pull request on the `MDAnalysis feedstock`_ and the `MDAnalysisTests feedstock`_. You will need to merge the MDAnalysis feedstock followed by the MDAnalysisTests feedstock in order for the new package to appear on conda-forge.
+
+To do this you will need to:
+
+#. Update the ``meta.yaml`` files as necessary, especially bumping up the python and dependency minimum versions as necessary.
+
+#. If NumPy pins differ from those conda-forge uses, you will need to update the ``conda_build_config.yaml`` accordingly.
+
+#. Ask the conda-forge bot to re-render, check that CI returns green, approve and merge the pull request.
+
+Create a release of the UserGuide
+---------------------------------
+
+For now, the UserGuide is released at the same time as the core library. If it's failing please fix *before* you do the tag / release. Here is how to update the snapshots
+
+#. Update the version of MDA used by the UserGuide to the release version.
+
+#. Re-generate the Syrupy test snapshots, and commit those a to git and confirm the build passes.
+
+    .. code-block:: bash
+        cd doc/source/scripts
+        python -m pytest tests/snapshot/ --snapshot-update
+
+#. Make a Pull Request with a re-generated ``releases.md`` which contains a copy of the GitHub release notes. This can be generated by doing:
+
+    .. code-block:: bash
+
+        cd doc/source/scripts
+        python gen_release_notes.py
+
+#. Create a new release tag and upload them for the UserGuide repository.
+
+    .. code-block:: bash
+
+        git tag -m 'release 2.6.1 of the MDAnalysis UserGuide' release-2.6.1
+        git push --tags origin
+
+#. This will automatically trigger a Github Action to build a new set of docs for that release and upload them. Due to the large size of the ``gh-pages`` branch on the UserGuide, this can be both slow and flaky, make sure to keep an eye out for any potential failures.
+
+
+Create a blog post outlining the release
+----------------------------------------
+
+Create a blog post outlining the release notes and publicize it on GitHub Discussions / discord / twitter/ etc...!
+
+
+Increment develop branch files ready for the next version
+---------------------------------------------------------
+
+Once the release is completed you can go ahead and update the ``develop`` branch so that it is ready for the next round of development.
+
+#. Update the 4 version file locations with the ``-dev0`` appended version of the next release.
+
+#. Update the CHANGELOG with a new entry for the next release.
+
+#. Once these changes are merged into the ``develop`` branch, message the developers on discord and GitHub Discussions letting them know that the feature freeze is over.
+
+
+Clean up old developer builds of the documentation
+--------------------------------------------------
+
+Whilst new docs are automatically deployed on a release, old developer builds (appended with ``-dev``) are not automatically cleaned up. To avoid causing large amounts of files being uploaded to GitHub Pages, we need to delete these old developer builds manually. To do this switch to the ``gh-pages`` branch, delete these old files, and push the change directly. You should do this for both the core library and the UserGuide.
+
+While this is still a manual procedure, you should also edit `versions.json` to remove the old dev links.
+
+
+.. _`GitHub Discussions (Announcement)`: https://groups.google.com/forum/#!forum/mdnalysis-devel
+.. _`deploy github action`: https://github.com/MDAnalysis/mdanalysis/tree/develop/.github/workflows/deploy.yaml
+.. _`MDAnalysis feedstock`: https://github.com/conda-forge/mdanalysis-feedstock
+.. _`MDAnalysisTests feedstock`: https://github.com/conda-forge/mdanalysistests-feedstock
+.. _`stable branch of the docs page`: https://docs.mdanalysis.org/stable
+.. _`TestPyPi`: https://test.pypi.org/project/MDAnalysis/

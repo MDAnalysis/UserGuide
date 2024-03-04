@@ -69,7 +69,7 @@ selection parser. The following applies to all selections:
     u.select_atoms("segid DMPC and not (name H* or type OW)")
 
 
-* String selections such as names and residue names can be 
+* String selections such as names and residue names can be
   matched with Unix shell-style wildcards. These rules include:
 
     * Using ``*``  in a string matches any number of any characters
@@ -77,10 +77,10 @@ selection parser. The following applies to all selections:
     * ``[seq]`` matches any character in *seq*;
     * ``[!seq]`` matches any character not in *seq*
     * ``[!?]`` selects empty strings
-  
-  For example, 
-  the string ``GL*`` selects all strings that start with "GL", 
-  such as "GLU", "GLY", "GLX29", "GLN". ``GL[YN]`` will select all "GLY" and 
+
+  For example,
+  the string ``GL*`` selects all strings that start with "GL",
+  such as "GLU", "GLY", "GLX29", "GLN". ``GL[YN]`` will select all "GLY" and
   "GLN" strings. Any number of patterns can be included in the search.
   For more information on pattern matching, see the :mod:`fnmatch` documentation.
 
@@ -111,17 +111,17 @@ segid *seg-name*
 
 resid *residue-number-range*
     ``resid`` can take a single residue number or a range of numbers, followed
-    by insertion codes. A range consists of two selections separated by a colon 
+    by insertion codes. A range consists of two selections separated by a colon
     (inclusive) such as ``resid 1A:1C``. This selects all residues with ``resid==1``
     and ``icode in ('A', 'B', 'C')``.
     A residue number ("resid") and icode is taken directly from the
-    topology. Unlike ``resnum``, ``resid`` is sensitive to insertion codes. 
+    topology. Unlike ``resnum``, ``resid`` is sensitive to insertion codes.
 
 resnum *residue-number-range*
     ``resnum`` can take a single residue number or a range of numbers. A range
     consists of two numbers separated by a colon (inclusive) such
     as ``resnum 1:5``. A residue number ("resnum") is taken directly from the
-    topology. Unlike ``resid``, ``resnum`` is insensitive to insertion codes. 
+    topology. Unlike ``resid``, ``resnum`` is insensitive to insertion codes.
 
 resname *residue-name*
     select by residue name, e.g. ``resname LYS``
@@ -176,7 +176,7 @@ Geometric
 The geometric keywords below all implement periodic boundary conditions by default when valid cell dimensions are accessible from the Universe. This can be turned off by passing in the keyword ``periodic=False``:
 
 .. ipython:: python
-    
+
     u.select_atoms("around 6 protein", periodic=False)
 
 around *distance selection*
@@ -305,7 +305,7 @@ constant across trajectory frame changes. If
 :meth:`~MDAnalysis.core.groups.AtomGroup.select_atoms` is invoked with named
 argument ``updating`` set to ``True``, an
 :class:`~MDAnalysis.core.groups.UpdatingAtomGroup` instance will be returned
-instead. 
+instead.
 
 .. ipython:: python
 
@@ -406,4 +406,3 @@ work as one might expect:
     :okwarning:
 
     list(u.select_atoms("(resid 3 or resid 2) and name CA"))
-

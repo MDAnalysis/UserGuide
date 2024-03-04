@@ -12,7 +12,7 @@ Tests in MDAnalysis
 Whenever you add new code, you should create an appropriate test case that checks that your code is working as it should. This is very important because:
 
     #. Firstly, it ensures that your code works as expected, i.e.
-    
+
         - it succeeds in your test cases *and*
         - it fails predictably
     #. More importantly, in the future we can always test that it is still working correctly. Unit tests are a crucial component of proper software engineering (see e.g. `Software Carpentry on Testing <http://software-carpentry.org/4_0/test>`_) and a large (and growing) test suite is one of the strengths of MDAnalysis.
@@ -45,7 +45,7 @@ It is recommended that you run the tests from the ``mdanalysis/testsuite/MDAnaly
     cd testsuite/MDAnalysisTests
     pytest  --disable-pytest-warnings
 
-All tests should pass: no **FAIL** or **ERROR** cases should be triggered; *SKIPPED* or *XFAIL* are ok. For anything that fails or gives an error, ask on the `mdnalysis-discussion`_ mailing list or raise an issue on the `Issue Tracker <https://github.com/MDAnalysis/mdanalysis/issues>`_.
+All tests should pass: no **FAIL** or **ERROR** cases should be triggered; *SKIPPED* or *XFAIL* are ok. For anything that fails or gives an error, ask on `GitHub Discussions`_ or raise an issue on the `Issue Tracker <https://github.com/MDAnalysis/mdanalysis/issues>`_.
 
 We use the ``--disable-pytest-warnings`` when the whole testsuite is running, as pytest raises a lot of false positives when we warn users about missing topology attributes. When running single tests or only single modules, consider running the tests *with* warnings enabled (i.e. without ``--disable-pytest-warnings``). This allows you to see if you trigger any un-caught deprecation warnings or other warnings in libraries we use.
 
@@ -115,26 +115,36 @@ Ideally, you want all tests to pass. This will look like:
 
     .. image:: images/ci_checks_passed.png
 
-.. _appveyor:
+.. _github-actions:
 
---------
-Appveyor
---------
+--------------
+GitHub Actions
+--------------
 
-`AppVeyor`_ is a continuous integration/continuous deployment service. MDAnalysis uses it for `testing builds on Windows`_.
-
-Builds are configured in the file ``.appveyor.yml``. If you add a new dependency to MDAnalysis, you will need to add it to the ``$CONDA_DEPENDENCIES`` or ``$PIP_DEPENDENCIES`` in ``.appveyor.yml`` to pass tests.
-
-.. _`testing builds on Windows`: https://ci.appveyor.com/project/orbeckst/mdanalysis
+Configured in `.github/` directory. Uses YAML syntax to define both workflows and actions. See `GitHub Actions documentation <https://help.github.com/en/actions>`_ for more information.
 
 
-.. _travis:
+.. _azure:
 
-------
-Travis
-------
+-----
+Azure
+-----
 
-`Travis is a continuous integration service <https://travis-ci.com/MDAnalysis/mdanalysis>`_ for Linux and MacOS. MDAnalysis uses it for exhaustive testing on Linux systems, and some testing on MacOS. If you add a new dependency to MDAnalysis, you will need to add it to the ``$CONDA_DEPENDENCIES`` or ``$PIP_DEPENDENCIES`` in ``.travis.yml`` to pass tests.
+Configured in `azure-pipelines.yml` file. Uses YAML syntax to define Azure Pipelines tasks. See `Azure Pipelines documentation <https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema>`_ for more information.
+
+
+.. _cirrus:
+
+---------
+Cirrus CI
+---------
+
+The file `.cirrus.star` tells the provider what to do, it uses the Starlark syntax in YAML to define tasks. See `Cirrus CI documentation <https://cirrus-ci.org/guide/writing-tasks/>`_ for more information.
+
+The actual files defining the workflows are in:
+
+- maintainer/ci/cirrus-ci.yml
+- maintainer/ci/cirrus-deploy.yml
 
 
 .. _codecov:
@@ -153,7 +163,7 @@ Coverage is the ratio of ``hits / (sum of hit + partial + miss)``. See the `Code
 
 MDAnalysis aims for 90% code coverage; your pull request will fail the Codecov check if the coverage falls below 85%. You can increase coverage by writing futher tests.
 
-On your pull request, Codecov will leave a comment with three sections: 
+On your pull request, Codecov will leave a comment with three sections:
 
     - a visual map of the areas with coverage changes
 
@@ -206,7 +216,7 @@ To check equality up to a certain precision (e.g. floating point numbers and ite
         ref = mda.Universe(PSF, PDB_small)
         u = mda.Universe(PDB_small)
         assert_almost_equal(u.atoms.positions, ref.atoms.positions)
-    
+
 To test for exact equality (e.g. integers, booleans, strings), use :func:`~numpy.testing.assert_equal` from :mod:`numpy.testing`. As with :func:`~numpy.testing.assert_almost_equal`, this should be used for iterables of exact values as well. Do not iterate over and compare every single value. ::
 
     from numpy.testing import assert_equal
@@ -234,7 +244,7 @@ Do not use ``assert_raises`` from :mod:`numpy.testing` or the ``pytest.mark.rais
         a = [1, 2, 3]
         with pytest.raises(IndexError):
             b = a[4]
-    
+
     def test_for_warning():
         with pytest.warns(DeprecationWarning):
             deprecated_function.run()
@@ -315,7 +325,7 @@ Use the :func:`pytest.mark.parametrize` decorator to test the same function for 
     @pytest.mark.parametrize('name, compound', (('molnums', 'molecules'),
                                                 ('fragindices', 'fragments')))
     # fragment is a fixture defined earlier
-    def test_center_of_mass_compounds_special(self, fragment,  
+    def test_center_of_mass_compounds_special(self, fragment,
                                               pbc, name, compound):
         ref = [a.center_of_mass() for a in fragment.groupby(name).values()]
         com = fragment.center_of_mass(pbc=pbc, compound=compound)
@@ -344,7 +354,7 @@ Do not use :func:`os.chdir` to change directories in tests, because it can break
 
 To create a temporary file::
 
-    def outfile(tmpdir):  
+    def outfile(tmpdir):
         temp_file = str(tmpdir.join('test.pdb'))
 
 
@@ -379,4 +389,4 @@ If possible, re-use the existing data files in MDAnalysis for tests; this helps 
     #. Make sure your new files are picked up by the pattern-matching in ``testsuite/setup.py`` (in the ``package_data`` dictionary).
 
 
-.. _`mdnalysis-discussion`: http://groups.google.com/group/mdnalysis-discussion
+.. _`GitHub Discussions`: https://github.com/MDAnalysis/mdanalysis/discussions
