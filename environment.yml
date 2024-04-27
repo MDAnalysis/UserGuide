@@ -55,7 +55,7 @@ dependencies:
       # doc generation dependency
       - pygithub
       # mdanalysis and its tests and test data
-      - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=mdanalysis&subdirectory=package
-      - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=MDAnalysisTests&subdirectory=testsuite
+      - git+https://github.com/MDAnalysis/mdanalysis@fix-discovery#egg=mdanalysis&subdirectory=package
+      - git+https://github.com/MDAnalysis/mdanalysis@fix-discovery#egg=MDAnalysisTests&subdirectory=testsuite
       - git+https://github.com/MDAnalysis/MDAnalysisData@master#egg=MDAnalysisData
       - syrupy # snapshot tests
