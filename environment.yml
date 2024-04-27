@@ -36,8 +36,8 @@ dependencies:
   - scikit-image
   - seaborn>=0.12.1
   # parallelization
-  - distributed==2021.1.0
-  - dask==2021.1.0
+  - distributed
+  - dask
   # used for visualising/making movies of molecules;
   - nglview
   - moviepy
