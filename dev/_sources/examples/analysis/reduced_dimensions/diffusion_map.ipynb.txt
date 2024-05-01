@@ -137,7 +137,8 @@
     "ExecuteTime": {
      "end_time": "2023-12-01T15:45:48.442257804Z",
      "start_time": "2023-12-01T15:45:48.414223207Z"
-    }
+    },
+    "tags": ["nbval-ignore-output"]
    },
    "outputs": [
     {
@@ -239,7 +240,8 @@
     "ExecuteTime": {
      "end_time": "2023-12-01T15:46:16.586512021Z",
      "start_time": "2023-12-01T15:46:16.569047940Z"
-    }
+    },
+    "tags": ["nbval-ignore-output"]
    },
    "outputs": [
     {

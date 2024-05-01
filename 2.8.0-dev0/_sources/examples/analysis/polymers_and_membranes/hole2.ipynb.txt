@@ -293,7 +293,7 @@
    "outputs": [
     {
      "data": {
-      "text/plain": "<MDAnalysis.analysis.hole2.hole.HoleAnalysis at 0x7f1a146af610>"
+      "text/plain": "<mdahole2.analysis.hole.HoleAnalysis at 0x7f1a146af610>"
      },
      "execution_count": 7,
      "metadata": {},
