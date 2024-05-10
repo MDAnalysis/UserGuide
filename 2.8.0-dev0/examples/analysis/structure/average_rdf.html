@@ -264,7 +264,7 @@
 <h2>Calculating the average radial distribution function for two groups of atoms<a class="headerlink" href="#Calculating-the-average-radial-distribution-function-for-two-groups-of-atoms" title="Link to this heading"></a></h2>
 <p>A radial distribution function <span class="math notranslate nohighlight">\(g_{ab}(r)\)</span> describes the time-averaged density of particles in <span class="math notranslate nohighlight">\(b\)</span> from the reference group <span class="math notranslate nohighlight">\(a\)</span> at distance <span class="math notranslate nohighlight">\(r\)</span>. It is normalised so that it becomes 1 for large separations in a homogenous system.</p>
 <div class="math notranslate nohighlight">
-\[g_{ab}(r) = (N_{a} N_{b})^{-1} \sum_{i=1}^{N_a} \sum_{j=1}^{N_b} \langle \delta(|\mathbf{r}_i - \mathbf{r}_j| - r) \rangle\]</div>
+\[g_{ab}(r) = \frac{1}{N_{a}} \frac{1}{N_{b}/V} \sum_{i=1}^{N_a} \sum_{j=1}^{N_b} \langle \delta(|\mathbf{r}_i - \mathbf{r}_j| - r) \rangle\]</div>
 <p>The radial cumulative distribution function is</p>
 <div class="math notranslate nohighlight">
 \[G_{ab}(r) = \int_0^r \!\!dr' 4\pi r'^2 g_{ab}(r')\]</div>
