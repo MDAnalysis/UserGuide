@@ -88,7 +88,6 @@ The user guide is largely composed of four different kinds of files:
 
 What file to edit
 """""""""""""""""
-The structure of the user guide is a bit convoluted!
 In order to figure out which file you should be editing, the easiest
 way is probably to ``ctrl+F`` or otherwise search through the repository
 for the text you want to edit. Otherwise, you can look at the
