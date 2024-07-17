@@ -181,7 +181,7 @@ write text and code in the same document. The user guide uses Jupyter notebooks
 for all the tutorials and examples.
 
 .. important::
-    
+
     One of the neat things about ``nglview`` is the ability to interact with molecules via the viewer.
     Many of our notebooks include cells that render MDAnalysis systems.
     However, this creates very large files.
