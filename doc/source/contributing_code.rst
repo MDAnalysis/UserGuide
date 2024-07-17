@@ -69,24 +69,30 @@ You can do this either with :ref:`conda <dev-with-conda>` or :ref:`pip <dev-with
 
 .. _dev-with-conda:
 
-With conda
-----------
+With conda-forge packages
+-------------------------
 
-Install either `Anaconda <https://www.anaconda.com/download/>`_
+We will use pre-compiled packages from the `conda-forge <https://conda-forge.org/>`_ repository.
+
+The program to manage these packages is called :program:`conda` although for the following we recommend using the faster one called :program:`mamba`. We will use ``mamba`` for the examples but you can equally use ``conda`` instead.
+
+* For ``mamba``, follow the `miniforge installation instructions <https://github.com/conda-forge/miniforge?tab=readme-ov-file#install>`_.
+* For ``conda`` install either the  `Anaconda <https://www.anaconda.com/download/>`_ distribution or
 or `miniconda <https://conda.io/miniconda.html>`_.
+
 Make sure your conda is up to date:
 
     .. code-block:: bash
 
-        conda update conda
+        mamba update mamba
 
-Create a new environment with ``conda create``. This will allow you to change code in
+Create a new environment with ``mamba create``. This will allow you to change code in
 an isolated environment without touching your base Python installation, and without
 touching existing environments that may have stable versions of MDAnalysis. :
 
     .. code-block:: bash
 
-        conda create --name mdanalysis-dev "python>=3.9"
+        mamba create --name mdanalysis-dev "python>=3.10"
 
 Use a recent version of Python that is supported by MDAnalysis for this environment.
 
@@ -94,7 +100,7 @@ Activate the environment to build MDAnalysis into it:
 
     .. code-block:: bash
 
-        conda activate mdanalysis-dev
+        mamba activate mdanalysis-dev
 
 .. warning::
     Make sure the :code:`mdanalysis-dev` environment is active when developing MDAnalysis.
@@ -103,19 +109,19 @@ To view your environments:
 
     .. code-block:: bash
 
-        conda info -e
+        mamba info -e
 
 To list the packages installed in your current environment:
 
     .. code-block:: bash
 
-        conda list
+        mamba list
 
 .. note::
     When you finish developing MDAnalysis you can deactivate the environment with
-    :code:`conda deactivate`, in order to return to your root environment.
+    :code:`mamba deactivate`, in order to return to your root environment.
 
-See the full `conda documentation <http://conda.pydata.org/docs>`__ for more details.
+See the full `mamba documentation <https://mamba.readthedocs.io/en/latest/index.html>`_ or the full `conda documentation <https://docs.conda.io/projects/conda/>`_ for more details.
 
 .. _dev-with-pip:
 
@@ -204,18 +210,18 @@ This sets the number of files to 4096. However, this command only applies to you
 Building MDAnalysis
 -------------------
 
-With conda
-----------
+With mamba/conda
+----------------
 
 .. note::
     Make sure that you have :ref:`cloned the repository <forking-code-repo>`
-    and activated your virtual environment with :code:`conda activate mdanalysis-dev`.
+    and activated your virtual environment with :code:`mamba activate mdanalysis-dev`.
 
-First we need to install dependencies. You'll need a mix of conda and pip installations:
+First we need to install dependencies. You'll need a mix of mamba and pip installations:
 
     .. code-block:: bash
 
-        conda install -c conda-forge \
+        mamba install -c conda-forge \
           'Cython>=0.28' \
           'numpy>=1.21.0' \
           'biopython>=1.80' \
@@ -243,7 +249,7 @@ First we need to install dependencies. You'll need a mix of conda and pip instal
           'mda-xdrlib'
 
         # documentation dependencies
-        conda install -c conda-forge 'mdanalysis-sphinx-theme>=1.3.0' docutils sphinx-sitemap sphinxcontrib-bibtex pybtex pybtex-docutils
+        mamba install -c conda-forge 'mdanalysis-sphinx-theme>=1.3.0' docutils sphinx-sitemap sphinxcontrib-bibtex pybtex pybtex-docutils
         python -m pip install docutils sphinx-sitemap sphinxcontrib-bibtex pybtex pybtex-docutils
 
 Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.9. We will now install MDAnalysis.
