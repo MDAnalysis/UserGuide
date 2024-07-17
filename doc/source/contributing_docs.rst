@@ -303,7 +303,7 @@ Using pre-commit hooks
 """"""""""""""""""""""
 
 Manually editing files can often lead to small inconsistencies: a whitespace here, a missing carriage return there.
-A tool called pre-commit can be used to automatically fix these problems, before a git commit is made.
+A tool called `pre-commit <https://pre-commit.com/>`_ can be used to automatically fix these problems, before a git commit is made.
 To enable the pre-commit hooks, run the following:
 
     .. code-block:: bash
