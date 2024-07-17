@@ -92,7 +92,7 @@ The user guide is largely composed of four different kinds of files:
 * Text files (``.txt``) which contain the automatically generated documentation.
   These should not be edited directly as changes will not be included.
   These are largely tables and lists of topology attributes for readers, writers,
-  and parsers
+  and parsers.
 
 
 What file to edit
@@ -151,7 +151,7 @@ The `reStructuredText Primer <https://www.sphinx-doc.org/en/master/usage/restruc
 is a good place to start if you are unfamiliar with the syntax.
 
 The user guide also makes use of a number of Sphinx extensions to ensure that the code examples are always up-to-date.
-One example is the `ipython directive <http://matplotlib.org/sampledoc/ipython_directive.html>`__.
+One example is the `ipython directive <https://matplotlib.org/sampledoc/ipython_directive.html>`__.
 The ``ipython`` directive lets you put code in the documentation which will be run
 during the doc build. For example:
 
@@ -286,11 +286,11 @@ Adding changes to the UserGuide
 
 As with the code, :ref:`commit and push <adding-code-to-mda>` your code to GitHub.
 Then :ref:`create a pull request <create-a-pull-request>`.
-The only test run for the User Guide is: that your file compile into HTML documents without errors.
-As usual, a developer will review your PR and merge the code into the User Guide when it looks good.
+The only test run for the User Guide is that your file compile into HTML documents without errors.
+As usual, your PR will be reviewed and merged into the User Guide when it looks good.
 
-If you have issues building your documentation locally, pull requests
-create preview documentation on ReadTheDocs, which you can use to check renders.
+If you have issues building your documentation locally, opening a pull request
+creates preview documentation on ReadTheDocs, which you can use to check renders.
 We believe it is best to open PRs early and often, so that we can catch issues early!
 
 
@@ -302,7 +302,9 @@ The below sections are optional, but may be helpful for more advanced users.
 Using pre-commit hooks
 """"""""""""""""""""""
 
-Manually editing files can often lead to small inconsistencies: a whitespace here, a missing carriage return there. A tool called pre-commit can be used to automatically fix these problems, before a git commit is made. To enable the pre-commit hooks, run the following:
+Manually editing files can often lead to small inconsistencies: a whitespace here, a missing carriage return there.
+A tool called pre-commit can be used to automatically fix these problems, before a git commit is made.
+To enable the pre-commit hooks, run the following:
 
     .. code-block:: bash
 
