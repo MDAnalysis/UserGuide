@@ -359,7 +359,8 @@ Advanced preview with gh-pages
     For all other cases, please use the ReadTheDocs preview in pull requests.
 
 It is often difficult to review Jupyter notebooks on GitHub, especially if you embed widgets and images.
-One way to make it easier on the developers who review your changes is to build the changes on your forked repository and link the relevant sections in your pull request.
+If you make a pull request to the User Guide, we do make use of the `ReviewNB`_ for reviewing Jupyter notebooks.
+Another way to make it easier on the developers who review your changes is to build the changes on your forked repository and link the relevant sections in your pull request.
 To do this, create a ``gh-pages`` branch and merge your new branch into it.
 
 .. code-block:: bash
@@ -403,3 +404,4 @@ For each time you add changes to another branch later, just merge into gh-pages 
 
 
 .. _nbsphinx: https://nbsphinx.readthedocs.io
+.. _ReviewNB: https://www.reviewnb.com/
