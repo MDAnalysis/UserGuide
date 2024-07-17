@@ -1,0 +1,80 @@
+# serializer version: 1
+# name: test_TransplantedMethods
+  list([
+    list([
+      ':meth:`~MDAnalysis.core.topologyattrs.Charges.center_of_charge`',
+      'Center of (absolute) charge of (compounds of) the group .. math:: \\boldsymbol R = \\frac{\\sum_i \\vert q_i \\vert \\boldsymbol r_i} {\\sum_i \\vert q_i \\vert} where :math:`q_i` is the charge and :math:`\\boldsymbol r_i` the position of atom :math:`i` in the given :class:`MDAnalysis.core.groups.AtomGroup`',
+      'charges',
+    ]),
+    list([
+      ':meth:`~MDAnalysis.core.topologyattrs.Charges.dipole_moment`',
+      'Dipole moment of the group or compounds in a group',
+      'charges',
+    ]),
+    list([
+      ':meth:`~MDAnalysis.core.topologyattrs.Charges.dipole_vector`',
+      'Dipole vector of the group',
+      'charges',
+    ]),
+    list([
+      ':meth:`~MDAnalysis.core.topologyattrs.Charges.quadrupole_moment`',
+      'Quadrupole moment of the group according to :footcite:p:`Gray1984`',
+      'charges',
+    ]),
+    list([
+      ':meth:`~MDAnalysis.core.topologyattrs.Charges.quadrupole_tensor`',
+      'Traceless quadrupole tensor of the group or compounds',
+      'charges',
+    ]),
+    list([
+      ':meth:`~MDAnalysis.core.topologyattrs.Charges.total_charge`',
+      'Total charge of (compounds of) the group',
+      'charges',
+    ]),
+    list([
+      ':meth:`~MDAnalysis.core.topologyattrs.Masses.align_principal_axis`',
+      'Align principal axis with index `axis` with `vector`',
+      'masses',
+    ]),
+    list([
+      ':meth:`~MDAnalysis.core.topologyattrs.Masses.asphericity`',
+      'Asphericity',
+      'masses',
+    ]),
+    list([
+      ':meth:`~MDAnalysis.core.topologyattrs.Masses.center_of_mass`',
+      'Center of mass of (compounds of) the group .. math:: \\boldsymbol R = \\frac{\\sum_i m_i \\boldsymbol r_i}{\\sum m_i} where :math:`m_i` is the mass and :math:`\\boldsymbol r_i` the position of atom :math:`i` in the given :class:`MDAnalysis.core.groups.AtomGroup`',
+      'masses',
+    ]),
+    list([
+      ':meth:`~MDAnalysis.core.topologyattrs.Masses.gyration_moments`',
+      'Moments of the gyration tensor',
+      'masses',
+    ]),
+    list([
+      ':meth:`~MDAnalysis.core.topologyattrs.Masses.moment_of_inertia`',
+      'Moment of inertia tensor relative to center of mass',
+      'masses',
+    ]),
+    list([
+      ':meth:`~MDAnalysis.core.topologyattrs.Masses.principal_axes`',
+      'Calculate the principal axes from the moment of inertia',
+      'masses',
+    ]),
+    list([
+      ':meth:`~MDAnalysis.core.topologyattrs.Masses.radius_of_gyration`',
+      'Radius of gyration',
+      'masses',
+    ]),
+    list([
+      ':meth:`~MDAnalysis.core.topologyattrs.Masses.shape_parameter`',
+      'Shape parameter',
+      'masses',
+    ]),
+    list([
+      ':meth:`~MDAnalysis.core.topologyattrs.Masses.total_mass`',
+      'Total mass of (compounds of) the group',
+      'masses',
+    ]),
+  ])
+# ---

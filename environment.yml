@@ -1,4 +1,4 @@
-name: guide
+name: mda-user-guide
 channels:
   - jaimergp/label/unsupported-cudatoolkit-shim
   - conda-forge
@@ -22,6 +22,7 @@ dependencies:
   - ipython
   - ipywidgets<8.0.0
   - jupyter_contrib_nbextensions
+  - myst-parser
   - nbconvert # not called by any notebook explicitly but to download notebooks, or in nbsphinx
   - nbformat
   - nbsphinx
@@ -35,14 +36,14 @@ dependencies:
   - scikit-image
   - seaborn>=0.12.1
   # parallelization
-  - distributed==2021.1.0
-  - dask==2021.1.0
+  - distributed
+  - dask
   # used for visualising/making movies of molecules;
   - nglview
   - moviepy
   # used for notebook testing
   - pytest
-  - python=3.9
+  - python=3.10
   - pip
   - pip:
       # extensions
@@ -51,7 +52,10 @@ dependencies:
       - nbval
       # developer tooling
       - pre-commit
+      # doc generation dependency
+      - pygithub
       # mdanalysis and its tests and test data
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=mdanalysis&subdirectory=package
       - git+https://github.com/MDAnalysis/mdanalysis@develop#egg=MDAnalysisTests&subdirectory=testsuite
       - git+https://github.com/MDAnalysis/MDAnalysisData@master#egg=MDAnalysisData
+      - syrupy # snapshot tests

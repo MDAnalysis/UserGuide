@@ -1,0 +1,352 @@
+# serializer version: 1
+# name: test_write_unit_table
+  list([
+    tuple(
+      '''
+        
+        ------
+  
+      ''',
+    ),
+    tuple(
+      'Length',
+    ),
+    tuple(
+      '''
+        
+        ------
+  
+      ''',
+    ),
+    tuple(
+      '''
+        
+        
+  
+      ''',
+    ),
+    tuple(
+      '''
+            ==========  ===================
+            Unit          Conversion factor
+            ==========  ===================
+            A                           1
+            Angstrom                    1
+            angstrom                    1
+            femtometer             100000
+            fm                     100000
+            nanometer                   0.1
+            nm                          0.1
+            picometer                 100
+            pm                        100
+            Å                           1
+            ==========  ===================
+      ''',
+    ),
+    tuple(
+      '''
+        
+  
+      ''',
+    ),
+    tuple(
+      '''
+        
+        -------
+  
+      ''',
+    ),
+    tuple(
+      'Density',
+    ),
+    tuple(
+      '''
+        
+        -------
+  
+      ''',
+    ),
+    tuple(
+      '''
+        
+        
+  
+      ''',
+    ),
+    tuple(
+      '''
+            ==============  ===================
+            Unit              Conversion factor
+            ==============  ===================
+            A^{-3}                       1
+            Angstrom^{-3}                1
+            Molar                     1660.54
+            SPC                         30.3718
+            TIP3P                       29.8566
+            TIP4P                       29.8864
+            nanometer^{-3}            1000
+            nm^{-3}                   1000
+            water                       30.0063
+            Å^{-3}                       1
+            ==============  ===================
+      ''',
+    ),
+    tuple(
+      '''
+        
+  
+      ''',
+    ),
+    tuple(
+      '''
+        
+        ----
+  
+      ''',
+    ),
+    tuple(
+      'Time',
+    ),
+    tuple(
+      '''
+        
+        ----
+  
+      ''',
+    ),
+    tuple(
+      '''
+        
+        
+  
+      ''',
+    ),
+    tuple(
+      '''
+            ===========  ===================
+            Unit           Conversion factor
+            ===========  ===================
+            AKMA                     20.4548
+            femtosecond            1000
+            fs                     1000
+            microsecond               1e-06
+            millisecond               1e-09
+            ms                        1e-09
+            nanosecond                0.001
+            ns                        0.001
+            picosecond                1
+            ps                        1
+            s                         1e-12
+            sec                       1e-12
+            second                    1e-12
+            us                        1e-06
+            μs                        1e-06
+            ===========  ===================
+      ''',
+    ),
+    tuple(
+      '''
+        
+  
+      ''',
+    ),
+    tuple(
+      '''
+        
+        ------
+  
+      ''',
+    ),
+    tuple(
+      'Charge',
+    ),
+    tuple(
+      '''
+        
+        ------
+  
+      ''',
+    ),
+    tuple(
+      '''
+        
+        
+  
+      ''',
+    ),
+    tuple(
+      '''
+            ======  ===================
+            Unit      Conversion factor
+            ======  ===================
+            Amber          18.2223
+            As              1.60218e-19
+            C               1.60218e-19
+            e               1
+            ======  ===================
+      ''',
+    ),
+    tuple(
+      '''
+        
+  
+      ''',
+    ),
+    tuple(
+      '''
+        
+        -----
+  
+      ''',
+    ),
+    tuple(
+      'Speed',
+    ),
+    tuple(
+      '''
+        
+        -----
+  
+      ''',
+    ),
+    tuple(
+      '''
+        
+        
+  
+      ''',
+    ),
+    tuple(
+      '''
+            ====================  ===================
+            Unit                    Conversion factor
+            ====================  ===================
+            A/AKMA                          0.0488882
+            A/fs                         1000
+            A/ms                            1e-09
+            A/ps                            1
+            A/us                            1e-06
+            Angstrom/AKMA                   0.0488882
+            Angstrom/femtosecond         1000
+            Angstrom/fs                  1000
+            Angstrom/microsecond            1e-06
+            Angstrom/millisecond            1e-09
+            Angstrom/ms                     1e-09
+            Angstrom/picosecond             1
+            Angstrom/ps                     1
+            Angstrom/us                     1e-06
+            Angstrom/μs                     1e-06
+            angstrom/femtosecond         1000
+            angstrom/fs                  1000
+            angstrom/microsecond            1e-06
+            angstrom/millisecond            1e-09
+            angstrom/ms                     1e-09
+            angstrom/picosecond             1
+            angstrom/us                     1e-06
+            angstrom/μs                     1e-06
+            m/s                           100
+            nanometer/picosecond            0.1
+            nanometer/ps                    0.1
+            nm/ns                         100
+            nm/ps                           0.1
+            pm/ps                         100
+            Å/ps                            1
+            ====================  ===================
+      ''',
+    ),
+    tuple(
+      '''
+        
+  
+      ''',
+    ),
+    tuple(
+      '''
+        
+        -----
+  
+      ''',
+    ),
+    tuple(
+      'Force',
+    ),
+    tuple(
+      '''
+        
+        -----
+  
+      ''',
+    ),
+    tuple(
+      '''
+        
+        
+  
+      ''',
+    ),
+    tuple(
+      '''
+            ===================  ===================
+            Unit                   Conversion factor
+            ===================  ===================
+            J/m                          1.66054e-11
+            N                            1.66054e-11
+            Newton                       1.66054e-11
+            kJ/(mol*A)                   1
+            kJ/(mol*Angstrom)            1
+            kJ/(mol*nm)                 10
+            kJ/(mol*Å)                   1
+            kcal/(mol*Angstrom)          0.239006
+            ===================  ===================
+      ''',
+    ),
+    tuple(
+      '''
+        
+  
+      ''',
+    ),
+    tuple(
+      '''
+        
+        ------
+  
+      ''',
+    ),
+    tuple(
+      'Energy',
+    ),
+    tuple(
+      '''
+        
+        ------
+  
+      ''',
+    ),
+    tuple(
+      '''
+        
+        
+  
+      ''',
+    ),
+    tuple(
+      '''
+            ========  ===================
+            Unit        Conversion factor
+            ========  ===================
+            J                 1.66054e-21
+            eV                0.0103643
+            kJ/mol            1
+            kcal/mol          0.239006
+            ========  ===================
+      ''',
+    ),
+    tuple(
+      '''
+        
+  
+      ''',
+    ),
+  ])
+# ---

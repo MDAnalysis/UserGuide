@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Generate topology_defaults.txt:
 
@@ -7,7 +6,12 @@ A table of whether TopologyAttrs are atomwise, residuewise, or segmentwise, and 
 
 from base import TableWriter
 from core import TOPOLOGY_CLS
-from MDAnalysis.core.topologyattrs import AtomAttr, ResidueAttr, SegmentAttr
+from MDAnalysis.core.topologyattrs import (
+    AtomAttr,
+    ResidueAttr,
+    SegmentAttr,
+    TopologyAttr,
+)
 
 DEFAULTS = {
     "resids": "continuous sequence from 1 to n_residues",
@@ -16,42 +20,51 @@ DEFAULTS = {
 }
 
 
-class TopologyDefaults(TableWriter):
-    filename = "generated/topology/defaults.txt"
-    headings = ("Atom", "AtomGroup", "default", "level", "type")
-    sort = True
+class TopologyDefaults:
+    def __init__(self) -> None:
+        def _atom(klass: TopologyAttr) -> str:
+            return klass.attrname  # type: ignore
 
-    def _set_up_input(self):
-        return TOPOLOGY_CLS
+        def _atomgroup(klass: TopologyAttr) -> str:
+            return klass.singular  # type: ignore
 
-    def _atom(self, klass):
-        return klass.attrname
-
-    def _atomgroup(self, klass):
-        return klass.singular
-
-    def _default(self, klass):
-        try:
-            return DEFAULTS[klass.attrname]
-        except KeyError:
+        def _default(klass: TopologyAttr) -> str:
             try:
-                return repr(klass._gen_initial_values(1, 1, 1)[0])
-            except NotImplementedError:
-                return "No default values"
+                return DEFAULTS[klass.attrname]
+            except KeyError:
+                try:
+                    return repr(klass._gen_initial_values(1, 1, 1)[0])
+                except NotImplementedError:
+                    return "No default values"
 
-    def _level(self, klass):
-        if issubclass(klass, AtomAttr):
-            level = "atom"
-        elif issubclass(klass, ResidueAttr):
-            level = "residue"
-        elif issubclass(klass, SegmentAttr):
-            level = "segment"
-        else:
-            raise ValueError
-        return level
+        def _level(klass: TopologyAttr) -> str:
+            if issubclass(klass, AtomAttr):
+                level = "atom"
+            elif issubclass(klass, ResidueAttr):
+                level = "residue"
+            elif issubclass(klass, SegmentAttr):
+                level = "segment"
+            else:
+                raise ValueError
+            return level
 
-    def _type(self, klass):
-        return klass.dtype
+        def _type(klass: TopologyAttr) -> str:
+            return klass.dtype  # type: ignore
+
+        self.table_writer = TableWriter(
+            filename="generated/topology/defaults.txt",
+            sort=True,
+            input_items=TOPOLOGY_CLS,
+            column_spec=[
+                ("Atom", _atom),
+                ("AtomGroup", _atomgroup),
+                ("default", _default),
+                ("level", _level),
+                ("type", _type),
+            ],
+            lines=[],
+        )
+        self.table_writer.generate_lines_and_write_table()
 
 
 if __name__ == "__main__":

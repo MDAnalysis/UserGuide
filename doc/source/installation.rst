@@ -31,9 +31,9 @@ The tests are distributed separately from the main package.
 
 
 If you encounter any issues following these instructions, please
-ask for help on the `user mailing list`_.
+ask for help on `GitHub Discussions (Installation)`_.
 
-.. _`user mailing list`: https://groups.google.com/forum/#!forum/mdnalysis-discussion
+.. _`GitHub Discussions (Installation)`: https://github.com/MDAnalysis/mdanalysis/discussions/categories/installation
 
 conda
 =====
@@ -131,7 +131,7 @@ The tests rely on the `pytest` and `numpy` packages, which must also be installe
     pytest --disable-pytest-warnings --pyargs MDAnalysisTests
 
 All tests should pass (i.e. no FAIL, ERROR); SKIPPED or XFAIL are ok. If anything fails or gives an error,
-`ask on the user mailing list <http://users.mdanalysis.org/>`_ or `raise an issue <https://github.com/MDAnalysis/mdanalysis/issues>`_.
+`ask on GitHub Discussions <https://github.com/MDAnalysis/mdanalysis/discussions>`_ or `raise an issue <https://github.com/MDAnalysis/mdanalysis/issues>`_.
 
 Testing MDAnalysis can take a while, as there are quite a few tests.
 The plugin `pytest-xdist <https://github.com/pytest-dev/pytest-xdist>`_ can be used to run tests in parallel.
