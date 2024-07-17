@@ -181,7 +181,7 @@ for all the tutorials and examples.
 Everything in the ``doc/source/examples/`` directory is a Jupyter notebook.
 They are rendered in the user guide on the
 `"Examples" <https://userguide.mdanalysis.org/stable/examples/README.html>`_ page, and
-are also listed in the 
+are also listed in the
 `"Analysis" <https://userguide.mdanalysis.org/stable/examples/analysis/README.html>`_
 section of the user guide.
 
