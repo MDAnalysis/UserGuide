@@ -76,7 +76,7 @@ We will use pre-compiled packages from the `conda-forge <https://conda-forge.org
 
 The program to manage these packages is called :program:`conda` although for the following we recommend using the faster one called :program:`mamba`. We will use ``mamba`` for the examples but you can equally use ``conda`` instead.
 
-* For ``mamba``, follow the `miniforge installation instructions <https://github.com/conda-forge/miniforge?tab=readme-ov-file#install>`_.
+* For ``mamba``, follow the `mamba installation instructions <https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html>`_ or the `miniforge installation instructions <https://github.com/conda-forge/miniforge?tab=readme-ov-file#install>`_.
 * For ``conda`` install either the  `Anaconda <https://www.anaconda.com/download/>`_ distribution or
 or `miniconda <https://conda.io/miniconda.html>`_.
 
