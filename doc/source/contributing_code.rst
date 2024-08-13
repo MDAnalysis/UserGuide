@@ -217,42 +217,69 @@ With mamba/conda
     Make sure that you have :ref:`cloned the repository <forking-code-repo>`
     and activated your virtual environment with :code:`mamba activate mdanalysis-dev`.
 
-First we need to install dependencies. You'll need a mix of mamba and pip installations:
+First we need to install the dependencies. To install the base MDAnalysis
+dependencies, do the following:
 
     .. code-block:: bash
 
         mamba install -c conda-forge \
-          'Cython>=0.28' \
-          'numpy>=1.21.0' \
-          'biopython>=1.80' \
-          'networkx>=2.0' \
-          'GridDataFormats>=0.4.0' \
-          'mmtf-python>=1.0.0' \
-          'joblib>=0.12' \
-          'scipy>=1.5.0' \
-          'matplotlib>=1.5.1' \
-          'tqdm>=4.43.0' \
-          'threadpoolctl'\
-          'packaging' \
+          'cython>=0.28' \
           'fasteners' \
-          'netCDF4>=1.0' \
-          'h5py>=2.10' \
+          'griddataformats>=0.4.0' \
+          'hypothesis' \
+          'matplotlib-base>=1.5.1' \
+          'mdahole2-base' \
+          'mda-xdrlib' \
+          'mmtf-python>=1.0.0' \
+          'numpy>=1.23.2' \
+          'packaging' \
+          'pathsimanalysis' \
+          'pytest' \
+          'scipy>=1.5.0' \
+          'threadpoolctl' \
+          'tqdm>=4.43.0' \
+          'waterdynamics'
+
+ 
+You can also install the following optional dependencies, although please note
+that they many not all be available for your machine type. Specifically;
+hole2, and distopia are only available on linux + x86_64 machines, and openmm
+is not available for windows.
+
+    .. code-block:: bash
+
+        mamba install -c conda-forge \
+          'biopython>=1.80' \
           'chemfiles>=0.10' \
-          'pyedr>=0.7.0' \
-          'pytng>=0.2.3' \
+          'clustalw=2.1' \
+          'distopia>=0.2.0' \
+          'duecredit' \
           'gsd>3.0.0' \
-          'rdkit>=2020.03.1' \
+          'h5py>=2.1.0' \
+          'hole2' \
+          'joblib>=0.12' \
+          'netcdf4' \
+          'networkx' \
+          'openmm' \
           'parmed' \
-          'seaborn' \
+          'pyedr>0.7.0' \
+          'pytest-xdist' \
+          'pytest-cov' \
+          'pytest-timeout' \
+          'pytng>=0.2.3' \
+          'rdkit>=2020.03.1' \
           'scikit-learn' \
-          'tidynamics>=1.0.0' \
-          'mda-xdrlib'
+          'seaborn>=0.7.0' \
+          'tidynamics>1.0.0'
 
         # documentation dependencies
-        mamba install -c conda-forge 'mdanalysis-sphinx-theme>=1.3.0' docutils sphinx-sitemap sphinxcontrib-bibtex pybtex pybtex-docutils
-        python -m pip install docutils sphinx-sitemap sphinxcontrib-bibtex pybtex pybtex-docutils
+        mamba install -c conda-forge \
+          'mdanalysis-sphinx-theme>=1.3.0' \
+          docutils \
+          sphinxcontrib-bibtex \
+          sphinx-sitemap
 
-Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.9. We will now install MDAnalysis.
+Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.10. We will now install MDAnalysis.
 
     .. code-block:: bash
 
@@ -274,7 +301,7 @@ At this point you should be able to import MDAnalysis from your locally built ve
         $ python  # start an interpreter
         >>> import MDAnalysis as mda
         >>> mda.__version__
-        '2.6.0-dev0'
+        '2.8.0-dev0'
 
 
 With pip and virtualenv
@@ -285,45 +312,65 @@ With pip and virtualenv
     and activated your virtual environment with :code:`source myproject-env/bin/activate`
     (or :code:`workon my-project` if you used the `virtualenvwrapper package <https://virtualenvwrapper.readthedocs.io/en/latest/>`_)
 
-Install the dependencies:
+First we need to install the dependencies. To install the base MDAnalysis
+dependencies, do the following:
 
     .. code-block:: bash
 
         python -m pip install \
-          'Cython>=0.28' \
-          'numpy>=1.21.0' \
-          'biopython>=1.80' \
-          'networkx>=2.0' \
-          'GridDataFormats>=0.4.0' \
-          'mmtf-python>=1.0.0' \
-          'joblib>=0.12' \
-          'scipy>=1.5.0' \
-          'matplotlib>=1.5.1' \
-          'tqdm>=4.43.0' \
-          'threadpoolctl'\
-          'packaging' \
+          'cython>=0.28' \
           'fasteners' \
-          'netCDF4>=1.0' \
-          'h5py>=2.10' \
-          'chemfiles>=0.10' \
-          'pyedr>=0.7.0' \
-          'pytng>=0.2.3' \
-          'gsd>3.0.0' \
-          'rdkit>=2020.03.1' \
-          'parmed' \
-          'seaborn' \
-          'scikit-learn' \
-          'tidynamics>=1.0.0' \
-          'mda-xdrlib'
+          'griddataformats>=0.4.0' \
+          'hypothesis' \
+          'matplotlib>=1.5.1' \
+          'mdahole2' \
+          'mda-xdrlib' \
+          'mmtf-python>=1.0.0' \
+          'numpy>=1.23.2' \
+          'packaging' \
+          'pathsimanalysis' \
+          'pytest' \
+          'scipy>=1.5.0' \
+          'threadpoolctl' \
+          'tqdm>=4.43.0' \
+          'waterdynamics'
 
-        # for building documentation
+You can also install the following optional dependencies (note that
+you will not be able to install all the optional dependencies as
+many not available via `pip`, e.g. `clustalw`):
+
+    .. code-block:: bash
+
         python -m pip install \
-          sphinx 'mdanalysis-sphinx-theme>=1.3.0' sphinx-sitemap \
-          pybtex docutils pybtex-docutils sphinxcontrib-bibtex
+          'biopython>=1.80' \
+          'chemfiles>=0.10' \
+          'distopia>=0.2.0' \
+          'duecredit' \
+          'gsd>3.0.0' \
+          'h5py>=2.1.0' \
+          'joblib>=0.12' \
+          'netcdf4' \
+          'networkx' \
+          'parmed' \
+          'pyedr>0.7.0' \
+          'pytest-xdist' \
+          'pytest-cov' \
+          'pytest-timeout' \
+          'pytng>=0.2.3' \
+          'rdkit>=2020.03.1' \
+          'scikit-learn' \
+          'seaborn>=0.7.0' \
+          'tidynamics>1.0.0'
 
-Some packages, such as ``clustalw``, are not available via pip.
+        # documentation dependencies
+        python -m pip install \
+          'mdanalysis-sphinx-theme>=1.3.0' \
+          docutils \
+          sphinxcontrib-bibtex \
+          sphinx-sitemap
 
-Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.9. We will now install MDAnalysis.
+
+Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.10. We will now install MDAnalysis.
 
     .. code-block:: bash
 
@@ -345,7 +392,7 @@ At this point you should be able to import MDAnalysis from your locally built ve
         $ python  # start an interpreter
         >>> import MDAnalysis as mda
         >>> mda.__version__
-        '2.7.0-dev0'
+        '2.8.0-dev0'
 
 
 .. _branches-in-mdanalysis:
