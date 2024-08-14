@@ -159,18 +159,31 @@
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing_code.html">Contributing to the main codebase</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Contributing to the user guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#forking-and-cloning-the-user-guide">Forking and cloning the User Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#creating-a-development-environment">Creating a development environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-new-documentation">Adding new documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-file-to-edit">What file to edit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#restructuredtext-files">reStructuredText files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jupyter-notebook-files">Jupyter notebook files</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#building-the-user-guide">Building the user guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#saving-state-in-jupyter-notebooks">Saving state in Jupyter notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#test-with-pytest-and-nbval">Test with pytest and nbval</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#sanitization">Sanitization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#on-the-hole2-notebook">On the hole2 notebook</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#adding-changes-to-the-userguide">Adding changes to the UserGuide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#automatically-building-documentation">Automatically building documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-pre-commit-hooks">Using pre-commit hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optional-steps-and-tips">Optional steps and tips</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-pre-commit-hooks">Using pre-commit hooks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Optional steps and tips</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#automatically-building-documentation">Automatically building documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-preview-with-gh-pages">Advanced preview with gh-pages</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="preparing_releases_and_hotfixes.html">Preparing a release</a></li>
@@ -214,26 +227,8 @@
 </ol>
 </div></blockquote>
 <p>This guide is about how to contribute to the user guide. If you are looking to add to documentation of the main code base, please see <a class="reference internal" href="contributing_code.html#working-with-mdanalysis-docs"><span class="std std-ref">Working with the code documentation</span></a>.</p>
-<p>The user guide makes use of a number of Sphinx extensions to ensure that the code examples are always up-to-date. These include <a class="reference external" href="https://nbsphinx.readthedocs.io">nbsphinx</a> and the <a class="reference external" href="http://matplotlib.org/sampledoc/ipython_directive.html">ipython directive</a>.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">ipython</span></code> directive lets you put code in the documentation which will be run
-during the doc build. For example:</p>
-<blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">ipython</span><span class="p">::</span> <span class="n">python</span>
-
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="n">x</span><span class="o">**</span><span class="mi">3</span>
-</pre></div>
-</div>
-</div></blockquote>
-<p>will be rendered as:</p>
-<blockquote>
-<div><div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
-
-<span class="gp">In [2]: </span><span class="n">x</span><span class="o">**</span><span class="mi">3</span>
-<span class="gh">Out[2]: </span><span class="go">8</span>
-</pre></div>
-</div>
-</div></blockquote>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
 <p>Many code examples in the docs are run during the
 doc build. This approach means that code examples will always be up to date,
 but it does make the doc building a bit more complex.</p>
@@ -249,6 +244,7 @@ but it does make the doc building a bit more complex.</p>
 <li><p><a class="reference internal" href="#add-changes-user-guide"><span class="std std-ref">Commit and push your changes, and open a pull request</span></a>.</p></li>
 </ol>
 </div></blockquote>
+</section>
 <section id="forking-and-cloning-the-user-guide">
 <span id="forking-user-guide"></span><h2>Forking and cloning the User Guide<a class="headerlink" href="#forking-and-cloning-the-user-guide" title="Link to this heading"></a></h2>
 <p>Go to the <a class="reference external" href="https://github.com/MDAnalysis/UserGuide">MDAnalysis project page</a> and hit the <span class="guilabel">Fork</span> button. You will
@@ -276,6 +272,117 @@ jupyter-nbextension<span class="w"> </span><span class="nb">enable</span><span c
 </div>
 </div></blockquote>
 </section>
+<section id="adding-new-documentation">
+<span id="add-new-documentation"></span><h2>Adding new documentation<a class="headerlink" href="#adding-new-documentation" title="Link to this heading"></a></h2>
+<p>The documentation is built using <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a>.
+The user guide is largely composed of four different kinds of files:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#restructuredtext-files"><span class="std std-ref">reStructuredText files</span></a> (<code class="docutils literal notranslate"><span class="pre">.rst</span></code>) which contain the text of the documentation</p></li>
+<li><p><a class="reference internal" href="#jupyter-files"><span class="std std-ref">Jupyter notebooks</span></a> (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>) which contain code examples</p></li>
+<li><p>Python scripts (<code class="docutils literal notranslate"><span class="pre">.py</span></code>) in the <code class="docutils literal notranslate"><span class="pre">doc/source/scripts/</span></code> directory which are used
+for automatically generated documentation</p></li>
+<li><p>Text files (<code class="docutils literal notranslate"><span class="pre">.txt</span></code>) which contain the automatically generated documentation.
+These should not be edited directly as changes will not be included.
+These are largely tables and lists of topology attributes for readers, writers,
+and parsers.</p></li>
+</ul>
+<section id="what-file-to-edit">
+<h3>What file to edit<a class="headerlink" href="#what-file-to-edit" title="Link to this heading"></a></h3>
+<p>In order to figure out which file you should be editing, the easiest
+way is probably to <code class="docutils literal notranslate"><span class="pre">ctrl+F</span></code> or otherwise search through the repository
+for the text you want to edit. Otherwise, you can look at the
+<code class="docutils literal notranslate"><span class="pre">index.rst</span></code> file in the <code class="docutils literal notranslate"><span class="pre">doc/source</span></code> directory.
+This file contains the <em>home page</em> of the user guide and the “overall”
+tables of contents for the rest of the documentation.</p>
+<p>For example, the
+<code class="docutils literal notranslate"><span class="pre">index.rst</span></code> file might contain the following lines:</p>
+<blockquote>
+<div><div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+    <span class="nc">:maxdepth:</span> 1
+    <span class="nc">:caption:</span> Getting started
+    <span class="nc">:hidden:</span>
+
+    installation
+    examples/quickstart
+    faq
+    examples/README
+</pre></div>
+</div>
+</div></blockquote>
+<p>This tells Sphinx that the first three entries in the “Getting started” section
+of the documentation are:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">installation.rst</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">examples/quickstart.ipynb</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">faq.rst</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">examples/README.rst</span></code></p></li>
+</ol>
+</div></blockquote>
+<p>All internal links in the user guide are relative to the <code class="docutils literal notranslate"><span class="pre">doc/source</span></code> directory.
+<code class="docutils literal notranslate"><span class="pre">installation.rst</span></code>, therefore, can be found at <code class="docutils literal notranslate"><span class="pre">UserGuide/doc/source/installation.rst</span></code>.
+This is the file you should edit if you want to change the installation instructions.</p>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">examples/quickstart.ipynb</span></code> entry is a Jupyter notebook.
+We use the <a class="reference external" href="https://nbsphinx.readthedocs.io">nbsphinx</a> extension to convert Jupyter notebooks to HTML
+during the doc build. All changes to the Quickstart guide should be made
+to the Jupyter notebook itself, and changes will be reflected in the final
+documentation.</p>
+</section>
+<section id="restructuredtext-files">
+<span id="id1"></span><h3>reStructuredText files<a class="headerlink" href="#restructuredtext-files" title="Link to this heading"></a></h3>
+<p>These are the files that end in <code class="docutils literal notranslate"><span class="pre">.rst</span></code> and contain plain text.
+reStructuredText is a markup language that is used to write
+documentation for Sphinx in Python.
+The <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">reStructuredText Primer</a>
+is a good place to start if you are unfamiliar with the syntax.</p>
+<p>The user guide also makes use of a number of Sphinx extensions to ensure that the code examples are always up-to-date.
+One example is the <a class="reference external" href="https://matplotlib.org/sampledoc/ipython_directive.html">ipython directive</a>.
+The <code class="docutils literal notranslate"><span class="pre">ipython</span></code> directive lets you put code in the documentation which will be run
+during the doc build. For example:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">ipython</span><span class="p">::</span> <span class="n">python</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">x</span><span class="o">**</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>will be rendered as:</p>
+<blockquote>
+<div><div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="gp">In [2]: </span><span class="n">x</span><span class="o">**</span><span class="mi">3</span>
+<span class="gh">Out[2]: </span><span class="go">8</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="jupyter-notebook-files">
+<span id="jupyter-files"></span><h3>Jupyter notebook files<a class="headerlink" href="#jupyter-notebook-files" title="Link to this heading"></a></h3>
+<p>Jupyter notebooks are a great way to write documentation, since they allow you to
+write text and code in the same document. The user guide uses Jupyter notebooks
+for all the tutorials and examples.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>One of the neat things about <code class="docutils literal notranslate"><span class="pre">nglview</span></code> is the ability to interact with molecules via the viewer.
+Many of our notebooks include cells that render MDAnalysis systems.
+However, this creates very large files.
+<strong>We ask that you avoid saving the state of the viewer in the notebooks.</strong>
+We also ask in general that you leave NGLView cells commented out.</p>
+</div>
+<p>Everything in the <code class="docutils literal notranslate"><span class="pre">doc/source/examples/</span></code> directory is a Jupyter notebook.
+They are rendered in the user guide on the
+<a class="reference external" href="https://userguide.mdanalysis.org/stable/examples/README.html">“Examples”</a> page, and
+are also listed in the
+<a class="reference external" href="https://userguide.mdanalysis.org/stable/examples/analysis/README.html">“Analysis”</a>
+section of the user guide.</p>
+<p>Jupyter notebooks should be edited and created using the User guide environment
+that you created in the <a class="reference internal" href="#create-virtual-environment-user-guide"><span class="std std-ref">previous section</span></a>.</p>
+<p>When you add a new Jupyter notebook, you should add it to the <code class="docutils literal notranslate"><span class="pre">doc/source/examples/</span></code>
+directory and add a link to it in the <code class="docutils literal notranslate"><span class="pre">doc/source/examples/README.rst</span></code> file.</p>
+<p>Further notes on testing Jupyter notebooks are included below.</p>
+</section>
+</section>
 <section id="building-the-user-guide">
 <span id="build-user-guide"></span><h2>Building the user guide<a class="headerlink" href="#building-the-user-guide" title="Link to this heading"></a></h2>
 <p>Navigate to the <code class="docutils literal notranslate"><span class="pre">doc/</span></code> directory and run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code>:</p>
@@ -287,10 +394,6 @@ make<span class="w"> </span>html
 </div></blockquote>
 <p>The HTML output will be in <code class="docutils literal notranslate"><span class="pre">doc/build/</span></code>, which you can open in your browser of choice. The homepage is <code class="docutils literal notranslate"><span class="pre">doc/build/index.html</span></code>.</p>
 <p>If rebuilding the documentation becomes tedious after a while, install the <a class="reference internal" href="#autobuild-sphinx"><span class="std std-ref">sphinx-autobuild</span></a> extension.</p>
-</section>
-<section id="saving-state-in-jupyter-notebooks">
-<h2>Saving state in Jupyter notebooks<a class="headerlink" href="#saving-state-in-jupyter-notebooks" title="Link to this heading"></a></h2>
-<p>One of the neat things about <code class="docutils literal notranslate"><span class="pre">nglview</span></code> is the ability to interact with molecules via the viewer. This ability can be preserved for the HTML pages generated from Jupyer notebooks by <code class="docutils literal notranslate"><span class="pre">nbsphinx</span></code>, if you save the notebook widget state after execution.</p>
 </section>
 <section id="test-with-pytest-and-nbval">
 <span id="nbval-testing"></span><h2>Test with pytest and nbval<a class="headerlink" href="#test-with-pytest-and-nbval" title="Link to this heading"></a></h2>
@@ -336,18 +439,78 @@ namely the <a class="reference external" href="https://github.com/osmart/hole2">
 into errors if hole2 is not installed. These errors can be generally ignored unless
 you do specifically want to test the hole2 notebook. Of course, you should take
 note of other errors that occur if hole2 is installed!
-To run the hole2 notebook you’ll have to download <a class="reference external" href="https://github.com/osmart/hole2">hole2</a>, compile it, and make sure your system can find
-the hole2 executable. In UNIX-based systems this implies adding its path to the <code class="docutils literal notranslate"><span class="pre">$PATH</span></code>
-environmental variable like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export PATH=$PATH:&quot;&lt;PATH_TO_HOLE2&gt;/exe&quot;
-</pre></div>
-</div>
+To run the hole2 notebook you’ll have to install <a class="reference external" href="https://github.com/osmart/hole2">hole2</a> as described in its documentation. (For Linux, a conda-forge package is available, for other platforms you may have to compile it yourself.)</p>
 </section>
 </section>
 <section id="adding-changes-to-the-userguide">
 <span id="add-changes-user-guide"></span><h2>Adding changes to the UserGuide<a class="headerlink" href="#adding-changes-to-the-userguide" title="Link to this heading"></a></h2>
-<p>As with the code, <a class="reference internal" href="contributing_code.html#adding-code-to-mda"><span class="std std-ref">commit and push</span></a> your code to GitHub. Then <a class="reference internal" href="contributing_code.html#id6"><span class="std std-ref">create a pull request</span></a>. The only test run for the User Guide is: that your file compile into HTML documents without errors. As usual, a developer will review your PR and merge the code into the User Guide when it looks good.</p>
-<p>It is often difficult to review Jupyter notebooks on GitHub, especially if you embed widgets and images. One way to make it easier on the developers who review your changes is to build the changes on your forked repository and link the relevant sections in your pull request. To do this, create a <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch and merge your new branch into it.</p>
+<p>As with the code, <a class="reference internal" href="contributing_code.html#adding-code-to-mda"><span class="std std-ref">commit and push</span></a> your code to GitHub.
+Then <a class="reference internal" href="contributing_code.html#id6"><span class="std std-ref">create a pull request</span></a>.
+The only test run for the User Guide is that your file compile into HTML documents without errors.
+As usual, your PR will be reviewed and merged into the User Guide when it looks good.</p>
+<p>If you have issues building your documentation locally, opening a pull request
+creates preview documentation on ReadTheDocs, which you can use to check renders.
+We believe it is best to open PRs early and often, so that we can catch issues early!</p>
+</section>
+<section id="optional-steps-and-tips">
+<h2>Optional steps and tips<a class="headerlink" href="#optional-steps-and-tips" title="Link to this heading"></a></h2>
+<p>The below sections are optional, but may be helpful for more advanced users.</p>
+<section id="using-pre-commit-hooks">
+<h3>Using pre-commit hooks<a class="headerlink" href="#using-pre-commit-hooks" title="Link to this heading"></a></h3>
+<p>Manually editing files can often lead to small inconsistencies: a whitespace here, a missing carriage return there.
+A tool called <a class="reference external" href="https://pre-commit.com/">pre-commit</a> can be used to automatically fix these problems, before a git commit is made.
+To enable the pre-commit hooks, run the following:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pre-commit<span class="w"> </span>install
+</pre></div>
+</div>
+</div></blockquote>
+<p>To perform the pre-commit checks on all the files, run the following:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pre-commit<span class="w"> </span>run<span class="w"> </span>--all-files
+</pre></div>
+</div>
+</div></blockquote>
+<p>To remove the pre-commit hooks from your .git directory, run the following:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pre-commit<span class="w"> </span>uninstall
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+</section>
+<section id="id2">
+<h2>Optional steps and tips<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<p>The below sections are optional, but may be helpful for more advanced users.</p>
+<section id="automatically-building-documentation">
+<span id="autobuild-sphinx"></span><h3>Automatically building documentation<a class="headerlink" href="#automatically-building-documentation" title="Link to this heading"></a></h3>
+<p>Constantly rebuilding documentation can become tedious when you have many changes to make. Use <a class="reference external" href="https://pypi.org/project/sphinx-autobuild">sphinx-autobuild</a> to rebuild documentation every time you make changes to any document, including Jupyter notebooks. Install <code class="docutils literal notranslate"><span class="pre">sphinx-autobuild</span></code>:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>sphinx-autobuild
+</pre></div>
+</div>
+</div></blockquote>
+<p>Then, run the following command in the <code class="docutils literal notranslate"><span class="pre">doc/</span></code> directory:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>sphinx_autobuild<span class="w"> </span><span class="nb">source</span><span class="w"> </span>build
+</pre></div>
+</div>
+</div></blockquote>
+<p>This will start a local webserver at <a class="reference external" href="http://localhost:8000/">http://localhost:8000/</a>, which will refresh every time you save changes to a file in the documentation. This is helpful for both the user guide (first navigate to <code class="docutils literal notranslate"><span class="pre">UserGuide/doc</span></code>) and the main repository documentation (navigate to <code class="docutils literal notranslate"><span class="pre">package/doc/sphinx</span></code>).</p>
+</section>
+<section id="advanced-preview-with-gh-pages">
+<h3>Advanced preview with gh-pages<a class="headerlink" href="#advanced-preview-with-gh-pages" title="Link to this heading"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section documents how to render documentation on a fork without ReadTheDocs.
+This is <em>generally unnecessary</em> and should only be done in cases where we
+believe ReadTheDocs is not rendering our documentation properly.
+For all other cases, please use the ReadTheDocs preview in pull requests.</p>
+</div>
+<p>It is often difficult to review Jupyter notebooks on GitHub, especially if you embed widgets and images.
+If you make a pull request to the User Guide, we do make use of the <a class="reference external" href="https://www.reviewnb.com/">ReviewNB</a> for reviewing Jupyter notebooks.
+Another way to make it easier on the developers who review your changes is to build the changes on your forked repository and link the relevant sections in your pull request.
+To do this, create a <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch and merge your new branch into it.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># the first time</span>
 git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>gh-pages
 git<span class="w"> </span>merge<span class="w"> </span>origin/my-new-branch
@@ -377,42 +540,6 @@ make<span class="w"> </span>github
 </pre></div>
 </div>
 </section>
-<section id="automatically-building-documentation">
-<span id="autobuild-sphinx"></span><h2>Automatically building documentation<a class="headerlink" href="#automatically-building-documentation" title="Link to this heading"></a></h2>
-<p>Constantly rebuilding documentation can become tedious when you have many changes to make. Use <a class="reference external" href="https://pypi.org/project/sphinx-autobuild">sphinx-autobuild</a> to rebuild documentation every time you make changes to any document, including Jupyter notebooks. Install <code class="docutils literal notranslate"><span class="pre">sphinx-autobuild</span></code>:</p>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>sphinx-autobuild
-</pre></div>
-</div>
-</div></blockquote>
-<p>Then, run the following command in the <code class="docutils literal notranslate"><span class="pre">doc/</span></code> directory:</p>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>sphinx_autobuild<span class="w"> </span><span class="nb">source</span><span class="w"> </span>build
-</pre></div>
-</div>
-</div></blockquote>
-<p>This will start a local webserver at <a class="reference external" href="http://localhost:8000/">http://localhost:8000/</a>, which will refresh every time you save changes to a file in the documentation. This is helpful for both the user guide (first navigate to <code class="docutils literal notranslate"><span class="pre">UserGuide/doc</span></code>) and the main repository documentation (navigate to <code class="docutils literal notranslate"><span class="pre">package/doc/sphinx</span></code>).</p>
-</section>
-<section id="using-pre-commit-hooks">
-<h2>Using pre-commit hooks<a class="headerlink" href="#using-pre-commit-hooks" title="Link to this heading"></a></h2>
-<p>Manually editing files can often lead to small inconsistencies: a whitespace here, a missing carriage return there. A tool called pre-commit can be used to automatically fix these problems, before a git commit is made. To enable the pre-commit hooks, run the following:</p>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pre-commit<span class="w"> </span>install
-</pre></div>
-</div>
-</div></blockquote>
-<p>To perform the pre-commit checks on all the files, run the following:</p>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pre-commit<span class="w"> </span>run<span class="w"> </span>--all-files
-</pre></div>
-</div>
-</div></blockquote>
-<p>To remove the pre-commit hooks from your .git directory, run the following:</p>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pre-commit<span class="w"> </span>uninstall
-</pre></div>
-</div>
-</div></blockquote>
 </section>
 </section>
 

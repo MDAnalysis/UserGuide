@@ -13,26 +13,9 @@ MDAnalysis maintains two kinds of documentation:
 
 This guide is about how to contribute to the user guide. If you are looking to add to documentation of the main code base, please see :ref:`working-with-mdanalysis-docs`.
 
-The user guide makes use of a number of Sphinx extensions to ensure that the code examples are always up-to-date. These include `nbsphinx <https://nbsphinx.readthedocs.io>`_ and the `ipython directive <http://matplotlib.org/sampledoc/ipython_directive.html>`__.
 
-The ``ipython`` directive lets you put code in the documentation which will be run
-during the doc build. For example:
-
-    ::
-
-        .. ipython:: python
-
-            x = 2
-            x**3
-
-will be rendered as:
-
-    .. ipython::
-
-        In [1]: x = 2
-
-        In [2]: x**3
-        Out[2]: 8
+Overview
+========
 
 Many code examples in the docs are run during the
 doc build. This approach means that code examples will always be up to date,
@@ -83,6 +66,135 @@ Using ``conda`` or similar (``miniconda``, ``mamba``, ``micromamba``), create a 
         conda activate mda-user-guide
         jupyter-nbextension enable nglview --py --sys-prefix
 
+
+
+.. _add-new-documentation:
+
+Adding new documentation
+========================
+
+The documentation is built using `Sphinx <https://www.sphinx-doc.org/en/master/>`_.
+The user guide is largely composed of four different kinds of files:
+
+* :ref:`reStructuredText files <restructuredtext-files>` (``.rst``) which contain the text of the documentation
+* :ref:`Jupyter notebooks <jupyter-files>` (``.ipynb``) which contain code examples
+* Python scripts (``.py``) in the ``doc/source/scripts/`` directory which are used
+  for automatically generated documentation
+* Text files (``.txt``) which contain the automatically generated documentation.
+  These should not be edited directly as changes will not be included.
+  These are largely tables and lists of topology attributes for readers, writers,
+  and parsers.
+
+
+What file to edit
+"""""""""""""""""
+In order to figure out which file you should be editing, the easiest
+way is probably to ``ctrl+F`` or otherwise search through the repository
+for the text you want to edit. Otherwise, you can look at the
+``index.rst`` file in the ``doc/source`` directory.
+This file contains the *home page* of the user guide and the "overall"
+tables of contents for the rest of the documentation.
+
+For example, the
+``index.rst`` file might contain the following lines:
+
+    .. code-block:: rst
+
+        .. toctree::
+            :maxdepth: 1
+            :caption: Getting started
+            :hidden:
+
+            installation
+            examples/quickstart
+            faq
+            examples/README
+
+This tells Sphinx that the first three entries in the "Getting started" section
+of the documentation are:
+
+    #. ``installation.rst``
+    #. ``examples/quickstart.ipynb``
+    #. ``faq.rst``
+    #. ``examples/README.rst``
+
+All internal links in the user guide are relative to the ``doc/source`` directory.
+``installation.rst``, therefore, can be found at ``UserGuide/doc/source/installation.rst``.
+This is the file you should edit if you want to change the installation instructions.
+
+Note that the ``examples/quickstart.ipynb`` entry is a Jupyter notebook.
+We use the `nbsphinx`_ extension to convert Jupyter notebooks to HTML
+during the doc build. All changes to the Quickstart guide should be made
+to the Jupyter notebook itself, and changes will be reflected in the final
+documentation.
+
+
+.. _restructuredtext-files:
+
+reStructuredText files
+""""""""""""""""""""""
+
+These are the files that end in ``.rst`` and contain plain text.
+reStructuredText is a markup language that is used to write
+documentation for Sphinx in Python.
+The `reStructuredText Primer <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`_
+is a good place to start if you are unfamiliar with the syntax.
+
+The user guide also makes use of a number of Sphinx extensions to ensure that the code examples are always up-to-date.
+One example is the `ipython directive <https://matplotlib.org/sampledoc/ipython_directive.html>`__.
+The ``ipython`` directive lets you put code in the documentation which will be run
+during the doc build. For example:
+
+    ::
+
+        .. ipython:: python
+
+            x = 2
+            x**3
+
+will be rendered as:
+
+    .. ipython::
+
+        In [1]: x = 2
+
+        In [2]: x**3
+        Out[2]: 8
+
+.. _jupyter-files:
+
+Jupyter notebook files
+""""""""""""""""""""""
+
+Jupyter notebooks are a great way to write documentation, since they allow you to
+write text and code in the same document. The user guide uses Jupyter notebooks
+for all the tutorials and examples.
+
+.. important::
+
+    One of the neat things about ``nglview`` is the ability to interact with molecules via the viewer.
+    Many of our notebooks include cells that render MDAnalysis systems.
+    However, this creates very large files.
+    **We ask that you avoid saving the state of the viewer in the notebooks.**
+    We also ask in general that you leave NGLView cells commented out.
+
+Everything in the ``doc/source/examples/`` directory is a Jupyter notebook.
+They are rendered in the user guide on the
+`"Examples" <https://userguide.mdanalysis.org/stable/examples/README.html>`_ page, and
+are also listed in the
+`"Analysis" <https://userguide.mdanalysis.org/stable/examples/analysis/README.html>`_
+section of the user guide.
+
+Jupyter notebooks should be edited and created using the User guide environment
+that you created in the :ref:`previous section <create-virtual-environment-user-guide>`.
+
+When you add a new Jupyter notebook, you should add it to the ``doc/source/examples/``
+directory and add a link to it in the ``doc/source/examples/README.rst`` file.
+
+Further notes on testing Jupyter notebooks are included below.
+
+
+
 .. _build-user-guide:
 
 Building the user guide
@@ -99,10 +211,6 @@ The HTML output will be in ``doc/build/``, which you can open in your browser of
 
 If rebuilding the documentation becomes tedious after a while, install the :ref:`sphinx-autobuild <autobuild-sphinx>` extension.
 
-Saving state in Jupyter notebooks
-=================================
-
-One of the neat things about ``nglview`` is the ability to interact with molecules via the viewer. This ability can be preserved for the HTML pages generated from Jupyer notebooks by ``nbsphinx``, if you save the notebook widget state after execution.
 
 .. _nbval-testing:
 
@@ -155,12 +263,7 @@ namely the `hole2`_ program. If you test all the notebooks you may therefore run
 into errors if hole2 is not installed. These errors can be generally ignored unless
 you do specifically want to test the hole2 notebook. Of course, you should take
 note of other errors that occur if hole2 is installed!
-To run the hole2 notebook you'll have to download `hole2`_, compile it, and make sure your system can find
-the hole2 executable. In UNIX-based systems this implies adding its path to the ``$PATH``
-environmental variable like this::
-
-    export PATH=$PATH:"<PATH_TO_HOLE2>/exe"
-
+To run the hole2 notebook you'll have to install `hole2`_ as described in its documentation. (For Linux, a conda-forge package is available, for other platforms you may have to compile it yourself.)
 
 .. _`hole2`: https://github.com/osmart/hole2
 
@@ -169,9 +272,86 @@ environmental variable like this::
 Adding changes to the UserGuide
 ===============================
 
-As with the code, :ref:`commit and push <adding-code-to-mda>` your code to GitHub. Then :ref:`create a pull request <create-a-pull-request>`. The only test run for the User Guide is: that your file compile into HTML documents without errors. As usual, a developer will review your PR and merge the code into the User Guide when it looks good.
+As with the code, :ref:`commit and push <adding-code-to-mda>` your code to GitHub.
+Then :ref:`create a pull request <create-a-pull-request>`.
+The only test run for the User Guide is that your file compile into HTML documents without errors.
+As usual, your PR will be reviewed and merged into the User Guide when it looks good.
 
-It is often difficult to review Jupyter notebooks on GitHub, especially if you embed widgets and images. One way to make it easier on the developers who review your changes is to build the changes on your forked repository and link the relevant sections in your pull request. To do this, create a ``gh-pages`` branch and merge your new branch into it.
+If you have issues building your documentation locally, opening a pull request
+creates preview documentation on ReadTheDocs, which you can use to check renders.
+We believe it is best to open PRs early and often, so that we can catch issues early!
+
+
+Optional steps and tips
+=======================
+
+The below sections are optional, but may be helpful for more advanced users.
+
+Using pre-commit hooks
+""""""""""""""""""""""
+
+Manually editing files can often lead to small inconsistencies: a whitespace here, a missing carriage return there.
+A tool called `pre-commit <https://pre-commit.com/>`_ can be used to automatically fix these problems, before a git commit is made.
+To enable the pre-commit hooks, run the following:
+
+    .. code-block:: bash
+
+        pre-commit install
+
+To perform the pre-commit checks on all the files, run the following:
+
+    .. code-block:: bash
+
+        pre-commit run --all-files
+
+To remove the pre-commit hooks from your .git directory, run the following:
+
+    .. code-block:: bash
+
+        pre-commit uninstall
+
+
+
+Optional steps and tips
+=======================
+
+The below sections are optional, but may be helpful for more advanced users.
+
+
+.. _autobuild-sphinx:
+
+Automatically building documentation
+""""""""""""""""""""""""""""""""""""
+
+Constantly rebuilding documentation can become tedious when you have many changes to make. Use `sphinx-autobuild <https://pypi.org/project/sphinx-autobuild>`_ to rebuild documentation every time you make changes to any document, including Jupyter notebooks. Install ``sphinx-autobuild``:
+
+    .. code-block:: bash
+
+        pip install sphinx-autobuild
+
+Then, run the following command in the ``doc/`` directory:
+
+    .. code-block:: bash
+
+        python -m sphinx_autobuild source build
+
+This will start a local webserver at http://localhost:8000/, which will refresh every time you save changes to a file in the documentation. This is helpful for both the user guide (first navigate to ``UserGuide/doc``) and the main repository documentation (navigate to ``package/doc/sphinx``).
+
+
+Advanced preview with gh-pages
+""""""""""""""""""""""""""""""
+
+.. note::
+
+    This section documents how to render documentation on a fork without ReadTheDocs.
+    This is *generally unnecessary* and should only be done in cases where we
+    believe ReadTheDocs is not rendering our documentation properly.
+    For all other cases, please use the ReadTheDocs preview in pull requests.
+
+It is often difficult to review Jupyter notebooks on GitHub, especially if you embed widgets and images.
+If you make a pull request to the User Guide, we do make use of the `ReviewNB`_ for reviewing Jupyter notebooks.
+Another way to make it easier on the developers who review your changes is to build the changes on your forked repository and link the relevant sections in your pull request.
+To do this, create a ``gh-pages`` branch and merge your new branch into it.
 
 .. code-block:: bash
 
@@ -211,43 +391,7 @@ For each time you add changes to another branch later, just merge into gh-pages 
     cd doc/
     make github
 
-.. _autobuild-sphinx:
-
-Automatically building documentation
-====================================
-
-Constantly rebuilding documentation can become tedious when you have many changes to make. Use `sphinx-autobuild <https://pypi.org/project/sphinx-autobuild>`_ to rebuild documentation every time you make changes to any document, including Jupyter notebooks. Install ``sphinx-autobuild``:
-
-    .. code-block:: bash
-
-        pip install sphinx-autobuild
-
-Then, run the following command in the ``doc/`` directory:
-
-    .. code-block:: bash
-
-        python -m sphinx_autobuild source build
-
-This will start a local webserver at http://localhost:8000/, which will refresh every time you save changes to a file in the documentation. This is helpful for both the user guide (first navigate to ``UserGuide/doc``) and the main repository documentation (navigate to ``package/doc/sphinx``).
 
 
-Using pre-commit hooks
-====================================
-
-Manually editing files can often lead to small inconsistencies: a whitespace here, a missing carriage return there. A tool called pre-commit can be used to automatically fix these problems, before a git commit is made. To enable the pre-commit hooks, run the following:
-
-    .. code-block:: bash
-
-        pre-commit install
-
-To perform the pre-commit checks on all the files, run the following:
-
-    .. code-block:: bash
-
-        pre-commit run --all-files
-
-To remove the pre-commit hooks from your .git directory, run the following:
-
-    .. code-block:: bash
-
-        pre-commit uninstall
+.. _nbsphinx: https://nbsphinx.readthedocs.io
+.. _ReviewNB: https://www.reviewnb.com/
