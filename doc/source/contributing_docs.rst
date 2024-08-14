@@ -311,13 +311,6 @@ To remove the pre-commit hooks from your .git directory, run the following:
         pre-commit uninstall
 
 
-
-Optional steps and tips
-=======================
-
-The below sections are optional, but may be helpful for more advanced users.
-
-
 .. _autobuild-sphinx:
 
 Automatically building documentation
