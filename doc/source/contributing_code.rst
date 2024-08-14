@@ -240,7 +240,7 @@ dependencies, do the following:
           'tqdm>=4.43.0' \
           'waterdynamics'
 
- 
+
 You can also install the following optional dependencies, although please note
 that they many not all be available for your machine type. Specifically;
 hole2, and distopia are only available on linux + x86_64 machines, and openmm
