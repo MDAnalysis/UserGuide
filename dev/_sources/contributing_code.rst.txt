@@ -69,24 +69,29 @@ You can do this either with :ref:`conda <dev-with-conda>` or :ref:`pip <dev-with
 
 .. _dev-with-conda:
 
-With conda
-----------
+With conda-forge packages
+-------------------------
 
-Install either `Anaconda <https://www.anaconda.com/download/>`_
-or `miniconda <https://conda.io/miniconda.html>`_.
-Make sure your conda is up to date:
+We will use pre-compiled packages from the `conda-forge <https://conda-forge.org/>`_ repository.
+
+The program to manage these packages is called :program:`conda` although for the following we recommend using the faster one called :program:`mamba`. We will use ``mamba`` for the examples but you can equally use ``conda`` instead.
+
+* For ``mamba``, follow the `mamba installation instructions <https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html>`_ or the `miniforge installation instructions <https://github.com/conda-forge/miniforge?tab=readme-ov-file#install>`_.
+* For ``conda`` install either the  `Anaconda <https://www.anaconda.com/download/>`_ distribution or `miniconda <https://conda.io/miniconda.html>`_.
+
+Make sure your :program:`mamba` (or :program:`conda`) is up to date:
 
     .. code-block:: bash
 
-        conda update conda
+        mamba update mamba
 
-Create a new environment with ``conda create``. This will allow you to change code in
+Create a new environment with ``mamba create``. This will allow you to change code in
 an isolated environment without touching your base Python installation, and without
 touching existing environments that may have stable versions of MDAnalysis. :
 
     .. code-block:: bash
 
-        conda create --name mdanalysis-dev "python>=3.9"
+        mamba create --name mdanalysis-dev "python>=3.12"
 
 Use a recent version of Python that is supported by MDAnalysis for this environment.
 
@@ -94,7 +99,7 @@ Activate the environment to build MDAnalysis into it:
 
     .. code-block:: bash
 
-        conda activate mdanalysis-dev
+        mamba activate mdanalysis-dev
 
 .. warning::
     Make sure the :code:`mdanalysis-dev` environment is active when developing MDAnalysis.
@@ -103,19 +108,19 @@ To view your environments:
 
     .. code-block:: bash
 
-        conda info -e
+        mamba info -e
 
 To list the packages installed in your current environment:
 
     .. code-block:: bash
 
-        conda list
+        mamba list
 
 .. note::
     When you finish developing MDAnalysis you can deactivate the environment with
-    :code:`conda deactivate`, in order to return to your root environment.
+    :code:`mamba deactivate`, in order to return to your root environment.
 
-See the full `conda documentation <http://conda.pydata.org/docs>`__ for more details.
+See the full `mamba documentation <https://mamba.readthedocs.io/en/latest/index.html>`_ or the full `conda documentation <https://docs.conda.io/projects/conda/>`_ for more details.
 
 .. _dev-with-pip:
 
@@ -204,49 +209,77 @@ This sets the number of files to 4096. However, this command only applies to you
 Building MDAnalysis
 -------------------
 
-With conda
-----------
+With mamba/conda
+----------------
 
 .. note::
     Make sure that you have :ref:`cloned the repository <forking-code-repo>`
-    and activated your virtual environment with :code:`conda activate mdanalysis-dev`.
+    and activated your virtual environment with :code:`mamba activate mdanalysis-dev`.
 
-First we need to install dependencies. You'll need a mix of conda and pip installations:
+First we need to install the dependencies. To install the base MDAnalysis
+dependencies, do the following:
 
     .. code-block:: bash
 
-        conda install -c conda-forge \
-          'Cython>=0.28' \
-          'numpy>=1.21.0' \
-          'biopython>=1.80' \
-          'networkx>=2.0' \
-          'GridDataFormats>=0.4.0' \
-          'mmtf-python>=1.0.0' \
-          'joblib>=0.12' \
-          'scipy>=1.5.0' \
-          'matplotlib>=1.5.1' \
-          'tqdm>=4.43.0' \
-          'threadpoolctl'\
-          'packaging' \
+        mamba install -c conda-forge \
+          'cython>=0.28' \
           'fasteners' \
-          'netCDF4>=1.0' \
-          'h5py>=2.10' \
+          'griddataformats>=0.4.0' \
+          'hypothesis' \
+          'matplotlib-base>=1.5.1' \
+          'mdahole2-base' \
+          'mda-xdrlib' \
+          'mmtf-python>=1.0.0' \
+          'numpy>=1.23.2' \
+          'packaging' \
+          'pathsimanalysis' \
+          'pytest' \
+          'scipy>=1.5.0' \
+          'threadpoolctl' \
+          'tqdm>=4.43.0' \
+          'waterdynamics'
+
+
+You can also install the following optional dependencies, although please note
+that they many not all be available for your machine type. Specifically,
+*hole2*, and *distopia* are only available on Linux + x86_64 machines, and *openmm*
+is not available for Windows. Simply remove any optional package that
+is not available for your operating system/architecture from your list.
+
+    .. code-block:: bash
+
+        mamba install -c conda-forge \
+          'biopython>=1.80' \
           'chemfiles>=0.10' \
-          'pyedr>=0.7.0' \
-          'pytng>=0.2.3' \
+          'clustalw=2.1' \
+          'distopia>=0.2.0' \
+          'duecredit' \
           'gsd>3.0.0' \
-          'rdkit>=2020.03.1' \
+          'h5py>=2.1.0' \
+          'hole2' \
+          'joblib>=0.12' \
+          'netcdf4' \
+          'networkx' \
+          'openmm' \
           'parmed' \
-          'seaborn' \
+          'pyedr>0.7.0' \
+          'pytest-xdist' \
+          'pytest-cov' \
+          'pytest-timeout' \
+          'pytng>=0.2.3' \
+          'rdkit>=2020.03.1' \
           'scikit-learn' \
-          'tidynamics>=1.0.0' \
-          'mda-xdrlib'
+          'seaborn>=0.7.0' \
+          'tidynamics>1.0.0'
 
         # documentation dependencies
-        conda install -c conda-forge 'mdanalysis-sphinx-theme>=1.3.0' docutils sphinx-sitemap sphinxcontrib-bibtex pybtex pybtex-docutils
-        python -m pip install docutils sphinx-sitemap sphinxcontrib-bibtex pybtex pybtex-docutils
+        mamba install -c conda-forge \
+          'mdanalysis-sphinx-theme>=1.3.0' \
+          docutils \
+          sphinxcontrib-bibtex \
+          sphinx-sitemap
 
-Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.9. We will now install MDAnalysis.
+Ensure that you have a working C/C++ compiler (e.g. :program:`gcc` or :program:`clang`). You will also need Python ≥ 3.10 (which you already installed in your virtual environment). We will now install MDAnalysis.
 
     .. code-block:: bash
 
@@ -268,7 +301,7 @@ At this point you should be able to import MDAnalysis from your locally built ve
         $ python  # start an interpreter
         >>> import MDAnalysis as mda
         >>> mda.__version__
-        '2.6.0-dev0'
+        '2.8.0-dev0'
 
 
 With pip and virtualenv
@@ -279,45 +312,65 @@ With pip and virtualenv
     and activated your virtual environment with :code:`source myproject-env/bin/activate`
     (or :code:`workon my-project` if you used the `virtualenvwrapper package <https://virtualenvwrapper.readthedocs.io/en/latest/>`_)
 
-Install the dependencies:
+First we need to install the dependencies. To install the base MDAnalysis
+dependencies, do the following:
 
     .. code-block:: bash
 
         python -m pip install \
-          'Cython>=0.28' \
-          'numpy>=1.21.0' \
-          'biopython>=1.80' \
-          'networkx>=2.0' \
-          'GridDataFormats>=0.4.0' \
-          'mmtf-python>=1.0.0' \
-          'joblib>=0.12' \
-          'scipy>=1.5.0' \
-          'matplotlib>=1.5.1' \
-          'tqdm>=4.43.0' \
-          'threadpoolctl'\
-          'packaging' \
+          'cython>=0.28' \
           'fasteners' \
-          'netCDF4>=1.0' \
-          'h5py>=2.10' \
-          'chemfiles>=0.10' \
-          'pyedr>=0.7.0' \
-          'pytng>=0.2.3' \
-          'gsd>3.0.0' \
-          'rdkit>=2020.03.1' \
-          'parmed' \
-          'seaborn' \
-          'scikit-learn' \
-          'tidynamics>=1.0.0' \
-          'mda-xdrlib'
+          'griddataformats>=0.4.0' \
+          'hypothesis' \
+          'matplotlib>=1.5.1' \
+          'mdahole2' \
+          'mda-xdrlib' \
+          'mmtf-python>=1.0.0' \
+          'numpy>=1.23.2' \
+          'packaging' \
+          'pathsimanalysis' \
+          'pytest' \
+          'scipy>=1.5.0' \
+          'threadpoolctl' \
+          'tqdm>=4.43.0' \
+          'waterdynamics'
 
-        # for building documentation
+You can also install the following optional dependencies (note that
+you will not be able to install all the optional dependencies as
+many not available via `pip`, e.g. `clustalw`):
+
+    .. code-block:: bash
+
         python -m pip install \
-          sphinx 'mdanalysis-sphinx-theme>=1.3.0' sphinx-sitemap \
-          pybtex docutils pybtex-docutils sphinxcontrib-bibtex
+          'biopython>=1.80' \
+          'chemfiles>=0.10' \
+          'distopia>=0.2.0' \
+          'duecredit' \
+          'gsd>3.0.0' \
+          'h5py>=2.1.0' \
+          'joblib>=0.12' \
+          'netcdf4' \
+          'networkx' \
+          'parmed' \
+          'pyedr>0.7.0' \
+          'pytest-xdist' \
+          'pytest-cov' \
+          'pytest-timeout' \
+          'pytng>=0.2.3' \
+          'rdkit>=2020.03.1' \
+          'scikit-learn' \
+          'seaborn>=0.7.0' \
+          'tidynamics>1.0.0'
 
-Some packages, such as ``clustalw``, are not available via pip.
+        # documentation dependencies
+        python -m pip install \
+          'mdanalysis-sphinx-theme>=1.3.0' \
+          docutils \
+          sphinxcontrib-bibtex \
+          sphinx-sitemap
 
-Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.9. We will now install MDAnalysis.
+
+Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.10. We will now install MDAnalysis.
 
     .. code-block:: bash
 
@@ -339,7 +392,7 @@ At this point you should be able to import MDAnalysis from your locally built ve
         $ python  # start an interpreter
         >>> import MDAnalysis as mda
         >>> mda.__version__
-        '2.7.0-dev0'
+        '2.8.0-dev0'
 
 
 .. _branches-in-mdanalysis:
