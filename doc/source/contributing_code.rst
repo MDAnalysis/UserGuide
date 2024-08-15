@@ -77,10 +77,9 @@ We will use pre-compiled packages from the `conda-forge <https://conda-forge.org
 The program to manage these packages is called :program:`conda` although for the following we recommend using the faster one called :program:`mamba`. We will use ``mamba`` for the examples but you can equally use ``conda`` instead.
 
 * For ``mamba``, follow the `mamba installation instructions <https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html>`_ or the `miniforge installation instructions <https://github.com/conda-forge/miniforge?tab=readme-ov-file#install>`_.
-* For ``conda`` install either the  `Anaconda <https://www.anaconda.com/download/>`_ distribution or
-or `miniconda <https://conda.io/miniconda.html>`_.
+* For ``conda`` install either the  `Anaconda <https://www.anaconda.com/download/>`_ distribution or `miniconda <https://conda.io/miniconda.html>`_.
 
-Make sure your conda is up to date:
+Make sure your :program:`mamba` (or :program:`conda`) is up to date:
 
     .. code-block:: bash
 
@@ -92,7 +91,7 @@ touching existing environments that may have stable versions of MDAnalysis. :
 
     .. code-block:: bash
 
-        mamba create --name mdanalysis-dev "python>=3.10"
+        mamba create --name mdanalysis-dev "python>=3.12"
 
 Use a recent version of Python that is supported by MDAnalysis for this environment.
 
@@ -242,9 +241,10 @@ dependencies, do the following:
 
 
 You can also install the following optional dependencies, although please note
-that they many not all be available for your machine type. Specifically;
-hole2, and distopia are only available on linux + x86_64 machines, and openmm
-is not available for windows.
+that they many not all be available for your machine type. Specifically,
+*hole2*, and *distopia* are only available on Linux + x86_64 machines, and *openmm*
+is not available for Windows. Simply remove any optional package that
+is not available for your operating system/architecture from your list.
 
     .. code-block:: bash
 
@@ -279,7 +279,7 @@ is not available for windows.
           sphinxcontrib-bibtex \
           sphinx-sitemap
 
-Ensure that you have a working C/C++ compiler (e.g. gcc or clang). You will also need Python ≥ 3.10. We will now install MDAnalysis.
+Ensure that you have a working C/C++ compiler (e.g. :program:`gcc` or :program:`clang`). You will also need Python ≥ 3.10 (which you already installed in your virtual environment). We will now install MDAnalysis.
 
     .. code-block:: bash
 
