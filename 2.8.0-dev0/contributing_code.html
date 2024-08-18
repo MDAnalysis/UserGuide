@@ -462,6 +462,7 @@ is not available for your operating system/architecture from your list.</p>
 <span class="w">  </span><span class="s1">&#39;biopython&gt;=1.80&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s1">&#39;chemfiles&gt;=0.10&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s1">&#39;clustalw=2.1&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;dask&gt;=2023.1.1&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s1">&#39;distopia&gt;=0.2.0&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s1">&#39;duecredit&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s1">&#39;gsd&gt;3.0.0&#39;</span><span class="w"> </span><span class="se">\</span>
@@ -554,6 +555,7 @@ many not available via <cite>pip</cite>, e.g. <cite>clustalw</cite>):</p>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s1">&#39;biopython&gt;=1.80&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s1">&#39;chemfiles&gt;=0.10&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;dask&gt;=2023.1.1&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s1">&#39;distopia&gt;=0.2.0&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s1">&#39;duecredit&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s1">&#39;gsd&gt;3.0.0&#39;</span><span class="w"> </span><span class="se">\</span>
@@ -665,7 +667,7 @@ See <a class="reference internal" href="#format-darker"><span class="std std-ref
 </section>
 <section id="modules-and-dependencies">
 <h4>Modules and dependencies<a class="headerlink" href="#modules-and-dependencies" title="Link to this heading"></a></h4>
-<p>MDAnalysis strives to keep dependencies small and lightweight. Code outside the <code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis</span></code> and <code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.visualization</span></code> modules should only rely on the <a class="reference internal" href="module_imports.html#core-module-dependencies"><span class="std std-ref">core dependencies</span></a>, which are always installed. Analysis and visualization modules can use any <a class="reference internal" href="module_imports.html#optional-modules"><span class="std std-ref">any package, but the package is treated as optional</span></a>.</p>
+<p>MDAnalysis strives to keep dependencies small and lightweight. Code outside the <a class="reference external" href="https://docs.mdanalysis.org/2.8.0-dev0/documentation_pages/analysis_modules.html#module-MDAnalysis.analysis" title="(in MDAnalysis v2.8.0-dev0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis</span></code></a> and <code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.visualization</span></code> modules should only rely on the <a class="reference internal" href="module_imports.html#core-module-dependencies"><span class="std std-ref">core dependencies</span></a>, which are always installed. Analysis and visualization modules can use any <a class="reference internal" href="module_imports.html#optional-modules"><span class="std std-ref">any package, but the package is treated as optional</span></a>.</p>
 <p>Imports in the code should follow the <a class="reference internal" href="module_imports.html#general-rules-for-importing"><span class="std std-ref">General rules for importing</span></a>.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>

@@ -252,6 +252,7 @@ is not available for your operating system/architecture from your list.
           'biopython>=1.80' \
           'chemfiles>=0.10' \
           'clustalw=2.1' \
+          'dask>=2023.1.1' \
           'distopia>=0.2.0' \
           'duecredit' \
           'gsd>3.0.0' \
@@ -344,6 +345,7 @@ many not available via `pip`, e.g. `clustalw`):
         python -m pip install \
           'biopython>=1.80' \
           'chemfiles>=0.10' \
+          'dask>=2023.1.1' \
           'distopia>=0.2.0' \
           'duecredit' \
           'gsd>3.0.0' \
