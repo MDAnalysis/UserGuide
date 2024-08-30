@@ -435,13 +435,13 @@ line statistics you can add the <code class="docutils literal notranslate"><span
 </section>
 <section id="failing-tests">
 <h4>Failing tests<a class="headerlink" href="#failing-tests" title="Link to this heading"></a></h4>
-<p>To mark an expected failure, use <a class="reference external" href="https://docs.pytest.org/en/latest/reference/reference.html#pytest.mark.xfail" title="(in pytest v8.4.0.dev49)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pytest.mark.xfail()</span></code></a> decorator:</p>
+<p>To mark an expected failure, use <a class="reference external" href="https://docs.pytest.org/en/latest/reference/reference.html#pytest.mark.xfail" title="(in pytest v8.4.0.dev55)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pytest.mark.xfail()</span></code></a> decorator:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">xfail</span>
 <span class="k">def</span> <span class="nf">tested_expected_failure</span><span class="p">():</span>
     <span class="k">assert</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span>
 </pre></div>
 </div>
-<p>To manually fail a test, make a call to <a class="reference external" href="https://docs.pytest.org/en/latest/reference/reference.html#pytest.fail" title="(in pytest v8.4.0.dev49)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pytest.fail()</span></code></a>:</p>
+<p>To manually fail a test, make a call to <a class="reference external" href="https://docs.pytest.org/en/latest/reference/reference.html#pytest.fail" title="(in pytest v8.4.0.dev55)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pytest.fail()</span></code></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_open</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tmpdir</span><span class="p">):</span>
     <span class="n">outfile</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">tmpdir</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;lammps-writer-test.dcd&#39;</span><span class="p">))</span>
     <span class="k">try</span><span class="p">:</span>
@@ -454,7 +454,7 @@ line statistics you can add the <code class="docutils literal notranslate"><span
 </section>
 <section id="skipping-tests">
 <h4>Skipping tests<a class="headerlink" href="#skipping-tests" title="Link to this heading"></a></h4>
-<p>To skip tests based on a condition, use <a class="reference external" href="https://docs.pytest.org/en/latest/reference/reference.html#pytest.mark.skipif" title="(in pytest v8.4.0.dev49)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pytest.mark.skipif(condition)</span></code></a> decorator:</p>
+<p>To skip tests based on a condition, use <a class="reference external" href="https://docs.pytest.org/en/latest/reference/reference.html#pytest.mark.skipif" title="(in pytest v8.4.0.dev55)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pytest.mark.skipif(condition)</span></code></a> decorator:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">shares_memory</span>
@@ -469,7 +469,7 @@ line statistics you can add the <code class="docutils literal notranslate"><span
     <span class="k">assert</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">shares_memory</span><span class="p">(</span><span class="n">original</span><span class="o">.</span><span class="n">ts</span><span class="o">.</span><span class="n">positions</span><span class="p">,</span> <span class="n">copy</span><span class="o">.</span><span class="n">ts</span><span class="o">.</span><span class="n">positions</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>To skip a test if a module is not available for importing, use <a class="reference external" href="https://docs.pytest.org/en/latest/reference/reference.html#pytest.importorskip" title="(in pytest v8.4.0.dev49)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pytest.importorskip('module_name')</span></code></a></p>
+<p>To skip a test if a module is not available for importing, use <a class="reference external" href="https://docs.pytest.org/en/latest/reference/reference.html#pytest.importorskip" title="(in pytest v8.4.0.dev55)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pytest.importorskip('module_name')</span></code></a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_write_trajectory_netCDF4</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">universe</span><span class="p">,</span> <span class="n">outfile</span><span class="p">):</span>
     <span class="n">pytest</span><span class="o">.</span><span class="n">importorskip</span><span class="p">(</span><span class="s2">&quot;netCDF4&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_test_write_trajectory</span><span class="p">(</span><span class="n">universe</span><span class="p">,</span> <span class="n">outfile</span><span class="p">)</span>
@@ -479,7 +479,7 @@ line statistics you can add the <code class="docutils literal notranslate"><span
 </section>
 <section id="fixtures">
 <h3>Fixtures<a class="headerlink" href="#fixtures" title="Link to this heading"></a></h3>
-<p>Use <a class="reference external" href="https://docs.pytest.org/en/latest/fixture.html">fixtures</a> as much as possible to reuse “resources” between test methods/functions. Pytest fixtures are functions that run before each test function that uses that fixture. A fixture is typically set up with the <a class="reference external" href="https://docs.pytest.org/en/latest/reference/reference.html#pytest.fixture" title="(in pytest v8.4.0.dev49)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pytest.fixture()</span></code></a> decorator, over a function that returns the object you need:</p>
+<p>Use <a class="reference external" href="https://docs.pytest.org/en/latest/fixture.html">fixtures</a> as much as possible to reuse “resources” between test methods/functions. Pytest fixtures are functions that run before each test function that uses that fixture. A fixture is typically set up with the <a class="reference external" href="https://docs.pytest.org/en/latest/reference/reference.html#pytest.fixture" title="(in pytest v8.4.0.dev55)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pytest.fixture()</span></code></a> decorator, over a function that returns the object you need:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
 <span class="k">def</span> <span class="nf">universe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ref_filename</span><span class="p">)</span>
