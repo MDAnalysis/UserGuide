@@ -183,10 +183,10 @@ Adding to a Universe
 
 As of version 0.21.0, there are specific methods for adding :class:`~MDAnalysis.core.topologyobjects.TopologyObject`\ s to a :class:`~MDAnalysis.core.universe.Universe`:
 
-    * :meth:`~MDAnalysis.core.universe.Universe.add_Bonds`
-    * :meth:`~MDAnalysis.core.universe.Universe.add_Angles`
-    * :meth:`~MDAnalysis.core.universe.Universe.add_Dihedrals`
-    * :meth:`~MDAnalysis.core.universe.Universe.add_Impropers`
+    * :meth:`~MDAnalysis.core.universe.Universe.add_bonds`
+    * :meth:`~MDAnalysis.core.universe.Universe.add_angles`
+    * :meth:`~MDAnalysis.core.universe.Universe.add_dihedrals`
+    * :meth:`~MDAnalysis.core.universe.Universe.add_impropers`
 
 These accept the following values:
 
@@ -248,10 +248,10 @@ Deleting from a Universe
 
 As of version 0.21.0, there are specific methods for deleting :class:`~MDAnalysis.core.topologyobjects.TopologyObject`\ s from a :class:`~MDAnalysis.core.universe.Universe`:
 
-    * :meth:`~MDAnalysis.core.universe.Universe.delete_Bonds`
-    * :meth:`~MDAnalysis.core.universe.Universe.delete_Angles`
-    * :meth:`~MDAnalysis.core.universe.Universe.delete_Dihedrals`
-    * :meth:`~MDAnalysis.core.universe.Universe.delete_Impropers`
+    * :meth:`~MDAnalysis.core.universe.Universe.delete_bonds`
+    * :meth:`~MDAnalysis.core.universe.Universe.delete_angles`
+    * :meth:`~MDAnalysis.core.universe.Universe.delete_dihedrals`
+    * :meth:`~MDAnalysis.core.universe.Universe.delete_impropers`
 
 
 .. _topology-groupmethods:
