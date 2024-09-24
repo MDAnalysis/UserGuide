@@ -221,7 +221,6 @@ dependencies, do the following:
 
     .. code-block:: bash
 
-<<<<<<< Updated upstream
         mamba install -c conda-forge \
           'cython>=0.28' \
           'fasteners' \
@@ -321,7 +320,6 @@ dependencies, do the following:
     .. code-block:: bash
 
         python -m pip install \
-<<<<<<< Updated upstream
           'cython>=0.28' \
           'fasteners' \
           'griddataformats>=0.4.0' \
