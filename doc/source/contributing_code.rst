@@ -272,16 +272,8 @@ is not available for your operating system/architecture from your list.
           'rdkit>=2020.03.1' \
           'scikit-learn' \
           'seaborn>=0.7.0' \
-          'tidynamics>1.0.0'
-=======
-        conda install -c bioconda -c conda-forge \
-            biopython chemfiles clustalw==2.1 codecov cython \
-            griddataformats gsd hypothesis "joblib>=0.12" \
-            matplotlib mmtf-python mock netcdf4 networkx \
-            "numpy>=1.18.0" psutil pytest scikit-learn scipy \
-            "seaborn>=0.7.0" sphinx "tidynamics>=1.0.0" \
-            "tqdm>=4.43.0" "black=24"
->>>>>>> Stashed changes
+          'tidynamics>1.0.0' \
+          'black=24'
 
         # documentation dependencies
         mamba install -c conda-forge \
@@ -345,15 +337,8 @@ dependencies, do the following:
           'scipy>=1.5.0' \
           'threadpoolctl' \
           'tqdm>=4.43.0' \
-          'waterdynamics'
-=======
-          biopython chemfiles codecov cython \
-          griddataformats gsd hypothesis "joblib>=0.12" matplotlib \
-          msmb_theme==1.2.0 netcdf4 networkx "numpy>=1.18.0" \
-          psutil pytest scikit-learn scipy "seaborn>=0.7.0" \
-          sphinx sphinx_rtd_theme "tidynamics>=1.0.0" \
-          "tqdm>=4.43.0" "black=24"
->>>>>>> Stashed changes
+          'waterdynamics' \
+          'black=24'
 
 You can also install the following optional dependencies (note that
 you will not be able to install all the optional dependencies as
@@ -471,13 +456,7 @@ Code formatting in Python
 
 Since version 0.11.0, we are trying to update all the code to conform with `PEP8`_.
 
-<<<<<<< Updated upstream
-**Important requirements (from PEP8)**:
-    - keep line length to **79 characters or less**; break long lines sensibly although for readability we may allow longer lines
-    - indent with **spaces** and use **4 spaces per level**
-=======
 **Important requirements (from PEP8):**
->>>>>>> Stashed changes
     - naming:
 
         - classes: `CapitalClasses` (i.e. capitalized nouns without spaces)
@@ -485,12 +464,7 @@ Since version 0.11.0, we are trying to update all the code to conform with `PEP8
 
 We recommend that you use a Python Integrated Development Environment (IDE) (`PyCharm`_ and others) or external tools like `flake8`_ for code linting. For integration of external tools with emacs and vim, check out `elpy`_ (emacs) and `python-mode`_ (vim).
 
-<<<<<<< Updated upstream
-To apply the code formatting in an automated way, you can also use code formatters. External tools include `autopep8`_ and `yapf`_. Most IDEs either have their own code formatter or will work with one of the above through plugins.
-See :ref:`format-darker` for notes on maintaining code style compliance with existing tools.
-=======
 MDAnalysis uses `black`_` for automated code formatting, which is bound by the `black stability policy`_. The configuration for `black`_ is provided in the `pyproject.toml` files. To format your code with `black`_, you can run the following commands:
->>>>>>> Stashed changes
 
     .. code-block:: bash
 
