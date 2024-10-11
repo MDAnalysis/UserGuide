@@ -24,19 +24,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-
-    - name: setup micromamba
-      uses: mamba-org/setup-micromamba@v1
+    - uses: actions/setup-python@v3
       with:
-        environment-file: environment.yml
-        environment-name: mda-user-guide
-        create-args: >-
-          pip
-        condarc: |
-          channels:
-            - conda-forge
-            - plotly
-
-    - uses: pre-commit/action@v3.0.0
+        python-version: '3.x'
+    - uses: pre-commit/action@v3.0.1
       with:
         extra_args: --all-files
