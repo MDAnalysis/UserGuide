@@ -88,7 +88,7 @@ you can work seamlessly between your local repository and GitHub.
 .. _`mdnalysis-discussion`:
    http://groups.google.com/group/mdnalysis-discussion
 .. _`GitHub Discussions`:
-   https://github.com/MDAnalysis/mdanalysis/discussions 
+   https://github.com/MDAnalysis/mdanalysis/discussions
 .. _`Code of Conduct`: https://www.mdanalysis.org/pages/conduct/
 .. _`Issue Tracker`: https://github.com/MDAnalysis/mdanalysis/issues
 .. _`MDAKits registry`: https://mdakits.mdanalysis.org/mdakits.html
