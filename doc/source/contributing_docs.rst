@@ -231,6 +231,7 @@ defines flags that you can also pass directly to pytest.
 For example, if you wanted to test the `hole2` notebook::
 
     pytest --nbval --nbval-current-env --nbval-sanitize-with ./sanitize_output.cfg ../doc/source/examples/analysis/polymers_and_membranes/hole2.ipynb
+
 Where ``--nbval`` tells pytest to use nbval to test Jupyter notebooks, ``--nbval-current-env``
 to use the currently loaded python environment (make sure you actually loaded your environment)
 instead of trying to use the one that was used when the notebook was saved  and
@@ -239,6 +240,7 @@ for example::
 
     regex: (.*B \[0.*B/s\])
     replace: DOWNLOAD
+
 This tells pytest to scan the outputs of all cells and replace the matching string with the word
 *DOWNLOAD*. This is called *sanitization*.
 
@@ -383,8 +385,6 @@ For each time you add changes to another branch later, just merge into gh-pages 
     git merge origin/my_branch
     cd doc/
     make github
-
-
 
 .. _nbsphinx: https://nbsphinx.readthedocs.io
 .. _ReviewNB: https://www.reviewnb.com/
