@@ -59,6 +59,8 @@ Questions and discussions about MDAnalysis take place on `GitHub Discussions`_ a
 
 Wherever possible, do not take these conversations to private channels, including contacting the maintainers directly. Keeping communication public means everybody can benefit and learn from the conversation.
 
+.. _`mdnalysis-discussion`:
+   http://groups.google.com/group/mdnalysis-discussion
 .. _`GitHub Discussions`:
    https://github.com/MDAnalysis/mdanalysis/discussions
 .. _`Code of Conduct`: https://www.mdanalysis.org/pages/conduct/
