@@ -85,6 +85,8 @@ Getting started with Git
 setting up your SSH key, and configuring git.  All these steps need to be completed before
 you can work seamlessly between your local repository and GitHub.
 
+.. _`mdnalysis-discussion`:
+   http://groups.google.com/group/mdnalysis-discussion
 .. _`Code of Conduct`: https://www.mdanalysis.org/pages/conduct/
 .. _`Issue Tracker`: https://github.com/MDAnalysis/mdanalysis/issues
 .. _`MDAKits registry`: https://mdakits.mdanalysis.org/mdakits.html
