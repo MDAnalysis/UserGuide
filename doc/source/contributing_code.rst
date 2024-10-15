@@ -795,7 +795,7 @@ A typical function docstring looks like the following:
 
     ::
 
-        def func(arg1, arg2):
+        def func(arg1, arg2, arg3):
             """Summary line.
 
             Extended description of function.
@@ -806,6 +806,8 @@ A typical function docstring looks like the following:
                 Description of `arg1`
             arg2 : str
                 Description of `arg2`
+            arg3 : list[int]
+                Description of `arg3`
 
 
             Returns
@@ -815,6 +817,18 @@ A typical function docstring looks like the following:
 
             """
             return True
+
+.. note::
+    
+    While MDAnalysis continues to support Python versions under 3.9,
+    type hinting should follow the syntax first laid out in
+    `PEP 484 – Type Hints <https://www.python.org/dev/peps/pep-0484/>`_.
+    However, as shown in the example above, function **documentation**
+    should follow the type hinting recommendations laid out in
+    `PEP 585 – Type Hinting Generics In Standard Collections <https://peps.python.org/pep-0585/>`_.
+    That means that for now, type hinting should still import from ``typing``
+    and a dictionary would still be hinted as ``Dict[Tuple[str, str], int]``.
+    However, the corresponding docstring would describe the argument as ``dict[tuple[str, str], int]``.
 
 .. seealso::
 
