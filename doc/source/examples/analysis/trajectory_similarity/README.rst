@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _trajectory-similarity:
+.. _trajectory-similarity-overview:
 
 ======================
 Trajectory similarity
