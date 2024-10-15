@@ -243,7 +243,7 @@
 </tr>
 </tbody>
 </table>
-<p>The GROMACS XTC trajectory compresses data with reduced precision (3 decimal places by default). MDAnalysis can only read coordinates from these files. See <a class="reference internal" href="trr.html#trr-format"><span class="std std-ref">TRR (GROMACS lossless trajectory file)</span></a> for uncompressed files that provide velocity and force information.</p>
+<p>The <a class="reference external" href="https://manual.gromacs.org/current/reference-manual/file-formats.html#xtc">GROMACS XTC</a> trajectory compresses data with reduced precision (3 decimal places by default). MDAnalysis can only read coordinates from these files. See <a class="reference internal" href="trr.html#trr-format"><span class="std std-ref">TRR (GROMACS lossless trajectory file)</span></a> for uncompressed files that provide velocity and force information.</p>
 <section id="reading-in">
 <h2>Reading in<a class="headerlink" href="#reading-in" title="Link to this heading"></a></h2>
 <p>MDAnalysis uses XDR based readers for GROMACS formats, which store offsets on the disk. The offsets are used to enable access to random frames efficiently. These offsets will be generated automatically the first time the trajectory is opened, and offsets are generally stored in hidden <code class="docutils literal notranslate"><span class="pre">*_offsets.npz</span></code> files. <a class="footnote-reference brackets" href="#error" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
@@ -268,7 +268,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2019-2024, Lily Wang, Irfan Alibay, Patricio Barletta, Cédric Bouysset, Jan Domanski, Bjarne Feddersen, Mike Henry, Florent Langenfeld, Hugo MacDermott-Opeskin, Micaela Matta, Rocco Meli, Mahfuza Humayra Mohona, Paul Smith, Mieczyslaw Torchala, Mark Verma, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..</p>
+    <p>&#169; Copyright 2019-2024, Lily Wang, Irfan Alibay, Patricio Barletta, Cédric Bouysset, Rubén Chaves, Jan Domanski, Bjarne Feddersen, Mike Henry, Florent Langenfeld, Hugo MacDermott-Opeskin, Micaela Matta, Rocco Meli, Mahfuza Humayra Mohona, Paul Smith, Mieczyslaw Torchala, Mark Verma, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..</p>
   </div>
 
   

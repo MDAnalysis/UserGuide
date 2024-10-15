@@ -481,7 +481,8 @@ is not available for your operating system/architecture from your list.</p>
 <span class="w">  </span><span class="s1">&#39;rdkit&gt;=2020.03.1&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s1">&#39;scikit-learn&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s1">&#39;seaborn&gt;=0.7.0&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="s1">&#39;tidynamics&gt;1.0.0&#39;</span>
+<span class="w">  </span><span class="s1">&#39;tidynamics&gt;1.0.0&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;black=24&#39;</span>
 
 <span class="c1"># documentation dependencies</span>
 mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span><span class="se">\</span>
@@ -544,7 +545,8 @@ dependencies, do the following:</p>
 <span class="w">  </span><span class="s1">&#39;scipy&gt;=1.5.0&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s1">&#39;threadpoolctl&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s1">&#39;tqdm&gt;=4.43.0&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="s1">&#39;waterdynamics&#39;</span>
+<span class="w">  </span><span class="s1">&#39;waterdynamics&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;black=24&#39;</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -645,11 +647,9 @@ and switch in between them using the <code class="docutils literal notranslate">
 <span id="id4"></span><h3>Writing new code<a class="headerlink" href="#writing-new-code" title="Link to this heading"></a></h3>
 <section id="code-formatting-in-python">
 <h4>Code formatting in Python<a class="headerlink" href="#code-formatting-in-python" title="Link to this heading"></a></h4>
-<p>MDAnalysis is a project with a long history and many contributors; it hasn’t used a consistent coding style. Since version 0.11.0, we are trying to update all the code to conform with <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8</a>. Our strategy is to update the style every time we touch an old function and thus switch to <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8</a> continuously.</p>
+<p>Since version 0.11.0, we are trying to update all the code to conform with <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8</a>.</p>
 <dl>
-<dt><strong>Important requirements (from PEP8)</strong>:</dt><dd><ul>
-<li><p>keep line length to <strong>79 characters or less</strong>; break long lines sensibly although for readability we may allow longer lines</p></li>
-<li><p>indent with <strong>spaces</strong> and use <strong>4 spaces per level</strong></p></li>
+<dt><strong>Important requirements (from PEP8):</strong></dt><dd><ul>
 <li><p>naming:</p>
 <blockquote>
 <div><ul class="simple">
@@ -662,8 +662,13 @@ and switch in between them using the <code class="docutils literal notranslate">
 </dd>
 </dl>
 <p>We recommend that you use a Python Integrated Development Environment (IDE) (<a class="reference external" href="https://www.jetbrains.com/pycharm/">PyCharm</a> and others) or external tools like <a class="reference external" href="http://flake8.readthedocs.org/en/latest/">flake8</a> for code linting. For integration of external tools with emacs and vim, check out <a class="reference external" href="https://github.com/jorgenschaefer/elpy">elpy</a> (emacs) and <a class="reference external" href="https://github.com/klen/python-mode">python-mode</a> (vim).</p>
-<p>To apply the code formatting in an automated way, you can also use code formatters. External tools include <a class="reference external" href="https://github.com/hhatto/autopep8">autopep8</a> and <a class="reference external" href="https://github.com/google/yapf">yapf</a>. Most IDEs either have their own code formatter or will work with one of the above through plugins.
-See <a class="reference internal" href="#format-darker"><span class="std std-ref">Ensure PEP8 compliance (mandatory) and format your code with Darker (optional)</span></a> for notes on maintaining code style compliance with existing tools.</p>
+<p>MDAnalysis uses <cite>black`_</cite> for automated code formatting, which is bound by the <a class="reference external" href="https://black.readthedocs.io/en/stable/the_black_code_style/index.html#stability-policy">black stability policy</a>. The configuration for <a href="#id7"><span class="problematic" id="id8">`black`_</span></a> is provided in the <cite>pyproject.toml</cite> files. To format your code with <a href="#id9"><span class="problematic" id="id10">`black`_</span></a>, you can run the following commands:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>black<span class="w"> </span>package
+black<span class="w"> </span>testsuite
+</pre></div>
+</div>
+</div></blockquote>
 </section>
 <section id="modules-and-dependencies">
 <h4>Modules and dependencies<a class="headerlink" href="#modules-and-dependencies" title="Link to this heading"></a></h4>
@@ -741,7 +746,7 @@ Or if you’re ok with the suggested formatting changes, just apply the suggeste
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>MDAnalysis does <em>not</em> currently use the popular <a class="reference external" href="https://black.readthedocs.io/">black</a> code formatter across the whole project, therefore please consider the following rules:</p>
+<p>MDAnalysis does <em>not</em> currently use the popular <a href="#id11"><span class="problematic" id="id12">`black`_</span></a> code formatter across the whole project, therefore please consider the following rules:</p>
 <ul class="simple">
 <li><p><strong>Do not run</strong> <code class="docutils literal notranslate"><span class="pre">black</span></code> on an existing file that you are editing. This makes the diff for the PR very difficult to read. Instead use <code class="docutils literal notranslate"><span class="pre">darker</span></code> as explained above to only reformat your changes.</p></li>
 <li><p>You <em>may</em> run <code class="docutils literal notranslate"><span class="pre">black</span></code> on a <em>new file</em> that you are adding to the code base.</p></li>
@@ -848,7 +853,7 @@ reapplied after updating with <code class="docutils literal notranslate"><span c
 <p>and <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/pulls">create a pull request</a>.</p>
 </section>
 <section id="creating-a-pull-request">
-<span id="id5"></span><h4>Creating a pull request<a class="headerlink" href="#creating-a-pull-request" title="Link to this heading"></a></h4>
+<span id="id6"></span><h4>Creating a pull request<a class="headerlink" href="#creating-a-pull-request" title="Link to this heading"></a></h4>
 <p>The typical approach to adding your code to MDAnalysis is to make a <a class="reference external" href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests">pull request</a> on GitHub. Please make sure that your contribution <a class="reference internal" href="#test-code"><span class="std std-ref">passes all tests</span></a>. If there are test failures, you will need to address them before we can review your contribution and eventually merge them. If you have problems with making the tests pass, please ask for help! (You can do this in the comments of the pull request).</p>
 <blockquote>
 <div><ol class="arabic">
@@ -1069,7 +1074,7 @@ n_atoms, n_residues : int
 <section id="adding-your-documentation-to-mdanalysis">
 <h3>Adding your documentation to MDAnalysis<a class="headerlink" href="#adding-your-documentation-to-mdanalysis" title="Link to this heading"></a></h3>
 <p>As with any contribution to an MDAnalysis repository, <a class="reference internal" href="#adding-code-to-mda"><span class="std std-ref">commit and push</span></a> your documentation contributions to GitHub. If <em>any fixes in the restructured text</em> are needed, <em>put them in their own commit</em> (and do not include any generated files under <cite>docs/html</cite>). Try to keep all reST fixes in the one commit. <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">FILE</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">--amend</span></code> is your friend when piling more and more small reST fixes onto a single “fixed reST” commit.</p>
-<p>We recommend <a class="reference internal" href="#building-code-documentation"><span class="std std-ref">building the docs locally first</span></a> to preview your changes. Then, <a class="reference internal" href="#id5"><span class="std std-ref">create a pull request</span></a>. All the tests in the MDAnalysis test suite will run, but only one checks that the documents compile correctly.</p>
+<p>We recommend <a class="reference internal" href="#building-code-documentation"><span class="std std-ref">building the docs locally first</span></a> to preview your changes. Then, <a class="reference internal" href="#id6"><span class="std std-ref">create a pull request</span></a>. All the tests in the MDAnalysis test suite will run, but only one checks that the documents compile correctly.</p>
 </section>
 <section id="viewing-the-documentation-interactively">
 <h3>Viewing the documentation interactively<a class="headerlink" href="#viewing-the-documentation-interactively" title="Link to this heading"></a></h3>
@@ -1102,7 +1107,7 @@ n_atoms, n_residues : int
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2019-2024, Lily Wang, Irfan Alibay, Patricio Barletta, Cédric Bouysset, Jan Domanski, Bjarne Feddersen, Mike Henry, Florent Langenfeld, Hugo MacDermott-Opeskin, Micaela Matta, Rocco Meli, Mahfuza Humayra Mohona, Paul Smith, Mieczyslaw Torchala, Mark Verma, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..</p>
+    <p>&#169; Copyright 2019-2024, Lily Wang, Irfan Alibay, Patricio Barletta, Cédric Bouysset, Rubén Chaves, Jan Domanski, Bjarne Feddersen, Mike Henry, Florent Langenfeld, Hugo MacDermott-Opeskin, Micaela Matta, Rocco Meli, Mahfuza Humayra Mohona, Paul Smith, Mieczyslaw Torchala, Mark Verma, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..</p>
   </div>
 
   

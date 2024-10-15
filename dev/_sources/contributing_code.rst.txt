@@ -271,7 +271,8 @@ is not available for your operating system/architecture from your list.
           'rdkit>=2020.03.1' \
           'scikit-learn' \
           'seaborn>=0.7.0' \
-          'tidynamics>1.0.0'
+          'tidynamics>1.0.0' \
+          'black=24'
 
         # documentation dependencies
         mamba install -c conda-forge \
@@ -334,7 +335,8 @@ dependencies, do the following:
           'scipy>=1.5.0' \
           'threadpoolctl' \
           'tqdm>=4.43.0' \
-          'waterdynamics'
+          'waterdynamics' \
+          'black=24'
 
 You can also install the following optional dependencies (note that
 you will not be able to install all the optional dependencies as
@@ -450,11 +452,9 @@ Writing new code
 Code formatting in Python
 -------------------------
 
-MDAnalysis is a project with a long history and many contributors; it hasn't used a consistent coding style. Since version 0.11.0, we are trying to update all the code to conform with `PEP8`_. Our strategy is to update the style every time we touch an old function and thus switch to `PEP8`_ continuously.
+Since version 0.11.0, we are trying to update all the code to conform with `PEP8`_.
 
-**Important requirements (from PEP8)**:
-    - keep line length to **79 characters or less**; break long lines sensibly although for readability we may allow longer lines
-    - indent with **spaces** and use **4 spaces per level**
+**Important requirements (from PEP8):**
     - naming:
 
         - classes: `CapitalClasses` (i.e. capitalized nouns without spaces)
@@ -462,18 +462,20 @@ MDAnalysis is a project with a long history and many contributors; it hasn't use
 
 We recommend that you use a Python Integrated Development Environment (IDE) (`PyCharm`_ and others) or external tools like `flake8`_ for code linting. For integration of external tools with emacs and vim, check out `elpy`_ (emacs) and `python-mode`_ (vim).
 
-To apply the code formatting in an automated way, you can also use code formatters. External tools include `autopep8`_ and `yapf`_. Most IDEs either have their own code formatter or will work with one of the above through plugins.
-See :ref:`format-darker` for notes on maintaining code style compliance with existing tools.
+MDAnalysis uses `black`_` for automated code formatting, which is bound by the `black stability policy`_. The configuration for `black`_ is provided in the `pyproject.toml` files. To format your code with `black`_, you can run the following commands:
 
+    .. code-block:: bash
+
+        black package
+        black testsuite
 
 .. _`PEP8`: https://www.python.org/dev/peps/pep-0008/
 .. _`flake8`: http://flake8.readthedocs.org/en/latest/
 .. _`PyCharm`: https://www.jetbrains.com/pycharm/
 .. _`elpy`: https://github.com/jorgenschaefer/elpy
 .. _`python-mode`: https://github.com/klen/python-mode
-.. _`autopep8`: https://github.com/hhatto/autopep8
-.. _`yapf`: https://github.com/google/yapf
-
+.. _`black`: https://black.readthedocs.io/en/stable/
+.. _`black stability policy`: https://black.readthedocs.io/en/stable/the_black_code_style/index.html#stability-policy
 
 Modules and dependencies
 ------------------------
