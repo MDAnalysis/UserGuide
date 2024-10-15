@@ -15,8 +15,18 @@
 
 import datetime
 import subprocess
+import warnings
+
+warnings.filterwarnings(
+    "ignore",
+    message="DCDReader currently makes independent timesteps",
+    category=DeprecationWarning,
+    module="MDAnalysis.coordinates.DCD",
+)
 
 import MDAnalysis as mda
+
+MDAnalysis_version = mda.__version__
 
 # -- Project information -----------------------------------------------------
 
