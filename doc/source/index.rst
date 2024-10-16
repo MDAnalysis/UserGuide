@@ -39,7 +39,7 @@ The typical use case for MDAnalysis is to manipulate or analyse molecular dynami
 Participating
 =============
 
-MDAnalysis welcomes all contributions from its users. There are many ways you can help improve MDAnalysis, from asking questions on the `GitHub Discussions`_ mailing list, to raising issues on the `Issue Tracker`_, to adding your own code. Please see :ref:`contributing` for an introduction and guide to contributing to the code and documentation.
+MDAnalysis welcomes all contributions from its users. There are many ways you can help improve MDAnalysis, from asking questions on `GitHub Discussions`_, to raising issues on the `Issue Tracker`_, to adding your own code. Please see :ref:`contributing` for an introduction and guide to contributing to the code and documentation.
 
 .. important::
 
