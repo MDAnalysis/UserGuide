@@ -55,7 +55,7 @@ MDAnalysis welcomes all contributions from its users. There are many ways you ca
 Communications
 --------------
 
-Questions and discussions about MDAnalysis take place on `GitHub Discussions`_ and this repository’s `Issue Tracker`_. Anybody is welcome to join these conversations. Please ask questions about the usage of MDAnalysis on the `GitHub Discussions`_ mailing list, and report problems on the `Issue Tracker`_.
+Questions and discussions about MDAnalysis take place on `GitHub Discussions`_ and this repository’s `Issue Tracker`_. Anybody is welcome to join these conversations. Please ask questions about the usage of MDAnalysis on `GitHub Discussions`_, and report problems on the `Issue Tracker`_.
 
 Wherever possible, do not take these conversations to private channels, including contacting the maintainers directly. Keeping communication public means everybody can benefit and learn from the conversation.
 
