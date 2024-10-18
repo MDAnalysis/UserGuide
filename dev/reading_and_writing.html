@@ -14,6 +14,8 @@
   <link rel="shortcut icon" href="_static/logo/mda_favicon.ico">
 </head>
 
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
@@ -27,17 +29,13 @@
 
   
     <link rel="canonical" href="https://userguide.mdanalysis.org/reading_and_writing.html" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="_static/js/versions.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="_static/js/versions.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
           title="Search within MDAnalysis User Guide  documentation"
@@ -322,13 +320,13 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/2.8.0-dev0/
 
 <span class="gp">In [16]: </span><span class="n">universe</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[16]: </span>
-<span class="go">array([[0.6211213 , 0.83349514, 0.36191788],</span>
-<span class="go">       [0.8735477 , 0.2810194 , 0.08324695],</span>
-<span class="go">       [0.5273159 , 0.02092393, 0.04938657],</span>
+<span class="go">array([[0.03684666, 0.8914058 , 0.75454605],</span>
+<span class="go">       [0.08306053, 0.8529569 , 0.8825315 ],</span>
+<span class="go">       [0.29624537, 0.49249718, 0.9363721 ],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.27866292, 0.20662229, 0.84569705],</span>
-<span class="go">       [0.48762178, 0.52422464, 0.1929774 ],</span>
-<span class="go">       [0.9813247 , 0.5090379 , 0.42876062]], dtype=float32)</span>
+<span class="go">       [0.19385266, 0.30602154, 0.2795746 ],</span>
+<span class="go">       [0.8865553 , 0.11298756, 0.6689483 ],</span>
+<span class="go">       [0.36228254, 0.42016888, 0.03131042]], dtype=float32)</span>
 </pre></div>
 </div>
 <p>or they can be directly passed in when creating a Universe.</p>
@@ -336,13 +334,13 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/2.8.0-dev0/
 
 <span class="gp">In [18]: </span><span class="n">universe2</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[18]: </span>
-<span class="go">array([[0.6211213 , 0.83349514, 0.36191788],</span>
-<span class="go">       [0.8735477 , 0.2810194 , 0.08324695],</span>
-<span class="go">       [0.5273159 , 0.02092393, 0.04938657],</span>
+<span class="go">array([[0.03684666, 0.8914058 , 0.75454605],</span>
+<span class="go">       [0.08306053, 0.8529569 , 0.8825315 ],</span>
+<span class="go">       [0.29624537, 0.49249718, 0.9363721 ],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.27866292, 0.20662229, 0.84569705],</span>
-<span class="go">       [0.48762178, 0.52422464, 0.1929774 ],</span>
-<span class="go">       [0.9813247 , 0.5090379 , 0.42876062]], dtype=float32)</span>
+<span class="go">       [0.19385266, 0.30602154, 0.2795746 ],</span>
+<span class="go">       [0.8865553 , 0.11298756, 0.6689483 ],</span>
+<span class="go">       [0.36228254, 0.42016888, 0.03131042]], dtype=float32)</span>
 </pre></div>
 </div>
 </section>
