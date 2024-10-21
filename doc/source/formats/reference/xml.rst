@@ -13,7 +13,7 @@ Hoomd XML does not identify molecules or residues, so placeholder values
 are used for residue numbers.
 Bonds and angles are read if present.
 
-.. _HOOMD: http://codeblue.umich.edu/hoomd-blue/index.html
+.. _HOOMD: https://glotzerlab.engin.umich.edu/hoomd-blue/index.html
 .. _XML: http://codeblue.umich.edu/hoomd-blue/doc/page_xml_file_format.html
 
 Hoomd XML format does not contain a node for names. The parser will

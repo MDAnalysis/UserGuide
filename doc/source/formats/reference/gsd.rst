@@ -18,7 +18,7 @@ Reading in
 
     A user will only get an error if the number of particles changes from the first time step. MDAnalysis does not currently check for changes in the particle identity or topology, and it does not update these over the trajectory.
 
-.. _HOOMD-blue : http://codeblue.umich.edu/hoomd-blue/index.html
+.. _HOOMD-blue : https://glotzerlab.engin.umich.edu/hoomd-blue/
 
 .. note:: **Residue resnames**
 

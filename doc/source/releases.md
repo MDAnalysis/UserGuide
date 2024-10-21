@@ -105,7 +105,7 @@ See the [CHANGELOG](https://github.com/MDAnalysis/mdanalysis/blob/release-2.6.0/
 
 #### Deprecations:
 * The misspelt `Boltzman_constant` entry in `MDAnalysis.units` is now deprecated in favour the correctly spelt `Boltzmann_constant`. (https://github.com/MDAnalysis/mdanalysis/pull/4230 and https://github.com/MDAnalysis/mdanalysis/pull/4214)
-* `MDAnalysis.analysis.hole2` is now deprecated in favour of a new [HOLE2 MDAKit](https://www.mdanalysis.org/hole2-mdakit/). (https://github.com/MDAnalysis/mdanalysis/pull/4200)
+* `MDAnalysis.analysis.hole2` is now deprecated in favour of a new [HOLE2 MDAKit](https://mdakits.mdanalysis.org/mdahole2.html). (https://github.com/MDAnalysis/mdanalysis/pull/4200)
 
 ### New Contributors
 * [@MohitKumar020291](https://github.com/MohitKumar020291) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4182
@@ -218,7 +218,7 @@ See the [CHANGELOG](https://github.com/MDAnalysis/mdanalysis/blob/release-2.5.0/
 * [@jvermaas](https://github.com/jvermaas) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4031
 * [@SophiaRuan](https://github.com/SophiaRuan) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4072
 * [@marinegor](https://github.com/marinegor) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4085
-* [@g2707](https://github.com/g2707) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4089
+* [@shaivimalik](https://github.com/shaivimalik) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4089
 * [@DanielJamesEvans](https://github.com/DanielJamesEvans) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4109
 
 ## Release 2.4.3 of MDAnalysis
