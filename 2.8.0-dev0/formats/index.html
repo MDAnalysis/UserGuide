@@ -604,12 +604,12 @@
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="reference/data.html#data-format"><span class="std std-ref">DATA</span></a></p></td>
 <td><p>LAMMPS data file</p></td>
-<td><p>angles, bonds, charges, dihedrals, impropers</p></td>
+<td><p>angles, bonds, charges, dihedrals, impropers, masses, types</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="reference/dms.html#dms-format"><span class="std std-ref">DMS</span></a></p></td>
 <td><p>DESRES Molecular Structure file</p></td>
-<td><p>atomnums, bonds, chainIDs, charges, names, resnames</p></td>
+<td><p>atomnums, bonds, chainIDs, charges, masses, names, resnames</p></td>
 <td><p>types</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="reference/gms.html#gms-format"><span class="std std-ref">GMS</span></a></p></td>
@@ -624,7 +624,7 @@
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="reference/gsd.html#gsd-format"><span class="std std-ref">GSD</span></a></p></td>
 <td><p>HOOMD GSD file</p></td>
-<td><p>angles, bonds, charges, dihedrals, impropers, names, radii, resnames</p></td>
+<td><p>angles, bonds, charges, dihedrals, impropers, masses, names, radii, resnames, types</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="reference/config.html#history-format"><span class="std std-ref">HISTORY</span></a></p></td>
@@ -639,17 +639,17 @@
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="reference/lammpsdump.html#lammpsdump-format"><span class="std std-ref">LAMMPSDUMP</span></a></p></td>
 <td><p>LAMMPS ascii dump file</p></td>
+<td><p>masses, types</p></td>
 <td></td>
-<td><p>masses</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="reference/mmtf.html#mmtf-format"><span class="std std-ref">MMTF</span></a></p></td>
 <td><p>MMTF file</p></td>
-<td><p>altLocs, bonds, charges, icodes, models, names, occupancies, resnames, tempfactors</p></td>
+<td><p>altLocs, bonds, charges, icodes, models, names, occupancies, resnames, tempfactors, types</p></td>
 <td><p>masses</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="reference/mol2.html#mol2-format"><span class="std std-ref">MOL2</span></a></p></td>
 <td><p>Tripos MOL2 file</p></td>
-<td><p>bonds, charges, elements, names, resnames</p></td>
+<td><p>bonds, charges, elements, names, resnames, types</p></td>
 <td><p>masses</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="reference/pdb.html#pdb-format"><span class="std std-ref">PDB, ENT</span></a></p></td>
@@ -659,7 +659,7 @@
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="reference/pdbqt.html#pdbqt-format"><span class="std std-ref">PDBQT</span></a></p></td>
 <td><p>PDBQT file</p></td>
-<td><p>altLocs, chainIDs, charges, icodes, names, occupancies, record_types, resnames, tempfactors</p></td>
+<td><p>altLocs, chainIDs, charges, icodes, names, occupancies, record_types, resnames, tempfactors, types</p></td>
 <td><p>masses</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="reference/pqr.html#pqr-format"><span class="std std-ref">PQR</span></a></p></td>
@@ -669,27 +669,27 @@
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="reference/psf.html#psf-format"><span class="std std-ref">PSF</span></a></p></td>
 <td><p>CHARMM, NAMD, or XPLOR PSF file</p></td>
-<td><p>angles, bonds, charges, dihedrals, impropers, names, resnames</p></td>
+<td><p>angles, bonds, charges, dihedrals, impropers, masses, names, resnames, types</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="reference/top.html#top-format"><span class="std std-ref">TOP, PRMTOP, PARM7</span></a></p></td>
 <td><p>AMBER topology file</p></td>
-<td><p>angles, bonds, charges, dihedrals, impropers, names, resnames, type_indices</p></td>
+<td><p>angles, bonds, charges, dihedrals, impropers, masses, names, resnames, type_indices, types</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="reference/tpr.html#tpr-format"><span class="std std-ref">TPR</span></a></p></td>
 <td><p>GROMACS run topology file</p></td>
-<td><p>angles, bonds, chainIDs, charges, dihedrals, elements, impropers, molnums, moltypes, names, resnames</p></td>
+<td><p>angles, bonds, chainIDs, charges, dihedrals, elements, impropers, masses, molnums, moltypes, names, resnames, types</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="reference/txyz.html#txyz-format"><span class="std std-ref">TXYZ, ARC</span></a></p></td>
 <td><p>Tinker file</p></td>
-<td><p>bonds, elements, names</p></td>
+<td><p>bonds, elements, names, types</p></td>
 <td><p>masses</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="reference/xml.html#xml-format"><span class="std std-ref">XML</span></a></p></td>
 <td><p>HOOMD XML file</p></td>
-<td><p>angles, bonds, charges, dihedrals, impropers, radii</p></td>
+<td><p>angles, bonds, charges, dihedrals, impropers, masses, radii, types</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="reference/xpdb.html#xpdb-format"><span class="std std-ref">XPDB</span></a></p></td>
