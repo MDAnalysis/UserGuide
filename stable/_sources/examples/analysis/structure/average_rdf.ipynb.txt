@@ -87,7 +87,7 @@
    "source": [
     "A radial distribution function $g_{ab}(r)$ describes the time-averaged density of particles in $b$ from the reference group $a$ at distance $r$. It is normalised so that it becomes 1 for large separations in a homogenous system.\n",
     "\n",
-    "$$ g_{ab}(r) = (N_{a} N_{b})^{-1} \\sum_{i=1}^{N_a} \\sum_{j=1}^{N_b} \\langle \\delta(|\\mathbf{r}_i - \\mathbf{r}_j| - r) \\rangle$$\n",
+    "$$ g_{ab}(r) = \\frac{1}{N_{a}} \\frac{1}{N_{b}/V} \\sum_{i=1}^{N_a} \\sum_{j=1}^{N_b} \\langle \\delta(|\\mathbf{r}_i - \\mathbf{r}_j| - r) \\rangle$$\n",
     "\n",
     "The radial cumulative distribution function is \n",
     "\n",
