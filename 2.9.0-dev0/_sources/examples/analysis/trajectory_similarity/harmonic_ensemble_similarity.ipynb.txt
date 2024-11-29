@@ -1,0 +1,397 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Calculating the Harmonic Ensemble Similarity between ensembles\n",
+    "\n",
+    "Here we compare the conformational ensembles of proteins in four trajectories, using the harmonic ensemble similarity method.\n",
+    "\n",
+    "**Last updated:** December 2022 with MDAnalysis 2.4.0-dev0\n",
+    "\n",
+    "**Last updated:** December 2022\n",
+    "\n",
+    "**Minimum version of MDAnalysis:** 1.0.0\n",
+    "\n",
+    "**Packages required:**\n",
+    "    \n",
+    "* MDAnalysis (<a data-cite=\"michaud-agrawal_mdanalysis_2011\" href=\"https://doi.org/10.1002/jcc.21787\">Michaud-Agrawal *et al.*, 2011</a>, <a data-cite=\"gowers_mdanalysis_2016\" href=\"https://doi.org/10.25080/Majora-629e541a-00e\">Gowers *et al.*, 2016</a>)\n",
+    "* MDAnalysisTests\n",
+    "\n",
+    "\n",
+    "**Optional packages for visualisation:**\n",
+    "\n",
+    "* [matplotlib](https://matplotlib.org)\n",
+    "\n",
+    "\n",
+    "<div class=\"alert alert-info\">\n",
+    "    \n",
+    "**Note**\n",
+    "\n",
+    "The metrics and methods in the `encore` module are from (<a data-cite=\"tiberti_encore_2015\" href=\"https://doi.org/10.1371/journal.pcbi.1004415\">Tiberti *et al.*, 2015</a>). Please cite them when using the ``MDAnalysis.analysis.encore`` module in published work.\n",
+    "\n",
+    "</div>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2020-09-25T05:47:24.628167Z",
+     "start_time": "2020-09-25T05:47:22.580836Z"
+    },
+    "execution": {
+     "iopub.execute_input": "2021-05-19T06:01:11.019242Z",
+     "iopub.status.busy": "2021-05-19T06:01:11.018634Z",
+     "iopub.status.idle": "2021-05-19T06:01:12.662416Z",
+     "shell.execute_reply": "2021-05-19T06:01:12.662787Z"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "import numpy as np\n",
+    "import matplotlib.pyplot as plt\n",
+    "%matplotlib inline\n",
+    "\n",
+    "import MDAnalysis as mda\n",
+    "from MDAnalysis.tests.datafiles import (PSF, DCD, DCD2, GRO, XTC, \n",
+    "                                        PSF_NAMD_GBIS, DCD_NAMD_GBIS,\n",
+    "                                        PDB_small, CRD)\n",
+    "from MDAnalysis.analysis import encore"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Loading files"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The test files we will be working with here feature adenylate kinase (AdK), a phosophotransferase enzyme. (<a data-cite=\"beckstein_zipping_2009\" href=\"https://doi.org/10.1016/j.jmb.2009.09.009\">Beckstein *et al.*, 2009</a>)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2020-09-25T05:47:34.271010Z",
+     "start_time": "2020-09-25T05:47:33.722128Z"
+    },
+    "execution": {
+     "iopub.execute_input": "2021-05-19T06:01:12.666701Z",
+     "iopub.status.busy": "2021-05-19T06:01:12.666185Z",
+     "iopub.status.idle": "2021-05-19T06:01:13.384417Z",
+     "shell.execute_reply": "2021-05-19T06:01:13.384865Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/home/pbarletta/mambaforge/envs/mda-user-guide/lib/python3.9/site-packages/MDAnalysis/coordinates/DCD.py:165: DeprecationWarning: DCDReader currently makes independent timesteps by copying self.ts while other readers update self.ts inplace. This behaviour will be changed in 3.0 to be the same as other readers\n",
+      "  warnings.warn(\"DCDReader currently makes independent timesteps\"\n"
+     ]
+    }
+   ],
+   "source": [
+    "u1 = mda.Universe(PSF, DCD)\n",
+    "u2 = mda.Universe(PSF, DCD2)\n",
+    "u3 = mda.Universe(GRO, XTC)\n",
+    "u4 = mda.Universe(PSF_NAMD_GBIS, DCD_NAMD_GBIS)\n",
+    "\n",
+    "labels = ['DCD', 'DCD2', 'XTC', 'NAMD']"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The trajectories can have different lengths, as seen below."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2020-09-25T05:47:35.055174Z",
+     "start_time": "2020-09-25T05:47:35.049296Z"
+    },
+    "execution": {
+     "iopub.execute_input": "2021-05-19T06:01:13.388558Z",
+     "iopub.status.busy": "2021-05-19T06:01:13.388056Z",
+     "iopub.status.idle": "2021-05-19T06:01:13.390062Z",
+     "shell.execute_reply": "2021-05-19T06:01:13.390462Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "98 102 10\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(len(u1.trajectory), len(u2.trajectory), len(u3.trajectory))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Calculating harmonic similarity"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The harmonic ensemble similarity method treats the conformational ensemble within each trajectory as a high-dimensional Gaussian distribution $N(\\mu, \\Sigma)$. The mean $\\mu$ is estimated as the average over the ensemble. The covariance matrix $\\Sigma$ is calculated either using a shrinkage estimator (`cov_estimator='shrinkage'`) or a maximum-likelihood method (`cov_estimator='ml'`).\n",
+    "\n",
+    "The harmonic ensemble similarity is then calculated using the symmetrised version of the Kullback-Leibler divergence. This has no upper bound, so you can get some very high values for very different ensembles.\n",
+    "\n",
+    "The function we will use is `encore.hes` ([API docs here](https://docs.mdanalysis.org/stable/documentation_pages/analysis/encore/similarity.html#MDAnalysis.analysis.encore.similarity.hes)). It is recommended that you align your trajectories before computing the harmonic similarity. You can either do this yourself with `align.AlignTraj`, or pass `align=True` into `encore.hes`. The latter option will align each of your Universes to the current timestep of the first Universe. Note that since `encore.hes` will pull your trajectories into memory, this changes the positions of your Universes."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2020-09-25T05:48:57.293061Z",
+     "start_time": "2020-09-25T05:47:36.853297Z"
+    },
+    "execution": {
+     "iopub.execute_input": "2021-05-19T06:01:13.393984Z",
+     "iopub.status.busy": "2021-05-19T06:01:13.393436Z",
+     "iopub.status.idle": "2021-05-19T06:03:04.423398Z",
+     "shell.execute_reply": "2021-05-19T06:03:04.424122Z"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "hes, details = encore.hes([u1, u2, u3, u4],\n",
+    "                         select='backbone',\n",
+    "                         align=True,\n",
+    "                         cov_estimator='shrinkage',\n",
+    "                         weights='mass')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2020-09-25T05:49:00.760513Z",
+     "start_time": "2020-09-25T05:49:00.753313Z"
+    },
+    "execution": {
+     "iopub.execute_input": "2021-05-19T06:03:04.433767Z",
+     "iopub.status.busy": "2021-05-19T06:03:04.432850Z",
+     "iopub.status.idle": "2021-05-19T06:03:04.436211Z",
+     "shell.execute_reply": "2021-05-19T06:03:04.436792Z"
+    },
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "       0.0    24955.7  1879874.5   145622.3 \n",
+      "   24955.7        0.0  1659867.5   161102.3 \n",
+      " 1879874.5  1659867.5        0.0  9900092.7 \n",
+      "  145622.3   161102.3  9900092.7        0.0 \n"
+     ]
+    }
+   ],
+   "source": [
+    "for row in hes:\n",
+    "    for h in row:\n",
+    "        print(\"{:>10.1f}\".format(h), end = ' ')\n",
+    "    print(\"\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The mean and covariance matrices for each Universe are saved in `details`. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2020-09-25T05:49:19.580520Z",
+     "start_time": "2020-09-25T05:49:19.575275Z"
+    },
+    "execution": {
+     "iopub.execute_input": "2021-05-19T06:03:04.443752Z",
+     "iopub.status.busy": "2021-05-19T06:03:04.442721Z",
+     "iopub.status.idle": "2021-05-19T06:03:04.446973Z",
+     "shell.execute_reply": "2021-05-19T06:03:04.447746Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(2565,)"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "details[\"ensemble1_mean\"].shape"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Plotting"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2020-09-25T05:49:23.911436Z",
+     "start_time": "2020-09-25T05:49:23.743708Z"
+    },
+    "execution": {
+     "iopub.execute_input": "2021-05-19T06:03:04.462349Z",
+     "iopub.status.busy": "2021-05-19T06:03:04.459404Z",
+     "iopub.status.idle": "2021-05-19T06:03:04.726436Z",
+     "shell.execute_reply": "2021-05-19T06:03:04.728025Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "image/png": "iVBORw0KGgoAAAANSUhEUgAAAfcAAAGxCAYAAAB/dP9WAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjYuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8o6BhiAAAACXBIWXMAAA9hAAAPYQGoP6dpAAA5pUlEQVR4nO3de1hVVf7H8c8RFdQExQuioWKieEXLvKei4i3QymxKDbxkTZnZWDna1GhOSthYpqljeTfzUmLZDUsds6YmzYyxCfOSKCpo3sBQUc7Zvz8czq8TsAUOnAOH9+t59vPIPmutvfYW+LK+a+29LYZhGAIAAB6jgrs7AAAAihfBHQAAD0NwBwDAwxDcAQDwMAR3AAA8DMEdAAAPQ3AHAMDDENwBAPAwBHcAADwMwb0cWbFihSwWi7799ts8P4+MjFTjxo1d2yk3SE5OlsVi0YoVK9zdlVIv51r9/e9/v2HZnO+v5OTkku9YCR4zrzZHjRpVIj8bvXr1Uq9evexfX7p0SdOnT9eOHTuK/VgoXyq6uwOAqwUGBurrr7/WLbfc4u6uwEl33nmnvv76awUGBpbqNvOzcOFCh68vXbqkF154QZIcgj5QWAR3lJhLly6patWq7u5GLt7e3urcubO7u4FiUKdOHdWpU6fUt/l7OT8bLVu2LNHjoPwiLQ9TCxYsUI8ePVS3bl1Vq1ZNbdq00ezZs3Xt2jWHcr169VLr1q21c+dOde3aVVWrVtWYMWPsad2XX35ZcXFxaty4sapUqaJevXrpwIEDunbtmqZMmaL69evLz89Pd999t06fPu3Qts1m0+zZsxUaGipvb2/VrVtX0dHROn78eJ592L17t+644w5VrVpVTZo00UsvvSSbzWYvl19afv/+/XrggQcUEBAgb29vNWzYUNHR0crKyjK9RlevXtWLL75o71+dOnU0evRo/fLLLw7lGjdurMjISCUkJOjWW29VlSpVFBoaqmXLljmUu3Tpkp5++mkFBwfLx8dH/v7+6tChg9auXetQ7ttvv9XgwYPl7+8vHx8ftW/fXhs2bHAok5Ni3r59u8aNG6datWrJ19dX0dHRyszMVFpamu677z7VqFFDgYGBevrpp3P93+b8H8ycOVMNGzaUj4+POnTooG3btplelxxbt25Vnz595Ovrq6pVq6pbt24Fqmuz2fTiiy+qefPmqlKlimrUqKG2bdvqtddey3V+v02h53wffP311+ratauqVKmixo0ba/ny5ZKkjz76SLfeequqVq2qNm3aKCEhIc9rdqNUv7M/Gzmf5YzQk5OT7X9UvPDCC7JYLLJYLBo1apS++OILWSyWXN8DkrRq1SpZLBbt3r37htcU5Qcj93LIarUqOzs71/68XhB4+PBhDR8+XMHBwapcubISExM1c+ZM7d+/P1dQSk1N1ciRIzV58mTNmjVLFSr8/9+OCxYsUNu2bbVgwQJduHBBTz31lKKiotSpUydVqlRJy5Yt09GjR/X000/roYce0ubNm+11H330Ub3xxht6/PHHFRkZqeTkZD3//PPasWOHvvvuO9WuXdteNi0tTSNGjNBTTz2ladOmadOmTZo6darq16+v6OjofK9JYmKiunfvrtq1a2vGjBkKCQlRamqqNm/erKtXr8rb2zvPejabTUOGDNEXX3yhyZMnq2vXrjp69KimTZumXr166dtvv1WVKlUcjvPUU09pypQpCggI0JIlSzR27Fg1bdpUPXr0kCRNmjRJq1ev1osvvqj27dsrMzNTP/zwg86ePWtv55///KcGDBigTp066R//+If8/Py0bt06/eEPf9ClS5c0atQoh34+9NBDuueee7Ru3Trt3btXzz77rLKzs/XTTz/pnnvu0cMPP6ytW7cqLi5O9evX16RJkxzqv/7662rUqJHmzp1r/2Nr4MCB+vzzz9WlS5d8r+tbb72l6OhoDRkyRCtXrlSlSpW0ePFi9e/fX1u2bFGfPn3yrTt79mxNnz5dzz33nHr06KFr165p//79unDhQr51cqSlpWn06NGaPHmybr75Zs2fP19jxoxRSkqK3n33XT377LPy8/PTjBkzdNddd+nnn39W/fr1b9jubxXXz0aOwMBAJSQkaMCAARo7dqweeughSdczCbfccovat2+vBQsW6IEHHnCo9/rrr+v222/X7bffXqj+w8MZKDeWL19uSDLdGjVqlG99q9VqXLt2zVi1apXh5eVlnDt3zv5Zz549DUnGtm3bHOocOXLEkGSEhYUZVqvVvn/u3LmGJGPw4MEO5Z988klDkpGenm4YhmEkJSUZkozHHnvModw333xjSDKeffbZXH345ptvHMq2bNnS6N+/f64+LV++3L6vd+/eRo0aNYzTp0/ne/55Wbt2rSHJ2Lhxo8P+3bt3G5KMhQsX2vc1atTI8PHxMY4ePWrfd/nyZcPf39945JFH7Ptat25t3HXXXabHDQ0NNdq3b29cu3bNYX9kZKQRGBhov9Y5/+cTJkxwKHfXXXcZkoxXXnnFYX+7du2MW2+91f51zrWqX7++cfnyZfv+jIwMw9/f3+jbt699X86xjhw5YhiGYWRmZhr+/v5GVFSUwzGsVqsRFhZmdOzY0fQcIyMjjXbt2pmW+f0xDeP/vw++/fZb+76zZ88aXl5eRpUqVYwTJ07Y93///feGJGPevHmmbcbExBT7z0bOZz179rR//csvvxiSjGnTpuV7rnv37rXv27VrlyHJWLlyZb59Q/lEWr4cWrVqlXbv3p1r6969e66ye/fu1eDBg1WrVi15eXmpUqVKio6OltVq1YEDBxzK1qxZU717987zmIMGDXIYrbRo0ULS9cVLv5Wz/9ixY5Kuj1Al5RqJduzYUS1atMiV3q1Xr546duzosK9t27Y6evRonv2SrqfBP//8c913332Fnmv98MMPVaNGDUVFRSk7O9u+tWvXTvXq1cu16rldu3Zq2LCh/WsfHx81a9bMoX8dO3bUJ598oilTpmjHjh26fPmyQxuHDh3S/v37NWLECElyOO6gQYOUmpqqn376yaFOZGSkw9dm1z+va3XPPffIx8fH/nX16tUVFRWlnTt3ymq15nltvvrqK507d04xMTEOfbTZbBowYIB2796tzMzMPOvmXIfExEQ99thj2rJlizIyMvIt+3uBgYG67bbb7F/7+/urbt26ateuncMIPec6mH1/5Ke4fjYK6oEHHlDdunW1YMEC+7758+erTp06+sMf/uBU25B27typqKgo1a9fXxaLRe+9916h2zAMQ3//+9/VrFkzeXt7KygoSLNmzSr+zhYAaflyqEWLFurQoUOu/X5+fkpJSbF/fezYMd1xxx1q3ry5XnvtNTVu3Fg+Pj7atWuXxo8fnyvomK0u9vf3d/i6cuXKpvuvXLkiSfZUdF5t169fP9cv5Vq1auUq5+3tnauvv3X+/HlZrVbdfPPN+ZbJz6lTp3ThwgV7v3/vzJkzhe7fvHnzdPPNN2v9+vWKi4uTj4+P+vfvr5dfflkhISE6deqUJOnpp5/W008/XaDjFub651z736pXr16e+65evapff/1Vfn5+uT7P6ee9996bZx8l6dy5c6pWrVqen02dOlXVqlXTW2+9pX/84x/y8vJSjx49FBcXl+f372/9/ryk6+d2o++3girOn42C8vb21iOPPKI5c+bo5Zdf1rVr17RhwwZNmjQp32kjFFxmZqbCwsI0evRoDR06tEhtTJw4UZ9++qn+/ve/q02bNkpPT8/1s+gqBHfk67333lNmZqbi4+PVqFEj+/7vv/8+z/IWi6XY+5ATDFNTU3MF35MnTzrMtxeVv7+/vLy8ci3QK4jatWurVq1auRZl5ahevXqh26xWrZpeeOEFvfDCCzp16pR9FB8VFaX9+/fbz3nq1Km655578myjefPmhT6umbS0tDz3Va5cWTfddFOedXL6OX/+/HzvTggICMj3mBUrVtSkSZM0adIkXbhwQVu3btWzzz6r/v37KyUlxa13YrjrZ+PRRx/VSy+9pGXLlunKlSvKzs7WH//4x2Jpu7wbOHCgBg4cmO/nV69e1XPPPac1a9bowoULat26teLi4uwLIpOSkrRo0SL98MMPxf7zVxQEd+Qr5xfSb0cFhmHozTffdFkfclKZb731lsOCod27dyspKUl/+ctfnD5GlSpV1LNnT73zzjuaOXNmof5giIyM1Lp162S1WtWpUyen+/J7AQEBGjVqlBITEzV37lxdunRJzZs3V0hIiBITE12W8ouPj9fLL79sT81fvHhRH3zwge644w55eXnlWadbt26qUaOGfvzxRz3++ONOHb9GjRq69957deLECT355JNKTk52621kJfWzkdNefpmmwMBADRs2TAsXLtTVq1cVFRXlMM2DkjN69GglJydr3bp1ql+/vjZt2qQBAwZo3759CgkJ0QcffKAmTZroww8/1IABA2QYhvr27avZs2fnmUkqaQR35CsiIkKVK1fWAw88oMmTJ+vKlStatGiRzp8/77I+NG/eXA8//LDmz5+vChUqaODAgfbV8kFBQfrTn/5ULMd55ZVX1L17d3Xq1ElTpkxR06ZNderUKW3evFmLFy/OdwR+//33a82aNRo0aJAmTpyojh07qlKlSjp+/Lj++c9/asiQIbr77rsL1ZdOnTopMjJSbdu2Vc2aNZWUlKTVq1erS5cu9tHq4sWLNXDgQPXv31+jRo1SgwYNdO7cOSUlJem7777TO++84/Q1+S0vLy9FRERo0qRJstlsiouLU0ZGhv2BK3m56aabNH/+fMXExOjcuXO69957Vbdu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nTlzRpMnT86zbI0aNUzbqlChgiZOnKijR49qz549JdDbssfV19dms+nixYvy9/d3tutl2oQJExQWFqbo6Gg9/PDD+utf/6p27drdsN65c+eUkJCg8ePHq1q1ark+v9H/kSfz8vLSrFmzNH/+fB0/fjzPMhcvXtQ777yjkSNHKiIiQpmZmdqxY0eucpUrV9aIESMcRu8rVqzQmDFjCtyfmJgY1axZk/R8KUFwL4VCQ0OVnJxsn88NDQ11qi3p+rwxrnPl9Z0zZ44yMzN13333FfkYnsBisWjRokXatm2bAgICNGXKlALVO3TokAzDcOr/yJPdfffdateunaZNm5bn5+vWrVNISIhatWolLy8v3X///Vq6dGmeZceOHasNGzYoMzNTO3fuVHp6uu68884C96VChQpq1qwZv2tKCYJ7KWT87529RjE8GTinjbL23vqS5Krru3btWk2fPl3r169X3bp1nT5WWbds2TJVrVpVR44cyXek+Xt8/95YXFycVq5cqR9//DHXZ0uXLtXIkSPtX48cOVLx8fG6cOFCrrJt27ZVSEiI3n33XS1btkwPPvigKlWqVKi+GIV43zhKFsG9FEpKSlJwcLCaNWsmSdq/f79TbUlScHBwsfTNE7ji+q5fv94+Eurbt2/RO+shvv76a7366qt6//331aVLF40dO7ZAf1yFhITIYrHYrzNy69Gjh/r3769nn33WYf+PP/6ob775RpMnT1bFihVVsWJFde7cWZcvX9batWvzbGvMmDFasGCB3n333UKl5KXrd0YcPHiQ3zWlBMG9lNm+fbv27dunoUOHql+/fqpdu7Zmz56dZ9m8/vr+LZvNpnnz5ik4OFjt27cvgd6WPa64vmvXrtWoUaP09ttvFyqt6akuX76smJgYPfLII+rbt6+WLFmi3bt3a/HixTes6+/vr/79+2vBggXKzMzM9fmN/o/Ki5deekkffPCBvvrqK/u+pUuXqkePHkpMTNT3339v3yZPnpxvan748OHat2+fWrdurZYtWxaqDytXrtT58+dz3fYI9+CVr26UlZWltLQ0Wa1WnTp1SgkJCYqNjVVkZKSio6Pl5eWlJUuWaNiwYRo8eLCeeOIJNW3aVGfOnNGGDRt07NgxrVu3zt7e2bNnlZaWpkuXLumHH37Q3LlztWvXLn300Ufy8vJy45m6hzuu79q1axUdHa3XXntNnTt3VlpamiSpSpUq8vPzc8t1cLcpU6bIZrMpLi5OktSwYUPNmTNHkyZN0oABA+z3sudn4cKF6tq1qzp27KgZM2aobdu2ys7O1meffaZFixYxqpfUpk0bjRgxQvPnz5ckXbt2TatXr9aMGTPUunVrh7IPPfSQZs+ercTERIWFhTl8VrNmTaWmpt4wHX/p0iWlpaUpOztbJ06cUHx8vF599VU9+uijCg8PL96TQ9G4a5l+eRcTE2NIMiQZFStWNOrUqWP07dvXWLZsmWG1Wh3K7t6927jnnnuMOnXqGN7e3kbTpk2Nhx9+2Dh48KBhGP9/C1HOVrVqVaNFixbGY489Zi9T3rjr+vbs2dOhbM4WExPjqlMvVXbs2GF4eXkZX3zxRa7P+vXrZ/Tu3dt+a1Z+t8IZhmGcPHnSGD9+vNGoUSOjcuXKRoMGDYzBgwcb//znP0v4DEqnvG71TE5ONry9vQ1JxrvvvmtUqFDBSEtLy7N+mzZtjAkTJhiGkf+tbTnyuhUu5/u6cuXKRmBgoBEZGWnEx8c7e1ooRrzPHQAAD8OcOwAAHobgDgCAhyG4AwDgYQjuAAB4GII7AAAehuAOAICHIbgDAOBhCO4AAHgYgjsAAB6G4A4AgIchuAMA4GH+D+bqCmaCeju4AAAAAElFTkSuQmCC",
+      "text/plain": [
+       "<Figure size 640x480 with 2 Axes>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "fig, ax = plt.subplots()\n",
+    "im = plt.imshow(hes)\n",
+    "plt.xticks(np.arange(4), labels)\n",
+    "plt.yticks(np.arange(4), labels)\n",
+    "plt.title('Harmonic ensemble similarity')\n",
+    "cbar = fig.colorbar(im)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## References"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "[1] R. J. Gowers, M. Linke, J. Barnoud, T. J. E. Reddy, M. N. Melo, S. L. Seyler, D. L. Dotson, J. Domanski, S. Buchoux, I. M. Kenney, and O. Beckstein. [MDAnalysis: A Python package for the rapid analysis of molecular dynamics simulations](http://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html). In S. Benthall and S. Rostrup, editors, *Proceedings of the 15th Python in Science Conference*, pages 98-105, Austin, TX, 2016. SciPy, doi: [10.25080/majora-629e541a-00e](https://doi.org/10.25080/majora-629e541a-00e).\n",
+    "\n",
+    "[2] N. Michaud-Agrawal, E. J. Denning, T. B. Woolf, and O. Beckstein. MDAnalysis: A Toolkit for the Analysis of Molecular Dynamics Simulations. *J. Comput. Chem*. 32 (2011), 2319-2327, [doi:10.1002/jcc.21787](https://dx.doi.org/10.1002/jcc.21787). PMCID:[PMC3144279](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3144279/)\n",
+    "\n",
+    "[3] ENCORE: Software for Quantitative Ensemble Comparison. Matteo Tiberti, Elena Papaleo, Tone Bengtsen, Wouter Boomsma, Kresten Lindorff-Larsen. *PLoS Comput Biol.* 2015, 11, e1004415.\n",
+    "\n",
+    "[4] Beckstein O, Denning EJ, Perilla JR, Woolf TB. Zipping and unzipping of adenylate kinase: atomistic insights into the ensemble of open<-->closed transitions. *J Mol Biol*. 2009;394(1):160–176. [doi:10.1016/j.jmb.2009.09.009](https://dx.doi.org/10.1016%2Fj.jmb.2009.09.009)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## References\n",
+    "\n",
+    "[1] Oliver Beckstein, Elizabeth&nbsp;J. Denning, Juan&nbsp;R. Perilla, and Thomas&nbsp;B. Woolf.\n",
+    "Zipping and <span class=\"bibtex-protected\">Unzipping</span> of <span class=\"bibtex-protected\">Adenylate</span> <span class=\"bibtex-protected\">Kinase</span>: <span class=\"bibtex-protected\">Atomistic</span> <span class=\"bibtex-protected\">Insights</span> into the <span class=\"bibtex-protected\">Ensemble</span> of <span class=\"bibtex-protected\">Open</span>↔<span class=\"bibtex-protected\">Closed</span> <span class=\"bibtex-protected\">Transitions</span>.\n",
+    "<em>Journal of Molecular Biology</em>, 394(1):160–176, November 2009.\n",
+    "00107.\n",
+    "URL: <a href=\"https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164\">https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164</a>, <a href=\"https://doi.org/10.1016/j.jmb.2009.09.009\">doi:10.1016/j.jmb.2009.09.009</a>.\n",
+    "\n",
+    "[2] Richard&nbsp;J. Gowers, Max Linke, Jonathan Barnoud, Tyler J.&nbsp;E. Reddy, Manuel&nbsp;N. Melo, Sean&nbsp;L. Seyler, Jan Domański, David&nbsp;L. Dotson, Sébastien Buchoux, Ian&nbsp;M. Kenney, and Oliver Beckstein.\n",
+    "<span class=\"bibtex-protected\">MDAnalysis</span>: <span class=\"bibtex-protected\">A</span> <span class=\"bibtex-protected\">Python</span> <span class=\"bibtex-protected\">Package</span> for the <span class=\"bibtex-protected\">Rapid</span> <span class=\"bibtex-protected\">Analysis</span> of <span class=\"bibtex-protected\">Molecular</span> <span class=\"bibtex-protected\">Dynamics</span> <span class=\"bibtex-protected\">Simulations</span>.\n",
+    "<em>Proceedings of the 15th Python in Science Conference</em>, pages 98–105, 2016.\n",
+    "00152.\n",
+    "URL: <a href=\"https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html\">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, <a href=\"https://doi.org/10.25080/Majora-629e541a-00e\">doi:10.25080/Majora-629e541a-00e</a>.\n",
+    "\n",
+    "[3] Naveen Michaud-Agrawal, Elizabeth&nbsp;J. Denning, Thomas&nbsp;B. Woolf, and Oliver Beckstein.\n",
+    "<span class=\"bibtex-protected\">MDAnalysis</span>: <span class=\"bibtex-protected\">A</span> toolkit for the analysis of molecular dynamics simulations.\n",
+    "<em>Journal of Computational Chemistry</em>, 32(10):2319–2327, July 2011.\n",
+    "00778.\n",
+    "URL: <a href=\"http://doi.wiley.com/10.1002/jcc.21787\">http://doi.wiley.com/10.1002/jcc.21787</a>, <a href=\"https://doi.org/10.1002/jcc.21787\">doi:10.1002/jcc.21787</a>.\n",
+    "\n",
+    "[4] Matteo Tiberti, Elena Papaleo, Tone Bengtsen, Wouter Boomsma, and Kresten Lindorff-Larsen.\n",
+    "<span class=\"bibtex-protected\">ENCORE</span>: <span class=\"bibtex-protected\">Software</span> for <span class=\"bibtex-protected\">Quantitative</span> <span class=\"bibtex-protected\">Ensemble</span> <span class=\"bibtex-protected\">Comparison</span>.\n",
+    "<em>PLOS Computational Biology</em>, 11(10):e1004415, October 2015.\n",
+    "00031.\n",
+    "URL: <a href=\"https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004415\">https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004415</a>, <a href=\"https://doi.org/10.1371/journal.pcbi.1004415\">doi:10.1371/journal.pcbi.1004415</a>."
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3.9.15 ('mda-user-guide')",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.15"
+  },
+  "toc": {
+   "base_numbering": 1,
+   "nav_menu": {},
+   "number_sections": false,
+   "sideBar": true,
+   "skip_h1_title": false,
+   "title_cell": "Table of Contents",
+   "title_sidebar": "Contents",
+   "toc_cell": false,
+   "toc_position": {},
+   "toc_section_display": true,
+   "toc_window_display": false
+  },
+  "vscode": {
+   "interpreter": {
+    "hash": "7b52aa17ef4e9358c0e91ff3f0bf50d10667bb8b55636d4b9fb967a2ff94bd8c"
+   }
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
