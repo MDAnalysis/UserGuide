@@ -1,6 +1,40 @@
 # MDAnalysis Release Notes
 
 
+## Release 2.8.0 of MDAnalysis
+
+This a minor release of MDAnalysis.
+
+As of this release MDAnalysis is packaged under a [LGPLv3+ license](https://www.gnu.org/licenses/lgpl-3.0.en.html), and all code contributions are provided under the [LGPLv2.1+ license](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html).
+
+This release supports NumPy 2.0+ and offers backwards compatibility through to NumPy 1.23.2
+
+Supported Python versions:
+  - 3.10, 3.11, 3.12, 3.13
+
+### Major features
+
+See the [CHANGELOG](https://github.com/MDAnalysis/mdanalysis/blob/release-2.8.0/package/CHANGELOG) and our [release blog post](https://www.mdanalysis.org/blog/#mdanalysis-2.8-is-out) for more details.
+
+* The MDAnalysis package license has changed from GPLv3+ to LGPLv3+ and all code contributions are now under LGPLv2.1+
+* MDAnalysis now has a brand new guesser API (PR #3753). See the DefaultGuesser class for more information. Please note that default guessing of types and masses will change in MDAnalysis v3.0.
+* DSSP analysis `analysis.DSSP` module for protein secondary structure assignment, based on [pydssp](https://github.com/ShintaroMinami/PyDSSP) was added.
+* An iterative average structure method was added to `analysis.align` based on DOI 10.1021/acs.jpcb.7b11988. 
+* The TPR reader has been updated to support Gromacs 2024.
+* The AnalysisBase class was enhanced through the introduction of a parallelization API (Issue #4158, PR #4304). Various analyses now support parallel computation, including; RMSD, GNMAnalysis, BAT, dihdral calculations, DSSP, and HydrogenBondAnalysis.
+
+### Notable changes / upcoming deprecations
+
+* MMTF support is now deprecated and will be removed in MDAnalysis v3.0. The `fetch_mmtf` method has been disabled as it no longer works.
+* MDAnalysis.analysis.hole2 has been moved to its own mdakit ([mdahole2](https://github.com/MDAnalysis/mdahole2)) and will be fully removed from the core library in MDAnalysis v3.0.
+* MDAnalysis.analysis.encore has been deprecated in favour of its own mdakit ([mdaencore](https://github.com/MDAnalysis/mdaencore/)) and will be removed in MDAnalysis v3.0.
+* MDAnalysis.analysis.waterdynamics has been deprecated in favour of its own mdakit ([waterdynamics](https://github.com/MDAnalysis/waterdynamics)) and will be removed in MDAnalysis v3.0.
+* MDAnalysis.analysis.psa has been deprecated in favour of its own mdakit ([PathSimAnalysis](https://github.com/MDAnalysis/pathsimanalysis)) and will be removed in MDAnalysis v3.0.
+* The `guess_bonds`, `vdwradii`, `fudge_factor`, and `lower_bound` kwargs are deprecated for bond guessing during Universe creation.
+  Instead, pass `("bonds", "angles", "dihedrals")` into `to_guess` or `force_guess` during Universe creation, and the associated `vdwradii`, `fudge_factor`, and `lower_bound` kwargs into `Guesser` creation. Alternatively, if `vdwradii`, `fudge_factor`, and `lower_bound` are passed into `Universe.guess_TopologyAttrs`, they will override the previous values of those kwargs.
+* MDAnalysis.topology.guessers and MDAnalysis.topology.tables are deprecated in favour of the new Guessers API and will be removed in MDAnalysis v3.0.
+* Unknown masses are set to 0.0 for current version, this will be depracated in MDAnalysis v3.0.0 and replaced by :class:`Masses`' no_value_label attribute (np.nan).
+
 ## Release 2.7.0 of MDAnalysis
 
 This a minor release of MDAnalysis.

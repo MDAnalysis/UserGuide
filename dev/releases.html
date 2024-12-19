@@ -107,6 +107,11 @@
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently asked questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/README.html">Examples</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">MDAnalysis Release Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#release-2-8-0-of-mdanalysis">Release 2.8.0 of MDAnalysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#major-features">Major features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notable-changes-upcoming-deprecations">Notable changes / upcoming deprecations</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#release-2-7-0-of-mdanalysis">Release 2.7.0 of MDAnalysis</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#major-changes">Major changes:</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#fixes">Fixes:</a></li>
@@ -297,6 +302,42 @@
              
   <section id="mdanalysis-release-notes">
 <h1>MDAnalysis Release Notes<a class="headerlink" href="#mdanalysis-release-notes" title="Link to this heading"></a></h1>
+<section id="release-2-8-0-of-mdanalysis">
+<h2>Release 2.8.0 of MDAnalysis<a class="headerlink" href="#release-2-8-0-of-mdanalysis" title="Link to this heading"></a></h2>
+<p>This a minor release of MDAnalysis.</p>
+<p>As of this release MDAnalysis is packaged under a <a class="reference external" href="https://www.gnu.org/licenses/lgpl-3.0.en.html">LGPLv3+ license</a>, and all code contributions are provided under the <a class="reference external" href="https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html">LGPLv2.1+ license</a>.</p>
+<p>This release supports NumPy 2.0+ and offers backwards compatibility through to NumPy 1.23.2</p>
+<p>Supported Python versions:</p>
+<ul class="simple">
+<li><p>3.10, 3.11, 3.12, 3.13</p></li>
+</ul>
+<section id="major-features">
+<h3>Major features<a class="headerlink" href="#major-features" title="Link to this heading"></a></h3>
+<p>See the <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/blob/release-2.8.0/package/CHANGELOG">CHANGELOG</a> and our <a class="reference external" href="https://www.mdanalysis.org/blog/#mdanalysis-2.8-is-out">release blog post</a> for more details.</p>
+<ul class="simple">
+<li><p>The MDAnalysis package license has changed from GPLv3+ to LGPLv3+ and all code contributions are now under LGPLv2.1+</p></li>
+<li><p>MDAnalysis now has a brand new guesser API (PR #3753). See the DefaultGuesser class for more information. Please note that default guessing of types and masses will change in MDAnalysis v3.0.</p></li>
+<li><p>DSSP analysis <code class="docutils literal notranslate"><span class="pre">analysis.DSSP</span></code> module for protein secondary structure assignment, based on <a class="reference external" href="https://github.com/ShintaroMinami/PyDSSP">pydssp</a> was added.</p></li>
+<li><p>An iterative average structure method was added to <code class="docutils literal notranslate"><span class="pre">analysis.align</span></code> based on DOI 10.1021/acs.jpcb.7b11988.</p></li>
+<li><p>The TPR reader has been updated to support Gromacs 2024.</p></li>
+<li><p>The AnalysisBase class was enhanced through the introduction of a parallelization API (Issue #4158, PR #4304). Various analyses now support parallel computation, including; RMSD, GNMAnalysis, BAT, dihdral calculations, DSSP, and HydrogenBondAnalysis.</p></li>
+</ul>
+</section>
+<section id="notable-changes-upcoming-deprecations">
+<h3>Notable changes / upcoming deprecations<a class="headerlink" href="#notable-changes-upcoming-deprecations" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>MMTF support is now deprecated and will be removed in MDAnalysis v3.0. The <code class="docutils literal notranslate"><span class="pre">fetch_mmtf</span></code> method has been disabled as it no longer works.</p></li>
+<li><p>MDAnalysis.analysis.hole2 has been moved to its own mdakit (<a class="reference external" href="https://github.com/MDAnalysis/mdahole2">mdahole2</a>) and will be fully removed from the core library in MDAnalysis v3.0.</p></li>
+<li><p>MDAnalysis.analysis.encore has been deprecated in favour of its own mdakit (<a class="reference external" href="https://github.com/MDAnalysis/mdaencore/">mdaencore</a>) and will be removed in MDAnalysis v3.0.</p></li>
+<li><p>MDAnalysis.analysis.waterdynamics has been deprecated in favour of its own mdakit (<a class="reference external" href="https://github.com/MDAnalysis/waterdynamics">waterdynamics</a>) and will be removed in MDAnalysis v3.0.</p></li>
+<li><p>MDAnalysis.analysis.psa has been deprecated in favour of its own mdakit (<a class="reference external" href="https://github.com/MDAnalysis/pathsimanalysis">PathSimAnalysis</a>) and will be removed in MDAnalysis v3.0.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">guess_bonds</span></code>, <code class="docutils literal notranslate"><span class="pre">vdwradii</span></code>, <code class="docutils literal notranslate"><span class="pre">fudge_factor</span></code>, and <code class="docutils literal notranslate"><span class="pre">lower_bound</span></code> kwargs are deprecated for bond guessing during Universe creation.
+Instead, pass <code class="docutils literal notranslate"><span class="pre">(&quot;bonds&quot;,</span> <span class="pre">&quot;angles&quot;,</span> <span class="pre">&quot;dihedrals&quot;)</span></code> into <code class="docutils literal notranslate"><span class="pre">to_guess</span></code> or <code class="docutils literal notranslate"><span class="pre">force_guess</span></code> during Universe creation, and the associated <code class="docutils literal notranslate"><span class="pre">vdwradii</span></code>, <code class="docutils literal notranslate"><span class="pre">fudge_factor</span></code>, and <code class="docutils literal notranslate"><span class="pre">lower_bound</span></code> kwargs into <code class="docutils literal notranslate"><span class="pre">Guesser</span></code> creation. Alternatively, if <code class="docutils literal notranslate"><span class="pre">vdwradii</span></code>, <code class="docutils literal notranslate"><span class="pre">fudge_factor</span></code>, and <code class="docutils literal notranslate"><span class="pre">lower_bound</span></code> are passed into <code class="docutils literal notranslate"><span class="pre">Universe.guess_TopologyAttrs</span></code>, they will override the previous values of those kwargs.</p></li>
+<li><p>MDAnalysis.topology.guessers and MDAnalysis.topology.tables are deprecated in favour of the new Guessers API and will be removed in MDAnalysis v3.0.</p></li>
+<li><p>Unknown masses are set to 0.0 for current version, this will be depracated in MDAnalysis v3.0.0 and replaced by :class:<code class="docutils literal notranslate"><span class="pre">Masses</span></code>’ no_value_label attribute (np.nan).</p></li>
+</ul>
+</section>
+</section>
 <section id="release-2-7-0-of-mdanalysis">
 <h2>Release 2.7.0 of MDAnalysis<a class="headerlink" href="#release-2-7-0-of-mdanalysis" title="Link to this heading"></a></h2>
 <p>This a minor release of MDAnalysis.</p>
