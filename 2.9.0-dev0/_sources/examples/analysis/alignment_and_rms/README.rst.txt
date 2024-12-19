@@ -10,10 +10,10 @@ The :mod:`MDAnalysis.analysis.align` and :mod:`MDAnalysis.analysis.rms`
 modules contain the functions used for aligning structures,
 aligning trajectories, and calculating root mean squared quantities.
 
-Demonstrations of alignment are in `align_structure`_,
-`align_trajectory_first`_, and `align_trajectory`_. Another example of
+Demonstrations of alignment are in `align_structure <aligning_structure_to_another.ipynb>`__,
+`align_trajectory_first <aligning_trajectory_to_frame.ipynb>`__, and `align_trajectory <aligning_trajectory.ipynb>`__. Another example of
 generating an average structure from an alignment is demonstrated in
-`rmsf`_. Typically, trajectories need to be aligned for RMSD and
+`rmsf <rmsf.ipynb>`__. Typically, trajectories need to be aligned for RMSD and
 RMSF values to make sense.
 
 .. note::
@@ -33,10 +33,8 @@ RMSF values to make sense.
    /examples/analysis/alignment_and_rms/pairwise_rmsd
    /examples/analysis/alignment_and_rms/rmsf
 
-
-.. _align_structure: /examples/analysis/alignment_and_rms/aligning_structure_to_another.ipynb
-.. _align_trajectory_first: /examples/analysis/alignment_and_rms/aligning_trajectory_to_first_frame.ipynb
-.. _align_trajectory: /examples/analysis/alignment_and_rms/aligning_trajectory.ipynb
 .. _rmsd: /examples/analysis/alignment_and_rms/rmsd.ipynb
 .. _pairwise: /examples/analysis/alignment_and_rms/pairwise_rmsd.ipynb
-.. _rmsf: /examples/analysis/alignment_and_rms/rmsf.ipynb
+.. _align_structure: aligning_structure_to_another.ipynb
+.. _align_trajectory: aligning_trajectory.ipynb
+.. _align_trajectory_frame: aligning_trajectory_to_frame.ipynb

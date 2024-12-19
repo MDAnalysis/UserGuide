@@ -386,7 +386,7 @@ metric suffers from the problem of <em>degeneracy</em>: many different structure
 <p><code class="docutils literal notranslate"><span class="pre">R.rmsd</span></code> has a row for each timestep. The first two columns of each row are the frame index of the time step, and the time (which is guessed in trajectory formats without timesteps). The third column is RMSD of <code class="docutils literal notranslate"><span class="pre">select</span></code>. The last few columns are the RMSD of the groups in <code class="docutils literal notranslate"><span class="pre">groupselections</span></code>.</p>
 <section id="Plotting-the-data">
 <h3>Plotting the data<a class="headerlink" href="#Plotting-the-data" title="Link to this heading"></a></h3>
-<p>We can easily plot this data using the common data analysis package <a class="reference external" href="https://pandas.pydata.org">pandas</a>. We turn the <code class="docutils literal notranslate"><span class="pre">R.rmsd</span></code> array into a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html#dataframe">DataFrame</a> and label each column below.</p>
+<p>We can easily plot this data using the common data analysis package <a class="reference external" href="https://pandas.pydata.org">pandas</a>. We turn the <code class="docutils literal notranslate"><span class="pre">R.rmsd</span></code> array into a <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/dsintro.html#dataframe">DataFrame</a> and label each column below.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
