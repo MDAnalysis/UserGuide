@@ -218,7 +218,7 @@ See the [CHANGELOG](https://github.com/MDAnalysis/mdanalysis/blob/release-2.5.0/
 * [@jvermaas](https://github.com/jvermaas) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4031
 * [@SophiaRuan](https://github.com/SophiaRuan) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4072
 * [@marinegor](https://github.com/marinegor) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4085
-* [@shaivimalik](https://github.com/shaivimalik) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4089
+* [@g2707](https://github.com/g2707) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4089
 * [@DanielJamesEvans](https://github.com/DanielJamesEvans) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4109
 
 ## Release 2.4.3 of MDAnalysis

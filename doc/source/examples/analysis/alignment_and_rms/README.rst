@@ -11,7 +11,7 @@ modules contain the functions used for aligning structures,
 aligning trajectories, and calculating root mean squared quantities.
 
 Demonstrations of alignment are in `align_structure <aligning_structure_to_another.ipynb>`__,
-`align_trajectory_first <aligning_trajectory_to_first_frame.ipynb>`__, and `align_trajectory <aligning_trajectory.ipynb>`__. Another example of
+`align_trajectory_first <aligning_trajectory_to_frame.ipynb>`__, and `align_trajectory <aligning_trajectory.ipynb>`__. Another example of
 generating an average structure from an alignment is demonstrated in
 `rmsf <rmsf.ipynb>`__. Typically, trajectories need to be aligned for RMSD and
 RMSF values to make sense.
@@ -35,3 +35,7 @@ RMSF values to make sense.
 
 .. _rmsd: /examples/analysis/alignment_and_rms/rmsd.ipynb
 .. _pairwise: /examples/analysis/alignment_and_rms/pairwise_rmsd.ipynb
+.. _align_structure: aligning_structure_to_another.ipynb
+.. _align_trajectory: aligning_trajectory.ipynb
+.. _align_trajectory_frame: aligning_trajectory_to_frame.ipynb
+
