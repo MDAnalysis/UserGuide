@@ -38,4 +38,3 @@ RMSF values to make sense.
 .. _align_structure: aligning_structure_to_another.ipynb
 .. _align_trajectory: aligning_trajectory.ipynb
 .. _align_trajectory_frame: aligning_trajectory_to_frame.ipynb
-
