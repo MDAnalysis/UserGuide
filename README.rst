@@ -8,10 +8,14 @@
 
 MDAnalysis is a Python toolkit to analyse molecular dynamics files and trajectories in `many popular formats`_. MDAnalysis can write most of these formats, too, together with atom selections for use in visualisation tools or other analysis programs. It provides a fast framework for complex analysis tasks, as well as flexible tooling to construct your own analyses.
 
-This repository contains the `user guide`_ for MDAnalysis. The user guide originated as a `project for Google Season of Docs 2019-2020`_ .
+This repository contains the `user guide`_ for MDAnalysis. The user guide originated as a `project for Google Season of Docs 2019-2020`_.
+
+The code in the user guide is released under the `GNU LGPL v2.1+` license, while text and images are released under the `CC BY-SA 4.0 DEED`_ license.
 
 .. Footnotes
 
+.. _`CC BY-SA 4.0 DEED`: https://creativecommons.org/licenses/by-sa/4.0/
+.. _`GNU LGPL v2.1+`: https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html
 .. _`user guide`: https://www.mdanalysis.org/UserGuide/index.html
 .. _`many popular formats`: https://www.mdanalysis.org/UserGuide/formats/index.html
 .. _MDAnalysis: https://www.mdanalysis.org

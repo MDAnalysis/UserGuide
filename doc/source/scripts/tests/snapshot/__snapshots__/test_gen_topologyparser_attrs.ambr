@@ -140,6 +140,12 @@
       ':ref:`DATA <DATA-format>`, :ref:`GSD <GSD-format>`, :ref:`PSF <PSF-format>`, :ref:`TOP, PRMTOP, PARM7 <TOP-format>`, :ref:`TPR <TPR-format>`, :ref:`XML <XML-format>`',
     ]),
     list([
+      'mass',
+      'masses',
+      '',
+      ':ref:`CONFIG <CONFIG-format>`, :ref:`CRD <CRD-format>`, :ref:`DATA <DATA-format>`, :ref:`DMS <DMS-format>`, :ref:`GMS <GMS-format>`, :ref:`GRO <GRO-format>`, :ref:`GSD <GSD-format>`, :ref:`HISTORY <HISTORY-format>`, :ref:`IN, FHIAIMS <IN-format>`, :ref:`LAMMPSDUMP <LAMMPSDUMP-format>`, :ref:`MMTF <MMTF-format>`, :ref:`MOL2 <MOL2-format>`, :ref:`PDB, ENT <PDB-format>`, :ref:`PDBQT <PDBQT-format>`, :ref:`PQR <PQR-format>`, :ref:`PSF <PSF-format>`, :ref:`TOP, PRMTOP, PARM7 <TOP-format>`, :ref:`TPR <TPR-format>`, :ref:`TXYZ, ARC <TXYZ-format>`, :ref:`XML <XML-format>`, :ref:`XPDB <XPDB-format>`, :ref:`XYZ <XYZ-format>`',
+    ]),
+    list([
       'model',
       'models',
       'model number (from 0)',
@@ -216,6 +222,12 @@
       'tempfactors',
       'B-factor',
       ':ref:`CRD <CRD-format>`, :ref:`MMTF <MMTF-format>`, :ref:`PDB, ENT <PDB-format>`, :ref:`PDBQT <PDBQT-format>`, :ref:`XPDB <XPDB-format>`',
+    ]),
+    list([
+      'type',
+      'types',
+      '',
+      ':ref:`CONFIG <CONFIG-format>`, :ref:`CRD <CRD-format>`, :ref:`DATA <DATA-format>`, :ref:`DMS <DMS-format>`, :ref:`GMS <GMS-format>`, :ref:`GRO <GRO-format>`, :ref:`GSD <GSD-format>`, :ref:`HISTORY <HISTORY-format>`, :ref:`IN, FHIAIMS <IN-format>`, :ref:`LAMMPSDUMP <LAMMPSDUMP-format>`, :ref:`MMTF <MMTF-format>`, :ref:`MOL2 <MOL2-format>`, :ref:`PDB, ENT <PDB-format>`, :ref:`PDBQT <PDBQT-format>`, :ref:`PQR <PQR-format>`, :ref:`PSF <PSF-format>`, :ref:`TOP, PRMTOP, PARM7 <TOP-format>`, :ref:`TPR <TPR-format>`, :ref:`TXYZ, ARC <TXYZ-format>`, :ref:`XML <XML-format>`, :ref:`XPDB <XPDB-format>`, :ref:`XYZ <XYZ-format>`',
     ]),
     list([
       'type_index',
@@ -319,8 +331,11 @@
     'masses': set({
       ':ref:`CONFIG <CONFIG-format>`',
       ':ref:`CRD <CRD-format>`',
+      ':ref:`DATA <DATA-format>`',
+      ':ref:`DMS <DMS-format>`',
       ':ref:`GMS <GMS-format>`',
       ':ref:`GRO <GRO-format>`',
+      ':ref:`GSD <GSD-format>`',
       ':ref:`HISTORY <HISTORY-format>`',
       ':ref:`IN, FHIAIMS <IN-format>`',
       ':ref:`LAMMPSDUMP <LAMMPSDUMP-format>`',
@@ -329,7 +344,11 @@
       ':ref:`PDB, ENT <PDB-format>`',
       ':ref:`PDBQT <PDBQT-format>`',
       ':ref:`PQR <PQR-format>`',
+      ':ref:`PSF <PSF-format>`',
+      ':ref:`TOP, PRMTOP, PARM7 <TOP-format>`',
+      ':ref:`TPR <TPR-format>`',
       ':ref:`TXYZ, ARC <TXYZ-format>`',
+      ':ref:`XML <XML-format>`',
       ':ref:`XPDB <XPDB-format>`',
       ':ref:`XYZ <XYZ-format>`',
     }),
@@ -408,13 +427,24 @@
     'types': set({
       ':ref:`CONFIG <CONFIG-format>`',
       ':ref:`CRD <CRD-format>`',
+      ':ref:`DATA <DATA-format>`',
       ':ref:`DMS <DMS-format>`',
       ':ref:`GMS <GMS-format>`',
       ':ref:`GRO <GRO-format>`',
+      ':ref:`GSD <GSD-format>`',
       ':ref:`HISTORY <HISTORY-format>`',
       ':ref:`IN, FHIAIMS <IN-format>`',
+      ':ref:`LAMMPSDUMP <LAMMPSDUMP-format>`',
+      ':ref:`MMTF <MMTF-format>`',
+      ':ref:`MOL2 <MOL2-format>`',
       ':ref:`PDB, ENT <PDB-format>`',
+      ':ref:`PDBQT <PDBQT-format>`',
       ':ref:`PQR <PQR-format>`',
+      ':ref:`PSF <PSF-format>`',
+      ':ref:`TOP, PRMTOP, PARM7 <TOP-format>`',
+      ':ref:`TPR <TPR-format>`',
+      ':ref:`TXYZ, ARC <TXYZ-format>`',
+      ':ref:`XML <XML-format>`',
       ':ref:`XPDB <XPDB-format>`',
       ':ref:`XYZ <XYZ-format>`',
     }),
@@ -437,13 +467,13 @@
     list([
       ':ref:`DATA <DATA-format>`',
       'LAMMPS data file',
-      'angles, bonds, charges, dihedrals, impropers',
+      'angles, bonds, charges, dihedrals, impropers, masses, types',
       '',
     ]),
     list([
       ':ref:`DMS <DMS-format>`',
       'DESRES Molecular Structure file',
-      'atomnums, bonds, chainIDs, charges, names, resnames',
+      'atomnums, bonds, chainIDs, charges, masses, names, resnames',
       'types',
     ]),
     list([
@@ -461,7 +491,7 @@
     list([
       ':ref:`GSD <GSD-format>`',
       'HOOMD GSD file',
-      'angles, bonds, charges, dihedrals, impropers, names, radii, resnames',
+      'angles, bonds, charges, dihedrals, impropers, masses, names, radii, resnames, types',
       '',
     ]),
     list([
@@ -479,19 +509,19 @@
     list([
       ':ref:`LAMMPSDUMP <LAMMPSDUMP-format>`',
       'LAMMPS ascii dump file',
+      'masses, types',
       '',
-      'masses',
     ]),
     list([
       ':ref:`MMTF <MMTF-format>`',
       'MMTF file',
-      'altLocs, bonds, charges, icodes, models, names, occupancies, resnames, tempfactors',
+      'altLocs, bonds, charges, icodes, models, names, occupancies, resnames, tempfactors, types',
       'masses',
     ]),
     list([
       ':ref:`MOL2 <MOL2-format>`',
       'Tripos MOL2 file',
-      'bonds, charges, elements, names, resnames',
+      'bonds, charges, elements, names, resnames, types',
       'masses',
     ]),
     list([
@@ -503,7 +533,7 @@
     list([
       ':ref:`PDBQT <PDBQT-format>`',
       'PDBQT file',
-      'altLocs, chainIDs, charges, icodes, names, occupancies, record_types, resnames, tempfactors',
+      'altLocs, chainIDs, charges, icodes, names, occupancies, record_types, resnames, tempfactors, types',
       'masses',
     ]),
     list([
@@ -515,31 +545,31 @@
     list([
       ':ref:`PSF <PSF-format>`',
       'CHARMM, NAMD, or XPLOR PSF file',
-      'angles, bonds, charges, dihedrals, impropers, names, resnames',
+      'angles, bonds, charges, dihedrals, impropers, masses, names, resnames, types',
       '',
     ]),
     list([
       ':ref:`TOP, PRMTOP, PARM7 <TOP-format>`',
       'AMBER topology file',
-      'angles, bonds, charges, dihedrals, impropers, names, resnames, type_indices',
+      'angles, bonds, charges, dihedrals, impropers, masses, names, resnames, type_indices, types',
       '',
     ]),
     list([
       ':ref:`TPR <TPR-format>`',
       'GROMACS run topology file',
-      'angles, bonds, chainIDs, charges, dihedrals, elements, impropers, molnums, moltypes, names, resnames',
+      'angles, bonds, chainIDs, charges, dihedrals, elements, impropers, masses, molnums, moltypes, names, resnames, types',
       '',
     ]),
     list([
       ':ref:`TXYZ, ARC <TXYZ-format>`',
       'Tinker file',
-      'bonds, elements, names',
+      'bonds, elements, names, types',
       'masses',
     ]),
     list([
       ':ref:`XML <XML-format>`',
       'HOOMD XML file',
-      'angles, bonds, charges, dihedrals, impropers, radii',
+      'angles, bonds, charges, dihedrals, impropers, masses, radii, types',
       '',
     ]),
     list([
