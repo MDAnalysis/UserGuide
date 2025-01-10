@@ -23,7 +23,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calculating the Clustering Ensemble Similarity between ensembles &mdash; MDAnalysis User Guide  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/site.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/nbsphinx-code-cells.css?v=2aa19091" />
@@ -245,15 +245,15 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 
-<span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
-<span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">,</span> <span class="n">DCD2</span><span class="p">,</span> <span class="n">GRO</span><span class="p">,</span> <span class="n">XTC</span><span class="p">,</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">MDAnalysis</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mda</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">MDAnalysis.tests.datafiles</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">,</span> <span class="n">DCD2</span><span class="p">,</span> <span class="n">GRO</span><span class="p">,</span> <span class="n">XTC</span><span class="p">,</span>
                                         <span class="n">PSF_NAMD_GBIS</span><span class="p">,</span> <span class="n">DCD_NAMD_GBIS</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">MDAnalysis.analysis</span> <span class="kn">import</span> <span class="n">encore</span>
-<span class="kn">from</span> <span class="nn">MDAnalysis.analysis.encore.clustering</span> <span class="kn">import</span> <span class="n">ClusteringMethod</span> <span class="k">as</span> <span class="n">clm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">MDAnalysis.analysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">encore</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">MDAnalysis.analysis.encore.clustering</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClusteringMethod</span> <span class="k">as</span> <span class="n">clm</span>
 </pre></div>
 </div>
 </div>

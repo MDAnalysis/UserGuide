@@ -23,7 +23,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MOL2 (Tripos structure) &mdash; MDAnalysis User Guide  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/site.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
 
@@ -251,7 +251,7 @@
 For example, if you’re trying to convert a PDB file to MOL2, you should
 use other tools such as <a class="reference external" href="http://www.rdkit.org/docs/GettingStartedInPython.html">rdkit</a>.</p>
 <p>Here is an example how to use <a class="reference external" href="http://www.rdkit.org/docs/GettingStartedInPython.html">rdkit</a> to convert a PDB to MOL:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rdkit</span><span class="w"> </span><span class="kn">import</span> <span class="n">Chem</span>
 <span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromPDBFile</span><span class="p">(</span><span class="s2">&quot;molecule.pdb&quot;</span><span class="p">,</span> <span class="n">removeHs</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">Chem</span><span class="o">.</span><span class="n">MolToMolFile</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="s2">&quot;molecule.mol&quot;</span> <span class="p">)</span>
 </pre></div>

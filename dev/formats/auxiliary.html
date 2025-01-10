@@ -23,7 +23,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Auxiliary files &mdash; MDAnalysis User Guide  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/site.css" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
 
@@ -254,14 +254,14 @@ Reads full file on initialisation.</p></td>
 </section>
 <section id="reading-data-directly">
 <h2>Reading data directly<a class="headerlink" href="#reading-data-directly" title="Link to this heading"></a></h2>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span><span class="w"> </span><span class="nn">MDAnalysis</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mda</span>
 
-<span class="gp">In [2]: </span><span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">XVG_BZ2</span>  <span class="c1"># cobrotoxin protein forces</span>
+<span class="gp">In [2]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">MDAnalysis.tests.datafiles</span><span class="w"> </span><span class="kn">import</span> <span class="n">XVG_BZ2</span>  <span class="c1"># cobrotoxin protein forces</span>
 
 <span class="gp">In [3]: </span><span class="n">aux</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">auxreader</span><span class="p">(</span><span class="n">XVG_BZ2</span><span class="p">)</span>
 
 <span class="gp">In [4]: </span><span class="n">aux</span>
-<span class="gh">Out[4]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7fb3904289d0&gt;</span>
+<span class="gh">Out[4]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7fcf66d96e60&gt;</span>
 </pre></div>
 </div>
 <p>In stand-alone use, an auxiliary reader allows you to iterate over each step in a set of auxiliary data.</p>
@@ -301,7 +301,7 @@ Reads full file on initialisation.</p></td>
 may be passed in as a AuxReader instance, or directly as e.g. a filename, in
 which case <a class="reference external" href="https://docs.mdanalysis.org/2.9.0-dev0/documentation_pages/auxiliary/core.html#MDAnalysis.auxiliary.core.get_auxreader_for" title="(in MDAnalysis v2.9.0-dev0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_auxreader_for()</span></code></a> is used to
 guess an appropriate reader.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PDB_xvf</span><span class="p">,</span> <span class="n">TRR_xvf</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">MDAnalysis.tests.datafiles</span><span class="w"> </span><span class="kn">import</span> <span class="n">PDB_xvf</span><span class="p">,</span> <span class="n">TRR_xvf</span>
 
 <span class="gp">In [10]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PDB_xvf</span><span class="p">,</span> <span class="n">TRR_xvf</span><span class="p">)</span>
 
@@ -334,7 +334,7 @@ trajectory. If there are no auxiliary steps assigned to a given timestep (or non
 <section id="iterating-over-auxiliary-data">
 <h2>Iterating over auxiliary data<a class="headerlink" href="#iterating-over-auxiliary-data" title="Link to this heading"></a></h2>
 <p>Auxiliary data may not perfectly line up with the trajectory, or have missing data.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PDB</span><span class="p">,</span> <span class="n">TRR</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">MDAnalysis.tests.datafiles</span><span class="w"> </span><span class="kn">import</span> <span class="n">PDB</span><span class="p">,</span> <span class="n">TRR</span>
 
 <span class="gp">In [14]: </span><span class="n">u_long</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PDB</span><span class="p">,</span> <span class="n">TRR</span><span class="p">)</span>
 
@@ -460,7 +460,7 @@ original auxiliary reader.</p>
 <span class="gp">In [30]: </span><span class="k">del</span> <span class="n">aux</span>
 
 <span class="gp">In [31]: </span><span class="n">mda</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">auxreader</span><span class="p">(</span><span class="o">**</span><span class="n">description</span><span class="p">)</span>
-<span class="gh">Out[31]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7fb38bb06200&gt;</span>
+<span class="gh">Out[31]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7fcf66deee60&gt;</span>
 </pre></div>
 </div>
 <p>The ‘description’ of any or all the auxiliaries added to a trajectory can be
@@ -487,9 +487,9 @@ the EDRReader, this section will highlight functionality unique to the EDRReader
 <section id="standalone-usage">
 <h2>Standalone Usage<a class="headerlink" href="#standalone-usage" title="Link to this heading"></a></h2>
 <p>The EDRReader is initialised by passing the path to an EDR file as an argument.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [35]: </span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [35]: </span><span class="kn">import</span><span class="w"> </span><span class="nn">MDAnalysis</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mda</span>
 
-<span class="gp">In [36]: </span><span class="kn">from</span> <span class="nn">MDAnalysisTests.datafiles</span> <span class="kn">import</span> <span class="n">AUX_EDR</span>
+<span class="gp">In [36]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">MDAnalysisTests.datafiles</span><span class="w"> </span><span class="kn">import</span> <span class="n">AUX_EDR</span>
 
 <span class="gp">In [37]: </span><span class="n">aux</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">EDR</span><span class="o">.</span><span class="n">EDRReader</span><span class="p">(</span><span class="n">AUX_EDR</span><span class="p">)</span>
 
@@ -572,10 +572,10 @@ the EDRReader, this section will highlight functionality unique to the EDRReader
 </pre></div>
 </div>
 <p>The times of each data point are always part of the returned dictionary to facilicate plotting.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [45]: </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [45]: </span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="gp">In [46]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">],</span> <span class="n">temp</span><span class="p">[</span><span class="s2">&quot;Temperature&quot;</span><span class="p">])</span>
-<span class="gh">Out[46]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x7fb390571060&gt;]</span>
+<span class="gh">Out[46]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x7fcf674079d0&gt;]</span>
 
 <span class="gp">In [47]: </span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Temperature [K]&quot;</span><span class="p">)</span>
 <span class="gh">Out[47]: </span><span class="go">Text(0, 0.5, &#39;Temperature [K]&#39;)</span>
@@ -611,7 +611,7 @@ are defined. The automatic unit conversion can be disabled by setting the <code 
 <h2>Use with Trajectories<a class="headerlink" href="#use-with-trajectories" title="Link to this heading"></a></h2>
 <p>An arbitrary number of terms to be associated with a trajectory can be specified as a dictionary.
 The dictionary is chosen so that the name to be used in MDAnalysis to access the data is mapped to the name in <cite>aux.terms</cite>.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [53]: </span><span class="kn">from</span> <span class="nn">MDAnalysisTests.datafiles</span> <span class="kn">import</span> <span class="n">AUX_EDR_TPR</span><span class="p">,</span> <span class="n">AUX_EDR_XTC</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [53]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">MDAnalysisTests.datafiles</span><span class="w"> </span><span class="kn">import</span> <span class="n">AUX_EDR_TPR</span><span class="p">,</span> <span class="n">AUX_EDR_XTC</span>
 
 <span class="gp">In [54]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">AUX_EDR_TPR</span><span class="p">,</span> <span class="n">AUX_EDR_XTC</span><span class="p">)</span>
 

@@ -23,7 +23,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contributing to the main codebase &mdash; MDAnalysis User Guide  documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/site.css" />
       <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
 
@@ -937,7 +937,7 @@ extend it in a similar manner.</p>
 <span id="guidelines-for-docstrings"></span><h3>Guidelines for writing docstrings<a class="headerlink" href="#guidelines-for-writing-docstrings" title="Link to this heading"></a></h3>
 <p>A typical function docstring looks like the following:</p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">):</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Summary line.</span>
 
 <span class="sd">    Extended description of function.</span>
@@ -1013,7 +1013,7 @@ n_atoms, n_residues : int
 </div></blockquote>
 <p>Note that you should <em>always</em> make doc strings with math code <strong>raw</strong> python strings <strong>by prefixing them with the letter “r”</strong>, or else you will get problems with backslashes in unexpected places.</p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rotate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R</span><span class="p">):</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">rotate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Apply a rotation matrix *R* to the selection&#39;s coordinates.</span>
 
 <span class="sd">    :math:`\mathsf{R}` is a 3x3 orthogonal matrix that transforms a vector</span>
@@ -1078,7 +1078,7 @@ n_atoms, n_residues : int
 <h3>Viewing the documentation interactively<a class="headerlink" href="#viewing-the-documentation-interactively" title="Link to this heading"></a></h3>
 <p>In the Python interpreter one can simply say:</p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">MDAnalysis</span>
 <span class="n">help</span><span class="p">(</span><span class="n">MDAnalysis</span><span class="p">)</span>
 <span class="n">help</span><span class="p">(</span><span class="n">MDAnalysis</span><span class="o">.</span><span class="n">Universe</span><span class="p">)</span>
 </pre></div>

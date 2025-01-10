@@ -23,7 +23,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Universe &mdash; MDAnalysis User Guide  documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/site.css" />
       <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
 
@@ -232,9 +232,9 @@
 <li><p><code class="code docutils literal notranslate"><span class="pre">all_coordinates</span></code>: whether to read coordinate information from the first file (default: False. Ignored when only one file is provided)</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">continuous</span></code>: whether to give multiple trajectory files continuous time steps. This is currently only supported for XTC/TRR trajectories with a GRO/TPR topology, following the behaviour of <a class="reference external" href="http://manual.gromacs.org/documentation/2018/onlinehelp/gmx-trjcat.html">gmx trjcat</a> (default: False.)</p></li>
 </ul>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span><span class="w"> </span><span class="nn">MDAnalysis</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mda</span>
 
-<span class="gp">In [2]: </span><span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PDB</span><span class="p">,</span> <span class="n">GRO</span><span class="p">,</span> <span class="n">XTC</span>
+<span class="gp">In [2]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">MDAnalysis.tests.datafiles</span><span class="w"> </span><span class="kn">import</span> <span class="n">PDB</span><span class="p">,</span> <span class="n">GRO</span><span class="p">,</span> <span class="n">XTC</span>
 
 <span class="gp">In [3]: </span><span class="n">u1</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">GRO</span><span class="p">,</span> <span class="n">XTC</span><span class="p">,</span> <span class="n">XTC</span><span class="p">,</span> <span class="n">all_coordinates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
@@ -258,7 +258,7 @@
 <li><p><code class="code docutils literal notranslate"><span class="pre">anchor_name</span></code>: the name of this Universe when unpickling <a class="reference external" href="https://docs.mdanalysis.org/2.9.0-dev0/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v2.9.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a>s (default: None, automatically generated)</p></li>
 </ul>
 <p id="universe-kwargs">You can also pass in keywords for parsing the topology or coordinates. For example, many file formats do not specify the timestep for their trajectory. In these cases, MDAnalysis assumes that the default timestep is 1 ps. If this is incorrect, you can pass in a <code class="docutils literal notranslate"><span class="pre">dt</span></code> argument to modify the timestep. <strong>This does not modify timesteps for formats that include time information.</strong></p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PRM</span><span class="p">,</span> <span class="n">TRJ</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">MDAnalysis.tests.datafiles</span><span class="w"> </span><span class="kn">import</span> <span class="n">PRM</span><span class="p">,</span> <span class="n">TRJ</span>
 
 <span class="gp">In [8]: </span><span class="n">default_timestep</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PRM</span><span class="p">,</span> <span class="n">TRJ</span><span class="p">)</span>
 

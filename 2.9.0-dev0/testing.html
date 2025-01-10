@@ -23,7 +23,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tests in MDAnalysis &mdash; MDAnalysis User Guide  documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/site.css" />
       <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
 
@@ -371,28 +371,28 @@ line statistics you can add the <code class="docutils literal notranslate"><span
 <section id="assertions">
 <h4>Assertions<a class="headerlink" href="#assertions" title="Link to this heading"></a></h4>
 <p>Use plain <code class="docutils literal notranslate"><span class="pre">assert</span></code> statements for comparing single values, e.g.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_foo_is_length_3</span><span class="p">(</span><span class="n">foo</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_foo_is_length_3</span><span class="p">(</span><span class="n">foo</span><span class="p">):</span>
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
 </pre></div>
 </div>
 <p>To check equality up to a certain precision (e.g. floating point numbers and iterables of floats), use <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.testing.assert_almost_equal.html#numpy.testing.assert_almost_equal" title="(in NumPy v2.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">assert_almost_equal()</span></code></a> from <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.testing.html#module-numpy.testing" title="(in NumPy v2.2)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.testing</span></code></a>. Do not manually round off the value and use plain <code class="docutils literal notranslate"><span class="pre">assert</span></code> statements. Do not use <code class="docutils literal notranslate"><span class="pre">pytest.approx</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy.testing</span> <span class="kn">import</span> <span class="n">assert_almost_equal</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numpy.testing</span><span class="w"> </span><span class="kn">import</span> <span class="n">assert_almost_equal</span>
 
-<span class="k">def</span> <span class="nf">test_equal_coordinates</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_equal_coordinates</span><span class="p">():</span>
     <span class="n">ref</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">PDB_small</span><span class="p">)</span>
     <span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PDB_small</span><span class="p">)</span>
     <span class="n">assert_almost_equal</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span><span class="p">,</span> <span class="n">ref</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>To test for exact equality (e.g. integers, booleans, strings), use <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.testing.assert_equal.html#numpy.testing.assert_equal" title="(in NumPy v2.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">assert_equal()</span></code></a> from <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.testing.html#module-numpy.testing" title="(in NumPy v2.2)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.testing</span></code></a>. As with <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.testing.assert_almost_equal.html#numpy.testing.assert_almost_equal" title="(in NumPy v2.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">assert_almost_equal()</span></code></a>, this should be used for iterables of exact values as well. Do not iterate over and compare every single value.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy.testing</span> <span class="kn">import</span> <span class="n">assert_equal</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numpy.testing</span><span class="w"> </span><span class="kn">import</span> <span class="n">assert_equal</span>
 
-<span class="k">def</span> <span class="nf">test_equal_arrays</span><span class="p">(</span><span class="n">array1</span><span class="p">,</span> <span class="n">array2</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_equal_arrays</span><span class="p">(</span><span class="n">array1</span><span class="p">,</span> <span class="n">array2</span><span class="p">):</span>
     <span class="n">assert_equal</span><span class="p">(</span><span class="n">array1</span><span class="p">,</span> <span class="n">array2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Do not use <code class="docutils literal notranslate"><span class="pre">assert_array_equal</span></code> or <code class="docutils literal notranslate"><span class="pre">assert_array_almost_equal</span></code> from <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.testing.html#module-numpy.testing" title="(in NumPy v2.2)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.testing</span></code></a> to compare array/array-like data structures. Instead, use <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.testing.assert_equal.html#numpy.testing.assert_equal" title="(in NumPy v2.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">assert_equal()</span></code></a> or <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.testing.assert_almost_equal.html#numpy.testing.assert_almost_equal" title="(in NumPy v2.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">assert_almost_equal()</span></code></a>. The former set of functions equate arrays and scalars, while the latter do not:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">numpy.testing</span> <span class="kn">import</span> <span class="n">assert_equal</span><span class="p">,</span> <span class="n">assert_array_equal</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">numpy.testing</span><span class="w"> </span><span class="kn">import</span> <span class="n">assert_equal</span><span class="p">,</span> <span class="n">assert_array_equal</span>
 
 <span class="gp">In [2]: </span><span class="n">assert_array_equal</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
 
@@ -420,12 +420,12 @@ line statistics you can add the <code class="docutils literal notranslate"><span
 <section id="testing-exceptions-and-warnings">
 <h4>Testing exceptions and warnings<a class="headerlink" href="#testing-exceptions-and-warnings" title="Link to this heading"></a></h4>
 <p>Do not use <code class="docutils literal notranslate"><span class="pre">assert_raises</span></code> from <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.testing.html#module-numpy.testing" title="(in NumPy v2.2)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.testing</span></code></a> or the <code class="docutils literal notranslate"><span class="pre">pytest.mark.raises</span></code> decorator to test for particular exceptions. Instead, use context managers:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_for_error</span><span class="p">():</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_for_error</span><span class="p">():</span>
     <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
     <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">IndexError</span><span class="p">):</span>
         <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
 
-<span class="k">def</span> <span class="nf">test_for_warning</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_for_warning</span><span class="p">():</span>
     <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">warns</span><span class="p">(</span><span class="ne">DeprecationWarning</span><span class="p">):</span>
         <span class="n">deprecated_function</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
@@ -433,14 +433,14 @@ line statistics you can add the <code class="docutils literal notranslate"><span
 </section>
 <section id="failing-tests">
 <h4>Failing tests<a class="headerlink" href="#failing-tests" title="Link to this heading"></a></h4>
-<p>To mark an expected failure, use <a class="reference external" href="https://docs.pytest.org/en/latest/reference/reference.html#pytest.mark.xfail" title="(in pytest v8.4.0.dev287)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pytest.mark.xfail()</span></code></a> decorator:</p>
+<p>To mark an expected failure, use <a class="reference external" href="https://docs.pytest.org/en/latest/reference/reference.html#pytest.mark.xfail" title="(in pytest v8.4.0.dev300)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pytest.mark.xfail()</span></code></a> decorator:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">xfail</span>
-<span class="k">def</span> <span class="nf">tested_expected_failure</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">tested_expected_failure</span><span class="p">():</span>
     <span class="k">assert</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span>
 </pre></div>
 </div>
-<p>To manually fail a test, make a call to <a class="reference external" href="https://docs.pytest.org/en/latest/reference/reference.html#pytest.fail" title="(in pytest v8.4.0.dev287)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pytest.fail()</span></code></a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_open</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tmpdir</span><span class="p">):</span>
+<p>To manually fail a test, make a call to <a class="reference external" href="https://docs.pytest.org/en/latest/reference/reference.html#pytest.fail" title="(in pytest v8.4.0.dev300)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pytest.fail()</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_open</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tmpdir</span><span class="p">):</span>
     <span class="n">outfile</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">tmpdir</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;lammps-writer-test.dcd&#39;</span><span class="p">))</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">with</span> <span class="n">mda</span><span class="o">.</span><span class="n">coordinates</span><span class="o">.</span><span class="n">LAMMPS</span><span class="o">.</span><span class="n">DCDWriter</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="n">n_atoms</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
@@ -452,23 +452,23 @@ line statistics you can add the <code class="docutils literal notranslate"><span
 </section>
 <section id="skipping-tests">
 <h4>Skipping tests<a class="headerlink" href="#skipping-tests" title="Link to this heading"></a></h4>
-<p>To skip tests based on a condition, use <a class="reference external" href="https://docs.pytest.org/en/latest/reference/reference.html#pytest.mark.skipif" title="(in pytest v8.4.0.dev287)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pytest.mark.skipif(condition)</span></code></a> decorator:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<p>To skip tests based on a condition, use <a class="reference external" href="https://docs.pytest.org/en/latest/reference/reference.html#pytest.mark.skipif" title="(in pytest v8.4.0.dev300)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pytest.mark.skipif(condition)</span></code></a> decorator:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="k">try</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">shares_memory</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">shares_memory</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
     <span class="n">shares_memory</span> <span class="o">=</span> <span class="kc">False</span>
 
 <span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">skipif</span><span class="p">(</span><span class="n">shares_memory</span> <span class="o">==</span> <span class="kc">False</span><span class="p">,</span>
                     <span class="n">reason</span><span class="o">=</span><span class="s1">&#39;old numpy lacked shares_memory&#39;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">test_positions_share_memory</span><span class="p">(</span><span class="n">original_and_copy</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_positions_share_memory</span><span class="p">(</span><span class="n">original_and_copy</span><span class="p">):</span>
     <span class="c1"># check that the memory in Timestep objects is unique</span>
     <span class="n">original</span><span class="p">,</span> <span class="n">copy</span> <span class="o">=</span> <span class="n">original_and_copy</span>
     <span class="k">assert</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">shares_memory</span><span class="p">(</span><span class="n">original</span><span class="o">.</span><span class="n">ts</span><span class="o">.</span><span class="n">positions</span><span class="p">,</span> <span class="n">copy</span><span class="o">.</span><span class="n">ts</span><span class="o">.</span><span class="n">positions</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>To skip a test if a module is not available for importing, use <a class="reference external" href="https://docs.pytest.org/en/latest/reference/reference.html#pytest.importorskip" title="(in pytest v8.4.0.dev287)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pytest.importorskip('module_name')</span></code></a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_write_trajectory_netCDF4</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">universe</span><span class="p">,</span> <span class="n">outfile</span><span class="p">):</span>
+<p>To skip a test if a module is not available for importing, use <a class="reference external" href="https://docs.pytest.org/en/latest/reference/reference.html#pytest.importorskip" title="(in pytest v8.4.0.dev300)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pytest.importorskip('module_name')</span></code></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_write_trajectory_netCDF4</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">universe</span><span class="p">,</span> <span class="n">outfile</span><span class="p">):</span>
     <span class="n">pytest</span><span class="o">.</span><span class="n">importorskip</span><span class="p">(</span><span class="s2">&quot;netCDF4&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_test_write_trajectory</span><span class="p">(</span><span class="n">universe</span><span class="p">,</span> <span class="n">outfile</span><span class="p">)</span>
 </pre></div>
@@ -477,20 +477,20 @@ line statistics you can add the <code class="docutils literal notranslate"><span
 </section>
 <section id="fixtures">
 <h3>Fixtures<a class="headerlink" href="#fixtures" title="Link to this heading"></a></h3>
-<p>Use <a class="reference external" href="https://docs.pytest.org/en/latest/fixture.html">fixtures</a> as much as possible to reuse “resources” between test methods/functions. Pytest fixtures are functions that run before each test function that uses that fixture. A fixture is typically set up with the <a class="reference external" href="https://docs.pytest.org/en/latest/reference/reference.html#pytest.fixture" title="(in pytest v8.4.0.dev287)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pytest.fixture()</span></code></a> decorator, over a function that returns the object you need:</p>
+<p>Use <a class="reference external" href="https://docs.pytest.org/en/latest/fixture.html">fixtures</a> as much as possible to reuse “resources” between test methods/functions. Pytest fixtures are functions that run before each test function that uses that fixture. A fixture is typically set up with the <a class="reference external" href="https://docs.pytest.org/en/latest/reference/reference.html#pytest.fixture" title="(in pytest v8.4.0.dev300)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pytest.fixture()</span></code></a> decorator, over a function that returns the object you need:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
-<span class="k">def</span> <span class="nf">universe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">universe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ref_filename</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>A function can use a fixture by including its name in its arguments:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_pdb_write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">universe</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_pdb_write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">universe</span><span class="p">):</span>
     <span class="n">universe</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;outfile.pdb&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The rule of thumb is to use the largest possible scope for the fixture to save time. A fixture declared with a class scope will run once per class; a fixture declared with a module scope will only run once per module. The default scope is <code class="docutils literal notranslate"><span class="pre">&quot;function&quot;</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">universe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">universe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ref_filename</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -502,7 +502,7 @@ line statistics you can add the <code class="docutils literal notranslate"><span
 <span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s1">&#39;name, compound&#39;</span><span class="p">,</span> <span class="p">((</span><span class="s1">&#39;molnums&#39;</span><span class="p">,</span> <span class="s1">&#39;molecules&#39;</span><span class="p">),</span>
                                             <span class="p">(</span><span class="s1">&#39;fragindices&#39;</span><span class="p">,</span> <span class="s1">&#39;fragments&#39;</span><span class="p">)))</span>
 <span class="c1"># fragment is a fixture defined earlier</span>
-<span class="k">def</span> <span class="nf">test_center_of_mass_compounds_special</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fragment</span><span class="p">,</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_center_of_mass_compounds_special</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fragment</span><span class="p">,</span>
                                           <span class="n">pbc</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">compound</span><span class="p">):</span>
     <span class="n">ref</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">center_of_mass</span><span class="p">()</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">fragment</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
     <span class="n">com</span> <span class="o">=</span> <span class="n">fragment</span><span class="o">.</span><span class="n">center_of_mass</span><span class="p">(</span><span class="n">pbc</span><span class="o">=</span><span class="n">pbc</span><span class="p">,</span> <span class="n">compound</span><span class="o">=</span><span class="n">compound</span><span class="p">)</span>
@@ -522,21 +522,21 @@ line statistics you can add the <code class="docutils literal notranslate"><span
 <section id="temporary-files-and-directories">
 <h3>Temporary files and directories<a class="headerlink" href="#temporary-files-and-directories" title="Link to this heading"></a></h3>
 <p>Do not use <a class="reference external" href="https://docs.python.org/3/library/os.html#os.chdir" title="(in Python v3.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.chdir()</span></code></a> to change directories in tests, because it can break the tests in really weird ways (see <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/issues/556">Issue 556</a>). To use a temporary directory as the working directory, use the <code class="xref py py-func docutils literal notranslate"><span class="pre">tmpdir.as_cwd()</span></code> context manager instead:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_write_no_args</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">tmpdir</span><span class="p">):</span> <span class="c1"># tmpdir is an in-built fixture</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_write_no_args</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">tmpdir</span><span class="p">):</span> <span class="c1"># tmpdir is an in-built fixture</span>
     <span class="k">with</span> <span class="n">tmpdir</span><span class="o">.</span><span class="n">as_cwd</span><span class="p">():</span>
         <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>To create a temporary file:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">outfile</span><span class="p">(</span><span class="n">tmpdir</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">outfile</span><span class="p">(</span><span class="n">tmpdir</span><span class="p">):</span>
     <span class="n">temp_file</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">tmpdir</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;test.pdb&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 <section id="module-imports">
 <h4>Module imports<a class="headerlink" href="#module-imports" title="Link to this heading"></a></h4>
 <p><a class="reference internal" href="module_imports.html#module-imports-in-tests"><span class="std std-ref">Do not use relative imports</span></a> in test files, as it means that tests can no longer be run from inside the test directory. Instead, use absolute imports.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.datafiles</span> <span class="kn">import</span> <span class="n">PDB</span>  <span class="c1"># this is relative and will break!</span>
-<span class="kn">from</span> <span class="nn">MDAnalysisTests.datafiles</span> <span class="kn">import</span> <span class="n">PDB</span>  <span class="c1"># use this instead</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">.datafiles</span><span class="w"> </span><span class="kn">import</span> <span class="n">PDB</span>  <span class="c1"># this is relative and will break!</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">MDAnalysisTests.datafiles</span><span class="w"> </span><span class="kn">import</span> <span class="n">PDB</span>  <span class="c1"># use this instead</span>
 </pre></div>
 </div>
 </section>
