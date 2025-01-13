@@ -223,7 +223,7 @@ dependencies, do the following:
 
         mamba install -c conda-forge \
           'cython>=0.28' \
-          'fasteners' \
+          'filelock' \
           'griddataformats>=0.4.0' \
           'hypothesis' \
           'matplotlib-base>=1.5.1' \
@@ -303,7 +303,7 @@ At this point you should be able to import MDAnalysis from your locally built ve
         $ python  # start an interpreter
         >>> import MDAnalysis as mda
         >>> mda.__version__
-        '2.8.0-dev0'
+        '2.9.0-dev0'
 
 
 With pip and virtualenv
@@ -321,7 +321,7 @@ dependencies, do the following:
 
         python -m pip install \
           'cython>=0.28' \
-          'fasteners' \
+          'filelock' \
           'griddataformats>=0.4.0' \
           'hypothesis' \
           'matplotlib>=1.5.1' \
@@ -396,7 +396,7 @@ At this point you should be able to import MDAnalysis from your locally built ve
         $ python  # start an interpreter
         >>> import MDAnalysis as mda
         >>> mda.__version__
-        '2.8.0-dev0'
+        '2.9.0-dev0'
 
 
 .. _branches-in-mdanalysis:
