@@ -310,7 +310,7 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/2.9.0-dev0/
 <span class="go">       ...,</span>
 <span class="go">       [105.342,  74.072,  40.988],</span>
 <span class="go">       [ 57.684,  35.324,  14.804],</span>
-<span class="go">       [ 62.961,  47.239,   3.753]], dtype=float32)</span>
+<span class="go">       [ 62.961,  47.239,   3.753]], shape=(47681, 3), dtype=float32)</span>
 </pre></div>
 </div>
 <p>The <a class="reference external" href="https://docs.mdanalysis.org/2.9.0-dev0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.load_new" title="(in MDAnalysis v2.9.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">load_new()</span></code></a> method can be used to load coordinates into a Universe, replacing the old coordinates:</p>
@@ -320,13 +320,14 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/2.9.0-dev0/
 
 <span class="gp">In [16]: </span><span class="n">universe</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[16]: </span>
-<span class="go">array([[0.6852418 , 0.1236319 , 0.27120548],</span>
-<span class="go">       [0.31238073, 0.61756355, 0.10054211],</span>
-<span class="go">       [0.5203122 , 0.04345768, 0.12094884],</span>
+<span class="go">array([[0.85804206, 0.17970045, 0.41309816],</span>
+<span class="go">       [0.35045108, 0.17739956, 0.73101914],</span>
+<span class="go">       [0.39488533, 0.54998994, 0.6825442 ],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.58233196, 0.9076202 , 0.29370412],</span>
-<span class="go">       [0.379068  , 0.18594988, 0.20781285],</span>
-<span class="go">       [0.9240438 , 0.7011097 , 0.18001933]], dtype=float32)</span>
+<span class="go">       [0.00130228, 0.6121334 , 0.3798598 ],</span>
+<span class="go">       [0.5449922 , 0.3195505 , 0.3449107 ],</span>
+<span class="go">       [0.37912837, 0.36481503, 0.5079659 ]],</span>
+<span class="go">      shape=(47681, 3), dtype=float32)</span>
 </pre></div>
 </div>
 <p>or they can be directly passed in when creating a Universe.</p>
@@ -334,13 +335,14 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/2.9.0-dev0/
 
 <span class="gp">In [18]: </span><span class="n">universe2</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[18]: </span>
-<span class="go">array([[0.6852418 , 0.1236319 , 0.27120548],</span>
-<span class="go">       [0.31238073, 0.61756355, 0.10054211],</span>
-<span class="go">       [0.5203122 , 0.04345768, 0.12094884],</span>
+<span class="go">array([[0.85804206, 0.17970045, 0.41309816],</span>
+<span class="go">       [0.35045108, 0.17739956, 0.73101914],</span>
+<span class="go">       [0.39488533, 0.54998994, 0.6825442 ],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.58233196, 0.9076202 , 0.29370412],</span>
-<span class="go">       [0.379068  , 0.18594988, 0.20781285],</span>
-<span class="go">       [0.9240438 , 0.7011097 , 0.18001933]], dtype=float32)</span>
+<span class="go">       [0.00130228, 0.6121334 , 0.3798598 ],</span>
+<span class="go">       [0.5449922 , 0.3195505 , 0.3449107 ],</span>
+<span class="go">       [0.37912837, 0.36481503, 0.5079659 ]],</span>
+<span class="go">      shape=(47681, 3), dtype=float32)</span>
 </pre></div>
 </div>
 </section>

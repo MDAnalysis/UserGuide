@@ -526,7 +526,7 @@
 <span class="gp">In [5]: </span><span class="n">psf</span><span class="o">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s1">&#39;tempfactors&#39;</span><span class="p">)</span>
 
 <span class="gp">In [6]: </span><span class="n">psf</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">tempfactors</span>
-<span class="gh">Out[6]: </span><span class="go">array([0., 0., 0., ..., 0., 0., 0.])</span>
+<span class="gh">Out[6]: </span><span class="go">array([0., 0., 0., ..., 0., 0., 0.], shape=(3341,))</span>
 </pre></div>
 </div>
 <p>One way to modify topology attributes is to simply replace them with <a class="reference external" href="https://docs.mdanalysis.org/2.9.0-dev0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.add_TopologyAttr" title="(in MDAnalysis v2.9.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_TopologyAttr()</span></code></a>:</p>
@@ -535,7 +535,7 @@
 <span class="gp">In [8]: </span><span class="n">psf</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">tempfactors</span>
 <span class="gh">Out[8]: </span>
 <span class="go">array([0.000e+00, 1.000e+00, 2.000e+00, ..., 3.338e+03, 3.339e+03,</span>
-<span class="go">       3.340e+03])</span>
+<span class="go">       3.340e+03], shape=(3341,))</span>
 </pre></div>
 </div>
 <p>The number of values provided should correspond with the “level” of the attribute. For example, B-factors are atomic-level information. However, residue names and residue ids apply to residues. See a <a class="reference internal" href="#topologyattr-defaults"><span class="std std-ref">table of attribute levels and default values</span></a> for more information.</p>
@@ -608,7 +608,7 @@
 </tr>
 <tr class="row-even"><td><p>aromaticities</p></td>
 <td><p>aromaticity</p></td>
-<td><p>False</p></td>
+<td><p><a href="#id4"><span class="problematic" id="id5">np.False_</span></a></p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘bool’&gt;</p></td>
 </tr>
@@ -644,7 +644,7 @@
 </tr>
 <tr class="row-even"><td><p>charges</p></td>
 <td><p>charge</p></td>
-<td><p>0.0</p></td>
+<td><p>np.float64(0.0)</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘float’&gt;</p></td>
 </tr>
@@ -674,25 +674,25 @@
 </tr>
 <tr class="row-odd"><td><p>epsilon14s</p></td>
 <td><p>epsilon14</p></td>
-<td><p>0.0</p></td>
+<td><p>np.float64(0.0)</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘float’&gt;</p></td>
 </tr>
 <tr class="row-even"><td><p>epsilons</p></td>
 <td><p>epsilon</p></td>
-<td><p>0.0</p></td>
+<td><p>np.float64(0.0)</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘float’&gt;</p></td>
 </tr>
 <tr class="row-odd"><td><p>formalcharges</p></td>
 <td><p>formalcharge</p></td>
-<td><p>0.0</p></td>
+<td><p>np.float64(0.0)</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘int’&gt;</p></td>
 </tr>
 <tr class="row-even"><td><p>gbscreens</p></td>
 <td><p>gbscreen</p></td>
-<td><p>0.0</p></td>
+<td><p>np.float64(0.0)</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘float’&gt;</p></td>
 </tr>
@@ -716,7 +716,7 @@
 </tr>
 <tr class="row-even"><td><p>masses</p></td>
 <td><p>mass</p></td>
-<td><p>0.0</p></td>
+<td><p>np.float64(0.0)</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘numpy.float64’&gt;</p></td>
 </tr>
@@ -746,19 +746,19 @@
 </tr>
 <tr class="row-odd"><td><p>nbindices</p></td>
 <td><p>nbindex</p></td>
-<td><p>0</p></td>
+<td><p>np.int32(0)</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘int’&gt;</p></td>
 </tr>
 <tr class="row-even"><td><p>occupancies</p></td>
 <td><p>occupancy</p></td>
-<td><p>0.0</p></td>
+<td><p>np.float64(0.0)</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘float’&gt;</p></td>
 </tr>
 <tr class="row-odd"><td><p>radii</p></td>
 <td><p>radius</p></td>
-<td><p>0.0</p></td>
+<td><p>np.float64(0.0)</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘float’&gt;</p></td>
 </tr>
@@ -788,13 +788,13 @@
 </tr>
 <tr class="row-even"><td><p>rmin14s</p></td>
 <td><p>rmin14</p></td>
-<td><p>0.0</p></td>
+<td><p>np.float64(0.0)</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘float’&gt;</p></td>
 </tr>
 <tr class="row-odd"><td><p>rmins</p></td>
 <td><p>rmin</p></td>
-<td><p>0.0</p></td>
+<td><p>np.float64(0.0)</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘float’&gt;</p></td>
 </tr>
@@ -806,13 +806,13 @@
 </tr>
 <tr class="row-odd"><td><p>solventradii</p></td>
 <td><p>solventradius</p></td>
-<td><p>0.0</p></td>
+<td><p>np.float64(0.0)</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘float’&gt;</p></td>
 </tr>
 <tr class="row-even"><td><p>tempfactors</p></td>
 <td><p>tempfactor</p></td>
-<td><p>0.0</p></td>
+<td><p>np.float64(0.0)</p></td>
 <td><p>atom</p></td>
 <td><p>&lt;class ‘float’&gt;</p></td>
 </tr>
