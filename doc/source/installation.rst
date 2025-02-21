@@ -1,70 +1,43 @@
 .. -*- coding: utf-8 -*-
 
 ====================
-Installation
+Installation Guide
 ====================
 
-The latest versions of **MDAnalysis** can be installed using `conda` or `pip`.
-Currently, the conda releases only support serial calculations.
-If you plan to use the parallel OpenMP algorithms, you need to
-install MDAnalysis with pip and have a working OpenMP installation.
-
-MDAnalysis has a separate :ref:`test suite <mdanalysistests>` **MDAnalysisTests** that is required to run the test cases and examples.
-The test files change less frequently, take up around 90 MB of space,
-and are not needed for daily use of MDAnalysis. However, they are often used in examples,
-including many in this User Guide. If you are not interested in developing
-MDAnalysis or using the example files, you most likely don't need the tests. If you want to
-run examples in the User Guide, install the tests.
-The tests are distributed separately from the main package.
+**MDAnalysis** can be installed using `conda <https://docs.conda.io/projects/conda/en/latest/>`_ (recommended), `pip <https://pip.pypa.io/en/latest/index.html>`_, or from `source <https://github.com/MDAnalysis/mdanalysis/>`_ for development.
 
 .. note::
+    MDAnalysis supports **Linux**, **macOS**, and **Windows** (Python 3.8+).
+    If you encounter installation issues, seek help on `GitHub Discussions (Installation) <https://github.com/MDAnalysis/mdanalysis/discussions/categories/installation>`_.
 
-    If you are installing on Windows, you must have
-    Microsoft Visual C++ 14.0 installed. If your installation
-    fails with the error message:
-
-        error: Microsoft Visual C++ 14.0 is required. Get it with "Build Tools for Visual Studio": https://visualstudio.microsoft.com/downloads/
-
-    Try installing Build Tools for Visual Studio from
-    https://visualstudio.microsoft.com/downloads/ (scroll
-    down to the Tools for Visual Studio section).
-
-
-If you encounter any issues following these instructions, please
-ask for help on `GitHub Discussions (Installation)`_.
-
-.. _`GitHub Discussions (Installation)`: https://github.com/MDAnalysis/mdanalysis/discussions/categories/installation
-
-conda
+Conda installation
 =====
 
-If you use ``conda`` to manage your Python environment, we highly recommend creating a new environment for MDAnalysis.
+For most users, `conda <https://docs.conda.io/projects/conda/en/latest/>`_ is the easiest way to install MDAnalysis. We highly recommend creating a new environment for MDAnalysis.
 This will ensure that you have a clean installation of MDAnalysis and its dependencies, and will not interfere with other packages you may have installed.
-We further recommend that you install and use ``mamba``, a faster drop-in replacement for ``conda``.
 
 .. code-block:: bash
 
     conda create --name mdanalysis
     conda activate mdanalysis
-    conda install -c conda-forge mamba
+    conda install -c conda-forge mdanalysis
 
-To install the latest stable version of MDAnalysis via ``conda``, use the following command. This installs all dependencies needed for full analysis functionality (excluding external programs such as `HOLE`_):
-
-.. code-block:: bash
-
-    mamba install -c conda-forge mdanalysis
-
-To upgrade:
+To upgrade to the latest version:
 
 .. code-block:: bash
 
-    mamba update mdanalysis
+    conda update mdanalysis
 
-To install the tests:
+To install the **test suite** (useful for examples and validation):
 
 .. code-block:: bash
 
-    mamba install -c conda-forge MDAnalysisTests
+    conda install MDAnalysisTests
+
+.. warning::
+    Conda installations **do not support OpenMP**. 
+    If you need **parallel OpenMP calculations**, install MDAnalysis using `pip <https://pip.pypa.io/en/latest/index.html>`_.
+
 
 If you intend to use MDAnalysis in JupyterLab, you will have to install
 an extra package for the progress bar in analysis classes:
@@ -74,21 +47,22 @@ an extra package for the progress bar in analysis classes:
     conda install -c conda-forge nodejs
     jupyter labextension install @jupyter-widgets/jupyterlab-manager
 
-pip
+Pip installation
 =====
-The following command will install or upgrade the latest stable version of MDAnalysis via ``pip``, with core dependencies. This means that some packages required by specific analysis modules will not be installed.
+
+If you do not use Conda or require **OpenMP support**, install MDAnalysis via `pip <https://pip.pypa.io/en/latest/index.html>`_:
 
 .. code-block:: bash
 
     pip install --upgrade MDAnalysis
 
-If you need to install a fully-featured MDAnalysis, add the ``analysis`` tag. As with ``conda``, this will not install external programs such as `HOLE`_.
+For full functionality with **analysis modules**:
 
 .. code-block:: bash
 
     pip install --upgrade MDAnalysis[analysis]
 
-To install/upgrade tests:
+To install the **test suite**:
 
 .. code-block:: bash
 
@@ -102,6 +76,10 @@ an extra package for the progress bar in analysis classes:
     pip install nodejs
     jupyter labextension install @jupyter-widgets/jupyterlab-manager
 
+.. note::
+    If you are installing on **Windows**, and encounter errors related to **Microsoft Visual C++ 14.0**, install **Build Tools for Visual Studio** from `here <https://visualstudio.microsoft.com/downloads/>`_.
+
+----------------------
 
 Development versions
 ====================
