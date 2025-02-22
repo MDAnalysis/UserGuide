@@ -4,42 +4,57 @@
 Installation Guide
 ====================
 
-**MDAnalysis** can be installed using `conda <https://docs.conda.io/projects/conda/en/latest/>`_ (recommended), `pip <https://pip.pypa.io/en/latest/index.html>`_, or from `source <https://github.com/MDAnalysis/mdanalysis/>`_ for development.
+The latest version of **MDAnalysis** can be installed using:
+`pip <https://pip.pypa.io/en/latest/index.html>`_ (most common, for general users),
+`conda <https://docs.conda.io/projects/conda/en/latest/>`_ (recommended for better dependency management),
+or from `source <https://github.com/MDAnalysis/mdanalysis/>`_ (for development and contributing). Currently, 
+the `conda <https://docs.conda.io/projects/conda/en/latest/>`_ releases only support serial calculations. If you plan to use the parallel OpenMP algorithms, 
+you need to install MDAnalysis with `pip <https://pip.pypa.io/en/latest/index.html>`_ and have a working OpenMP installation.
+
+**MDAnalysisTests** is a optional and it is a separate :ref:`test suite <mdanalysistests>` used for verifying MDAnalysis installations and running User Guide examples. 
+It is not required for daily use, but some tutorials depend on it. The package is 90 MB and does not change frequently. If you plan to use tutorial examples 
+or contribute to MDAnalysis development, installing it is recommended.
 
 .. note::
-    MDAnalysis supports **Linux**, **macOS**, and **Windows** (Python 3.8+).
-    If you encounter installation issues, seek help on `GitHub Discussions (Installation) <https://github.com/MDAnalysis/mdanalysis/discussions/categories/installation>`_.
+    MDAnalysis supports **Linux**, **macOS**, and **Windows** (Python 3.8+). 
+
+    - If you encounter errors on **Windows** related to **Microsoft Visual C++ 14.0**, install the required **Build Tools for Visual Studio** from: `Microsoft Visual Studio Downloads <https://visualstudio.microsoft.com/downloads/>`_. 
+    - If you encounter any other issues following these instructions, seek help on `GitHub Discussions (Installation) <https://github.com/MDAnalysis/mdanalysis/discussions/categories/installation>`_.    
+
+.. warning::
+    `Conda <https://docs.conda.io/projects/conda/en/latest/>`_ and `pip <https://pip.pypa.io/en/latest/index.html>`_ installations **do not include** external programs such as `HOLE <https://www.holeprogram.org//>`_.
 
 Conda installation
 =====
-
-For most users, `conda <https://docs.conda.io/projects/conda/en/latest/>`_ is the easiest way to install MDAnalysis. We highly recommend creating a new environment for MDAnalysis.
-This will ensure that you have a clean installation of MDAnalysis and its dependencies, and will not interfere with other packages you may have installed.
+ 
+For most users, `conda <https://docs.conda.io/projects/conda/en/latest/>`_ is the easiest way to install MDAnalysis because it manages dependencies effectively. 
+We highly recommend creating a new environment for MDAnalysis. We further recommend that you install and use ``mamba``, a faster drop-in replacement for ``conda``.
 
 .. code-block:: bash
 
     conda create --name mdanalysis
     conda activate mdanalysis
-    conda install -c conda-forge mdanalysis
+    conda install -c conda-forge mamba
 
-To upgrade to the latest version:
-
-.. code-block:: bash
-
-    conda update mdanalysis
-
-To install the **test suite** (useful for examples and validation):
+To install the latest stable version of MDAnalysis via ``conda``, use the following command. This installs all dependencies needed for full analysis functionality.
 
 .. code-block:: bash
 
-    conda install MDAnalysisTests
+    mamba install -c conda-forge mdanalysis
 
-.. warning::
-    Conda installations **do not support OpenMP**. 
-    If you need **parallel OpenMP calculations**, install MDAnalysis using `pip <https://pip.pypa.io/en/latest/index.html>`_.
+To upgrade use:
 
+.. code-block:: bash
 
-If you intend to use MDAnalysis in JupyterLab, you will have to install
+    mamba update mdanalysis
+
+To install the `test suite <https://userguide.mdanalysis.org/stable/datasets.html#mdanalysistests>`_ use:
+
+.. code-block:: bash
+
+    mamba install -c conda-forge MDAnalysisTests
+
+If you intend to use MDAnalysis in **JupyterLab**, you will have to install
 an extra package for the progress bar in analysis classes:
 
 .. code-block:: bash
@@ -47,28 +62,33 @@ an extra package for the progress bar in analysis classes:
     conda install -c conda-forge nodejs
     jupyter labextension install @jupyter-widgets/jupyterlab-manager
 
+.. warning::
+    MDAnalysis installed via conda does not support OpenMP. If you need **parallel OpenMP calculations**, 
+    **install MDAnalysis** using `pip <https://pip.pypa.io/en/latest/index.html>`_.
+
 Pip installation
 =====
 
-If you do not use Conda or require **OpenMP support**, install MDAnalysis via `pip <https://pip.pypa.io/en/latest/index.html>`_:
+The following command will install or upgrade the latest stable version of MDAnalysis via `pip <https://pip.pypa.io/en/latest/index.html>`_ with core dependencies. This means that some packages required by specific analysis modules will not be installed.
 
 .. code-block:: bash
 
     pip install --upgrade MDAnalysis
 
-For full functionality with **analysis modules**:
+
+If you need to install a fully-featured MDAnalysis, add the ``analysis`` tag. 
 
 .. code-block:: bash
 
     pip install --upgrade MDAnalysis[analysis]
 
-To install the **test suite**:
+To install or upgrade the `test suite <https://userguide.mdanalysis.org/stable/datasets.html#mdanalysistests>`_:
 
 .. code-block:: bash
 
     pip install --upgrade MDAnalysisTests
 
-If you intend to use MDAnalysis in JupyterLab, you will have to install
+If you intend to use MDAnalysis in **JupyterLab**, you will have to install
 an extra package for the progress bar in analysis classes:
 
 .. code-block:: bash
@@ -76,15 +96,11 @@ an extra package for the progress bar in analysis classes:
     pip install nodejs
     jupyter labextension install @jupyter-widgets/jupyterlab-manager
 
-.. note::
-    If you are installing on **Windows**, and encounter errors related to **Microsoft Visual C++ 14.0**, install **Build Tools for Visual Studio** from `here <https://visualstudio.microsoft.com/downloads/>`_.
-
-----------------------
-
-Development versions
+Install from `source <https://github.com/MDAnalysis/mdanalysis/>`_
 ====================
-To install development versions of MDAnalysis, you can compile it from source. In order to install from source, you will need ``numpy`` and ``cython``. See :ref:`create-virtual-environment` for instructions on how to create a full development environment.
 
+To install the latest development versions of MDAnalysis (including unreleased features and bug fixes) you can compile it from `source <https://github.com/MDAnalysis/mdanalysis/>`_. Use the following commands:
+   
 .. code-block:: bash
 
     git clone https://github.com/MDAnalysis/mdanalysis
@@ -92,17 +108,19 @@ To install development versions of MDAnalysis, you can compile it from source. I
     # assuming you have already installed required dependencies
     pip install -e package/
 
-And to install the test suite:
+.. note::
+    To install from `source <https://github.com/MDAnalysis/mdanalysis/>`_, you will need ``numpy`` and ``cython``. See :ref:`create-virtual-environment` for instructions on how to create a full development environment.
+
+To install the test suite:
 
 .. code-block:: bash
 
     pip install -e testsuite/
 
-
 Testing
 -------
 
-The tests rely on the `pytest` and `numpy` packages, which must also be installed. Run tests with:
+The tests rely on the `pytest <https://docs.pytest.org/en/stable/>`_ and `numpy <https://numpy.org/>`_ packages, which must also be installed. Run tests with:
 
 .. code-block:: bash
 
@@ -135,15 +153,14 @@ For example, ``extra_cflags`` can be used to tune your MDAnalysis installation f
 
 Use of these flags can give a significant performance boost where the compiler can effectively autovectorise.
 
-Be sure to use the recommended flags for your target architecture. For example, ARM platforms recommend using ``-mcpu`` *instead* of ``-mcpu``, while
+Be sure to use the recommended flags for your target architecture. For example, ARM platforms recommend using ``-mcpu`` *instead* of ``-mcpu``, while 
 PowerPC platforms prefer *both* ``-mcpu`` and ``-mtune``.
 
 Full dicussion of the these flags is available elsewhere (such as here in this wiki_ or in this ARM_ blog post) and a list of supported options should be provided by your compiler. The list for GCC_ is provided here.
 
 .. warning::
-    Use of these compiler options is considered **advanced** and may reduce the binary compatibility of MDAnalysis significantly, especially if using `-march`,
-    making it usable only on a matching CPU architecture to the one it is compiled on. We **strongly** recommend that you run the test suite on your intended platform
-    before proceeding with analysis.
+    These compiler options are **advanced** and may reduce binary compatibility. In particular, using `-march` may restrict MDAnalysis to the exact CPU architecture it was compiled on.
+    We **strongly recommend** that you run the test suite on your intended platform before proceeding with analysis.
 
 In cases where you might encounter multiple CPU architectures (e.g. on a supercomputer where the login node and compute node have different architectures), you should avoid changing these options unless you are experienced with compiling software in these situations.
 
