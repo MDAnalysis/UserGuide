@@ -35,4 +35,3 @@ RMSF values to make sense.
    /examples/analysis/alignment_and_rms/rmsd
    /examples/analysis/alignment_and_rms/pairwise_rmsd
    /examples/analysis/alignment_and_rms/rmsf
-
