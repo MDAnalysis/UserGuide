@@ -95,7 +95,7 @@ Whereas most attributes are guessed at the atom, residue, or segment level, gues
 
 Specifically, if these connectivity attributes are guessed, they are by default guessed *additively*. Therefore, if bonds and other objects are guessed twice, the bonds of the second guess are added on. Below, we see the number of bonds increase when guessed again with a looser criteria.
 
-.. ipython::
+.. ipython:: python
 
   from MDAnalysis.tests.datafiles import CONECT
 
@@ -104,26 +104,30 @@ Specifically, if these connectivity attributes are guessed, they are by default 
   u.guess_TopologyAttrs(to_guess=["bonds"], fudge_factor=1.2) # looser
   print(len(u.bonds))
 
+
 However, the number of bonds doesn't change when the bonds are guessed again with a stricter criteria -- no new bonds are found.
 
-.. ipython::
+.. ipython:: python
 
   u.guess_TopologyAttrs(to_guess=["bonds"], fudge_factor=0.5) # stricter
   print(len(u.bonds))
 
+
 Moreover, bonds are unique, so if the bonds are guessed again with a same criteria, the guessed bonds doesn't change.
 
-.. ipython::
+.. ipython:: python
 
   u.guess_TopologyAttrs(to_guess=["bonds"], fudge_factor=0.5) # same
   print(len(u.bonds))
 
+
 However, if you want to forcibly overwrite all existing bonds, angles, dihedrals or impropers, you can pass the object to the ``force_guess`` keyword. This will remove all existing objects of that type before guessing. Below, we see the number of bonds has shrunk when guessed with stricter criteria.
 
-.. ipython::
-  
+.. ipython:: python
+
   u.guess_TopologyAttrs(to_guess=["bonds"], force_guess=["bonds"], fudge_factor=0.5)
   print(len(u.bonds))
+
 
 -----------------
 Order of guessing
@@ -147,5 +151,3 @@ However, the snippet below will re-guess the types, and now bond-guessing can wo
 
   u.guess_TopologyAttrs(to_guess=["types", "bonds"], force_guess=["types"])
   print(u.atoms.types)
-
-
