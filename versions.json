@@ -48,12 +48,6 @@
     "latest": false
   },
   {
-    "version": "2.4.0-dev0",
-    "display": "2.4.0-dev0",
-    "url": "https://userguide.mdanalysis.org/2.4.0-dev0",
-    "latest": false
-  },
-  {
     "version": "2.4.1",
     "display": "2.4.1",
     "url": "https://userguide.mdanalysis.org/2.4.1",
@@ -66,39 +60,15 @@
     "latest": false
   },
   {
-    "version": "2.5.0-dev0",
-    "display": "2.5.0-dev0",
-    "url": "https://userguide.mdanalysis.org/2.5.0-dev0",
-    "latest": false
-  },
-  {
     "version": "2.6.0",
     "display": "2.6.0",
     "url": "https://userguide.mdanalysis.org/2.6.0",
     "latest": false
   },
   {
-    "version": "2.6.0-dev0",
-    "display": "2.6.0-dev0",
-    "url": "https://userguide.mdanalysis.org/2.6.0-dev0",
-    "latest": false
-  },
-  {
     "version": "2.7.0",
     "display": "2.7.0",
     "url": "https://userguide.mdanalysis.org/2.7.0",
-    "latest": false
-  },
-  {
-    "version": "2.7.0-dev0",
-    "display": "2.7.0-dev0",
-    "url": "https://userguide.mdanalysis.org/2.7.0-dev0",
-    "latest": false
-  },
-  {
-    "version": "2.8.0",
-    "display": "2.8.0",
-    "url": "https://userguide.mdanalysis.org/2.8.0",
     "latest": true
   },
   {
