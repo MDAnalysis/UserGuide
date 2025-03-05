@@ -33,7 +33,7 @@ class TopologyDefaults:
                 return DEFAULTS[klass.attrname]
             except KeyError:
                 try:
-                    return repr(klass._gen_initial_values(1, 1, 1)[0])
+                    return repr(klass._gen_initial_values(1, 1, 1).tolist()[0])
                 except NotImplementedError:
                     return "No default values"
 
