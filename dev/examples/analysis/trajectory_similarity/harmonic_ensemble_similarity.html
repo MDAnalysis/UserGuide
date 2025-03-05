@@ -121,7 +121,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#Loading-files">Loading files</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Calculating-harmonic-similarity">Calculating harmonic similarity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#References">References</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id5">References</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="clustering_ensemble_similarity.html">Calculating the Clustering Ensemble Similarity between ensembles</a></li>
@@ -239,7 +238,7 @@
 <p class="admonition-title"><strong>Note</strong></p>
 <p>The metrics and methods in the <code class="docutils literal notranslate"><span class="pre">encore</span></code> module are from (<span id="id3">[<a class="reference internal" href="../../../references.html#id6" title="Matteo Tiberti, Elena Papaleo, Tone Bengtsen, Wouter Boomsma, and Kresten Lindorff-Larsen. ENCORE: Software for Quantitative Ensemble Comparison. PLOS Computational Biology, 11(10):e1004415, October 2015. 00031. URL: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004415 (visited on 2020-02-05), doi:10.1371/journal.pcbi.1004415.">TPB+15</a>]</span>). Please cite them when using the <code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.encore</span></code> module in published work.</p>
 </div>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
@@ -254,6 +253,16 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">MDAnalysis.analysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">encore</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/lily/micromamba/envs/mda-user-guide-dev/lib/python3.10/site-packages/MDAnalysis/analysis/encore/__init__.py:45: DeprecationWarning: Deprecation in version 2.8.0
+MDAnalysis.analysis.encore is deprecated in favour of the MDAKit mdaencore (https://www.mdanalysis.org/mdaencore/) and will be removed in MDAnalysis version 3.0.0.
+  warnings.warn(wmsg, category=DeprecationWarning)
+</pre></div></div>
 </div>
 <section id="Loading-files">
 <h2>Loading files<a class="headerlink" href="#Loading-files" title="Link to this heading"></a></h2>
@@ -276,7 +285,7 @@
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/home/pbarletta/mambaforge/envs/mda-user-guide/lib/python3.9/site-packages/MDAnalysis/coordinates/DCD.py:165: DeprecationWarning: DCDReader currently makes independent timesteps by copying self.ts while other readers update self.ts inplace. This behaviour will be changed in 3.0 to be the same as other readers
+/Users/lily/micromamba/envs/mda-user-guide-dev/lib/python3.10/site-packages/MDAnalysis/coordinates/DCD.py:165: DeprecationWarning: DCDReader currently makes independent timesteps by copying self.ts while other readers update self.ts inplace. This behavior will be changed in 3.0 to be the same as other readers. Read more at https://github.com/MDAnalysis/mdanalysis/issues/3889 to learn if this change in behavior might affect you.
   warnings.warn(&#34;DCDReader currently makes independent timesteps&#34;
 </pre></div></div>
 </div>
@@ -304,7 +313,7 @@
 <p>The harmonic ensemble similarity is then calculated using the symmetrised version of the Kullback-Leibler divergence. This has no upper bound, so you can get some very high values for very different ensembles.</p>
 <p>The function we will use is <code class="docutils literal notranslate"><span class="pre">encore.hes</span></code> (<a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/analysis/encore/similarity.html#MDAnalysis.analysis.encore.similarity.hes">API docs here</a>). It is recommended that you align your trajectories before computing the harmonic similarity. You can either do this yourself with <code class="docutils literal notranslate"><span class="pre">align.AlignTraj</span></code>, or pass <code class="docutils literal notranslate"><span class="pre">align=True</span></code> into <code class="docutils literal notranslate"><span class="pre">encore.hes</span></code>. The latter option will align each of your Universes to the current timestep of the first Universe. Note that
 since <code class="docutils literal notranslate"><span class="pre">encore.hes</span></code> will pull your trajectories into memory, this changes the positions of your Universes.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
@@ -315,6 +324,15 @@ since <code class="docutils literal notranslate"><span class="pre">encore.hes</s
                          <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;mass&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/lily/micromamba/envs/mda-user-guide-dev/lib/python3.10/site-packages/MDAnalysis/coordinates/memory.py:535: DeprecationWarning: asel argument to timeseries will be renamed to&#39;atomgroup&#39; in 3.0, see #3911
+  warnings.warn(
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -332,10 +350,10 @@ since <code class="docutils literal notranslate"><span class="pre">encore.hes</s
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-       0.0    24955.7  1879874.5   145622.3
+       0.0    24955.7  1879874.9   145622.3
    24955.7        0.0  1659867.5   161102.3
- 1879874.5  1659867.5        0.0  9900092.7
-  145622.3   161102.3  9900092.7        0.0
+ 1879874.9  1659867.5        0.0  9900093.4
+  145622.3   161102.3  9900093.4        0.0
 </pre></div></div>
 </div>
 <p>The mean and covariance matrices for each Universe are saved in <code class="docutils literal notranslate"><span class="pre">details</span></code>.</p>
@@ -387,25 +405,6 @@ since <code class="docutils literal notranslate"><span class="pre">encore.hes</s
 <p>[2] N. Michaud-Agrawal, E. J. Denning, T. B. Woolf, and O. Beckstein. MDAnalysis: A Toolkit for the Analysis of Molecular Dynamics Simulations. <em>J. Comput. Chem</em>. 32 (2011), 2319-2327, <a class="reference external" href="https://dx.doi.org/10.1002/jcc.21787">doi:10.1002/jcc.21787</a>. PMCID:<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3144279/">PMC3144279</a></p>
 <p>[3] ENCORE: Software for Quantitative Ensemble Comparison. Matteo Tiberti, Elena Papaleo, Tone Bengtsen, Wouter Boomsma, Kresten Lindorff-Larsen. <em>PLoS Comput Biol.</em> 2015, 11, e1004415.</p>
 <p>[4] Beckstein O, Denning EJ, Perilla JR, Woolf TB. Zipping and unzipping of adenylate kinase: atomistic insights into the ensemble of open&lt;–&gt;closed transitions. <em>J Mol Biol</em>. 2009;394(1):160–176. <a class="reference external" href="https://dx.doi.org/10.1016%2Fj.jmb.2009.09.009">doi:10.1016/j.jmb.2009.09.009</a></p>
-</section>
-<section id="id5">
-<h2>References<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
-<p>[1] Oliver Beckstein, Elizabeth J. Denning, Juan R. Perilla, and Thomas B. Woolf. Zipping and Unzipping of Adenylate Kinase: Atomistic Insights into the Ensemble of Open↔Closed Transitions. Journal of Molecular Biology, 394(1):160–176, November 2009.</p>
-<ol class="arabic simple" start="107">
-<li><p>URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164">https://linkinghub.elsevier.com/retrieve/pii/S0022283609011164</a>, doi:10.1016/j.jmb.2009.09.009.</p></li>
-</ol>
-<p>[2] Richard J. Gowers, Max Linke, Jonathan Barnoud, Tyler J. E. Reddy, Manuel N. Melo, Sean L. Seyler, Jan Domański, David L. Dotson, Sébastien Buchoux, Ian M. Kenney, and Oliver Beckstein. MDAnalysis: A Python Package for the Rapid Analysis of Molecular Dynamics Simulations. Proceedings of the 15th Python in Science Conference, pages 98–105, 2016.</p>
-<ol class="arabic simple" start="152">
-<li><p>URL: <a class="reference external" href="https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html">https://conference.scipy.org/proceedings/scipy2016/oliver_beckstein.html</a>, doi:10.25080/Majora-629e541a-00e.</p></li>
-</ol>
-<p>[3] Naveen Michaud-Agrawal, Elizabeth J. Denning, Thomas B. Woolf, and Oliver Beckstein. MDAnalysis: A toolkit for the analysis of molecular dynamics simulations. Journal of Computational Chemistry, 32(10):2319–2327, July 2011.</p>
-<ol class="arabic simple" start="778">
-<li><p>URL: <a class="reference external" href="http://doi.wiley.com/10.1002/jcc.21787">http://doi.wiley.com/10.1002/jcc.21787</a>, doi:10.1002/jcc.21787.</p></li>
-</ol>
-<p>[4] Matteo Tiberti, Elena Papaleo, Tone Bengtsen, Wouter Boomsma, and Kresten Lindorff-Larsen. ENCORE: Software for Quantitative Ensemble Comparison. PLOS Computational Biology, 11(10):e1004415, October 2015.</p>
-<ol class="arabic simple" start="31">
-<li><p>URL: <a class="reference external" href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004415">https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004415</a>, doi:10.1371/journal.pcbi.1004415.</p></li>
-</ol>
 </section>
 </section>
 

@@ -236,7 +236,7 @@
 <p class="admonition-title"><strong>Note</strong></p>
 <p>The classes in <code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.hole2</span></code> are wrappers around the HOLE program. Please cite (<span id="id3">[<a class="reference internal" href="../../../references.html#id21" title="O S Smart, J M Goodfellow, and B A Wallace. The pore dimensions of gramicidin A. Biophysical Journal, 65(6):2455–2460, December 1993. 00522. URL: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1225986/ (visited on 2020-02-10), doi:10.1016/S0006-3495(93)81293-1.">SGW93</a>]</span>, <span id="id4">[<a class="reference internal" href="../../../references.html#id20" title="O. S. Smart, J. G. Neduvelil, X. Wang, B. A. Wallace, and M. S. Sansom. HOLE: a program for the analysis of the pore dimensions of ion channel structural models. Journal of Molecular Graphics, 14(6):354–360, 376, December 1996. 00935. doi:10.1016/s0263-7855(97)00009-x.">SNW+96</a>]</span>) when using this module in published work.</p>
 </div>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
@@ -252,6 +252,16 @@
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/lily/micromamba/envs/mda-user-guide-dev/lib/python3.10/site-packages/MDAnalysis/analysis/hole2/__init__.py:49: DeprecationWarning: Deprecated in version 2.8.0
+MDAnalysis.analysis.hole2 is deprecated in favour of the MDAKit madahole2 (https://www.mdanalysis.org/mdahole2/) and will be removed in MDAnalysis version 3.0.0
+  warnings.warn(wmsg, category=DeprecationWarning)
+</pre></div></div>
 </div>
 <section id="Background">
 <h2>Background<a class="headerlink" href="#Background" title="Link to this heading"></a></h2>
@@ -403,7 +413,7 @@ The pore is 42.4 angstroms long
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;mdahole2.analysis.hole.HoleAnalysis at 0x7f1a146af610&gt;
+&lt;mdahole2.analysis.hole.HoleAnalysis at 0x10d0fe8c0&gt;
 </pre></div></div>
 </div>
 <section id="Working-with-the-data">
@@ -630,7 +640,7 @@ Text(0.5, 0, &#39;Frame&#39;)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;AxesSubplot: xlabel=&#39;Pore coordinate $\\zeta$ ($\\AA$)&#39;, ylabel=&#39;HOLE radius $R$ ($\\AA$)&#39;&gt;
+&lt;Axes: xlabel=&#39;Pore coordinate $\\zeta$ ($\\AA$)&#39;, ylabel=&#39;HOLE radius $R$ ($\\AA$)&#39;&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -655,7 +665,7 @@ Text(0.5, 0, &#39;Frame&#39;)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;AxesSubplot: xlabel=&#39;Pore coordinate $\\zeta$ ($\\AA$)&#39;, ylabel=&#39;HOLE radius $R$ ($\\AA$)&#39;&gt;
+&lt;Axes: xlabel=&#39;Pore coordinate $\\zeta$ ($\\AA$)&#39;, ylabel=&#39;HOLE radius $R$ ($\\AA$)&#39;&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -680,7 +690,7 @@ Text(0.5, 0, &#39;Frame&#39;)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;Axes3DSubplot: xlabel=&#39;Pore coordinate $\\zeta$ ($\\AA$)&#39;, ylabel=&#39;Frames&#39;, zlabel=&#39;HOLE radius $R$ ($\\AA$)&#39;&gt;
+&lt;Axes3D: xlabel=&#39;Pore coordinate $\\zeta$ ($\\AA$)&#39;, ylabel=&#39;Frames&#39;, zlabel=&#39;HOLE radius $R$ ($\\AA$)&#39;&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -705,7 +715,7 @@ Text(0.5, 0, &#39;Frame&#39;)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;Axes3DSubplot: xlabel=&#39;Pore coordinate $\\zeta$ ($\\AA$)&#39;, ylabel=&#39;Frames&#39;, zlabel=&#39;HOLE radius $R$ ($\\AA$)&#39;&gt;
+&lt;Axes3D: xlabel=&#39;Pore coordinate $\\zeta$ ($\\AA$)&#39;, ylabel=&#39;Frames&#39;, zlabel=&#39;HOLE radius $R$ ($\\AA$)&#39;&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -734,7 +744,7 @@ Text(0.5, 0, &#39;Frame&#39;)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;AxesSubplot: xlabel=&#39;Pore coordinate $\\zeta$ ($\\AA$)&#39;, ylabel=&#39;HOLE radius $R$ ($\\AA$)&#39;&gt;
+&lt;Axes: xlabel=&#39;Pore coordinate $\\zeta$ ($\\AA$)&#39;, ylabel=&#39;HOLE radius $R$ ($\\AA$)&#39;&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -863,7 +873,7 @@ Frame 10:  6.11
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;AxesSubplot: xlabel=&#39;RMSD to reference ($\\AA$)&#39;, ylabel=&#39;Minimum HOLE pore radius $r$ ($\\AA$)&#39;&gt;
+&lt;Axes: xlabel=&#39;RMSD to reference ($\\AA$)&#39;, ylabel=&#39;Minimum HOLE pore radius $r$ ($\\AA$)&#39;&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -889,7 +899,7 @@ Frame 10:  6.11
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;Axes3DSubplot: xlabel=&#39;Pore coordinate $\\zeta$ ($\\AA$)&#39;, ylabel=&#39;RMSD to reference ($\\AA$)&#39;, zlabel=&#39;HOLE radius $R$ ($\\AA$)&#39;&gt;
+&lt;Axes3D: xlabel=&#39;Pore coordinate $\\zeta$ ($\\AA$)&#39;, ylabel=&#39;RMSD to reference ($\\AA$)&#39;, zlabel=&#39;HOLE radius $R$ ($\\AA$)&#39;&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -999,7 +1009,7 @@ Frame 10:  6.11
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-20.0962
+np.float64(20.0962)
 </pre></div></div>
 </div>
 </section>

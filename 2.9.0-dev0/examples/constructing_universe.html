@@ -258,21 +258,21 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Using MDAnalysis version 2.6.0-dev0
+Using MDAnalysis version 2.9.0-dev0
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "1177615fa88e496c827928276bc1fc63", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a7825c7b10e04802b0859664fd854a83", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Using NGLView version 3.0.3
+Using NGLView version 3.0.8
 </pre></div></div>
 </div>
 <section id="Creating-and-populating-a-Universe-with-water">
@@ -360,7 +360,7 @@ segindices: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([&#39;O&#39;, &#39;H1&#39;, &#39;H2&#39;, ..., &#39;O&#39;, &#39;H1&#39;, &#39;H2&#39;], dtype=object)
+array([&#39;O&#39;, &#39;H1&#39;, &#39;H2&#39;, ..., &#39;O&#39;, &#39;H1&#39;, &#39;H2&#39;], shape=(3000,), dtype=object)
 </pre></div></div>
 </div>
 <p><strong>elements (“types”)</strong></p>
@@ -380,7 +380,7 @@ array([&#39;O&#39;, &#39;H1&#39;, &#39;H2&#39;, ..., &#39;O&#39;, &#39;H1&#39;, 
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([&#39;O&#39;, &#39;H&#39;, &#39;H&#39;, ..., &#39;O&#39;, &#39;H&#39;, &#39;H&#39;], dtype=object)
+array([&#39;O&#39;, &#39;H&#39;, &#39;H&#39;, ..., &#39;O&#39;, &#39;H&#39;, &#39;H&#39;], shape=(3000,), dtype=object)
 </pre></div></div>
 </div>
 <p><strong>residue names (“resnames”)</strong></p>
@@ -399,7 +399,8 @@ array([&#39;O&#39;, &#39;H&#39;, &#39;H&#39;, ..., &#39;O&#39;, &#39;H&#39;, &#3
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([&#39;SOL&#39;, &#39;SOL&#39;, &#39;SOL&#39;, ..., &#39;SOL&#39;, &#39;SOL&#39;, &#39;SOL&#39;], dtype=object)
+array([&#39;SOL&#39;, &#39;SOL&#39;, &#39;SOL&#39;, ..., &#39;SOL&#39;, &#39;SOL&#39;, &#39;SOL&#39;],
+      shape=(3000,), dtype=object)
 </pre></div></div>
 </div>
 <p><strong>residue counter (“resids”)</strong></p>
@@ -418,7 +419,7 @@ array([&#39;SOL&#39;, &#39;SOL&#39;, &#39;SOL&#39;, ..., &#39;SOL&#39;, &#39;SOL
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([   1,    1,    1, ..., 1000, 1000, 1000])
+array([   1,    1,    1, ..., 1000, 1000, 1000], shape=(3000,))
 </pre></div></div>
 </div>
 <p><strong>segment/chain names (“segids”)</strong></p>
@@ -437,7 +438,8 @@ array([   1,    1,    1, ..., 1000, 1000, 1000])
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([&#39;SOL&#39;, &#39;SOL&#39;, &#39;SOL&#39;, ..., &#39;SOL&#39;, &#39;SOL&#39;, &#39;SOL&#39;], dtype=object)
+array([&#39;SOL&#39;, &#39;SOL&#39;, &#39;SOL&#39;, ..., &#39;SOL&#39;, &#39;SOL&#39;, &#39;SOL&#39;],
+      shape=(3000,), dtype=object)
 </pre></div></div>
 </div>
 </section>
@@ -715,7 +717,7 @@ New solvent center of geometry:  [8.30580288e-08 3.49225059e-08 2.51332265e-08]
 <li><p>NMP: residues 30-59 (blue)</p></li>
 <li><p>LID: residues 122-159 (yellow)</p></li>
 </ul>
-<p><img alt="6417fefbd13443bb9caf3204f1585bd2" src="https://github.com/MDAnalysis/MDAnalysisTutorial/blob/master/doc/sphinx/figs/angle_defs.png?raw=true" /></p>
+<p><img alt="fd4b9df163c84f818af75f01db69cc46" src="https://github.com/MDAnalysis/MDAnalysisTutorial/blob/master/doc/sphinx/figs/angle_defs.png?raw=true" /></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
@@ -848,7 +850,7 @@ None
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-73.23912
+np.float32(73.23912)
 </pre></div></div>
 </div>
 <p>So we can set our dimensions.</p>
