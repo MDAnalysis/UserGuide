@@ -17,7 +17,9 @@ Attributes guessed
 ==================
 
 The topology attributes guessed by the default guesser are listed below, as are their dependencies and broad assumptions.
-Please see the `API documentation <https://docs.mdanalysis.org/stable/documentation_pages/guesser_modules/default_guesser.html>`_ for more details.
+Please see the `Guesser API documentation`_ for more details.
+
+.. _`Guesser API documentation`: https://docs.mdanalysis.org/stable/documentation_pages/guesser_modules/default_guesser.html
 
 .. _default-guesser-types:
 
@@ -27,7 +29,7 @@ Elements and types
 
 The default guesser guesses atom ``element``\ s and ``type``\ s using the same pathway; when atom ``type``\ s are guessed, they represent the atom ``element``. Atom elements are guessed from the atom name. The default guesser follows biological naming conventions, where atoms named "CA" are much more likely to represent an alpha-carbon than a calcium atom. This guesser is still relatively fragile for non-traditionally biological atom names.
 
-The :meth:`~MDAnalysis.guesser.default_guesser.DefaultGuesser.guess_atom_element` method is used to guess atom elements or types following a process by which numbers, symbols, and some letters are stripped from the atom name and checked against a look-up table, as detailed in the linked API documentation. With this method, for example, "AO5*" would be guessed as "O", and "3hg2" as "H".
+The :meth:`~MDAnalysis.guesser.default_guesser.DefaultGuesser.guess_atom_element` method is used to guess atom elements or types following a process by which numbers, symbols, and some letters are stripped from the atom name and checked against a look-up table, as detailed in the `Guesser API documentation`_. With this method, for example, "AO5*" would be guessed as "O", and "3hg2" as "H".
 
 
 ------
