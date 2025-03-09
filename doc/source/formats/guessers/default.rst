@@ -59,7 +59,7 @@ Aromaticities
 
 These are guessed using the :ref:`RDKit <RDKit-format>` converter by using the ``GetIsAromatic`` method.
 
-.. note:: 
+.. note::
    RDKit needs to have been installed for aromaticity guessing to be available.
    RDKit is always installed when MDAnalysis was installed with conda-forge packages
    but this may not be the case when using other installation paths.

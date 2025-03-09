@@ -135,7 +135,7 @@ Order of guessing
 
 The order of the attributes guessed can matter in some cases. For example, bond guessing with the :class:`~MDAnalysis.guesser.default_guesser.DefaultGuesser` relies on looking up the vdW radii of the atoms involved by their atom ``type``. That means that for file formats where the atom ``type`` is not a valid element, the atom ``type`` must be forcefully re-guessed for bond-guessing to work.
 
-.. note:: 
+.. note::
 
    The behaviour of looking up radii by *type* will likely change to looking up by *element* in version 3.0.
 
