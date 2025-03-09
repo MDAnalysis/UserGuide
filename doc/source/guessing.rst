@@ -33,16 +33,16 @@ Topology attributes can be guessed at Universe creation by passing in topology a
   u.atoms.bonds
 
 
-In general, guessing at Universe creation works very similarly to guessing using the guess_TopologyAttrs interface documented below. The main difference is that passing guesser-specific keyword arguments such as ``fudge_factor`` and ``vdwradii`` into Universe creation is **now deprecated and will be removed in version 3.0**. Instead, we recommend specifying these arguments through an explicit call to the :ref:`guess_TopologyAttrs <guess-topologyAttrs>` method.
+In general, guessing at Universe creation works very similarly to guessing using the guess_TopologyAttrs interface documented below. The main difference is that passing guesser-specific keyword arguments such as ``fudge_factor`` and ``vdwradii`` into Universe creation is **now deprecated and will be removed in version 3.0**. Instead, we recommend specifying these arguments through an explicit call to the :ref:`guess_TopologyAttrs method<guess-topologyAttrs>`.
 
 .. _guess-topologyAttrs:
 
-Guessing using the guess_TopologyAttrs interface
-================================================
+Guessing using the ``guess_TopologyAttrs()`` interface
+======================================================
 
-Topology attributes can also be guessed after Universe creation using the :meth:`~MDAnalysis.core.universe.Universe.guess_TopologyAttrs` method. The ``to_guess``, ``force_guess``, and ``context`` keywords are used to specify which attributes to guess, which attributes to forcibly re-guess, and which guesser to use, respectively. These three keywords perform the same way here as they do in Universe creation.
+Topology attributes can also be guessed after :class:`~MDAnalysis.core.universe.Universe` creation using the :meth:`~MDAnalysis.core.universe.Universe.guess_TopologyAttrs` method. The ``to_guess``, ``force_guess``, and ``context`` keywords are used to specify which attributes to guess, which attributes to forcibly re-guess, and which guesser to use, respectively. These three keywords perform the same way here as they do in Universe creation.
 
-As with Universe creation, the :ref:`DefaultGuesser <default-guesser>` is used as the default ``context``. The following example demonstrates how to guess atom types and masses after Universe creation.
+As with :class:`Universe` creation, the :ref:`DefaultGuesser <default-guesser>` is used as the default ``context``. The following example demonstrates how to guess atom types and masses after Universe creation.
 
 .. ipython:: python
 
@@ -51,12 +51,12 @@ As with Universe creation, the :ref:`DefaultGuesser <default-guesser>` is used a
   u.atoms.types
 
 
-The context can be specified either using a string (e.g. ``"default"``) or an already created Guesser object. It may be convenient to pass in an already-created Guesser object if there are particular keywords you want to use in guessing methods, such as the ``fudge_factor``, ``vdwradii`` or ``lower_bound`` keywords for controlling bond guessing. However, if additional keyword arguments are passed into ``guess_TopologyAttrs``, they will **replace** any existing arguments inside the guesser.
+The context can be specified either using a string (e.g., ``"default"``) or an already created *Guesser* object (which will have been derived from the base class :class:`~MDAnalysis.guesser.base.GuesserBase`). It may be convenient to pass in an already-created *Guesser* object (such as the :class:`~MDAnalysis.guesser.default_guesser.DefaultGuesser`) if there are particular keywords you want to use in guessing methods, such as the ``fudge_factor``, ``vdwradii`` or ``lower_bound`` keywords for controlling bond guessing. However, if additional keyword arguments are passed into ``guess_TopologyAttrs``, they will **replace** any existing arguments inside the guesser.
 
 .. ipython:: python
 
   from MDAnalysis.guesser import DefaultGuesser
-  from MDAnalysis.tests.datafiles import CONECT
+  from MDAnalysis.tests.datafiles import CONECT    # example data file
 
   u = mda.Universe(CONECT)
   guesser = DefaultGuesser(u, fudge_factor=1.2)
@@ -77,7 +77,7 @@ MDAnalysis will preferentially read topology attributes from file instead of re-
 
 .. note::
 
-  In cases where the attribute is only present for *some* atoms in the file (e.g. a patchy element column in a PDB), MDAnalysis will only guess the attribute for atoms where it is not present in the file.
+   In cases where the attribute is only present for *some* atoms in the file (e.g. a patchy element column in a PDB), MDAnalysis will only guess the attribute for atoms where it is not present in the file.
 
 To force MDAnalysis to re-guess a TopologyAttr, pass in the attribute to the ``force_guess`` keyword. This will force MDAnalysis to guess the attribute even if it is present in the file.
 
@@ -93,7 +93,7 @@ Guessing bonds, angles, and torsions
 
 Whereas most attributes are guessed at the atom, residue, or segment level, guessing topology objects such as bonds, angles, dihedrals and impropers behaves somewhat differently, and interacts with the ``force_guess`` keyword specially.
 
-Specifically, if these connectivity attributes are guessed, they are by default guessed *additively*. Therefore, if bonds and other objects are guessed twice, the bonds of the second guess are added on. Below, we see the number of bonds increase when guessed again with a looser criteria.
+Specifically, if these connectivity attributes are guessed, they are by default guessed **additively**. Therefore, if bonds and other objects are guessed twice, **the bonds of the second guess are added on.** Below, we see the number of bonds increase when guessed again with a looser criteria.
 
 .. ipython:: python
 
@@ -105,7 +105,7 @@ Specifically, if these connectivity attributes are guessed, they are by default 
   print(len(u.bonds))
 
 
-However, the number of bonds doesn't change when the bonds are guessed again with a stricter criteria -- no new bonds are found.
+However, the **number of bonds doesn't change when the bonds are guessed again with stricter criteria** -- no new bonds are found (and also no bonds are removed either, even if they do not match the new criteria):
 
 .. ipython:: python
 
@@ -113,7 +113,7 @@ However, the number of bonds doesn't change when the bonds are guessed again wit
   print(len(u.bonds))
 
 
-Moreover, bonds are unique, so if the bonds are guessed again with a same criteria, the guessed bonds doesn't change.
+Moreover, bonds are unique, so if the bonds are guessed again with the same criteria, the guessed bonds don't change:
 
 .. ipython:: python
 
@@ -121,7 +121,7 @@ Moreover, bonds are unique, so if the bonds are guessed again with a same criter
   print(len(u.bonds))
 
 
-However, if you want to forcibly overwrite all existing bonds, angles, dihedrals or impropers, you can pass the object to the ``force_guess`` keyword. This will remove all existing objects of that type before guessing. Below, we see the number of bonds has shrunk when guessed with stricter criteria.
+However, if you want to forcibly overwrite all existing bonds, angles, dihedrals or impropers, you can pass the object to the ``force_guess`` keyword. This will **remove all existing objects of that type before guessing.** Below, we see the number of bonds has shrunk when guessed with stricter criteria:
 
 .. ipython:: python
 
@@ -133,9 +133,13 @@ However, if you want to forcibly overwrite all existing bonds, angles, dihedrals
 Order of guessing
 -----------------
 
-The order of the attributes guessed can matter in some cases. For example, bond guessing with the DefaultGuesser relies on looking up the vdW radii of the atoms involved by their atom ``type``. (**Note: this behaviour will likely change to looking up by element in version 3.0**). That means that for file formats where the atom ``type`` is not a valid element, the atom ``type`` must be forcefully re-guessed for bond-guessing to work.
+The order of the attributes guessed can matter in some cases. For example, bond guessing with the :class:`~MDAnalysis.guesser.default_guesser.DefaultGuesser` relies on looking up the vdW radii of the atoms involved by their atom ``type``. That means that for file formats where the atom ``type`` is not a valid element, the atom ``type`` must be forcefully re-guessed for bond-guessing to work.
 
-Therefore the following will not work due to the types encoded in the PSF file:
+.. note:: 
+
+   The behaviour of looking up radii by *type* will likely change to looking up by *element* in version 3.0.
+
+Therefore the following will not work (in MDAnalysis < 3.0) due to the types encoded in the PSF file:
 
 .. ipython:: python
   :okexcept:
