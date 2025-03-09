@@ -57,6 +57,10 @@ Aromaticities
 
 These are guessed using the :ref:`RDKit <RDKit-format>` converter by using the ``GetIsAromatic`` method.
 
+.. note:: 
+   RDKit needs to have been installed for aromaticity guessing to be available.
+   RDKit is always installed when MDAnalysis was installed with conda-forge packages
+   but this may not be the case when using other installation paths.
 
 -----------------------------------
 Bonds, Angles, Dihedrals, Impropers
@@ -68,8 +72,8 @@ MDAnalysis can guess if bonds exist between two atoms, based on the distance bet
 
     d < f \cdot (R_1 + R_2)
 
-of each other, where :math:`R_1` and :math:`R_2` are the VdW radii
-of the atoms and :math:`f` is an ad-hoc *fudge_factor*. This is
+of each other, where :math:`R_1` and :math:`R_2` are the van der Waals radii
+of the atoms and :math:`f` is an ad-hoc *fudge factor*. This is
 the `same algorithm that VMD uses`_.
 
 .. note::
