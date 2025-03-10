@@ -43,7 +43,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Selection exporters" href="selection_exporters.html" />
-    <link rel="prev" title="Guessing" href="guessing.html" /> 
+    <link rel="prev" title="Format overview" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -115,6 +115,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../groups_of_atoms.html">Groups of atoms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../topology_system.html">The topology system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guessing.html">Guessing Topology Attributes</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Trajectories</span></p>
 <ul>
@@ -127,7 +128,6 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../reading_and_writing.html">Reading and writing files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Format overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guessing.html">Guessing</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Auxiliary files</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#supported-formats">Supported formats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#xvg-files">XVG Files</a></li>
@@ -261,7 +261,7 @@ Reads full file on initialisation.</p></td>
 <span class="gp">In [3]: </span><span class="n">aux</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">auxreader</span><span class="p">(</span><span class="n">XVG_BZ2</span><span class="p">)</span>
 
 <span class="gp">In [4]: </span><span class="n">aux</span>
-<span class="gh">Out[4]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7f2a5beafc40&gt;</span>
+<span class="gh">Out[4]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7fc8e6c2dd50&gt;</span>
 </pre></div>
 </div>
 <p>In stand-alone use, an auxiliary reader allows you to iterate over each step in a set of auxiliary data.</p>
@@ -460,7 +460,7 @@ original auxiliary reader.</p>
 <span class="gp">In [30]: </span><span class="k">del</span> <span class="n">aux</span>
 
 <span class="gp">In [31]: </span><span class="n">mda</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">auxreader</span><span class="p">(</span><span class="o">**</span><span class="n">description</span><span class="p">)</span>
-<span class="gh">Out[31]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7f2a61036c80&gt;</span>
+<span class="gh">Out[31]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7fc8e7fdae00&gt;</span>
 </pre></div>
 </div>
 <p>The ‘description’ of any or all the auxiliaries added to a trajectory can be
@@ -575,7 +575,7 @@ the EDRReader, this section will highlight functionality unique to the EDRReader
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [45]: </span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="gp">In [46]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">],</span> <span class="n">temp</span><span class="p">[</span><span class="s2">&quot;Temperature&quot;</span><span class="p">])</span>
-<span class="gh">Out[46]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x7f2a600f91e0&gt;]</span>
+<span class="gh">Out[46]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x7fc8e6bee650&gt;]</span>
 
 <span class="gp">In [47]: </span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Temperature [K]&quot;</span><span class="p">)</span>
 <span class="gh">Out[47]: </span><span class="go">Text(0, 0.5, &#39;Temperature [K]&#39;)</span>
@@ -681,7 +681,7 @@ the memory limit is set to 200 MB.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="guessing.html" class="btn btn-neutral float-left" title="Guessing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Format overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="selection_exporters.html" class="btn btn-neutral float-right" title="Selection exporters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

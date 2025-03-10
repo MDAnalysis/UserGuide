@@ -42,7 +42,7 @@
           href="../_static/opensearch.xml"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Guessing" href="guessing.html" />
+    <link rel="next" title="Auxiliary files" href="auxiliary.html" />
     <link rel="prev" title="Reading and writing files" href="../reading_and_writing.html" /> 
 </head>
 
@@ -115,6 +115,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../groups_of_atoms.html">Groups of atoms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../topology_system.html">The topology system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guessing.html">Guessing Topology Attributes</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Trajectories</span></p>
 <ul>
@@ -131,7 +132,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#coordinates">Coordinates</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="guessing.html">Guessing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auxiliary.html">Auxiliary files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="format_reference.html">Format reference</a></li>
@@ -201,7 +201,7 @@
 <p>File formats are complicated and not always well defined. MDAnalysis tries to follow published standards but this can sometimes surprise users. It is <em>highly</em> recommended that you read the page for your data file format instead of assuming certain behaviour. If you encounter problems with a file format, please <a class="reference internal" href="../contributing.html#contributing"><span class="std std-ref">get in touch with us</span></a>.</p>
 </div>
 <p>As a minimum, all topology parsers will provide atom <code class="docutils literal notranslate"><span class="pre">ids</span></code>, atom <code class="docutils literal notranslate"><span class="pre">types</span></code>, <code class="docutils literal notranslate"><span class="pre">masses</span></code>, <code class="docutils literal notranslate"><span class="pre">resids</span></code>, <code class="docutils literal notranslate"><span class="pre">resnums</span></code>, and <code class="docutils literal notranslate"><span class="pre">segids</span></code>. They will also assign all Atoms to Residues and all Residues to Segments. For systems without residues and segments, this results in there being a single Residue and Segment to which all Atoms belong. See <a class="reference internal" href="../topology_system.html#topology-attributes"><span class="std std-ref">Topology attributes</span></a> for more topology attributes.</p>
-<p>Often when data is not provided by a file, it will be guessed based on other data in the file. In this scenario, MDAnalysis will issue a warning. See <a class="reference internal" href="guessing.html#guessing"><span class="std std-ref">Guessing</span></a> for more information.</p>
+<p>Often when data is not provided by a file, it will be guessed based on other data in the file. In this scenario, MDAnalysis will issue a warning. See <a class="reference internal" href="../guessing.html#guessing"><span class="std std-ref">Guessing Topology Attributes</span></a> for more information.</p>
 <p>If a trajectory is loaded without time information, MDAnalysis will set a default timestep of 1.0 ps, where the first frame starts at 0.0 ps. In order to change these, <a class="reference internal" href="../universe.html#universe-kwargs"><span class="std std-ref">pass the following optional arguments to Universe</span></a>:</p>
 <blockquote>
 <div><ul class="simple">
@@ -942,7 +942,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../reading_and_writing.html" class="btn btn-neutral float-left" title="Reading and writing files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="guessing.html" class="btn btn-neutral float-right" title="Guessing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="auxiliary.html" class="btn btn-neutral float-right" title="Auxiliary files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

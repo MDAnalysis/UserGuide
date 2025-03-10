@@ -115,6 +115,7 @@
 <li class="toctree-l1"><a class="reference internal" href="groups_of_atoms.html">Groups of atoms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="selections.html">Atom selection language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="topology_system.html">The topology system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guessing.html">Guessing Topology Attributes</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Trajectories</span></p>
 <ul>
@@ -148,7 +149,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="formats/index.html">Format overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="formats/guessing.html">Guessing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formats/auxiliary.html">Auxiliary files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formats/selection_exporters.html">Selection exporters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formats/format_reference.html">Format reference</a></li>
@@ -320,13 +320,13 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/2.9.0-dev0/
 
 <span class="gp">In [16]: </span><span class="n">universe</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[16]: </span>
-<span class="go">array([[0.7783194 , 0.0703554 , 0.28605035],</span>
-<span class="go">       [0.04455169, 0.23661746, 0.9989159 ],</span>
-<span class="go">       [0.16497464, 0.6183348 , 0.03192748],</span>
+<span class="go">array([[0.583635  , 0.0635483 , 0.95221496],</span>
+<span class="go">       [0.7278737 , 0.82142556, 0.21881276],</span>
+<span class="go">       [0.02754421, 0.19500865, 0.14884423],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.02318394, 0.01351894, 0.44345757],</span>
-<span class="go">       [0.11022128, 0.4363746 , 0.34414378],</span>
-<span class="go">       [0.98840684, 0.11423098, 0.3483211 ]],</span>
+<span class="go">       [0.02291587, 0.3566674 , 0.23830432],</span>
+<span class="go">       [0.69278246, 0.5704565 , 0.11045075],</span>
+<span class="go">       [0.9246979 , 0.50223243, 0.50087136]],</span>
 <span class="go">      shape=(47681, 3), dtype=float32)</span>
 </pre></div>
 </div>
@@ -335,13 +335,13 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/2.9.0-dev0/
 
 <span class="gp">In [18]: </span><span class="n">universe2</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[18]: </span>
-<span class="go">array([[0.7783194 , 0.0703554 , 0.28605035],</span>
-<span class="go">       [0.04455169, 0.23661746, 0.9989159 ],</span>
-<span class="go">       [0.16497464, 0.6183348 , 0.03192748],</span>
+<span class="go">array([[0.583635  , 0.0635483 , 0.95221496],</span>
+<span class="go">       [0.7278737 , 0.82142556, 0.21881276],</span>
+<span class="go">       [0.02754421, 0.19500865, 0.14884423],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.02318394, 0.01351894, 0.44345757],</span>
-<span class="go">       [0.11022128, 0.4363746 , 0.34414378],</span>
-<span class="go">       [0.98840684, 0.11423098, 0.3483211 ]],</span>
+<span class="go">       [0.02291587, 0.3566674 , 0.23830432],</span>
+<span class="go">       [0.69278246, 0.5704565 , 0.11045075],</span>
+<span class="go">       [0.9246979 , 0.50223243, 0.50087136]],</span>
 <span class="go">      shape=(47681, 3), dtype=float32)</span>
 </pre></div>
 </div>
@@ -423,26 +423,26 @@ with its <a class="reference external" href="https://docs.mdanalysis.org/2.9.0-d
 <p>If multiple <a class="reference external" href="https://docs.mdanalysis.org/2.9.0-dev0/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v2.9.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.core.groups.AtomGroup</span></code></a>s are bound to the same
 <a class="reference external" href="https://docs.mdanalysis.org/2.9.0-dev0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v2.9.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDAnalysis.core.universe.Universe</span></code></a>, they will also be bound to the same one
 after serialization:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [31]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
 
-<span class="gp">In [2]: </span><span class="n">g</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+<span class="gp">In [32]: </span><span class="n">g</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
 
-<span class="gp">In [3]: </span><span class="n">h</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+<span class="gp">In [33]: </span><span class="n">h</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
 
-<span class="gp">In [4]: </span><span class="n">g_pickled</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">g</span><span class="p">))</span>
+<span class="gp">In [34]: </span><span class="n">g_pickled</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">g</span><span class="p">))</span>
 
-<span class="gp">In [5]: </span><span class="n">h_pickled</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+<span class="gp">In [35]: </span><span class="n">h_pickled</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
 
-<span class="gp">In [6]: </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;g_pickled.universe is h_pickled.universe : &quot;</span><span class="p">,</span>
-<span class="gp">   ...: </span>       <span class="n">g_pickled</span><span class="o">.</span><span class="n">universe</span> <span class="ow">is</span> <span class="n">h_pickled</span><span class="o">.</span><span class="n">universe</span><span class="p">)</span>
-<span class="gp">   ...: </span>
+<span class="gp">In [36]: </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;g_pickled.universe is h_pickled.universe : &quot;</span><span class="p">,</span>
+<span class="gp">   ....: </span>       <span class="n">g_pickled</span><span class="o">.</span><span class="n">universe</span> <span class="ow">is</span> <span class="n">h_pickled</span><span class="o">.</span><span class="n">universe</span><span class="p">)</span>
+<span class="gp">   ....: </span>
 <span class="go">g_pickled.universe is h_pickled.universe :  False</span>
 
-<span class="gp">In [7]: </span><span class="n">g_pickled</span><span class="p">,</span> <span class="n">h_pickled</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">((</span><span class="n">g</span><span class="p">,</span> <span class="n">h</span><span class="p">)))</span>
+<span class="gp">In [37]: </span><span class="n">g_pickled</span><span class="p">,</span> <span class="n">h_pickled</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">((</span><span class="n">g</span><span class="p">,</span> <span class="n">h</span><span class="p">)))</span>
 
-<span class="gp">In [8]: </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;g_pickled.universe is h_pickled.universe: &quot;</span><span class="p">,</span>
-<span class="gp">   ...: </span>       <span class="n">g_pickled</span><span class="o">.</span><span class="n">universe</span> <span class="ow">is</span> <span class="n">h_pickled</span><span class="o">.</span><span class="n">universe</span><span class="p">)</span>
-<span class="gp">   ...: </span>
+<span class="gp">In [38]: </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;g_pickled.universe is h_pickled.universe: &quot;</span><span class="p">,</span>
+<span class="gp">   ....: </span>       <span class="n">g_pickled</span><span class="o">.</span><span class="n">universe</span> <span class="ow">is</span> <span class="n">h_pickled</span><span class="o">.</span><span class="n">universe</span><span class="p">)</span>
+<span class="gp">   ....: </span>
 <span class="go">g_pickled.universe is h_pickled.universe:  True</span>
 </pre></div>
 </div>

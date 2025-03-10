@@ -85,6 +85,7 @@ Wherever possible, do not take these conversations to private channels, includin
    groups_of_atoms
    selections
    topology_system
+   guessing
 
 .. toctree::
    :maxdepth: 1
@@ -103,7 +104,6 @@ Wherever possible, do not take these conversations to private channels, includin
 
    reading_and_writing
    formats/index
-   formats/guessing
    formats/auxiliary
    formats/selection_exporters
    formats/format_reference
