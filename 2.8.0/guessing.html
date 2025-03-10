@@ -1,0 +1,446 @@
+
+
+
+  
+    
+  
+
+
+
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.1/css/academicons.min.css" integrity="sha512-b1ASx0WHgVFL5ZQhTgiPWX+68KjS38Jk87jg7pe+qC7q9YkEtFq0z7xCglv7qGIs/68d3mAp+StfC8WKC5SSAg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="shortcut icon" href="_static/logo/mda_favicon.ico">
+</head>
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guessing Topology Attributes &mdash; MDAnalysis User Guide  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/site.css" />
+      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+
+  
+    <link rel="canonical" href="https://userguide.mdanalysis.org/guessing.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="_static/js/versions.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within MDAnalysis User Guide  documentation"
+          href="_static/opensearch.xml"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Trajectories" href="trajectories/trajectories.html" />
+    <link rel="prev" title="The topology system" href="topology_system.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+
+  
+
+
+
+
+<a href="index.html">
+  
+    <img src="_static/user_guide.png" class="logo" alt="Logo"/>
+</a>
+
+
+  
+  
+  
+    <div class="version">
+      2.8.0
+    </div>
+  
+
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        </div>
+<div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+    
+    <!-- <p class="caption" role="heading"></p> -->
+    <ul>
+        
+        <li class="toctree-l1"><a class="reference internal" href="https://mdanalysis.org">MDAnalysis</a></li>
+        
+        <li class="toctree-l1"><a class="reference internal" href="https://docs.mdanalysis.org/stable">API docs (stable)</a></li>
+        
+        <li class="toctree-l1"><a class="reference internal" href="https://docs.mdanalysis.org/dev">API docs (development)</a></li>
+        
+        <li class="toctree-l1"><a class="reference internal" href="https://mdakits.mdanalysis.org/">MDAKits</a></li>
+        
+    </ul>
+    
+        <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/quickstart.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently asked questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/README.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">MDAnalysis Release Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data structures</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="universe.html">Universe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="atomgroup.html">AtomGroup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="groups_of_atoms.html">Groups of atoms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selections.html">Atom selection language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topology_system.html">The topology system</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Guessing Topology Attributes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#guessing-at-universe-creation">Guessing at Universe creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#guessing-using-the-guess-topologyattrs-interface">Guessing using the <code class="docutils literal notranslate"><span class="pre">guess_TopologyAttrs()</span></code> interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#forcibly-re-guessing">Forcibly re-guessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#guessing-bonds-angles-and-torsions">Guessing bonds, angles, and torsions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#order-of-guessing">Order of guessing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Trajectories</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="trajectories/trajectories.html">Trajectories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trajectories/slicing_trajectories.html">Slicing trajectories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trajectories/transformations.html">On-the-fly transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units.html">Units and constants</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Input/output</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="reading_and_writing.html">Reading and writing files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formats/index.html">Format overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formats/auxiliary.html">Auxiliary files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formats/selection_exporters.html">Selection exporters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formats/format_reference.html">Format reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Analysis</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html#alignments-and-rms-fitting">Alignments and RMS fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html#distances-and-contacts">Distances and contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html#trajectory-similarity">Trajectory similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html#structure">Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html#volumetric-analyses">Volumetric analyses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html#dimension-reduction">Dimension reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html#polymers-and-membranes">Polymers and membranes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/analysis/README.html#hydrogen-bond-analysis">Hydrogen Bond Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/analysis/custom_trajectory_analysis.html">Writing your own trajectory analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/analysis/custom_parallel_analysis.html">Parallelizing analysis</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="standard_selections.html">Standard residues in MDAnalysis selections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_topology.html">Advanced topology concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Example data</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_code.html">Contributing to the main codebase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_docs.html">Contributing to the user guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preparing_releases_and_hotfixes.html">Preparing a release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_imports.html">Module imports in MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Tests in MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+</div>
+
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MDAnalysis User Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Guessing Topology Attributes</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/guessing.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="guessing-topology-attributes">
+<span id="guessing"></span><h1>Guessing Topology Attributes<a class="headerlink" href="#guessing-topology-attributes" title="Link to this heading"></a></h1>
+<p>Since version 2.8.0 MDAnalysis has introduced a new context-dependent guessing API to guess topology attributes that are not read from the file. This allows topology attributes such as masses, charges, and atom types to be guessed from existing information in a context-dependent manner (e.g. biological naming conventions) rather than file formats, as was previously done.</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Supported guesser contexts</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Guesser</p></th>
+<th class="head"><p>Context name</p></th>
+<th class="head"><p>Topology attributes guessed</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="formats/guessers/default.html#default-guesser"><span class="std std-ref">DefaultGuesser</span></a></p></td>
+<td><p>“default”</p></td>
+<td><p>elements, types, masses, bonds, angles, dihedrals, impropers, aromaticities</p></td>
+</tr>
+</tbody>
+</table>
+<section id="guessing-at-universe-creation">
+<h2>Guessing at Universe creation<a class="headerlink" href="#guessing-at-universe-creation" title="Link to this heading"></a></h2>
+<p>Topology attributes can be guessed at Universe creation by passing in topology attributes to guess to the <code class="docutils literal notranslate"><span class="pre">to_guess</span></code> keyword. By default, as of version 2.8.0, the default guesser is used to guess <code class="docutils literal notranslate"><span class="pre">types</span></code> and <code class="docutils literal notranslate"><span class="pre">masses</span></code>.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span><span class="w"> </span><span class="nn">MDAnalysis</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mda</span>
+
+<span class="gp">In [2]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">MDAnalysis.tests.datafiles</span><span class="w"> </span><span class="kn">import</span> <span class="n">PRM12</span>
+
+<span class="gp">In [3]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PRM12</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;types&quot;</span><span class="p">,</span> <span class="s2">&quot;masses&quot;</span><span class="p">,</span> <span class="s2">&quot;bonds&quot;</span><span class="p">])</span>
+
+<span class="gp">In [4]: </span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">bonds</span>
+<span class="gh">Out[4]: </span><span class="go">&lt;TopologyGroup containing 8947 bonds&gt;</span>
+</pre></div>
+</div>
+<p>In general, guessing at Universe creation works very similarly to guessing using the <a class="reference internal" href="#guess-topologyattrs"><span class="std std-ref">guess_TopologyAttrs method</span></a> interface documented below. The main difference is that passing guesser-specific keyword arguments such as <code class="docutils literal notranslate"><span class="pre">fudge_factor</span></code> and <code class="docutils literal notranslate"><span class="pre">vdwradii</span></code> into Universe creation is <strong>now deprecated and will be removed in version 3.0</strong>. Instead, we recommend specifying these arguments through an explicit call to the <a class="reference external" href="https://docs.mdanalysis.org/2.8.0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.guess_TopologyAttrs" title="(in MDAnalysis v2.8.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">guess_TopologyAttrs()</span></code></a>.</p>
+</section>
+<section id="guessing-using-the-guess-topologyattrs-interface">
+<span id="guess-topologyattrs"></span><h2>Guessing using the <code class="docutils literal notranslate"><span class="pre">guess_TopologyAttrs()</span></code> interface<a class="headerlink" href="#guessing-using-the-guess-topologyattrs-interface" title="Link to this heading"></a></h2>
+<p>Topology attributes can also be guessed after <a class="reference external" href="https://docs.mdanalysis.org/2.8.0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v2.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a> creation using the <a class="reference external" href="https://docs.mdanalysis.org/2.8.0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.guess_TopologyAttrs" title="(in MDAnalysis v2.8.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">guess_TopologyAttrs()</span></code></a> method. The <code class="docutils literal notranslate"><span class="pre">to_guess</span></code>, <code class="docutils literal notranslate"><span class="pre">force_guess</span></code>, and <code class="docutils literal notranslate"><span class="pre">context</span></code> keywords are used to specify which attributes to guess, which attributes to forcibly re-guess, and which guesser to use, respectively. These three keywords perform the same way here as they do in Universe creation.</p>
+<p>As with <code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code> creation, the <a class="reference internal" href="formats/guessers/default.html#default-guesser"><span class="std std-ref">DefaultGuesser</span></a> is used as the default <code class="docutils literal notranslate"><span class="pre">context</span></code>. The following example demonstrates how to guess atom types and masses after Universe creation.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PRM12</span><span class="p">,</span> <span class="n">to_guess</span><span class="o">=</span><span class="p">[])</span> <span class="c1"># in v2.8.0 masses and types are guessed by default</span>
+
+<span class="gp">In [6]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;types&quot;</span><span class="p">,</span> <span class="s2">&quot;masses&quot;</span><span class="p">])</span>
+
+<span class="gp">In [7]: </span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">types</span>
+<span class="gh">Out[7]: </span>
+<span class="go">array([&#39;HO&#39;, &#39;OH&#39;, &#39;CI&#39;, ..., &#39;OW&#39;, &#39;HW&#39;, &#39;HW&#39;],</span>
+<span class="go">      shape=(8923,), dtype=object)</span>
+</pre></div>
+</div>
+<p>The context can be specified either using a string (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;default&quot;</span></code>) or an already created <em>Guesser</em> object (which will have been derived from the base class <a class="reference external" href="https://docs.mdanalysis.org/2.8.0/documentation_pages/guesser_modules/base.html#MDAnalysis.guesser.base.GuesserBase" title="(in MDAnalysis v2.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">GuesserBase</span></code></a>). It may be convenient to pass in an already-created <em>Guesser</em> object (such as the <a class="reference external" href="https://docs.mdanalysis.org/2.8.0/documentation_pages/guesser_modules/default_guesser.html#MDAnalysis.guesser.default_guesser.DefaultGuesser" title="(in MDAnalysis v2.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DefaultGuesser</span></code></a>) if there are particular keywords you want to use in guessing methods, such as the <code class="docutils literal notranslate"><span class="pre">fudge_factor</span></code>, <code class="docutils literal notranslate"><span class="pre">vdwradii</span></code> or <code class="docutils literal notranslate"><span class="pre">lower_bound</span></code> keywords for controlling bond guessing. However, if additional keyword arguments are passed into <a class="reference external" href="https://docs.mdanalysis.org/2.8.0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.guess_TopologyAttrs" title="(in MDAnalysis v2.8.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">guess_TopologyAttrs()</span></code></a>, they will <strong>replace</strong> any existing arguments inside the guesser.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">MDAnalysis.guesser</span><span class="w"> </span><span class="kn">import</span> <span class="n">DefaultGuesser</span>
+
+<span class="gp">In [9]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">MDAnalysis.tests.datafiles</span><span class="w"> </span><span class="kn">import</span> <span class="n">CONECT</span>    <span class="c1"># example data file</span>
+
+<span class="gp">In [10]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">CONECT</span><span class="p">)</span>
+
+<span class="gp">In [11]: </span><span class="n">guesser</span> <span class="o">=</span> <span class="n">DefaultGuesser</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">fudge_factor</span><span class="o">=</span><span class="mf">1.2</span><span class="p">)</span>
+
+<span class="gp">In [12]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">],</span> <span class="n">context</span><span class="o">=</span><span class="n">guesser</span><span class="p">,</span> <span class="n">fudge_factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="gp">In [13]: </span><span class="n">guesser</span><span class="o">.</span><span class="n">_kwargs</span><span class="p">[</span><span class="s2">&quot;fudge_factor&quot;</span><span class="p">]</span>
+<span class="gh">Out[13]: </span><span class="go">0.5</span>
+</pre></div>
+</div>
+<section id="forcibly-re-guessing">
+<h3>Forcibly re-guessing<a class="headerlink" href="#forcibly-re-guessing" title="Link to this heading"></a></h3>
+<p>MDAnalysis will preferentially read topology attributes from file instead of re-guessing them, even if the attribute is passed into <code class="docutils literal notranslate"><span class="pre">to_guess</span></code>. For example, below, the <code class="docutils literal notranslate"><span class="pre">types</span></code> attributes reflects the actual atom types in the file.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PRM12</span><span class="p">,</span> <span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;types&quot;</span><span class="p">,</span> <span class="s2">&quot;masses&quot;</span><span class="p">])</span>
+
+<span class="gp">In [15]: </span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">types</span>
+<span class="gh">Out[15]: </span>
+<span class="go">array([&#39;HO&#39;, &#39;OH&#39;, &#39;CI&#39;, ..., &#39;OW&#39;, &#39;HW&#39;, &#39;HW&#39;],</span>
+<span class="go">      shape=(8923,), dtype=object)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In cases where the attribute is only present for <em>some</em> atoms in the file (e.g. a patchy element column in a PDB), MDAnalysis will only guess the attribute for atoms where it is not present in the file.</p>
+</div>
+<p>To force MDAnalysis to re-guess a TopologyAttr, pass in the attribute to the <code class="docutils literal notranslate"><span class="pre">force_guess</span></code> keyword. This will force MDAnalysis to guess the attribute even if it is present in the file.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;types&quot;</span><span class="p">],</span> <span class="n">force_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;types&quot;</span><span class="p">])</span>
+
+<span class="gp">In [17]: </span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">types</span>
+<span class="gh">Out[17]: </span><span class="go">array([&#39;H&#39;, &#39;O&#39;, &#39;C&#39;, ..., &#39;O&#39;, &#39;H&#39;, &#39;H&#39;], shape=(8923,), dtype=object)</span>
+</pre></div>
+</div>
+</section>
+<section id="guessing-bonds-angles-and-torsions">
+<h3>Guessing bonds, angles, and torsions<a class="headerlink" href="#guessing-bonds-angles-and-torsions" title="Link to this heading"></a></h3>
+<p>Whereas most attributes are guessed at the atom, residue, or segment level, guessing topology objects such as bonds, angles, dihedrals and impropers behaves somewhat differently, and interacts with the <code class="docutils literal notranslate"><span class="pre">force_guess</span></code> keyword specially.</p>
+<p>Specifically, if these connectivity attributes are guessed, they are by default guessed <strong>additively</strong>. Therefore, if bonds and other objects are guessed twice, <strong>the bonds of the second guess are added on.</strong> Below, we see the number of bonds increase when guessed again with a looser criteria.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">MDAnalysis.tests.datafiles</span><span class="w"> </span><span class="kn">import</span> <span class="n">CONECT</span>
+
+<span class="gp">In [19]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">CONECT</span><span class="p">,</span> <span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">])</span>
+
+<span class="gp">In [20]: </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">bonds</span><span class="p">))</span>
+<span class="go">1922</span>
+
+<span class="gp">In [21]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">],</span> <span class="n">fudge_factor</span><span class="o">=</span><span class="mf">1.2</span><span class="p">)</span> <span class="c1"># looser</span>
+
+<span class="gp">In [22]: </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">bonds</span><span class="p">))</span>
+<span class="go">9385</span>
+</pre></div>
+</div>
+<p>However, the <strong>number of bonds doesn’t change when the bonds are guessed again with stricter criteria</strong> – no new bonds are found (and also no bonds are removed either, even if they do not match the new criteria):</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [23]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">],</span> <span class="n">fudge_factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># stricter</span>
+
+<span class="gp">In [24]: </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">bonds</span><span class="p">))</span>
+<span class="go">9385</span>
+</pre></div>
+</div>
+<p>Moreover, bonds are unique, so if the bonds are guessed again with the same criteria, the guessed bonds don’t change:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [25]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">],</span> <span class="n">fudge_factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># same</span>
+
+<span class="gp">In [26]: </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">bonds</span><span class="p">))</span>
+<span class="go">9385</span>
+</pre></div>
+</div>
+<p>However, if you want to forcibly overwrite all existing bonds, angles, dihedrals or impropers, you can pass the object to the <code class="docutils literal notranslate"><span class="pre">force_guess</span></code> keyword. This will <strong>remove all existing objects of that type before guessing.</strong> Below, we see the number of bonds has shrunk when guessed with stricter criteria:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [27]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">],</span> <span class="n">force_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">],</span> <span class="n">fudge_factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="gp">In [28]: </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">bonds</span><span class="p">))</span>
+<span class="go">1912</span>
+</pre></div>
+</div>
+</section>
+<section id="order-of-guessing">
+<h3>Order of guessing<a class="headerlink" href="#order-of-guessing" title="Link to this heading"></a></h3>
+<p>The order of the attributes guessed can matter in some cases. For example, bond guessing with the <a class="reference external" href="https://docs.mdanalysis.org/2.8.0/documentation_pages/guesser_modules/default_guesser.html#MDAnalysis.guesser.default_guesser.DefaultGuesser" title="(in MDAnalysis v2.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DefaultGuesser</span></code></a> relies on looking up the vdW radii of the atoms involved by their atom <code class="docutils literal notranslate"><span class="pre">type</span></code>. That means that for file formats where the atom <code class="docutils literal notranslate"><span class="pre">type</span></code> is not a valid element, the atom <code class="docutils literal notranslate"><span class="pre">type</span></code> must be forcefully re-guessed for bond-guessing to work.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The behaviour of looking up radii by <em>type</em> will likely change to looking up by <em>element</em> in version 3.0.</p>
+</div>
+<p>Therefore the following will not work (in MDAnalysis &lt; 3.0) due to the types encoded in the PSF file:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [29]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">MDAnalysis.tests.datafiles</span><span class="w"> </span><span class="kn">import</span> <span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span>
+
+<span class="gp">In [30]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
+
+<span class="gp">In [31]: </span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">types</span><span class="p">)</span>
+<span class="go">[&#39;56&#39; &#39;2&#39; &#39;2&#39; ... &#39;32&#39; &#39;72&#39; &#39;72&#39;]</span>
+
+<span class="gp">In [32]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">])</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">32</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">])</span>
+
+<span class="nn">File ~/micromamba/envs/mda-user-guide/lib/python3.10/site-packages/MDAnalysis/core/universe.py:1658,</span> in <span class="ni">Universe.guess_TopologyAttrs</span><span class="nt">(self, context, to_guess, force_guess, error_if_missing, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1656</span> <span class="n">fg</span> <span class="o">=</span>  <span class="n">attr</span> <span class="ow">in</span> <span class="n">force_guess</span>
+<span class="g g-Whitespace">   </span><span class="mi">1657</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1658</span>     <span class="n">values</span> <span class="o">=</span> <span class="n">guesser</span><span class="o">.</span><span class="n">guess_attr</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">fg</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1659</span> <span class="k">except</span> <span class="n">NoDataError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1660</span>     <span class="k">if</span> <span class="n">error_if_missing</span> <span class="ow">or</span> <span class="n">fg</span><span class="p">:</span>
+
+<span class="nn">File ~/micromamba/envs/mda-user-guide/lib/python3.10/site-packages/MDAnalysis/guesser/base.py:159,</span> in <span class="ni">GuesserBase.guess_attr</span><span class="nt">(self, attr_to_guess, force_guess)</span>
+<span class="g g-Whitespace">    </span><span class="mi">155</span> <span class="c1"># Connection attributes should be just returned as they are always</span>
+<span class="g g-Whitespace">    </span><span class="mi">156</span> <span class="c1"># appended to the Universe. ``force_guess`` handling should happen</span>
+<span class="g g-Whitespace">    </span><span class="mi">157</span> <span class="c1"># at Universe level.</span>
+<span class="g g-Whitespace">    </span><span class="mi">158</span> <span class="k">if</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">top_attr</span><span class="p">,</span> <span class="n">_Connection</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">159</span>     <span class="k">return</span> <span class="n">guesser_method</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">161</span> <span class="c1"># check if the topology already has the attribute to partially guess it</span>
+<span class="g g-Whitespace">    </span><span class="mi">162</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_universe</span><span class="o">.</span><span class="n">atoms</span><span class="p">,</span> <span class="n">attr_to_guess</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">force_guess</span><span class="p">:</span>
+
+<span class="nn">File ~/micromamba/envs/mda-user-guide/lib/python3.10/site-packages/MDAnalysis/guesser/default_guesser.py:430,</span> in <span class="ni">DefaultGuesser.guess_bonds</span><span class="nt">(self, atoms, coords)</span>
+<span class="g g-Whitespace">    </span><span class="mi">428</span> <span class="c1"># check that all types have a defined vdw</span>
+<span class="g g-Whitespace">    </span><span class="mi">429</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">val</span> <span class="ow">in</span> <span class="n">vdwradii</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">atomtypes</span><span class="p">)):</span>
+<span class="ne">--&gt; </span><span class="mi">430</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">((</span><span class="s2">&quot;vdw radii for types: &quot;</span> <span class="o">+</span>
+<span class="g g-Whitespace">    </span><span class="mi">431</span>                       <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">atomtypes</span><span class="p">)</span> <span class="k">if</span>
+<span class="g g-Whitespace">    </span><span class="mi">432</span>                                  <span class="n">t</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">vdwradii</span><span class="p">])</span> <span class="o">+</span>
+<span class="g g-Whitespace">    </span><span class="mi">433</span>                       <span class="s2">&quot;. These can be defined manually using the&quot;</span> <span class="o">+</span>
+<span class="g g-Whitespace">    </span><span class="mi">434</span>                       <span class="sa">f</span><span class="s2">&quot; keyword &#39;vdwradii&#39;&quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">436</span> <span class="n">lower_bound</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;lower_bound&#39;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">438</span> <span class="n">box</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;box&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: vdw radii for types: 3, 52, 56, 70, 7, 25, 54, 81, 22, 51, 21, 9, 6, 31, 55, 1, 72, 32, 5, 30, 26, 29, 20, 23, 24, 73, 10, 2, 57, 50. These can be defined manually using the keyword &#39;vdwradii&#39;
+</pre></div>
+</div>
+<p>However, the snippet below will re-guess the types, and now bond-guessing can work as the elements have vdW radii defined:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;types&quot;</span><span class="p">,</span> <span class="s2">&quot;bonds&quot;</span><span class="p">],</span> <span class="n">force_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;types&quot;</span><span class="p">])</span>
+
+<span class="gp">In [2]: </span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">types</span><span class="p">)</span>
+<span class="go">[&#39;N&#39; &#39;H&#39; &#39;H&#39; ... &#39;C&#39; &#39;O&#39; &#39;O&#39;]</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="topology_system.html" class="btn btn-neutral float-left" title="The topology system" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="trajectories/trajectories.html" class="btn btn-neutral float-right" title="Trajectories" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019-2025, Lily Wang, Irfan Alibay, Patricio Barletta, Cédric Bouysset, Rubén Chaves, Jan Domanski, Bjarne Feddersen, Mike Henry, Florent Langenfeld, Hugo MacDermott-Opeskin, Micaela Matta, Rocco Meli, Mahfuza Humayra Mohona, Paul Smith, Mieczyslaw Torchala, Mark Verma, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..</p>
+  </div>
+
+  
+
+<div class="footer"><p>Please see
+    our <a href="https://www.mdanalysis.org/pages/privacy/">Privacy Policy</a>
+    to learn how <a href="https://www.mdanalysis.org">MDAnalysis</a> collects data.</p>
+    <script data-goatcounter="https://mdanalysis.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</div>
+
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+    var versions_json_url = 'https://userguide.mdanalysis.org/versions.json'
+</script>
+
+<div class="rst-versions" data-toggle="rst-versions" role="note"
+     aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"></span>
+        
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+        <dl id="versionselector">
+            <dt>Other Versions</dt>
+        </dl>
+
+    </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

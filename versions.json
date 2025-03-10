@@ -69,6 +69,12 @@
     "version": "2.7.0",
     "display": "2.7.0",
     "url": "https://userguide.mdanalysis.org/2.7.0",
+    "latest": false
+  },
+  {
+    "version": "2.8.0",
+    "display": "2.8.0",
+    "url": "https://userguide.mdanalysis.org/2.8.0",
     "latest": true
   },
   {

@@ -289,7 +289,7 @@
    "source": [
     "### Plotting the data\n",
     "\n",
-    "We can easily plot this data using the common data analysis package [pandas](https://pandas.pydata.org). We turn the ``R.rmsd`` array into a [DataFrame](https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html#dataframe) and label each column below."
+    "We can easily plot this data using the common data analysis package [pandas](https://pandas.pydata.org). We turn the ``R.rmsd`` array into a [DataFrame](https://pandas.pydata.org/docs/user_guide/dsintro.html#dataframe) and label each column below."
    ]
   },
   {
