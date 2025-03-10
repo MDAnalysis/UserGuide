@@ -33,7 +33,7 @@ Topology attributes can be guessed at Universe creation by passing in topology a
   u.atoms.bonds
 
 
-In general, guessing at Universe creation works very similarly to guessing using the guess_TopologyAttrs interface documented below. The main difference is that passing guesser-specific keyword arguments such as ``fudge_factor`` and ``vdwradii`` into Universe creation is **now deprecated and will be removed in version 3.0**. Instead, we recommend specifying these arguments through an explicit call to the :ref:`guess_TopologyAttrs method<guess-topologyAttrs>`.
+In general, guessing at Universe creation works very similarly to guessing using the :ref:`guess_TopologyAttrs method<guess-topologyAttrs>` interface documented below. The main difference is that passing guesser-specific keyword arguments such as ``fudge_factor`` and ``vdwradii`` into Universe creation is **now deprecated and will be removed in version 3.0**. Instead, we recommend specifying these arguments through an explicit call to the :meth:`~MDAnalysis.core.universe.Universe.guess_TopologyAttrs`.
 
 .. _guess-topologyAttrs:
 
@@ -51,7 +51,7 @@ As with :class:`Universe` creation, the :ref:`DefaultGuesser <default-guesser>` 
   u.atoms.types
 
 
-The context can be specified either using a string (e.g., ``"default"``) or an already created *Guesser* object (which will have been derived from the base class :class:`~MDAnalysis.guesser.base.GuesserBase`). It may be convenient to pass in an already-created *Guesser* object (such as the :class:`~MDAnalysis.guesser.default_guesser.DefaultGuesser`) if there are particular keywords you want to use in guessing methods, such as the ``fudge_factor``, ``vdwradii`` or ``lower_bound`` keywords for controlling bond guessing. However, if additional keyword arguments are passed into ``guess_TopologyAttrs``, they will **replace** any existing arguments inside the guesser.
+The context can be specified either using a string (e.g., ``"default"``) or an already created *Guesser* object (which will have been derived from the base class :class:`~MDAnalysis.guesser.base.GuesserBase`). It may be convenient to pass in an already-created *Guesser* object (such as the :class:`~MDAnalysis.guesser.default_guesser.DefaultGuesser`) if there are particular keywords you want to use in guessing methods, such as the ``fudge_factor``, ``vdwradii`` or ``lower_bound`` keywords for controlling bond guessing. However, if additional keyword arguments are passed into :meth:`~MDAnalysis.core.universe.Universe.guess_TopologyAttrs`, they will **replace** any existing arguments inside the guesser.
 
 .. ipython:: python
 
