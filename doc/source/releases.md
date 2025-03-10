@@ -17,7 +17,7 @@ Supported Python versions:
 See the [CHANGELOG](https://github.com/MDAnalysis/mdanalysis/blob/release-2.8.0/package/CHANGELOG) and our [release blog post](https://www.mdanalysis.org/blog/#mdanalysis-2.8-is-out) for more details.
 
 * The MDAnalysis package license has changed from GPLv3+ to LGPLv3+ and all code contributions are now under LGPLv2.1+
-* MDAnalysis now has a brand new guesser API (PR #3753). See the DefaultGuesser class for more information. Please note that default guessing of types and masses will change in MDAnalysis v3.0.
+* MDAnalysis now has a brand new guesser API (PR #3753). See the DefaultGuesser class for more information. Please note that default guessing of types and masses will change in MDAnalysis v3.0. We have updated and moved our guide on guessing on [guessing topology attributes to the top level](https://userguide.mdanalysis.org/stable/guessing.html).
 * DSSP analysis `analysis.DSSP` module for protein secondary structure assignment, based on [pydssp](https://github.com/ShintaroMinami/PyDSSP) was added.
 * An iterative average structure method was added to `analysis.align` based on DOI 10.1021/acs.jpcb.7b11988. 
 * The TPR reader has been updated to support Gromacs 2024.
