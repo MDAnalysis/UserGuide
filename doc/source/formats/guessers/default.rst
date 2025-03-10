@@ -7,7 +7,7 @@ DefaultGuesser
 
 .. warning::
 
-    The default guesser has been created to reproduce pre-v2.8.0 MDAnalysis guessing behaviour as much as possible. **Default behaviours will change in MDAnalysis version 3**, as detailed in deprecation warnings.
+    The default guesser has been created to reproduce pre-v2.8.0 MDAnalysis guessing behaviour as much as possible. However, minor changes were unavoidable and have been detailed in the `2.8.0 CHANGELOG notes <https://github.com/MDAnalysis/mdanalysis/blob/develop/package/CHANGELOG>`_ . **Default behaviours will change in MDAnalysis version 3**, as detailed in deprecation warnings.
 
 
 The :class:`~MDAnalysis.guesser.default_guesser.DefaultGuesser` is the default guessing context for MDAnalysis. For historical reasons the ``DefaultGuesser`` largely works with biological conventions; for example, an atom named CA will be assumed to be a carbon rather than a calcium atom.
