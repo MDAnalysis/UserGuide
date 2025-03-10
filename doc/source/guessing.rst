@@ -70,7 +70,7 @@ Forcibly re-guessing
 
 MDAnalysis will preferentially read topology attributes from file instead of re-guessing them, even if the attribute is passed into ``to_guess``. For example, below, the ``types`` attributes reflects the actual atom types in the file.
 
-.. ipython::
+.. ipython:: python
 
   u = mda.Universe(PRM12, to_guess=["types", "masses"])
   u.atoms.types
