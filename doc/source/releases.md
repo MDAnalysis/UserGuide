@@ -1,6 +1,32 @@
 # MDAnalysis Release Notes
 
 
+## Release 2.9.0 of MDAnalysis
+
+This is a minor release of MDAnalysis.
+
+This release supports NumPy 2.0+ and offers backwards compatibility through to NumPy 1.23.2
+
+Supported Python versions:
+  - 3.10, 3.11, 3.12, 3.13
+
+### Major features & changes
+
+See the [CHANGELOG](https://github.com/MDAnalysis/mdanalysis/blob/release-2.9.0/package/CHANGELOG) and our [release blog post](https://www.mdanalysis.org/blog/#mdanalysis-2.9-is-out) for more details.
+
+* Support for Gromacs v2024.4 and v2025 TPR files.
+* A new "water" keyword for selecting water residues.
+* `fasteners` dependency has been switch to `filelock`.
+* Support for distopia 0.4.0 as an optional distance library backend.
+* Parallel analysis support for `MDAnalysis.analysis.nucleicacids`, `MDAnalysis.analysis.contacts`, and `MDAnalysis.analysis.density`.
+* XYZ writer can now write positions up to a user-supplied precision via the `precision` keyword argument.
+* `MDAnalysis.analysis.hole2`, `MDAnalysis.analysis.psa`, and `MDAnalysis.analysis.waterdynamics`, are now only available via optional dependencies (the mdahole2, pathsimanalysis, and waterdynamics mdakits). By default these will not be installed, you will need to install them separately if you wish to use them. Please note that in v3.0 theses modules will be removed completely from the MDAnalysis core library and you will need to use the mdakits directly.
+
+## New Contributors
+* [@ChiahsinChu](https://github.com/ChiahsinChu) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4771
+* [@tanishy7777](https://github.com/tanishy7777) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4831
+* [@jauy123](https://github.com/jauy123) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4917
+
 ## Release 2.8.0 of MDAnalysis
 
 This a minor release of MDAnalysis.
@@ -139,7 +165,7 @@ See the [CHANGELOG](https://github.com/MDAnalysis/mdanalysis/blob/release-2.6.0/
 
 #### Deprecations:
 * The misspelt `Boltzman_constant` entry in `MDAnalysis.units` is now deprecated in favour the correctly spelt `Boltzmann_constant`. (https://github.com/MDAnalysis/mdanalysis/pull/4230 and https://github.com/MDAnalysis/mdanalysis/pull/4214)
-* `MDAnalysis.analysis.hole2` is now deprecated in favour of a new [HOLE2 MDAKit](https://mdakits.mdanalysis.org/mdahole2.html). (https://github.com/MDAnalysis/mdanalysis/pull/4200)
+* `MDAnalysis.analysis.hole2` is now deprecated in favour of a new [HOLE2 MDAKit](https://www.mdanalysis.org/hole2-mdakit/). (https://github.com/MDAnalysis/mdanalysis/pull/4200)
 
 ### New Contributors
 * [@MohitKumar020291](https://github.com/MohitKumar020291) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4182
