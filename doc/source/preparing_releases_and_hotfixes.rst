@@ -57,7 +57,6 @@ Summary of tasks
   * Check automated testing of source distribution and wheel generation and upload
   * Create a new release from newly created tag
   * Check that deployment actions have adequately pushed dist and wheels to PyPi
-  * Manually upload Cirrus CI wheels (temporary)
   * Update `conda-forge` packages
   * Create a blog post outlining the release
   * Increment develop branch files ready for the next version
@@ -142,20 +141,6 @@ If everything works, you can now complete the release by:
     #. If the `deploy github action`_ fails and no files have been uploaded, then restart the action.
 
     #. If the action fails and some files have been uploaded, then you will not be able to re-upload to PyPI. At this point you will need to yank the release from PyPI and create a new minor version and re-deploy it.
-
-
-Manually upload Cirrus CI wheels (temporary)
---------------------------------------------
-
-Unfortunately the deployment of Cirrus CI generated wheels (for `osx-arm64` and `linux-aarch64`) does not get properly triggered by a release. However, they are properly uploaded to `TestPyPi`_
-
-#. Go to the recently updated TestPyPi release and download all the `.whl` files which have the tags `arm64` and `aarch64`.
-
-#. From a local directory upload these wheels using ``twine``.
-
-    .. code-block:: bash
-
-       twine upload -r pypi *.whl --verbose
 
 
 Update `conda-forge` packages
