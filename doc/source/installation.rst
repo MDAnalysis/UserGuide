@@ -4,17 +4,20 @@
 Installation Guide
 ====================
 
-The latest version of **MDAnalysis** can be installed using :ref:`conda-installation` (recommended), 
-or :ref:`pip-installation`. For development and contribution users can :ref:`source-installation`.
- 
-Currently, the `conda`_ releases only support serial calculations. If you plan to use 
-the parallel `OpenMP`_ algorithms, you need to install MDAnalysis with `pip`_ and have a 
-working `OpenMP`_ installation.
+The latest version of **MDAnalysis** can be installed using :ref:`mamba-installation` (recommended), 
+or :ref:`pip-installation`. If you need to install MDAnalysis from source, follow :ref:`source-installation` 
+for stable releases. If you are a contributor or developer working on MDAnalysis, follow the 
+:ref:`development-installation` for editable installation and code modifications.
+
+Currently, the :ref:`mamba-installation` installs a version of MDAnalysis that does **not** include `OpenMP`_ 
+acceleration due to limitations in precompiled conda packages. If you need `OpenMP`_-enabled features, 
+consider installing via :ref:`pip-installation` and compiling from source with a compatible compiler and 
+OpenMP support.
 
 **MDAnalysisTests** is optional and it is a separate :ref:`test suite <mdanalysistests>` used 
 for verifying MDAnalysis installations and running User Guide examples. It is not required for 
-daily use, but some tutorials depend on it. The package is 90 MB and does not change frequently. 
-If you plan to use tutorial examples or contribute to MDAnalysis development, installing it is recommended.
+daily use, but some tutorials rely on it. The package is approximately 90 MB and is not updated frequently. 
+If you plan to use tutorial examples or contribute to MDAnalysis, installing it is recommended.
 
 MDAnalysis requires Python 3.8 or later. Ensure you have an appropriate Python version installed before proceeding.
 
@@ -25,51 +28,65 @@ MDAnalysis requires Python 3.8 or later. Ensure you have an appropriate Python v
     - If you encounter any other issues following these instructions, seek help on `GitHub Discussions (Installation)`_.    
 
 .. warning::
-    `conda`_ and `pip`_ installations **do not include** external programs such as `HOLE`_.
+    :ref:`mamba-installation` and :ref:`pip-installation` installations **do not include** external programs such as `HOLE`_.
 
-.. _conda-installation:
+.. _mamba-installation:
 
-conda 
-======
- 
-For most users, `conda`_ is the easiest way to install MDAnalysis because it manages dependencies effectively. 
-We highly recommend creating a new environment for MDAnalysis to ensure a clean installation of MDAnalysis and 
-its dependencies. We further recommend that you install and use `mamba`_, a faster drop-in replacement for `conda`_. 
+mamba/conda 
+===========
 
-If you don't have `conda`_ you can follow the `conda installation instructions`_. You can then create the environment 
-and install `mamba`_ with: 
+For most users, `mamba`_ is the **recommended** way to install MDAnalysis. It is a faster drop-in 
+replacement for `conda`_ and efficiently handles dependencies. We also recommend creating a new 
+environment for MDAnalysis to ensure a clean and isolated installation.
 
-.. code-block:: bash
+MDAnalysis supports two common ways to install with `mamba`_:
 
-    conda create --name mdanalysis
-    conda activate mdanalysis
-    conda install -c conda-forge mamba
+**1. Recommended: Use Mambaforge**
 
-To install the latest stable version of MDAnalysis via `mamba`_ with all dependencies for full functionality, use the following command. 
+`Mambaforge`_ is a minimal `conda`_ distribution that includes `mamba`_ by default, uses the `conda-forge`_ channel 
+(preferred for MDAnalysis) and avoids clutter from `Anaconda`_ base packages.
+
+To install MDAnalysis with `Mambaforge`_, first download the `mambaforge installer`_ and then run: 
 
 .. code-block:: bash
 
-    mamba install -c conda-forge mdanalysis
+    mamba create -n mdanalysis mdanalysis
+    mamba activate mdanalysis
 
-To upgrade use:
-
-.. code-block:: bash
-
-    mamba update mdanalysis
-
-To install the :ref:`test suite <mdanalysistests>` use:
+To install the :ref:`test suite <mdanalysistests>` (optional, ~90 MB):
 
 .. code-block:: bash
 
     mamba install -c conda-forge MDAnalysisTests
 
-If you intend to use MDAnalysis in **JupyterLab**, you will have to install
-an extra package for the progress bar in analysis classes:
+For more installation options (including Windows installers), see the `official mamba installation guide`_.
+
+To upgrade, use:
 
 .. code-block:: bash
 
-    conda install -c conda-forge nodejs
-    jupyter labextension install @jupyter-widgets/jupyterlab-manager
+    mamba update mdanalysis
+
+If you're using MDAnalysis in **JupyterLab**, install `ipywidgets`_ for progress bar support:
+
+.. code-block:: bash
+
+    mamba install -c conda-forge ipywidgets
+
+**2. Alternative: Install mamba to an existing conda installation**
+
+If you already use `conda`_, you can add `mamba`_ to your base environment:
+
+.. code-block:: bash
+
+    conda install -c conda-forge mamba
+
+Then create and activate an environment with MDAnalysis:
+
+.. code-block:: bash
+
+    mamba create -n mdanalysis mdanalysis
+    mamba activate mdanalysis
 
 .. _pip-installation:
 
@@ -83,53 +100,95 @@ This means that some packages required by specific analysis modules will not be 
 
     pip install --upgrade MDAnalysis
 
-
-If you need to install a fully-featured MDAnalysis, add the ``analysis`` tag. 
+To install a fully-featured version of MDAnalysis (including optional analysis modules), use the ``analysis`` extra tag:
 
 .. code-block:: bash
 
     pip install --upgrade MDAnalysis[analysis]
 
-To install or upgrade the :ref:`test suite <mdanalysistests>`:
+To install or upgrade the :ref:`test suite <mdanalysistests>` (optional, ~90 MB):
 
 .. code-block:: bash
 
     pip install --upgrade MDAnalysisTests
 
-If you intend to use MDAnalysis in **JupyterLab**, you will have to install
-an extra package for the progress bar in analysis classes:
+If you're using MDAnalysis in **JupyterLab**, install `ipywidgets`_ for progress bar support:
 
 .. code-block:: bash
 
-    pip install nodejs
-    jupyter labextension install @jupyter-widgets/jupyterlab-manager
+    pip install ipywidgets
 
 .. _source-installation:
 
 Install from source
 ===================
 
-If you plan to develop or contribute to MDAnalysis, follow these instructions first. Then, refer to :ref:`contributing` for additional guidelines.
+This section is for **users** who want to install a **specific stable version** of MDAnalysis 
+(e.g., for reproducibility or to debug a release). This is **not** intended for development or code contributions. 
+If you're a developer, see :ref:`development-installation`.
 
-To install the latest development versions of MDAnalysis (including unreleased features and bug fixes) you can compile it from `source`_. Use the following commands:
-   
+To install from source, you must first ensure that your environment already contains all necessary dependencies. 
+We recommend you check the :ref:`create-virtual-environment` to set up a clean development environment
+with all required dependencies. We recommend using `mamba`_ or `conda`_ to manage this setup.
+
+Follow the steps in:
+
+- `Set up with conda-forge`_
+- `Set up with mamba`_ 
+
+MDAnalysis uses different Git branches for different purposes:
+
+- **package-X.Y.Z**: These branches contain specific stable releases (e.g., ``package-2.9.0``) and are intended for users who need reproducibility, debugging, or version locking. You can browse them on the GitHub `Branches page`_ or view official releases on the `Releases page`_.
+- **develop**: The `develop branch`_ is the default and active development branch. If you're contributing to MDAnalysis or want the latest features before they're released, base your work on this branch (see :ref:`development-installation`).
+
+To install the **latest stable release** from source:
+
 .. code-block:: bash
 
-    # Clone the MDAnalysis repository
     git clone https://github.com/MDAnalysis/mdanalysis
     cd mdanalysis
-    # assuming you have already installed required dependencies
-    pip install -e package/
+    git checkout release-<latest-version>  
+    pip install .
 
-.. note::
-    To install from `source`_, you will need ``numpy`` and ``cython``. See :ref:`create-virtual-environment` for instructions on how to create a full development environment.
-
-To install the test suite:
+To run tests:
 
 .. code-block:: bash
-    
+
+    pip install MDAnalysisTests
+
+.. _development-installation:
+
+Install for development 
+==========================
+
+This section is for **contributors and developers** who want to modify MDAnalysis 
+or contribute to its development. You’ll install MDAnalysis in **editable mode**, which allows you to make code changes 
+without reinstalling the package each time.
+
+Before installing, follow the steps described in the :ref:`source-installation` to set up a clean environment 
+with all dependencies. 
+
+Once your environment is ready, install MDAnalysis in editable mode:
+
+.. code-block:: bash
+
+    git clone https://github.com/MDAnalysis/mdanalysis
+    cd mdanalysis
+    git checkout develop  # Switch to the development branch
+    git checkout -b my-feature-branch  # Create a new branch for your changes
+    pip install -e package/
+
+Installing in editable mode (`-e`) means that any changes you make to the MDAnalysis source code are immediately 
+available without needing to reinstall.
+
+If you plan to run tests you can install the test suite:
+
+.. code-block:: bash
+
     # Install the test suite (optional but recommended for contributors)
     pip install -e testsuite/
+
+For more on how to set up and contribute, refer to the :ref:`contributing` guide.
 
 Testing
 -------
@@ -181,7 +240,7 @@ In cases where you might encounter multiple CPU architectures (e.g. on a superco
 Additional datasets
 ===================
 
-MDAnalysisData_ is an additional package with datasets that can be used in example tutorials. You can install it with `conda`_ or `pip`_:
+MDAnalysisData_ is an additional package with datasets that can be used in example tutorials. You can install it with `mamba`_ / `conda`_ or `pip`_:
 
 .. code-block:: bash
 
@@ -210,4 +269,14 @@ This installation does not download all the datasets; instead, the datasets are 
 .. _raise an issue: https://github.com/MDAnalysis/mdanalysis/issues
 .. _pytest-xdist: https://github.com/pytest-dev/pytest-xdist 
 .. _OpenMP: https://www.openmp.org/
-.. _conda installation instructions: https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
+.. _official mamba installation guide: https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html
+.. _mambaforge installer: https://github.com/conda-forge/miniforge#mambaforge
+.. _Mambaforge: https://github.com/conda-forge/miniforge#mambaforge
+.. _conda-forge: https://conda-forge.org/
+.. _Anaconda: https://www.anaconda.com/products/distribution
+.. _ipywidgets: https://ipywidgets.readthedocs.io/en/stable/
+.. _Releases page: https://github.com/MDAnalysis/mdanalysis/releases
+.. _Set up with conda-forge: https://userguide.mdanalysis.org/stable/contributing_code.html#with-conda-forge-packages
+.. _Set up with mamba: https://userguide.mdanalysis.org/stable/contributing_code.html#with-mamba-conda
+.. _develop branch: https://github.com/MDAnalysis/mdanalysis/tree/develop
+.. _Branches page: https://github.com/MDAnalysis/mdanalysis/branches/all
