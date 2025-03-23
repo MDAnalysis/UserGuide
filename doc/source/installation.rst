@@ -14,21 +14,19 @@ acceleration due to limitations in precompiled conda packages. If you need `Open
 consider installing via :ref:`pip-installation` and compiling from source with a compatible compiler and 
 OpenMP support.
 
-**MDAnalysisTests** is optional and it is a separate :ref:`test suite <mdanalysistests>` used 
+**MDAnalysisTests** is optional and is a separate :ref:`test suite <mdanalysistests>` used 
 for verifying MDAnalysis installations and running User Guide examples. It is not required for 
 daily use, but some tutorials rely on it. The package is approximately 90 MB and is not updated frequently. 
 If you plan to use tutorial examples or contribute to MDAnalysis, installing it is recommended.
 
-MDAnalysis requires Python 3.8 or later. Ensure you have an appropriate Python version installed before proceeding.
+MDAnalysis supports specific Python versions. For the latest supported versions, please refer to the 
+`CHANGELOG`_ or the `PyPI`_. Ensure you have a compatible Python version installed before proceeding.
 
 .. note::
-    MDAnalysis supports **Linux**, **macOS**, and **Windows** (Python 3.8+). 
+    MDAnalysis supports **Linux**, **macOS**, and **Windows**. 
 
     - If you encounter errors on **Windows** related to **Microsoft Visual C++ 14.0**, install the required **Build Tools for Visual Studio** from: `Microsoft Visual Studio Downloads`_. 
     - If you encounter any other issues following these instructions, seek help on `GitHub Discussions (Installation)`_.    
-
-.. warning::
-    :ref:`mamba-installation` and :ref:`pip-installation` installations **do not include** external programs such as `HOLE`_.
 
 .. _mamba-installation:
 
@@ -46,7 +44,8 @@ MDAnalysis supports two common ways to install with `mamba`_:
 `Mambaforge`_ is a minimal `conda`_ distribution that includes `mamba`_ by default, uses the `conda-forge`_ channel 
 (preferred for MDAnalysis) and avoids clutter from `Anaconda`_ base packages.
 
-To install MDAnalysis with `Mambaforge`_, first download the `mambaforge installer`_ and then run: 
+To install MDAnalysis with `Mambaforge`_, follow the `mambaforge installation instructions`_ and then
+run the following commands to install MDAnalysis:
 
 .. code-block:: bash
 
@@ -58,8 +57,6 @@ To install the :ref:`test suite <mdanalysistests>` (optional, ~90 MB):
 .. code-block:: bash
 
     mamba install -c conda-forge MDAnalysisTests
-
-For more installation options (including Windows installers), see the `official mamba installation guide`_.
 
 To upgrade, use:
 
@@ -100,11 +97,20 @@ This means that some packages required by specific analysis modules will not be 
 
     pip install --upgrade MDAnalysis
 
-To install a fully-featured version of MDAnalysis (including optional analysis modules), use the ``analysis`` extra tag:
+MDAnalysis offers several optional dependency groups (“extra tags”) that you can install with pip to enable additional features:
+
+- ``analysis``: optional dependencies for various analysis modules.
+- ``extra_formats``: support for additional file formats.
+- ``parallel``: install dask to enable parallel analysis across multiple cores or machines.
+- ``doc``: install documentation build dependencies (e.g. Sphinx, themes).
+
+To see the full list of available extras, check the `pyproject.toml file`_.
+
+To install with optional features, use pip with one or more extras:
 
 .. code-block:: bash
 
-    pip install --upgrade MDAnalysis[analysis]
+    pip install --upgrade MDAnalysis[analysis,extra_formats,parallel]
 
 To install or upgrade the :ref:`test suite <mdanalysistests>` (optional, ~90 MB):
 
@@ -139,7 +145,7 @@ Follow the steps in:
 MDAnalysis uses different Git branches for different purposes:
 
 - **package-X.Y.Z**: These branches contain specific stable releases (e.g., ``package-2.9.0``) and are intended for users who need reproducibility, debugging, or version locking. You can browse them on the GitHub `Branches page`_ or view official releases on the `Releases page`_.
-- **develop**: The `develop branch`_ is the default and active development branch. If you're contributing to MDAnalysis or want the latest features before they're released, base your work on this branch (see :ref:`development-installation`).
+- **develop**: The `develop`_ branch is the default and active development branch. If you're contributing to MDAnalysis or want the latest features before they're released, base your work on this branch (see :ref:`development-installation`).
 
 To install the **latest stable release** from source:
 
@@ -174,7 +180,7 @@ Once your environment is ready, install MDAnalysis in editable mode:
 
     git clone https://github.com/MDAnalysis/mdanalysis
     cd mdanalysis
-    git checkout develop  # Switch to the development branch
+    git switch develop    # work on the develop branch
     git checkout -b my-feature-branch  # Create a new branch for your changes
     pip install -e package/
 
@@ -269,8 +275,7 @@ This installation does not download all the datasets; instead, the datasets are 
 .. _raise an issue: https://github.com/MDAnalysis/mdanalysis/issues
 .. _pytest-xdist: https://github.com/pytest-dev/pytest-xdist 
 .. _OpenMP: https://www.openmp.org/
-.. _official mamba installation guide: https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html
-.. _mambaforge installer: https://github.com/conda-forge/miniforge#mambaforge
+.. _mambaforge installation instructions: https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html
 .. _Mambaforge: https://github.com/conda-forge/miniforge#mambaforge
 .. _conda-forge: https://conda-forge.org/
 .. _Anaconda: https://www.anaconda.com/products/distribution
@@ -278,5 +283,8 @@ This installation does not download all the datasets; instead, the datasets are 
 .. _Releases page: https://github.com/MDAnalysis/mdanalysis/releases
 .. _Set up with conda-forge: https://userguide.mdanalysis.org/stable/contributing_code.html#with-conda-forge-packages
 .. _Set up with mamba: https://userguide.mdanalysis.org/stable/contributing_code.html#with-mamba-conda
-.. _develop branch: https://github.com/MDAnalysis/mdanalysis/tree/develop
+.. _develop: https://github.com/MDAnalysis/mdanalysis/tree/develop
 .. _Branches page: https://github.com/MDAnalysis/mdanalysis/branches/all
+.. _CHANGELOG: https://github.com/MDAnalysis/mdanalysis/blob/develop/package/CHANGELOG
+.. _PyPI: https://pypi.org/project/MDAnalysis/
+.. _pyproject.toml file: https://github.com/MDAnalysis/mdanalysis/blob/35d9d2e3ab08e7e6741b57fe02a7215fe3b91a6c/package/pyproject.toml#L69
