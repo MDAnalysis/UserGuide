@@ -4,44 +4,44 @@
 Installation Guide
 ====================
 
-The latest version of **MDAnalysis** can be installed using :ref:`mamba-installation` (recommended), 
-or :ref:`pip-installation`. If you need to install MDAnalysis from source, follow :ref:`source-installation` 
-for stable releases. If you are a contributor or developer working on MDAnalysis, follow the 
+The latest version of **MDAnalysis** can be installed using :ref:`mamba-installation` (recommended),
+or :ref:`pip-installation`. If you need to install MDAnalysis from source, follow :ref:`source-installation`
+for stable releases. If you are a contributor or developer working on MDAnalysis, follow the
 :ref:`development-installation` for editable installation and code modifications.
 
-Currently, the :ref:`mamba-installation` installs a version of MDAnalysis that does **not** include `OpenMP`_ 
-acceleration due to limitations in precompiled conda packages. If you need `OpenMP`_-enabled features, 
-consider installing via :ref:`pip-installation` and compiling from source with a compatible compiler and 
+Currently, the :ref:`mamba-installation` installs a version of MDAnalysis that does **not** include `OpenMP`_
+acceleration due to limitations in precompiled conda packages. If you need `OpenMP`_-enabled features,
+consider installing via :ref:`pip-installation` and compiling from source with a compatible compiler and
 OpenMP support.
 
-**MDAnalysisTests** is optional and is a separate :ref:`test suite <mdanalysistests>` used 
-for verifying MDAnalysis installations and running User Guide examples. It is not required for 
-daily use, but some tutorials rely on it. The package is approximately 90 MB and is not updated frequently. 
+**MDAnalysisTests** is optional and is a separate :ref:`test suite <mdanalysistests>` used
+for verifying MDAnalysis installations and running User Guide examples. It is not required for
+daily use, but some tutorials rely on it. The package is approximately 90 MB and is not updated frequently.
 If you plan to use tutorial examples or contribute to MDAnalysis, installing it is recommended.
 
-MDAnalysis supports specific Python versions. For the latest supported versions, please refer to the 
+MDAnalysis supports specific Python versions. For the latest supported versions, please refer to the
 `CHANGELOG`_ or the `PyPI`_. Ensure you have a compatible Python version installed before proceeding.
 
 .. note::
-    MDAnalysis supports **Linux**, **macOS**, and **Windows**. 
+    MDAnalysis supports **Linux**, **macOS**, and **Windows**.
 
-    - If you encounter errors on **Windows** related to **Microsoft Visual C++ 14.0**, install the required **Build Tools for Visual Studio** from: `Microsoft Visual Studio Downloads`_. 
-    - If you encounter any other issues following these instructions, seek help on `GitHub Discussions (Installation)`_.    
+    - If you encounter errors on **Windows** related to **Microsoft Visual C++ 14.0**, install the required **Build Tools for Visual Studio** from: `Microsoft Visual Studio Downloads`_.
+    - If you encounter any other issues following these instructions, seek help on `GitHub Discussions (Installation)`_.
 
 .. _mamba-installation:
 
-mamba/conda 
+mamba/conda
 ===========
 
-For most users, `mamba`_ is the **recommended** way to install MDAnalysis. It is a faster drop-in 
-replacement for `conda`_ and efficiently handles dependencies. We also recommend creating a new 
+For most users, `mamba`_ is the **recommended** way to install MDAnalysis. It is a faster drop-in
+replacement for `conda`_ and efficiently handles dependencies. We also recommend creating a new
 environment for MDAnalysis to ensure a clean and isolated installation.
 
 MDAnalysis supports two common ways to install with `mamba`_:
 
 **1. Recommended: Use Mambaforge**
 
-`Mambaforge`_ is a minimal `conda`_ distribution that includes `mamba`_ by default, uses the `conda-forge`_ channel 
+`Mambaforge`_ is a minimal `conda`_ distribution that includes `mamba`_ by default, uses the `conda-forge`_ channel
 (preferred for MDAnalysis) and avoids clutter from `Anaconda`_ base packages.
 
 To install MDAnalysis with `Mambaforge`_, follow the `mambaforge installation instructions`_ and then
@@ -87,10 +87,10 @@ Then create and activate an environment with MDAnalysis:
 
 .. _pip-installation:
 
-pip 
+pip
 ===
 
-The following command will install or upgrade the latest stable version of MDAnalysis via `pip`_ with core dependencies. 
+The following command will install or upgrade the latest stable version of MDAnalysis via `pip`_ with core dependencies.
 This means that some packages required by specific analysis modules will not be installed.
 
 .. code-block:: bash
@@ -129,18 +129,18 @@ If you're using MDAnalysis in **JupyterLab**, install `ipywidgets`_ for progress
 Install from source
 ===================
 
-This section is for **users** who want to install a **specific stable version** of MDAnalysis 
-(e.g., for reproducibility or to debug a release). This is **not** intended for development or code contributions. 
+This section is for **users** who want to install a **specific stable version** of MDAnalysis
+(e.g., for reproducibility or to debug a release). This is **not** intended for development or code contributions.
 If you're a developer, see :ref:`development-installation`.
 
-To install from source, you must first ensure that your environment already contains all necessary dependencies. 
+To install from source, you must first ensure that your environment already contains all necessary dependencies.
 We recommend you check the :ref:`create-virtual-environment` to set up a clean development environment
 with all required dependencies. We recommend using `mamba`_ or `conda`_ to manage this setup.
 
 Follow the steps in:
 
 - `Set up with conda-forge`_
-- `Set up with mamba`_ 
+- `Set up with mamba`_
 
 MDAnalysis uses different Git branches for different purposes:
 
@@ -153,7 +153,7 @@ To install the **latest stable release** from source:
 
     git clone https://github.com/MDAnalysis/mdanalysis
     cd mdanalysis
-    git checkout release-<latest-version>  
+    git checkout release-<latest-version>
     pip install .
 
 To run tests:
@@ -164,15 +164,15 @@ To run tests:
 
 .. _development-installation:
 
-Install for development 
+Install for development
 ==========================
 
-This section is for **contributors and developers** who want to modify MDAnalysis 
-or contribute to its development. You’ll install MDAnalysis in **editable mode**, which allows you to make code changes 
+This section is for **contributors and developers** who want to modify MDAnalysis
+or contribute to its development. You’ll install MDAnalysis in **editable mode**, which allows you to make code changes
 without reinstalling the package each time.
 
-Before installing, follow the steps described in the :ref:`source-installation` to set up a clean environment 
-with all dependencies. 
+Before installing, follow the steps described in the :ref:`source-installation` to set up a clean environment
+with all dependencies.
 
 Once your environment is ready, install MDAnalysis in editable mode:
 
@@ -184,7 +184,7 @@ Once your environment is ready, install MDAnalysis in editable mode:
     git checkout -b my-feature-branch  # Create a new branch for your changes
     pip install -e package/
 
-Installing in editable mode (`-e`) means that any changes you make to the MDAnalysis source code are immediately 
+Installing in editable mode (`-e`) means that any changes you make to the MDAnalysis source code are immediately
 available without needing to reinstall.
 
 If you plan to run tests you can install the test suite:
@@ -232,7 +232,7 @@ The optimal compiler flags depend on your CPU architecture. An example for an x8
 
 Use of these flags can give a significant performance boost where the compiler can effectively autovectorise.
 
-Be sure to use the recommended flags for your target architecture. For example, ARM platforms recommend using ``-mcpu`` instead of ``-march``, while 
+Be sure to use the recommended flags for your target architecture. For example, ARM platforms recommend using ``-mcpu`` instead of ``-march``, while
 PowerPC platforms prefer both ``-mcpu`` and ``-mtune``.
 
 Full discussion of these flags is available elsewhere (such as here in this `wiki`_ or in this `ARM`_ blog post) and a list of supported options should be provided by your compiler. The list for GCC_ is provided here.
@@ -257,13 +257,11 @@ MDAnalysisData_ is an additional package with datasets that can be used in examp
 
 This installation does not download all the datasets; instead, the datasets are cached when they are first downloaded using a Python command.
 
-
-.. _HOLE: http://www.holeprogram.org 
 .. _GCC: https://gcc.gnu.org/onlinedocs/gcc/x86-Options.html
 .. _MDAnalysisData: https://www.mdanalysis.org/MDAnalysisData/
 .. _wiki: https://wiki.gentoo.org/wiki/GCC_optimization#-march
 .. _ARM: https://community.arm.com/arm-community-blogs/b/tools-software-ides-blog/posts/compiler-flags-across-architectures-march-mtune-and-mcpu
-.. _pip: https://pip.pypa.io/en/latest/index.html 
+.. _pip: https://pip.pypa.io/en/latest/index.html
 .. _mamba: https://anaconda.org/conda-forge/mamba
 .. _conda: https://docs.conda.io/projects/conda/en/latest/
 .. _source: https://github.com/MDAnalysis/mdanalysis/
@@ -271,9 +269,9 @@ This installation does not download all the datasets; instead, the datasets are 
 .. _Microsoft Visual Studio Downloads: https://visualstudio.microsoft.com/downloads/
 .. _pytest: https://docs.pytest.org/en/stable/
 .. _numpy: https://numpy.org/
-.. _Github discussions: https://github.com/MDAnalysis/mdanalysis/discussions 
+.. _Github discussions: https://github.com/MDAnalysis/mdanalysis/discussions
 .. _raise an issue: https://github.com/MDAnalysis/mdanalysis/issues
-.. _pytest-xdist: https://github.com/pytest-dev/pytest-xdist 
+.. _pytest-xdist: https://github.com/pytest-dev/pytest-xdist
 .. _OpenMP: https://www.openmp.org/
 .. _mambaforge installation instructions: https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html
 .. _Mambaforge: https://github.com/conda-forge/miniforge#mambaforge
