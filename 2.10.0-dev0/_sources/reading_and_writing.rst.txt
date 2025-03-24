@@ -212,6 +212,7 @@ be attached to the new :class:`MDAnalysis.core.groups.AtomGroup`. If the Univers
 with its :class:`MDAnalysis.core.groups.AtomGroup`, they will still be bound together afterwards:
 
 .. ipython:: python
+    :okwarning:
 
     import pickle
     from MDAnalysis.tests.datafiles import PSF, DCD
