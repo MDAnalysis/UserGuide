@@ -49,7 +49,7 @@ run the following commands to install MDAnalysis:
 
 .. code-block:: bash
 
-    mamba create -n mdanalysis mdanalysis
+    mamba create -n mdanalysis -c conda-forge mdanalysis
     mamba activate mdanalysis
 
 To install the :ref:`test suite <mdanalysistests>` (optional, ~90 MB):
@@ -70,20 +70,20 @@ If you're using MDAnalysis in **JupyterLab**, install `ipywidgets`_ for progress
 
     mamba install -c conda-forge ipywidgets
 
-**2. Alternative: Install mamba to an existing conda installation**
+**2. Alternative: Use conda with conda-forge**
 
-If you already use `conda`_, you can add `mamba`_ to your base environment:
-
-.. code-block:: bash
-
-    conda install -c conda-forge mamba
-
-Then create and activate an environment with MDAnalysis:
+If you prefer using `conda`_ directly (e.g., installed via `Anaconda installer`_), create a new environment with packages from the `conda-forge`_ channel:
 
 .. code-block:: bash
 
-    mamba create -n mdanalysis mdanalysis
-    mamba activate mdanalysis
+    conda create -n mdanalysis -c conda-forge mdanalysis
+    conda activate mdanalysis
+
+To install optional packages:
+
+.. code-block:: bash
+
+    conda install -c conda-forge MDAnalysisTests ipywidgets
 
 .. _pip-installation:
 
@@ -223,7 +223,7 @@ You can pass any additional compiler flags for the C/C++ compiler using the ``ex
 This allows you to add any additional compiler options required for your architecture.
 
 For example, ``extra_cflags`` can be used to tune your MDAnalysis installation for your current architecture using the `-march`, `-mtune`, `-mcpu` and related compiler flags.
-The optimal compiler flags depend on your CPU architecture. An example for an x86_64 machine would be to change the line in `setup.cfg` as follows:
+The optimal compiler flags depend on your CPU architecture. Commonly recommended settings are:
 
 .. code-block:: diff
 
@@ -232,8 +232,11 @@ The optimal compiler flags depend on your CPU architecture. An example for an x8
 
 Use of these flags can give a significant performance boost where the compiler can effectively autovectorise.
 
-Be sure to use the recommended flags for your target architecture. For example, ARM platforms recommend using ``-mcpu`` instead of ``-march``, while
-PowerPC platforms prefer both ``-mcpu`` and ``-mtune``.
+Be sure to use the recommended flags for your target architecture. In many cases,
+``-march`` and ``-mcpu`` can be used together or separately, and their behavior depends
+on your platform and compiler version. For example, ARM platforms often prefer ``-mcpu``,
+while PowerPC may use both ``-mcpu`` and ``-mtune``. Refer to the `GCC documentation on -march`_
+and `-mcpu`_ for platform-specific guidance.
 
 Full discussion of these flags is available elsewhere (such as here in this `wiki`_ or in this `ARM`_ blog post) and a list of supported options should be provided by your compiler. The list for GCC_ is provided here.
 
@@ -286,3 +289,6 @@ This installation does not download all the datasets; instead, the datasets are 
 .. _CHANGELOG: https://github.com/MDAnalysis/mdanalysis/blob/develop/package/CHANGELOG
 .. _PyPI: https://pypi.org/project/MDAnalysis/
 .. _pyproject.toml file: https://github.com/MDAnalysis/mdanalysis/blob/35d9d2e3ab08e7e6741b57fe02a7215fe3b91a6c/package/pyproject.toml#L69
+.. _GCC documentation on -march: https://gcc.gnu.org/onlinedocs/gcc/x86-Options.html
+.. _-mcpu: https://gcc.gnu.org/onlinedocs/gcc/ARM-Options.html
+.. _Anaconda installer: https://docs.anaconda.com/free/anaconda/install/
