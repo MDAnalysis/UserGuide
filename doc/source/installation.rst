@@ -153,7 +153,7 @@ To install the **latest stable release** from source:
 
     git clone https://github.com/MDAnalysis/mdanalysis
     cd mdanalysis
-    git checkout release-<latest-version>
+    git switch release-<latest-version>
     pip install .
 
 To run tests:
