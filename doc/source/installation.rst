@@ -288,7 +288,7 @@ This installation does not download all the datasets; instead, the datasets are 
 .. _Branches page: https://github.com/MDAnalysis/mdanalysis/branches/all
 .. _CHANGELOG: https://github.com/MDAnalysis/mdanalysis/blob/develop/package/CHANGELOG
 .. _PyPI: https://pypi.org/project/MDAnalysis/
-.. _pyproject.toml file: https://github.com/MDAnalysis/mdanalysis/blob/35d9d2e3ab08e7e6741b57fe02a7215fe3b91a6c/package/pyproject.toml#L69
+.. _pyproject.toml file: https://github.com/MDAnalysis/mdanalysis/blob/develop/package/pyproject.toml#L69
 .. _GCC documentation on -march: https://gcc.gnu.org/onlinedocs/gcc/x86-Options.html
 .. _-mcpu: https://gcc.gnu.org/onlinedocs/gcc/ARM-Options.html
 .. _Anaconda installer: https://docs.anaconda.com/free/anaconda/install/
