@@ -22,7 +22,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installation &mdash; MDAnalysis User Guide  documentation</title>
+  <title>Installation Guide &mdash; MDAnalysis User Guide  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/site.css" />
       <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
@@ -102,10 +102,11 @@
     
         <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#conda">conda</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mamba-conda">mamba/conda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pip">pip</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#development-versions">Development versions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install-from-source">Install from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-for-development">Install for development</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#testing">Testing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#custom-compiler-flags-and-optimised-installations">Custom compiler flags and optimised installations</a></li>
 </ul>
@@ -188,7 +189,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Installation</li>
+      <li class="breadcrumb-item active">Installation Guide</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -198,105 +199,166 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
-<p>The latest versions of <strong>MDAnalysis</strong> can be installed using <cite>conda</cite> or <cite>pip</cite>.
-Currently, the conda releases only support serial calculations.
-If you plan to use the parallel OpenMP algorithms, you need to
-install MDAnalysis with pip and have a working OpenMP installation.</p>
-<p>MDAnalysis has a separate <a class="reference internal" href="datasets.html#mdanalysistests"><span class="std std-ref">test suite</span></a> <strong>MDAnalysisTests</strong> that is required to run the test cases and examples.
-The test files change less frequently, take up around 90 MB of space,
-and are not needed for daily use of MDAnalysis. However, they are often used in examples,
-including many in this User Guide. If you are not interested in developing
-MDAnalysis or using the example files, you most likely don’t need the tests. If you want to
-run examples in the User Guide, install the tests.
-The tests are distributed separately from the main package.</p>
+  <section id="installation-guide">
+<h1>Installation Guide<a class="headerlink" href="#installation-guide" title="Link to this heading"></a></h1>
+<p>The latest version of <strong>MDAnalysis</strong> can be installed using <a class="reference internal" href="#mamba-installation"><span class="std std-ref">mamba/conda</span></a> (recommended),
+or <a class="reference internal" href="#pip-installation"><span class="std std-ref">pip</span></a>. If you need to install MDAnalysis from source, follow <a class="reference internal" href="#source-installation"><span class="std std-ref">Install from source</span></a>
+for stable releases. If you are a contributor or developer working on MDAnalysis, follow the
+<a class="reference internal" href="#development-installation"><span class="std std-ref">Install for development</span></a> for editable installation and code modifications.</p>
+<p>Currently, the <a class="reference internal" href="#mamba-installation"><span class="std std-ref">mamba/conda</span></a> installs a version of MDAnalysis that does <strong>not</strong> include <a class="reference external" href="https://www.openmp.org/">OpenMP</a>
+acceleration due to limitations in precompiled conda packages. If you need <a class="reference external" href="https://www.openmp.org/">OpenMP</a>-enabled features,
+consider installing via <a class="reference internal" href="#pip-installation"><span class="std std-ref">pip</span></a> and compiling from source with a compatible compiler and
+OpenMP support.</p>
+<p><strong>MDAnalysisTests</strong> is optional and is a separate <a class="reference internal" href="datasets.html#mdanalysistests"><span class="std std-ref">test suite</span></a> used
+for verifying MDAnalysis installations and running User Guide examples. It is not required for
+daily use, but some tutorials rely on it. The package is approximately 90 MB and is not updated frequently.
+If you plan to use tutorial examples or contribute to MDAnalysis, installing it is recommended.</p>
+<p>MDAnalysis supports specific Python versions. For the latest supported versions, please refer to the
+<a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/blob/develop/package/CHANGELOG">CHANGELOG</a> or the <a class="reference external" href="https://pypi.org/project/MDAnalysis/">PyPI</a>. Ensure you have a compatible Python version installed before proceeding.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you are installing on Windows, you must have
-Microsoft Visual C++ 14.0 installed. If your installation
-fails with the error message:</p>
-<blockquote>
-<div><p>error: Microsoft Visual C++ 14.0 is required. Get it with “Build Tools for Visual Studio”: <a class="reference external" href="https://visualstudio.microsoft.com/downloads/">https://visualstudio.microsoft.com/downloads/</a></p>
-</div></blockquote>
-<p>Try installing Build Tools for Visual Studio from
-<a class="reference external" href="https://visualstudio.microsoft.com/downloads/">https://visualstudio.microsoft.com/downloads/</a> (scroll
-down to the Tools for Visual Studio section).</p>
+<p>MDAnalysis supports <strong>Linux</strong>, <strong>macOS</strong>, and <strong>Windows</strong>.</p>
+<ul class="simple">
+<li><p>If you encounter errors on <strong>Windows</strong> related to <strong>Microsoft Visual C++ 14.0</strong>, install the required <strong>Build Tools for Visual Studio</strong> from: <a class="reference external" href="https://visualstudio.microsoft.com/downloads/">Microsoft Visual Studio Downloads</a>.</p></li>
+<li><p>If you encounter any other issues following these instructions, seek help on <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/discussions/categories/installation">GitHub Discussions (Installation)</a>.</p></li>
+</ul>
 </div>
-<p>If you encounter any issues following these instructions, please
-ask for help on <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/discussions/categories/installation">GitHub Discussions (Installation)</a>.</p>
-<section id="conda">
-<h2>conda<a class="headerlink" href="#conda" title="Link to this heading"></a></h2>
-<p>If you use <code class="docutils literal notranslate"><span class="pre">conda</span></code> to manage your Python environment, we highly recommend creating a new environment for MDAnalysis.
-This will ensure that you have a clean installation of MDAnalysis and its dependencies, and will not interfere with other packages you may have installed.
-We further recommend that you install and use <code class="docutils literal notranslate"><span class="pre">mamba</span></code>, a faster drop-in replacement for <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>mdanalysis
-conda<span class="w"> </span>activate<span class="w"> </span>mdanalysis
-conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>mamba
+<section id="mamba-conda">
+<span id="mamba-installation"></span><h2>mamba/conda<a class="headerlink" href="#mamba-conda" title="Link to this heading"></a></h2>
+<p>For most users, <a class="reference external" href="https://anaconda.org/conda-forge/mamba">mamba</a> is the <strong>recommended</strong> way to install MDAnalysis. It is a faster drop-in
+replacement for <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/">conda</a> and efficiently handles dependencies. We also recommend creating a new
+environment for MDAnalysis to ensure a clean and isolated installation.</p>
+<p>MDAnalysis supports two common ways to install with <a class="reference external" href="https://anaconda.org/conda-forge/mamba">mamba</a>:</p>
+<p><strong>1. Recommended: Use Mambaforge</strong></p>
+<p><a class="reference external" href="https://github.com/conda-forge/miniforge#mambaforge">Mambaforge</a> is a minimal <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/">conda</a> distribution that includes <a class="reference external" href="https://anaconda.org/conda-forge/mamba">mamba</a> by default, uses the <a class="reference external" href="https://conda-forge.org/">conda-forge</a> channel
+(preferred for MDAnalysis) and avoids clutter from <a class="reference external" href="https://www.anaconda.com/products/distribution">Anaconda</a> base packages.</p>
+<p>To install MDAnalysis with <a class="reference external" href="https://github.com/conda-forge/miniforge#mambaforge">Mambaforge</a>, follow the <a class="reference external" href="https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html">mambaforge installation instructions</a> and then
+run the following commands to install MDAnalysis:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>mdanalysis<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>mdanalysis
+mamba<span class="w"> </span>activate<span class="w"> </span>mdanalysis
 </pre></div>
 </div>
-<p>To install the latest stable version of MDAnalysis via <code class="docutils literal notranslate"><span class="pre">conda</span></code>, use the following command. This installs all dependencies needed for full analysis functionality (excluding external programs such as <a class="reference external" href="http://www.holeprogram.org">HOLE</a>):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>mdanalysis
-</pre></div>
-</div>
-<p>To upgrade:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>update<span class="w"> </span>mdanalysis
-</pre></div>
-</div>
-<p>To install the tests:</p>
+<p>To install the <a class="reference internal" href="datasets.html#mdanalysistests"><span class="std std-ref">test suite</span></a> (optional, ~90 MB):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>MDAnalysisTests
 </pre></div>
 </div>
-<p>If you intend to use MDAnalysis in JupyterLab, you will have to install
-an extra package for the progress bar in analysis classes:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>nodejs
-jupyter<span class="w"> </span>labextension<span class="w"> </span>install<span class="w"> </span>@jupyter-widgets/jupyterlab-manager
+<p>To upgrade, use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>update<span class="w"> </span>mdanalysis
+</pre></div>
+</div>
+<p>If you’re using MDAnalysis in <strong>JupyterLab</strong>, install <a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/">ipywidgets</a> for progress bar support:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>ipywidgets
+</pre></div>
+</div>
+<p><strong>2. Alternative: Use conda with conda-forge</strong></p>
+<p>If you prefer using <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/">conda</a> directly (e.g., installed via <a class="reference external" href="https://docs.anaconda.com/free/anaconda/install/">Anaconda installer</a>), create a new environment with packages from the <a class="reference external" href="https://conda-forge.org/">conda-forge</a> channel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>mdanalysis<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>mdanalysis
+conda<span class="w"> </span>activate<span class="w"> </span>mdanalysis
+</pre></div>
+</div>
+<p>To install optional packages:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>MDAnalysisTests<span class="w"> </span>ipywidgets
 </pre></div>
 </div>
 </section>
 <section id="pip">
-<h2>pip<a class="headerlink" href="#pip" title="Link to this heading"></a></h2>
-<p>The following command will install or upgrade the latest stable version of MDAnalysis via <code class="docutils literal notranslate"><span class="pre">pip</span></code>, with core dependencies. This means that some packages required by specific analysis modules will not be installed.</p>
+<span id="pip-installation"></span><h2>pip<a class="headerlink" href="#pip" title="Link to this heading"></a></h2>
+<p>The following command will install or upgrade the latest stable version of MDAnalysis via <a class="reference external" href="https://pip.pypa.io/en/latest/index.html">pip</a> with core dependencies.
+This means that some packages required by specific analysis modules will not be installed.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>MDAnalysis
 </pre></div>
 </div>
-<p>If you need to install a fully-featured MDAnalysis, add the <code class="docutils literal notranslate"><span class="pre">analysis</span></code> tag. As with <code class="docutils literal notranslate"><span class="pre">conda</span></code>, this will not install external programs such as <a class="reference external" href="http://www.holeprogram.org">HOLE</a>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>MDAnalysis<span class="o">[</span>analysis<span class="o">]</span>
+<p>MDAnalysis offers several optional dependency groups (“extra tags”) that you can install with pip to enable additional features:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">analysis</span></code>: optional dependencies for various analysis modules.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">extra_formats</span></code>: support for additional file formats.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parallel</span></code>: install dask to enable parallel analysis across multiple cores or machines.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">doc</span></code>: install documentation build dependencies (e.g. Sphinx, themes).</p></li>
+</ul>
+<p>To see the full list of available extras, check the <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/blob/develop/package/pyproject.toml#L69">pyproject.toml file</a>.</p>
+<p>To install with optional features, use pip with one or more extras:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>MDAnalysis<span class="o">[</span>analysis,extra_formats,parallel<span class="o">]</span>
 </pre></div>
 </div>
-<p>To install/upgrade tests:</p>
+<p>To install or upgrade the <a class="reference internal" href="datasets.html#mdanalysistests"><span class="std std-ref">test suite</span></a> (optional, ~90 MB):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>MDAnalysisTests
 </pre></div>
 </div>
-<p>If you intend to use MDAnalysis in JupyterLab, you will have to install
-an extra package for the progress bar in analysis classes:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>nodejs
-jupyter<span class="w"> </span>labextension<span class="w"> </span>install<span class="w"> </span>@jupyter-widgets/jupyterlab-manager
+<p>If you’re using MDAnalysis in <strong>JupyterLab</strong>, install <a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/">ipywidgets</a> for progress bar support:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>ipywidgets
 </pre></div>
 </div>
 </section>
-<section id="development-versions">
-<h2>Development versions<a class="headerlink" href="#development-versions" title="Link to this heading"></a></h2>
-<p>To install development versions of MDAnalysis, you can compile it from source. In order to install from source, you will need <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">cython</span></code>. See <a class="reference internal" href="contributing_code.html#create-virtual-environment"><span class="std std-ref">Creating a development environment</span></a> for instructions on how to create a full development environment.</p>
+<section id="install-from-source">
+<span id="source-installation"></span><h2>Install from source<a class="headerlink" href="#install-from-source" title="Link to this heading"></a></h2>
+<p>This section is for <strong>users</strong> who want to install a <strong>specific stable version</strong> of MDAnalysis
+(e.g., for reproducibility or to debug a release). This is <strong>not</strong> intended for development or code contributions.
+If you’re a developer, see <a class="reference internal" href="#development-installation"><span class="std std-ref">Install for development</span></a>.</p>
+<p>To install from source, you must first ensure that your environment already contains all necessary dependencies.
+We recommend you check the <a class="reference internal" href="contributing_code.html#create-virtual-environment"><span class="std std-ref">Creating a development environment</span></a> to set up a clean development environment
+with all required dependencies. We recommend using <a class="reference external" href="https://anaconda.org/conda-forge/mamba">mamba</a> or <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/">conda</a> to manage this setup.</p>
+<p>Follow the steps in:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://userguide.mdanalysis.org/stable/contributing_code.html#with-conda-forge-packages">Set up with conda-forge</a></p></li>
+<li><p><a class="reference external" href="https://userguide.mdanalysis.org/stable/contributing_code.html#with-mamba-conda">Set up with mamba</a></p></li>
+</ul>
+<p>MDAnalysis uses different Git branches for different purposes:</p>
+<ul class="simple">
+<li><p><strong>package-X.Y.Z</strong>: These are tags, not branches, and represent stable release versions (e.g., package-2.9.0). These tags are ideal if you need reproducibility, debugging, or version locking. You can browse all tags on the GitHub <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/branches/all">Branches page</a>.</p></li>
+<li><p><strong>develop</strong>: The <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/tree/develop">develop</a> branch is the default and active development branch. If you’re contributing to MDAnalysis or want the latest unreleased features, base your work on this branch (see <a class="reference internal" href="#development-installation"><span class="std std-ref">Install for development</span></a>).</p></li>
+</ul>
+<p>Clone the repository and check out the tag corresponding to the desired version:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/MDAnalysis/mdanalysis
 <span class="nb">cd</span><span class="w"> </span>mdanalysis
-<span class="c1"># assuming you have already installed required dependencies</span>
+git<span class="w"> </span>checkout<span class="w"> </span>package-&lt;version&gt;
+</pre></div>
+</div>
+<p>You will now be in a detached HEAD state, which is expected when checking out a tag. This allows you to explore or install that version without affecting branches.
+If you plan to make changes, you can create a new branch based on the tag:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>my-fix-based-on-2.9.0
+</pre></div>
+</div>
+<p>To install MDAnalysis from this version:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>package/.
+</pre></div>
+</div>
+<p>To run tests:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>MDAnalysisTests
+</pre></div>
+</div>
+</section>
+<section id="install-for-development">
+<span id="development-installation"></span><h2>Install for development<a class="headerlink" href="#install-for-development" title="Link to this heading"></a></h2>
+<p>This section is for <strong>contributors and developers</strong> who want to modify MDAnalysis
+or contribute to its development. You’ll install MDAnalysis in <strong>editable mode</strong>, which allows you to make code changes
+without reinstalling the package each time.</p>
+<p>Before installing, follow the steps described in the <a class="reference internal" href="#source-installation"><span class="std std-ref">Install from source</span></a> to set up a clean environment
+with all dependencies.</p>
+<p>Once your environment is ready, install MDAnalysis in editable mode:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/MDAnalysis/mdanalysis
+<span class="nb">cd</span><span class="w"> </span>mdanalysis
+git<span class="w"> </span>switch<span class="w"> </span>develop<span class="w">    </span><span class="c1"># work on the develop branch</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>my-feature-branch<span class="w">  </span><span class="c1"># Create a new branch for your changes</span>
 pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>package/
 </pre></div>
 </div>
-<p>And to install the test suite:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>testsuite/
+<p>Installing in editable mode (<cite>-e</cite>) means that any changes you make to the MDAnalysis source code are immediately
+available without needing to reinstall.</p>
+<p>If you plan to run tests you can install the test suite:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install the test suite (optional but recommended for contributors)</span>
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>testsuite/
 </pre></div>
 </div>
+<p>For more on how to set up and contribute, refer to the <a class="reference internal" href="contributing.html#contributing"><span class="std std-ref">Contributing to MDAnalysis</span></a> guide.</p>
 <section id="testing">
 <h3>Testing<a class="headerlink" href="#testing" title="Link to this heading"></a></h3>
-<p>The tests rely on the <cite>pytest</cite> and <cite>numpy</cite> packages, which must also be installed. Run tests with:</p>
+<p>The tests rely on the <a class="reference external" href="https://docs.pytest.org/en/stable/">pytest</a> and <a class="reference external" href="https://numpy.org/">numpy</a> packages, which must also be installed. Run tests with:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>--disable-pytest-warnings<span class="w"> </span>--pyargs<span class="w"> </span>MDAnalysisTests
 </pre></div>
 </div>
 <p>All tests should pass (i.e. no FAIL, ERROR); SKIPPED or XFAIL are ok. If anything fails or gives an error,
-<a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/discussions">ask on GitHub Discussions</a> or <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/issues">raise an issue</a>.</p>
-<p>Testing MDAnalysis can take a while, as there are quite a few tests.
+ask on <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/discussions">GitHub Discussions</a> or <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/issues">raise an issue</a>.</p>
+<p>Running MDAnalysis tests can take some time, as there are many test cases.
 The plugin <a class="reference external" href="https://github.com/pytest-dev/pytest-xdist">pytest-xdist</a> can be used to run tests in parallel.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pytest-xdist
 pytest<span class="w"> </span>--disable-pytest-warnings<span class="w"> </span>--pyargs<span class="w"> </span>MDAnalysisTests<span class="w"> </span>--numprocesses<span class="w"> </span><span class="m">4</span>
@@ -308,27 +370,29 @@ pytest<span class="w"> </span>--disable-pytest-warnings<span class="w"> </span>-
 <p>You can pass any additional compiler flags for the C/C++ compiler using the <code class="docutils literal notranslate"><span class="pre">extra_cflags</span></code> variable in <code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code>.
 This allows you to add any additional compiler options required for your architecture.</p>
 <p>For example, <code class="docutils literal notranslate"><span class="pre">extra_cflags</span></code> can be used to tune your MDAnalysis installation for your current architecture using the <cite>-march</cite>, <cite>-mtune</cite>, <cite>-mcpu</cite> and related compiler flags.
-<em>Which</em> particular compiler flags to use depends on your CPU architecture. An example for an x86_64 machine would be to change the line in <cite>setup.cfg</cite> as follows:</p>
+The optimal compiler flags depend on your CPU architecture. Commonly recommended settings are:</p>
 <div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="gd">- #extra_cflags =</span>
 <span class="gi">+ extra_cflags = -march=native -mtune=native</span>
 </pre></div>
 </div>
 <p>Use of these flags can give a significant performance boost where the compiler can effectively autovectorise.</p>
-<p>Be sure to use the recommended flags for your target architecture. For example, ARM platforms recommend using <code class="docutils literal notranslate"><span class="pre">-mcpu</span></code> <em>instead</em> of <code class="docutils literal notranslate"><span class="pre">-mcpu</span></code>, while
-PowerPC platforms prefer <em>both</em> <code class="docutils literal notranslate"><span class="pre">-mcpu</span></code> and <code class="docutils literal notranslate"><span class="pre">-mtune</span></code>.</p>
-<p>Full dicussion of the these flags is available elsewhere (such as here in this <a class="reference external" href="https://wiki.gentoo.org/wiki/GCC_optimization#-march">wiki</a> or in this <a class="reference external" href="https://community.arm.com/arm-community-blogs/b/tools-software-ides-blog/posts/compiler-flags-across-architectures-march-mtune-and-mcpu">ARM</a> blog post) and a list of supported options should be provided by your compiler. The list for <a class="reference external" href="https://gcc.gnu.org/onlinedocs/gcc/x86-Options.html">GCC</a> is provided here.</p>
+<p>Be sure to use the recommended flags for your target architecture. In many cases,
+<code class="docutils literal notranslate"><span class="pre">-march</span></code> and <code class="docutils literal notranslate"><span class="pre">-mcpu</span></code> can be used together or separately, and their behavior depends
+on your platform and compiler version. For example, ARM platforms often prefer <code class="docutils literal notranslate"><span class="pre">-mcpu</span></code>,
+while PowerPC may use both <code class="docutils literal notranslate"><span class="pre">-mcpu</span></code> and <code class="docutils literal notranslate"><span class="pre">-mtune</span></code>. Refer to the <a class="reference external" href="https://gcc.gnu.org/onlinedocs/gcc/x86-Options.html">GCC documentation on -march</a>
+and <a class="reference external" href="https://gcc.gnu.org/onlinedocs/gcc/ARM-Options.html">-mcpu</a> for platform-specific guidance.</p>
+<p>Full discussion of these flags is available elsewhere (such as here in this <a class="reference external" href="https://wiki.gentoo.org/wiki/GCC_optimization#-march">wiki</a> or in this <a class="reference external" href="https://community.arm.com/arm-community-blogs/b/tools-software-ides-blog/posts/compiler-flags-across-architectures-march-mtune-and-mcpu">ARM</a> blog post) and a list of supported options should be provided by your compiler. The list for <a class="reference external" href="https://gcc.gnu.org/onlinedocs/gcc/x86-Options.html">GCC</a> is provided here.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Use of these compiler options is considered <strong>advanced</strong> and may reduce the binary compatibility of MDAnalysis significantly, especially if using <cite>-march</cite>,
-making it usable only on a matching CPU architecture to the one it is compiled on. We <strong>strongly</strong> recommend that you run the test suite on your intended platform
-before proceeding with analysis.</p>
+<p>These compiler options are <strong>advanced</strong> and may reduce binary compatibility. In particular, using <cite>-march</cite> may restrict MDAnalysis to the exact CPU architecture it was compiled on.
+We <strong>strongly recommend</strong> that you run the test suite on your intended platform before proceeding with analysis.</p>
 </div>
 <p>In cases where you might encounter multiple CPU architectures (e.g. on a supercomputer where the login node and compute node have different architectures), you should avoid changing these options unless you are experienced with compiling software in these situations.</p>
 </section>
 </section>
 <section id="additional-datasets">
 <h2>Additional datasets<a class="headerlink" href="#additional-datasets" title="Link to this heading"></a></h2>
-<p><a class="reference external" href="https://www.mdanalysis.org/MDAnalysisData/">MDAnalysisData</a> is an additional package with datasets that can be used in example tutorials. You can install it with <code class="docutils literal notranslate"><span class="pre">conda</span></code> or <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<p><a class="reference external" href="https://www.mdanalysis.org/MDAnalysisData/">MDAnalysisData</a> is an additional package with datasets that can be used in example tutorials. You can install it with <a class="reference external" href="https://anaconda.org/conda-forge/mamba">mamba</a> / <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/">conda</a> or <a class="reference external" href="https://pip.pypa.io/en/latest/index.html">pip</a>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># conda</span>
 conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>mdanalysisdata
 <span class="c1"># pip</span>
