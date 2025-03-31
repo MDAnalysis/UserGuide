@@ -144,17 +144,29 @@ Follow the steps in:
 
 MDAnalysis uses different Git branches for different purposes:
 
-- **package-X.Y.Z**: These branches contain specific stable releases (e.g., ``package-2.9.0``) and are intended for users who need reproducibility, debugging, or version locking. You can browse them on the GitHub `Branches page`_ or view official releases on the `Releases page`_.
-- **develop**: The `develop`_ branch is the default and active development branch. If you're contributing to MDAnalysis or want the latest features before they're released, base your work on this branch (see :ref:`development-installation`).
+- **package-X.Y.Z**: These are tags, not branches, and represent stable release versions (e.g., package-2.9.0). These tags are ideal if you need reproducibility, debugging, or version locking. You can browse all tags on the GitHub `Branches page`_.
+- **develop**: The `develop`_ branch is the default and active development branch. If you're contributing to MDAnalysis or want the latest unreleased features, base your work on this branch (see :ref:`development-installation`).
 
-To install the **latest stable release** from source:
+Clone the repository and check out the tag corresponding to the desired version:
 
 .. code-block:: bash
 
     git clone https://github.com/MDAnalysis/mdanalysis
     cd mdanalysis
-    git switch release-<latest-version>
-    pip install .
+    git checkout package-<version>
+
+You will now be in a detached HEAD state, which is expected when checking out a tag. This allows you to explore or install that version without affecting branches.
+If you plan to make changes, you can create a new branch based on the tag:
+
+.. code-block:: bash
+
+    git switch -c my-fix-based-on-2.9.0
+
+To install MDAnalysis from this version:
+
+.. code-block:: bash
+
+    pip install package/.
 
 To run tests:
 
