@@ -113,7 +113,7 @@ Reading in selections
 Currently, MDAnalysis doesn't support reading in atom selections. However, there are other tools that can read files from other programs, such as `GromacsWrapper`_.
 
 .. _CHARMM: http://www.charmm.org
-.. _Gromacs: http://www.gromacs.org
+.. _Gromacs-ref: http://www.gromacs.org
 .. _VMD: http://www.ks.uiuc.edu/Research/vmd/
 .. _PyMol: http://www.pymol.org
 .. _Jmol: http://wiki.jmol.org/

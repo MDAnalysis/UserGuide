@@ -1,5 +1,5 @@
 .. -*- coding: utf-8 -*-
-.. _TPR-format:
+.. _TPR-format-ref:
 
 ====================================
 TPR (GROMACS run topology files)
@@ -94,7 +94,7 @@ Bonded interactions available in Gromacs are described in the
 `Gromacs manual`_. The following ones are used to build the topology (see
 `Issue 463`_):
 
-.. _Gromacs: http://www.gromacs.org
+.. _Gromacs-ref: http://www.gromacs.org
 .. _`Gromacs manual`: http://manual.gromacs.org/current/reference-manual/index.html
 .. _TPR file: http://manual.gromacs.org/current/reference-manual/file-formats.html#tpr
 .. _`Issue Tracker`: https://github.com/MDAnalysis/mdanalysis/issues

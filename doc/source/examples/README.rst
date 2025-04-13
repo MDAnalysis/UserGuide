@@ -37,5 +37,5 @@ each notebook on `Binder`_.
    :alt: Binder
    :target: https://mybinder.org/v2/gh/MDAnalysis/binder-env-userguide/main?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252FMDAnalysis%252FUserGuide%26urlpath%3Dtree%252FUserGuide%252Fdoc%252Fsource%252Fexamples%26branch%3Dmaster
 
-.. _Binder: https://mybinder.org/v2/gh/MDAnalysis/binder-env-userguide/main?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252FMDAnalysis%252FUserGuide%26urlpath%3Dtree%252FUserGuide%252Fdoc%252Fsource%252Fexamples%26branch%3Dmaster
-.. _GitHub: https://github.com/MDAnalysis/UserGuide/tree/develop/doc/source/examples
+.. _Binder-ref: https://mybinder.org/v2/gh/MDAnalysis/binder-env-userguide/main?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252FMDAnalysis%252FUserGuide%26urlpath%3Dtree%252FUserGuide%252Fdoc%252Fsource%252Fexamples%26branch%3Dmaster
+.. _GitHub-ref: https://github.com/MDAnalysis/UserGuide/tree/develop/doc/source/examples
