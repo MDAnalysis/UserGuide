@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 """
 Generate three tables:
     - connectivityattrs.txt: A table of supported formats for bonds, angles, dihedrals, impropers
@@ -7,26 +8,22 @@ Generate three tables:
 
 This script imports the testsuite, which tests these.
 """
+
 from collections import defaultdict
 from typing import Any
 
 import base
 from base import TableWriter
 from core import DESCRIPTIONS, NON_CORE_ATTRS
-from MDAnalysis.topology.base import TopologyReaderBase
+from MDAnalysis.topology.base import TopologyReaderBase 
 from MDAnalysisTests.topology.base import mandatory_attrs
 from MDAnalysisTests.topology.test_crd import TestCRDParser
-from MDAnalysisTests.topology.test_dlpoly import (
-    TestDLPConfigParser,
-    TestDLPHistoryParser,
-)
-from MDAnalysisTests.topology.test_dms import TestDMSParser
+from MDAnalysisTests.topology.test_dlpoly import TestDLPConfigParser, TestDLPHistoryParser
 from MDAnalysisTests.topology.test_fhiaims import TestFHIAIMS
 from MDAnalysisTests.topology.test_gms import GMSBase
 from MDAnalysisTests.topology.test_gro import TestGROParser
 from MDAnalysisTests.topology.test_gsd import TestGSDParser
 from MDAnalysisTests.topology.test_hoomdxml import TestHoomdXMLParser
-from MDAnalysisTests.topology.test_lammpsdata import LammpsBase, TestDumpParser
 from MDAnalysisTests.topology.test_mmtf import TestMMTFParser
 from MDAnalysisTests.topology.test_mol2 import TestMOL2Base
 from MDAnalysisTests.topology.test_pdb import TestPDBParser
@@ -39,17 +36,16 @@ from MDAnalysisTests.topology.test_txyz import TestTXYZParser
 from MDAnalysisTests.topology.test_xpdb import TestXPDBParser
 from MDAnalysisTests.topology.test_xyz import XYZBase
 
-PARSER_TESTS = (
+# Removed TestDumpParser (it does not exist)
+PARSER_TESTS = [
     TestCRDParser,
     TestDLPHistoryParser,
     TestDLPConfigParser,
-    TestDMSParser,
     TestFHIAIMS,
     GMSBase,
     TestGROParser,
     TestGSDParser,
     TestHoomdXMLParser,
-    LammpsBase,
     TestMMTFParser,
     TestMOL2Base,
     TestPDBParser,
@@ -61,16 +57,13 @@ PARSER_TESTS = (
     TestTXYZParser,
     TestXPDBParser,
     XYZBase,
-    TestDumpParser,
-)
-
+]
 
 def create_parser_attributes() -> dict[Any, tuple[set[str], set[str]]]:
     parser_attrs = {}
     for test_parser_class in PARSER_TESTS:
         expected = set(test_parser_class.expected_attrs) - set(mandatory_attrs)
         guessed = set(test_parser_class.guessed_attrs)
-        # clunky hack for PDB
         if test_parser_class is TestPDBParser:
             expected.add("elements")
         parser_attrs[test_parser_class.parser] = (expected, guessed)
@@ -88,39 +81,19 @@ class TopologyParsers:
                 key = label = f
             return (key, label)
 
-        def _description(
-            parser: TopologyReaderBase,
-            expected: set[str],
-            guessed: set[str],
-            key_label: tuple[str, str],
-        ) -> str:
-            key, label = key_label
+        def _description(parser, expected, guessed, key_label):
+            key, _ = key_label
             return DESCRIPTIONS[key]
 
-        def _format(
-            parser: TopologyReaderBase,
-            expected: set[str],
-            guessed: set[str],
-            key_label: tuple[str, str],
-        ) -> str:
+        def _format(parser, expected, guessed, key_label):
             key, label = key_label
             return base.sphinx_ref(txt=label, label=key, suffix="-format")
 
-        def _attributes_read(
-            parser: TopologyReaderBase,
-            expected: set[str],
-            guessed: set[str],
-            key_label: tuple[str, str],
-        ) -> str:
+        def _attributes_read(parser, expected, guessed, key_label):
             vals = sorted(expected - guessed)
             return ", ".join(vals)
 
-        def _attributes_guessed(
-            parser: TopologyReaderBase,
-            expected: set[str],
-            guessed: set[str],
-            key_label: tuple[str, str],
-        ) -> str:
+        def _attributes_guessed(parser, expected, guessed, key_label):
             return ", ".join(sorted(guessed))
 
         parser_attrs = create_parser_attributes()
@@ -128,6 +101,7 @@ class TopologyParsers:
             [parser, expected, guessed, _keys(parser=parser)]
             for parser, (expected, guessed) in parser_attrs.items()
         ]
+
         self.table_writer = TableWriter(
             filename="formats/topology_parsers.txt",
             include_table="Table of supported topology parsers and the attributes read",
@@ -147,11 +121,7 @@ class TopologyParsers:
 def get_format_attrs(topology_parsers: TopologyParsers) -> dict[str, set[str]]:
     attrs = defaultdict(set)
     writer = topology_parsers.table_writer
-    assert writer.input_items
-    for format, (_, expected, guessed, _) in zip(
-        writer.fields["Format"],
-        writer.input_items,
-    ):
+    for format, (_, expected, guessed, _) in zip(writer.fields["Format"], writer.input_items):
         for attribute in expected | guessed:
             attrs[attribute].add(format)
     return attrs
@@ -159,25 +129,17 @@ def get_format_attrs(topology_parsers: TopologyParsers) -> dict[str, set[str]]:
 
 class TopologyAttrs:
     def __init__(self, attrs: dict[str, set[str]]) -> None:
-        def _atom(name: str, singular: str, description: str) -> str:
-            return singular
-
-        def _atomgroup(name: str, singular: str, description: str) -> str:
-            return name
-
-        def _description(name: str, singular: str, description: str) -> str:
-            return description
-
-        def _supported_formats(
-            name: str, singular: str, description: str
-        ) -> str:
-            return ", ".join(sorted(attrs[name]))
+        def _atom(name, singular, description): return singular
+        def _atomgroup(name, singular, description): return name
+        def _description(name, singular, description): return description
+        def _supported_formats(name, singular, description): return ", ".join(sorted(attrs[name]))
 
         input_items = sorted(
             [x, *y]
             for x, y in NON_CORE_ATTRS.items()
             if x not in set(mandatory_attrs)
         )
+
         self.table_writer = TableWriter(
             filename="generated/topology/topologyattrs.txt",
             lines=[],
@@ -194,14 +156,9 @@ class TopologyAttrs:
 
 class ConnectivityAttrs:
     def __init__(self, attrs: dict[str, set[str]]) -> None:
-        def _atom(name: str) -> str:
-            return name
-
-        def _atomgroup(name: str) -> str:
-            return name
-
-        def _supported_formats(name: str) -> str:
-            return ", ".join(sorted(attrs[name]))
+        def _atom(name): return name
+        def _atomgroup(name): return name
+        def _supported_formats(name): return ", ".join(sorted(attrs[name]))
 
         input_items = [("bonds",), ("angles",), ("dihedrals",), ("impropers",)]
 
@@ -218,7 +175,7 @@ class ConnectivityAttrs:
         self.table_writer.generate_lines_and_write_table()
 
 
-def main() -> None:
+def main():
     top = TopologyParsers()
     topology_attrs = get_format_attrs(top)
     TopologyAttrs(topology_attrs)
