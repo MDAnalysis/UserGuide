@@ -49,7 +49,6 @@ jobs:
         run: |
           micromamba info
           micromamba list
-          pip list
 
       - name: "test snapshots"
         working-directory: doc/source/scripts/
