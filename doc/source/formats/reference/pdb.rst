@@ -98,15 +98,18 @@ PDB specification
     47 - 54        Real(8.3)     z            Orthogonal coordinates for Z in Angstroms.
     55 - 60        Real(6.2)     occupancy    Occupancy.
     61 - 66        Real(6.2)     tempFactor   Temperature  factor.
-    67 - 72                                   (not used in the official PDB format*1)
-    73 - 76        String        segID        (unofficial PDB format*2)
+    67 - 72                                   (not used in the official PDB format)
+    73 - 76        String        segID        (unofficial PDB format)
     77 - 78        LString(2)    element      Element symbol, right-justified.
     79 - 80        LString(2)    charge       Charge  on the atom.
     =============  ============  ===========  =============================================
 
-*1(version change since 2.10.0) The columns 67-72 are not used by MDAnalysis since version 2.10.0. 
+.. versionchanged:: 2.10.0
+   The columns 67-72 are not read by MDAnalysis since version 2.10.0. 
 
-*2(version change since 2.10.0) The columns 73-76 are not part of the official PDB format but are used by some programs to store/operate the segment ID. For instance, Chimera_ assigns it as the attribute `pdbSegment` to allow command-line specification.  
+.. note::
+   The columns 73-76 are not part of the official PDB format but are used by some programs to store/operate 
+   the segment ID. For instance, Chimera_ assigns it as the attribute *pdbSegment*.  
 
 .. _Chimera:
     https://www.cgl.ucsf.edu/chimera/docs/UsersGuide/tutorials/pdbintro.html#note6
