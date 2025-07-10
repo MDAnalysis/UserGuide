@@ -105,11 +105,12 @@ PDB specification
     =============  ============  ===========  =============================================
 
 .. versionchanged:: 2.10.0
-   The columns 67-72 are not read by MDAnalysis since version 2.10.0. 
+    The columns 67-72 are not read by MDAnalysis since version 2.10.0.
 
 .. note::
-   The columns 73-76 are not part of the official PDB format but are used by some programs to store/operate 
-   the segment ID. For instance, Chimera_ assigns it as the attribute *pdbSegment*.  
+   The columns 73-76 are not part of the official PDB format but are used by some programs to store/operate
+   the segment ID. For instance, Chimera_ assigns it as the attribute *pdbSegment*.
+
 
 .. _Chimera:
     https://www.cgl.ucsf.edu/chimera/docs/UsersGuide/tutorials/pdbintro.html#note6
