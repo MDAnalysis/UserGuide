@@ -71,7 +71,7 @@
       'charge',
       'charges',
       'partial atomic charge',
-      ':ref:`DATA <DATA-format>`, :ref:`DMS <DMS-format>`, :ref:`GSD <GSD-format>`, :ref:`MMTF <MMTF-format>`, :ref:`MOL2 <MOL2-format>`, :ref:`PDBQT <PDBQT-format>`, :ref:`PQR <PQR-format>`, :ref:`PSF <PSF-format>`, :ref:`TOP, PRMTOP, PARM7 <TOP-format>`, :ref:`TPR <TPR-format>`, :ref:`XML <XML-format>`',
+      ':ref:`DATA <DATA-format>`, :ref:`DMS <DMS-format>`, :ref:`GSD <GSD-format>`, :ref:`LAMMPSDUMP <LAMMPSDUMP-format>`, :ref:`MMTF <MMTF-format>`, :ref:`MOL2 <MOL2-format>`, :ref:`PDBQT <PDBQT-format>`, :ref:`PQR <PQR-format>`, :ref:`PSF <PSF-format>`, :ref:`TOP, PRMTOP, PARM7 <TOP-format>`, :ref:`TPR <TPR-format>`, :ref:`XML <XML-format>`',
     ]),
     list([
       'chargegroup',
@@ -101,7 +101,7 @@
       'element',
       'elements',
       'atom element',
-      ':ref:`IN, FHIAIMS <IN-format>`, :ref:`MOL2 <MOL2-format>`, :ref:`PDB, ENT <PDB-format>`, :ref:`TPR <TPR-format>`, :ref:`TXYZ, ARC <TXYZ-format>`, :ref:`XYZ <XYZ-format>`',
+      ':ref:`IN, FHIAIMS <IN-format>`, :ref:`LAMMPSDUMP <LAMMPSDUMP-format>`, :ref:`MOL2 <MOL2-format>`, :ref:`PDB, ENT <PDB-format>`, :ref:`TPR <TPR-format>`, :ref:`TXYZ, ARC <TXYZ-format>`, :ref:`XYZ <XYZ-format>`',
     ]),
     list([
       'epsilon',
@@ -288,6 +288,7 @@
       ':ref:`DATA <DATA-format>`',
       ':ref:`DMS <DMS-format>`',
       ':ref:`GSD <GSD-format>`',
+      ':ref:`LAMMPSDUMP <LAMMPSDUMP-format>`',
       ':ref:`MMTF <MMTF-format>`',
       ':ref:`MOL2 <MOL2-format>`',
       ':ref:`PDBQT <PDBQT-format>`',
@@ -307,6 +308,7 @@
     }),
     'elements': set({
       ':ref:`IN, FHIAIMS <IN-format>`',
+      ':ref:`LAMMPSDUMP <LAMMPSDUMP-format>`',
       ':ref:`MOL2 <MOL2-format>`',
       ':ref:`PDB, ENT <PDB-format>`',
       ':ref:`TPR <TPR-format>`',
@@ -509,7 +511,7 @@
     list([
       ':ref:`LAMMPSDUMP <LAMMPSDUMP-format>`',
       'LAMMPS ascii dump file',
-      'masses, types',
+      'charges, elements, masses, types',
       '',
     ]),
     list([
