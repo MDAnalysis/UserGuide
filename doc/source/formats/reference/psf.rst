@@ -24,9 +24,7 @@ As a NAMD file is space-separated, files with missing columns can cause MDAnalys
 
 .. _`This can cause issues for PSF files written from VMD.`: https://github.com/MDAnalysis/mdanalysis/issues/2061
 
-PSF files can encode insertion codes. However, MDAnalysis `does not currently support reading PSF files with insertion codes`_.
-
-.. _`does not currently support reading PSF files with insertion codes`: https://github.com/MDAnalysis/mdanalysis/issues/2053
+PSF files can encode insertion codes and MDAnalysis will read them.
 
 
 
