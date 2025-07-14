@@ -105,7 +105,7 @@ PDB specification
     =============  ============  ===========  =============================================
 
 .. versionchanged:: 2.10.0
-   The columns 67-72 are not read by MDAnalysis since version 2.10.0.
+   The columns 67-72 are not read by MDAnalysis any more.
 
 .. note::
    The columns 73-76 are not part of the official PDB format but are used by some programs to store/operate
