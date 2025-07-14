@@ -26,7 +26,10 @@ from MDAnalysisTests.topology.test_gms import GMSBase
 from MDAnalysisTests.topology.test_gro import TestGROParser
 from MDAnalysisTests.topology.test_gsd import TestGSDParser
 from MDAnalysisTests.topology.test_hoomdxml import TestHoomdXMLParser
-from MDAnalysisTests.topology.test_lammpsdata import LammpsBase, TestDumpParserFull
+from MDAnalysisTests.topology.test_lammpsdata import (
+    LammpsBase,
+    TestDumpParserFull,
+)
 from MDAnalysisTests.topology.test_mmtf import TestMMTFParser
 from MDAnalysisTests.topology.test_mol2 import TestMOL2Base
 from MDAnalysisTests.topology.test_pdb import TestPDBParser
