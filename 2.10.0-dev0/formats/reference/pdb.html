@@ -416,23 +416,36 @@ Now, if valid elements are provided, MDAnalysis will read them in and will <em>n
 <td><p>tempFactor</p></td>
 <td><p>Temperature  factor.</p></td>
 </tr>
-<tr class="row-odd"><td><p>67 - 76</p></td>
+<tr class="row-odd"><td><p>67 - 72</p></td>
+<td></td>
+<td></td>
+<td><p>(not used in the official PDB format)</p></td>
+</tr>
+<tr class="row-even"><td><p>73 - 76</p></td>
 <td><p>String</p></td>
 <td><p>segID</p></td>
-<td><p>(unofficial CHARMM extension ?)</p></td>
+<td><p>(unofficial PDB format)</p></td>
 </tr>
-<tr class="row-even"><td><p>77 - 78</p></td>
+<tr class="row-odd"><td><p>77 - 78</p></td>
 <td><p>LString(2)</p></td>
 <td><p>element</p></td>
 <td><p>Element symbol, right-justified.</p></td>
 </tr>
-<tr class="row-odd"><td><p>79 - 80</p></td>
+<tr class="row-even"><td><p>79 - 80</p></td>
 <td><p>LString(2)</p></td>
 <td><p>charge</p></td>
 <td><p>Charge  on the atom.</p></td>
 </tr>
 </tbody>
 </table>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2.10.0: </span>The columns 67-72 are not read by MDAnalysis any more.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The columns 73-76 are not part of the official PDB format but are used by some programs to store/operate
+the segment ID. For instance, <a class="reference external" href="https://www.cgl.ucsf.edu/chimera/docs/UsersGuide/tutorials/pdbintro.html#note6">Chimera</a> assigns it as the attribute <em>pdbSegment</em>.</p>
+</div>
 </section>
 </section>
 
@@ -447,7 +460,7 @@ Now, if valid elements are provided, MDAnalysis will read them in and will <em>n
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2019-2025, Lily Wang, Irfan Alibay, Patricio Barletta, Cédric Bouysset, Rubén Chaves, Jan Domanski, Bjarne Feddersen, Mike Henry, Florent Langenfeld, Hugo MacDermott-Opeskin, Micaela Matta, Rocco Meli, Mahfuza Humayra Mohona, Paul Smith, Mieczyslaw Torchala, Mark Verma, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..</p>
+    <p>&#169; Copyright 2019-2025, Lily Wang, Irfan Alibay, Patricio Barletta, Cédric Bouysset, Rubén Chaves, Jan Domanski, Bjarne Feddersen, Mike Henry, Florent Langenfeld, Hugo MacDermott-Opeskin, Micaela Matta, Rocco Meli, Mahfuza Humayra Mohona, Paul Smith, Mieczyslaw Torchala, Mark Verma, Yu-Yuan (Stuart) Yang, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..</p>
   </div>
 
   

@@ -250,7 +250,7 @@
 <h2>Reading in<a class="headerlink" href="#reading-in" title="Link to this heading"></a></h2>
 <p>PSF files can come in a number of “flavours”: STANDARD, EXTENDED, and NAMD. If your file is not a standard file, it must have a NAMD or EXT flag to tell MDAnalysis to how to <a class="reference internal" href="#psf-spec"><span class="std std-ref">parse the atom section</span></a>.</p>
 <p>As a NAMD file is space-separated, files with missing columns can cause MDAnalysis to read information incorrectly. <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/issues/2061">This can cause issues for PSF files written from VMD.</a></p>
-<p>PSF files can encode insertion codes. However, MDAnalysis <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/issues/2053">does not currently support reading PSF files with insertion codes</a>.</p>
+<p>PSF files can encode insertion codes and MDAnalysis will read them.</p>
 </section>
 <section id="psf-specification">
 <span id="psf-spec"></span><h2>PSF specification<a class="headerlink" href="#psf-specification" title="Link to this heading"></a></h2>
@@ -297,7 +297,7 @@ ignored.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2019-2025, Lily Wang, Irfan Alibay, Patricio Barletta, Cédric Bouysset, Rubén Chaves, Jan Domanski, Bjarne Feddersen, Mike Henry, Florent Langenfeld, Hugo MacDermott-Opeskin, Micaela Matta, Rocco Meli, Mahfuza Humayra Mohona, Paul Smith, Mieczyslaw Torchala, Mark Verma, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..</p>
+    <p>&#169; Copyright 2019-2025, Lily Wang, Irfan Alibay, Patricio Barletta, Cédric Bouysset, Rubén Chaves, Jan Domanski, Bjarne Feddersen, Mike Henry, Florent Langenfeld, Hugo MacDermott-Opeskin, Micaela Matta, Rocco Meli, Mahfuza Humayra Mohona, Paul Smith, Mieczyslaw Torchala, Mark Verma, Yu-Yuan (Stuart) Yang, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..</p>
   </div>
 
   
