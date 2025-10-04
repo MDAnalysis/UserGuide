@@ -18,6 +18,7 @@ DESCRIPTIONS = {
     "DATA": "LAMMPS data file",
     "INPCRD": "AMBER restart file",
     "ITP": "GROMACS portable topology file",
+    "IMD": "Stream data using the IMDv3 protocol",
     "IN": "FHI-aims input file",
     "LAMMPS": "a LAMMPS DCD trajectory",
     "LAMMPSDUMP": "LAMMPS ascii dump file",
