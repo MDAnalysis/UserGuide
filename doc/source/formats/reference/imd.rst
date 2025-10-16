@@ -7,17 +7,17 @@ IMD (Data streamed via Interactive Molecular Dynamics protocol v3)
 
 .. include:: classes/IMD.txt
 
-Real-time streaming of simulation data between molecular dynamics engines and receiving clients can be achieved using IMD protocols like IMDv2 and IMDv3. The :class:`~MDAnalysis.coordinates.IMD.IMDReader` implements the IMDv3 protocol, enabling live streaming of ongoing simulation data.
+IMDv2 and IMDv3 enable real-time streaming of simulation data between molecular dynamics engines and receiving clients. The :class:`~MDAnalysis.coordinates.IMD.IMDReader` implements the IMDv3 protocol.
 
 .. note::
-   MDAnalysis supports **IMDv3 only**, which provides continuous, gap-free streaming and is implemented in modern versions of GROMACS, LAMMPS, and NAMD. IMDv2, while widely available, was designed primarily for visualization and allows gaps in the data stream.
+   MDAnalysis supports **IMDv3 only**, which provides continuous, gap-free streaming and is implemented in modern versions of GROMACS, LAMMPS, and NAMD. IMDv2, while widely available, was designed primarily for visualization and doesn't enforce a consistent number of integration steps between transmitted frames
 
 What is Streaming?
 ==================
 
 Streaming involves processing data in real-time as it is generated, rather than storing it for later analysis. In molecular dynamics, this means sending simulation data to a client on-the-fly while the simulation is running, without writing large trajectory files to disk.
 
-This can be achieved through a TCP/IP socket connection between the simulation engine and receiving client, transmitting coordinates, velocities, forces, energies, and timing information using the IMDv3 protocol.
+In IMDv3, this is achieved through a TCP/IP socket connection between the simulation engine and receiving client, transmitting coordinates, velocities, forces, energies, and timing information.
 
 MDAnalysis's :class:`~MDAnalysis.coordinates.IMD.IMDReader` uses the `imdclient <https://imdclient.readthedocs.io/>`_ package and provides a familiar interface for reading streaming data, similar to other trajectory readers in MDAnalysis.
 
@@ -56,7 +56,7 @@ The IMDReader requires the ``imdclient`` package:
 MD Engine Configuration
 -----------------------
 
-We provide below example configurations for enabling IMDv3 streaming in popular MD engines.
+We provide example configurations below for enabling IMDv3 streaming in popular MD engines.
 
 **GROMACS**
 
@@ -195,7 +195,7 @@ For compute-intensive analysis, increase the buffer size to reduce communication
 Connection Management
 ---------------------
 
-Always ensure proper cleanup, especially in interactive environments like Jupyter notebooks et al.:
+Always ensure proper cleanup, especially in interactive environments like Jupyter notebooks and other interactive environments:
 
 .. code-block:: python
 
