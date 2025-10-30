@@ -43,7 +43,7 @@ dependencies:
   - moviepy
   # used for notebook testing
   - pytest
-  - python=3.13
+  - python=3.12
   - pip
   - pip:
       # extensions
