@@ -277,7 +277,7 @@ The IMDReader provides access to additional simulation data through ``ts.data``:
 
 * ``dt``: Time step size in picoseconds
 * ``step``: Current simulation step number
-* Energy terms: ``potential_energy``, ``total_energy``, etc. (IMD-streamed in NAMD and GROMACS only)
+* Energy terms: ``potential_energy``, ``total_energy``, etc. (available as an option in NAMD and GROMACS only)
 
 .. code-block:: python
 
@@ -312,7 +312,8 @@ Compatible Analysis
   - :class:`~MDAnalysis.analysis.rdf.InterRDF` - Frame-by-frame radial distribution function calculations
   - :class:`~MDAnalysis.analysis.dihedrals.Dihedral` - Dihedral angle accumulation for conformational analysis  
   - :class:`~MDAnalysis.analysis.lineardensity.LinearDensity` - Density profile building over streaming frames
-
+.. note::
+    Passing any backend other than ``backend="serial"`` to these analysis classes will cause them to fail since streams are single-pass and forward-only.
 **What doesn't work:**
 
 * **Multi-pass analyses**: Methods requiring multiple trajectory passes, for example:
