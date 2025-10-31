@@ -222,35 +222,44 @@
             Unit                    Conversion factor
             ====================  ===================
             A/AKMA                          0.0488882
-            A/fs                         1000
-            A/ms                            1e-09
+            A/fs                            0.001
+            A/ms                            1e+09
+            A/ns                         1000
             A/ps                            1
-            A/us                            1e-06
+            A/us                            1e+06
+            A/μs                            1e+06
             Angstrom/AKMA                   0.0488882
-            Angstrom/femtosecond         1000
-            Angstrom/fs                  1000
-            Angstrom/microsecond            1e-06
-            Angstrom/millisecond            1e-09
-            Angstrom/ms                     1e-09
+            Angstrom/femtosecond            0.001
+            Angstrom/fs                     0.001
+            Angstrom/microsecond            1e+06
+            Angstrom/millisecond            1e+09
+            Angstrom/ms                     1e+09
+            Angstrom/nanosecond          1000
+            Angstrom/ns                  1000
             Angstrom/picosecond             1
             Angstrom/ps                     1
-            Angstrom/us                     1e-06
-            Angstrom/μs                     1e-06
-            angstrom/femtosecond         1000
-            angstrom/fs                  1000
-            angstrom/microsecond            1e-06
-            angstrom/millisecond            1e-09
-            angstrom/ms                     1e-09
+            Angstrom/us                     1e+06
+            Angstrom/μs                     1e+06
+            angstrom/femtosecond            0.001
+            angstrom/fs                     0.001
+            angstrom/microsecond            1e+06
+            angstrom/millisecond            1e+09
+            angstrom/ms                     1e+09
+            angstrom/nanosecond          1000
             angstrom/picosecond             1
-            angstrom/us                     1e-06
-            angstrom/μs                     1e-06
+            angstrom/us                     1e+06
+            angstrom/μs                     1e+06
             m/s                           100
             nanometer/picosecond            0.1
             nanometer/ps                    0.1
             nm/ns                         100
             nm/ps                           0.1
             pm/ps                         100
+            Å/fs                            0.001
+            Å/ms                            1e+09
+            Å/ns                         1000
             Å/ps                            1
+            Å/μs                            1e+06
             ====================  ===================
       ''',
     ),
