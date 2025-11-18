@@ -347,12 +347,12 @@
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">32</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">])</span>
 
-<span class="nn">File ~/micromamba/envs/mda-user-guide/lib/python3.12/site-packages/MDAnalysis/core/universe.py:1911,</span> in <span class="ni">Universe.guess_TopologyAttrs</span><span class="nt">(self, context, to_guess, force_guess, error_if_missing, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1909</span> <span class="n">fg</span> <span class="o">=</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">force_guess</span>
-<span class="g g-Whitespace">   </span><span class="mi">1910</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1911</span>     <span class="n">values</span> <span class="o">=</span> <span class="n">guesser</span><span class="o">.</span><span class="n">guess_attr</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">fg</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1912</span> <span class="k">except</span> <span class="n">NoDataError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1913</span>     <span class="k">if</span> <span class="n">error_if_missing</span> <span class="ow">or</span> <span class="n">fg</span><span class="p">:</span>
+<span class="nn">File ~/micromamba/envs/mda-user-guide/lib/python3.12/site-packages/MDAnalysis/core/universe.py:1935,</span> in <span class="ni">Universe.guess_TopologyAttrs</span><span class="nt">(self, context, to_guess, force_guess, error_if_missing, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1933</span> <span class="n">fg</span> <span class="o">=</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">force_guess</span>
+<span class="g g-Whitespace">   </span><span class="mi">1934</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1935</span>     <span class="n">values</span> <span class="o">=</span> <span class="n">guesser</span><span class="o">.</span><span class="n">guess_attr</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">fg</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1936</span> <span class="k">except</span> <span class="n">NoDataError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1937</span>     <span class="k">if</span> <span class="n">error_if_missing</span> <span class="ow">or</span> <span class="n">fg</span><span class="p">:</span>
 
 <span class="nn">File ~/micromamba/envs/mda-user-guide/lib/python3.12/site-packages/MDAnalysis/guesser/base.py:163,</span> in <span class="ni">GuesserBase.guess_attr</span><span class="nt">(self, attr_to_guess, force_guess)</span>
 <span class="g g-Whitespace">    </span><span class="mi">159</span> <span class="c1"># Connection attributes should be just returned as they are always</span>
@@ -379,7 +379,7 @@
 <span class="g g-Whitespace">    </span><span class="mi">449</span> <span class="n">lower_bound</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;lower_bound&quot;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">451</span> <span class="n">box</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;box&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
-<span class="ne">ValueError</span>: vdw radii for types: 3, 30, 26, 6, 81, 24, 9, 56, 7, 10, 52, 51, 21, 54, 25, 31, 29, 1, 70, 2, 73, 23, 5, 50, 32, 20, 57, 72, 55, 22. These can be defined manually using the keyword &#39;vdwradii&#39;
+<span class="ne">ValueError</span>: vdw radii for types: 72, 6, 54, 7, 26, 24, 25, 10, 5, 56, 2, 21, 57, 29, 32, 52, 50, 55, 31, 81, 30, 3, 51, 1, 20, 9, 22, 70, 73, 23. These can be defined manually using the keyword &#39;vdwradii&#39;
 </pre></div>
 </div>
 <p>However, the snippet below will re-guess the types, and now bond-guessing can work as the elements have vdW radii defined:</p>
