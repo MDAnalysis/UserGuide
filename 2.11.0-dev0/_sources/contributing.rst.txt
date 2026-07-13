@@ -85,6 +85,15 @@ Getting started with Git
 setting up your SSH key, and configuring git.  All these steps need to be completed before
 you can work seamlessly between your local repository and GitHub.
 
+
+Using AI-powered tools when contributing to MDAnalysis
+======================================================
+
+Open source projects often have different stances on how AI-powered tools (e.g. LLMs like Claude Code and ChatGPT)
+can be used in contributions. MDAnalysis has an `AI policy`_ which defines what is permitted in this space. We ask
+you to follow this policy, unless the specific sub-project you are contributing to has its own policy in place.
+
+
 .. _`GitHub Discussions`:
    https://github.com/MDAnalysis/mdanalysis/discussions
 .. _`Code of Conduct`: https://www.mdanalysis.org/pages/conduct/
@@ -92,3 +101,4 @@ you can work seamlessly between your local repository and GitHub.
 .. _`MDAKits registry`: https://mdakits.mdanalysis.org/mdakits.html
 .. _`MDAnalysis toolkit (MDAKit)`: https://mdakits.mdanalysis.org/about.html
 .. _`Making an MDAKit`: https://mdakits.mdanalysis.org/makingakit.html
+.. _`AI policy`: https://github.com/MDAnalysis/mdanalysis/blob/develop/AI_POLICY.md
