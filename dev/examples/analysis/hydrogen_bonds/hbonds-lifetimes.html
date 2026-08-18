@@ -228,7 +228,7 @@
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="c1"># suppress some MDAnalysis warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -323,9 +323,9 @@
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tau_times</span> <span class="o">=</span> <span class="n">tau_frames</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">dt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tau_times</span><span class="p">,</span> <span class="n">hbond_lifetime</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Hydrogen bond lifetime&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\tau\ \rm (ps)$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$C(\tau)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">"Hydrogen bond lifetime"</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">"bold"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$\tau\ \rm (ps)$"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$C(\tau)$"</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <br/></pre></div>
@@ -350,15 +350,15 @@
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fit_biexponential</span><span class="p">(</span><span class="n">tau_timeseries</span><span class="p">,</span> <span class="n">ac_timeseries</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Fit a biexponential function to a hydrogen bond time autocorrelation function</span>
+<span class="w">    </span><span class="sd">"""Fit a biexponential function to a hydrogen bond time autocorrelation function</span>
 
 <span class="sd">    Return the two time constants</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">curve_fit</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">model</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">tau1</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">tau2</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Fit data to a biexponential function.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Fit data to a biexponential function.</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t</span> <span class="o">/</span> <span class="n">tau1</span><span class="p">)</span> <span class="o">+</span> <span class="n">B</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t</span> <span class="o">/</span> <span class="n">tau2</span><span class="p">)</span>
 
     <span class="n">params</span><span class="p">,</span> <span class="n">params_covariance</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">tau_timeseries</span><span class="p">,</span> <span class="n">ac_timeseries</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
@@ -383,12 +383,12 @@
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the fit</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tau_times</span><span class="p">,</span> <span class="n">hbond_lifetime</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fit_t</span><span class="p">,</span> <span class="n">fit_ac</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;fit&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tau_times</span><span class="p">,</span> <span class="n">hbond_lifetime</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"data"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fit_t</span><span class="p">,</span> <span class="n">fit_ac</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"fit"</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Hydrogen bond lifetime&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\tau\ \rm (ps)$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$C(\tau)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">"Hydrogen bond lifetime"</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">"bold"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$\tau\ \rm (ps)$"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$C(\tau)$"</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -409,7 +409,7 @@
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the decay time constant</span>
 <span class="n">A</span><span class="p">,</span> <span class="n">tau1</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">tau2</span> <span class="o">=</span> <span class="n">params</span>
 <span class="n">time_constant</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">tau1</span> <span class="o">+</span> <span class="n">B</span> <span class="o">*</span> <span class="n">tau2</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;time_constant = </span><span class="si">{</span><span class="n">time_constant</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> ps&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"time_constant = </span><span class="si">{</span><span class="n">time_constant</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> ps"</span><span class="p">)</span>
 <br/></pre></div>
 </div>
 </div>
@@ -453,11 +453,11 @@ consecutive two frames.</p>
     <span class="n">times_times</span> <span class="o">=</span> <span class="n">tau_frames</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">dt</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times_times</span><span class="p">,</span> <span class="n">hbond_lifetime</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">intermittency</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Hydrogen bond lifetime&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\tau\ \rm (ps)$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$C(\tau)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">"Hydrogen bond lifetime"</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">"bold"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$\tau\ \rm (ps)$"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$C(\tau)$"</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Intermittency=&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">1.02</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Intermittency="</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">1.02</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <br/></pre></div>
 </div>
@@ -513,7 +513,7 @@ consecutive two frames.</p>
 <span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">donor</span><span class="p">,</span> <span class="n">hydrogen</span><span class="p">,</span> <span class="n">acceptor</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">[:</span><span class="mi">10</span><span class="p">]:</span>
     <span class="n">d</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">donor</span><span class="p">],</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">hydrogen</span><span class="p">],</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">acceptor</span><span class="p">]</span>
-    <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">resname</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">resid</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">h</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">resname</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">resid</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="se">\t</span><span class="s2">count=</span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">resname</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">resid</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">h</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">resname</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">resid</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="se">\t</span><span class="s2">count=</span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </pre></div>
@@ -560,8 +560,8 @@ TYR-24-OH       HH      GLY-214-OT2     count=95
         <span class="n">d_ix</span><span class="p">,</span> <span class="n">h_ix</span><span class="p">,</span> <span class="n">a_ix</span> <span class="o">=</span> <span class="n">hbond</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
         <span class="n">tmp_hbonds</span> <span class="o">=</span> <span class="n">HydrogenBondAnalysis</span><span class="p">(</span>
             <span class="n">universe</span><span class="o">=</span><span class="n">u</span><span class="p">,</span>
-            <span class="n">hydrogens_sel</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;index </span><span class="si">{</span><span class="n">h_ix</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-            <span class="n">acceptors_sel</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;index </span><span class="si">{</span><span class="n">a_ix</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">hydrogens_sel</span><span class="o">=</span><span class="sa">f</span><span class="s2">"index </span><span class="si">{</span><span class="n">h_ix</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+            <span class="n">acceptors_sel</span><span class="o">=</span><span class="sa">f</span><span class="s2">"index </span><span class="si">{</span><span class="n">a_ix</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
             <span class="n">update_selections</span><span class="o">=</span><span class="kc">False</span>
         <span class="p">)</span>
         <span class="n">tmp_hbonds</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
@@ -575,7 +575,7 @@ TYR-24-OH       HH      GLY-214-OT2     count=95
 
         <span class="c1"># label for plotting</span>
         <span class="n">donor</span><span class="p">,</span> <span class="n">acceptor</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">d_ix</span><span class="p">],</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">a_ix</span><span class="p">]</span>
-        <span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">donor</span><span class="o">.</span><span class="n">resname</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">donor</span><span class="o">.</span><span class="n">resid</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">acceptor</span><span class="o">.</span><span class="n">resname</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">acceptor</span><span class="o">.</span><span class="n">resid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">donor</span><span class="o">.</span><span class="n">resname</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">donor</span><span class="o">.</span><span class="n">resid</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">acceptor</span><span class="o">.</span><span class="n">resname</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">acceptor</span><span class="o">.</span><span class="n">resid</span><span class="si">}</span><span class="s2">"</span>
         <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
 
 <span class="n">hbond_lifetimes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">hbond_lifetimes</span><span class="p">)</span>
@@ -592,9 +592,9 @@ TYR-24-OH       HH      GLY-214-OT2     count=95
 <span class="k">for</span> <span class="n">hbl</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">hbond_lifetimes</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">hbl</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Hydrogen bond lifetime of specific hbonds&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\tau\ \rm (ps)$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$C(\tau)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">"Hydrogen bond lifetime of specific hbonds"</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">"bold"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$\tau\ \rm (ps)$"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$C(\tau)$"</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">ncol</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">1.02</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>

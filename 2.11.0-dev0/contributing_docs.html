@@ -508,7 +508,7 @@ git<span class="w"> </span>merge<span class="w"> </span>origin/my-new-branch
 </pre></div>
 </div>
 <p>Fix any merge conflicts that arise. Then edit <code class="docutils literal notranslate"><span class="pre">UserGuide/doc/source/conf.py</span></code> and change the URL of the site, which is set to <code class="docutils literal notranslate"><span class="pre">site_url</span> <span class="pre">=</span> <span class="pre">&quot;https://www.mdanalysis.org/UserGuide&quot;</span></code>. Change it to your personal site, e.g.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">site_url</span> <span class="o">=</span> <span class="s2">&quot;https://www.my_user_name.github.io/UserGuide&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">site_url</span> <span class="o">=</span> <span class="s2">"https://www.my_user_name.github.io/UserGuide"</span>
 </pre></div>
 </div>
 <p>Now you can build your pages with the <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">github</span></code> macro in the <code class="docutils literal notranslate"><span class="pre">UserGuide/doc/</span></code> directory, which builds the files and copies them to the top level of your directory.</p>
@@ -517,7 +517,7 @@ git<span class="w"> </span>merge<span class="w"> </span>origin/my-new-branch
 </div>
 <p>You should be able to open one of these new HTML files (e.g. <code class="docutils literal notranslate"><span class="pre">UserGuide/index.html</span></code>) in a browser and navigate your new documentation. Check that your changes look right. If they are, push to your <cite>gh-pages</cite> branch from the <code class="docutils literal notranslate"><span class="pre">UserGuide/</span></code> directory.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>.
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;built my-new-branch&#39;</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">'built my-new-branch'</span>
 git<span class="w"> </span>push<span class="w"> </span>-f<span class="w"> </span>origin<span class="w"> </span>gh-pages
 </pre></div>
 </div>

@@ -312,8 +312,8 @@ metric suffers from the problem of <em>degeneracy</em>: many different structure
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rms</span><span class="o">.</span><span class="n">rmsd</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;backbone&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">positions</span><span class="p">,</span>  <span class="c1"># coordinates to align</span>
-         <span class="n">ref</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;backbone&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">positions</span><span class="p">,</span>  <span class="c1"># reference coordinates</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rms</span><span class="o">.</span><span class="n">rmsd</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'backbone'</span><span class="p">)</span><span class="o">.</span><span class="n">positions</span><span class="p">,</span>  <span class="c1"># coordinates to align</span>
+         <span class="n">ref</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'backbone'</span><span class="p">)</span><span class="o">.</span><span class="n">positions</span><span class="p">,</span>  <span class="c1"># reference coordinates</span>
          <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># subtract the center of geometry</span>
          <span class="n">superposition</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># superimpose coordinates</span>
 </pre></div>
@@ -337,9 +337,9 @@ metric suffers from the problem of <em>degeneracy</em>: many different structure
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CORE</span> <span class="o">=</span> <span class="s1">&#39;backbone and (resid 1-29 or resid 60-121 or resid 160-214)&#39;</span>
-<span class="n">LID</span> <span class="o">=</span> <span class="s1">&#39;backbone and resid 122-159&#39;</span>
-<span class="n">NMP</span> <span class="o">=</span> <span class="s1">&#39;backbone and resid 30-59&#39;</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CORE</span> <span class="o">=</span> <span class="s1">'backbone and (resid 1-29 or resid 60-121 or resid 160-214)'</span>
+<span class="n">LID</span> <span class="o">=</span> <span class="s1">'backbone and resid 122-159'</span>
+<span class="n">NMP</span> <span class="o">=</span> <span class="s1">'backbone and resid 30-59'</span>
 </pre></div>
 </div>
 </div>
@@ -349,7 +349,7 @@ metric suffers from the problem of <em>degeneracy</em>: many different structure
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="n">rms</span><span class="o">.</span><span class="n">RMSD</span><span class="p">(</span><span class="n">u</span><span class="p">,</span>  <span class="c1"># universe to align</span>
              <span class="n">u</span><span class="p">,</span>  <span class="c1"># reference universe or atomgroup</span>
-             <span class="n">select</span><span class="o">=</span><span class="s1">&#39;backbone&#39;</span><span class="p">,</span>  <span class="c1"># group to superimpose and calculate RMSD</span>
+             <span class="n">select</span><span class="o">=</span><span class="s1">'backbone'</span><span class="p">,</span>  <span class="c1"># group to superimpose and calculate RMSD</span>
              <span class="n">groupselections</span><span class="o">=</span><span class="p">[</span><span class="n">CORE</span><span class="p">,</span> <span class="n">LID</span><span class="p">,</span> <span class="n">NMP</span><span class="p">],</span>  <span class="c1"># groups for RMSD</span>
              <span class="n">ref_frame</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># frame index of the reference</span>
 <span class="n">R</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
@@ -392,9 +392,9 @@ metric suffers from the problem of <em>degeneracy</em>: many different structure
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">rmsd</span><span class="p">,</span>
-                  <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Frame&#39;</span><span class="p">,</span> <span class="s1">&#39;Time (ns)&#39;</span><span class="p">,</span>
-                           <span class="s1">&#39;Backbone&#39;</span><span class="p">,</span> <span class="s1">&#39;CORE&#39;</span><span class="p">,</span>
-                           <span class="s1">&#39;LID&#39;</span><span class="p">,</span> <span class="s1">&#39;NMP&#39;</span><span class="p">])</span>
+                  <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'Frame'</span><span class="p">,</span> <span class="s1">'Time (ns)'</span><span class="p">,</span>
+                           <span class="s1">'Backbone'</span><span class="p">,</span> <span class="s1">'CORE'</span><span class="p">,</span>
+                           <span class="s1">'LID'</span><span class="p">,</span> <span class="s1">'NMP'</span><span class="p">])</span>
 
 <span class="n">df</span>
 </pre></div>
@@ -540,9 +540,9 @@ metric suffers from the problem of <em>degeneracy</em>: many different structure
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Frame&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Backbone&#39;</span><span class="p">,</span> <span class="s1">&#39;CORE&#39;</span><span class="p">,</span> <span class="s1">&#39;LID&#39;</span><span class="p">,</span> <span class="s1">&#39;NMP&#39;</span><span class="p">],</span>
-             <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;RMSD ($\AA$)&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">'Frame'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s1">'Backbone'</span><span class="p">,</span> <span class="s1">'CORE'</span><span class="p">,</span> <span class="s1">'LID'</span><span class="p">,</span> <span class="s1">'NMP'</span><span class="p">],</span>
+             <span class="n">kind</span><span class="o">=</span><span class="s1">'line'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">'RMSD ($\AA$)'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -575,7 +575,7 @@ Text(0, 0.5, &#39;RMSD ($\\AA$)&#39;)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ca</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ca</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'name CA'</span><span class="p">)</span>
 
 <span class="n">R</span> <span class="o">=</span> <span class="n">rms</span><span class="o">.</span><span class="n">RMSD</span><span class="p">(</span><span class="n">ca</span><span class="p">,</span> <span class="n">ca</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="n">CORE</span><span class="p">,</span> <span class="n">ref_frame</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">R</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
@@ -596,11 +596,11 @@ Text(0, 0.5, &#39;RMSD ($\\AA$)&#39;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">rmsd</span><span class="p">,</span>
-                  <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Frame&#39;</span><span class="p">,</span> <span class="s1">&#39;Time (ns)&#39;</span><span class="p">,</span>
-                           <span class="s1">&#39;CORE&#39;</span><span class="p">])</span>
+                  <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'Frame'</span><span class="p">,</span> <span class="s1">'Time (ns)'</span><span class="p">,</span>
+                           <span class="s1">'CORE'</span><span class="p">])</span>
 
-<span class="n">ax</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Frame&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;CORE&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;RMSD ($\AA$)&#39;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">'Frame'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'CORE'</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">'line'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'RMSD ($\AA$)'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -633,8 +633,8 @@ custom arrays. A custom array should have the same number of values as there are
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R_mass</span> <span class="o">=</span> <span class="n">rms</span><span class="o">.</span><span class="n">RMSD</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span>
-                  <span class="n">select</span><span class="o">=</span><span class="s1">&#39;protein and name CA&#39;</span><span class="p">,</span>
-                  <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;mass&#39;</span><span class="p">,</span>
+                  <span class="n">select</span><span class="o">=</span><span class="s1">'protein and name CA'</span><span class="p">,</span>
+                  <span class="n">weights</span><span class="o">=</span><span class="s1">'mass'</span><span class="p">,</span>
                   <span class="n">groupselections</span><span class="o">=</span><span class="p">[</span><span class="n">CORE</span><span class="p">,</span> <span class="n">LID</span><span class="p">,</span> <span class="n">NMP</span><span class="p">])</span>
 <span class="n">R_mass</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
@@ -655,13 +655,13 @@ custom arrays. A custom array should have the same number of values as there are
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_mass</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">R_mass</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">rmsd</span><span class="p">,</span>
-                       <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Frame&#39;</span><span class="p">,</span>
-                                <span class="s1">&#39;Time (ns)&#39;</span><span class="p">,</span>
-                                <span class="s1">&#39;C-alphas&#39;</span><span class="p">,</span> <span class="s1">&#39;CORE&#39;</span><span class="p">,</span>
-                                <span class="s1">&#39;LID&#39;</span><span class="p">,</span> <span class="s1">&#39;NMP&#39;</span><span class="p">])</span>
-<span class="n">ax_mass</span> <span class="o">=</span> <span class="n">df_mass</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Frame&#39;</span><span class="p">,</span>
-                       <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;C-alphas&#39;</span><span class="p">,</span> <span class="s1">&#39;CORE&#39;</span><span class="p">,</span> <span class="s1">&#39;LID&#39;</span><span class="p">,</span> <span class="s1">&#39;NMP&#39;</span><span class="p">])</span>
-<span class="n">ax_mass</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Mass-weighted RMSD ($\AA$)&#39;</span><span class="p">)</span>
+                       <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'Frame'</span><span class="p">,</span>
+                                <span class="s1">'Time (ns)'</span><span class="p">,</span>
+                                <span class="s1">'C-alphas'</span><span class="p">,</span> <span class="s1">'CORE'</span><span class="p">,</span>
+                                <span class="s1">'LID'</span><span class="p">,</span> <span class="s1">'NMP'</span><span class="p">])</span>
+<span class="n">ax_mass</span> <span class="o">=</span> <span class="n">df_mass</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">'Frame'</span><span class="p">,</span>
+                       <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s1">'C-alphas'</span><span class="p">,</span> <span class="s1">'CORE'</span><span class="p">,</span> <span class="s1">'LID'</span><span class="p">,</span> <span class="s1">'NMP'</span><span class="p">])</span>
+<span class="n">ax_mass</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Mass-weighted RMSD ($\AA$)'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -690,8 +690,8 @@ Text(0, 0.5, &#39;Mass-weighted RMSD ($\\AA$)&#39;)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ag</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;protein and name CA&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of C-alpha charges:&#39;</span><span class="p">,</span> <span class="n">ag</span><span class="o">.</span><span class="n">charges</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ag</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'protein and name CA'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Shape of C-alpha charges:'</span><span class="p">,</span> <span class="n">ag</span><span class="o">.</span><span class="n">charges</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">core</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="n">CORE</span><span class="p">)</span>
 <span class="n">lid</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="n">LID</span><span class="p">)</span>
 <span class="n">nmp</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="n">NMP</span><span class="p">)</span>
@@ -712,7 +712,7 @@ Shape of C-alpha charges: (214,)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R_charge</span> <span class="o">=</span> <span class="n">rms</span><span class="o">.</span><span class="n">RMSD</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span>
-                    <span class="n">select</span><span class="o">=</span><span class="s1">&#39;protein and name CA&#39;</span><span class="p">,</span>
+                    <span class="n">select</span><span class="o">=</span><span class="s1">'protein and name CA'</span><span class="p">,</span>
                     <span class="n">groupselections</span><span class="o">=</span><span class="p">[</span><span class="n">CORE</span><span class="p">,</span> <span class="n">LID</span><span class="p">,</span> <span class="n">NMP</span><span class="p">],</span>
                     <span class="n">weights</span><span class="o">=</span><span class="n">ag</span><span class="o">.</span><span class="n">resids</span><span class="p">,</span>
                     <span class="n">weights_groupselections</span><span class="o">=</span><span class="p">[</span><span class="n">core</span><span class="o">.</span><span class="n">resids</span><span class="p">,</span>
@@ -738,13 +738,13 @@ Shape of C-alpha charges: (214,)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_charge</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">R_charge</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">rmsd</span><span class="p">,</span>
-                         <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Frame&#39;</span><span class="p">,</span>
-                                <span class="s1">&#39;Time (ns)&#39;</span><span class="p">,</span>
-                                <span class="s1">&#39;C-alphas&#39;</span><span class="p">,</span> <span class="s1">&#39;CORE&#39;</span><span class="p">,</span>
-                                <span class="s1">&#39;LID&#39;</span><span class="p">,</span> <span class="s1">&#39;NMP&#39;</span><span class="p">])</span>
-<span class="n">ax_charge</span> <span class="o">=</span> <span class="n">df_charge</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Frame&#39;</span><span class="p">,</span>
-                           <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;C-alphas&#39;</span><span class="p">,</span> <span class="s1">&#39;CORE&#39;</span><span class="p">,</span> <span class="s1">&#39;LID&#39;</span><span class="p">,</span> <span class="s1">&#39;NMP&#39;</span><span class="p">])</span>
-<span class="n">ax_charge</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Charge-weighted RMSD ($\AA$)&#39;</span><span class="p">)</span>
+                         <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'Frame'</span><span class="p">,</span>
+                                <span class="s1">'Time (ns)'</span><span class="p">,</span>
+                                <span class="s1">'C-alphas'</span><span class="p">,</span> <span class="s1">'CORE'</span><span class="p">,</span>
+                                <span class="s1">'LID'</span><span class="p">,</span> <span class="s1">'NMP'</span><span class="p">])</span>
+<span class="n">ax_charge</span> <span class="o">=</span> <span class="n">df_charge</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">'Frame'</span><span class="p">,</span>
+                           <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s1">'C-alphas'</span><span class="p">,</span> <span class="s1">'CORE'</span><span class="p">,</span> <span class="s1">'LID'</span><span class="p">,</span> <span class="s1">'NMP'</span><span class="p">])</span>
+<span class="n">ax_charge</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Charge-weighted RMSD ($\AA$)'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

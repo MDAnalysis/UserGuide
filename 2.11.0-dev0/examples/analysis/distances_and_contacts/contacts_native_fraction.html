@@ -303,8 +303,8 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel_basic</span> <span class="o">=</span> <span class="s2">&quot;(resname ARG LYS) and (name NH* NZ)&quot;</span>
-<span class="n">sel_acidic</span> <span class="o">=</span> <span class="s2">&quot;(resname ASP GLU) and (name OE* OD*)&quot;</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel_basic</span> <span class="o">=</span> <span class="s2">"(resname ARG LYS) and (name NH* NZ)"</span>
+<span class="n">sel_acidic</span> <span class="o">=</span> <span class="s2">"(resname ASP GLU) and (name OE* OD*)"</span>
 <span class="n">acidic</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="n">sel_acidic</span><span class="p">)</span>
 <span class="n">basic</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="n">sel_basic</span><span class="p">)</span>
 </pre></div>
@@ -323,7 +323,7 @@
                         <span class="n">select</span><span class="o">=</span><span class="p">(</span><span class="n">sel_acidic</span><span class="p">,</span> <span class="n">sel_basic</span><span class="p">),</span>
                         <span class="n">refgroup</span><span class="o">=</span><span class="p">(</span><span class="n">acidic</span><span class="p">,</span> <span class="n">basic</span><span class="p">),</span>
                         <span class="n">radius</span><span class="o">=</span><span class="mf">4.5</span><span class="p">,</span>
-                        <span class="n">method</span><span class="o">=</span><span class="s1">&#39;hard_cut&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+                        <span class="n">method</span><span class="o">=</span><span class="s1">'hard_cut'</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -333,8 +333,8 @@
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ca1_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ca1</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">timeseries</span><span class="p">,</span>
-                      <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Frame&#39;</span><span class="p">,</span>
-                               <span class="s1">&#39;Contacts from first frame&#39;</span><span class="p">])</span>
+                      <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'Frame'</span><span class="p">,</span>
+                               <span class="s1">'Contacts from first frame'</span><span class="p">])</span>
 <span class="n">ca1_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -420,7 +420,7 @@
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_ref</span> <span class="o">=</span> <span class="n">ca1</span><span class="o">.</span><span class="n">initial_contacts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There are </span><span class="si">{}</span><span class="s1"> contacts in the reference.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_ref</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'There are </span><span class="si">{}</span><span class="s1"> contacts in the reference.'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_ref</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -457,8 +457,8 @@ other than that the the protein never returns to a similar state as the initial 
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ca1_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Frame&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Fraction of contacts&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ca1_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">'Frame'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Fraction of contacts'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -484,7 +484,7 @@ calculating the overall number or fraction of contacts, instead of the fraction 
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ca2</span> <span class="o">=</span> <span class="n">contacts</span><span class="o">.</span><span class="n">Contacts</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="p">(</span><span class="n">sel_acidic</span><span class="p">,</span> <span class="n">sel_basic</span><span class="p">),</span>
                         <span class="n">refgroup</span><span class="o">=</span><span class="p">(</span><span class="n">acidic</span><span class="p">,</span> <span class="n">basic</span><span class="p">),</span>
                         <span class="n">radius</span><span class="o">=</span><span class="mf">4.5</span><span class="p">,</span>
-                        <span class="n">method</span><span class="o">=</span><span class="s1">&#39;radius_cut&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+                        <span class="n">method</span><span class="o">=</span><span class="s1">'radius_cut'</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -497,9 +497,9 @@ the native contacts in the reference frame were closer than 4.5 Å. Moreover, th
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ca2_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ca2</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">timeseries</span><span class="p">,</span>
-                      <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Frame&#39;</span><span class="p">,</span> <span class="s1">&#39;Contacts from first frame&#39;</span><span class="p">])</span>
-<span class="n">ca2_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Frame&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Fraction of contacts&#39;</span><span class="p">)</span>
+                      <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'Frame'</span><span class="p">,</span> <span class="s1">'Contacts from first frame'</span><span class="p">])</span>
+<span class="n">ca2_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">'Frame'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Fraction of contacts'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -557,9 +557,9 @@ simultaneously.</p>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ca3</span> <span class="o">=</span> <span class="n">contacts</span><span class="o">.</span><span class="n">Contacts</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="p">(</span><span class="n">sel_acidic</span><span class="p">,</span> <span class="n">sel_basic</span><span class="p">),</span>
                         <span class="n">refgroup</span><span class="o">=</span><span class="p">[(</span><span class="n">acidic</span><span class="p">,</span> <span class="n">basic</span><span class="p">),</span> <span class="p">(</span><span class="n">acidic_2</span><span class="p">,</span> <span class="n">basic_2</span><span class="p">)],</span>
                         <span class="n">radius</span><span class="o">=</span><span class="mf">4.5</span><span class="p">,</span>
-                        <span class="n">method</span><span class="o">=</span><span class="s1">&#39;soft_cut&#39;</span><span class="p">,</span>
-                        <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;beta&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
-                                <span class="s1">&#39;lambda_constant&#39;</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">})</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+                        <span class="n">method</span><span class="o">=</span><span class="s1">'soft_cut'</span><span class="p">,</span>
+                        <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">'beta'</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+                                <span class="s1">'lambda_constant'</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">})</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -569,9 +569,9 @@ simultaneously.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ca3_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ca3</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">timeseries</span><span class="p">,</span>
-                      <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Frame&#39;</span><span class="p">,</span>
-                               <span class="s1">&#39;Contacts from first frame&#39;</span><span class="p">,</span>
-                               <span class="s1">&#39;Contacts from last frame&#39;</span><span class="p">])</span>
+                      <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'Frame'</span><span class="p">,</span>
+                               <span class="s1">'Contacts from first frame'</span><span class="p">,</span>
+                               <span class="s1">'Contacts from last frame'</span><span class="p">])</span>
 <span class="n">ca3_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -648,7 +648,7 @@ simultaneously.</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ca3_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Frame&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ca3_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">'Frame'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -706,10 +706,10 @@ simultaneously.</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ca3_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Contacts from first frame&#39;</span><span class="p">,</span>
-            <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Contacts from last frame&#39;</span><span class="p">,</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ca3_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">'Contacts from first frame'</span><span class="p">,</span>
+            <span class="n">y</span><span class="o">=</span><span class="s1">'Contacts from last frame'</span><span class="p">,</span>
             <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Contacts from last frame&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Contacts from last frame'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>

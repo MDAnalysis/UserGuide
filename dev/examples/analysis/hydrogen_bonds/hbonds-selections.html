@@ -291,8 +291,8 @@
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hbonds</span> <span class="o">=</span> <span class="n">HydrogenBondAnalysis</span><span class="p">(</span><span class="n">universe</span><span class="o">=</span><span class="n">u</span><span class="p">)</span>
-<span class="n">hbonds</span><span class="o">.</span><span class="n">hydrogens_sel</span> <span class="o">=</span> <span class="n">hbonds</span><span class="o">.</span><span class="n">guess_hydrogens</span><span class="p">(</span><span class="s2">&quot;resname ARG HIS LYS&quot;</span><span class="p">)</span>
-<span class="n">hbonds</span><span class="o">.</span><span class="n">acceptors_sel</span> <span class="o">=</span> <span class="n">hbonds</span><span class="o">.</span><span class="n">guess_acceptors</span><span class="p">(</span><span class="s2">&quot;resname ARG HIS LYS&quot;</span><span class="p">)</span>
+<span class="n">hbonds</span><span class="o">.</span><span class="n">hydrogens_sel</span> <span class="o">=</span> <span class="n">hbonds</span><span class="o">.</span><span class="n">guess_hydrogens</span><span class="p">(</span><span class="s2">"resname ARG HIS LYS"</span><span class="p">)</span>
+<span class="n">hbonds</span><span class="o">.</span><span class="n">acceptors_sel</span> <span class="o">=</span> <span class="n">hbonds</span><span class="o">.</span><span class="n">guess_acceptors</span><span class="p">(</span><span class="s2">"resname ARG HIS LYS"</span><span class="p">)</span>
 <br/></pre></div>
 </div>
 </div>
@@ -333,8 +333,8 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;hydrogen_sel = </span><span class="si">{</span><span class="n">hbonds</span><span class="o">.</span><span class="n">hydrogens_sel</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;acceptors_sel = </span><span class="si">{</span><span class="n">hbonds</span><span class="o">.</span><span class="n">acceptors_sel</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"hydrogen_sel = </span><span class="si">{</span><span class="n">hbonds</span><span class="o">.</span><span class="n">hydrogens_sel</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"acceptors_sel = </span><span class="si">{</span><span class="n">hbonds</span><span class="o">.</span><span class="n">acceptors_sel</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -357,14 +357,14 @@ acceptors_sel = (resname ARG and name NE) or (resname ARG and name NH1) or (resn
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hbonds</span> <span class="o">=</span> <span class="n">HydrogenBondAnalysis</span><span class="p">(</span><span class="n">universe</span><span class="o">=</span><span class="n">u</span><span class="p">)</span>
 
-<span class="n">protein_hydrogens_sel</span> <span class="o">=</span> <span class="n">hbonds</span><span class="o">.</span><span class="n">guess_hydrogens</span><span class="p">(</span><span class="s2">&quot;protein&quot;</span><span class="p">)</span>
-<span class="n">protein_acceptors_sel</span> <span class="o">=</span> <span class="n">hbonds</span><span class="o">.</span><span class="n">guess_acceptors</span><span class="p">(</span><span class="s2">&quot;protein&quot;</span><span class="p">)</span>
+<span class="n">protein_hydrogens_sel</span> <span class="o">=</span> <span class="n">hbonds</span><span class="o">.</span><span class="n">guess_hydrogens</span><span class="p">(</span><span class="s2">"protein"</span><span class="p">)</span>
+<span class="n">protein_acceptors_sel</span> <span class="o">=</span> <span class="n">hbonds</span><span class="o">.</span><span class="n">guess_acceptors</span><span class="p">(</span><span class="s2">"protein"</span><span class="p">)</span>
 
-<span class="n">water_hydrogens_sel</span> <span class="o">=</span> <span class="s2">&quot;resname TIP3 and name H1 H2&quot;</span>
-<span class="n">water_acceptors_sel</span> <span class="o">=</span> <span class="s2">&quot;resname TIP3 and name OH2&quot;</span>
+<span class="n">water_hydrogens_sel</span> <span class="o">=</span> <span class="s2">"resname TIP3 and name H1 H2"</span>
+<span class="n">water_acceptors_sel</span> <span class="o">=</span> <span class="s2">"resname TIP3 and name OH2"</span>
 
-<span class="n">hbonds</span><span class="o">.</span><span class="n">hydrogens_sel</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="n">protein_hydrogens_sel</span><span class="si">}</span><span class="s2">) or (</span><span class="si">{</span><span class="n">water_hydrogens_sel</span><span class="si">}</span><span class="s2"> and around 10 not resname TIP3)&quot;</span>
-<span class="n">hbonds</span><span class="o">.</span><span class="n">acceptors_sel</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="n">protein_acceptors_sel</span><span class="si">}</span><span class="s2">) or (</span><span class="si">{</span><span class="n">water_acceptors_sel</span><span class="si">}</span><span class="s2"> and around 10 not resname TIP3)&quot;</span>
+<span class="n">hbonds</span><span class="o">.</span><span class="n">hydrogens_sel</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"(</span><span class="si">{</span><span class="n">protein_hydrogens_sel</span><span class="si">}</span><span class="s2">) or (</span><span class="si">{</span><span class="n">water_hydrogens_sel</span><span class="si">}</span><span class="s2"> and around 10 not resname TIP3)"</span>
+<span class="n">hbonds</span><span class="o">.</span><span class="n">acceptors_sel</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"(</span><span class="si">{</span><span class="n">protein_acceptors_sel</span><span class="si">}</span><span class="s2">) or (</span><span class="si">{</span><span class="n">water_acceptors_sel</span><span class="si">}</span><span class="s2"> and around 10 not resname TIP3)"</span>
 <br/></pre></div>
 </div>
 </div>
@@ -406,8 +406,8 @@ acceptors_sel = (resname ARG and name NE) or (resname ARG and name NH1) or (resn
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hbonds</span> <span class="o">=</span> <span class="n">HydrogenBondAnalysis</span><span class="p">(</span>
     <span class="n">universe</span><span class="o">=</span><span class="n">u</span><span class="p">,</span>
     <span class="n">between</span><span class="o">=</span><span class="p">[</span>
-        <span class="p">[</span><span class="s2">&quot;protein&quot;</span><span class="p">,</span> <span class="s2">&quot;resname TIP3&quot;</span><span class="p">],</span> <span class="c1"># for protein-water hbonds</span>
-        <span class="p">[</span><span class="s2">&quot;protein&quot;</span><span class="p">,</span> <span class="s2">&quot;protein&quot;</span><span class="p">]</span>       <span class="c1"># for protein-protein hbonds</span>
+        <span class="p">[</span><span class="s2">"protein"</span><span class="p">,</span> <span class="s2">"resname TIP3"</span><span class="p">],</span> <span class="c1"># for protein-water hbonds</span>
+        <span class="p">[</span><span class="s2">"protein"</span><span class="p">,</span> <span class="s2">"protein"</span><span class="p">]</span>       <span class="c1"># for protein-protein hbonds</span>
     <span class="p">]</span>
 <span class="p">)</span>
 <br/></pre></div>

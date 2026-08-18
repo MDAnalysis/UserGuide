@@ -261,7 +261,7 @@ Reads full file on initialisation.</p></td>
 <span class="gp">In [3]: </span><span class="n">aux</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">auxreader</span><span class="p">(</span><span class="n">XVG_BZ2</span><span class="p">)</span>
 
 <span class="gp">In [4]: </span><span class="n">aux</span>
-<span class="gh">Out[4]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7f5c9398dfd0&gt;</span>
+<span class="gh">Out[4]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7faeffb93b00&gt;</span>
 </pre></div>
 </div>
 <p>In stand-alone use, an auxiliary reader allows you to iterate over each step in a set of auxiliary data.</p>
@@ -289,7 +289,7 @@ Reads full file on initialisation.</p></td>
 </pre></div>
 </div>
 <p>or return the reader for a specified format.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">mda</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">get_auxreader_for</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;XVG-F&#39;</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">mda</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">get_auxreader_for</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">'XVG-F'</span><span class="p">)</span>
 <span class="gh">Out[8]: </span><span class="go">MDAnalysis.auxiliary.XVG.XVGFileReader</span>
 </pre></div>
 </div>
@@ -305,7 +305,7 @@ guess an appropriate reader.</p>
 
 <span class="gp">In [10]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PDB_xvf</span><span class="p">,</span> <span class="n">TRR_xvf</span><span class="p">)</span>
 
-<span class="gp">In [11]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">add_auxiliary</span><span class="p">(</span><span class="s1">&#39;protein_force&#39;</span><span class="p">,</span> <span class="n">XVG_BZ2</span><span class="p">)</span>
+<span class="gp">In [11]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">add_auxiliary</span><span class="p">(</span><span class="s1">'protein_force'</span><span class="p">,</span> <span class="n">XVG_BZ2</span><span class="p">)</span>
 
 <span class="gp">In [12]: </span><span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">:</span>
 <span class="gp">   ....: </span>    <span class="nb">print</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">aux</span><span class="o">.</span><span class="n">protein_force</span><span class="p">)</span>
@@ -338,7 +338,7 @@ trajectory. If there are no auxiliary steps assigned to a given timestep (or non
 
 <span class="gp">In [14]: </span><span class="n">u_long</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PDB</span><span class="p">,</span> <span class="n">TRR</span><span class="p">)</span>
 
-<span class="gp">In [15]: </span><span class="n">u_long</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">add_auxiliary</span><span class="p">(</span><span class="s1">&#39;protein_force&#39;</span><span class="p">,</span> <span class="n">XVG_BZ2</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="gp">In [15]: </span><span class="n">u_long</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">add_auxiliary</span><span class="p">(</span><span class="s1">'protein_force'</span><span class="p">,</span> <span class="n">XVG_BZ2</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 
 <span class="gp">In [16]: </span><span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">u_long</span><span class="o">.</span><span class="n">trajectory</span><span class="p">:</span>
 <span class="gp">   ....: </span>    <span class="nb">print</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">ts</span><span class="o">.</span><span class="n">aux</span><span class="o">.</span><span class="n">protein_force</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span>
@@ -359,7 +359,7 @@ trajectory. If there are no auxiliary steps assigned to a given timestep (or non
 <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.next_as_aux" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">next_as_aux()</span></code></a> and
 <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.iter_as_aux" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iter_as_aux()</span></code></a> allow for movement
 through only trajectory timesteps for which auxiliary data is available.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [17]: </span><span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">u_long</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">iter_as_aux</span><span class="p">(</span><span class="s1">&#39;protein_force&#39;</span><span class="p">):</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [17]: </span><span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">u_long</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">iter_as_aux</span><span class="p">(</span><span class="s1">'protein_force'</span><span class="p">):</span>
 <span class="gp">   ....: </span>    <span class="nb">print</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">ts</span><span class="o">.</span><span class="n">aux</span><span class="o">.</span><span class="n">protein_force</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span>
 <span class="gp">   ....: </span>
 <span class="go">0.0 [    0.        200.71288 -1552.2849   -967.21124]</span>
@@ -372,7 +372,7 @@ is less frequent.</p>
 <p>Sometimes the auxiliary data is longer than the trajectory.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="n">u_short</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PDB</span><span class="p">)</span>
 
-<span class="gp">In [19]: </span><span class="n">u_short</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">add_auxiliary</span><span class="p">(</span><span class="s1">&#39;protein_force&#39;</span><span class="p">,</span> <span class="n">XVG_BZ2</span><span class="p">)</span>
+<span class="gp">In [19]: </span><span class="n">u_short</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">add_auxiliary</span><span class="p">(</span><span class="s1">'protein_force'</span><span class="p">,</span> <span class="n">XVG_BZ2</span><span class="p">)</span>
 
 <span class="gp">In [20]: </span><span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">u_short</span><span class="o">.</span><span class="n">trajectory</span><span class="p">:</span>
 <span class="gp">   ....: </span>    <span class="nb">print</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">ts</span><span class="o">.</span><span class="n">aux</span><span class="o">.</span><span class="n">protein_force</span><span class="p">)</span>
@@ -385,7 +385,7 @@ is less frequent.</p>
 outside the time range of the trajectory,
 <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.iter_auxiliary" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iter_auxiliary()</span></code></a> allows iteration
 over the auxiliary independent of the trajectory.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [21]: </span><span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">u_short</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">iter_auxiliary</span><span class="p">(</span><span class="s1">&#39;protein_force&#39;</span><span class="p">):</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [21]: </span><span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">u_short</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">iter_auxiliary</span><span class="p">(</span><span class="s1">'protein_force'</span><span class="p">):</span>
 <span class="gp">   ....: </span>    <span class="nb">print</span><span class="p">(</span><span class="n">step</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 <span class="gp">   ....: </span>
 <span class="go">[    0.        200.71288 -1552.2849  ...   128.4072   1386.0378</span>
@@ -397,7 +397,7 @@ over the auxiliary independent of the trajectory.</p>
 </pre></div>
 </div>
 <p>To iterate over only a certain section of the auxiliary:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [22]: </span><span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">u_short</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">iter_auxiliary</span><span class="p">(</span><span class="s1">&#39;protein_force&#39;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [22]: </span><span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">u_short</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">iter_auxiliary</span><span class="p">(</span><span class="s1">'protein_force'</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
 <span class="gp">   ....: </span>    <span class="nb">print</span><span class="p">(</span><span class="n">step</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
 <span class="gp">   ....: </span>
 <span class="go">50.0</span>
@@ -410,13 +410,13 @@ timestep after iteration is complete.</p>
 <h2>Accessing auxiliary attributes<a class="headerlink" href="#accessing-auxiliary-attributes" title="Link to this heading"></a></h2>
 <p>To check the values of attributes of an added auxiliary, use
 <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.get_aux_attribute" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_aux_attribute()</span></code></a>.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [23]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">get_aux_attribute</span><span class="p">(</span><span class="s1">&#39;protein_force&#39;</span><span class="p">,</span> <span class="s1">&#39;dt&#39;</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [23]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">get_aux_attribute</span><span class="p">(</span><span class="s1">'protein_force'</span><span class="p">,</span> <span class="s1">'dt'</span><span class="p">)</span>
 <span class="gh">Out[23]: </span><span class="go">np.float64(50.0)</span>
 </pre></div>
 </div>
 <p>If attributes are settable, they can be changed using
 <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.set_aux_attribute" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_aux_attribute()</span></code></a>.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [24]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">set_aux_attribute</span><span class="p">(</span><span class="s1">&#39;protein_force&#39;</span><span class="p">,</span> <span class="s1">&#39;data_selector&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [24]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">set_aux_attribute</span><span class="p">(</span><span class="s1">'protein_force'</span><span class="p">,</span> <span class="s1">'data_selector'</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>The auxiliary may be renamed using <code class="docutils literal notranslate"><span class="pre">set_aux_attribute</span></code> with ‘auxname’, or more
@@ -426,7 +426,7 @@ directly by using <a class="reference external" href="https://docs.mdanalysis.or
 <span class="go">array([    0.     ,   200.71288, -1552.2849 , ...,   128.4072 ,</span>
 <span class="go">        1386.0378 , -2699.3118 ], shape=(2755,))</span>
 
-<span class="gp">In [26]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">rename_aux</span><span class="p">(</span><span class="s1">&#39;protein_force&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">)</span>
+<span class="gp">In [26]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">rename_aux</span><span class="p">(</span><span class="s1">'protein_force'</span><span class="p">,</span> <span class="s1">'f'</span><span class="p">)</span>
 
 <span class="gp">In [27]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">ts</span><span class="o">.</span><span class="n">aux</span><span class="o">.</span><span class="n">f</span>
 <span class="gh">Out[27]: </span>
@@ -446,26 +446,26 @@ original auxiliary reader.</p>
 
 <span class="gp">In [29]: </span><span class="nb">list</span><span class="p">(</span><span class="n">description</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 <span class="gh">Out[29]: </span>
-<span class="go">[&#39;represent_ts_as&#39;,</span>
-<span class="go"> &#39;cutoff&#39;,</span>
-<span class="go"> &#39;dt&#39;,</span>
-<span class="go"> &#39;initial_time&#39;,</span>
-<span class="go"> &#39;time_selector&#39;,</span>
-<span class="go"> &#39;data_selector&#39;,</span>
-<span class="go"> &#39;constant_dt&#39;,</span>
-<span class="go"> &#39;auxname&#39;,</span>
-<span class="go"> &#39;format&#39;,</span>
-<span class="go"> &#39;auxdata&#39;]</span>
+<span class="go">['represent_ts_as',</span>
+<span class="go"> 'cutoff',</span>
+<span class="go"> 'dt',</span>
+<span class="go"> 'initial_time',</span>
+<span class="go"> 'time_selector',</span>
+<span class="go"> 'data_selector',</span>
+<span class="go"> 'constant_dt',</span>
+<span class="go"> 'auxname',</span>
+<span class="go"> 'format',</span>
+<span class="go"> 'auxdata']</span>
 
 <span class="gp">In [30]: </span><span class="k">del</span> <span class="n">aux</span>
 
 <span class="gp">In [31]: </span><span class="n">mda</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">auxreader</span><span class="p">(</span><span class="o">**</span><span class="n">description</span><span class="p">)</span>
-<span class="gh">Out[31]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7f5c9391e5a0&gt;</span>
+<span class="gh">Out[31]: </span><span class="go">&lt;MDAnalysis.auxiliary.XVG.XVGReader at 0x7faefd6b7950&gt;</span>
 </pre></div>
 </div>
 <p>The ‘description’ of any or all the auxiliaries added to a trajectory can be
 obtained using <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.get_aux_descriptions" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_aux_descriptions()</span></code></a>.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [32]: </span><span class="n">descriptions</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">get_aux_descriptions</span><span class="p">([</span><span class="s1">&#39;f&#39;</span><span class="p">])</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [32]: </span><span class="n">descriptions</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">get_aux_descriptions</span><span class="p">([</span><span class="s1">'f'</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>To reload, pass the dictionary into <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/coordinates/base.html#MDAnalysis.coordinates.base.ProtoReader.add_auxiliary" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_auxiliary()</span></code></a>.</p>
@@ -494,94 +494,94 @@ the EDRReader, this section will highlight functionality unique to the EDRReader
 <span class="gp">In [37]: </span><span class="n">aux</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">EDR</span><span class="o">.</span><span class="n">EDRReader</span><span class="p">(</span><span class="n">AUX_EDR</span><span class="p">)</span>
 
 <span class="go"> # Or, for example</span>
-<span class="go"> # aux = mda.auxiliary.EDR.EDRReader(&quot;path/to/file/ener.edr&quot;)</span>
+<span class="go"> # aux = mda.auxiliary.EDR.EDRReader("path/to/file/ener.edr")</span>
 </pre></div>
 </div>
 <p>Dozens of terms can be defined in EDR files. A list of available data is conveniently available unter the <cite>terms</cite> attribute.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [38]: </span><span class="n">aux</span><span class="o">.</span><span class="n">terms</span>
 <span class="gh">Out[38]: </span>
-<span class="go">[&#39;Time&#39;,</span>
-<span class="go"> &#39;Bond&#39;,</span>
-<span class="go"> &#39;Angle&#39;,</span>
-<span class="go"> &#39;Proper Dih.&#39;,</span>
-<span class="go"> &#39;Ryckaert-Bell.&#39;,</span>
-<span class="go"> &#39;LJ-14&#39;,</span>
-<span class="go"> &#39;Coulomb-14&#39;,</span>
-<span class="go"> &#39;LJ (SR)&#39;,</span>
-<span class="go"> &#39;Disper. corr.&#39;,</span>
-<span class="go"> &#39;Coulomb (SR)&#39;,</span>
-<span class="go"> &#39;Coul. recip.&#39;,</span>
-<span class="go"> &#39;Potential&#39;,</span>
-<span class="go"> &#39;Kinetic En.&#39;,</span>
-<span class="go"> &#39;Total Energy&#39;,</span>
-<span class="go"> &#39;Conserved En.&#39;,</span>
-<span class="go"> &#39;Temperature&#39;,</span>
-<span class="go"> &#39;Pres. DC&#39;,</span>
-<span class="go"> &#39;Pressure&#39;,</span>
-<span class="go"> &#39;Constr. rmsd&#39;,</span>
-<span class="go"> &#39;Box-X&#39;,</span>
-<span class="go"> &#39;Box-Y&#39;,</span>
-<span class="go"> &#39;Box-Z&#39;,</span>
-<span class="go"> &#39;Volume&#39;,</span>
-<span class="go"> &#39;Density&#39;,</span>
-<span class="go"> &#39;pV&#39;,</span>
-<span class="go"> &#39;Enthalpy&#39;,</span>
-<span class="go"> &#39;Vir-XX&#39;,</span>
-<span class="go"> &#39;Vir-XY&#39;,</span>
-<span class="go"> &#39;Vir-XZ&#39;,</span>
-<span class="go"> &#39;Vir-YX&#39;,</span>
-<span class="go"> &#39;Vir-YY&#39;,</span>
-<span class="go"> &#39;Vir-YZ&#39;,</span>
-<span class="go"> &#39;Vir-ZX&#39;,</span>
-<span class="go"> &#39;Vir-ZY&#39;,</span>
-<span class="go"> &#39;Vir-ZZ&#39;,</span>
-<span class="go"> &#39;Pres-XX&#39;,</span>
-<span class="go"> &#39;Pres-XY&#39;,</span>
-<span class="go"> &#39;Pres-XZ&#39;,</span>
-<span class="go"> &#39;Pres-YX&#39;,</span>
-<span class="go"> &#39;Pres-YY&#39;,</span>
-<span class="go"> &#39;Pres-YZ&#39;,</span>
-<span class="go"> &#39;Pres-ZX&#39;,</span>
-<span class="go"> &#39;Pres-ZY&#39;,</span>
-<span class="go"> &#39;Pres-ZZ&#39;,</span>
-<span class="go"> &#39;#Surf*SurfTen&#39;,</span>
-<span class="go"> &#39;Box-Vel-XX&#39;,</span>
-<span class="go"> &#39;Box-Vel-YY&#39;,</span>
-<span class="go"> &#39;Box-Vel-ZZ&#39;,</span>
-<span class="go"> &#39;T-Protein&#39;,</span>
-<span class="go"> &#39;T-non-Protein&#39;,</span>
-<span class="go"> &#39;Lamb-Protein&#39;,</span>
-<span class="go"> &#39;Lamb-non-Protein&#39;]</span>
+<span class="go">['Time',</span>
+<span class="go"> 'Bond',</span>
+<span class="go"> 'Angle',</span>
+<span class="go"> 'Proper Dih.',</span>
+<span class="go"> 'Ryckaert-Bell.',</span>
+<span class="go"> 'LJ-14',</span>
+<span class="go"> 'Coulomb-14',</span>
+<span class="go"> 'LJ (SR)',</span>
+<span class="go"> 'Disper. corr.',</span>
+<span class="go"> 'Coulomb (SR)',</span>
+<span class="go"> 'Coul. recip.',</span>
+<span class="go"> 'Potential',</span>
+<span class="go"> 'Kinetic En.',</span>
+<span class="go"> 'Total Energy',</span>
+<span class="go"> 'Conserved En.',</span>
+<span class="go"> 'Temperature',</span>
+<span class="go"> 'Pres. DC',</span>
+<span class="go"> 'Pressure',</span>
+<span class="go"> 'Constr. rmsd',</span>
+<span class="go"> 'Box-X',</span>
+<span class="go"> 'Box-Y',</span>
+<span class="go"> 'Box-Z',</span>
+<span class="go"> 'Volume',</span>
+<span class="go"> 'Density',</span>
+<span class="go"> 'pV',</span>
+<span class="go"> 'Enthalpy',</span>
+<span class="go"> 'Vir-XX',</span>
+<span class="go"> 'Vir-XY',</span>
+<span class="go"> 'Vir-XZ',</span>
+<span class="go"> 'Vir-YX',</span>
+<span class="go"> 'Vir-YY',</span>
+<span class="go"> 'Vir-YZ',</span>
+<span class="go"> 'Vir-ZX',</span>
+<span class="go"> 'Vir-ZY',</span>
+<span class="go"> 'Vir-ZZ',</span>
+<span class="go"> 'Pres-XX',</span>
+<span class="go"> 'Pres-XY',</span>
+<span class="go"> 'Pres-XZ',</span>
+<span class="go"> 'Pres-YX',</span>
+<span class="go"> 'Pres-YY',</span>
+<span class="go"> 'Pres-YZ',</span>
+<span class="go"> 'Pres-ZX',</span>
+<span class="go"> 'Pres-ZY',</span>
+<span class="go"> 'Pres-ZZ',</span>
+<span class="go"> '#Surf*SurfTen',</span>
+<span class="go"> 'Box-Vel-XX',</span>
+<span class="go"> 'Box-Vel-YY',</span>
+<span class="go"> 'Box-Vel-ZZ',</span>
+<span class="go"> 'T-Protein',</span>
+<span class="go"> 'T-non-Protein',</span>
+<span class="go"> 'Lamb-Protein',</span>
+<span class="go"> 'Lamb-non-Protein']</span>
 </pre></div>
 </div>
 <p>To extract data for plotting, the <cite>get_data</cite> method can be used. It can be used to extract a single, multiple, or all terms as follows:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [39]: </span><span class="n">temp</span> <span class="o">=</span> <span class="n">aux</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;Temperature&quot;</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [39]: </span><span class="n">temp</span> <span class="o">=</span> <span class="n">aux</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s2">"Temperature"</span><span class="p">)</span>
 
 <span class="gp">In [40]: </span><span class="nb">print</span><span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-<span class="go">dict_keys([&#39;Time&#39;, &#39;Temperature&#39;])</span>
+<span class="go">dict_keys(['Time', 'Temperature'])</span>
 
-<span class="gp">In [41]: </span><span class="n">energies</span> <span class="o">=</span> <span class="n">aux</span><span class="o">.</span><span class="n">get_data</span><span class="p">([</span><span class="s2">&quot;Potential&quot;</span><span class="p">,</span> <span class="s2">&quot;Kinetic En.&quot;</span><span class="p">])</span>
+<span class="gp">In [41]: </span><span class="n">energies</span> <span class="o">=</span> <span class="n">aux</span><span class="o">.</span><span class="n">get_data</span><span class="p">([</span><span class="s2">"Potential"</span><span class="p">,</span> <span class="s2">"Kinetic En."</span><span class="p">])</span>
 
 <span class="gp">In [42]: </span><span class="nb">print</span><span class="p">(</span><span class="n">energies</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-<span class="go">dict_keys([&#39;Time&#39;, &#39;Potential&#39;, &#39;Kinetic En.&#39;])</span>
+<span class="go">dict_keys(['Time', 'Potential', 'Kinetic En.'])</span>
 
 <span class="gp">In [43]: </span><span class="n">all_data</span> <span class="o">=</span> <span class="n">aux</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
 
 <span class="gp">In [44]: </span><span class="nb">print</span><span class="p">(</span><span class="n">all_data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-<span class="go">dict_keys([&#39;Time&#39;, &#39;Bond&#39;, &#39;Angle&#39;, &#39;Proper Dih.&#39;, &#39;Ryckaert-Bell.&#39;, &#39;LJ-14&#39;, &#39;Coulomb-14&#39;, &#39;LJ (SR)&#39;, &#39;Disper. corr.&#39;, &#39;Coulomb (SR)&#39;, &#39;Coul. recip.&#39;, &#39;Potential&#39;, &#39;Kinetic En.&#39;, &#39;Total Energy&#39;, &#39;Conserved En.&#39;, &#39;Temperature&#39;, &#39;Pres. DC&#39;, &#39;Pressure&#39;, &#39;Constr. rmsd&#39;, &#39;Box-X&#39;, &#39;Box-Y&#39;, &#39;Box-Z&#39;, &#39;Volume&#39;, &#39;Density&#39;, &#39;pV&#39;, &#39;Enthalpy&#39;, &#39;Vir-XX&#39;, &#39;Vir-XY&#39;, &#39;Vir-XZ&#39;, &#39;Vir-YX&#39;, &#39;Vir-YY&#39;, &#39;Vir-YZ&#39;, &#39;Vir-ZX&#39;, &#39;Vir-ZY&#39;, &#39;Vir-ZZ&#39;, &#39;Pres-XX&#39;, &#39;Pres-XY&#39;, &#39;Pres-XZ&#39;, &#39;Pres-YX&#39;, &#39;Pres-YY&#39;, &#39;Pres-YZ&#39;, &#39;Pres-ZX&#39;, &#39;Pres-ZY&#39;, &#39;Pres-ZZ&#39;, &#39;#Surf*SurfTen&#39;, &#39;Box-Vel-XX&#39;, &#39;Box-Vel-YY&#39;, &#39;Box-Vel-ZZ&#39;, &#39;T-Protein&#39;, &#39;T-non-Protein&#39;, &#39;Lamb-Protein&#39;, &#39;Lamb-non-Protein&#39;])</span>
+<span class="go">dict_keys(['Time', 'Bond', 'Angle', 'Proper Dih.', 'Ryckaert-Bell.', 'LJ-14', 'Coulomb-14', 'LJ (SR)', 'Disper. corr.', 'Coulomb (SR)', 'Coul. recip.', 'Potential', 'Kinetic En.', 'Total Energy', 'Conserved En.', 'Temperature', 'Pres. DC', 'Pressure', 'Constr. rmsd', 'Box-X', 'Box-Y', 'Box-Z', 'Volume', 'Density', 'pV', 'Enthalpy', 'Vir-XX', 'Vir-XY', 'Vir-XZ', 'Vir-YX', 'Vir-YY', 'Vir-YZ', 'Vir-ZX', 'Vir-ZY', 'Vir-ZZ', 'Pres-XX', 'Pres-XY', 'Pres-XZ', 'Pres-YX', 'Pres-YY', 'Pres-YZ', 'Pres-ZX', 'Pres-ZY', 'Pres-ZZ', '#Surf*SurfTen', 'Box-Vel-XX', 'Box-Vel-YY', 'Box-Vel-ZZ', 'T-Protein', 'T-non-Protein', 'Lamb-Protein', 'Lamb-non-Protein'])</span>
 </pre></div>
 </div>
 <p>The times of each data point are always part of the returned dictionary to facilicate plotting.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [45]: </span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="gp">In [46]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">],</span> <span class="n">temp</span><span class="p">[</span><span class="s2">&quot;Temperature&quot;</span><span class="p">])</span>
-<span class="gh">Out[46]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x7f5c92c443e0&gt;]</span>
+<span class="gp">In [46]: </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="s2">"Time"</span><span class="p">],</span> <span class="n">temp</span><span class="p">[</span><span class="s2">"Temperature"</span><span class="p">])</span>
+<span class="gh">Out[46]: </span><span class="go">[&lt;matplotlib.lines.Line2D at 0x7faeefdc3200&gt;]</span>
 
-<span class="gp">In [47]: </span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Temperature [K]&quot;</span><span class="p">)</span>
-<span class="gh">Out[47]: </span><span class="go">Text(0, 0.5, &#39;Temperature [K]&#39;)</span>
+<span class="gp">In [47]: </span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Temperature [K]"</span><span class="p">)</span>
+<span class="gh">Out[47]: </span><span class="go">Text(0, 0.5, 'Temperature [K]')</span>
 
-<span class="gp">In [48]: </span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time [ps]&quot;</span><span class="p">)</span>
-<span class="gh">Out[48]: </span><span class="go">Text(0.5, 0, &#39;Time [ps]&#39;)</span>
+<span class="gp">In [48]: </span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Time [ps]"</span><span class="p">)</span>
+<span class="gh">Out[48]: </span><span class="go">Text(0.5, 0, 'Time [ps]')</span>
 
 <span class="gp">In [49]: </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -597,13 +597,13 @@ the EDRReader, this section will highlight functionality unique to the EDRReader
 information on the units of the data stored within. These units are read from the
 EDR file automatically and by default converted to MDAnalysis base units where such units
 are defined. The automatic unit conversion can be disabled by setting the <code class="docutils literal notranslate"><span class="pre">convert_units</span></code> kwarg to False.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [50]: </span><span class="n">aux</span><span class="o">.</span><span class="n">unit_dict</span><span class="p">[</span><span class="s2">&quot;Box-X&quot;</span><span class="p">]</span>
-<span class="gh">Out[50]: </span><span class="go">&#39;A&#39;</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [50]: </span><span class="n">aux</span><span class="o">.</span><span class="n">unit_dict</span><span class="p">[</span><span class="s2">"Box-X"</span><span class="p">]</span>
+<span class="gh">Out[50]: </span><span class="go">'A'</span>
 
 <span class="gp">In [51]: </span><span class="n">aux_native</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">EDR</span><span class="o">.</span><span class="n">EDRReader</span><span class="p">(</span><span class="n">AUX_EDR</span><span class="p">,</span> <span class="n">convert_units</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="gp">In [52]: </span><span class="n">aux_native</span><span class="o">.</span><span class="n">unit_dict</span><span class="p">[</span><span class="s2">&quot;Box-X&quot;</span><span class="p">]</span>
-<span class="gh">Out[52]: </span><span class="go">&#39;nm&#39;</span>
+<span class="gp">In [52]: </span><span class="n">aux_native</span><span class="o">.</span><span class="n">unit_dict</span><span class="p">[</span><span class="s2">"Box-X"</span><span class="p">]</span>
+<span class="gh">Out[52]: </span><span class="go">'nm'</span>
 </pre></div>
 </div>
 </section>
@@ -615,7 +615,7 @@ The dictionary is chosen so that the name to be used in MDAnalysis to access the
 
 <span class="gp">In [54]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">AUX_EDR_TPR</span><span class="p">,</span> <span class="n">AUX_EDR_XTC</span><span class="p">)</span>
 
-<span class="gp">In [55]: </span><span class="n">term_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;temp&quot;</span><span class="p">:</span> <span class="s2">&quot;Temperature&quot;</span><span class="p">,</span> <span class="s2">&quot;epot&quot;</span><span class="p">:</span> <span class="s2">&quot;Potential&quot;</span><span class="p">}</span>
+<span class="gp">In [55]: </span><span class="n">term_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"temp"</span><span class="p">:</span> <span class="s2">"Temperature"</span><span class="p">,</span> <span class="s2">"epot"</span><span class="p">:</span> <span class="s2">"Potential"</span><span class="p">}</span>
 
 <span class="gp">In [56]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">add_auxiliary</span><span class="p">(</span><span class="n">term_dict</span><span class="p">,</span> <span class="n">aux</span><span class="p">)</span>
 
@@ -630,7 +630,7 @@ specify that the EDRReader should be passed as the <cite>auxdata</cite> argument
 <span class="gp">In [59]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">add_auxiliary</span><span class="p">(</span><span class="n">auxdata</span><span class="o">=</span><span class="n">aux</span><span class="p">)</span>
 
 <span class="gp">In [60]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">aux_list</span>
-<span class="gh">Out[60]: </span><span class="go">dict_keys([&#39;Time&#39;, &#39;Bond&#39;, &#39;Angle&#39;, &#39;Proper Dih.&#39;, &#39;Ryckaert-Bell.&#39;, &#39;LJ-14&#39;, &#39;Coulomb-14&#39;, &#39;LJ (SR)&#39;, &#39;Disper. corr.&#39;, &#39;Coulomb (SR)&#39;, &#39;Coul. recip.&#39;, &#39;Potential&#39;, &#39;Kinetic En.&#39;, &#39;Total Energy&#39;, &#39;Conserved En.&#39;, &#39;Temperature&#39;, &#39;Pres. DC&#39;, &#39;Pressure&#39;, &#39;Constr. rmsd&#39;, &#39;Box-X&#39;, &#39;Box-Y&#39;, &#39;Box-Z&#39;, &#39;Volume&#39;, &#39;Density&#39;, &#39;pV&#39;, &#39;Enthalpy&#39;, &#39;Vir-XX&#39;, &#39;Vir-XY&#39;, &#39;Vir-XZ&#39;, &#39;Vir-YX&#39;, &#39;Vir-YY&#39;, &#39;Vir-YZ&#39;, &#39;Vir-ZX&#39;, &#39;Vir-ZY&#39;, &#39;Vir-ZZ&#39;, &#39;Pres-XX&#39;, &#39;Pres-XY&#39;, &#39;Pres-XZ&#39;, &#39;Pres-YX&#39;, &#39;Pres-YY&#39;, &#39;Pres-YZ&#39;, &#39;Pres-ZX&#39;, &#39;Pres-ZY&#39;, &#39;Pres-ZZ&#39;, &#39;#Surf*SurfTen&#39;, &#39;Box-Vel-XX&#39;, &#39;Box-Vel-YY&#39;, &#39;Box-Vel-ZZ&#39;, &#39;T-Protein&#39;, &#39;T-non-Protein&#39;, &#39;Lamb-Protein&#39;, &#39;Lamb-non-Protein&#39;])</span>
+<span class="gh">Out[60]: </span><span class="go">dict_keys(['Time', 'Bond', 'Angle', 'Proper Dih.', 'Ryckaert-Bell.', 'LJ-14', 'Coulomb-14', 'LJ (SR)', 'Disper. corr.', 'Coulomb (SR)', 'Coul. recip.', 'Potential', 'Kinetic En.', 'Total Energy', 'Conserved En.', 'Temperature', 'Pres. DC', 'Pressure', 'Constr. rmsd', 'Box-X', 'Box-Y', 'Box-Z', 'Volume', 'Density', 'pV', 'Enthalpy', 'Vir-XX', 'Vir-XY', 'Vir-XZ', 'Vir-YX', 'Vir-YY', 'Vir-YZ', 'Vir-ZX', 'Vir-ZY', 'Vir-ZZ', 'Pres-XX', 'Pres-XY', 'Pres-XZ', 'Pres-YX', 'Pres-YY', 'Pres-YZ', 'Pres-ZX', 'Pres-ZY', 'Pres-ZZ', '#Surf*SurfTen', 'Box-Vel-XX', 'Box-Vel-YY', 'Box-Vel-ZZ', 'T-Protein', 'T-non-Protein', 'Lamb-Protein', 'Lamb-non-Protein'])</span>
 </pre></div>
 </div>
 </section>
@@ -641,7 +641,7 @@ To select only those frames with a potential energy below a certain threshold, t
 following can be used:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [61]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">AUX_EDR_TPR</span><span class="p">,</span> <span class="n">AUX_EDR_XTC</span><span class="p">)</span>
 
-<span class="gp">In [62]: </span><span class="n">term_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;epot&quot;</span><span class="p">:</span> <span class="s2">&quot;Potential&quot;</span><span class="p">}</span>
+<span class="gp">In [62]: </span><span class="n">term_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"epot"</span><span class="p">:</span> <span class="s2">"Potential"</span><span class="p">}</span>
 
 <span class="gp">In [63]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">add_auxiliary</span><span class="p">(</span><span class="n">term_dict</span><span class="p">,</span> <span class="n">aux</span><span class="p">)</span>
 
@@ -669,7 +669,7 @@ by defining the <cite>memory_limit</cite> (in bytes) when adding data to a traje
 the memory limit is set to 200 MB.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [68]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">AUX_EDR_TPR</span><span class="p">,</span> <span class="n">AUX_EDR_XTC</span><span class="p">)</span>
 
-<span class="gp">In [69]: </span><span class="n">term_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;temp&quot;</span><span class="p">:</span> <span class="s2">&quot;Temperature&quot;</span><span class="p">,</span> <span class="s2">&quot;epot&quot;</span><span class="p">:</span> <span class="s2">&quot;Potential&quot;</span><span class="p">}</span>
+<span class="gp">In [69]: </span><span class="n">term_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"temp"</span><span class="p">:</span> <span class="s2">"Temperature"</span><span class="p">,</span> <span class="s2">"epot"</span><span class="p">:</span> <span class="s2">"Potential"</span><span class="p">}</span>
 
 <span class="gp">In [70]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">add_auxiliary</span><span class="p">(</span><span class="n">term_dict</span><span class="p">,</span> <span class="n">aux</span><span class="p">,</span> <span class="n">memory_limit</span><span class="o">=</span><span class="mf">2e+08</span><span class="p">)</span>
 </pre></div>

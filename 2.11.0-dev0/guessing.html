@@ -227,7 +227,7 @@
 
 <span class="gp">In [2]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">MDAnalysis.tests.datafiles</span><span class="w"> </span><span class="kn">import</span> <span class="n">PRM12</span>
 
-<span class="gp">In [3]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PRM12</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;types&quot;</span><span class="p">,</span> <span class="s2">&quot;masses&quot;</span><span class="p">,</span> <span class="s2">&quot;bonds&quot;</span><span class="p">])</span>
+<span class="gp">In [3]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PRM12</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="s2">"default"</span><span class="p">,</span> <span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">"types"</span><span class="p">,</span> <span class="s2">"masses"</span><span class="p">,</span> <span class="s2">"bonds"</span><span class="p">])</span>
 
 <span class="gp">In [4]: </span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">bonds</span>
 <span class="gh">Out[4]: </span><span class="go">&lt;TopologyGroup containing 8947 bonds&gt;</span>
@@ -241,11 +241,11 @@
 <p>As with <code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code> creation, the <a class="reference internal" href="formats/guessers/default.html#default-guesser"><span class="std std-ref">DefaultGuesser</span></a> is used as the default <code class="docutils literal notranslate"><span class="pre">context</span></code>. The following example demonstrates how to guess atom types and masses after Universe creation.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PRM12</span><span class="p">,</span> <span class="n">to_guess</span><span class="o">=</span><span class="p">[])</span> <span class="c1"># in v2.8.0 masses and types are guessed by default</span>
 
-<span class="gp">In [6]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;types&quot;</span><span class="p">,</span> <span class="s2">&quot;masses&quot;</span><span class="p">])</span>
+<span class="gp">In [6]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">"types"</span><span class="p">,</span> <span class="s2">"masses"</span><span class="p">])</span>
 
 <span class="gp">In [7]: </span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">types</span>
 <span class="gh">Out[7]: </span>
-<span class="go">array([&#39;HO&#39;, &#39;OH&#39;, &#39;CI&#39;, ..., &#39;OW&#39;, &#39;HW&#39;, &#39;HW&#39;],</span>
+<span class="go">array(['HO', 'OH', 'CI', ..., 'OW', 'HW', 'HW'],</span>
 <span class="go">      shape=(8923,), dtype=object)</span>
 </pre></div>
 </div>
@@ -258,20 +258,20 @@
 
 <span class="gp">In [11]: </span><span class="n">guesser</span> <span class="o">=</span> <span class="n">DefaultGuesser</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">fudge_factor</span><span class="o">=</span><span class="mf">1.2</span><span class="p">)</span>
 
-<span class="gp">In [12]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">],</span> <span class="n">context</span><span class="o">=</span><span class="n">guesser</span><span class="p">,</span> <span class="n">fudge_factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">In [12]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">"bonds"</span><span class="p">],</span> <span class="n">context</span><span class="o">=</span><span class="n">guesser</span><span class="p">,</span> <span class="n">fudge_factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 
-<span class="gp">In [13]: </span><span class="n">guesser</span><span class="o">.</span><span class="n">_kwargs</span><span class="p">[</span><span class="s2">&quot;fudge_factor&quot;</span><span class="p">]</span>
+<span class="gp">In [13]: </span><span class="n">guesser</span><span class="o">.</span><span class="n">_kwargs</span><span class="p">[</span><span class="s2">"fudge_factor"</span><span class="p">]</span>
 <span class="gh">Out[13]: </span><span class="go">0.5</span>
 </pre></div>
 </div>
 <section id="forcibly-re-guessing">
 <h3>Forcibly re-guessing<a class="headerlink" href="#forcibly-re-guessing" title="Link to this heading"></a></h3>
 <p>MDAnalysis will preferentially read topology attributes from file instead of re-guessing them, even if the attribute is passed into <code class="docutils literal notranslate"><span class="pre">to_guess</span></code>. For example, below, the <code class="docutils literal notranslate"><span class="pre">types</span></code> attributes reflects the actual atom types in the file.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PRM12</span><span class="p">,</span> <span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;types&quot;</span><span class="p">,</span> <span class="s2">&quot;masses&quot;</span><span class="p">])</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PRM12</span><span class="p">,</span> <span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">"types"</span><span class="p">,</span> <span class="s2">"masses"</span><span class="p">])</span>
 
 <span class="gp">In [15]: </span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">types</span>
 <span class="gh">Out[15]: </span>
-<span class="go">array([&#39;HO&#39;, &#39;OH&#39;, &#39;CI&#39;, ..., &#39;OW&#39;, &#39;HW&#39;, &#39;HW&#39;],</span>
+<span class="go">array(['HO', 'OH', 'CI', ..., 'OW', 'HW', 'HW'],</span>
 <span class="go">      shape=(8923,), dtype=object)</span>
 </pre></div>
 </div>
@@ -280,10 +280,10 @@
 <p>In cases where the attribute is only present for <em>some</em> atoms in the file (e.g. a patchy element column in a PDB), MDAnalysis will only guess the attribute for atoms where it is not present in the file.</p>
 </div>
 <p>To force MDAnalysis to re-guess a TopologyAttr, pass in the attribute to the <code class="docutils literal notranslate"><span class="pre">force_guess</span></code> keyword. This will force MDAnalysis to guess the attribute even if it is present in the file.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;types&quot;</span><span class="p">],</span> <span class="n">force_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;types&quot;</span><span class="p">])</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">"types"</span><span class="p">],</span> <span class="n">force_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">"types"</span><span class="p">])</span>
 
 <span class="gp">In [17]: </span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">types</span>
-<span class="gh">Out[17]: </span><span class="go">array([&#39;H&#39;, &#39;O&#39;, &#39;C&#39;, ..., &#39;O&#39;, &#39;H&#39;, &#39;H&#39;], shape=(8923,), dtype=object)</span>
+<span class="gh">Out[17]: </span><span class="go">array(['H', 'O', 'C', ..., 'O', 'H', 'H'], shape=(8923,), dtype=object)</span>
 </pre></div>
 </div>
 </section>
@@ -293,33 +293,33 @@
 <p>Specifically, if these connectivity attributes are guessed, they are by default guessed <strong>additively</strong>. Therefore, if bonds and other objects are guessed twice, <strong>the bonds of the second guess are added on.</strong> Below, we see the number of bonds increase when guessed again with a looser criteria.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">MDAnalysis.tests.datafiles</span><span class="w"> </span><span class="kn">import</span> <span class="n">CONECT</span>
 
-<span class="gp">In [19]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">CONECT</span><span class="p">,</span> <span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">])</span>
+<span class="gp">In [19]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">CONECT</span><span class="p">,</span> <span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">"bonds"</span><span class="p">])</span>
 
 <span class="gp">In [20]: </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">bonds</span><span class="p">))</span>
 <span class="go">1922</span>
 
-<span class="gp">In [21]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">],</span> <span class="n">fudge_factor</span><span class="o">=</span><span class="mf">1.2</span><span class="p">)</span> <span class="c1"># looser</span>
+<span class="gp">In [21]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">"bonds"</span><span class="p">],</span> <span class="n">fudge_factor</span><span class="o">=</span><span class="mf">1.2</span><span class="p">)</span> <span class="c1"># looser</span>
 
 <span class="gp">In [22]: </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">bonds</span><span class="p">))</span>
 <span class="go">9385</span>
 </pre></div>
 </div>
 <p>However, the <strong>number of bonds doesn’t change when the bonds are guessed again with stricter criteria</strong> – no new bonds are found (and also no bonds are removed either, even if they do not match the new criteria):</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [23]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">],</span> <span class="n">fudge_factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># stricter</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [23]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">"bonds"</span><span class="p">],</span> <span class="n">fudge_factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># stricter</span>
 
 <span class="gp">In [24]: </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">bonds</span><span class="p">))</span>
 <span class="go">9385</span>
 </pre></div>
 </div>
 <p>Moreover, bonds are unique, so if the bonds are guessed again with the same criteria, the guessed bonds don’t change:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [25]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">],</span> <span class="n">fudge_factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># same</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [25]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">"bonds"</span><span class="p">],</span> <span class="n">fudge_factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># same</span>
 
 <span class="gp">In [26]: </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">bonds</span><span class="p">))</span>
 <span class="go">9385</span>
 </pre></div>
 </div>
 <p>However, if you want to forcibly overwrite all existing bonds, angles, dihedrals or impropers, you can pass the object to the <code class="docutils literal notranslate"><span class="pre">force_guess</span></code> keyword. This will <strong>remove all existing objects of that type before guessing.</strong> Below, we see the number of bonds has shrunk when guessed with stricter criteria:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [27]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">],</span> <span class="n">force_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">],</span> <span class="n">fudge_factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [27]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">"bonds"</span><span class="p">],</span> <span class="n">force_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">"bonds"</span><span class="p">],</span> <span class="n">fudge_factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 
 <span class="gp">In [28]: </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">bonds</span><span class="p">))</span>
 <span class="go">1912</span>
@@ -339,13 +339,13 @@
 <span class="gp">In [30]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
 
 <span class="gp">In [31]: </span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">types</span><span class="p">)</span>
-<span class="go">[&#39;56&#39; &#39;2&#39; &#39;2&#39; ... &#39;32&#39; &#39;72&#39; &#39;72&#39;]</span>
+<span class="go">['56' '2' '2' ... '32' '72' '72']</span>
 
-<span class="gp">In [32]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">])</span>
+<span class="gp">In [32]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">"bonds"</span><span class="p">])</span>
 <span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">32</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bonds&quot;</span><span class="p">])</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">"bonds"</span><span class="p">])</span>
 
 <span class="nn">File ~/micromamba/envs/mda-user-guide/lib/python3.12/site-packages/MDAnalysis/core/universe.py:1935,</span> in <span class="ni">Universe.guess_TopologyAttrs</span><span class="nt">(self, context, to_guess, force_guess, error_if_missing, **kwargs)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1933</span> <span class="n">fg</span> <span class="o">=</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">force_guess</span>
@@ -368,25 +368,25 @@
 <span class="g g-Whitespace">    </span><span class="mi">440</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">val</span> <span class="ow">in</span> <span class="n">vdwradii</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">atomtypes</span><span class="p">)):</span>
 <span class="ne">--&gt; </span><span class="mi">441</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 <span class="g g-Whitespace">    </span><span class="mi">442</span>         <span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">443</span>             <span class="s2">&quot;vdw radii for types: &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">444</span>             <span class="o">+</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">443</span>             <span class="s2">"vdw radii for types: "</span>
+<span class="g g-Whitespace">    </span><span class="mi">444</span>             <span class="o">+</span> <span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
 <span class="g g-Whitespace">    </span><span class="mi">445</span>                 <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">atomtypes</span><span class="p">)</span> <span class="k">if</span> <span class="n">t</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">vdwradii</span><span class="p">]</span>
 <span class="g g-Whitespace">    </span><span class="mi">446</span>             <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">447</span>             <span class="o">+</span> <span class="s2">&quot;. These can be defined manually using the&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">448</span>             <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot; keyword &#39;vdwradii&#39;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">447</span>             <span class="o">+</span> <span class="s2">". These can be defined manually using the"</span>
+<span class="g g-Whitespace">    </span><span class="mi">448</span>             <span class="o">+</span> <span class="sa">f</span><span class="s2">" keyword 'vdwradii'"</span>
 <span class="g g-Whitespace">    </span><span class="mi">449</span>         <span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">450</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">452</span> <span class="n">lower_bound</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;lower_bound&quot;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">454</span> <span class="n">box</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;box&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">452</span> <span class="n">lower_bound</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"lower_bound"</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">454</span> <span class="n">box</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"box"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
-<span class="ne">ValueError</span>: vdw radii for types: 32, 2, 1, 55, 52, 50, 54, 20, 25, 22, 7, 3, 56, 73, 31, 24, 5, 72, 57, 9, 26, 81, 30, 70, 6, 29, 51, 23, 10, 21. These can be defined manually using the keyword &#39;vdwradii&#39;
+<span class="ne">ValueError</span>: vdw radii for types: 9, 7, 22, 25, 20, 5, 24, 23, 21, 70, 57, 55, 56, 26, 1, 51, 54, 72, 30, 32, 81, 50, 3, 6, 52, 10, 31, 2, 29, 73. These can be defined manually using the keyword 'vdwradii'
 </pre></div>
 </div>
 <p>However, the snippet below will re-guess the types, and now bond-guessing can work as the elements have vdW radii defined:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;types&quot;</span><span class="p">,</span> <span class="s2">&quot;bonds&quot;</span><span class="p">],</span> <span class="n">force_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;types&quot;</span><span class="p">])</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">u</span><span class="o">.</span><span class="n">guess_TopologyAttrs</span><span class="p">(</span><span class="n">to_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">"types"</span><span class="p">,</span> <span class="s2">"bonds"</span><span class="p">],</span> <span class="n">force_guess</span><span class="o">=</span><span class="p">[</span><span class="s2">"types"</span><span class="p">])</span>
 
 <span class="gp">In [2]: </span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">types</span><span class="p">)</span>
-<span class="go">[&#39;N&#39; &#39;H&#39; &#39;H&#39; ... &#39;C&#39; &#39;O&#39; &#39;O&#39;]</span>
+<span class="go">['N' 'H' 'H' ... 'C' 'O' 'O']</span>
 </pre></div>
 </div>
 </section>

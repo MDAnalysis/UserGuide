@@ -276,7 +276,7 @@ MDAnalysis.analysis.encore is deprecated in favour of the MDAKit mdaencore (http
 <span class="n">u3</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">GRO</span><span class="p">,</span> <span class="n">XTC</span><span class="p">)</span>
 <span class="n">u4</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF_NAMD_GBIS</span><span class="p">,</span> <span class="n">DCD_NAMD_GBIS</span><span class="p">)</span>
 
-<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DCD&#39;</span><span class="p">,</span> <span class="s1">&#39;DCD2&#39;</span><span class="p">,</span> <span class="s1">&#39;XTC&#39;</span><span class="p">,</span> <span class="s1">&#39;NAMD&#39;</span><span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'DCD'</span><span class="p">,</span> <span class="s1">'DCD2'</span><span class="p">,</span> <span class="s1">'XTC'</span><span class="p">,</span> <span class="s1">'NAMD'</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -318,10 +318,10 @@ since <code class="docutils literal notranslate"><span class="pre">encore.hes</s
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hes</span><span class="p">,</span> <span class="n">details</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">hes</span><span class="p">([</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">,</span> <span class="n">u4</span><span class="p">],</span>
-                         <span class="n">select</span><span class="o">=</span><span class="s1">&#39;backbone&#39;</span><span class="p">,</span>
+                         <span class="n">select</span><span class="o">=</span><span class="s1">'backbone'</span><span class="p">,</span>
                          <span class="n">align</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                         <span class="n">cov_estimator</span><span class="o">=</span><span class="s1">&#39;shrinkage&#39;</span><span class="p">,</span>
-                         <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;mass&#39;</span><span class="p">)</span>
+                         <span class="n">cov_estimator</span><span class="o">=</span><span class="s1">'shrinkage'</span><span class="p">,</span>
+                         <span class="n">weights</span><span class="o">=</span><span class="s1">'mass'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -340,8 +340,8 @@ since <code class="docutils literal notranslate"><span class="pre">encore.hes</s
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">hes</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">row</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:&gt;10.1f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">h</span><span class="p">),</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">{:&gt;10.1f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">h</span><span class="p">),</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">' '</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -361,7 +361,7 @@ since <code class="docutils literal notranslate"><span class="pre">encore.hes</s
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">details</span><span class="p">[</span><span class="s2">&quot;ensemble1_mean&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">details</span><span class="p">[</span><span class="s2">"ensemble1_mean"</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -384,7 +384,7 @@ since <code class="docutils literal notranslate"><span class="pre">encore.hes</s
 <span class="n">im</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">hes</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">labels</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">labels</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Harmonic ensemble similarity&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Harmonic ensemble similarity'</span><span class="p">)</span>
 <span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
 </pre></div>
 </div>

@@ -204,7 +204,7 @@
 
 <span class="gp">In [4]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">TPR</span><span class="p">,</span> <span class="n">XTC</span><span class="p">)</span>
 
-<span class="gp">In [5]: </span><span class="n">protein</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;protein&#39;</span><span class="p">)</span>
+<span class="gp">In [5]: </span><span class="n">protein</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'protein'</span><span class="p">)</span>
 
 <span class="gp">In [6]: </span><span class="n">align_transform</span> <span class="o">=</span> <span class="n">trans</span><span class="o">.</span><span class="n">fit_rot_trans</span><span class="p">(</span><span class="n">protein</span><span class="p">,</span> <span class="n">protein</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">)</span>
 
@@ -225,13 +225,13 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># create new Universe for new transformations</span>
 <span class="gp">In [8]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">TPR</span><span class="p">,</span> <span class="n">XTC</span><span class="p">)</span>
 
-<span class="gp">In [9]: </span><span class="n">protein</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;protein&#39;</span><span class="p">)</span>
+<span class="gp">In [9]: </span><span class="n">protein</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'protein'</span><span class="p">)</span>
 
-<span class="gp">In [10]: </span><span class="n">water</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;resname SOL&#39;</span><span class="p">)</span>
+<span class="gp">In [10]: </span><span class="n">water</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'resname SOL'</span><span class="p">)</span>
 
 <span class="gp">In [11]: </span><span class="n">workflow</span> <span class="o">=</span> <span class="p">[</span><span class="n">trans</span><span class="o">.</span><span class="n">unwrap</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">),</span>
-<span class="gp">   ....: </span>            <span class="n">trans</span><span class="o">.</span><span class="n">center_in_box</span><span class="p">(</span><span class="n">protein</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="s1">&#39;geometry&#39;</span><span class="p">),</span>
-<span class="gp">   ....: </span>            <span class="n">trans</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">water</span><span class="p">,</span> <span class="n">compound</span><span class="o">=</span><span class="s1">&#39;residues&#39;</span><span class="p">)]</span>
+<span class="gp">   ....: </span>            <span class="n">trans</span><span class="o">.</span><span class="n">center_in_box</span><span class="p">(</span><span class="n">protein</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="s1">'geometry'</span><span class="p">),</span>
+<span class="gp">   ....: </span>            <span class="n">trans</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">water</span><span class="p">,</span> <span class="n">compound</span><span class="o">=</span><span class="s1">'residues'</span><span class="p">)]</span>
 <span class="gp">   ....: </span>
 
 <span class="gp">In [12]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">add_transformations</span><span class="p">(</span><span class="o">*</span><span class="n">workflow</span><span class="p">)</span>
@@ -250,7 +250,7 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="gp">In [15]: </span><span class="k">def</span><span class="w"> </span><span class="nf">up_by_2</span><span class="p">(</span><span class="n">ts</span><span class="p">):</span>
-<span class="gp">   ....: </span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Translates atoms up by 2 angstrom&quot;&quot;&quot;</span>
+<span class="gp">   ....: </span><span class="w">    </span><span class="sd">"""Translates atoms up by 2 angstrom"""</span>
 <span class="gp">   ....: </span>    <span class="n">ts</span><span class="o">.</span><span class="n">positions</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
 <span class="gp">   ....: </span>    <span class="k">return</span> <span class="n">ts</span>
 <span class="gp">   ....: </span>
@@ -260,9 +260,9 @@
 </div>
 <p>If your transformation needs other arguments, you will need to wrap your core transformation with a wrapper function that can accept the other arguments.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [17]: </span><span class="k">def</span><span class="w"> </span><span class="nf">up_by_x</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<span class="gp">   ....: </span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Translates atoms up by x angstrom&quot;&quot;&quot;</span>
+<span class="gp">   ....: </span><span class="w">    </span><span class="sd">"""Translates atoms up by x angstrom"""</span>
 <span class="gp">   ....: </span>    <span class="k">def</span><span class="w"> </span><span class="nf">wrapped</span><span class="p">(</span><span class="n">ts</span><span class="p">):</span>
-<span class="gp">   ....: </span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Handles the actual Timestep&quot;&quot;&quot;</span>
+<span class="gp">   ....: </span><span class="w">        </span><span class="sd">"""Handles the actual Timestep"""</span>
 <span class="gp">   ....: </span>        <span class="n">ts</span><span class="o">.</span><span class="n">positions</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)])</span>
 <span class="gp">   ....: </span>        <span class="k">return</span> <span class="n">ts</span>
 <span class="gp">   ....: </span>    <span class="k">return</span> <span class="n">wrapped</span>

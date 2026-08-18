@@ -284,10 +284,10 @@
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mobile</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># set mobile trajectory to last frame</span>
 <span class="n">ref</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># set reference trajectory to first frame</span>
 
-<span class="n">mobile_ca</span> <span class="o">=</span> <span class="n">mobile</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>
-<span class="n">ref_ca</span> <span class="o">=</span> <span class="n">ref</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>
+<span class="n">mobile_ca</span> <span class="o">=</span> <span class="n">mobile</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'name CA'</span><span class="p">)</span>
+<span class="n">ref_ca</span> <span class="o">=</span> <span class="n">ref</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'name CA'</span><span class="p">)</span>
 <span class="n">unaligned_rmsd</span> <span class="o">=</span> <span class="n">rms</span><span class="o">.</span><span class="n">rmsd</span><span class="p">(</span><span class="n">mobile_ca</span><span class="o">.</span><span class="n">positions</span><span class="p">,</span> <span class="n">ref_ca</span><span class="o">.</span><span class="n">positions</span><span class="p">,</span> <span class="n">superposition</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unaligned RMSD: </span><span class="si">{</span><span class="n">unaligned_rmsd</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Unaligned RMSD: </span><span class="si">{</span><span class="n">unaligned_rmsd</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -304,7 +304,7 @@ Unaligned RMSD: 6.84
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aligner</span> <span class="o">=</span> <span class="n">align</span><span class="o">.</span><span class="n">AlignTraj</span><span class="p">(</span><span class="n">mobile</span><span class="p">,</span> <span class="n">ref</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span> <span class="n">in_memory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aligner</span> <span class="o">=</span> <span class="n">align</span><span class="o">.</span><span class="n">AlignTraj</span><span class="p">(</span><span class="n">mobile</span><span class="p">,</span> <span class="n">ref</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="s1">'name CA'</span><span class="p">,</span> <span class="n">in_memory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -313,9 +313,9 @@ Unaligned RMSD: 6.84
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># aligner = align.AlignTraj(mobile, ref, select=&#39;backbone&#39;,</span>
-<span class="c1">#                           filename=&#39;aligned_to_first_frame.dcd&#39;).run()</span>
-<span class="c1"># mobile = mda.Universe(PSF, &#39;aligned_to_first_frame.dcd&#39;)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># aligner = align.AlignTraj(mobile, ref, select='backbone',</span>
+<span class="c1">#                           filename='aligned_to_first_frame.dcd').run()</span>
+<span class="c1"># mobile = mda.Universe(PSF, 'aligned_to_first_frame.dcd')</span>
 </pre></div>
 </div>
 </div>
@@ -327,11 +327,11 @@ Unaligned RMSD: 6.84
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mobile</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># set mobile trajectory to last frame</span>
 <span class="n">ref</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># set reference trajectory to first frame</span>
 
-<span class="n">mobile_ca</span> <span class="o">=</span> <span class="n">mobile</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>
-<span class="n">ref_ca</span> <span class="o">=</span> <span class="n">ref</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>
+<span class="n">mobile_ca</span> <span class="o">=</span> <span class="n">mobile</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'name CA'</span><span class="p">)</span>
+<span class="n">ref_ca</span> <span class="o">=</span> <span class="n">ref</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'name CA'</span><span class="p">)</span>
 <span class="n">aligned_rmsd</span> <span class="o">=</span> <span class="n">rms</span><span class="o">.</span><span class="n">rmsd</span><span class="p">(</span><span class="n">mobile_ca</span><span class="o">.</span><span class="n">positions</span><span class="p">,</span> <span class="n">ref_ca</span><span class="o">.</span><span class="n">positions</span><span class="p">,</span> <span class="n">superposition</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Aligned RMSD: </span><span class="si">{</span><span class="n">aligned_rmsd</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Aligned RMSD: </span><span class="si">{</span><span class="n">aligned_rmsd</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -356,7 +356,7 @@ Aligned RMSD: 6.81
 
 <span class="n">aligned_rmsd_3</span> <span class="o">=</span> <span class="n">rms</span><span class="o">.</span><span class="n">rmsd</span><span class="p">(</span><span class="n">mobile</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span><span class="p">,</span> <span class="n">ref</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span><span class="p">,</span> <span class="n">superposition</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Aligned RMSD: </span><span class="si">{</span><span class="n">aligned_rmsd_3</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Aligned RMSD: </span><span class="si">{</span><span class="n">aligned_rmsd_3</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -372,7 +372,7 @@ Aligned RMSD: 6.73
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aligner</span> <span class="o">=</span> <span class="n">align</span><span class="o">.</span><span class="n">AlignTraj</span><span class="p">(</span><span class="n">mobile</span><span class="p">,</span> <span class="n">ref</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">in_memory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aligner</span> <span class="o">=</span> <span class="n">align</span><span class="o">.</span><span class="n">AlignTraj</span><span class="p">(</span><span class="n">mobile</span><span class="p">,</span> <span class="n">ref</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="s1">'all'</span><span class="p">,</span> <span class="n">in_memory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -384,7 +384,7 @@ Aligned RMSD: 6.73
 <span class="n">ref</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># set reference trajectory to third frame</span>
 
 <span class="n">aligned_rmsd_3</span> <span class="o">=</span> <span class="n">rms</span><span class="o">.</span><span class="n">rmsd</span><span class="p">(</span><span class="n">mobile</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span><span class="p">,</span> <span class="n">ref</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span><span class="p">,</span> <span class="n">superposition</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Aligned RMSD, all-atom: </span><span class="si">{</span><span class="n">aligned_rmsd_3</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Aligned RMSD, all-atom: </span><span class="si">{</span><span class="n">aligned_rmsd_3</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

@@ -520,17 +520,17 @@
 
 <span class="gp">In [3]: </span><span class="n">psf</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">)</span>
 
-<span class="gp">In [4]: </span><span class="nb">hasattr</span><span class="p">(</span><span class="n">psf</span><span class="o">.</span><span class="n">atoms</span><span class="p">,</span> <span class="s1">&#39;tempfactors&#39;</span><span class="p">)</span>
+<span class="gp">In [4]: </span><span class="nb">hasattr</span><span class="p">(</span><span class="n">psf</span><span class="o">.</span><span class="n">atoms</span><span class="p">,</span> <span class="s1">'tempfactors'</span><span class="p">)</span>
 <span class="gh">Out[4]: </span><span class="go">False</span>
 
-<span class="gp">In [5]: </span><span class="n">psf</span><span class="o">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s1">&#39;tempfactors&#39;</span><span class="p">)</span>
+<span class="gp">In [5]: </span><span class="n">psf</span><span class="o">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s1">'tempfactors'</span><span class="p">)</span>
 
 <span class="gp">In [6]: </span><span class="n">psf</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">tempfactors</span>
 <span class="gh">Out[6]: </span><span class="go">array([0., 0., 0., ..., 0., 0., 0.], shape=(3341,))</span>
 </pre></div>
 </div>
 <p>One way to modify topology attributes is to simply replace them with <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.add_TopologyAttr" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_TopologyAttr()</span></code></a>:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">psf</span><span class="o">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s1">&#39;tempfactors&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">psf</span><span class="o">.</span><span class="n">atoms</span><span class="p">)))</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">psf</span><span class="o">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s1">'tempfactors'</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">psf</span><span class="o">.</span><span class="n">atoms</span><span class="p">)))</span>
 
 <span class="gp">In [8]: </span><span class="n">psf</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">tempfactors</span>
 <span class="gh">Out[8]: </span>
@@ -550,20 +550,20 @@
 <span class="gp">In [11]: </span><span class="n">pdb</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PDB</span><span class="p">)</span>
 
 <span class="gp">In [12]: </span><span class="n">pdb</span><span class="o">.</span><span class="n">residues</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">resnames</span>
-<span class="gh">Out[12]: </span><span class="go">array([&#39;MET&#39;, &#39;ARG&#39;, &#39;ILE&#39;], dtype=object)</span>
+<span class="gh">Out[12]: </span><span class="go">array(['MET', 'ARG', 'ILE'], dtype=object)</span>
 
-<span class="gp">In [13]: </span><span class="n">pdb</span><span class="o">.</span><span class="n">residues</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">resnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;RES1&#39;</span><span class="p">,</span> <span class="s1">&#39;RES2&#39;</span><span class="p">,</span> <span class="s1">&#39;RES3&#39;</span><span class="p">]</span>
+<span class="gp">In [13]: </span><span class="n">pdb</span><span class="o">.</span><span class="n">residues</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">resnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'RES1'</span><span class="p">,</span> <span class="s1">'RES2'</span><span class="p">,</span> <span class="s1">'RES3'</span><span class="p">]</span>
 
 <span class="gp">In [14]: </span><span class="n">pdb</span><span class="o">.</span><span class="n">residues</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">resnames</span>
 <span class="gh">Out[14]: </span>
-<span class="go">array([&#39;RES1&#39;, &#39;RES1&#39;, &#39;RES1&#39;, &#39;RES1&#39;, &#39;RES1&#39;, &#39;RES1&#39;, &#39;RES1&#39;, &#39;RES1&#39;,</span>
-<span class="go">       &#39;RES1&#39;, &#39;RES1&#39;, &#39;RES1&#39;, &#39;RES1&#39;, &#39;RES1&#39;, &#39;RES1&#39;, &#39;RES1&#39;, &#39;RES1&#39;,</span>
-<span class="go">       &#39;RES1&#39;, &#39;RES1&#39;, &#39;RES1&#39;, &#39;RES2&#39;, &#39;RES2&#39;, &#39;RES2&#39;, &#39;RES2&#39;, &#39;RES2&#39;,</span>
-<span class="go">       &#39;RES2&#39;, &#39;RES2&#39;, &#39;RES2&#39;, &#39;RES2&#39;, &#39;RES2&#39;, &#39;RES2&#39;, &#39;RES2&#39;, &#39;RES2&#39;,</span>
-<span class="go">       &#39;RES2&#39;, &#39;RES2&#39;, &#39;RES2&#39;, &#39;RES2&#39;, &#39;RES2&#39;, &#39;RES2&#39;, &#39;RES2&#39;, &#39;RES2&#39;,</span>
-<span class="go">       &#39;RES2&#39;, &#39;RES2&#39;, &#39;RES2&#39;, &#39;RES3&#39;, &#39;RES3&#39;, &#39;RES3&#39;, &#39;RES3&#39;, &#39;RES3&#39;,</span>
-<span class="go">       &#39;RES3&#39;, &#39;RES3&#39;, &#39;RES3&#39;, &#39;RES3&#39;, &#39;RES3&#39;, &#39;RES3&#39;, &#39;RES3&#39;, &#39;RES3&#39;,</span>
-<span class="go">       &#39;RES3&#39;, &#39;RES3&#39;, &#39;RES3&#39;, &#39;RES3&#39;, &#39;RES3&#39;, &#39;RES3&#39;], dtype=object)</span>
+<span class="go">array(['RES1', 'RES1', 'RES1', 'RES1', 'RES1', 'RES1', 'RES1', 'RES1',</span>
+<span class="go">       'RES1', 'RES1', 'RES1', 'RES1', 'RES1', 'RES1', 'RES1', 'RES1',</span>
+<span class="go">       'RES1', 'RES1', 'RES1', 'RES2', 'RES2', 'RES2', 'RES2', 'RES2',</span>
+<span class="go">       'RES2', 'RES2', 'RES2', 'RES2', 'RES2', 'RES2', 'RES2', 'RES2',</span>
+<span class="go">       'RES2', 'RES2', 'RES2', 'RES2', 'RES2', 'RES2', 'RES2', 'RES2',</span>
+<span class="go">       'RES2', 'RES2', 'RES2', 'RES3', 'RES3', 'RES3', 'RES3', 'RES3',</span>
+<span class="go">       'RES3', 'RES3', 'RES3', 'RES3', 'RES3', 'RES3', 'RES3', 'RES3',</span>
+<span class="go">       'RES3', 'RES3', 'RES3', 'RES3', 'RES3', 'RES3'], dtype=object)</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -571,13 +571,13 @@
 <p>This method cannot be used with connectivity attributes, i.e. bonds, angles, dihedrals, and impropers.</p>
 </div>
 <p>Similarly to adding topology attributes with <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.add_TopologyAttr" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_TopologyAttr()</span></code></a>, the “level” of the attribute matters. Residue attributes can only be assigned to attributes at the Residue or ResidueGroup level. The same applies to attributes for Atoms and Segments. For example, we would get a NotImplementedError if we tried to assign resnames to an AtomGroup.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="n">pdb</span><span class="o">.</span><span class="n">residues</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">resnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;new_name&#39;</span><span class="p">]</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="n">pdb</span><span class="o">.</span><span class="n">residues</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">resnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'new_name'</span><span class="p">]</span>
 
 <span class="go">NotImplementedErrorTraceback (most recent call last)</span>
 <span class="go">&lt;ipython-input-15-0f99b0dc5f49&gt; in &lt;module&gt;</span>
-<span class="go">----&gt; 1 pdb.residues[0].atoms.resnames = [&#39;new_name&#39;]</span>
+<span class="go">----&gt; 1 pdb.residues[0].atoms.resnames = ['new_name']</span>
 <span class="go">...</span>
-<span class="go">NotImplementedError: Cannot set resnames from AtomGroup. Use &#39;AtomGroup.residues.resnames = &#39;</span>
+<span class="go">NotImplementedError: Cannot set resnames from AtomGroup. Use 'AtomGroup.residues.resnames = '</span>
 </pre></div>
 </div>
 </section>
@@ -880,10 +880,10 @@
 </ul>
 </div></blockquote>
 <p>Prior to version 0.21.0, objects could be added to a Universe with <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe.add_TopologyAttr" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_TopologyAttr()</span></code></a>.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="nb">hasattr</span><span class="p">(</span><span class="n">pdb</span><span class="p">,</span> <span class="s1">&#39;angles&#39;</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="nb">hasattr</span><span class="p">(</span><span class="n">pdb</span><span class="p">,</span> <span class="s1">'angles'</span><span class="p">)</span>
 <span class="gh">Out[15]: </span><span class="go">False</span>
 
-<span class="gp">In [16]: </span><span class="n">pdb</span><span class="o">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s1">&#39;angles&#39;</span><span class="p">,</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)])</span>
+<span class="gp">In [16]: </span><span class="n">pdb</span><span class="o">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s1">'angles'</span><span class="p">,</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)])</span>
 
 <span class="gp">In [17]: </span><span class="n">pdb</span><span class="o">.</span><span class="n">angles</span>
 <span class="gh">Out[17]: </span><span class="go">&lt;TopologyGroup containing 2 angles&gt;</span>

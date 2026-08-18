@@ -249,7 +249,7 @@
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="c1"># suppress some MDAnalysis warnings about writing PDB files</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -285,7 +285,7 @@ conformational fluctuation can be considered a linear combination of the essenti
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aligner</span> <span class="o">=</span> <span class="n">align</span><span class="o">.</span><span class="n">AlignTraj</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="s1">&#39;backbone&#39;</span><span class="p">,</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aligner</span> <span class="o">=</span> <span class="n">align</span><span class="o">.</span><span class="n">AlignTraj</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="s1">'backbone'</span><span class="p">,</span>
                           <span class="n">in_memory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -295,7 +295,7 @@ conformational fluctuation can be considered a linear combination of the essenti
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pc</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">PCA</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="s1">&#39;backbone&#39;</span><span class="p">,</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pc</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">PCA</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="s1">'backbone'</span><span class="p">,</span>
              <span class="n">align</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
              <span class="n">n_components</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
@@ -306,9 +306,9 @@ conformational fluctuation can be considered a linear combination of the essenti
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">backbone</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;backbone&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">backbone</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'backbone'</span><span class="p">)</span>
 <span class="n">n_bb</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">backbone</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There are </span><span class="si">{}</span><span class="s1"> backbone atoms in the analysis&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_bb</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'There are </span><span class="si">{}</span><span class="s1"> backbone atoms in the analysis'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_bb</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">pc</span><span class="o">.</span><span class="n">p_components</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -327,7 +327,7 @@ There are 855 backbone atoms in the analysis
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;PC1: </span><span class="si">{</span><span class="n">pc</span><span class="o">.</span><span class="n">variance</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"PC1: </span><span class="si">{</span><span class="n">pc</span><span class="o">.</span><span class="n">variance</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -345,7 +345,7 @@ PC1: 4203.19053
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cumulated variance: </span><span class="si">{</span><span class="n">pc</span><span class="o">.</span><span class="n">cumulated_variance</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Cumulated variance: </span><span class="si">{</span><span class="n">pc</span><span class="o">.</span><span class="n">cumulated_variance</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -364,8 +364,8 @@ Cumulated variance: 0.964
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pc</span><span class="o">.</span><span class="n">cumulated_variance</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Principal component&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Cumulative variance&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Principal component'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Cumulative variance'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -410,8 +410,8 @@ Cumulated variance: 0.964
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">transformed</span><span class="p">,</span>
-                  <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;PC</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)])</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Time (ps)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">dt</span>
+                  <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'PC</span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)])</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'Time (ps)'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">dt</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -496,10 +496,10 @@ Cumulated variance: 0.964
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 
-<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">PairGrid</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Time (ps)&#39;</span><span class="p">,</span>
-                 <span class="n">palette</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;Oranges_d&#39;</span><span class="p">,</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">PairGrid</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">'Time (ps)'</span><span class="p">,</span>
+                 <span class="n">palette</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">'Oranges_d'</span><span class="p">,</span>
                                            <span class="n">n_colors</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)))</span>
-<span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'.'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -533,7 +533,7 @@ positions <span class="math notranslate nohighlight">\(\mathbf{\overline{r}}\)</
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proj1</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Merge</span><span class="p">(</span><span class="n">backbone</span><span class="p">)</span>
-<span class="n">proj1</span><span class="o">.</span><span class="n">load_new</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;fac&quot;</span><span class="p">)</span>
+<span class="n">proj1</span><span class="o">.</span><span class="n">load_new</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s2">"fac"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -564,8 +564,8 @@ positions <span class="math notranslate nohighlight">\(\mathbf{\overline{r}}\)</
 <span class="c1"># movie = MovieMaker(</span>
 <span class="c1">#     view,</span>
 <span class="c1">#     step=4,  # keep every 4th frame</span>
-<span class="c1">#     output=&#39;pc1.gif&#39;,</span>
-<span class="c1">#     render_params={&quot;factor&quot;: 3},  # set to 4 for highest quality</span>
+<span class="c1">#     output='pc1.gif',</span>
+<span class="c1">#     render_params={"factor": 3},  # set to 4 for highest quality</span>
 <span class="c1"># )</span>
 <span class="c1"># movie.make()</span>
 </pre></div>
@@ -589,7 +589,7 @@ positions <span class="math notranslate nohighlight">\(\mathbf{\overline{r}}\)</
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
     <span class="n">cc</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">cosine_content</span><span class="p">(</span><span class="n">transformed</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cosine content for PC </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">cc</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Cosine content for PC </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">cc</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -609,13 +609,13 @@ Cosine content for PC 3 = 0.723
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># melt the dataframe into a tidy format</span>
-<span class="n">melted</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Time (ps)&quot;</span><span class="p">],</span>
-                 <span class="n">var_name</span><span class="o">=</span><span class="s2">&quot;PC&quot;</span><span class="p">,</span>
-                 <span class="n">value_name</span><span class="o">=</span><span class="s2">&quot;Value&quot;</span><span class="p">)</span>
-<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">melted</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;PC&quot;</span><span class="p">)</span>
+<span class="n">melted</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s2">"Time (ps)"</span><span class="p">],</span>
+                 <span class="n">var_name</span><span class="o">=</span><span class="s2">"PC"</span><span class="p">,</span>
+                 <span class="n">value_name</span><span class="o">=</span><span class="s2">"Value"</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">melted</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">"PC"</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">,</span>
-      <span class="s2">&quot;Time (ps)&quot;</span><span class="p">,</span> <span class="c1"># x-axis</span>
-      <span class="s2">&quot;Value&quot;</span><span class="p">,</span> <span class="c1"># y-axis</span>
+      <span class="s2">"Time (ps)"</span><span class="p">,</span> <span class="c1"># x-axis</span>
+      <span class="s2">"Value"</span><span class="p">,</span> <span class="c1"># y-axis</span>
       <span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1"># no confidence interval</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>

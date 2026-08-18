@@ -249,7 +249,7 @@
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="c1"># suppress some MDAnalysis warnings when writing PDB files</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -280,11 +280,11 @@ variable (<code class="docutils literal notranslate"><span class="pre">$PATH</sp
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">profiles</span> <span class="o">=</span> <span class="n">hole2</span><span class="o">.</span><span class="n">hole</span><span class="p">(</span><span class="n">PDB_HOLE</span><span class="p">,</span>
-                      <span class="n">outfile</span><span class="o">=</span><span class="s1">&#39;hole1.out&#39;</span><span class="p">,</span>
-                      <span class="n">sphpdb_file</span><span class="o">=</span><span class="s1">&#39;hole1.sph&#39;</span><span class="p">,</span>
+                      <span class="n">outfile</span><span class="o">=</span><span class="s1">'hole1.out'</span><span class="p">,</span>
+                      <span class="n">sphpdb_file</span><span class="o">=</span><span class="s1">'hole1.sph'</span><span class="p">,</span>
                       <span class="n">vdwradii_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                       <span class="n">random_seed</span><span class="o">=</span><span class="mi">31415</span><span class="p">,</span>
-                      <span class="c1">#   executable=&#39;~/hole2/exe/hole&#39;,</span>
+                      <span class="c1">#   executable='~/hole2/exe/hole',</span>
                       <span class="p">)</span>
 </pre></div>
 </div>
@@ -346,7 +346,7 @@ variable (<code class="docutils literal notranslate"><span class="pre">$PATH</sp
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rxn_coords</span> <span class="o">=</span> <span class="n">profiles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">rxn_coord</span>
 <span class="n">pore_length</span> <span class="o">=</span> <span class="n">rxn_coords</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">rxn_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The pore is </span><span class="si">{}</span><span class="s1"> angstroms long&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pore_length</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'The pore is </span><span class="si">{}</span><span class="s1"> angstroms long'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pore_length</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -363,9 +363,9 @@ The pore is 42.4 angstroms long
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hole2</span><span class="o">.</span><span class="n">create_vmd_surface</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;hole1.vmd&#39;</span><span class="p">,</span>
-                         <span class="n">sphpdb</span><span class="o">=</span><span class="s1">&#39;hole1.sph&#39;</span><span class="p">,</span>
-                        <span class="c1">#  sph_process=&#39;~/hole2/exe/sph_process&#39;,</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hole2</span><span class="o">.</span><span class="n">create_vmd_surface</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">'hole1.vmd'</span><span class="p">,</span>
+                         <span class="n">sphpdb</span><span class="o">=</span><span class="s1">'hole1.sph'</span><span class="p">,</span>
+                        <span class="c1">#  sph_process='~/hole2/exe/sph_process',</span>
                          <span class="p">)</span>
 </pre></div>
 </div>
@@ -399,9 +399,9 @@ The pore is 42.4 angstroms long
 
 <span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">MULTIPDB_HOLE</span><span class="p">)</span>
 
-<span class="n">ha</span> <span class="o">=</span> <span class="n">hole2</span><span class="o">.</span><span class="n">HoleAnalysis</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="s1">&#39;protein&#39;</span><span class="p">,</span>
-                        <span class="n">cpoint</span><span class="o">=</span><span class="s1">&#39;center_of_geometry&#39;</span><span class="p">,</span>
-                        <span class="c1"># executable=&#39;~/hole2/exe/hole&#39;,</span>
+<span class="n">ha</span> <span class="o">=</span> <span class="n">hole2</span><span class="o">.</span><span class="n">HoleAnalysis</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="s1">'protein'</span><span class="p">,</span>
+                        <span class="n">cpoint</span><span class="o">=</span><span class="s1">'center_of_geometry'</span><span class="p">,</span>
+                        <span class="c1"># executable='~/hole2/exe/hole',</span>
                         <span class="p">)</span>
 <span class="n">ha</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">random_seed</span><span class="o">=</span><span class="mi">31415</span><span class="p">)</span>
 </pre></div>
@@ -424,7 +424,7 @@ The pore is 42.4 angstroms long
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">rxn_coord</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">cen_line_D</span> <span class="ow">in</span> <span class="p">(</span><span class="n">ha</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">profiles</span><span class="p">[</span><span class="mi">3</span><span class="p">][:</span><span class="mi">10</span><span class="p">]):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rxn_coord</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">radius</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">cen_line_D</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">rxn_coord</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">radius</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">cen_line_D</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -467,7 +467,7 @@ dict_keys([&#39;rxn_coord&#39;, &#39;radius&#39;, &#39;cen_line_D&#39;])
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gathered</span><span class="p">[</span><span class="s1">&#39;rxn_coord&#39;</span><span class="p">]))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gathered</span><span class="p">[</span><span class="s1">'rxn_coord'</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -484,7 +484,7 @@ dict_keys([&#39;rxn_coord&#39;, &#39;radius&#39;, &#39;cen_line_D&#39;])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flat</span> <span class="o">=</span> <span class="n">ha</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">flat</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">flat</span><span class="p">[</span><span class="s1">&#39;rxn_coord&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">flat</span><span class="p">[</span><span class="s1">'rxn_coord'</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -523,8 +523,8 @@ dict_keys([&#39;rxn_coord&#39;, &#39;radius&#39;, &#39;cen_line_D&#39;])
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">midpoints</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">edges</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">+</span><span class="n">edges</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">midpoints</span><span class="p">,</span> <span class="n">means</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Mean HOLE radius $R$ ($\AA$)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Pore coordinate $\zeta$ ($\AA$)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"Mean HOLE radius $R$ ($\AA$)"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"Pore coordinate $\zeta$ ($\AA$)"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -551,7 +551,7 @@ Text(0.5, 0, &#39;Pore coordinate $\\zeta$ ($\\AA$)&#39;)
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_radii</span> <span class="o">=</span> <span class="n">ha</span><span class="o">.</span><span class="n">min_radius</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">frame</span><span class="p">,</span> <span class="n">min_radius</span> <span class="ow">in</span> <span class="n">min_radii</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Frame </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">min_radius</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Frame </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">min_radius</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -578,8 +578,8 @@ Frame 10: 0.997
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">min_radii</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">min_radii</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Minimum HOLE radius $R$ ($\AA$)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frame&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Minimum HOLE radius $R$ ($\AA$)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Frame'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -608,7 +608,7 @@ Text(0.5, 0, &#39;Frame&#39;)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ha</span><span class="o">.</span><span class="n">create_vmd_surface</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;holeanalysis.vmd&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ha</span><span class="o">.</span><span class="n">create_vmd_surface</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">'holeanalysis.vmd'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -732,7 +732,7 @@ Text(0.5, 0, &#39;Frame&#39;)
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ha</span><span class="o">.</span><span class="n">plot_mean_profile</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>  <span class="c1"># how much to chunk rxn_coord</span>
                      <span class="n">n_std</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>  <span class="c1"># how many standard deviations from mean</span>
-                     <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span>  <span class="c1"># color of plot</span>
+                     <span class="n">color</span><span class="o">=</span><span class="s1">'blue'</span><span class="p">,</span>  <span class="c1"># color of plot</span>
                      <span class="n">fill_alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>  <span class="c1"># opacity of standard deviation</span>
                      <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -770,10 +770,10 @@ Text(0.5, 0, &#39;Frame&#39;)
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">MDAnalysis.analysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">rms</span>
 
 <span class="n">ref</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PDB_HOLE</span><span class="p">)</span>
-<span class="n">rmsd</span> <span class="o">=</span> <span class="n">rms</span><span class="o">.</span><span class="n">RMSD</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">ref</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="s1">&#39;protein&#39;</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;mass&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">rmsd</span> <span class="o">=</span> <span class="n">rms</span><span class="o">.</span><span class="n">RMSD</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">ref</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="s1">'protein'</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">'mass'</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 <span class="n">rmsd_values</span> <span class="o">=</span> <span class="n">rmsd</span><span class="o">.</span><span class="n">rmsd</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">rmsd</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">rmsd_values</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Frame </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">:  </span><span class="si">{</span><span class="n">rmsd</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Frame </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">:  </span><span class="si">{</span><span class="n">rmsd</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -810,7 +810,7 @@ Frame 10:  6.11
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">order_parameter</span><span class="p">,</span> <span class="n">profile</span> <span class="ow">in</span> <span class="n">op_profiles</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">order_parameter</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">order_parameter</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -839,7 +839,7 @@ Frame 10:  6.11
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">op_profiles</span> <span class="o">=</span> <span class="n">ha</span><span class="o">.</span><span class="n">over_order_parameters</span><span class="p">(</span><span class="n">rmsd_values</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
 <span class="k">for</span> <span class="n">order_parameter</span><span class="p">,</span> <span class="n">profile</span> <span class="ow">in</span> <span class="n">op_profiles</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">order_parameter</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">order_parameter</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -862,8 +862,8 @@ Frame 10:  6.11
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ha</span><span class="o">.</span><span class="n">plot_order_parameters</span><span class="p">(</span><span class="n">rmsd_values</span><span class="p">,</span>
                          <span class="n">aggregator</span><span class="o">=</span><span class="nb">min</span><span class="p">,</span>
-                         <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;RMSD to reference ($\AA$)&#39;</span><span class="p">,</span>
-                         <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Minimum HOLE pore radius $r$ ($\AA$)&#39;</span><span class="p">)</span>
+                         <span class="n">xlabel</span><span class="o">=</span><span class="s1">'RMSD to reference ($\AA$)'</span><span class="p">,</span>
+                         <span class="n">ylabel</span><span class="o">=</span><span class="s1">'Minimum HOLE pore radius $r$ ($\AA$)'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -889,7 +889,7 @@ Frame 10:  6.11
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ha</span><span class="o">.</span><span class="n">plot3D_order_parameters</span><span class="p">(</span><span class="n">rmsd_values</span><span class="p">,</span>
-                           <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;RMSD to reference ($\AA$)&#39;</span><span class="p">)</span>
+                           <span class="n">ylabel</span><span class="o">=</span><span class="s1">'RMSD to reference ($\AA$)'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -980,10 +980,10 @@ Frame 10:  6.11
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">hole2</span><span class="o">.</span><span class="n">HoleAnalysis</span><span class="p">(</span><span class="n">u</span><span class="p">,</span>
-    <span class="c1"># executable=&#39;~/hole2/exe/hole&#39;,</span>
+    <span class="c1"># executable='~/hole2/exe/hole',</span>
     <span class="p">)</span> <span class="k">as</span> <span class="n">ha2</span><span class="p">:</span>
     <span class="n">ha2</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-    <span class="n">ha2</span><span class="o">.</span><span class="n">create_vmd_surface</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;holeanalysis.vmd&#39;</span><span class="p">)</span>
+    <span class="n">ha2</span><span class="o">.</span><span class="n">create_vmd_surface</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">'holeanalysis.vmd'</span><span class="p">)</span>
     <span class="n">ha2</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>

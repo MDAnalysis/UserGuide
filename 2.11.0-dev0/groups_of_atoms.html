@@ -211,7 +211,7 @@
 
 <span class="gp">In [3]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">TPR</span><span class="p">,</span> <span class="n">XTC</span><span class="p">)</span>
 
-<span class="gp">In [4]: </span><span class="n">ag</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;resname ARG and name CA&#39;</span><span class="p">)</span>
+<span class="gp">In [4]: </span><span class="n">ag</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'resname ARG and name CA'</span><span class="p">)</span>
 
 <span class="gp">In [5]: </span><span class="n">ag</span>
 <span class="gh">Out[5]: </span><span class="go">&lt;AtomGroup with 13 atoms&gt;</span>
@@ -254,7 +254,7 @@ on a simple extract from the PDB file:</p>
 
 <span class="gp">In [10]: </span><span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
 
-<span class="gp">In [11]: </span><span class="n">pdb</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="gp">In [11]: </span><span class="n">pdb</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="s2">"""</span>
 <span class="gp">   ....: </span><span class="s2">ATOM    414  N   GLY A 402     -51.919   9.578 -14.287  1.00 68.46           N</span>
 <span class="gp">   ....: </span><span class="s2">ATOM    415  CA  GLY A 402     -52.405  10.954 -14.168  1.00 68.41           C</span>
 <span class="gp">   ....: </span><span class="s2">ATOM    416  C   GLY A 402     -51.821  11.946 -15.164  1.00 69.71           C</span>
@@ -283,10 +283,10 @@ on a simple extract from the PDB file:</p>
 <span class="gp">   ....: </span><span class="s2">ATOM   1044  HA3 GLY B 123     -25.593  22.976 -10.395  1.00  0.00           H</span>
 <span class="gp">   ....: </span><span class="s2">ATOM   1045  HA2 GLY B 123     -26.430  23.831 -11.600  1.00  0.00           H</span>
 <span class="gp">   ....: </span><span class="s2">TER</span>
-<span class="gp">   ....: </span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="gp">   ....: </span><span class="s2">"""</span><span class="p">)</span>
 <span class="gp">   ....: </span>
 
-<span class="gp">In [12]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">pdb</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;PDB&quot;</span><span class="p">)</span>
+<span class="gp">In [12]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">pdb</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"PDB"</span><span class="p">)</span>
 </pre></div>
 </div>
 <section id="use-case-sequence-of-residues-by-segment">
@@ -295,7 +295,7 @@ on a simple extract from the PDB file:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">residues_by_seg</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
 
 <span class="gp">In [14]: </span><span class="k">for</span> <span class="n">seg</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">segments</span><span class="p">:</span>
-<span class="gp">   ....: </span>    <span class="n">p_seg</span> <span class="o">=</span> <span class="n">seg</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;record_type ATOM&quot;</span><span class="p">)</span>
+<span class="gp">   ....: </span>    <span class="n">p_seg</span> <span class="o">=</span> <span class="n">seg</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">"record_type ATOM"</span><span class="p">)</span>
 <span class="gp">   ....: </span>    <span class="n">residues_by_seg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p_seg</span><span class="o">.</span><span class="n">residues</span><span class="p">)</span>
 <span class="gp">   ....: </span>
 </pre></div>
@@ -303,18 +303,18 @@ on a simple extract from the PDB file:</p>
 <p>Residue names can be extracted using Python’s list comprehensions. As required, HETATM record type lines are not
 considered:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="p">[</span><span class="n">rg</span><span class="o">.</span><span class="n">resnames</span> <span class="k">for</span> <span class="n">rg</span> <span class="ow">in</span> <span class="n">residues_by_seg</span><span class="p">]</span>
-<span class="gh">Out[15]: </span><span class="go">[array([&#39;GLY&#39;], dtype=object), array([&#39;ALA&#39;, &#39;GLY&#39;], dtype=object)]</span>
+<span class="gh">Out[15]: </span><span class="go">[array(['GLY'], dtype=object), array(['ALA', 'GLY'], dtype=object)]</span>
 </pre></div>
 </div>
 <p>Note that accessing residues by first selecting the segments of an <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> returns
 all the residues in that segment for both the ATOM and HETATM record types (no memory of the original selection).
 The meaning of this is: “give me all residue names from segments in which there is at least one of the selected atoms”.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">selected_atoms</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;record_type ATOM&quot;</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">selected_atoms</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">"record_type ATOM"</span><span class="p">)</span>
 
 <span class="gp">In [17]: </span><span class="n">all_residues</span> <span class="o">=</span> <span class="n">selected_atoms</span><span class="o">.</span><span class="n">segments</span><span class="o">.</span><span class="n">residues</span>
 
 <span class="gp">In [18]: </span><span class="n">all_residues</span><span class="o">.</span><span class="n">resnames</span>
-<span class="gh">Out[18]: </span><span class="go">array([&#39;GLY&#39;, &#39;XYZ&#39;, &#39;ALA&#39;, &#39;GLY&#39;], dtype=object)</span>
+<span class="gh">Out[18]: </span><span class="go">array(['GLY', 'XYZ', 'ALA', 'GLY'], dtype=object)</span>
 </pre></div>
 </div>
 </section>
@@ -324,9 +324,9 @@ The meaning of this is: “give me all residue names from segments in which ther
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [19]: </span><span class="n">atoms_in_residues</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
 
 <span class="gp">In [20]: </span><span class="k">for</span> <span class="n">seg</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">segments</span><span class="p">:</span>
-<span class="gp">   ....: </span>    <span class="n">p_seg</span> <span class="o">=</span> <span class="n">seg</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;record_type ATOM and not name H*&quot;</span><span class="p">)</span>
+<span class="gp">   ....: </span>    <span class="n">p_seg</span> <span class="o">=</span> <span class="n">seg</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">"record_type ATOM and not name H*"</span><span class="p">)</span>
 <span class="gp">   ....: </span>    <span class="k">for</span> <span class="n">p_res</span> <span class="ow">in</span> <span class="n">p_seg</span><span class="o">.</span><span class="n">residues</span><span class="p">:</span>
-<span class="gp">   ....: </span>        <span class="n">atoms_in_residues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p_seg</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;resid </span><span class="si">{</span><span class="n">p_res</span><span class="o">.</span><span class="n">resid</span><span class="si">}</span><span class="s2"> and resname </span><span class="si">{</span><span class="n">p_res</span><span class="o">.</span><span class="n">resname</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+<span class="gp">   ....: </span>        <span class="n">atoms_in_residues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p_seg</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="sa">f</span><span class="s2">"resid </span><span class="si">{</span><span class="n">p_res</span><span class="o">.</span><span class="n">resid</span><span class="si">}</span><span class="s2"> and resname </span><span class="si">{</span><span class="n">p_res</span><span class="o">.</span><span class="n">resname</span><span class="si">}</span><span class="s2">"</span><span class="p">))</span>
 <span class="gp">   ....: </span>
 </pre></div>
 </div>
@@ -334,19 +334,19 @@ The meaning of this is: “give me all residue names from segments in which ther
 atoms are not considered:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [21]: </span><span class="p">[</span><span class="n">ag</span><span class="o">.</span><span class="n">names</span> <span class="k">for</span> <span class="n">ag</span> <span class="ow">in</span> <span class="n">atoms_in_residues</span><span class="p">]</span>
 <span class="gh">Out[21]: </span>
-<span class="go">[array([&#39;N&#39;, &#39;CA&#39;, &#39;C&#39;, &#39;O&#39;], dtype=object),</span>
-<span class="go"> array([&#39;N&#39;, &#39;CA&#39;, &#39;C&#39;, &#39;O&#39;, &#39;CB&#39;], dtype=object),</span>
-<span class="go"> array([&#39;N&#39;, &#39;CA&#39;, &#39;C&#39;, &#39;O&#39;], dtype=object)]</span>
+<span class="go">[array(['N', 'CA', 'C', 'O'], dtype=object),</span>
+<span class="go"> array(['N', 'CA', 'C', 'O', 'CB'], dtype=object),</span>
+<span class="go"> array(['N', 'CA', 'C', 'O'], dtype=object)]</span>
 </pre></div>
 </div>
 <p>The Python syntax can be further simplified by using <code class="docutils literal notranslate"><span class="pre">split()</span></code> function:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [22]: </span><span class="n">rds</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;record_type ATOM and not name H*&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;residue&quot;</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [22]: </span><span class="n">rds</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">"record_type ATOM and not name H*"</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"residue"</span><span class="p">)</span>
 
 <span class="gp">In [23]: </span><span class="p">[</span><span class="n">ag</span><span class="o">.</span><span class="n">names</span> <span class="k">for</span> <span class="n">ag</span> <span class="ow">in</span> <span class="n">rds</span><span class="p">]</span>
 <span class="gh">Out[23]: </span>
-<span class="go">[array([&#39;N&#39;, &#39;CA&#39;, &#39;C&#39;, &#39;O&#39;], dtype=object),</span>
-<span class="go"> array([&#39;N&#39;, &#39;CA&#39;, &#39;C&#39;, &#39;O&#39;, &#39;CB&#39;], dtype=object),</span>
-<span class="go"> array([&#39;N&#39;, &#39;CA&#39;, &#39;C&#39;, &#39;O&#39;], dtype=object)]</span>
+<span class="go">[array(['N', 'CA', 'C', 'O'], dtype=object),</span>
+<span class="go"> array(['N', 'CA', 'C', 'O', 'CB'], dtype=object),</span>
+<span class="go"> array(['N', 'CA', 'C', 'O'], dtype=object)]</span>
 </pre></div>
 </div>
 <p>Note that accessing atoms by first selecting the residues of an <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> also
@@ -356,16 +356,16 @@ residue as no atoms from this residue were in the <a class="reference external" 
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [24]: </span><span class="n">all_atoms_in_residues</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
 
 <span class="gp">In [25]: </span><span class="k">for</span> <span class="n">seg</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">segments</span><span class="p">:</span>
-<span class="gp">   ....: </span>    <span class="n">p_seg</span> <span class="o">=</span> <span class="n">seg</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;record_type ATOM and not name H*&quot;</span><span class="p">)</span>
+<span class="gp">   ....: </span>    <span class="n">p_seg</span> <span class="o">=</span> <span class="n">seg</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">"record_type ATOM and not name H*"</span><span class="p">)</span>
 <span class="gp">   ....: </span>    <span class="n">all_atoms_in_residues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p_seg</span><span class="o">.</span><span class="n">residues</span><span class="p">)</span>
 <span class="gp">   ....: </span>
 
 <span class="gp">In [26]: </span><span class="p">[</span><span class="n">atom</span><span class="o">.</span><span class="n">names</span> <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">all_atoms_in_residues</span><span class="p">]</span>
 <span class="gh">Out[26]: </span>
-<span class="go">[[array([&#39;N&#39;, &#39;CA&#39;, &#39;C&#39;, &#39;O&#39;, &#39;H&#39;, &#39;HA3&#39;, &#39;HA2&#39;], dtype=object)],</span>
-<span class="go"> [array([&#39;N&#39;, &#39;CA&#39;, &#39;C&#39;, &#39;O&#39;, &#39;CB&#39;, &#39;H&#39;, &#39;HA&#39;, &#39;HB1&#39;, &#39;HB2&#39;, &#39;HB3&#39;],</span>
+<span class="go">[[array(['N', 'CA', 'C', 'O', 'H', 'HA3', 'HA2'], dtype=object)],</span>
+<span class="go"> [array(['N', 'CA', 'C', 'O', 'CB', 'H', 'HA', 'HB1', 'HB2', 'HB3'],</span>
 <span class="go">        dtype=object),</span>
-<span class="go">  array([&#39;N&#39;, &#39;CA&#39;, &#39;C&#39;, &#39;O&#39;, &#39;H&#39;, &#39;HA3&#39;, &#39;HA2&#39;], dtype=object)]]</span>
+<span class="go">  array(['N', 'CA', 'C', 'O', 'H', 'HA3', 'HA2'], dtype=object)]]</span>
 </pre></div>
 </div>
 </section>

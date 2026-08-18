@@ -282,7 +282,7 @@ lower cutoff.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nma1</span> <span class="o">=</span> <span class="n">gnm</span><span class="o">.</span><span class="n">GNMAnalysis</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span>
-                      <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
+                      <span class="n">select</span><span class="o">=</span><span class="s1">'name CA'</span><span class="p">,</span>
                       <span class="n">cutoff</span><span class="o">=</span><span class="mf">7.0</span><span class="p">)</span>
 <span class="n">nma1</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
@@ -319,8 +319,8 @@ lower cutoff.</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nma1</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;eigenvalues&#39;</span><span class="p">]),</span> <span class="nb">len</span><span class="p">(</span><span class="n">nma1</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;eigenvectors&#39;</span><span class="p">]),</span>
-    <span class="nb">len</span><span class="p">(</span><span class="n">nma1</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;times&#39;</span><span class="p">]))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nma1</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">'eigenvalues'</span><span class="p">]),</span> <span class="nb">len</span><span class="p">(</span><span class="n">nma1</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">'eigenvectors'</span><span class="p">]),</span>
+    <span class="nb">len</span><span class="p">(</span><span class="n">nma1</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">'times'</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -338,7 +338,7 @@ lower cutoff.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nma2</span> <span class="o">=</span> <span class="n">gnm</span><span class="o">.</span><span class="n">GNMAnalysis</span><span class="p">(</span><span class="n">u2</span><span class="p">,</span>
-                      <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
+                      <span class="n">select</span><span class="o">=</span><span class="s1">'name CA'</span><span class="p">,</span>
                       <span class="n">cutoff</span><span class="o">=</span><span class="mf">7.0</span><span class="p">)</span>
 <span class="n">nma2</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
@@ -361,12 +361,12 @@ lower cutoff.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">histfig</span><span class="p">,</span> <span class="n">histax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">histax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">nma1</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;eigenvalues&#39;</span><span class="p">])</span>
-<span class="n">histax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">nma2</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;eigenvalues&#39;</span><span class="p">])</span>
+<span class="n">histax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">nma1</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">'eigenvalues'</span><span class="p">])</span>
+<span class="n">histax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">nma2</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">'eigenvalues'</span><span class="p">])</span>
 
-<span class="n">histax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Eigenvalue&#39;</span><span class="p">)</span>
-<span class="n">histax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
-<span class="n">histax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
+<span class="n">histax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Eigenvalue'</span><span class="p">)</span>
+<span class="n">histax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Frequency'</span><span class="p">)</span>
+<span class="n">histax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Frequency'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -392,10 +392,10 @@ Text(0, 0.5, &#39;Frequency&#39;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">linefig</span><span class="p">,</span> <span class="n">lineax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nma1</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;times&#39;</span><span class="p">],</span> <span class="n">nma1</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;eigenvalues&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;DCD&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nma2</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;times&#39;</span><span class="p">],</span> <span class="n">nma2</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;eigenvalues&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;DCD2&#39;</span><span class="p">)</span>
-<span class="n">lineax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time (ps)&#39;</span><span class="p">)</span>
-<span class="n">lineax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Eigenvalue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nma1</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">'times'</span><span class="p">],</span> <span class="n">nma1</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">'eigenvalues'</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">'DCD'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nma2</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">'times'</span><span class="p">],</span> <span class="n">nma2</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">'eigenvalues'</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">'DCD2'</span><span class="p">)</span>
+<span class="n">lineax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Time (ps)'</span><span class="p">)</span>
+<span class="n">lineax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Eigenvalue'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -426,9 +426,9 @@ Text(0, 0.5, &#39;Frequency&#39;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nma_close</span> <span class="o">=</span> <span class="n">gnm</span><span class="o">.</span><span class="n">closeContactGNMAnalysis</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span>
-                                        <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
+                                        <span class="n">select</span><span class="o">=</span><span class="s1">'name CA'</span><span class="p">,</span>
                                         <span class="n">cutoff</span><span class="o">=</span><span class="mf">7.0</span><span class="p">,</span>
-                                        <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;size&#39;</span><span class="p">)</span>
+                                        <span class="n">weights</span><span class="o">=</span><span class="s1">'size'</span><span class="p">)</span>
 <span class="n">nma_close</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -446,9 +446,9 @@ Text(0, 0.5, &#39;Frequency&#39;)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">nma_close</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;eigenvalues&#39;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Eigenvalue&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">nma_close</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">'eigenvalues'</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Eigenvalue'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Frequency'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -472,9 +472,9 @@ Text(0, 0.5, &#39;Frequency&#39;)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nma_close</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;times&#39;</span><span class="p">],</span> <span class="n">nma_close</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;eigenvalues&#39;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (ps)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Eigenvalue&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nma_close</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">'times'</span><span class="p">],</span> <span class="n">nma_close</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">'eigenvalues'</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time (ps)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Eigenvalue'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

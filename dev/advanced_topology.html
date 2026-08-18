@@ -202,10 +202,10 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">u</span><span class="o">.</span><span class="n">segments</span>
 <span class="go">&lt;SegmentGroup with 1 segment&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">u</span><span class="o">.</span><span class="n">segments</span><span class="o">.</span><span class="n">segids</span>
-<span class="go">array([&#39;4AKE&#39;], dtype=object)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">newseg</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">add_Segment</span><span class="p">(</span><span class="n">segid</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="go">array(['4AKE'], dtype=object)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">newseg</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">add_Segment</span><span class="p">(</span><span class="n">segid</span><span class="o">=</span><span class="s1">'X'</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">u</span><span class="o">.</span><span class="n">segments</span><span class="o">.</span><span class="n">segids</span>
-<span class="go">array([&#39;4AKE&#39;, &#39;X&#39;], dtype=object)</span>
+<span class="go">array(['4AKE', 'X'], dtype=object)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">newseg</span><span class="o">.</span><span class="n">atoms</span>
 <span class="go">&lt;AtomGroup with 0 atoms&gt;</span>
 </pre></div>
@@ -224,8 +224,8 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tpr</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">TPR</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tpr</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">molecules</span>
 <span class="gt">Traceback (most recent call last):</span>
-<span class="gr">File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span>
-<span class="gr">File &quot;MDAnalysis/core/groups.py&quot;, line 2278, in __getattr__</span>
+<span class="gr">File "&lt;stdin&gt;", line 1, in &lt;module&gt;</span>
+<span class="gr">File "MDAnalysis/core/groups.py", line 2278, in __getattr__</span>
 <span class="gr">    cls=self.__class__.__name__, attr=attr))</span>
 <span class="gr">AttributeError</span>: <span class="n">AtomGroup has no attribute molecules</span>
 </pre></div>
@@ -234,7 +234,7 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tpr</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">molnums</span>
 <span class="go">array([    0,     0,     0, ..., 11086, 11087, 11088])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tpr</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">moltypes</span>
-<span class="go">array([&#39;AKeco&#39;, &#39;AKeco&#39;, &#39;AKeco&#39;, ..., &#39;NA+&#39;, &#39;NA+&#39;, &#39;NA+&#39;], dtype=object)</span>
+<span class="go">array(['AKeco', 'AKeco', 'AKeco', ..., 'NA+', 'NA+', 'NA+'], dtype=object)</span>
 </pre></div>
 </div>
 </section>

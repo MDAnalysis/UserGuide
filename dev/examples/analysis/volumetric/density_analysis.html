@@ -269,8 +269,8 @@
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># view1 = nv.show_mdanalysis(u)</span>
 <span class="c1"># view1.add_representation(</span>
-<span class="c1">#     &#39;licorice&#39;,</span>
-<span class="c1">#     selection=&#39;resname SOL&#39;,</span>
+<span class="c1">#     'licorice',</span>
+<span class="c1">#     selection='resname SOL',</span>
 <span class="c1"># )</span>
 <span class="c1"># view1</span>
 </pre></div>
@@ -284,8 +284,8 @@
 <span class="c1"># movie = MovieMaker(</span>
 <span class="c1">#     view1,</span>
 <span class="c1">#     step=4,  # keep every 4th step</span>
-<span class="c1">#     render_params={&quot;factor&quot;: 3},  # average quality render</span>
-<span class="c1">#     output=&#39;density_analysis_images/density_analysis-view1.gif&#39;,</span>
+<span class="c1">#     render_params={"factor": 3},  # average quality render</span>
+<span class="c1">#     output='density_analysis_images/density_analysis-view1.gif',</span>
 <span class="c1"># )</span>
 <span class="c1"># movie.make()</span>
 </pre></div>
@@ -336,17 +336,17 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">MDAnalysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">transformations</span> <span class="k">as</span> <span class="n">trans</span>
 
-<span class="n">protein</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;protein&#39;</span><span class="p">)</span>
-<span class="n">water</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;resname SOL&#39;</span><span class="p">)</span>
+<span class="n">protein</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'protein'</span><span class="p">)</span>
+<span class="n">water</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'resname SOL'</span><span class="p">)</span>
 
 <span class="n">workflow</span> <span class="o">=</span> <span class="p">[</span><span class="n">trans</span><span class="o">.</span><span class="n">unwrap</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">),</span>  <span class="c1"># unwrap all fragments</span>
             <span class="n">trans</span><span class="o">.</span><span class="n">center_in_box</span><span class="p">(</span><span class="n">protein</span><span class="p">,</span> <span class="c1"># move atoms so protein</span>
-                                <span class="n">center</span><span class="o">=</span><span class="s1">&#39;geometry&#39;</span><span class="p">),</span> <span class="c1"># is centered</span>
+                                <span class="n">center</span><span class="o">=</span><span class="s1">'geometry'</span><span class="p">),</span> <span class="c1"># is centered</span>
             <span class="n">trans</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">water</span><span class="p">,</span> <span class="c1"># wrap water back into box</span>
-                       <span class="n">compound</span><span class="o">=</span><span class="s1">&#39;residues&#39;</span><span class="p">),</span> <span class="c1"># keep each water whole</span>
+                       <span class="n">compound</span><span class="o">=</span><span class="s1">'residues'</span><span class="p">),</span> <span class="c1"># keep each water whole</span>
             <span class="n">trans</span><span class="o">.</span><span class="n">fit_rot_trans</span><span class="p">(</span><span class="n">protein</span><span class="p">,</span> <span class="c1"># align protein to first frame</span>
                                 <span class="n">protein</span><span class="p">,</span>
-                                <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;mass&#39;</span><span class="p">),</span>
+                                <span class="n">weights</span><span class="o">=</span><span class="s1">'mass'</span><span class="p">),</span>
            <span class="p">]</span>
 
 <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">add_transformations</span><span class="p">(</span><span class="o">*</span><span class="n">workflow</span><span class="p">)</span>
@@ -360,8 +360,8 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># view2 = nv.show_mdanalysis(u)</span>
 <span class="c1"># view2.add_representation(</span>
-<span class="c1">#     &#39;licorice&#39;,</span>
-<span class="c1">#     selection=&#39;resname SOL&#39;,</span>
+<span class="c1">#     'licorice',</span>
+<span class="c1">#     selection='resname SOL',</span>
 <span class="c1"># )</span>
 <span class="c1"># view2</span>
 </pre></div>
@@ -375,8 +375,8 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 <span class="c1"># movie = MovieMaker(</span>
 <span class="c1">#     view2,</span>
 <span class="c1">#     step=4,  # keep every 4th step</span>
-<span class="c1">#     render_params={&quot;factor&quot;: 3},  # average quality render</span>
-<span class="c1">#     output=&#39;density_analysis_images/density_analysis-view2.gif&#39;,</span>
+<span class="c1">#     render_params={"factor": 3},  # average quality render</span>
+<span class="c1">#     output='density_analysis_images/density_analysis-view2.gif',</span>
 <span class="c1"># )</span>
 <span class="c1"># movie.make()</span>
 </pre></div>
@@ -391,7 +391,7 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ow</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;name OW&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ow</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'name OW'</span><span class="p">)</span>
 <span class="n">dens</span> <span class="o">=</span> <span class="n">density</span><span class="o">.</span><span class="n">DensityAnalysis</span><span class="p">(</span><span class="n">ow</span><span class="p">,</span>
                                <span class="n">delta</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span>
                                <span class="n">padding</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -450,7 +450,7 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dens</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">density</span><span class="o">.</span><span class="n">convert_density</span><span class="p">(</span><span class="s1">&#39;TIP4P&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dens</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">density</span><span class="o">.</span><span class="n">convert_density</span><span class="p">(</span><span class="s1">'TIP4P'</span><span class="p">)</span>
 <span class="n">dens</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">density</span><span class="o">.</span><span class="n">units</span>
 </pre></div>
 </div>
@@ -511,7 +511,7 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits.mplot3d</span><span class="w"> </span><span class="kn">import</span> <span class="n">Axes3D</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">'3d'</span><span class="p">)</span>
 
 <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">mx</span><span class="p">,</span> <span class="n">my</span><span class="p">,</span> <span class="n">mz</span><span class="p">)</span>
 
@@ -535,7 +535,7 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dens</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">density</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="s2">&quot;water.dx&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dens</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">density</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="s2">"water.dx"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -552,10 +552,10 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># view3 = nv.show_mdanalysis(u)</span>
-<span class="c1"># d = view3.add_component(&quot;water.dx&quot;)</span>
+<span class="c1"># d = view3.add_component("water.dx")</span>
 <span class="c1"># d.clear_representations()</span>
-<span class="c1"># d.add_surface(isolevel=0.5, isolevel_type=&quot;value&quot;, opacity=0.1, contour=False, smooth=1, color=&quot;blue&quot;)</span>
-<span class="c1"># d.add_surface(isolevel=1.2, isolevel_type=&quot;value&quot;, opacity=1, contour=True, smooth=1, color=&quot;cyan&quot;)</span>
+<span class="c1"># d.add_surface(isolevel=0.5, isolevel_type="value", opacity=0.1, contour=False, smooth=1, color="blue")</span>
+<span class="c1"># d.add_surface(isolevel=1.2, isolevel_type="value", opacity=1, contour=True, smooth=1, color="cyan")</span>
 
 <span class="c1"># view3</span>
 </pre></div>
@@ -578,7 +578,7 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
                                                     <span class="n">spacing</span><span class="o">=</span><span class="n">dens</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">density</span><span class="o">.</span><span class="n">delta</span><span class="p">)</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">'3d'</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot_trisurf</span><span class="p">(</span><span class="n">verts</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">verts</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">faces</span><span class="p">,</span> <span class="n">verts</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span>
                 <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -602,18 +602,18 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyvista</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pv</span>
 
-<span class="n">pv</span><span class="o">.</span><span class="n">set_plot_theme</span><span class="p">(</span><span class="s2">&quot;document&quot;</span><span class="p">)</span>
+<span class="n">pv</span><span class="o">.</span><span class="n">set_plot_theme</span><span class="p">(</span><span class="s2">"document"</span><span class="p">)</span>
 
-<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">mx</span><span class="p">,</span> <span class="n">my</span><span class="p">,</span> <span class="n">mz</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s2">&quot;ij&quot;</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">mx</span><span class="p">,</span> <span class="n">my</span><span class="p">,</span> <span class="n">mz</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s2">"ij"</span><span class="p">)</span>
 <span class="n">mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">StructuredGrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
-<span class="n">mesh</span><span class="p">[</span><span class="s2">&quot;density&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dens</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">density</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span> <span class="c1"># note transpose</span>
+<span class="n">mesh</span><span class="p">[</span><span class="s2">"density"</span><span class="p">]</span> <span class="o">=</span> <span class="n">dens</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">density</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span> <span class="c1"># note transpose</span>
 <span class="n">contours</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">contour</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">])</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">(</span><span class="n">notebook</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">p</span><span class="o">.</span><span class="n">background_color</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span>
-<span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">outline</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>  <span class="c1"># box lines</span>
+<span class="n">p</span><span class="o">.</span><span class="n">background_color</span> <span class="o">=</span> <span class="s1">'white'</span>
+<span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">outline</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s2">"k"</span><span class="p">)</span>  <span class="c1"># box lines</span>
 <span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">contours</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.2</span><span class="p">);</span>  <span class="c1"># surfaces</span>
 <span class="c1"># p.show()</span>
-<span class="c1"># p.screenshot(&quot;./density_analysis_images/surface.png&quot;);</span>
+<span class="c1"># p.screenshot("./density_analysis_images/surface.png");</span>
 </pre></div>
 </div>
 </div>
@@ -624,12 +624,12 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">(</span><span class="n">notebook</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">p</span><span class="o">.</span><span class="n">background_color</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span>
-<span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">outline</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>  <span class="c1"># box lines</span>
+<span class="n">p</span><span class="o">.</span><span class="n">background_color</span> <span class="o">=</span> <span class="s1">'white'</span>
+<span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">outline</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s2">"k"</span><span class="p">)</span>  <span class="c1"># box lines</span>
 <span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">contours</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.2</span><span class="p">);</span>  <span class="c1"># surfaces</span>
 <span class="c1"># uncomment the below for interactivity</span>
-<span class="c1"># p.show(jupyter_backend=&quot;ipygany&quot;)</span>
-<span class="c1"># p.screenshot(&quot;./density_analysis_images/interactive-surface.png&quot;);</span>
+<span class="c1"># p.show(jupyter_backend="ipygany")</span>
+<span class="c1"># p.screenshot("./density_analysis_images/interactive-surface.png");</span>
 </pre></div>
 </div>
 </div>
@@ -664,9 +664,9 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 
 <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">avg</span><span class="p">)</span>
 <span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
-<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Mean density of water over TIP4P literature value&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X-axis ($\AA$)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y-axis ($\AA$)&#39;</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">'Mean density of water over TIP4P literature value'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'X-axis ($\AA$)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Y-axis ($\AA$)'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -685,11 +685,11 @@ file, MDAnalysis does not alter the initial trajectory. Instead, it transforms e
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 
-<span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">avg</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;bicubic&quot;</span><span class="p">)</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">avg</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">"bicubic"</span><span class="p">)</span>
 <span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
-<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Mean density of water over TIP4P literature value&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X-axis ($\AA$)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y-axis ($\AA$)&#39;</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">'Mean density of water over TIP4P literature value'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'X-axis ($\AA$)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Y-axis ($\AA$)'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>

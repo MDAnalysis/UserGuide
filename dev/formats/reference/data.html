@@ -268,7 +268,7 @@ for other recognized values and the documentation for the LAMMPS
 </ul>
 </div></blockquote>
 <p>For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">LAMMPSDATA</span><span class="p">,</span> <span class="n">atom_style</span><span class="o">=</span><span class="s2">&quot;id resid type charge element bfactor occupancy x y z&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">LAMMPSDATA</span><span class="p">,</span> <span class="n">atom_style</span><span class="o">=</span><span class="s2">"id resid type charge element bfactor occupancy x y z"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Only id, resid, charge, type, and coordinate information will be read from the file, even if other topology attributes are specified in the <code class="docutils literal notranslate"><span class="pre">atom_style</span></code> argument.</p>
@@ -281,8 +281,8 @@ for other recognized values and the documentation for the LAMMPS
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="c1"># analyze frame</span>
 <span class="gp">... </span>    <span class="k">if</span> <span class="n">take_this_frame</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="k">with</span> <span class="n">mda</span><span class="o">.</span><span class="n">Writer</span><span class="p">(</span><span class="s1">&#39;frame.data&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">W</span><span class="p">:</span>
-<span class="gp">... </span>            <span class="n">W</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">,</span> <span class="n">lengthunit</span><span class="o">=</span><span class="s2">&quot;nm&quot;</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="k">with</span> <span class="n">mda</span><span class="o">.</span><span class="n">Writer</span><span class="p">(</span><span class="s1">'frame.data'</span><span class="p">)</span> <span class="k">as</span> <span class="n">W</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="n">W</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">,</span> <span class="n">lengthunit</span><span class="o">=</span><span class="s2">"nm"</span><span class="p">)</span>
 <span class="gp">... </span>        <span class="k">break</span>
 </pre></div>
 </div>

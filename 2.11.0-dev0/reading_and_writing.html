@@ -215,11 +215,11 @@
 <h2>Input<a class="headerlink" href="#input" title="Link to this heading"></a></h2>
 <p>Read information from topology and coordinate files to create a <a class="reference internal" href="universe.html#universe-loading"><span class="std std-ref">Universe</span></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">MDAnalysis</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mda</span>
-<span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="s1">&#39;topology.gro&#39;</span><span class="p">,</span> <span class="s1">&#39;trajectory.xtc&#39;</span><span class="p">)</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="s1">'topology.gro'</span><span class="p">,</span> <span class="s1">'trajectory.xtc'</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>A topology file is always required for a Universe, whereas coordinate files are optional. <a class="reference internal" href="formats/index.html#id1"><span class="std std-ref">Some file formats provide both topology and coordinate information</span></a>. MDAnalysis supports a number of <a class="reference internal" href="formats/index.html#formats"><span class="std std-ref">formats</span></a>, which are automatically detected based on the file extension. For example, the above loads a <a class="reference internal" href="formats/reference/xtc.html#xtc-format"><span class="std std-ref">GROMACS XTC trajectory</span></a>. Multiple coordinate files can be loaded, as <a class="reference internal" href="#chainreader"><span class="std std-ref">described below</span></a>; the following code loads two <a class="reference internal" href="formats/reference/dcd.html#dcd-format"><span class="std std-ref">CHARMM/NAMD DCD files</span></a> and concatenates them:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="s1">&#39;topology.psf&#39;</span><span class="p">,</span> <span class="s1">&#39;trajectory1.dcd&#39;</span><span class="p">,</span> <span class="s1">&#39;trajectory2.dcd&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="s1">'topology.psf'</span><span class="p">,</span> <span class="s1">'trajectory1.dcd'</span><span class="p">,</span> <span class="s1">'trajectory2.dcd'</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Some formats can be loaded with format-specific keyword arguments, such as the <a class="reference internal" href="formats/reference/data.html#data-format"><span class="std std-ref">LAMMPS DATA</span></a> <code class="docutils literal notranslate"><span class="pre">atom_style</span></code> specification.</p>
@@ -250,7 +250,7 @@
 
 <span class="gp">In [2]: </span><span class="kn">from</span><span class="w"> </span><span class="nn">MDAnalysis.tests.datafiles</span><span class="w"> </span><span class="kn">import</span> <span class="n">PDB</span><span class="p">,</span> <span class="n">GRO</span>
 
-<span class="gp">In [3]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PDB</span><span class="p">,</span> <span class="p">[(</span><span class="n">GRO</span><span class="p">,</span> <span class="s1">&#39;gro&#39;</span><span class="p">),</span> <span class="p">(</span><span class="n">PDB</span><span class="p">,</span> <span class="s1">&#39;pdb&#39;</span><span class="p">),</span> <span class="p">(</span><span class="n">GRO</span><span class="p">,</span> <span class="s1">&#39;gro&#39;</span><span class="p">)])</span>
+<span class="gp">In [3]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PDB</span><span class="p">,</span> <span class="p">[(</span><span class="n">GRO</span><span class="p">,</span> <span class="s1">'gro'</span><span class="p">),</span> <span class="p">(</span><span class="n">PDB</span><span class="p">,</span> <span class="s1">'pdb'</span><span class="p">),</span> <span class="p">(</span><span class="n">GRO</span><span class="p">,</span> <span class="s1">'gro'</span><span class="p">)])</span>
 
 <span class="gp">In [4]: </span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span>
 <span class="gh">Out[4]: </span><span class="go">&lt;ChainReader containing adk_oplsaa.gro, adk_oplsaa.pdb, adk_oplsaa.gro with 3 frames of 47681 atoms&gt;</span>
@@ -320,13 +320,13 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0
 
 <span class="gp">In [16]: </span><span class="n">universe</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[16]: </span>
-<span class="go">array([[0.24701358, 0.2865545 , 0.884883  ],</span>
-<span class="go">       [0.914209  , 0.38360056, 0.19392727],</span>
-<span class="go">       [0.6283988 , 0.27957544, 0.83257794],</span>
+<span class="go">array([[0.8440873 , 0.70403767, 0.04937725],</span>
+<span class="go">       [0.79141486, 0.36909893, 0.85745084],</span>
+<span class="go">       [0.28113106, 0.74057883, 0.2913162 ],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.82302284, 0.10893522, 0.8499749 ],</span>
-<span class="go">       [0.05518243, 0.95329   , 0.2786923 ],</span>
-<span class="go">       [0.9924957 , 0.54072475, 0.02703132]],</span>
+<span class="go">       [0.6204056 , 0.3169611 , 0.16529915],</span>
+<span class="go">       [0.28922132, 0.88816273, 0.31791782],</span>
+<span class="go">       [0.16362332, 0.3500191 , 0.79136646]],</span>
 <span class="go">      shape=(47681, 3), dtype=float32)</span>
 </pre></div>
 </div>
@@ -335,13 +335,13 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0
 
 <span class="gp">In [18]: </span><span class="n">universe2</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span>
 <span class="gh">Out[18]: </span>
-<span class="go">array([[0.24701358, 0.2865545 , 0.884883  ],</span>
-<span class="go">       [0.914209  , 0.38360056, 0.19392727],</span>
-<span class="go">       [0.6283988 , 0.27957544, 0.83257794],</span>
+<span class="go">array([[0.8440873 , 0.70403767, 0.04937725],</span>
+<span class="go">       [0.79141486, 0.36909893, 0.85745084],</span>
+<span class="go">       [0.28113106, 0.74057883, 0.2913162 ],</span>
 <span class="go">       ...,</span>
-<span class="go">       [0.82302284, 0.10893522, 0.8499749 ],</span>
-<span class="go">       [0.05518243, 0.95329   , 0.2786923 ],</span>
-<span class="go">       [0.9924957 , 0.54072475, 0.02703132]],</span>
+<span class="go">       [0.6204056 , 0.3169611 , 0.16529915],</span>
+<span class="go">       [0.28922132, 0.88816273, 0.31791782],</span>
+<span class="go">       [0.16362332, 0.3500191 , 0.79136646]],</span>
 <span class="go">      shape=(47681, 3), dtype=float32)</span>
 </pre></div>
 </div>
@@ -359,21 +359,21 @@ of a <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0
 <p>MDAnalysis <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/core/universe.html#MDAnalysis.core.universe.Universe" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code></a>s can be written out to a <a class="reference internal" href="formats/index.html#coordinate-readers"><span class="std std-ref">number of formats</span></a> with <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.write" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a>. For example, to write the current frame as a PDB:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">MDAnalysis.tests.datafiles</span><span class="w"> </span><span class="kn">import</span> <span class="n">PDB</span><span class="p">,</span> <span class="n">TRR</span>
 <span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PDB</span><span class="p">,</span> <span class="n">TRR</span><span class="p">)</span>
-<span class="n">ag</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;name CA&quot;</span><span class="p">)</span>
-<span class="n">ag</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;c-alpha.pdb&quot;</span><span class="p">)</span>
+<span class="n">ag</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">"name CA"</span><span class="p">)</span>
+<span class="n">ag</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"c-alpha.pdb"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Pass in the <code class="docutils literal notranslate"><span class="pre">frames</span></code> keyword to write out trajectories.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ag</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;c-alpha_all.xtc&#39;</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ag</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'c-alpha_all.xtc'</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="s1">'all'</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Slice or index the trajectory to choose which frames to write:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ag</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;c-alpha_skip2.trr&#39;</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>
-<span class="n">ag</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;c-alpha_some.dcd&#39;</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ag</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'c-alpha_skip2.trr'</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">ag</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'c-alpha_some.dcd'</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
 </pre></div>
 </div>
 <p>Alternatively, iterate over the trajectory frame-by-frame with <code class="xref py py-func docutils literal notranslate"><span class="pre">Writer()</span></code>. This requires you to pass in the number of atoms to write.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">mda</span><span class="o">.</span><span class="n">Writer</span><span class="p">(</span><span class="s1">&#39;c-alpha.xyz&#39;</span><span class="p">,</span> <span class="n">ag</span><span class="o">.</span><span class="n">n_atoms</span><span class="p">)</span> <span class="k">as</span> <span class="n">w</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">mda</span><span class="o">.</span><span class="n">Writer</span><span class="p">(</span><span class="s1">'c-alpha.xyz'</span><span class="p">,</span> <span class="n">ag</span><span class="o">.</span><span class="n">n_atoms</span><span class="p">)</span> <span class="k">as</span> <span class="n">w</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">:</span>
         <span class="n">w</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ag</span><span class="p">)</span>
 </pre></div>
@@ -409,12 +409,12 @@ with its <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-
 
 <span class="gp">In [27]: </span><span class="n">g_pickled</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">g</span><span class="p">))</span>
 
-<span class="gp">In [28]: </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;g_pickled.universe is u: &quot;</span><span class="p">,</span> <span class="n">u</span> <span class="ow">is</span> <span class="n">g_pickled</span><span class="o">.</span><span class="n">universe</span><span class="p">)</span>
+<span class="gp">In [28]: </span><span class="nb">print</span><span class="p">(</span><span class="s2">"g_pickled.universe is u: "</span><span class="p">,</span> <span class="n">u</span> <span class="ow">is</span> <span class="n">g_pickled</span><span class="o">.</span><span class="n">universe</span><span class="p">)</span>
 <span class="go">g_pickled.universe is u:  False</span>
 
 <span class="gp">In [29]: </span><span class="n">g_pickled</span><span class="p">,</span> <span class="n">u_pickled</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">((</span><span class="n">g</span><span class="p">,</span> <span class="n">u</span><span class="p">)))</span>
 
-<span class="gp">In [30]: </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;g_pickled.universe is u_pickled: &quot;</span><span class="p">,</span>
+<span class="gp">In [30]: </span><span class="nb">print</span><span class="p">(</span><span class="s2">"g_pickled.universe is u_pickled: "</span><span class="p">,</span>
 <span class="gp">   ....: </span>       <span class="n">u_pickled</span> <span class="ow">is</span> <span class="n">g_pickled</span><span class="o">.</span><span class="n">universe</span><span class="p">)</span>
 <span class="gp">   ....: </span>
 <span class="go">g_pickled.universe is u_pickled:  True</span>
@@ -433,14 +433,14 @@ after serialization:</p>
 
 <span class="gp">In [35]: </span><span class="n">h_pickled</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
 
-<span class="gp">In [36]: </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;g_pickled.universe is h_pickled.universe : &quot;</span><span class="p">,</span>
+<span class="gp">In [36]: </span><span class="nb">print</span><span class="p">(</span><span class="s2">"g_pickled.universe is h_pickled.universe : "</span><span class="p">,</span>
 <span class="gp">   ....: </span>       <span class="n">g_pickled</span><span class="o">.</span><span class="n">universe</span> <span class="ow">is</span> <span class="n">h_pickled</span><span class="o">.</span><span class="n">universe</span><span class="p">)</span>
 <span class="gp">   ....: </span>
 <span class="go">g_pickled.universe is h_pickled.universe :  False</span>
 
 <span class="gp">In [37]: </span><span class="n">g_pickled</span><span class="p">,</span> <span class="n">h_pickled</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">((</span><span class="n">g</span><span class="p">,</span> <span class="n">h</span><span class="p">)))</span>
 
-<span class="gp">In [38]: </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;g_pickled.universe is h_pickled.universe: &quot;</span><span class="p">,</span>
+<span class="gp">In [38]: </span><span class="nb">print</span><span class="p">(</span><span class="s2">"g_pickled.universe is h_pickled.universe: "</span><span class="p">,</span>
 <span class="gp">   ....: </span>       <span class="n">g_pickled</span><span class="o">.</span><span class="n">universe</span> <span class="ow">is</span> <span class="n">h_pickled</span><span class="o">.</span><span class="n">universe</span><span class="p">)</span>
 <span class="gp">   ....: </span>
 <span class="go">g_pickled.universe is h_pickled.universe:  True</span>

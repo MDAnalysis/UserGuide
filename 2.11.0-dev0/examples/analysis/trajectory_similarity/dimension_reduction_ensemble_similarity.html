@@ -271,7 +271,7 @@
 <span class="n">u2</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD2</span><span class="p">)</span>
 <span class="n">u3</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF_NAMD_GBIS</span><span class="p">,</span> <span class="n">DCD_NAMD_GBIS</span><span class="p">)</span>
 
-<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DCD&#39;</span><span class="p">,</span> <span class="s1">&#39;DCD2&#39;</span><span class="p">,</span> <span class="s1">&#39;NAMD&#39;</span><span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'DCD'</span><span class="p">,</span> <span class="s1">'DCD2'</span><span class="p">,</span> <span class="s1">'NAMD'</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -341,7 +341,7 @@ array([[0.        , 0.68134177, 0.68452079],
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reduced</span> <span class="o">=</span> <span class="n">details0</span><span class="p">[</span><span class="s1">&#39;reduced_coordinates&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reduced</span> <span class="o">=</span> <span class="n">details0</span><span class="p">[</span><span class="s1">'reduced_coordinates'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">reduced</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
@@ -366,9 +366,9 @@ array([[0.        , 0.68134177, 0.68452079],
 <span class="n">im0</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dres0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">labels</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">labels</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Dimension reduction ensemble similarity&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Dimension reduction ensemble similarity'</span><span class="p">)</span>
 <span class="n">cbar0</span> <span class="o">=</span> <span class="n">fig0</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
-<span class="n">cbar0</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Jensen-Shannon divergence&#39;</span><span class="p">)</span>
+<span class="n">cbar0</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">'Jensen-Shannon divergence'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -398,7 +398,7 @@ array([[0.        , 0.68134177, 0.68452079],
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rdfig0</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">rdax0</span> <span class="o">=</span> <span class="n">rdfig0</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">rdax0</span> <span class="o">=</span> <span class="n">rdfig0</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">'3d'</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">data</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">zip_data_with_labels</span><span class="p">(</span><span class="n">reduced</span><span class="p">):</span>
     <span class="n">rdax0</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
@@ -448,7 +448,7 @@ adjustments are performed.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dres1</span><span class="p">,</span> <span class="n">details1</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">dres</span><span class="p">([</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">],</span>
-                         <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
+                         <span class="n">select</span><span class="o">=</span><span class="s1">'name CA'</span><span class="p">,</span>
                          <span class="n">dimensionality_reduction_method</span><span class="o">=</span><span class="n">dim_red_method</span><span class="p">,</span>
                          <span class="n">nsamples</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
                          <span class="n">ncores</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -466,9 +466,9 @@ adjustments are performed.</p>
 <span class="n">im1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dres1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">labels</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">labels</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Dimension reduction ensemble similarity&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Dimension reduction ensemble similarity'</span><span class="p">)</span>
 <span class="n">cbar1</span> <span class="o">=</span> <span class="n">fig1</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im1</span><span class="p">)</span>
-<span class="n">cbar1</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Jensen-Shannon divergence&#39;</span><span class="p">)</span>
+<span class="n">cbar1</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">'Jensen-Shannon divergence'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -483,10 +483,10 @@ adjustments are performed.</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reduced1</span> <span class="o">=</span> <span class="n">details1</span><span class="p">[</span><span class="s1">&#39;reduced_coordinates&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reduced1</span> <span class="o">=</span> <span class="n">details1</span><span class="p">[</span><span class="s1">'reduced_coordinates'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="n">rdfig1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">rdax1</span> <span class="o">=</span> <span class="n">rdfig1</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">rdax1</span> <span class="o">=</span> <span class="n">rdfig1</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">'3d'</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">data</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">zip_data_with_labels</span><span class="p">(</span><span class="n">reduced1</span><span class="p">):</span>
     <span class="n">rdax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
@@ -527,13 +527,13 @@ adjustments are performed.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pc1</span> <span class="o">=</span> <span class="n">drm</span><span class="o">.</span><span class="n">PrincipalComponentAnalysis</span><span class="p">(</span><span class="n">dimension</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-                                     <span class="n">svd_solver</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+                                     <span class="n">svd_solver</span><span class="o">=</span><span class="s1">'auto'</span><span class="p">)</span>
 <span class="n">pc2</span> <span class="o">=</span> <span class="n">drm</span><span class="o">.</span><span class="n">PrincipalComponentAnalysis</span><span class="p">(</span><span class="n">dimension</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-                                     <span class="n">svd_solver</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+                                     <span class="n">svd_solver</span><span class="o">=</span><span class="s1">'auto'</span><span class="p">)</span>
 <span class="n">pc3</span> <span class="o">=</span> <span class="n">drm</span><span class="o">.</span><span class="n">PrincipalComponentAnalysis</span><span class="p">(</span><span class="n">dimension</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-                                     <span class="n">svd_solver</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+                                     <span class="n">svd_solver</span><span class="o">=</span><span class="s1">'auto'</span><span class="p">)</span>
 <span class="n">pc4</span> <span class="o">=</span> <span class="n">drm</span><span class="o">.</span><span class="n">PrincipalComponentAnalysis</span><span class="p">(</span><span class="n">dimension</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
-                                     <span class="n">svd_solver</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+                                     <span class="n">svd_solver</span><span class="o">=</span><span class="s1">'auto'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -543,10 +543,10 @@ adjustments are performed.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dres2</span><span class="p">,</span> <span class="n">details2</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">dres</span><span class="p">([</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">],</span>
-                         <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
+                         <span class="n">select</span><span class="o">=</span><span class="s1">'name CA'</span><span class="p">,</span>
                          <span class="n">dimensionality_reduction_method</span><span class="o">=</span><span class="p">[</span><span class="n">pc1</span><span class="p">,</span> <span class="n">pc2</span><span class="p">,</span> <span class="n">pc3</span><span class="p">,</span> <span class="n">pc4</span><span class="p">],</span>
                          <span class="n">ncores</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dres2</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">details2</span><span class="p">[</span><span class="s1">&#39;reduced_coordinates&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dres2</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">details2</span><span class="p">[</span><span class="s1">'reduced_coordinates'</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -565,7 +565,7 @@ adjustments are performed.</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Dim = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Dim = </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]</span>
 <span class="n">fig2</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">title</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">dres2</span><span class="p">,</span> <span class="n">titles</span><span class="p">)):</span>
     <span class="n">imi</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -574,7 +574,7 @@ adjustments are performed.</p>
     <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">labels</span><span class="p">)</span>
 <span class="n">cbar2</span> <span class="o">=</span> <span class="n">fig2</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">imi</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
-<span class="n">cbar2</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Jensen-Shannon divergence&#39;</span><span class="p">)</span>
+<span class="n">cbar2</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">'Jensen-Shannon divergence'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -590,7 +590,7 @@ adjustments are performed.</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rd_p1</span><span class="p">,</span> <span class="n">rd_p2</span><span class="p">,</span> <span class="n">rd_p3</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">details2</span><span class="p">[</span><span class="s1">&#39;reduced_coordinates&#39;</span><span class="p">]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rd_p1</span><span class="p">,</span> <span class="n">rd_p2</span><span class="p">,</span> <span class="n">rd_p3</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">details2</span><span class="p">[</span><span class="s1">'reduced_coordinates'</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -657,12 +657,12 @@ adjustments are performed.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rd_p3_fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">rd_p3_ax</span> <span class="o">=</span> <span class="n">rd_p3_fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">rd_p3_ax</span> <span class="o">=</span> <span class="n">rd_p3_fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">'3d'</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">data</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">zip_data_with_labels</span><span class="p">(</span><span class="n">rd_p3</span><span class="p">):</span>
     <span class="n">rd_p3_ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
-<span class="n">rd_p3_ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;PC 1&#39;</span><span class="p">)</span>
-<span class="n">rd_p3_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;PC 2&#39;</span><span class="p">)</span>
-<span class="n">rd_p3_ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;PC 3&#39;</span><span class="p">)</span>
+<span class="n">rd_p3_ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'PC 1'</span><span class="p">)</span>
+<span class="n">rd_p3_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'PC 2'</span><span class="p">)</span>
+<span class="n">rd_p3_ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">'PC 3'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -693,7 +693,7 @@ adjustments are performed.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">avgs</span><span class="p">,</span> <span class="n">stds</span> <span class="o">=</span> <span class="n">encore</span><span class="o">.</span><span class="n">dres</span><span class="p">([</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">],</span>
-                         <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span>
+                         <span class="n">select</span><span class="o">=</span><span class="s1">'name CA'</span><span class="p">,</span>
                          <span class="n">dimensionality_reduction_method</span><span class="o">=</span><span class="n">dim_red_method</span><span class="p">,</span>
                          <span class="n">estimate_error</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                          <span class="n">ncores</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>

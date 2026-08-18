@@ -243,13 +243,13 @@
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="c1"># suppress some MDAnalysis warnings when writing PDB files</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using MDAnalysis version&quot;</span><span class="p">,</span> <span class="n">mda</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Using MDAnalysis version"</span><span class="p">,</span> <span class="n">mda</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 
 <span class="c1"># Optionally, use NGLView to interactively view your trajectory</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">nglview</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nv</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using NGLView version&quot;</span><span class="p">,</span> <span class="n">nv</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Using NGLView version"</span><span class="p">,</span> <span class="n">nv</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -300,11 +300,11 @@ Using NGLView version 3.0.8
 <span class="c1"># create resindex list</span>
 <span class="n">resindices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_residues</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
 <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">resindices</span><span class="p">)</span> <span class="o">==</span> <span class="n">n_atoms</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;resindices:&quot;</span><span class="p">,</span> <span class="n">resindices</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"resindices:"</span><span class="p">,</span> <span class="n">resindices</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
 
 <span class="c1"># all water molecules belong to 1 segment</span>
 <span class="n">segindices</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_residues</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;segindices:&quot;</span><span class="p">,</span> <span class="n">segindices</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"segindices:"</span><span class="p">,</span> <span class="n">segindices</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -349,7 +349,7 @@ segindices: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span><span class="o">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span> <span class="s1">&#39;H1&#39;</span><span class="p">,</span> <span class="s1">&#39;H2&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">n_residues</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span><span class="o">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s1">'name'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'O'</span><span class="p">,</span> <span class="s1">'H1'</span><span class="p">,</span> <span class="s1">'H2'</span><span class="p">]</span><span class="o">*</span><span class="n">n_residues</span><span class="p">)</span>
 <span class="n">sol</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">names</span>
 </pre></div>
 </div>
@@ -369,7 +369,7 @@ array([&#39;O&#39;, &#39;H1&#39;, &#39;H2&#39;, ..., &#39;O&#39;, &#39;H1&#39;, 
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span><span class="o">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">n_residues</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span><span class="o">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s1">'type'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'O'</span><span class="p">,</span> <span class="s1">'H'</span><span class="p">,</span> <span class="s1">'H'</span><span class="p">]</span><span class="o">*</span><span class="n">n_residues</span><span class="p">)</span>
 <span class="n">sol</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">types</span>
 </pre></div>
 </div>
@@ -388,7 +388,7 @@ array([&#39;O&#39;, &#39;H&#39;, &#39;H&#39;, ..., &#39;O&#39;, &#39;H&#39;, &#3
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span><span class="o">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s1">&#39;resname&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;SOL&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">n_residues</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span><span class="o">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s1">'resname'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'SOL'</span><span class="p">]</span><span class="o">*</span><span class="n">n_residues</span><span class="p">)</span>
 <span class="n">sol</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">resnames</span>
 </pre></div>
 </div>
@@ -408,7 +408,7 @@ array([&#39;SOL&#39;, &#39;SOL&#39;, &#39;SOL&#39;, ..., &#39;SOL&#39;, &#39;SOL
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span><span class="o">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s1">&#39;resid&#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_residues</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span><span class="o">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s1">'resid'</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_residues</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
 <span class="n">sol</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">resids</span>
 </pre></div>
 </div>
@@ -427,7 +427,7 @@ array([   1,    1,    1, ..., 1000, 1000, 1000], shape=(3000,))
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span><span class="o">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s1">&#39;segid&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;SOL&#39;</span><span class="p">])</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span><span class="o">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s1">'segid'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'SOL'</span><span class="p">])</span>
 <span class="n">sol</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">segids</span>
 </pre></div>
 </div>
@@ -505,7 +505,7 @@ array([&#39;SOL&#39;, &#39;SOL&#39;, &#39;SOL&#39;, ..., &#39;SOL&#39;, &#39;SOL
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sol_view = nv.show_mdanalysis(sol)</span>
-<span class="c1"># sol_view.add_representation(&#39;ball+stick&#39;, selection=&#39;all&#39;)</span>
+<span class="c1"># sol_view.add_representation('ball+stick', selection='all')</span>
 <span class="c1"># sol_view.center()</span>
 <span class="c1"># sol_view</span>
 </pre></div>
@@ -520,7 +520,7 @@ array([&#39;SOL&#39;, &#39;SOL&#39;, &#39;SOL&#39;, ..., &#39;SOL&#39;, &#39;SOL
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">sol</span><span class="p">,</span> <span class="s1">&#39;bonds&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">sol</span><span class="p">,</span> <span class="s1">'bonds'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -559,7 +559,7 @@ array([&#39;SOL&#39;, &#39;SOL&#39;, &#39;SOL&#39;, ..., &#39;SOL&#39;, &#39;SOL
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span><span class="o">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s1">&#39;bonds&#39;</span><span class="p">,</span> <span class="n">bonds</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span><span class="o">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s1">'bonds'</span><span class="p">,</span> <span class="n">bonds</span><span class="p">)</span>
 <span class="n">sol</span><span class="o">.</span><span class="n">bonds</span>
 </pre></div>
 </div>
@@ -622,10 +622,10 @@ array([&#39;SOL&#39;, &#39;SOL&#39;, &#39;SOL&#39;, ..., &#39;SOL&#39;, &#39;SOL
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cog</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">center_of_geometry</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Original solvent center of geometry: &#39;</span><span class="p">,</span> <span class="n">cog</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Original solvent center of geometry: '</span><span class="p">,</span> <span class="n">cog</span><span class="p">)</span>
 <span class="n">sol</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span> <span class="o">-=</span> <span class="n">cog</span>
 <span class="n">cog2</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">center_of_geometry</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;New solvent center of geometry: &#39;</span><span class="p">,</span> <span class="n">cog2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'New solvent center of geometry: '</span><span class="p">,</span> <span class="n">cog2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -643,10 +643,10 @@ New solvent center of geometry:  [ 2.78155009e-07 -1.27156576e-07  3.97364299e-0
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cog</span> <span class="o">=</span> <span class="n">protein</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">center_of_geometry</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Original solvent center of geometry: &#39;</span><span class="p">,</span> <span class="n">cog</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Original solvent center of geometry: '</span><span class="p">,</span> <span class="n">cog</span><span class="p">)</span>
 <span class="n">protein</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">positions</span> <span class="o">-=</span> <span class="n">cog</span>
 <span class="n">cog2</span> <span class="o">=</span> <span class="n">protein</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">center_of_geometry</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;New solvent center of geometry: &#39;</span><span class="p">,</span> <span class="n">cog2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'New solvent center of geometry: '</span><span class="p">,</span> <span class="n">cog2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -672,7 +672,7 @@ New solvent center of geometry:  [8.30580288e-08 3.49225059e-08 2.51332265e-08]
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># combined_view = nv.show_mdanalysis(combined)</span>
-<span class="c1"># combined_view.add_representation(&quot;ball+stick&quot;, selection=&quot;not protein&quot;)</span>
+<span class="c1"># combined_view.add_representation("ball+stick", selection="not protein")</span>
 <span class="c1"># combined_view</span>
 </pre></div>
 </div>
@@ -683,7 +683,7 @@ New solvent center of geometry:  [8.30580288e-08 3.49225059e-08 2.51332265e-08]
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">no_overlap</span> <span class="o">=</span> <span class="n">combined</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;same resid as (not around 6 protein)&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">no_overlap</span> <span class="o">=</span> <span class="n">combined</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">"same resid as (not around 6 protein)"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -701,7 +701,7 @@ New solvent center of geometry:  [8.30580288e-08 3.49225059e-08 2.51332265e-08]
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># no_overlap_view = nv.show_mdanalysis(u)</span>
-<span class="c1"># no_overlap_view.add_representation(&quot;ball+stick&quot;, selection=&quot;not protein&quot;)</span>
+<span class="c1"># no_overlap_view.add_representation("ball+stick", selection="not protein")</span>
 <span class="c1"># no_overlap_view</span>
 </pre></div>
 </div>
@@ -717,7 +717,7 @@ New solvent center of geometry:  [8.30580288e-08 3.49225059e-08 2.51332265e-08]
 <li><p>NMP: residues 30-59 (blue)</p></li>
 <li><p>LID: residues 122-159 (yellow)</p></li>
 </ul>
-<p><img alt="16d7ab99fd6340d88b50d6218577a544" src="https://github.com/MDAnalysis/MDAnalysisTutorial/blob/master/doc/sphinx/figs/angle_defs.png?raw=true" /></p>
+<p><img alt="388e93900aa74fe78d4c8798f988ed28" src="https://github.com/MDAnalysis/MDAnalysisTutorial/blob/master/doc/sphinx/figs/angle_defs.png?raw=true" /></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
@@ -741,7 +741,7 @@ array([&#39;4AKE&#39;, &#39;SOL&#39;], dtype=object)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">core_segment</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">add_Segment</span><span class="p">(</span><span class="n">segid</span><span class="o">=</span><span class="s1">&#39;CORE&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">core_segment</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">add_Segment</span><span class="p">(</span><span class="n">segid</span><span class="o">=</span><span class="s1">'CORE'</span><span class="p">)</span>
 <span class="n">core_segment</span><span class="o">.</span><span class="n">atoms</span>
 </pre></div>
 </div>
@@ -760,7 +760,7 @@ array([&#39;4AKE&#39;, &#39;SOL&#39;], dtype=object)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">core_atoms</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;resid 1:29 or resid 60:121 or resid 160-214&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">core_atoms</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'resid 1:29 or resid 60:121 or resid 160-214'</span><span class="p">)</span>
 <span class="n">core_atoms</span><span class="o">.</span><span class="n">residues</span><span class="o">.</span><span class="n">segments</span> <span class="o">=</span> <span class="n">core_segment</span>
 <span class="n">core_segment</span><span class="o">.</span><span class="n">atoms</span>
 </pre></div>
@@ -779,13 +779,13 @@ array([&#39;4AKE&#39;, &#39;SOL&#39;], dtype=object)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nmp_segment</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">add_Segment</span><span class="p">(</span><span class="n">segid</span><span class="o">=</span><span class="s1">&#39;NMP&#39;</span><span class="p">)</span>
-<span class="n">lid_segment</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">add_Segment</span><span class="p">(</span><span class="n">segid</span><span class="o">=</span><span class="s1">&#39;LID&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nmp_segment</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">add_Segment</span><span class="p">(</span><span class="n">segid</span><span class="o">=</span><span class="s1">'NMP'</span><span class="p">)</span>
+<span class="n">lid_segment</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">add_Segment</span><span class="p">(</span><span class="n">segid</span><span class="o">=</span><span class="s1">'LID'</span><span class="p">)</span>
 
-<span class="n">nmp_atoms</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;resid 30:59&#39;</span><span class="p">)</span>
+<span class="n">nmp_atoms</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'resid 30:59'</span><span class="p">)</span>
 <span class="n">nmp_atoms</span><span class="o">.</span><span class="n">residues</span><span class="o">.</span><span class="n">segments</span> <span class="o">=</span> <span class="n">nmp_segment</span>
 
-<span class="n">lid_atoms</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;resid 122:159&#39;</span><span class="p">)</span>
+<span class="n">lid_atoms</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'resid 122:159'</span><span class="p">)</span>
 <span class="n">lid_atoms</span><span class="o">.</span><span class="n">residues</span><span class="o">.</span><span class="n">segments</span> <span class="o">=</span> <span class="n">lid_segment</span>
 </pre></div>
 </div>
@@ -796,10 +796,10 @@ array([&#39;4AKE&#39;, &#39;SOL&#39;], dtype=object)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add the topologyattr to the universe</span>
-<span class="n">u</span><span class="o">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s2">&quot;chainID&quot;</span><span class="p">)</span>
-<span class="n">core_segment</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">chainIDs</span> <span class="o">=</span> <span class="s2">&quot;C&quot;</span>
-<span class="n">nmp_segment</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">chainIDs</span> <span class="o">=</span> <span class="s2">&quot;N&quot;</span>
-<span class="n">lid_segment</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">chainIDs</span> <span class="o">=</span> <span class="s2">&quot;L&quot;</span>
+<span class="n">u</span><span class="o">.</span><span class="n">add_TopologyAttr</span><span class="p">(</span><span class="s2">"chainID"</span><span class="p">)</span>
+<span class="n">core_segment</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">chainIDs</span> <span class="o">=</span> <span class="s2">"C"</span>
+<span class="n">nmp_segment</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">chainIDs</span> <span class="o">=</span> <span class="s2">"N"</span>
+<span class="n">lid_segment</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">chainIDs</span> <span class="o">=</span> <span class="s2">"L"</span>
 </pre></div>
 </div>
 </div>
@@ -809,7 +809,7 @@ array([&#39;4AKE&#39;, &#39;SOL&#39;], dtype=object)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># domain_view = nv.show_mdanalysis(u)</span>
-<span class="c1"># domain_view.add_representation(&quot;protein&quot;, color_scheme=&quot;chainID&quot;)</span>
+<span class="c1"># domain_view.add_representation("protein", color_scheme="chainID")</span>
 <span class="c1"># domain_view</span>
 </pre></div>
 </div>

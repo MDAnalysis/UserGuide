@@ -250,11 +250,11 @@ visualize the atoms in <a class="reference external" href="http://www.ks.uiuc.ed
 
 <span class="gp">In [3]: </span><span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PDB</span><span class="p">)</span>
 
-<span class="gp">In [4]: </span><span class="n">ag</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;resname ALA&#39;</span><span class="p">)</span>
+<span class="gp">In [4]: </span><span class="n">ag</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'resname ALA'</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>As with a normal structure file, use <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.write" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AtomGroup.write</span></code></a> method with the appropriate file extension.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ag</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;ala_selection.vmd&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;alanine&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ag</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"ala_selection.vmd"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"alanine"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In <a class="reference external" href="http://www.ks.uiuc.edu/Research/vmd/">VMD</a>, sourcing the file <code class="docutils literal notranslate"><span class="pre">ala_selection.vmd</span></code> (written in Tcl) defines the “macro” <code class="docutils literal notranslate"><span class="pre">alanine</span></code> that contains the atom indices to select.</p>
@@ -270,15 +270,15 @@ Representations</span> window in the list <span class="guilabel">Selections: Sin
 <section id="multiple-selections">
 <h3>Multiple selections<a class="headerlink" href="#multiple-selections" title="Link to this heading"></a></h3>
 <p><a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup.write" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AtomGroup.write</span></code></a> can take additional keyword arguments, including <code class="docutils literal notranslate"><span class="pre">mode</span></code>. The default is <code class="docutils literal notranslate"><span class="pre">mode='w'</span></code>, which will overwrite the provided filename. If <code class="docutils literal notranslate"><span class="pre">mode='a'</span></code>, the selection is appended to the file.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;resname T*&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;residues.ndx&#39;</span><span class="p">,</span>
-                                   <span class="n">name</span><span class="o">=</span><span class="s1">&#39;TYR_THR&#39;</span><span class="p">,</span>
-                                   <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
-<span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;resname GLY&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;residues.ndx&#39;</span><span class="p">,</span>
-                                    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;GLY&#39;</span><span class="p">,</span>
-                                    <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
-<span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;resname PRO&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;residues.ndx&#39;</span><span class="p">,</span>
-                                    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;PRO&#39;</span><span class="p">,</span>
-                                    <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'resname T*'</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'residues.ndx'</span><span class="p">,</span>
+                                   <span class="n">name</span><span class="o">=</span><span class="s1">'TYR_THR'</span><span class="p">,</span>
+                                   <span class="n">mode</span><span class="o">=</span><span class="s1">'a'</span><span class="p">)</span>
+<span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'resname GLY'</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'residues.ndx'</span><span class="p">,</span>
+                                    <span class="n">name</span><span class="o">=</span><span class="s1">'GLY'</span><span class="p">,</span>
+                                    <span class="n">mode</span><span class="o">=</span><span class="s1">'a'</span><span class="p">)</span>
+<span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'resname PRO'</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'residues.ndx'</span><span class="p">,</span>
+                                    <span class="n">name</span><span class="o">=</span><span class="s1">'PRO'</span><span class="p">,</span>
+                                    <span class="n">mode</span><span class="o">=</span><span class="s1">'a'</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Looking at this GROMACS index file, we see:</p>
@@ -294,26 +294,26 @@ Representations</span> window in the list <span class="guilabel">Selections: Sin
 <span class="go">1 GLY                 :   141 atoms</span>
 <span class="go">2 PRO                 :   140 atoms</span>
 
-<span class="go">nr : group      &#39;!&#39;: not  &#39;name&#39; nr name   &#39;splitch&#39; nr    Enter: list groups</span>
-<span class="go">&#39;a&#39;: atom       &#39;&amp;&#39;: and  &#39;del&#39; nr         &#39;splitres&#39; nr   &#39;l&#39;: list residues</span>
-<span class="go">&#39;t&#39;: atom type  &#39;|&#39;: or   &#39;keep&#39; nr        &#39;splitat&#39; nr    &#39;h&#39;: help</span>
-<span class="go">&#39;r&#39;: residue              &#39;res&#39; nr         &#39;chain&#39; char</span>
-<span class="go">&quot;name&quot;: group             &#39;case&#39;: case sensitive           &#39;q&#39;: save and quit</span>
-<span class="go">&#39;ri&#39;: residue index</span>
+<span class="go">nr : group      '!': not  'name' nr name   'splitch' nr    Enter: list groups</span>
+<span class="go">'a': atom       '&amp;': and  'del' nr         'splitres' nr   'l': list residues</span>
+<span class="go">'t': atom type  '|': or   'keep' nr        'splitat' nr    'h': help</span>
+<span class="go">'r': residue              'res' nr         'chain' char</span>
+<span class="go">"name": group             'case': case sensitive           'q': save and quit</span>
+<span class="go">'ri': residue index</span>
 </pre></div>
 </div>
 <p>Alternatively, you can direcly use the selection writer itself as a <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#context-managers">context manager</a> and write each <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/core/groups.html#MDAnalysis.core.groups.AtomGroup" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AtomGroup</span></code></a> inside the context. For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">mda</span><span class="o">.</span><span class="n">selections</span><span class="o">.</span><span class="n">gromacs</span><span class="o">.</span><span class="n">SelectionWriter</span><span class="p">(</span><span class="s1">&#39;residues.ndx&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ndx</span><span class="p">:</span>
-    <span class="n">ndx</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;resname T*&#39;</span><span class="p">),</span>
-              <span class="n">name</span><span class="o">=</span><span class="s1">&#39;TYR_THR&#39;</span><span class="p">)</span>
-    <span class="n">ndx</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;resname GLY&#39;</span><span class="p">),</span>
-              <span class="n">name</span><span class="o">=</span><span class="s1">&#39;GLY&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">mda</span><span class="o">.</span><span class="n">selections</span><span class="o">.</span><span class="n">gromacs</span><span class="o">.</span><span class="n">SelectionWriter</span><span class="p">(</span><span class="s1">'residues.ndx'</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">ndx</span><span class="p">:</span>
+    <span class="n">ndx</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'resname T*'</span><span class="p">),</span>
+              <span class="n">name</span><span class="o">=</span><span class="s1">'TYR_THR'</span><span class="p">)</span>
+    <span class="n">ndx</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'resname GLY'</span><span class="p">),</span>
+              <span class="n">name</span><span class="o">=</span><span class="s1">'GLY'</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>And again, you can append to the file with <code class="docutils literal notranslate"><span class="pre">mode='a'</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">mda</span><span class="o">.</span><span class="n">selections</span><span class="o">.</span><span class="n">gromacs</span><span class="o">.</span><span class="n">SelectionWriter</span><span class="p">(</span><span class="s1">&#39;residues.ndx&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ndx</span><span class="p">:</span>
-    <span class="n">ndx</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;resname PRO&#39;</span><span class="p">),</span>
-              <span class="n">name</span><span class="o">=</span><span class="s1">&#39;PRO&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">mda</span><span class="o">.</span><span class="n">selections</span><span class="o">.</span><span class="n">gromacs</span><span class="o">.</span><span class="n">SelectionWriter</span><span class="p">(</span><span class="s1">'residues.ndx'</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'a'</span><span class="p">)</span> <span class="k">as</span> <span class="n">ndx</span><span class="p">:</span>
+    <span class="n">ndx</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'resname PRO'</span><span class="p">),</span>
+              <span class="n">name</span><span class="o">=</span><span class="s1">'PRO'</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

@@ -256,7 +256,7 @@
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="c1"># suppress some MDAnalysis warnings about writing PDB files</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -323,7 +323,7 @@ mass.</p>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rmsds</span> <span class="o">=</span> <span class="n">align</span><span class="o">.</span><span class="n">alignto</span><span class="p">(</span><span class="n">adk_open</span><span class="p">,</span>  <span class="c1"># mobile</span>
                       <span class="n">adk_closed</span><span class="p">,</span>  <span class="c1"># reference</span>
-                      <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">,</span> <span class="c1"># selection to operate on</span>
+                      <span class="n">select</span><span class="o">=</span><span class="s1">'name CA'</span><span class="p">,</span> <span class="c1"># selection to operate on</span>
                       <span class="n">match_atoms</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># whether to match atoms</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">rmsds</span><span class="p">)</span>
 </pre></div>
@@ -352,9 +352,9 @@ mass.</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rmsds</span> <span class="o">=</span> <span class="n">align</span><span class="o">.</span><span class="n">alignto</span><span class="p">(</span><span class="n">adk_open</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">&#39;name CA&#39;</span><span class="p">),</span>  <span class="c1"># mobile</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rmsds</span> <span class="o">=</span> <span class="n">align</span><span class="o">.</span><span class="n">alignto</span><span class="p">(</span><span class="n">adk_open</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s1">'name CA'</span><span class="p">),</span>  <span class="c1"># mobile</span>
                       <span class="n">adk_closed</span><span class="o">.</span><span class="n">atoms</span><span class="p">[:</span><span class="mi">214</span><span class="p">],</span>  <span class="c1"># reference</span>
-                      <span class="n">select</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="c1"># selection to operate on</span>
+                      <span class="n">select</span><span class="o">=</span><span class="s1">'all'</span><span class="p">,</span> <span class="c1"># selection to operate on</span>
                       <span class="n">match_atoms</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># whether to match atoms</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">rmsds</span><span class="p">)</span>
 </pre></div>
@@ -412,8 +412,8 @@ mass.</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">align</span><span class="o">.</span><span class="n">alignto</span><span class="p">(</span><span class="n">adk_open</span><span class="p">,</span> <span class="n">adk_closed</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="s1">&#39;name CA&#39;</span><span class="p">)</span>
-<span class="n">adk_open</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;aligned.pdb&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">align</span><span class="o">.</span><span class="n">alignto</span><span class="p">(</span><span class="n">adk_open</span><span class="p">,</span> <span class="n">adk_closed</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="s1">'name CA'</span><span class="p">)</span>
+<span class="n">adk_open</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'aligned.pdb'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -421,7 +421,7 @@ mass.</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from_file_view = nv.show_mdanalysis(mda.Universe(&#39;aligned.pdb&#39;))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from_file_view = nv.show_mdanalysis(mda.Universe('aligned.pdb'))</span>
 <span class="c1"># from_file_view</span>
 </pre></div>
 </div>

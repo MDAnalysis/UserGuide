@@ -288,8 +288,8 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel_basic</span> <span class="o">=</span> <span class="s2">&quot;(resname ARG LYS) and (name NH* NZ)&quot;</span>
-<span class="n">sel_acidic</span> <span class="o">=</span> <span class="s2">&quot;(resname ASP GLU) and (name OE* OD*)&quot;</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel_basic</span> <span class="o">=</span> <span class="s2">"(resname ARG LYS) and (name NH* NZ)"</span>
+<span class="n">sel_acidic</span> <span class="o">=</span> <span class="s2">"(resname ASP GLU) and (name OE* OD*)"</span>
 <span class="n">acidic</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="n">sel_acidic</span><span class="p">)</span>
 <span class="n">basic</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="n">sel_basic</span><span class="p">)</span>
 </pre></div>
@@ -326,8 +326,8 @@
                        <span class="n">refgroup</span><span class="o">=</span><span class="p">(</span><span class="n">acidic</span><span class="p">,</span> <span class="n">basic</span><span class="p">),</span>
                        <span class="n">method</span><span class="o">=</span><span class="n">fraction_contacts_between</span><span class="p">,</span>
                        <span class="n">radius</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span>
-                       <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;radius&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
-                               <span class="s1">&#39;min_radius&#39;</span><span class="p">:</span> <span class="mf">2.4</span><span class="p">})</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+                       <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">'radius'</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+                               <span class="s1">'min_radius'</span><span class="p">:</span> <span class="mf">2.4</span><span class="p">})</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -337,8 +337,8 @@
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ca_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ca</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">timeseries</span><span class="p">,</span>
-                    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Frame&#39;</span><span class="p">,</span>
-                             <span class="s1">&#39;Contacts from first frame&#39;</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'Frame'</span><span class="p">,</span>
+                             <span class="s1">'Contacts from first frame'</span><span class="p">])</span>
 <span class="n">ca_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -407,7 +407,7 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ca_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Frame&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ca_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">'Frame'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

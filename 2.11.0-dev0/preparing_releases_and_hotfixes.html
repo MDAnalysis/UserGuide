@@ -227,11 +227,11 @@
 <p>The <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/blob/develop/package/CHANGELOG">CHANGELOG</a> lists important changes for each release.</p>
 <p><em>MAJOR</em>, <em>MINOR</em> and <em>PATCH</em> numbers are integers that increase monotonically.</p>
 <p>The <strong>release number</strong> is set in <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/blob/develop/package/setup.py">setup.py</a> <em>and</em> in <code class="docutils literal notranslate"><span class="pre">MDAnalysis.__version__</span></code> (MDAnalysis/version.py), e.g.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RELEASE</span> <span class="o">=</span> <span class="s1">&#39;0.7.5&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RELEASE</span> <span class="o">=</span> <span class="s1">'0.7.5'</span>
 </pre></div>
 </div>
 <p><strong>While the code is in development</strong> (i.e. whenever we are not preparing a release!) the release number gets the suffix <strong>-dev0</strong>, e.g.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RELEASE</span> <span class="o">=</span> <span class="s1">&#39;0.7.6-dev0&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RELEASE</span> <span class="o">=</span> <span class="s1">'0.7.6-dev0'</span>
 </pre></div>
 </div>
 <p>so that people using the <a class="reference internal" href="contributing_code.html#branches-in-mdanalysis"><span class="std std-ref">develop branch</span></a> from the source repository can immediately see that it is not a final release. For example, “0.7.6-dev0” is the state <em>before</em> the 0.7.6 release.</p>
@@ -275,7 +275,7 @@
 <ol class="arabic">
 <li><p>Create a new tag from <code class="docutils literal notranslate"><span class="pre">develop</span></code> named <code class="docutils literal notranslate"><span class="pre">release-&lt;version_number&gt;</span></code> where <code class="docutils literal notranslate"><span class="pre">&lt;version_number&gt;</span></code> is the release version number (this tag contains a snapshot of the Python source files as they were when the release was created):</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>tag<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;release 0.7.5 of MDAnalysis and MDAnalysisTests&quot;</span><span class="w"> </span>release-0.7.5
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>tag<span class="w"> </span>-m<span class="w"> </span><span class="s2">"release 0.7.5 of MDAnalysis and MDAnalysisTests"</span><span class="w"> </span>release-0.7.5
 git<span class="w"> </span>push<span class="w"> </span>--tags<span class="w"> </span>origin
 </pre></div>
 </div>
@@ -293,7 +293,7 @@ pipx<span class="w"> </span>run<span class="w"> </span>build<span class="w"> </s
 </li>
 <li><p>Once committed, create a new tag based on <code class="docutils literal notranslate"><span class="pre">package-&lt;version_number&gt;</span></code> (this tag will contain a record of all the files as they were deployed to users for that version):</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>tag<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;package 0.7.5 of MDAnalysis and MDAnalysisTests&quot;</span><span class="w"> </span>package-0.7.5
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>tag<span class="w"> </span>-m<span class="w"> </span><span class="s2">"package 0.7.5 of MDAnalysis and MDAnalysisTests"</span><span class="w"> </span>package-0.7.5
 git<span class="w"> </span>push<span class="w"> </span>--tags<span class="w"> </span>origin
 </pre></div>
 </div>
@@ -379,7 +379,7 @@ python<span class="w"> </span>gen_release_notes.py
 </li>
 <li><p>Create a new release tag and upload them for the UserGuide repository.</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>tag<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;release 2.6.1 of the MDAnalysis UserGuide&#39;</span><span class="w"> </span>release-2.6.1
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>tag<span class="w"> </span>-m<span class="w"> </span><span class="s1">'release 2.6.1 of the MDAnalysis UserGuide'</span><span class="w"> </span>release-2.6.1
 git<span class="w"> </span>push<span class="w"> </span>--tags<span class="w"> </span>origin
 </pre></div>
 </div>
