@@ -41,7 +41,7 @@ and listing all available digits of the numerical calculation.
 
 .. _`CODATA 2010`:
    https://physics.nist.gov/cuu/Constants/ArchiveASCII/allascii_2010.txt
-   
+
 
 Unit conversion
 ===============
