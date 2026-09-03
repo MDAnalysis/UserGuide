@@ -28,10 +28,20 @@ Other base units are listed in the table :ref:`table-baseunits`.
    charge       :math:`e`      :math:`1.602176565 \times 10^{-19}` As
    force        kJ/(mol·Å)     :math:`1.66053892103219 \times 10^{-11}` J/m
    speed        Å/ps           :math:`100` m/s
-   mass         u              :math:`1.66053906660(50) \times 10^{-27}` kg
+   mass         u              :math:`1.66053892103219 \times 10^{-27}` kg
    angle        degrees        :math:`\frac{\pi}{180}` rad
    =========== ============== ===============================================
 
+MDAnalysis units are currently based on the NIST `CODATA 2010`_ values for
+physical constants. The unit of mass is not explicitly used but implicit in the
+units for force and energy via Avogadro's constant :math:`6.02214129(27) \times
+10^{23}\,\mathrm{mol}^{-1}` (in :data:`MDAnalysis.units.constants`). The excess
+precision in the table is due to the use of the inverse of Avogadro's constant
+and listing all available digits of the numerical calculation.
+
+.. _`CODATA 2010`:
+   https://physics.nist.gov/cuu/Constants/ArchiveASCII/allascii_2010.txt
+   
 
 Unit conversion
 ===============
