@@ -248,7 +248,7 @@ densities can be given in <span class="math notranslate nohighlight">\(g/cm^3\)<
 </tr>
 <tr class="row-even"><td><p>mass</p></td>
 <td><p>u</p></td>
-<td><p><span class="math notranslate nohighlight">\(1.66053906660(50) \times 10^{-27}\)</span> kg</p></td>
+<td><p><span class="math notranslate nohighlight">\(1.66053892103219 \times 10^{-27}\)</span> kg</p></td>
 </tr>
 <tr class="row-odd"><td><p>angle</p></td>
 <td><p>degrees</p></td>
@@ -256,6 +256,12 @@ densities can be given in <span class="math notranslate nohighlight">\(g/cm^3\)<
 </tr>
 </tbody>
 </table>
+<p>MDAnalysis units are currently based on the NIST <a class="reference external" href="https://physics.nist.gov/cuu/Constants/ArchiveASCII/allascii_2010.txt">CODATA 2010</a> values for
+physical constants. The unit of mass is not explicitly used but implicit in the
+units for force and energy via Avogadro’s constant <span class="math notranslate nohighlight">\(6.02214129(27) \times
+10^{23}\,\mathrm{mol}^{-1}\)</span> (in <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/units.html#MDAnalysis.units.constants" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-data docutils literal notranslate"><span class="pre">MDAnalysis.units.constants</span></code></a>). The excess
+precision in the table is due to the use of the inverse of Avogadro’s constant
+and listing all available digits of the numerical calculation.</p>
 <section id="unit-conversion">
 <h2>Unit conversion<a class="headerlink" href="#unit-conversion" title="Link to this heading"></a></h2>
 <p>Quantities can be converted from units with <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/units.html#MDAnalysis.units.convert" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">convert()</span></code></a>.
