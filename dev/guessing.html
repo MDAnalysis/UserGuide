@@ -379,7 +379,7 @@
 <span class="g g-Whitespace">    </span><span class="mi">452</span> <span class="n">lower_bound</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"lower_bound"</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">454</span> <span class="n">box</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"box"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
-<span class="ne">ValueError</span>: vdw radii for types: 9, 55, 56, 24, 32, 23, 22, 5, 52, 54, 7, 3, 1, 30, 21, 25, 10, 73, 26, 81, 51, 6, 29, 2, 31, 72, 20, 70, 50, 57. These can be defined manually using the keyword 'vdwradii'
+<span class="ne">ValueError</span>: vdw radii for types: 21, 1, 3, 55, 70, 2, 25, 23, 10, 30, 20, 54, 56, 7, 72, 6, 22, 29, 32, 9, 81, 5, 57, 51, 50, 24, 31, 73, 26, 52. These can be defined manually using the keyword 'vdwradii'
 </pre></div>
 </div>
 <p>However, the snippet below will re-guess the types, and now bond-guessing can work as the elements have vdW radii defined:</p>
