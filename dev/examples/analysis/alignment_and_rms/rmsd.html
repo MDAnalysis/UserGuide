@@ -294,8 +294,8 @@
 <p>As molecules can move around, the structure <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is usually translated by a vector <span class="math notranslate nohighlight">\(\mathbf{t}\)</span> and rotated by a matrix <span class="math notranslate nohighlight">\(\mathsf{R}\)</span> to align with the reference <span class="math notranslate nohighlight">\(\mathbf{x}^{\text{ref}}\)</span> such that the RMSD is minimised. The RMSD after this optimal superposition can be expressed as follows:</p>
 <div class="math notranslate nohighlight">
 \[\text{RMSD}(\mathbf{x}, \mathbf{x}^{\text{ref}}) = \min_{\mathsf{R}, \mathbf{t}} %
- \sqrt{\frac{1}{N} \sum_{i=1}^{N} \left[ %
-     (\mathsf{R}\cdot\mathbf{x}_{i}(t) + \mathbf{t}) - \mathbf{x}_{i}^{\text{ref}} \right]^{2}}\]</div>
+  \sqrt{\frac{1}{N} \sum_{i=1}^{N} \left[ %
+      (\mathsf{R}\cdot\mathbf{x}_{i}(t) + \mathbf{t}) - \mathbf{x}_{i}^{\text{ref}} \right]^{2}}\]</div>
 <p>The RMSD between one reference state and a trajectory of structures is often calculated as a way to measure the dissimilarity of the trajectory conformational ensemble to the reference. This reference is frequently the first frame of the trajectory (the default in MDAnalysis), in which case it can provide insight into the overall movement from the initial starting point. While stable RMSD values from a reference structure are frequently used as a measure of conformational convergence, this
 metric suffers from the problem of <em>degeneracy</em>: many different structures can have the same RMSD from the same reference. For an alternative measure, you could use <a class="reference internal" href="pairwise_rmsd.html"><span class="doc">pairwise or 2D RMSD</span></a>.</p>
 <p>Typically not all coordinates in a structures are included in an RMSD analysis. With proteins, the fluctuation of the residue side-chains is not representative of overall conformational change. Therefore when RMSD analyses are performed to investigate large-scale movements in proteins, the atoms are usually restricted only to the backbone atoms (forming the amide-bond chain) or the alpha-carbon atoms.</p>
