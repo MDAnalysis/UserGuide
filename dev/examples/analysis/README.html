@@ -72,7 +72,7 @@
   
   
     <div class="version">
-      2.11.0-dev0
+      2.12.0-dev0
     </div>
   
 
@@ -243,7 +243,7 @@
              
   <section id="analysis">
 <span id="id1"></span><h1>Analysis<a class="headerlink" href="#analysis" title="Link to this heading"></a></h1>
-<p>The <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/analysis_modules.html#module-MDAnalysis.analysis" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">analysis</span></code></a> module of MDAnalysis provides the tools needed to analyse your data.
+<p>The <a class="reference external" href="https://docs.mdanalysis.org/2.12.0-dev0/documentation_pages/analysis_modules.html#module-MDAnalysis.analysis" title="(in MDAnalysis v2.12.0-dev0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">analysis</span></code></a> module of MDAnalysis provides the tools needed to analyse your data.
 Several analyses are included with the package. These range from standard algorithms
 (e.g. <a class="reference internal" href="alignment_and_rms/README.html#alignment-and-rms"><span class="std std-ref">calculating root mean squared quantities</span></a>) to unique algorithms such as
 the <a class="reference internal" href="trajectory_similarity/psa.html"><span class="doc">path similarity analysis</span></a>.</p>
@@ -262,7 +262,7 @@ them separately, e.g.:</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Several modules in <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/analysis_modules.html#module-MDAnalysis.analysis" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis</span></code></a> require additional Python packages.
+<p>Several modules in <a class="reference external" href="https://docs.mdanalysis.org/2.12.0-dev0/documentation_pages/analysis_modules.html#module-MDAnalysis.analysis" title="(in MDAnalysis v2.12.0-dev0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis</span></code></a> require additional Python packages.
 For example, <code class="xref py py-mod docutils literal notranslate"><span class="pre">encore</span></code> makes use of <a class="reference external" href="http://scikit-learn.org/">scikit-learn</a>.
 The Python packages are not automatically installed with <cite>pip</cite>, although they are with <cite>conda</cite>.</p>
 <p>Other modules require external programs. For example, <code class="xref py py-mod docutils literal notranslate"><span class="pre">hole</span></code> requires
@@ -272,7 +272,7 @@ the <a class="reference external" href="http://www.holeprogram.org/">HOLE</a> pr
 </section>
 <section id="alignments-and-rms-fitting">
 <span id="alignment-and-rms"></span><h1>Alignments and RMS fitting<a class="headerlink" href="#alignments-and-rms-fitting" title="Link to this heading"></a></h1>
-<p>The <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/analysis/align.html#module-MDAnalysis.analysis.align" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.align</span></code></a> and <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/analysis/rms.html#module-MDAnalysis.analysis.rms" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.rms</span></code></a>
+<p>The <a class="reference external" href="https://docs.mdanalysis.org/2.12.0-dev0/documentation_pages/analysis/align.html#module-MDAnalysis.analysis.align" title="(in MDAnalysis v2.12.0-dev0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.align</span></code></a> and <a class="reference external" href="https://docs.mdanalysis.org/2.12.0-dev0/documentation_pages/analysis/rms.html#module-MDAnalysis.analysis.rms" title="(in MDAnalysis v2.12.0-dev0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.rms</span></code></a>
 modules contain the functions used for aligning structures,
 aligning trajectories, and calculating root mean squared quantities.</p>
 <p>Demonstrations of alignment are in
@@ -303,7 +303,7 @@ cite these references when using these modules.</p>
 </section>
 <section id="distances-and-contacts">
 <h1>Distances and contacts<a class="headerlink" href="#distances-and-contacts" title="Link to this heading"></a></h1>
-<p>The <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/analysis/distances.html#module-MDAnalysis.analysis.distances" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.distances</span></code></a> module provides functions to rapidly compute distances. These largely take in coordinate arrays.</p>
+<p>The <a class="reference external" href="https://docs.mdanalysis.org/2.12.0-dev0/documentation_pages/analysis/distances.html#module-MDAnalysis.analysis.distances" title="(in MDAnalysis v2.12.0-dev0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.distances</span></code></a> module provides functions to rapidly compute distances. These largely take in coordinate arrays.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="distances_and_contacts/distances_between_atomgroups.html">Atom-wise distances between matching AtomGroups</a></li>
@@ -312,7 +312,7 @@ cite these references when using these modules.</p>
 </ul>
 </div>
 <p>Residues can be determined to be in contact if atoms from the two residues are within a certain distance. Analysing the fraction of contacts retained by a protein over at trajectory, as compared to the number of contacts in a reference frame or structure, can give insight into folding processes and domain movements.</p>
-<p><a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/analysis/contacts.html#module-MDAnalysis.analysis.contacts" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.contacts</span></code></a> contains functions and a class to analyse the fraction of native contacts over a trajectory.</p>
+<p><a class="reference external" href="https://docs.mdanalysis.org/2.12.0-dev0/documentation_pages/analysis/contacts.html#module-MDAnalysis.analysis.contacts" title="(in MDAnalysis v2.12.0-dev0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">MDAnalysis.analysis.contacts</span></code></a> contains functions and a class to analyse the fraction of native contacts over a trajectory.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="distances_and_contacts/contacts_native_fraction.html">Fraction of native contacts over a trajectory</a></li>
@@ -413,7 +413,7 @@ reduction.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2019-2026, Lily Wang, Irfan Alibay, Patricio Barletta, Cédric Bouysset, Rubén Chaves, Jan Domanski, Bjarne Feddersen, Mike Henry, Florent Langenfeld, Hugo MacDermott-Opeskin, Micaela Matta, Rocco Meli, Mahfuza Humayra Mohona, Paul Smith, Mieczyslaw Torchala, Mark Verma, Yu-Yuan (Stuart) Yang, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..</p>
+    <p>&#169; Copyright 2019-2026, Lily Wang, Irfan Alibay, Patricio Barletta, Cédric Bouysset, Rubén Chaves, Jan Domanski, Bjarne Feddersen, Mike Henry, Florent Langenfeld, Hugo MacDermott-Opeskin, Micaela Matta, Rocco Meli, Mahfuza Humayra Mohona, Francesco Siciliani, Paul Smith, Mieczyslaw Torchala, Mark Verma, Yu-Yuan (Stuart) Yang, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..</p>
   </div>
 
   

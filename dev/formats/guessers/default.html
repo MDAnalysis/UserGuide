@@ -70,7 +70,7 @@
   
   
     <div class="version">
-      2.11.0-dev0
+      2.12.0-dev0
     </div>
   
 
@@ -194,7 +194,7 @@
 <p class="admonition-title">Warning</p>
 <p>The default guesser has been created to reproduce pre-v2.8.0 MDAnalysis guessing behaviour as much as possible. However, minor changes were unavoidable and have been detailed in the <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/blob/develop/package/CHANGELOG">2.8.0 CHANGELOG notes</a> . <strong>Default behaviours will change in MDAnalysis version 3</strong>, as detailed in deprecation warnings.</p>
 </div>
-<p>The <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/guesser_modules/default_guesser.html#MDAnalysis.guesser.default_guesser.DefaultGuesser" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DefaultGuesser</span></code></a> is the default guessing context for MDAnalysis. For historical reasons the <code class="docutils literal notranslate"><span class="pre">DefaultGuesser</span></code> largely works with biological conventions; for example, an atom named CA will be assumed to be a carbon rather than a calcium atom.</p>
+<p>The <a class="reference external" href="https://docs.mdanalysis.org/2.12.0-dev0/documentation_pages/guesser_modules/default_guesser.html#MDAnalysis.guesser.default_guesser.DefaultGuesser" title="(in MDAnalysis v2.12.0-dev0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DefaultGuesser</span></code></a> is the default guessing context for MDAnalysis. For historical reasons the <code class="docutils literal notranslate"><span class="pre">DefaultGuesser</span></code> largely works with biological conventions; for example, an atom named CA will be assumed to be a carbon rather than a calcium atom.</p>
 <section id="attributes-guessed">
 <h2>Attributes guessed<a class="headerlink" href="#attributes-guessed" title="Link to this heading"></a></h2>
 <p>The topology attributes guessed by the default guesser are listed below, as are their dependencies and broad assumptions.
@@ -202,7 +202,7 @@ Please see the <a class="reference external" href="https://docs.mdanalysis.org/s
 <section id="elements-and-types">
 <span id="default-guesser-types"></span><h3>Elements and types<a class="headerlink" href="#elements-and-types" title="Link to this heading"></a></h3>
 <p>The default guesser guesses atom <code class="docutils literal notranslate"><span class="pre">element</span></code>s and <code class="docutils literal notranslate"><span class="pre">type</span></code>s using the same pathway; when atom <code class="docutils literal notranslate"><span class="pre">type</span></code>s are guessed, they represent the atom <code class="docutils literal notranslate"><span class="pre">element</span></code>. Atom elements are guessed from the atom name. The default guesser follows biological naming conventions, where atoms named “CA” are much more likely to represent an alpha-carbon than a calcium atom. This guesser is still relatively fragile for non-traditionally biological atom names.</p>
-<p>The <a class="reference external" href="https://docs.mdanalysis.org/2.11.0-dev0/documentation_pages/guesser_modules/default_guesser.html#MDAnalysis.guesser.default_guesser.DefaultGuesser.guess_atom_element" title="(in MDAnalysis v2.11.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">guess_atom_element()</span></code></a> method is used to guess atom elements or types following a process by which numbers, symbols, and some letters are stripped from the atom name and checked against a look-up table, as detailed in the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/guesser_modules/default_guesser.html">Guesser API documentation</a>. With this method, for example, “AO5*” would be guessed as “O”, and “3hg2” as “H”.</p>
+<p>The <a class="reference external" href="https://docs.mdanalysis.org/2.12.0-dev0/documentation_pages/guesser_modules/default_guesser.html#MDAnalysis.guesser.default_guesser.DefaultGuesser.guess_atom_element" title="(in MDAnalysis v2.12.0-dev0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">guess_atom_element()</span></code></a> method is used to guess atom elements or types following a process by which numbers, symbols, and some letters are stripped from the atom name and checked against a look-up table, as detailed in the <a class="reference external" href="https://docs.mdanalysis.org/stable/documentation_pages/guesser_modules/default_guesser.html">Guesser API documentation</a>. With this method, for example, “AO5*” would be guessed as “O”, and “3hg2” as “H”.</p>
 </section>
 <section id="masses">
 <h3>Masses<a class="headerlink" href="#masses" title="Link to this heading"></a></h3>
@@ -274,7 +274,7 @@ explicitly requested by the user.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2019-2026, Lily Wang, Irfan Alibay, Patricio Barletta, Cédric Bouysset, Rubén Chaves, Jan Domanski, Bjarne Feddersen, Mike Henry, Florent Langenfeld, Hugo MacDermott-Opeskin, Micaela Matta, Rocco Meli, Mahfuza Humayra Mohona, Paul Smith, Mieczyslaw Torchala, Mark Verma, Yu-Yuan (Stuart) Yang, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..</p>
+    <p>&#169; Copyright 2019-2026, Lily Wang, Irfan Alibay, Patricio Barletta, Cédric Bouysset, Rubén Chaves, Jan Domanski, Bjarne Feddersen, Mike Henry, Florent Langenfeld, Hugo MacDermott-Opeskin, Micaela Matta, Rocco Meli, Mahfuza Humayra Mohona, Francesco Siciliani, Paul Smith, Mieczyslaw Torchala, Mark Verma, Yu-Yuan (Stuart) Yang, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..</p>
   </div>
 
   

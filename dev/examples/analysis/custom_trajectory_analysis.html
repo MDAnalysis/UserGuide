@@ -73,7 +73,7 @@
   
   
     <div class="version">
-      2.11.0-dev0
+      2.12.0-dev0
     </div>
   
 
@@ -442,6 +442,24 @@ Text(0.5, 0, &#39;Frame&#39;)
 <img alt="../../_images/examples_analysis_custom_trajectory_analysis_15_1.png" src="../../_images/examples_analysis_custom_trajectory_analysis_15_1.png" />
 </div>
 </div>
+<p>You can also select frames by passing a mask to the <code class="docutils literal notranslate"><span class="pre">frames</span></code> argument of the <code class="docutils literal notranslate"><span class="pre">run()</span></code> method. The mask contains one boolean value per frame; only frames marked <code class="docutils literal notranslate"><span class="pre">True</span></code> are analysed. The mask can be a NumPy boolean array or a Python list of booleans.</p>
+<p>For example, the following mask selects every second frame:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+<span class="n">mask</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="n">rog_masked</span> <span class="o">=</span> <span class="n">AnalysisFromFunction</span><span class="p">(</span>
+    <span class="n">radgyr</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">,</span> <span class="n">protein</span><span class="p">,</span> <span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">,</span>
+    <span class="n">total_mass</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">masses</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">rog_masked</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">frames</span><span class="o">=</span><span class="n">mask</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<p>You can also pass an array of integers to <code class="docutils literal notranslate"><span class="pre">frames</span></code>; in that case, the array directly specifies the frame indices to analyse.</p>
 </section>
 <section id="Transforming-a-function-into-a-class">
 <h2>Transforming a function into a class<a class="headerlink" href="#Transforming-a-function-into-a-class" title="Link to this heading"></a></h2>
@@ -502,7 +520,7 @@ Text(0.5, 0, &#39;Frame&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/examples_analysis_custom_trajectory_analysis_21_1.png" src="../../_images/examples_analysis_custom_trajectory_analysis_21_1.png" />
+<img alt="../../_images/examples_analysis_custom_trajectory_analysis_24_1.png" src="../../_images/examples_analysis_custom_trajectory_analysis_24_1.png" />
 </div>
 </div>
 <p>You can reuse the class for other trajectories and selections.</p>
@@ -553,7 +571,7 @@ Text(0.5, 0, &#39;Frame&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/examples_analysis_custom_trajectory_analysis_24_1.png" src="../../_images/examples_analysis_custom_trajectory_analysis_24_1.png" />
+<img alt="../../_images/examples_analysis_custom_trajectory_analysis_27_1.png" src="../../_images/examples_analysis_custom_trajectory_analysis_27_1.png" />
 </div>
 </div>
 </section>
@@ -850,7 +868,7 @@ Text(0, 0.5, &#39;Radius of gyration (A)&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/examples_analysis_custom_trajectory_analysis_34_1.png" src="../../_images/examples_analysis_custom_trajectory_analysis_34_1.png" />
+<img alt="../../_images/examples_analysis_custom_trajectory_analysis_37_1.png" src="../../_images/examples_analysis_custom_trajectory_analysis_37_1.png" />
 </div>
 </div>
 <p>We can also run the analysis over a subset of frames, the same as the output from <code class="docutils literal notranslate"><span class="pre">AnalysisFromFunction</span></code> and <code class="docutils literal notranslate"><span class="pre">analysis_class</span></code>.</p>
@@ -1052,7 +1070,7 @@ Text(0, 0.5, &#39;Radius of gyration (A)&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/examples_analysis_custom_trajectory_analysis_39_1.png" src="../../_images/examples_analysis_custom_trajectory_analysis_39_1.png" />
+<img alt="../../_images/examples_analysis_custom_trajectory_analysis_42_1.png" src="../../_images/examples_analysis_custom_trajectory_analysis_42_1.png" />
 </div>
 </div>
 </section>
@@ -1089,7 +1107,7 @@ Text(0, 0.5, &#39;Radius of gyration (A)&#39;)
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2019-2026, Lily Wang, Irfan Alibay, Patricio Barletta, Cédric Bouysset, Rubén Chaves, Jan Domanski, Bjarne Feddersen, Mike Henry, Florent Langenfeld, Hugo MacDermott-Opeskin, Micaela Matta, Rocco Meli, Mahfuza Humayra Mohona, Paul Smith, Mieczyslaw Torchala, Mark Verma, Yu-Yuan (Stuart) Yang, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..</p>
+    <p>&#169; Copyright 2019-2026, Lily Wang, Irfan Alibay, Patricio Barletta, Cédric Bouysset, Rubén Chaves, Jan Domanski, Bjarne Feddersen, Mike Henry, Florent Langenfeld, Hugo MacDermott-Opeskin, Micaela Matta, Rocco Meli, Mahfuza Humayra Mohona, Francesco Siciliani, Paul Smith, Mieczyslaw Torchala, Mark Verma, Yu-Yuan (Stuart) Yang, Yuxuan Zhuang, Richard J. Gowers, and Oliver Beckstein..</p>
   </div>
 
   
