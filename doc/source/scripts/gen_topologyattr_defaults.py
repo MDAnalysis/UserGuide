@@ -23,10 +23,10 @@ DEFAULTS = {
 class TopologyDefaults:
     def __init__(self) -> None:
         def _atom(klass: TopologyAttr) -> str:
-            return klass.attrname  # type: ignore
+            return klass.singular  # type: ignore
 
         def _atomgroup(klass: TopologyAttr) -> str:
-            return klass.singular  # type: ignore
+            return klass.attrname  # type: ignore
 
         def _default(klass: TopologyAttr) -> str:
             try:
