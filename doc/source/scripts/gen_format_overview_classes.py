@@ -46,7 +46,7 @@ def _create_key(fmt: str, handlers: dict[HANDLER_T, Type[Any]]) -> str:
     if fmt in DESCRIPTIONS:
         key = fmt
     else:
-        key = list(handlers.values())[0].format[0]
+        key = list(handlers.values())[0].format[0].upper()
 
         # raise an informative error
         if key not in DESCRIPTIONS:

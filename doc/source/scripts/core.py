@@ -4,6 +4,7 @@ from MDAnalysis import _TOPOLOGY_ATTRS
 
 DESCRIPTIONS = {
     "CHEMFILES": "use readers from `chemfiles <https://chemfiles.org/>`_ library",
+    "CIF": "PDBx/mmCIF file",
     "CRD": "CHARMM CARD file",
     "CONFIG": "DL_Poly CONFIG file",
     "COOR": "NAMD binary restart file",
