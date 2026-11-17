@@ -7,6 +7,7 @@ Generate three tables:
 
 This script imports the testsuite, which tests these.
 """
+
 from collections import defaultdict
 from typing import Any
 

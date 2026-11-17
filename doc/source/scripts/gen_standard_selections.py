@@ -8,6 +8,7 @@ Writes standard selection names for:
     - nucleobase atoms
     - nucleic sugar atoms
 """
+
 from typing import Any
 
 from base import TableWriter

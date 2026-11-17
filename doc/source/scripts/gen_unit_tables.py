@@ -2,6 +2,7 @@
 """
 Writes unit tables
 """
+
 import pathlib
 import sys
 import textwrap
