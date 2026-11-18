@@ -1,6 +1,126 @@
 # MDAnalysis Release Notes
 
 
+## Release 2.11.0 of MDAnalysis
+
+## Overview
+
+This is a minor release of MDAnalysis.
+
+This release supports NumPy 2.0+ and offers backwards compatibility through to NumPy 1.26.0.
+
+Supported Python versions:
+
+* 3.11, 3.12, 3.13, 3.14
+
+## Major features & changes
+
+See the [CHANGELOG](https://github.com/MDAnalysis/mdanalysis/blob/release-2.11.0/package/CHANGELOG) for more details.
+
+### Analysis methods
+
+* Paralllelization supporrt for; DiffusionMap (PR #4745), AtomicDistances (PR #4822),
+* DSSP improvements
+  * Inclusion of PRO in secondary structure assessment (PR #5065).
+  * Improved performance of distance calculations and correctly handles periodic boundaries in hydrogen bond detection (PR #5182).
+* Fixed issue where Analysis classes would not work with GSD trajectories (Issue #5224, PR #5260).
+* AtomicDistances now uses the `results` dictionary for its outputs, in line with other analysis classes (PR #5347).
+* Fix to mean aggregation of InterRDF bins when running in parallel (PR #5344).
+* Fix to issue where numpy boolean arrays passed to `run()` would incorrectly select frame indices (PPR #5476).
+* Fix to incorrect reduction of eigenvectors in the `GNMAnalysis` class when running analysis with multiprocessing (PR #5495).
+* Fix incorrect aggreggation in `InterRDF_s` when running in parallel (PR #5497).
+
+### File formats
+
+* TPR reader improvements
+  * Support for GROMACS 2026 TPR files (PR #5219).
+  * Fix issue with reading old TPR files (TPX version < 103) (PR #5146).
+  * Fix to position & velocity parsing to properly convert to MDAnalysis base units rather than using Gromacs' native units (PR #5374).
+  * Support for reading linear angle potentials (PR #5372).
+  * Box vectors can now be read from TPR files (PR #5466).
+* Implementation of a `mda.fetch_pdb()` convenience which allows for creation of `Universes` by directly pulling from the Protein DataBank (PR #4943).
+* Added support for reading unit cell dimensions from CRYSIN records in MOL2 files (PR #5187).
+* Implementation of an MMCIF file reader using the `gemmi` library (PR #4712).
+
+### Library internals
+
+* Significant `AtomGroup.wrap()` performance improvement. `wrap()` now scales close to O(N) instead of O(N^2) at large compound counts.
+* Bond guessing now words with mixed case atomtypes (PR #5343).
+* Velocities and forces are now also rotated when applying trajectory rotation transformations (PR #5421).
+* Fix inccorrect `capped_distance` in some triclinic boxes (where both `b_x` and `c_y` are non-zero), leading to atom pairs within the cutoff distance being missed (PR #5481).
+
+## New Contributors
+* [@spyke7](https://github.com/spyke7) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5153
+* [@Pranay096](https://github.com/Pranay096) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5158
+* [@PardhavMaradani](https://github.com/PardhavMaradani) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5185
+* [@tani-dubey](https://github.com/tani-dubey) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5173
+* [@BradyAJohnston](https://github.com/BradyAJohnston) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5202
+* [@IAyaanHere](https://github.com/IAyaanHere) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5205
+* [@khushi-phougat](https://github.com/khushi-phougat) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5212
+* [@Dreamstick9](https://github.com/Dreamstick9) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5156
+* [@jeremyleung521](https://github.com/jeremyleung521) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5237
+* [@harshitgajjela-droid](https://github.com/harshitgajjela-droid) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5265
+* [@kunjsinha](https://github.com/kunjsinha) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5260
+* [@aygarwal](https://github.com/aygarwal) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5277
+* [@ParthUppal523](https://github.com/ParthUppal523) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5294
+* [@ollyfutur](https://github.com/ollyfutur) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5296
+* [@Amarendra22](https://github.com/Amarendra22) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5291
+* [@shubhammittal2241](https://github.com/shubhammittal2241) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5178
+* [@charity-g](https://github.com/charity-g) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5347
+* [@saiudayagiri](https://github.com/saiudayagiri) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5401
+* [@apoorva-01](https://github.com/apoorva-01) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5415
+* [@Aryaman-Chaudhri](https://github.com/Aryaman-Chaudhri) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5139
+* [@sici17](https://github.com/sici17) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5439
+* [@AkshitBoora](https://github.com/AkshitBoora) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5466
+
+**Full Changelog**: https://github.com/MDAnalysis/mdanalysis/compare/package-2.10.0...package-2.11.0
+
+## Release 2.10.0 of MDAnalysis
+
+### Overview
+
+This is a minor release of MDAnalysis.
+
+This release supports NumPy 2.0+ and offers backwards compatibility through to NumPy 1.26.0
+
+Supported Python versions:
+  - 3.11, 3.12, 3.13, 3.14
+
+### Major features & changes
+
+See the [CHANGELOG](https://github.com/MDAnalysis/mdanalysis/blob/release-2.10.0/package/CHANGELOG) and our [release blog post](https://www.mdanalysis.org/blog/#mdanalysis-2.10-is-out) for more details.
+
+* Support for `dt` in XTC and TRR trajectories (PR #4908)
+* New parallelization support for the following analyses:
+  * `LinearDensity` (PR #5007)
+  * `PersistenceLength` (PR #5074)
+  * `InterRDF` and `InterRDF_s` (PR #4884)
+* Enable the selection of distance library backend in RDF analyses (PPR #5038)
+* Improve the speed of the GROMOS11 reader (PR #5080)
+* Improvements and refactoring of the RDKit inferring code (PR #4305)
+* Support for position and velocity reading from TPR files (PR #4873)
+* Support for non-linear time averaged MSD (PR #5066)
+* Support for interactive MD stream reading using the IMDReader (PR #4923)
+* Performance improvements to `InterRDF_s` (PR #5073)
+
+## New Contributors
+* [@namiroues](https://github.com/namiroues) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4941
+* [@lexi-x](https://github.com/lexi-x) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4987
+* [@BHM-Bob](https://github.com/BHM-Bob) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4961
+* [@yuyuan871111](https://github.com/yuyuan871111) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5001
+* [@jpkrowe](https://github.com/jpkrowe) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4995
+* [@TRY-ER](https://github.com/TRY-ER) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5000
+* [@Abdulrahman-PROG](https://github.com/Abdulrahman-PROG) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4951
+* [@pbuslaev](https://github.com/pbuslaev) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4908
+* [@tulga-rdn](https://github.com/tulga-rdn) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5007
+* [@Gareth-elliott](https://github.com/Gareth-elliott) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5038
+* [@schuhmc](https://github.com/schuhmc) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5080
+* [@gitsirsha](https://github.com/gitsirsha) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5066
+* [@Pradyumn-cloud](https://github.com/Pradyumn-cloud) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5096
+* [@amruthesht](https://github.com/amruthesht) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4923
+* [@gitzhangch](https://github.com/gitzhangch) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5073
+* [@raulloiscuns](https://github.com/raulloiscuns) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5053
+
 ## Release 2.9.0 of MDAnalysis
 
 This is a minor release of MDAnalysis.
@@ -268,12 +388,12 @@ See the [CHANGELOG](https://github.com/MDAnalysis/mdanalysis/blob/release-2.5.0/
 * [@chrispfae](https://github.com/chrispfae) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4009
 * [@ooprathamm](https://github.com/ooprathamm) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4010
 * [@MeetB7](https://github.com/MeetB7) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4022
-* [@v](https://github.com/v)-parmar made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4032
+* [@v-parmar](https://github.com/v-parmar) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4032
 * [@MoSchaeffler](https://github.com/MoSchaeffler) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4049
 * [@jandom](https://github.com/jandom) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4043
 * [@xhgchen](https://github.com/xhgchen) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4037
 * [@DrDomenicoMarson](https://github.com/DrDomenicoMarson) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4074
-* [@AHMED](https://github.com/AHMED)-salah00 made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4059
+* [@AHMED-salah00](https://github.com/AHMED-salah00) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4059
 * [@schlaicha](https://github.com/schlaicha) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4076
 * [@jvermaas](https://github.com/jvermaas) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4031
 * [@SophiaRuan](https://github.com/SophiaRuan) made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4072
