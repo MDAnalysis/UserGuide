@@ -34,8 +34,11 @@ def gen_release_notes(filename: str) -> None:
 
     # replace all @ starting handles with github links
     # \b doesn't work so we're using \s and getting extra whitespace
-    handles = set(re.findall(r"\s@\w+", filetext))
-    for entry in handles:
+    # \w- is used to include hyphens within usernames
+    handles = set(re.findall(r"\s@[\w-]+", filetext))
+    # Sort the list by length to avoid replacing names that 
+    # have other names as prefixes e.g. @will and @william
+    for entry in sorted(handles, key=len, reverse=True):
         new_word = f" [{entry[1:]}](https://github.com/{entry[2:]})"
         filetext = filetext.replace(entry, new_word)
 
