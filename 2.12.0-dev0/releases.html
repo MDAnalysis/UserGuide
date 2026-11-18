@@ -107,11 +107,26 @@
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently asked questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/README.html">Examples</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">MDAnalysis Release Notes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#release-2-9-0-of-mdanalysis">Release 2.9.0 of MDAnalysis</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#major-features-changes">Major features &amp; changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#release-2-11-0-of-mdanalysis">Release 2.11.0 of MDAnalysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#major-features-changes">Major features &amp; changes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#analysis-methods">Analysis methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#file-formats">File formats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#library-internals">Library internals</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#new-contributors">New Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#release-2-10-0-of-mdanalysis">Release 2.10.0 of MDAnalysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Major features &amp; changes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">New Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#release-2-9-0-of-mdanalysis">Release 2.9.0 of MDAnalysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Major features &amp; changes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">New Contributors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#release-2-8-0-of-mdanalysis">Release 2.8.0 of MDAnalysis</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#major-features">Major features</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#notable-changes-upcoming-deprecations">Notable changes / upcoming deprecations</a></li>
@@ -127,31 +142,31 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">New Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">New Contributors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#release-2-6-1-of-mdanalysis">Release 2.6.1 of MDAnalysis</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#bug-fixes-and-changes">Bug fixes and changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">New Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">New Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#release-2-6-0-of-mdanalysis">Release 2.6.0 of MDAnalysis</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id3">Major changes:</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id4">Fixes:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id5">Enhancements:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id6">Changes:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id7">Deprecations:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Major changes:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Fixes:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Enhancements:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">Changes:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">Deprecations:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id8">New Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">New Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#release-2-5-0-of-mdanalysis">Release 2.5.0 of MDAnalysis</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id9">Major changes:</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id10">Fixes:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">Major changes:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id15">Fixes:</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#enchancements">Enchancements:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id11">Changes:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">Changes:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id12">New Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">New Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#release-2-4-3-of-mdanalysis">Release 2.4.3 of MDAnalysis</a><ul>
@@ -159,47 +174,36 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#release-2-4-2-of-mdanalysis">Release 2.4.2 of MDAnalysis</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id13">Bug fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">Bug fixes</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#release-2-4-1-of-mdanalysis">Release 2.4.1 of MDAnalysis</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id14">Bug fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">Bug fixes</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#release-2-4-0-of-mdanalysis">Release 2.4.0 of MDAnalysis</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id15">Major changes:</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id16">Fixes:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id17">Enchancements:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id18">Changes:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id19">Deprecations:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">Major changes:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id21">Fixes:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id22">Enchancements:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id23">Changes:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id24">Deprecations:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id20">New Contributors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id25">New Contributors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#release-2-3-0-of-mdanalysis">Release 2.3.0 of MDAnalysis</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id21">Major changes:</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id22">Fixes:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id23">Enhancements:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id24">Changes:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id25">Deprecations:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id26">Major changes:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id27">Fixes:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id28">Enhancements:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id29">Changes:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id30">Deprecations:</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#czi-eoss-performance-improvements">CZI EOSS Performance Improvements:</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#release-2-2-0-of-mdanalysis">Release 2.2.0 of MDAnalysis</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id26">Major changes:</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id27">Enhancements:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id28">Fixes:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id29">Changes:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id30">Deprecations:</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#known-test-failures">Known test failures:</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#release-2-1-0-of-mdanalysis">Release 2.1.0 of MDAnalysis</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id31">Major changes:</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id32">Enhancements:</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id33">Fixes:</a></li>
@@ -207,16 +211,27 @@
 <li class="toctree-l4"><a class="reference internal" href="#id35">Deprecations:</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id36">Known test failures:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#known-test-failures">Known test failures:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#release-2-1-0-of-mdanalysis">Release 2.1.0 of MDAnalysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id36">Major changes:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id37">Enhancements:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id38">Fixes:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id39">Changes:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id40">Deprecations:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id41">Known test failures:</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#release-2-0-0-of-mdanalysis">Release 2.0.0 of MDAnalysis</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#notes">Notes:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id37">Major changes:</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id38">Enhancements:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id39">Fixes:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id40">Changes:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id41">Deprecations:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id42">Major changes:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id43">Enhancements:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id44">Fixes:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id45">Changes:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id46">Deprecations:</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#known-issues">Known issues:</a></li>
@@ -307,6 +322,148 @@
              
   <section id="mdanalysis-release-notes">
 <h1>MDAnalysis Release Notes<a class="headerlink" href="#mdanalysis-release-notes" title="Link to this heading"></a></h1>
+<section id="release-2-11-0-of-mdanalysis">
+<h2>Release 2.11.0 of MDAnalysis<a class="headerlink" href="#release-2-11-0-of-mdanalysis" title="Link to this heading"></a></h2>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>This is a minor release of MDAnalysis.</p>
+<p>This release supports NumPy 2.0+ and offers backwards compatibility through to NumPy 1.26.0.</p>
+<p>Supported Python versions:</p>
+<ul class="simple">
+<li><p>3.11, 3.12, 3.13, 3.14</p></li>
+</ul>
+</section>
+<section id="major-features-changes">
+<h2>Major features &amp; changes<a class="headerlink" href="#major-features-changes" title="Link to this heading"></a></h2>
+<p>See the <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/blob/release-2.11.0/package/CHANGELOG">CHANGELOG</a> for more details.</p>
+<section id="analysis-methods">
+<h3>Analysis methods<a class="headerlink" href="#analysis-methods" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Paralllelization supporrt for; DiffusionMap (PR #4745), AtomicDistances (PR #4822),</p></li>
+<li><p>DSSP improvements</p>
+<ul>
+<li><p>Inclusion of PRO in secondary structure assessment (PR #5065).</p></li>
+<li><p>Improved performance of distance calculations and correctly handles periodic boundaries in hydrogen bond detection (PR #5182).</p></li>
+</ul>
+</li>
+<li><p>Fixed issue where Analysis classes would not work with GSD trajectories (Issue #5224, PR #5260).</p></li>
+<li><p>AtomicDistances now uses the <code class="docutils literal notranslate"><span class="pre">results</span></code> dictionary for its outputs, in line with other analysis classes (PR #5347).</p></li>
+<li><p>Fix to mean aggregation of InterRDF bins when running in parallel (PR #5344).</p></li>
+<li><p>Fix to issue where numpy boolean arrays passed to <code class="docutils literal notranslate"><span class="pre">run()</span></code> would incorrectly select frame indices (PPR #5476).</p></li>
+<li><p>Fix to incorrect reduction of eigenvectors in the <code class="docutils literal notranslate"><span class="pre">GNMAnalysis</span></code> class when running analysis with multiprocessing (PR #5495).</p></li>
+<li><p>Fix incorrect aggreggation in <code class="docutils literal notranslate"><span class="pre">InterRDF_s</span></code> when running in parallel (PR #5497).</p></li>
+</ul>
+</section>
+<section id="file-formats">
+<h3>File formats<a class="headerlink" href="#file-formats" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>TPR reader improvements</p>
+<ul>
+<li><p>Support for GROMACS 2026 TPR files (PR #5219).</p></li>
+<li><p>Fix issue with reading old TPR files (TPX version &lt; 103) (PR #5146).</p></li>
+<li><p>Fix to position &amp; velocity parsing to properly convert to MDAnalysis base units rather than using Gromacs’ native units (PR #5374).</p></li>
+<li><p>Support for reading linear angle potentials (PR #5372).</p></li>
+<li><p>Box vectors can now be read from TPR files (PR #5466).</p></li>
+</ul>
+</li>
+<li><p>Implementation of a <code class="docutils literal notranslate"><span class="pre">mda.fetch_pdb()</span></code> convenience which allows for creation of <code class="docutils literal notranslate"><span class="pre">Universes</span></code> by directly pulling from the Protein DataBank (PR #4943).</p></li>
+<li><p>Added support for reading unit cell dimensions from CRYSIN records in MOL2 files (PR #5187).</p></li>
+<li><p>Implementation of an MMCIF file reader using the <code class="docutils literal notranslate"><span class="pre">gemmi</span></code> library (PR #4712).</p></li>
+</ul>
+</section>
+<section id="library-internals">
+<h3>Library internals<a class="headerlink" href="#library-internals" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Significant <code class="docutils literal notranslate"><span class="pre">AtomGroup.wrap()</span></code> performance improvement. <code class="docutils literal notranslate"><span class="pre">wrap()</span></code> now scales close to O(N) instead of O(N^2) at large compound counts.</p></li>
+<li><p>Bond guessing now words with mixed case atomtypes (PR #5343).</p></li>
+<li><p>Velocities and forces are now also rotated when applying trajectory rotation transformations (PR #5421).</p></li>
+<li><p>Fix inccorrect <code class="docutils literal notranslate"><span class="pre">capped_distance</span></code> in some triclinic boxes (where both <code class="docutils literal notranslate"><span class="pre">b_x</span></code> and <code class="docutils literal notranslate"><span class="pre">c_y</span></code> are non-zero), leading to atom pairs within the cutoff distance being missed (PR #5481).</p></li>
+</ul>
+</section>
+</section>
+<section id="new-contributors">
+<h2>New Contributors<a class="headerlink" href="#new-contributors" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/spyke7">&#64;spyke7</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5153</p></li>
+<li><p><a class="reference external" href="https://github.com/Pranay096">&#64;Pranay096</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5158</p></li>
+<li><p><a class="reference external" href="https://github.com/PardhavMaradani">&#64;PardhavMaradani</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5185</p></li>
+<li><p><a class="reference external" href="https://github.com/tani-dubey">&#64;tani-dubey</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5173</p></li>
+<li><p><a class="reference external" href="https://github.com/BradyAJohnston">&#64;BradyAJohnston</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5202</p></li>
+<li><p><a class="reference external" href="https://github.com/IAyaanHere">&#64;IAyaanHere</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5205</p></li>
+<li><p><a class="reference external" href="https://github.com/khushi-phougat">&#64;khushi-phougat</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5212</p></li>
+<li><p><a class="reference external" href="https://github.com/Dreamstick9">&#64;Dreamstick9</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5156</p></li>
+<li><p><a class="reference external" href="https://github.com/jeremyleung521">&#64;jeremyleung521</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5237</p></li>
+<li><p><a class="reference external" href="https://github.com/harshitgajjela-droid">&#64;harshitgajjela-droid</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5265</p></li>
+<li><p><a class="reference external" href="https://github.com/kunjsinha">&#64;kunjsinha</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5260</p></li>
+<li><p><a class="reference external" href="https://github.com/aygarwal">&#64;aygarwal</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5277</p></li>
+<li><p><a class="reference external" href="https://github.com/ParthUppal523">&#64;ParthUppal523</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5294</p></li>
+<li><p><a class="reference external" href="https://github.com/ollyfutur">&#64;ollyfutur</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5296</p></li>
+<li><p><a class="reference external" href="https://github.com/Amarendra22">&#64;Amarendra22</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5291</p></li>
+<li><p><a class="reference external" href="https://github.com/shubhammittal2241">&#64;shubhammittal2241</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5178</p></li>
+<li><p><a class="reference external" href="https://github.com/charity-g">&#64;charity-g</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5347</p></li>
+<li><p><a class="reference external" href="https://github.com/saiudayagiri">&#64;saiudayagiri</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5401</p></li>
+<li><p><a class="reference external" href="https://github.com/apoorva-01">&#64;apoorva-01</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5415</p></li>
+<li><p><a class="reference external" href="https://github.com/Aryaman-Chaudhri">&#64;Aryaman-Chaudhri</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5139</p></li>
+<li><p><a class="reference external" href="https://github.com/sici17">&#64;sici17</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5439</p></li>
+<li><p><a class="reference external" href="https://github.com/AkshitBoora">&#64;AkshitBoora</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5466</p></li>
+</ul>
+<p><strong>Full Changelog</strong>: https://github.com/MDAnalysis/mdanalysis/compare/package-2.10.0…package-2.11.0</p>
+</section>
+<section id="release-2-10-0-of-mdanalysis">
+<h2>Release 2.10.0 of MDAnalysis<a class="headerlink" href="#release-2-10-0-of-mdanalysis" title="Link to this heading"></a></h2>
+<section id="id1">
+<h3>Overview<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p>This is a minor release of MDAnalysis.</p>
+<p>This release supports NumPy 2.0+ and offers backwards compatibility through to NumPy 1.26.0</p>
+<p>Supported Python versions:</p>
+<ul class="simple">
+<li><p>3.11, 3.12, 3.13, 3.14</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>Major features &amp; changes<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>See the <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/blob/release-2.10.0/package/CHANGELOG">CHANGELOG</a> and our <a class="reference external" href="https://www.mdanalysis.org/blog/#mdanalysis-2.10-is-out">release blog post</a> for more details.</p>
+<ul class="simple">
+<li><p>Support for <code class="docutils literal notranslate"><span class="pre">dt</span></code> in XTC and TRR trajectories (PR #4908)</p></li>
+<li><p>New parallelization support for the following analyses:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">LinearDensity</span></code> (PR #5007)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PersistenceLength</span></code> (PR #5074)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InterRDF</span></code> and <code class="docutils literal notranslate"><span class="pre">InterRDF_s</span></code> (PR #4884)</p></li>
+</ul>
+</li>
+<li><p>Enable the selection of distance library backend in RDF analyses (PPR #5038)</p></li>
+<li><p>Improve the speed of the GROMOS11 reader (PR #5080)</p></li>
+<li><p>Improvements and refactoring of the RDKit inferring code (PR #4305)</p></li>
+<li><p>Support for position and velocity reading from TPR files (PR #4873)</p></li>
+<li><p>Support for non-linear time averaged MSD (PR #5066)</p></li>
+<li><p>Support for interactive MD stream reading using the IMDReader (PR #4923)</p></li>
+<li><p>Performance improvements to <code class="docutils literal notranslate"><span class="pre">InterRDF_s</span></code> (PR #5073)</p></li>
+</ul>
+</section>
+</section>
+<section id="id3">
+<h2>New Contributors<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/namiroues">&#64;namiroues</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4941</p></li>
+<li><p><a class="reference external" href="https://github.com/lexi-x">&#64;lexi-x</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4987</p></li>
+<li><p><a class="reference external" href="https://github.com/BHM-Bob">&#64;BHM-Bob</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4961</p></li>
+<li><p><a class="reference external" href="https://github.com/yuyuan871111">&#64;yuyuan871111</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5001</p></li>
+<li><p><a class="reference external" href="https://github.com/jpkrowe">&#64;jpkrowe</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4995</p></li>
+<li><p><a class="reference external" href="https://github.com/TRY-ER">&#64;TRY-ER</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5000</p></li>
+<li><p><a class="reference external" href="https://github.com/Abdulrahman-PROG">&#64;Abdulrahman-PROG</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4951</p></li>
+<li><p><a class="reference external" href="https://github.com/pbuslaev">&#64;pbuslaev</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4908</p></li>
+<li><p><a class="reference external" href="https://github.com/tulga-rdn">&#64;tulga-rdn</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5007</p></li>
+<li><p><a class="reference external" href="https://github.com/Gareth-elliott">&#64;Gareth-elliott</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5038</p></li>
+<li><p><a class="reference external" href="https://github.com/schuhmc">&#64;schuhmc</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5080</p></li>
+<li><p><a class="reference external" href="https://github.com/gitsirsha">&#64;gitsirsha</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5066</p></li>
+<li><p><a class="reference external" href="https://github.com/Pradyumn-cloud">&#64;Pradyumn-cloud</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5096</p></li>
+<li><p><a class="reference external" href="https://github.com/amruthesht">&#64;amruthesht</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4923</p></li>
+<li><p><a class="reference external" href="https://github.com/gitzhangch">&#64;gitzhangch</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5073</p></li>
+<li><p><a class="reference external" href="https://github.com/raulloiscuns">&#64;raulloiscuns</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/5053</p></li>
+</ul>
+</section>
 <section id="release-2-9-0-of-mdanalysis">
 <h2>Release 2.9.0 of MDAnalysis<a class="headerlink" href="#release-2-9-0-of-mdanalysis" title="Link to this heading"></a></h2>
 <p>This is a minor release of MDAnalysis.</p>
@@ -315,8 +472,8 @@
 <ul class="simple">
 <li><p>3.10, 3.11, 3.12, 3.13</p></li>
 </ul>
-<section id="major-features-changes">
-<h3>Major features &amp; changes<a class="headerlink" href="#major-features-changes" title="Link to this heading"></a></h3>
+<section id="id4">
+<h3>Major features &amp; changes<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
 <p>See the <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/blob/release-2.9.0/package/CHANGELOG">CHANGELOG</a> and our <a class="reference external" href="https://www.mdanalysis.org/blog/#mdanalysis-2.9-is-out">release blog post</a> for more details.</p>
 <ul class="simple">
 <li><p>Support for Gromacs v2024.4 and v2025 TPR files.</p></li>
@@ -329,8 +486,8 @@
 </ul>
 </section>
 </section>
-<section id="new-contributors">
-<h2>New Contributors<a class="headerlink" href="#new-contributors" title="Link to this heading"></a></h2>
+<section id="id5">
+<h2>New Contributors<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/ChiahsinChu">&#64;ChiahsinChu</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4771</p></li>
 <li><p><a class="reference external" href="https://github.com/tanishy7777">&#64;tanishy7777</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4831</p></li>
@@ -429,8 +586,8 @@ Instead, pass <code class="docutils literal notranslate"><span class="pre">(&quo
 </section>
 </section>
 </section>
-<section id="id1">
-<h2>New Contributors<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<section id="id6">
+<h2>New Contributors<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/jennaswa">&#64;jennaswa</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4289</p></li>
 <li><p><a class="reference external" href="https://github.com/Sumit112192">&#64;Sumit112192</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4346</p></li>
@@ -453,8 +610,8 @@ Instead, pass <code class="docutils literal notranslate"><span class="pre">(&quo
 <li><p>Clarification of SurvivalProbability function documentation [Issue #4247, PR #4248]1</p></li>
 </ul>
 </section>
-<section id="id2">
-<h3>New Contributors<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<section id="id7">
+<h3>New Contributors<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/pillose">&#64;pillose</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4168</p></li>
 </ul>
@@ -469,27 +626,27 @@ Instead, pass <code class="docutils literal notranslate"><span class="pre">(&quo
 <ul class="simple">
 <li><p>3.9, 3.10, 3.11</p></li>
 </ul>
-<section id="id3">
-<h3>Major changes:<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<section id="id8">
+<h3>Major changes:<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
 <p>See the <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/blob/release-2.6.0/package/CHANGELOG">CHANGELOG</a> and our <a class="reference external" href="https://www.mdanalysis.org/blog/#mdanalysis-2.6-is-out">release blog post</a> for more details.</p>
-<section id="id4">
-<h4>Fixes:<a class="headerlink" href="#id4" title="Link to this heading"></a></h4>
+<section id="id9">
+<h4>Fixes:<a class="headerlink" href="#id9" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>The -ffast-math compiler flag is no longer used by default at build time, avoiding inconsistent (although still scientifically correct) results seen in Intel MacOS systems when calling `AtomGroup.center_of_charge(…, unwrap=True). This also avoids potentially incorrect floating point results as <a class="reference external" href="https://moyix.blogspot.com/2022/09/someones-been-messing-with-my-subnormals.html">detailed here</a>. (https://github.com/MDAnalysis/mdanalysis/pull/4220)</p></li>
 <li><p>DATAWriter, CRD, PQR, and PDBQT files can now be correctly written to compressed files. Before this change, any attempt to write to a compressed format (gzip or bzip2) would lead to writing out an uncompressed file. (https://github.com/MDAnalysis/mdanalysis/pull/4163)</p></li>
 <li><p>Prevent accidental merging of bond/angle/dihedral types when they are defined as LAMMPS style string integers instead of tuples. This was leading to an incorrect number of bond/angle/dihedral types being written to lammps data files. (https://github.com/MDAnalysis/mdanalysis/pull/4003)</p></li>
 </ul>
 </section>
-<section id="id5">
-<h4>Enhancements:<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<section id="id10">
+<h4>Enhancements:<a class="headerlink" href="#id10" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>An <code class="docutils literal notranslate"><span class="pre">exclude_same</span></code> argument has been added to <code class="docutils literal notranslate"><span class="pre">InterRDF</span></code> allowing pairs of atoms that share the same residue, segment or chain to be excluded from the calculation. (https://github.com/MDAnalysis/mdanalysis/pull/4161)</p></li>
 <li><p>LAMMPS reader now supports the <code class="docutils literal notranslate"><span class="pre">continuous</span></code> ChainReader option. (https://github.com/MDAnalysis/mdanalysis/pull/4170)</p></li>
 <li><p>AtomGroup representation now returns atom indices in the same order as they are stored in the AtomGroup. (https://github.com/MDAnalysis/mdanalysis/pull/4191)</p></li>
 </ul>
 </section>
-<section id="id6">
-<h4>Changes:<a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
+<section id="id11">
+<h4>Changes:<a class="headerlink" href="#id11" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Package builds now use NumPy 1.25 or higher instead of the lowest supported NumPy version. (https://github.com/MDAnalysis/mdanalysis/pull/4198)</p></li>
 <li><p>As per NEP29, the minimum supported runtime version of NumPy has been increased to 1.22.3. (https://github.com/MDAnalysis/mdanalysis/pull/4160)</p></li>
@@ -499,16 +656,16 @@ Instead, pass <code class="docutils literal notranslate"><span class="pre">(&quo
 <li><p>The package license has been updated to <a class="reference external" href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPLv3+</a> to better reflect the compatibility of GPLv2+ with Apache and GPLv3 licensed codes. Additionally all new contributions from commit 44733fc214dcfdcc2b7cb3e3705258781bb491bd onwards are made under the <a class="reference external" href="https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html">LGPLv2.1+ license</a>. (https://github.com/MDAnalysis/mdanalysis/pull/4219)</p></li>
 </ul>
 </section>
-<section id="id7">
-<h4>Deprecations:<a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
+<section id="id12">
+<h4>Deprecations:<a class="headerlink" href="#id12" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>The misspelt <code class="docutils literal notranslate"><span class="pre">Boltzman_constant</span></code> entry in <code class="docutils literal notranslate"><span class="pre">MDAnalysis.units</span></code> is now deprecated in favour the correctly spelt <code class="docutils literal notranslate"><span class="pre">Boltzmann_constant</span></code>. (https://github.com/MDAnalysis/mdanalysis/pull/4230 and https://github.com/MDAnalysis/mdanalysis/pull/4214)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.hole2</span></code> is now deprecated in favour of a new <a class="reference external" href="https://www.mdanalysis.org/hole2-mdakit/">HOLE2 MDAKit</a>. (https://github.com/MDAnalysis/mdanalysis/pull/4200)</p></li>
 </ul>
 </section>
 </section>
-<section id="id8">
-<h3>New Contributors<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<section id="id13">
+<h3>New Contributors<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/MohitKumar020291">&#64;MohitKumar020291</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4182</p></li>
 <li><p><a class="reference external" href="https://github.com/Shubx10">&#64;Shubx10</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4184</p></li>
@@ -524,11 +681,11 @@ Instead, pass <code class="docutils literal notranslate"><span class="pre">(&quo
 <ul class="simple">
 <li><p>3.9, 3.10, 3.11</p></li>
 </ul>
-<section id="id9">
-<h3>Major changes:<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<section id="id14">
+<h3>Major changes:<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
 <p>See the <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/blob/release-2.5.0/package/CHANGELOG">CHANGELOG</a> and our <a class="reference external" href="https://www.mdanalysis.org/blog/#mdanalysis-2.5-is-out">release blog post</a> for more details.</p>
-<section id="id10">
-<h4>Fixes:<a class="headerlink" href="#id10" title="Link to this heading"></a></h4>
+<section id="id15">
+<h4>Fixes:<a class="headerlink" href="#id15" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Fixed an issue where transformations were not being properly applied to
 Universes with multiple trajectories (i.e. using the ChainReader)
@@ -588,8 +745,8 @@ for <code class="docutils literal notranslate"><span class="pre">calc_bonds</spa
 and SegmentGroup. (PR #3953)</p></li>
 </ul>
 </section>
-<section id="id11">
-<h4>Changes:<a class="headerlink" href="#id11" title="Link to this heading"></a></h4>
+<section id="id16">
+<h4>Changes:<a class="headerlink" href="#id16" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>As per NEP29 the minimum supported Python version has been raised to 3.9
 and NumPy has been raised to 1.21 (note: in practice later versions of NumPy
@@ -618,19 +775,19 @@ to the standardized one.</p></li>
 </ul>
 </section>
 </section>
-<section id="id12">
-<h3>New Contributors<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<section id="id17">
+<h3>New Contributors<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/mglagolev">&#64;mglagolev</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/3959</p></li>
 <li><p><a class="reference external" href="https://github.com/chrispfae">&#64;chrispfae</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4009</p></li>
 <li><p><a class="reference external" href="https://github.com/ooprathamm">&#64;ooprathamm</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4010</p></li>
 <li><p><a class="reference external" href="https://github.com/MeetB7">&#64;MeetB7</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4022</p></li>
-<li><p><a class="reference external" href="https://github.com/v">&#64;v</a>-parmar made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4032</p></li>
+<li><p><a class="reference external" href="https://github.com/v-parmar">&#64;v-parmar</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4032</p></li>
 <li><p><a class="reference external" href="https://github.com/MoSchaeffler">&#64;MoSchaeffler</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4049</p></li>
 <li><p><a class="reference external" href="https://github.com/jandom">&#64;jandom</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4043</p></li>
 <li><p><a class="reference external" href="https://github.com/xhgchen">&#64;xhgchen</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4037</p></li>
 <li><p><a class="reference external" href="https://github.com/DrDomenicoMarson">&#64;DrDomenicoMarson</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4074</p></li>
-<li><p><a class="reference external" href="https://github.com/AHMED">&#64;AHMED</a>-salah00 made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4059</p></li>
+<li><p><a class="reference external" href="https://github.com/AHMED-salah00">&#64;AHMED-salah00</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4059</p></li>
 <li><p><a class="reference external" href="https://github.com/schlaicha">&#64;schlaicha</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4076</p></li>
 <li><p><a class="reference external" href="https://github.com/jvermaas">&#64;jvermaas</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4031</p></li>
 <li><p><a class="reference external" href="https://github.com/SophiaRuan">&#64;SophiaRuan</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/4072</p></li>
@@ -654,8 +811,8 @@ to the standardized one.</p></li>
 <section id="release-2-4-2-of-mdanalysis">
 <h2>Release 2.4.2 of MDAnalysis<a class="headerlink" href="#release-2-4-2-of-mdanalysis" title="Link to this heading"></a></h2>
 <p>This is a bugfix release of the 2.4.x version of MDAnalysis, it serves as an amendment to the earlier released version 2.4.1.</p>
-<section id="id13">
-<h3>Bug fixes<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<section id="id18">
+<h3>Bug fixes<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Fixed an issue where the arguments passed to np.histogramdd in <code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.DensityAnalysis</span></code> were not compatible with the 1.24 release of NumPy (PR #3976)</p></li>
 <li><p>Fixed upcoming incompatibilities with NumPy 1.25 in <code class="docutils literal notranslate"><span class="pre">MDAnalysis.visualization.streamlines_3D</span></code> and <code class="docutils literal notranslate"><span class="pre">MDAnalysis.visualization.streamlines</span></code> where incorrect comparison of the truth of arrays would have led to failures (PR #3977)</p></li>
@@ -665,8 +822,8 @@ to the standardized one.</p></li>
 <section id="release-2-4-1-of-mdanalysis">
 <h2>Release 2.4.1 of MDAnalysis<a class="headerlink" href="#release-2-4-1-of-mdanalysis" title="Link to this heading"></a></h2>
 <p>This is a bugfix release of the 2.4.x version of MDAnalysis, it serves as an amendment to the earlier released version 2.4.0.</p>
-<section id="id14">
-<h3>Bug fixes<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<section id="id19">
+<h3>Bug fixes<a class="headerlink" href="#id19" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>The minimum version of biopython has been raised to 1.80 for pip installs</p></li>
 <li><p>pytng has been added as an optional dependency</p></li>
@@ -681,14 +838,14 @@ to the standardized one.</p></li>
 <ul class="simple">
 <li><p>3.8, 3.9, 3.10, 3.11</p></li>
 </ul>
-<section id="id15">
-<h3>Major changes:<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
+<section id="id20">
+<h3>Major changes:<a class="headerlink" href="#id20" title="Link to this heading"></a></h3>
 <p>See the <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/blob/release-2.4.0/package/CHANGELOG">CHANGELOG</a> and our <a class="reference external" href="https://www.mdanalysis.org/blog/#mdanalysis-2.4-is-out">release blog post</a> for more details.</p>
-<section id="id16">
-<h4>Fixes:<a class="headerlink" href="#id16" title="Link to this heading"></a></h4>
+<section id="id21">
+<h4>Fixes:<a class="headerlink" href="#id21" title="Link to this heading"></a></h4>
 </section>
-<section id="id17">
-<h4>Enchancements:<a class="headerlink" href="#id17" title="Link to this heading"></a></h4>
+<section id="id22">
+<h4>Enchancements:<a class="headerlink" href="#id22" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>As part of their <a class="reference external" href="https://www.mdanalysis.org/2022/12/15/uma_outreachy/">outreachy project</a> <a class="reference external" href="https://github.com/umak">&#64;umak</a> has started adding type annotations throughout the MDAnalysis codebase</p></li>
 <li><p>As part of their <a class="reference external" href="https://www.mdanalysis.org/2022/11/20/bjarne_gsoc/">GSoC project</a> <a class="reference external" href="https://github.com/BFedder">&#64;BFedder</a> has added an auxialliary reader for EDR files (PR #3749)</p></li>
@@ -701,8 +858,8 @@ to the standardized one.</p></li>
 <li><p>Added ability for hbond analysis to use types when resnames are not present (PR #3848)</p></li>
 </ul>
 </section>
-<section id="id18">
-<h4>Changes:<a class="headerlink" href="#id18" title="Link to this heading"></a></h4>
+<section id="id23">
+<h4>Changes:<a class="headerlink" href="#id23" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>The deprecated setup.py <code class="docutils literal notranslate"><span class="pre">extra_requires</span></code> <code class="docutils literal notranslate"><span class="pre">AMBER</span></code> entry has been removed in favor of <code class="docutils literal notranslate"><span class="pre">extra_formats</span></code> (PR #3810)</p></li>
 <li><p>Various issues with the auxilliary reader, this should not be much more robust (PR #3749)</p></li>
@@ -710,8 +867,8 @@ to the standardized one.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">MDAnalysis.analysis.align.sequence_alignment</span></code> now uses Bio.Align.PairwiseAligner instead of the deprecated Bio.pairwise2 (PR #3951)</p></li>
 </ul>
 </section>
-<section id="id19">
-<h4>Deprecations:<a class="headerlink" href="#id19" title="Link to this heading"></a></h4>
+<section id="id24">
+<h4>Deprecations:<a class="headerlink" href="#id24" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>The MemoryReader’s timeseries inclusive indexing will be changed to exclusive in version 3.0.0 (PR #3894)</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">sequence_aligment()</span></code> method has been deprecated and will be removed in version 3.0.0 (PR #3951)</p></li>
@@ -719,8 +876,8 @@ to the standardized one.</p></li>
 </ul>
 </section>
 </section>
-<section id="id20">
-<h3>New Contributors<a class="headerlink" href="#id20" title="Link to this heading"></a></h3>
+<section id="id25">
+<h3>New Contributors<a class="headerlink" href="#id25" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/jaclark5">&#64;jaclark5</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/3846</p></li>
 <li><p><a class="reference external" href="https://github.com/pgbarletta">&#64;pgbarletta</a> made their first contribution in https://github.com/MDAnalysis/mdanalysis/pull/3876</p></li>
@@ -737,31 +894,31 @@ to the standardized one.</p></li>
 <ul class="simple">
 <li><p>3.8, 3.9, 3.10</p></li>
 </ul>
-<section id="id21">
-<h3>Major changes:<a class="headerlink" href="#id21" title="Link to this heading"></a></h3>
+<section id="id26">
+<h3>Major changes:<a class="headerlink" href="#id26" title="Link to this heading"></a></h3>
 <p>See the <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/blob/release-2.3.0/package/CHANGELOG">CHANGELOG</a> and our <a class="reference external" href="https://www.mdanalysis.org/blog/#mdanalysis-2.3-is-out">release blog post</a> for more details.</p>
-<section id="id22">
-<h4>Fixes:<a class="headerlink" href="#id22" title="Link to this heading"></a></h4>
+<section id="id27">
+<h4>Fixes:<a class="headerlink" href="#id27" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Fixed reading error when dealing with corrupt PDB CONECT records, and an issue where MDAnalysis would write out unusable CONECT records with index&gt;100000 (Issue #988).</p></li>
 </ul>
 </section>
-<section id="id23">
-<h4>Enhancements:<a class="headerlink" href="#id23" title="Link to this heading"></a></h4>
+<section id="id28">
+<h4>Enhancements:<a class="headerlink" href="#id28" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Formal charges are now read from PDB files and stored in a <code class="docutils literal notranslate"><span class="pre">formalcharge</span></code> attribute (PR #3755).</p></li>
 <li><p>A new normalizing <code class="docutils literal notranslate"><span class="pre">norm</span></code> parameter for the <code class="docutils literal notranslate"><span class="pre">InterRDF</span></code> and <code class="docutils literal notranslate"><span class="pre">InterRDF_s</span></code> analysis methods (Issue #3687).</p></li>
 <li><p>Improved Universe serialization performance (Issue #3721, PR #3710).</p></li>
 </ul>
 </section>
-<section id="id24">
-<h4>Changes:<a class="headerlink" href="#id24" title="Link to this heading"></a></h4>
+<section id="id29">
+<h4>Changes:<a class="headerlink" href="#id29" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>To install optional packages for different file formats supported by MDAnalysis, use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">./package[extra_formats]</span></code> (Issue #3701, PR #3711).</p></li>
 </ul>
 </section>
-<section id="id25">
-<h4>Deprecations:<a class="headerlink" href="#id25" title="Link to this heading"></a></h4>
+<section id="id30">
+<h4>Deprecations:<a class="headerlink" href="#id30" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">extra_requires</span></code> target <code class="docutils literal notranslate"><span class="pre">AMBER</span></code> for <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">./package[AMBER]</span></code> will be removed in 2.4.0. Use <code class="docutils literal notranslate"><span class="pre">extra_formats</span></code> (Issue #3701, PR #3711).</p></li>
 </ul>
@@ -783,11 +940,11 @@ to the standardized one.</p></li>
 <ul class="simple">
 <li><p>3.8, 3.9, 3.10</p></li>
 </ul>
-<section id="id26">
-<h3>Major changes:<a class="headerlink" href="#id26" title="Link to this heading"></a></h3>
+<section id="id31">
+<h3>Major changes:<a class="headerlink" href="#id31" title="Link to this heading"></a></h3>
 <p>See the <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/blob/release-2.2.0/package/CHANGELOG">CHANGELOG</a> and our <a class="reference external" href="https://www.mdanalysis.org/blog/#mdanalysis-2.2-is-out">release blog post</a> for more changes and details.</p>
-<section id="id27">
-<h4>Enhancements:<a class="headerlink" href="#id27" title="Link to this heading"></a></h4>
+<section id="id32">
+<h4>Enhancements:<a class="headerlink" href="#id32" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">frames</span></code> argument was added to AnalysisBase-derived classes (i.e. modern analysis classes) allowing for specific frames to be defined when running an analysis. (PR #3415)</p></li>
 <li><p>DL_POLY classic HISTORY files are now supported (Issue #3678)</p></li>
@@ -804,8 +961,8 @@ to the standardized one.</p></li>
 <li><p>Addition of a new AnalysisBase derived Watson-Crick distance analysis class (PR #3611)</p></li>
 </ul>
 </section>
-<section id="id28">
-<h4>Fixes:<a class="headerlink" href="#id28" title="Link to this heading"></a></h4>
+<section id="id33">
+<h4>Fixes:<a class="headerlink" href="#id33" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Fixed issues where calling the <code class="docutils literal notranslate"><span class="pre">copy</span></code> method of Readers did not preserve optional arguments (Issue #3664, PR #3685)</p></li>
 <li><p>Fixed several issues where iterating trajectories had undefined behaviour</p>
@@ -830,8 +987,8 @@ to the standardized one.</p></li>
 <li><p>Fixed issue with the BAT method modifying input coordinate data (Issue #3501)</p></li>
 </ul>
 </section>
-<section id="id29">
-<h4>Changes:<a class="headerlink" href="#id29" title="Link to this heading"></a></h4>
+<section id="id34">
+<h4>Changes:<a class="headerlink" href="#id34" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>The number of matches allowed when doing a smarts selection has been increased from the default
 1000 to max(1000, n_atoms * 10), an additional set of <code class="docutils literal notranslate"><span class="pre">smarts_kwargs</span></code> can now also be passed
@@ -842,8 +999,8 @@ each dimension in the results dictionary (Issue #2508, PR #3617)</p></li>
 <li><p>ContactAnalysis now accepts AtomGroups (Issue #2666, PR #3565)</p></li>
 </ul>
 </section>
-<section id="id30">
-<h4>Deprecations:<a class="headerlink" href="#id30" title="Link to this heading"></a></h4>
+<section id="id35">
+<h4>Deprecations:<a class="headerlink" href="#id35" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>The following results attribute for LinearDensity are now deprecated: (Issue #2508, PR #3617)</p>
 <ul>
@@ -874,11 +1031,11 @@ each dimension in the results dictionary (Issue #2508, PR #3617)</p></li>
 <ul class="simple">
 <li><p>3.7, 3.8, 3.9, 3.10</p></li>
 </ul>
-<section id="id31">
-<h3>Major changes:<a class="headerlink" href="#id31" title="Link to this heading"></a></h3>
+<section id="id36">
+<h3>Major changes:<a class="headerlink" href="#id36" title="Link to this heading"></a></h3>
 <p>See the <a class="reference external" href="https://github.com/MDAnalysis/mdanalysis/blob/release-2.1.0/package/CHANGELOG">CHANGELOG</a> and our <a class="reference external" href="https://www.mdanalysis.org/blog/#mdanalysis-2.1-is-out">release blog post</a> for more changes and details.</p>
-<section id="id32">
-<h4>Enhancements:<a class="headerlink" href="#id32" title="Link to this heading"></a></h4>
+<section id="id37">
+<h4>Enhancements:<a class="headerlink" href="#id37" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Addition of a new dielectric analysis module (PR #2118)</p></li>
 <li><p>The TPR parser now supports reading files from GROMACS 2022 (PR #3514)</p></li>
@@ -888,8 +1045,8 @@ each dimension in the results dictionary (Issue #2508, PR #3617)</p></li>
 <li><p>A new method to apply the minimum image convention to a collection of vectors, <code class="docutils literal notranslate"><span class="pre">minimize_vectors</span></code>, has been introduced (PR #3472)</p></li>
 </ul>
 </section>
-<section id="id33">
-<h4>Fixes:<a class="headerlink" href="#id33" title="Link to this heading"></a></h4>
+<section id="id38">
+<h4>Fixes:<a class="headerlink" href="#id38" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Fixed various integer overflow issues in the distance calculation backend of MDAnalysis which would prevent calculations on large systems (Issues #3183, #3512).</p></li>
 <li><p>Fixed issues with the creation of VMD surfaces in HOLE2 when using a non-contiguous start/stop/step.</p></li>
@@ -898,23 +1055,23 @@ each dimension in the results dictionary (Issue #2508, PR #3617)</p></li>
 <li><p>Fixed issue with accessing newly created values added via <code class="docutils literal notranslate"><span class="pre">add_Segment</span></code> or <code class="docutils literal notranslate"><span class="pre">add_Residue</span></code> (Issue #3437).</p></li>
 </ul>
 </section>
-<section id="id34">
-<h4>Changes:<a class="headerlink" href="#id34" title="Link to this heading"></a></h4>
+<section id="id39">
+<h4>Changes:<a class="headerlink" href="#id39" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">packaging</span></code> is now a core dependency of MDAnalysis.</p></li>
 <li><p>Indexing a Group (AtomGroup, ResidueGroup, SegmentGroup) with <code class="docutils literal notranslate"><span class="pre">None</span></code> now raises a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>. Prior to this indexing by <code class="docutils literal notranslate"><span class="pre">None</span></code> would incorrectly return the whole Group but claim to have a length of 1 atom (Issue #3092).</p></li>
 <li><p>The TRZReader now defaults to a <code class="docutils literal notranslate"><span class="pre">dt</span></code> value of 1.0 ps instead of the previous 0.0 ps (Issue #3257).</p></li>
 </ul>
 </section>
-<section id="id35">
-<h4>Deprecations:<a class="headerlink" href="#id35" title="Link to this heading"></a></h4>
+<section id="id40">
+<h4>Deprecations:<a class="headerlink" href="#id40" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">pbc</span></code> keyword argument for various Group methods has been deprecated in favor of <code class="docutils literal notranslate"><span class="pre">wrap</span></code>. The deprecated keyword will be removed in version 3.0.0 (Issue #1760).</p></li>
 </ul>
 </section>
 </section>
-<section id="id36">
-<h3>Known test failures:<a class="headerlink" href="#id36" title="Link to this heading"></a></h3>
+<section id="id41">
+<h3>Known test failures:<a class="headerlink" href="#id41" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">pytest-xdist</span></code> and more than 4 workers</p>
 <ul>
@@ -943,10 +1100,10 @@ each dimension in the results dictionary (Issue #2508, PR #3617)</p></li>
 <li><p>This is a major release and introduces major advertised API breaks. Caution is advised when upgrading to 2.0.0.</p></li>
 </ul>
 </section>
-<section id="id37">
-<h3>Major changes:<a class="headerlink" href="#id37" title="Link to this heading"></a></h3>
-<section id="id38">
-<h4>Enhancements:<a class="headerlink" href="#id38" title="Link to this heading"></a></h4>
+<section id="id42">
+<h3>Major changes:<a class="headerlink" href="#id42" title="Link to this heading"></a></h3>
+<section id="id43">
+<h4>Enhancements:<a class="headerlink" href="#id43" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>LAMMPSDumpReader can now read coordinates in all different LAMMPS coordinate conventions (Issue #3358)</p></li>
 <li><p>New <code class="docutils literal notranslate"><span class="pre">Results</span></code> class for storing analysis results (Issue #3115)</p></li>
@@ -963,8 +1120,8 @@ each dimension in the results dictionary (Issue #2508, PR #3617)</p></li>
 <li><p>New H5MDReader and H5MDWriter (Issue #762, #2866)</p></li>
 </ul>
 </section>
-<section id="id39">
-<h4>Fixes:<a class="headerlink" href="#id39" title="Link to this heading"></a></h4>
+<section id="id44">
+<h4>Fixes:<a class="headerlink" href="#id44" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Fixes an issue where <code class="docutils literal notranslate"><span class="pre">select_atom</span></code>, AtomGroup.unique, ResidueGroup.unique, and SegmentGroup.unique did not sort the output atoms (Issues #3364 #2977)</p></li>
 <li><p>GRO files now only support unit cells defined with 3 or 9 entries (Issue #3305)</p></li>
@@ -979,8 +1136,8 @@ each dimension in the results dictionary (Issue #2508, PR #3617)</p></li>
 <li><p>Fixed Janin analysis residue filtering, including CYSH (Issue #2898)</p></li>
 </ul>
 </section>
-<section id="id40">
-<h4>Changes:<a class="headerlink" href="#id40" title="Link to this heading"></a></h4>
+<section id="id45">
+<h4>Changes:<a class="headerlink" href="#id45" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>New converter API for all MDAnalysis converters under MDAnalysis.converters</p></li>
 <li><p>Timestep now stores information in ‘C’ memory layout instead of the previous ‘F’ default (PR #1738)</p></li>
@@ -994,8 +1151,8 @@ each dimension in the results dictionary (Issue #2508, PR #3617)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">hbonds.WaterBridgeAnalysis</span></code> has been moved to <code class="docutils literal notranslate"><span class="pre">hydrogenbonds.WaterBridgeAnalysis</span></code> (Issue #2739 PR #2913)</p></li>
 </ul>
 </section>
-<section id="id41">
-<h4>Deprecations:<a class="headerlink" href="#id41" title="Link to this heading"></a></h4>
+<section id="id46">
+<h4>Deprecations:<a class="headerlink" href="#id46" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">bfactors</span></code> attribute is now aliased to <code class="docutils literal notranslate"><span class="pre">tempfactors</span></code> and will be removed in 3.0.0 (Issue #1901)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">WaterBridgeAnalysis.generate_table()</span></code> now returns table information, with the <code class="docutils literal notranslate"><span class="pre">table</span></code> attribute being deprecated</p></li>
