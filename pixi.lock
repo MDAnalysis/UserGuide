@@ -14,12 +14,7 @@ platforms:
 environments:
   default:
     channels:
-    - url: https://conda.anaconda.org/jaimergp/label/unsupported-cudatoolkit-shim/
     - url: https://conda.anaconda.org/conda-forge/
-    - url: https://conda.anaconda.org/plotly/
-    - url: https://conda.anaconda.org/main/
-    - url: https://conda.anaconda.org/r/
-    - url: https://conda.anaconda.org/msys2/
     indexes:
     - https://pypi.org/simple
     packages:
@@ -1021,7 +1016,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/7a/97/b18afd39e22dcddb79656a7d3b69b7a6bfa2c3bc65159744f0c12a1bcb50/virtualenv-21.15.9-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/8a/c9/eb6b6528c7edb958d4c24ac47a8b94113d9de36e4cfc6eecd599b1a4f349/filelock-4.2.12-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/91/71/f314841697a1d52af3e1ea7c5e1c3f09685b64ae4c58ff16b605a866255d/pygithub-2.10.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/9d/8f/63d8644162728ba8b2c8a8a8b6a34476663c964cc0f6885c19f84ead40d6/hypothesis-6.170.15-cp312-cp312-macosx_11_0_arm64.whl
+      - pypi: https://files.pythonhosted.org/packages/9c/58/5e343f55a071bad7962e24e53be7b5391bb013eeb0f3ca1c79026f688139/hypothesis-6.170.16-cp312-cp312-macosx_11_0_arm64.whl
       - pypi: https://files.pythonhosted.org/packages/a9/eb/72e4460a4d36cf6781f3eacc8dd17256d067c841d147a011956c0d6218ef/syrupy-7.0.2-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/be/7b/4845bbf88e94586ec47a432da4e9107e3fc3ce37eb412b1398630a37f7dd/pynacl-1.6.2-cp38-abi3-macosx_10_10_universal2.whl
       - pypi: https://files.pythonhosted.org/packages/c1/2b/238f02a4927fa2e27aa995371d240a468b52e42eae44a678434aff736b38/distlib-0.4.4-py2.py3-none-any.whl
@@ -13830,18 +13825,18 @@ packages:
   - typing-extensions>=4.5.0
   - urllib3>=1.26.0
   requires_python: '>=3.10'
-- pypi: https://files.pythonhosted.org/packages/9d/8f/63d8644162728ba8b2c8a8a8b6a34476663c964cc0f6885c19f84ead40d6/hypothesis-6.170.15-cp312-cp312-macosx_11_0_arm64.whl
+- pypi: https://files.pythonhosted.org/packages/9c/58/5e343f55a071bad7962e24e53be7b5391bb013eeb0f3ca1c79026f688139/hypothesis-6.170.16-cp312-cp312-macosx_11_0_arm64.whl
   name: hypothesis
-  version: 6.170.15
-  sha256: 7953ad8f123b4289801b833666aaab757ba52e91ed687d954eb26f4af7328e5b
+  version: 6.170.16
+  sha256: 9d310507cbba8f27a0b64d3b4d380527853bda90e75186e2aa9d392c5975c651
   requires_dist:
   - sortedcontainers>=2.1.0,<3.0.0
   - black>=20.8b0 ; extra == 'all'
   - click>=7.0 ; extra == 'all'
-  - crosshair-tool>=0.0.112 ; extra == 'all'
+  - crosshair-tool>=0.0.113 ; extra == 'all'
   - django>=5.2 ; extra == 'all'
   - dpcontracts>=0.4 ; extra == 'all'
-  - hypothesis-crosshair>=0.0.31 ; extra == 'all'
+  - hypothesis-crosshair>=0.0.32 ; extra == 'all'
   - lark>=0.10.1 ; extra == 'all'
   - libcst>=0.3.16 ; extra == 'all'
   - numpy>=1.23.2 ; extra == 'all'
@@ -13851,14 +13846,14 @@ packages:
   - pytz>=2014.1 ; extra == 'all'
   - redis>=3.0.0 ; extra == 'all'
   - rich>=9.0.0 ; extra == 'all'
-  - tzdata>=2026.5 ; (sys_platform == 'emscripten' and extra == 'all') or (sys_platform == 'win32' and extra == 'all')
+  - tzdata>=2026.6 ; (sys_platform == 'emscripten' and extra == 'all') or (sys_platform == 'win32' and extra == 'all')
   - watchdog>=4.0.0 ; extra == 'all'
   - click>=7.0 ; extra == 'cli'
   - black>=20.8b0 ; extra == 'cli'
   - rich>=9.0.0 ; extra == 'cli'
   - libcst>=0.3.16 ; extra == 'codemods'
-  - hypothesis-crosshair>=0.0.31 ; extra == 'crosshair'
-  - crosshair-tool>=0.0.112 ; extra == 'crosshair'
+  - hypothesis-crosshair>=0.0.32 ; extra == 'crosshair'
+  - crosshair-tool>=0.0.113 ; extra == 'crosshair'
   - python-dateutil>=1.4 ; extra == 'dateutil'
   - django>=5.2 ; extra == 'django'
   - dpcontracts>=0.4 ; extra == 'dpcontracts'
@@ -13870,7 +13865,7 @@ packages:
   - pytz>=2014.1 ; extra == 'pytz'
   - redis>=3.0.0 ; extra == 'redis'
   - watchdog>=4.0.0 ; extra == 'watchdog'
-  - tzdata>=2026.5 ; (sys_platform == 'emscripten' and extra == 'zoneinfo') or (sys_platform == 'win32' and extra == 'zoneinfo')
+  - tzdata>=2026.6 ; (sys_platform == 'emscripten' and extra == 'zoneinfo') or (sys_platform == 'win32' and extra == 'zoneinfo')
   requires_python: '>=3.11'
 - pypi: https://files.pythonhosted.org/packages/a9/eb/72e4460a4d36cf6781f3eacc8dd17256d067c841d147a011956c0d6218ef/syrupy-7.0.2-py3-none-any.whl
   name: syrupy

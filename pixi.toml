@@ -1,6 +1,6 @@
 [workspace]
 authors = ["MDAnalysis Developers <jpkrowe@hotmail.co.uk>"]
-channels = ['jaimergp/label/unsupported-cudatoolkit-shim', 'conda-forge', 'plotly', 'main', 'r', 'msys2']
+channels = ['conda-forge']
 name = "mda-user-guide"
 platforms = [
   'osx-arm64',
