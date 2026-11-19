@@ -9,3 +9,4 @@ Other
    :maxdepth: 1
 
    parmed_sim
+   streaming_imd
