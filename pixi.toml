@@ -1,0 +1,78 @@
+[workspace]
+authors = ["MDAnalysis Developers <jpkrowe@hotmail.co.uk>"]
+channels = ['jaimergp/label/unsupported-cudatoolkit-shim', 'conda-forge', 'plotly', 'main', 'r', 'msys2']
+name = "mda-user-guide"
+platforms = [
+  'osx-arm64',
+  'linux-64',
+]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+# mdanalysis dependencies
+numpy = "<2.5"
+openmm = ">=7.0.0"
+parmed = "*"
+scikit-learn = ">=1.1.2"
+pyedr = ">=0.7"
+# building documentation
+mdanalysis-sphinx-theme = ">=1.3.0"
+docutils = "*"
+pandoc = "*"
+pybtex = "*"
+sphinx = "*"
+sphinxcontrib-bibtex = "*"
+tabulate = "*"
+# extensions
+ipython = "*"
+ipywidgets = "<8.0.0"
+jupyter_contrib_nbextensions = "*"
+myst-parser = "*"
+nbconvert = "*" # not called by any notebook explicitly but to download notebooks, or in nbsphinx
+nbformat = "*"
+nbsphinx = "*"
+notebook = "<7"
+# used for visualising/plotting
+graphviz = "*"
+ipygany = "*"
+plotly = "*"
+python-graphviz = "*"
+pyvista = "*"
+scikit-image = "*"
+seaborn = ">=0.12.1"
+# parallelization
+distributed = "*"
+dask = "*"
+# used for visualising/making movies of molecules
+nglview = "*"
+moviepy = "*"
+# used for notebook testing
+pytest = "*"
+python = "3.12.*"
+pip = "*"
+
+# HOLE program used by mdahole2 in the hole2 example notebook;
+# only packaged for Linux, so not available on osx-arm64
+[target.linux-64.dependencies]
+hole2 = "*"
+
+[pypi-dependencies]
+# extensions
+sphinx-sitemap = "*"
+# used for notebook testing
+nbval = "*"
+# developer tooling
+pre-commit = "*"
+# doc generation dependency
+pygithub = "*"
+# mdanalysis and its tests and test data
+mdanalysis = { git = "https://github.com/MDAnalysis/mdanalysis", rev = "develop", subdirectory = "package" }
+mdanalysistests = { git = "https://github.com/MDAnalysis/mdanalysis", rev = "develop", subdirectory = "testsuite" }
+mdanalysisdata = { git = "https://github.com/MDAnalysis/MDAnalysisData", rev = "master" }
+syrupy = "*" # snapshot tests
+# mdakits
+pathsimanalysis = "*"
+mdahole2 = "*"
+waterdynamics = "*"
