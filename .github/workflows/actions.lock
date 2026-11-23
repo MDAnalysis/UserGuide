@@ -8,7 +8,7 @@ workflows:
         - 'mamba-org/setup-micromamba@v3.2.1'
     '.github/workflows/gh-ci.yaml':
         - 'actions/checkout@v7.0.1'
-        - 'mamba-org/setup-micromamba@v3.2.1'
+        - 'prefix-dev/setup-pixi@v0.11.3'
     '.github/workflows/pre-commit.yaml':
         - 'actions/checkout@v7.0.1'
         - 'actions/setup-python@v7.1.0'
@@ -53,6 +53,11 @@ dependencies:
         repo_id: 204199630
         uses:
             - 'actions/cache@v4'
+    'prefix-dev/setup-pixi@v0.11.3':
+        ref: 'v0.11.3'
+        commit: 'sha1-9936258fee697aff89b3fed6ca1f80a382ef694e'
+        owner_id: 111356225
+        repo_id: 686703662
     'readthedocs/actions@v1.5':
         ref: 'v1.5'
         commit: 'sha1-b8bba1484329bda1a3abe986df7ebc80a8950333'
