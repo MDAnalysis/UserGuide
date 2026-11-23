@@ -67,12 +67,25 @@ nbval = "*"
 pre-commit = "*"
 # doc generation dependency
 pygithub = "*"
-# mdanalysis and its tests and test data
-mdanalysis = { git = "https://github.com/MDAnalysis/mdanalysis", rev = "develop", subdirectory = "package" }
-mdanalysistests = { git = "https://github.com/MDAnalysis/mdanalysis", rev = "develop", subdirectory = "testsuite" }
+# mdanalysis test data
 mdanalysisdata = { git = "https://github.com/MDAnalysis/MDAnalysisData", rev = "master" }
 syrupy = "*" # snapshot tests
 # mdakits
 pathsimanalysis = "*"
 mdahole2 = "*"
 waterdynamics = "*"
+
+# mdanalysis and its tests from the develop branch
+[feature.mda-develop.pypi-dependencies]
+mdanalysis = { git = "https://github.com/MDAnalysis/mdanalysis", rev = "develop", subdirectory = "package" }
+mdanalysistests = { git = "https://github.com/MDAnalysis/mdanalysis", rev = "develop", subdirectory = "testsuite" }
+
+# latest released mdanalysis and its tests, used to build the docs for a release
+# note that the lock file has to be updated before the newest version is used
+[feature.mda-release.pypi-dependencies]
+mdanalysis = "*"
+mdanalysistests = "*"
+
+[environments]
+default = ["mda-develop"]
+release = ["mda-release"]
