@@ -5,7 +5,7 @@ version: 'v0.0.3'
 workflows:
     '.github/workflows/gh-ci-tests.yaml':
         - 'actions/checkout@v7.0.1'
-        - 'mamba-org/setup-micromamba@v3.2.1'
+        - 'prefix-dev/setup-pixi@v0.11.3'
     '.github/workflows/gh-ci.yaml':
         - 'actions/checkout@v7.0.1'
         - 'prefix-dev/setup-pixi@v0.11.3'
@@ -41,11 +41,6 @@ dependencies:
         commit: 'sha1-6d4fd22b20465ccc0f7354476588e8df7c9ca0e0'
         owner_id: 44036562
         repo_id: 192625525
-    'mamba-org/setup-micromamba@v3.2.1':
-        ref: 'v3.2.1'
-        commit: 'sha1-f457c30a868e4760d3a6fcea5f25dc655b8edf39'
-        owner_id: 66118895
-        repo_id: 595118157
     'pre-commit/action@v3.0.1':
         ref: 'v3.0.1'
         commit: 'sha1-2c7b3805fd2a0fd8c1884dcaebf91fc102a13ecd'
