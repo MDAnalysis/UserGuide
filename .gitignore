@@ -51,3 +51,6 @@ hole2
 
 # Ignore auto-generated tables
 *.txt
+# pixi environments
+.pixi/*
+!.pixi/config.toml

@@ -29,31 +29,30 @@ jobs:
     steps:
       - uses: actions/checkout@v7.0.1
 
-      - name: Get current date
-        id: date
-        run: echo "date=$(date +%Y-%m-%d)" >> "${GITHUB_OUTPUT}"
-
-      - name: setup micromamba
-        uses: mamba-org/setup-micromamba@v3.2.1
+      - name: setup pixi
+        uses: prefix-dev/setup-pixi@v0.11.3
         with:
-          environment-file: environment.yml
-          environment-name: mda-user-guide
-          cache-environment: true
-          cache-downloads: true
-          cache-environment-key: environment-${{ steps.date.outputs.date }}
-          cache-downloads-key: downloads-${{ steps.date.outputs.date }}
-          create-args: >-
-            hole2
+          pixi-version: v0.84.2
+          run-install: ${{ github.event_name != 'schedule' }}
+          cache: ${{ github.event_name != 'schedule' }}
+          cache-write: ${{ github.event_name == 'push' && github.ref_name == 'develop' }}
+          environments: ${{ github.event_name != 'schedule' && 'default' || '' }}
+
+      - name: update lock file
+        # test against the latest MDAnalysis develop and dependencies
+        if: github.event_name == 'schedule'
+        run: pixi update -e default -p linux-64
 
       - name: "environment information"
         run: |
-          micromamba info
-          micromamba list
+          pixi info
+          pixi list -e default
 
+      # These tasks could instead be defined in the pixi.toml file
       - name: "test snapshots"
         working-directory: doc/source/scripts/
-        run: python -m pytest
+        run: pixi run python -m pytest
 
       - name: "test notebooks"
         working-directory: tests/
-        run: python -m pytest
+        run: pixi run python -m pytest
